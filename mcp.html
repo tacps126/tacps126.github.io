@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>webdata-tools-mcp - MCP server for jobs, news, reviews and leads</title>
+<meta name="description" content="Ten web-data tools for AI agents: job postings, hiring signals, Google News, Trustpilot and app reviews, Reddit, contacts, German property and Shopify. Runs Apify Actors on your own token with a spend cap.">
+<link rel="canonical" href="https://tacps126.github.io/mcp.html">
+<meta name="theme-color" content="#080c1c">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tacps126">
+<meta property="og:title" content="webdata-tools-mcp - MCP server for jobs, news, reviews and leads">
+<meta property="og:description" content="Ten web-data tools for AI agents: job postings, hiring signals, Google News, Trustpilot and app reviews, Reddit, contacts, German property and Shopify. Runs Apify Actors on your own token with a spend cap.">
+<meta property="og:url" content="https://tacps126.github.io/mcp.html">
+<meta property="og:image" content="https://tacps126.github.io/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tacps126.github.io/og.png">
+<link rel="stylesheet" href="/style.css">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"webdata-tools-mcp","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Windows, Linux (Node.js 18+)","url":"https://tacps126.github.io/mcp.html","downloadUrl":"https://www.npmjs.com/package/webdata-tools-mcp","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"MCP server with ten web-data tools that run Apify Actors on your own account."}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/"><img src="/icon-192.png" alt="" width="30" height="30">tacps126</a>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/#tools">Tools</a>
+      <a href="/mcp.html" aria-current="page">MCP server</a>
+      <a href="/#build">Custom work</a>
+      <a href="https://github.com/tacps126">GitHub</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main>
+
+<section class="hero" style="padding-bottom:24px">
+  <div class="wrap">
+    <span class="eyebrow">MCP server</span>
+    <h1>Web data tools for <span class="grad">your AI agent</span></h1>
+    <p class="lead">webdata-tools-mcp gives Claude, Cursor and any MCP client ten typed tools for jobs, hiring signals, news, reviews, Reddit, contacts, German property and Shopify. They run ready-made Apify Actors on your own Apify account and return clean, short results.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#install">Install</a>
+      <a class="btn" href="https://github.com/tacps126/webdata-tools-mcp" rel="noopener">View on GitHub</a>
+    </div>
+    <div class="badges">
+      <a href="https://www.npmjs.com/package/webdata-tools-mcp"><img alt="npm" src="https://img.shields.io/npm/v/webdata-tools-mcp" height="20"></a>
+      <a class="pill" href="https://smithery.ai/servers/tacps126/webdata-tools-mcp" rel="noopener">Smithery</a>
+      <a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp"><img alt="Glama score" src="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp/badges/score.svg" height="20"></a>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Install in two minutes</h2><p>You need Node.js 18+ and a free Apify account. Copy your API token from Apify Console → Settings → API &amp; Integrations.</p></div>
+    <div class="tabs" role="tablist" data-tabs>
+      <button class="tab" role="tab" aria-selected="true">Claude Code</button>
+      <button class="tab" role="tab" aria-selected="false">Claude Desktop</button>
+      <button class="tab" role="tab" aria-selected="false">Cursor, Windsurf</button>
+    </div>
+    <div class="panel"><div class="code">
+  <div class="code-top"><span>terminal</span><button class="copy" type="button">Copy</button></div>
+  <pre>claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata-tools-mcp</pre>
+</div></div>
+    <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>claude_desktop_config.json</span><button class="copy" type="button">Copy</button></div>
+  <pre>{
+  &quot;mcpServers&quot;: {
+    &quot;webdata&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;webdata-tools-mcp&quot;],
+      &quot;env&quot;: { &quot;APIFY_TOKEN&quot;: &quot;&lt;your Apify token&gt;&quot; }
+    }
+  }
+}</pre>
+</div></div>
+    <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>mcp.json</span><button class="copy" type="button">Copy</button></div>
+  <pre>{
+  &quot;mcpServers&quot;: {
+    &quot;webdata&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;webdata-tools-mcp&quot;],
+      &quot;env&quot;: { &quot;APIFY_TOKEN&quot;: &quot;&lt;your Apify token&gt;&quot; }
+    }
+  }
+}</pre>
+</div></div>
+    <p style="margin-top:16px;color:var(--muted)">Prefer no install? Apify's hosted server works too: <code>https://mcp.apify.com?tools=tacps126/google-news,tacps126/hiring-signals</code> (it signs in with OAuth; its tools take each Actor's raw input fields).</p>
+  </div>
+</section>
+
+<section class="alt" id="tools">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>The ten tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Costs are Apify pay-per-result prices.</p></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Tool</th><th>What it returns</th><th>Cost</th><th>Actor</th></tr></thead>
+      <tbody>
+<tr><td><code>search_google_news</code></td><td>Google News with the publisher's real article URL</td><td>$2 / 1,000 articles</td><td><a href="https://apify.com/tacps126/google-news" rel="noopener">google-news</a></td></tr>
+<tr><td><code>find_hiring_companies</code></td><td>Which companies are hiring for the roles you sell to</td><td>1¢ per company with a signal</td><td><a href="https://apify.com/tacps126/hiring-signals" rel="noopener">hiring-signals</a></td></tr>
+<tr><td><code>get_company_jobs</code></td><td>Every open job from company career pages</td><td>$1 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/jobs-harvester" rel="noopener">jobs-harvester</a></td></tr>
+<tr><td><code>search_indeed_jobs</code></td><td>Indeed listings in 9 countries</td><td>$3 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/indeed-jobs" rel="noopener">indeed-jobs</a></td></tr>
+<tr><td><code>get_trustpilot_reviews</code></td><td>Trustpilot reviews, TrustScore and company profile</td><td>$0.50 / 1,000 reviews</td><td><a href="https://apify.com/tacps126/trustpilot-reviews" rel="noopener">trustpilot-reviews</a></td></tr>
+<tr><td><code>get_app_reviews</code></td><td>App Store and Google Play reviews</td><td>$0.20 / 1,000 reviews</td><td><a href="https://apify.com/tacps126/app-reviews" rel="noopener">app-reviews</a></td></tr>
+<tr><td><code>search_reddit</code></td><td>Reddit posts and comments by keyword or subreddit</td><td>$1 / 1,000 items</td><td><a href="https://apify.com/tacps126/reddit-monitor" rel="noopener">reddit-monitor</a></td></tr>
+<tr><td><code>find_website_contacts</code></td><td>Emails, phones and social profiles from websites</td><td>$2 / 1,000 sites with contacts</td><td><a href="https://apify.com/tacps126/contact-details" rel="noopener">contact-details</a></td></tr>
+<tr><td><code>search_german_property_listings</code></td><td>Rent and buy listings in Germany</td><td>$1 / 1,000 listings</td><td><a href="https://apify.com/tacps126/immobilienscout24-scraper" rel="noopener">immobilienscout24-scraper</a></td></tr>
+<tr><td><code>get_shopify_products</code></td><td>Prices, stock and variants from Shopify stores</td><td>$1 / 1,000 products</td><td><a href="https://apify.com/tacps126/shopify-products" rel="noopener">shopify-products</a></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section id="try">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Try asking</h2></div>
+    <div class="grid">
+      <div class="card reveal"><p>"Which of these companies are hiring data engineers right now? boards.greenhouse.io/stripe, jobs.lever.co/spotify"</p></div>
+      <div class="card reveal"><p>"Show the 1 and 2 star Trustpilot reviews of example.com from the last 30 days and group the complaints."</p></div>
+      <div class="card reveal"><p>"Find news from the last 7 days about open-source LLM licensing, with the real publisher links."</p></div>
+      <div class="card reveal"><p>"What does a 2-room flat in Berlin cost to rent right now? Give me the cheapest ten with coordinates."</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="safety">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Safe by design</h2></div>
+    <div class="grid">
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9a2.5 2 0 0 0-2.5-1.5c-1.4 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2A2.5 2 0 0 1 9.5 15M12 6v2M12 16v2"/></svg></div><h3>Spend cap per call</h3><p>Every call is capped at $0.50 by default (<code>WEBDATA_MAX_CHARGE_USD</code>). Apify stops the run when it is reached.</p></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Read-only tools</h3><p>All tools only read public web data and are marked read-only, so clients can run them without extra prompts.</p></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Short, structured results</h3><p>Results come back as text and as structured content. Long fields are shortened and one result is limited to about 60,000 characters.</p></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div><h3>Your account, your token</h3><p>The server talks only to Apify. Your token stays in your own configuration and runs bill to your own Apify account.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap" style="max-width:820px">
+    <div class="sec-head reveal"><h2>Questions</h2></div>
+    <details><summary>What does it cost?</summary><p>The server is free and MIT licensed. Each tool bills the Apify pay-per-result price shown above to your own Apify account (about $1 to $3 per 1,000 results). Apify's free plan includes monthly credit to try it.</p></details>
+    <details><summary>Where does my API token go?</summary><p>Into the environment of the server process on your machine. It is sent only to Apify's API to run the Actors. It is not logged or sent anywhere else.</p></details>
+    <details><summary>Can I change the limits?</summary><p>Yes: <code>WEBDATA_MAX_CHARGE_USD</code> (spend cap per call, default 0.5) and <code>WEBDATA_TIMEOUT_SECS</code> (how long one call may run, default 150, from 30 to 300).</p></details>
+    <details><summary>Is it legal to use the data?</summary><p>The Actors read publicly available pages. You are responsible for following each site's terms and the law that applies to you (for example GDPR and CAN-SPAM), especially for contact details.</p></details>
+    <details><summary>Where is it listed?</summary><p>On <a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a>, in the official MCP Registry as <code>io.github.tacps126/webdata-tools-mcp</code>, on <a href="https://smithery.ai/servers/tacps126/webdata-tools-mcp">Smithery</a> and on <a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp">Glama</a>.</p></details>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><strong style="color:var(--text)">tacps126</strong><br>Web data tools, built in Rust.<br><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a></div>
+      <ul>
+        <li><a href="https://apify.com/tacps126">Tools on Apify</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://github.com/tacps126/webdata-tools-mcp">GitHub</a></li>
+        <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
+        <li><a href="https://smithery.ai/servers/tacps126/webdata-tools-mcp">Smithery</a></li>
+        <li><a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp">Glama</a></li>
+      </ul>
+    </div>
+    <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+  </div>
+</footer>
+<script src="/app.js" defer></script>
+</body>
+</html>

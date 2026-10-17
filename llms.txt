@@ -1,0 +1,39 @@
+# tacps126
+
+> Fast, low-cost web data tools built in Rust and published on Apify: jobs and hiring data, contact details, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
+
+- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): ten tools for AI agents, MIT licensed, on npm and the official MCP Registry
+- [All tools on Apify](https://apify.com/tacps126)
+- [Code recipes](https://github.com/tacps126/apify-data-recipes)
+- Contact: tacps126@gmail.com
+
+## Jobs and hiring
+- [Job Board Harvester — Multi-Platform](https://apify.com/tacps126/jobs-harvester): Collect jobs from company career pages (Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Recruitee, Personio,… (From $1 per 1,000 jobs)
+- [Hiring Signals & Buying Intent Data from Job Postings](https://apify.com/tacps126/hiring-signals): Buying-intent signals for sales teams: see which target companies are hiring for the roles you sell to, how many roles,… (1¢ per company with a signal)
+- [LinkedIn Jobs Scraper](https://apify.com/tacps126/linkedin-jobs-scraper): Scrape LinkedIn job search results without logging in — keywords, location, date and remote filters. Clean output with… (From $1 per 1,000 jobs)
+- [Indeed Jobs Scraper](https://apify.com/tacps126/indeed-jobs): Scrape Indeed job listings by keyword and location in 9 countries: title, company, location, salary, job type,… (From $3 per 1,000 jobs)
+- [Glassdoor Jobs Scraper](https://apify.com/tacps126/glassdoor-jobs-scraper): Scrape Glassdoor job listings by keyword and location: title, company, location, salary range with median, job type,… (From $3 per 1,000 jobs)
+- [Greenhouse Jobs Scraper](https://apify.com/tacps126/greenhouse-jobs-scraper): Scrape all open jobs from any Greenhouse career page — just type the company name. Fast, low-cost and clean: location,… (From $1 per 1,000 jobs)
+- [Lever Jobs Scraper](https://apify.com/tacps126/lever-jobs-scraper): Scrape all open jobs from any Lever career page — just type the company name. Fast, low-cost and clean: location,… (From $1 per 1,000 jobs)
+- [Ashby Jobs Scraper](https://apify.com/tacps126/ashby-jobs-scraper): Scrape all open jobs from any Ashby career page — just type the company name. Fast, low-cost and clean: location,… (From $1 per 1,000 jobs)
+- [Workday Jobs Scraper](https://apify.com/tacps126/workday-jobs-scraper): Scrape jobs from any company's Workday careers site — paste the link, get every posting with location, seniority and… (From $1 per 1,000 jobs)
+- [SmartRecruiters Jobs Scraper](https://apify.com/tacps126/smartrecruiters-jobs-scraper): Scrape all open jobs from any SmartRecruiters career page — just type the company name. Fast, low-cost and clean:… (From $1 per 1,000 jobs)
+- [Recruitee Jobs Scraper](https://apify.com/tacps126/recruitee-jobs-scraper): Scrape all open jobs from any Recruitee career page — just type the company name. Fast, low-cost and clean: location,… (From $1 per 1,000 jobs)
+- [Personio Jobs Scraper](https://apify.com/tacps126/personio-jobs-scraper): Scrape all open jobs from any Personio career page — just type the company name. Fast, low-cost and clean: location,… (From $1 per 1,000 jobs)
+- [Teamtailor Jobs Scraper](https://apify.com/tacps126/teamtailor-jobs-scraper): Scrape all open jobs from any Teamtailor career page — just type the company name. Fast, low-cost and clean: location,… (From $1 per 1,000 jobs)
+- [Himalayas Remote Jobs Scraper](https://apify.com/tacps126/himalayas-remote-jobs-scraper): Scrape jobs from Himalayas — remote jobs from Himalayas, with salaries and skills. Pay, hours, skills and seniority in… (From $1 per 1,000 jobs)
+- [AI Training Jobs Scraper — Mercor, micro1, Turing](https://apify.com/tacps126/ai-training-jobs-scraper): Scrape jobs from Mercor, micro1 and Turing — expert and AI-training gigs from Mercor, micro1 and Turing in one list.… (From $1 per 1,000 jobs)
+
+## Leads and contacts
+- [Website Email Finder & Contact Details Scraper](https://apify.com/tacps126/contact-details): Website email finder: get emails, phone numbers and LinkedIn, X, Facebook, Instagram and YouTube links from any list of… ($2 per 1,000 sites with contacts)
+- [Trade Show Exhibitor List Scraper - Emails & Booths](https://apify.com/tacps126/exhibition-scraper): Scrape exhibitor lists from 13 major trade shows and exhibitions (Embedded World, EuroShop, Fruit Logistica,…
+
+## Reviews, news and social
+- [Trustpilot Reviews Scraper](https://apify.com/tacps126/trustpilot-reviews): Extract Trustpilot reviews and company details — ratings, text, reviewer info, dates, replies, TrustScore — with… (From $0.50 per 1,000 reviews)
+- [App Store & Google Play Reviews Scraper](https://apify.com/tacps126/app-reviews): Scrape app reviews from the Apple App Store and Google Play in one dataset: rating, text, author, date, app version,… (From $0.20 per 1,000 reviews)
+- [Google News Scraper](https://apify.com/tacps126/google-news): Scrape Google News: search results, topic sections and top stories in any language and country — with the publisher's… (From $2 per 1,000 articles)
+- [Reddit Scraper & Keyword Monitor](https://apify.com/tacps126/reddit-monitor): Scrape Reddit posts and comments by keyword, subreddit or user — title, text, author, subreddit, links, dates. Built… (From $1 per 1,000 posts and comments)
+
+## E-commerce and real estate
+- [Shopify Products Scraper](https://apify.com/tacps126/shopify-products): Scrape products from any Shopify store — prices, sale prices, discounts, stock, variants, SKUs, images and… (From $1 per 1,000 products)
+- [ImmobilienScout24 Scraper](https://apify.com/tacps126/immobilienscout24-scraper): Scrape ImmobilienScout24 (ImmoScout24) apartments and houses for rent or sale anywhere in Germany: price, warm rent,… (From $1 per 1,000 listings)
