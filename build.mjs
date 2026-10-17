@@ -7,6 +7,15 @@ const res = await fetch(`https://api.apify.com/v2/store?username=${USER}&limit=1
 if (!res.ok) throw new Error(`Store API ${res.status}`);
 const items = (await res.json()).data.items;
 const byName = new Map(items.map((i) => [i.name, i]));
+// The Store listing can lag behind edits; the Actor endpoint is always current.
+await Promise.all(
+  [...byName.keys()].map(async (name) => {
+    const r = await fetch(`https://api.apify.com/v2/acts/${USER}~${name}`);
+    if (!r.ok) return;
+    const d = (await r.json()).data;
+    byName.set(name, { ...byName.get(name), title: d.title || byName.get(name).title, description: d.description || byName.get(name).description });
+  }),
+);
 
 const GROUPS = [
   ['Jobs and hiring data', 'One clean format across career pages, LinkedIn, Indeed and Glassdoor.',
