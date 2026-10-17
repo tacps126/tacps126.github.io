@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tacps126.github.io/sitemap.xml
