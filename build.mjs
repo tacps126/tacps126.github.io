@@ -47,6 +47,20 @@ const MCP_TOOLS = [
 ];
 
 // ---------------------------------------------------------------- helpers
+const WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen'];
+const N = MCP_TOOLS.length;
+const nWord = WORDS[N] ?? String(N);
+const NWord = nWord[0].toUpperCase() + nWord.slice(1);
+
+// Warn about public Actors that no category lists (they would be missing from the site).
+{
+  const listed = new Set(CATS.flatMap(([, , names]) => names));
+  const missing = [...byName.keys()].filter((n) => !listed.has(n));
+  if (missing.length) console.warn(`WARNING: public Actors not on the site, add them to CATS: ${missing.join(', ')}`);
+  const gone = [...listed].filter((n) => !byName.has(n));
+  if (gone.length) console.warn(`WARNING: listed Actors that are no longer public: ${gone.join(', ')}`);
+}
+
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const short = (s, n = 140) => {
   const t = String(s || '').replace(/\s+/g, ' ').trim();
@@ -208,7 +222,7 @@ const indexBody = `
     <div class="stats">
       <div class="stat"><b>${used}</b><span>tools on Apify</span></div>
       <div class="stat"><b>$0.20+</b><span>per 1,000 results</span></div>
-      <div class="stat"><b>10</b><span>tools in the MCP server</span></div>
+      <div class="stat"><b>${N}</b><span>tools in the MCP server</span></div>
       <div class="stat"><b>0</b><span>subscriptions</span></div>
     </div>
   </div>
@@ -253,7 +267,7 @@ ${cards.join('\n')}
   <div class="wrap split">
     <div class="reveal">
       <span class="eyebrow">For AI agents</span>
-      <div class="sec-head" style="margin-top:14px"><h2>One MCP server, ten tools</h2><p>Give Claude, Cursor or any MCP client typed tools for jobs, hiring signals, news, reviews, Reddit, contacts, property and Shopify. They run on your own Apify account with a spend cap on every call.</p></div>
+      <div class="sec-head" style="margin-top:14px"><h2>One MCP server, ${nWord} tools</h2><p>Give Claude, Cursor or any MCP client typed tools for jobs, hiring signals, news, reviews, Reddit, contacts, property and Shopify. They run on your own Apify account with a spend cap on every call.</p></div>
       <div class="cta-row"><a class="btn primary" href="/mcp.html">Setup guide</a><a class="btn" href="https://smithery.ai/servers/${USER}/webdata-tools-mcp" rel="noopener">View on Smithery</a></div>
       <div class="pills">${MCP_TOOLS.slice(0, 6).map((t) => `<span class="pill">${t[0]}</span>`).join('')}<span class="pill">+4 more</span></div>
     </div>
@@ -316,7 +330,7 @@ const mcpBody = `
   <div class="wrap">
     <span class="eyebrow">MCP server</span>
     <h1>Web data tools for <span class="grad">your AI agent</span></h1>
-    <p class="lead">webdata-tools-mcp gives Claude, Cursor and any MCP client ten typed tools for jobs, hiring signals, news, reviews, Reddit, contacts, German property and Shopify. They run ready-made Apify Actors on your own Apify account and return clean, short results.</p>
+    <p class="lead">webdata-tools-mcp gives Claude, Cursor and any MCP client ${nWord} typed tools for jobs, hiring signals, news, reviews, Reddit, contacts, German property and Shopify. They run ready-made Apify Actors on your own Apify account and return clean, short results.</p>
     <div class="cta-row">
       <a class="btn primary" href="#install">Install</a>
       <a class="btn" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener">View on GitHub</a>
@@ -346,7 +360,7 @@ const mcpBody = `
 
 <section class="alt" id="tools">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>The ten tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Costs are Apify pay-per-result prices.</p></div>
+    <div class="sec-head reveal"><h2>The ${nWord} tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Costs are Apify pay-per-result prices.</p></div>
     <div class="table-wrap"><table>
       <thead><tr><th>Tool</th><th>What it returns</th><th>Cost</th><th>Actor</th></tr></thead>
       <tbody>
@@ -397,7 +411,7 @@ writeFileSync(
     path: '/mcp.html',
     active: 'mcp',
     title: 'webdata-tools-mcp - MCP server for jobs, news, reviews and leads',
-    description: 'Ten web-data tools for AI agents: job postings, hiring signals, Google News, Trustpilot and app reviews, Reddit, contacts, German property and Shopify. Runs Apify Actors on your own token with a spend cap.',
+    description: `${NWord} web-data tools for AI agents: job postings, hiring signals, Google News, Trustpilot and app reviews, Reddit, contacts, German property and Shopify. Runs Apify Actors on your own token with a spend cap.`,
     body: mcpBody,
     jsonld: {
       '@context': 'https://schema.org',
@@ -409,7 +423,7 @@ writeFileSync(
       downloadUrl: 'https://www.npmjs.com/package/webdata-tools-mcp',
       license: 'https://opensource.org/licenses/MIT',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      description: 'MCP server with ten web-data tools that run Apify Actors on your own account.',
+      description: `MCP server with ${nWord} web-data tools that run Apify Actors on your own account.`,
     },
   }),
 );
@@ -450,7 +464,7 @@ writeFileSync(
 
 > Fast, low-cost web data tools built in Rust and published on Apify: jobs and hiring data, contact details, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
-- [MCP server (webdata-tools-mcp)](${SITE}/mcp.html): ten tools for AI agents, MIT licensed, on npm and the official MCP Registry
+- [MCP server (webdata-tools-mcp)](${SITE}/mcp.html): ${nWord} tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/${USER})
 - [Code recipes](https://github.com/${USER}/apify-data-recipes)
 - Contact: ${EMAIL}
