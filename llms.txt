@@ -38,3 +38,4 @@
 - [Shopify Products Scraper](https://apify.com/tacps126/shopify-products): Scrape products from any Shopify store — prices, sale prices, discounts, stock, variants, SKUs, images and… (From $1 per 1,000 products)
 - [ImmobilienScout24 Scraper](https://apify.com/tacps126/immobilienscout24-scraper): Scrape ImmobilienScout24 apartments and houses for rent or sale in Germany and Austria: price, warm rent, m², rooms,… (From $1 per 1,000 listings)
 - [Rightmove Scraper](https://apify.com/tacps126/rightmove-scraper): Scrape Rightmove properties to rent or buy anywhere in the UK: price, bedrooms, bathrooms, address and postcode, GPS,… (From $1 per 1,000 listings)
+- [Property Finder Scraper](https://apify.com/tacps126/propertyfinder-scraper): Scrape Property Finder listings in the UAE, Saudi Arabia, Qatar, Bahrain and Egypt: price, bedrooms, size, location,… (From $1 per 1,000 listings)
