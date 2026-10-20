@@ -13,6 +13,7 @@
 - [LinkedIn Jobs Scraper](https://apify.com/tacps126/linkedin-jobs-scraper): Scrape LinkedIn job search results without logging in — keywords, location, date and remote filters. Clean output with… (From $1 per 1,000 jobs)
 - [Indeed Jobs Scraper](https://apify.com/tacps126/indeed-jobs): Scrape Indeed job listings by keyword and location in 9 countries: title, company, location, salary, job type,… (From $3 per 1,000 jobs)
 - [Glassdoor Jobs Scraper](https://apify.com/tacps126/glassdoor-jobs-scraper): Scrape Glassdoor job listings by keyword and location: title, company, location, salary range with median, job type,… (From $3 per 1,000 jobs)
+- [Naukri Jobs Scraper](https://apify.com/tacps126/naukri-jobs-scraper): Scrape Naukri.com jobs by keyword and city: title, company, AmbitionBox rating, experience range, salary in lakhs (as…
 - [Greenhouse Jobs Scraper](https://apify.com/tacps126/greenhouse-jobs-scraper): Scrape all open jobs from any Greenhouse career page — just type the company name. Fast, low-cost and clean: location,… (From $1 per 1,000 jobs)
 - [Lever Jobs Scraper](https://apify.com/tacps126/lever-jobs-scraper): Scrape all open jobs from any Lever career page — just type the company name. Fast, low-cost and clean: location,… (From $1 per 1,000 jobs)
 - [Ashby Jobs Scraper](https://apify.com/tacps126/ashby-jobs-scraper): Scrape all open jobs from any Ashby career page — just type the company name. Fast, low-cost and clean: location,… (From $1 per 1,000 jobs)

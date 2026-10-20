@@ -24,7 +24,7 @@ await Promise.all(
 
 const CATS = [
   ['jobs', 'Jobs and hiring', [
-    'jobs-harvester', 'hiring-signals', 'linkedin-jobs-scraper', 'indeed-jobs', 'glassdoor-jobs-scraper',
+    'jobs-harvester', 'hiring-signals', 'linkedin-jobs-scraper', 'indeed-jobs', 'glassdoor-jobs-scraper', 'naukri-jobs-scraper',
     'greenhouse-jobs-scraper', 'lever-jobs-scraper', 'ashby-jobs-scraper', 'workday-jobs-scraper',
     'smartrecruiters-jobs-scraper', 'recruitee-jobs-scraper', 'personio-jobs-scraper',
     'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper']],
