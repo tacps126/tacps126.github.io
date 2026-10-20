@@ -44,6 +44,7 @@ const MCP_TOOLS = [
   ['find_website_contacts', 'Emails, phones and social profiles from websites', 'contact-details', '$2 / 1,000 sites with contacts'],
   ['search_german_property_listings', 'Rent and buy listings in Germany and Austria', 'immobilienscout24-scraper', '$1 / 1,000 listings'],
   ['get_shopify_products', 'Prices, stock and variants from Shopify stores', 'shopify-products', '$1 / 1,000 products'],
+  ['get_trade_show_exhibitors', 'Trade-show exhibitors with booths and contacts (76 shows or any supported link)', 'exhibition-scraper', '$2 / 1,000 exhibitors'],
 ];
 
 // ---------------------------------------------------------------- helpers
