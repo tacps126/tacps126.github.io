@@ -26,7 +26,7 @@
 
 ## Leads and contacts
 - [Website Email Finder & Contact Details Scraper](https://apify.com/tacps126/contact-details): Website email finder: get emails, phone numbers and LinkedIn, X, Facebook, Instagram and YouTube links from any list of… ($2 per 1,000 sites with contacts)
-- [Trade Show Exhibitor List Scraper - Emails & Booths](https://apify.com/tacps126/exhibition-scraper): Exhibitor lists from 73 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo…) or any show…
+- [Trade Show Exhibitor List Scraper - Emails & Booths](https://apify.com/tacps126/exhibition-scraper): Exhibitor lists from 76 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo…) or any show…
 
 ## Reviews, news and social
 - [Trustpilot Reviews Scraper](https://apify.com/tacps126/trustpilot-reviews): Extract Trustpilot reviews and company details — ratings, text, reviewer info, dates, replies, TrustScore — with… (From $0.50 per 1,000 reviews)
