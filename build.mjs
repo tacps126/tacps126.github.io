@@ -28,7 +28,7 @@ const CATS = [
     'greenhouse-jobs-scraper', 'lever-jobs-scraper', 'ashby-jobs-scraper', 'workday-jobs-scraper',
     'smartrecruiters-jobs-scraper', 'recruitee-jobs-scraper', 'personio-jobs-scraper',
     'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper']],
-  ['leads', 'Leads and contacts', ['contact-details', 'exhibition-scraper']],
+  ['leads', 'Leads, events and contacts', ['contact-details', 'exhibition-scraper', 'events-scraper']],
   ['reviews', 'Reviews, news and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'reddit-monitor']],
   ['commerce', 'E-commerce and real estate', ['shopify-products', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
 ];
@@ -45,6 +45,7 @@ const MCP_TOOLS = [
   ['search_german_property_listings', 'Rent and buy listings in Germany and Austria', 'immobilienscout24-scraper', '$1 / 1,000 listings'],
   ['get_shopify_products', 'Prices, stock and variants from Shopify stores', 'shopify-products', '$1 / 1,000 products'],
   ['get_trade_show_exhibitors', 'Trade-show exhibitors with booths and contacts (76 shows or any supported link)', 'exhibition-scraper', '$2 / 1,000 exhibitors'],
+  ['find_events', 'Upcoming events from Luma, Eventbrite and Meetup with organisers and tickets', 'events-scraper', '$1 / 1,000 events'],
 ];
 
 // ---------------------------------------------------------------- helpers

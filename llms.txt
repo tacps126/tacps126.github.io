@@ -2,7 +2,7 @@
 
 > Fast, low-cost web data tools built in Rust and published on Apify: jobs and hiring data, contact details, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
-- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): eleven tools for AI agents, MIT licensed, on npm and the official MCP Registry
+- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): twelve tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/tacps126)
 - [Code recipes](https://github.com/tacps126/apify-data-recipes)
 - Contact: tacps126@gmail.com
@@ -24,9 +24,10 @@
 - [Himalayas Remote Jobs Scraper](https://apify.com/tacps126/himalayas-remote-jobs-scraper): Scrape jobs from Himalayas — remote jobs from Himalayas, with salaries and skills. Pay, hours, skills and seniority in… (From $1 per 1,000 jobs)
 - [AI Training Jobs Scraper — Mercor, micro1, Turing](https://apify.com/tacps126/ai-training-jobs-scraper): Scrape jobs from Mercor, micro1 and Turing — expert and AI-training gigs from Mercor, micro1 and Turing in one list.… (From $1 per 1,000 jobs)
 
-## Leads and contacts
+## Leads, events and contacts
 - [Website Email Finder & Contact Details Scraper](https://apify.com/tacps126/contact-details): Website email finder: get emails, phone numbers and LinkedIn, X, Facebook, Instagram and YouTube links from any list of… ($2 per 1,000 sites with contacts)
 - [Trade Show Exhibitor List Scraper - Emails & Booths](https://apify.com/tacps126/exhibition-scraper): Exhibitor lists from 76 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo…) or any show…
+- [Events Scraper - Luma, Eventbrite, Meetup](https://apify.com/tacps126/events-scraper): Upcoming events from Luma, Eventbrite, Meetup and any schema.org event page: name, date, venue, organiser, hosts,…
 
 ## Reviews, news and social
 - [Trustpilot Reviews Scraper](https://apify.com/tacps126/trustpilot-reviews): Extract Trustpilot reviews and company details — ratings, text, reviewer info, dates, replies, TrustScore — with… (From $0.50 per 1,000 reviews)
