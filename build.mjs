@@ -115,6 +115,7 @@ const footer = () => `<footer>
         <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
         <li><a href="https://smithery.ai/servers/${USER}/webdata-tools-mcp">Smithery</a></li>
         <li><a href="https://glama.ai/mcp/servers/${USER}/webdata-tools-mcp">Glama</a></li>
+        <li><a href="https://mcprush.com/to/webdata-tools-mcp?ref=badge">MCPRush</a></li>
       </ul>
     </div>
     <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
@@ -302,7 +303,7 @@ ${cards.join('\n')}
   <div class="wrap">
     <div class="sec-head reveal"><h2>Open source and code</h2><p>Small things I publish openly.</p></div>
     <div class="grid two">
-      <a class="card reveal" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener"><h3>webdata-tools-mcp</h3><p>The MCP server. MIT licensed, listed in the official MCP Registry, on npm, Smithery and Glama.</p><div class="badges"><img alt="npm version" src="https://img.shields.io/npm/v/webdata-tools-mcp" height="20"><img alt="license MIT" src="https://img.shields.io/badge/license-MIT-blue.svg" height="20"></div></a>
+      <a class="card reveal" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener"><h3>webdata-tools-mcp</h3><p>The MCP server. MIT licensed, listed in the official MCP Registry, on npm, Smithery, Glama and MCPRush.</p><div class="badges"><img alt="npm version" src="https://img.shields.io/npm/v/webdata-tools-mcp" height="20"><img alt="license MIT" src="https://img.shields.io/badge/license-MIT-blue.svg" height="20"></div></a>
       <a class="card reveal" href="https://github.com/${USER}/apify-data-recipes" rel="noopener"><h3>apify-data-recipes</h3><p>Copy-paste scripts for hiring signals, news alerts, review monitoring, contact enrichment and job feeds.</p></a>
     </div>
   </div>
@@ -340,6 +341,8 @@ const mcpBody = `
       <a href="https://www.npmjs.com/package/webdata-tools-mcp"><img alt="npm" src="https://img.shields.io/npm/v/webdata-tools-mcp" height="20"></a>
       <a class="pill" href="https://smithery.ai/servers/${USER}/webdata-tools-mcp" rel="noopener">Smithery</a>
       <a href="https://glama.ai/mcp/servers/${USER}/webdata-tools-mcp"><img alt="Glama score" src="https://glama.ai/mcp/servers/${USER}/webdata-tools-mcp/badges/score.svg" height="20"></a>
+      <a class="pill" href="https://mcprush.com/to/webdata-tools-mcp?ref=badge" rel="noopener">MCPRush</a>
+      <a class="pill" href="https://github.com/${USER}/webdata-tools-mcp/releases/latest" rel="noopener">Claude Desktop bundle (.mcpb)</a>
     </div>
   </div>
 </section>
@@ -402,7 +405,7 @@ ${toolRows}
     <details><summary>Where does my API token go?</summary><p>Into the environment of the server process on your machine. It is sent only to Apify's API to run the Actors. It is not logged or sent anywhere else.</p></details>
     <details><summary>Can I change the limits?</summary><p>Yes: <code>WEBDATA_MAX_CHARGE_USD</code> (spend cap per call, default 0.5) and <code>WEBDATA_TIMEOUT_SECS</code> (how long one call may run, default 150, from 30 to 300).</p></details>
     <details><summary>Is it legal to use the data?</summary><p>The Actors read publicly available pages. You are responsible for following each site's terms and the law that applies to you (for example GDPR and CAN-SPAM), especially for contact details.</p></details>
-    <details><summary>Where is it listed?</summary><p>On <a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a>, in the official MCP Registry as <code>io.github.${USER}/webdata-tools-mcp</code>, on <a href="https://smithery.ai/servers/${USER}/webdata-tools-mcp">Smithery</a> and on <a href="https://glama.ai/mcp/servers/${USER}/webdata-tools-mcp">Glama</a>.</p></details>
+    <details><summary>Where is it listed?</summary><p>On <a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a>, in the official MCP Registry as <code>io.github.${USER}/webdata-tools-mcp</code>, on <a href="https://smithery.ai/servers/${USER}/webdata-tools-mcp">Smithery</a>, <a href="https://glama.ai/mcp/servers/${USER}/webdata-tools-mcp">Glama</a> and <a href="https://mcprush.com/to/webdata-tools-mcp?ref=badge">MCPRush</a>. Claude Desktop users can install the one-click bundle from the <a href="https://github.com/${USER}/webdata-tools-mcp/releases/latest">latest release</a>.</p></details>
   </div>
 </section>`;
 
