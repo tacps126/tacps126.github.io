@@ -26,7 +26,7 @@
 
 ## Leads and contacts
 - [Website Email Finder & Contact Details Scraper](https://apify.com/tacps126/contact-details): Website email finder: get emails, phone numbers and LinkedIn, X, Facebook, Instagram and YouTube links from any list of… ($2 per 1,000 sites with contacts)
-- [Trade Show Exhibitor List Scraper - Emails & Booths](https://apify.com/tacps126/exhibition-scraper): Scrape exhibitor lists from 13 major trade shows and exhibitions (Embedded World, EuroShop, Fruit Logistica,…
+- [Trade Show Exhibitor List Scraper - Emails & Booths](https://apify.com/tacps126/exhibition-scraper): Scrape exhibitor lists from major trade shows (Embedded World, EuroShop, Fruit Logistica, FIBO, boot Düsseldorf,… ($2 per 1,000 exhibitors)
 
 ## Reviews, news and social
 - [Trustpilot Reviews Scraper](https://apify.com/tacps126/trustpilot-reviews): Extract Trustpilot reviews and company details — ratings, text, reviewer info, dates, replies, TrustScore — with… (From $0.50 per 1,000 reviews)
@@ -36,4 +36,4 @@
 
 ## E-commerce and real estate
 - [Shopify Products Scraper](https://apify.com/tacps126/shopify-products): Scrape products from any Shopify store — prices, sale prices, discounts, stock, variants, SKUs, images and… (From $1 per 1,000 products)
-- [ImmobilienScout24 Scraper](https://apify.com/tacps126/immobilienscout24-scraper): Scrape ImmobilienScout24 (ImmoScout24) apartments and houses for rent or sale anywhere in Germany: price, warm rent,… (From $1 per 1,000 listings)
+- [ImmobilienScout24 Scraper](https://apify.com/tacps126/immobilienscout24-scraper): Scrape ImmobilienScout24 apartments and houses for rent or sale in Germany and Austria: price, warm rent, m², rooms,… (From $1 per 1,000 listings)

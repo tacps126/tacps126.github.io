@@ -42,7 +42,7 @@ const MCP_TOOLS = [
   ['get_app_reviews', 'App Store and Google Play reviews', 'app-reviews', '$0.20 / 1,000 reviews'],
   ['search_reddit', 'Reddit posts and comments by keyword or subreddit', 'reddit-monitor', '$1 / 1,000 items'],
   ['find_website_contacts', 'Emails, phones and social profiles from websites', 'contact-details', '$2 / 1,000 sites with contacts'],
-  ['search_german_property_listings', 'Rent and buy listings in Germany', 'immobilienscout24-scraper', '$1 / 1,000 listings'],
+  ['search_german_property_listings', 'Rent and buy listings in Germany and Austria', 'immobilienscout24-scraper', '$1 / 1,000 listings'],
   ['get_shopify_products', 'Prices, stock and variants from Shopify stores', 'shopify-products', '$1 / 1,000 products'],
 ];
 
