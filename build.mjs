@@ -30,7 +30,7 @@ const CATS = [
     'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper']],
   ['leads', 'Leads and contacts', ['contact-details', 'exhibition-scraper']],
   ['reviews', 'Reviews, news and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'reddit-monitor']],
-  ['commerce', 'E-commerce and real estate', ['shopify-products', 'immobilienscout24-scraper']],
+  ['commerce', 'E-commerce and real estate', ['shopify-products', 'immobilienscout24-scraper', 'rightmove-scraper']],
 ];
 
 const MCP_TOOLS = [
