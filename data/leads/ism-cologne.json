@@ -1,0 +1,182 @@
+{
+  "id": "ism-cologne",
+  "name": "ISM",
+  "where": "Cologne, Germany",
+  "industry": "Sweets & Snacks",
+  "listUrl": "https://www.ism-cologne.com/ism-cologne-exhibitors/list-of-exhibitors/",
+  "total": 1062,
+  "countries": [
+    [
+      "Germany",
+      188
+    ],
+    [
+      "China",
+      109
+    ],
+    [
+      "Türkiye",
+      104
+    ],
+    [
+      "Spain",
+      101
+    ],
+    [
+      "Italy",
+      99
+    ],
+    [
+      "Netherlands",
+      65
+    ],
+    [
+      "Belgium",
+      28
+    ],
+    [
+      "Poland",
+      23
+    ],
+    [
+      "Ukraine",
+      22
+    ],
+    [
+      "France",
+      20
+    ]
+  ],
+  "countryCount": 73,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 96,
+    "phone": 55,
+    "email": 52,
+    "booth": 100
+  },
+  "sampleSize": 100,
+  "sample": [
+    {
+      "company": "1701 Nougat and Hampers Pty Ltd.",
+      "country": "South Africa",
+      "booth": "Hall 05.2 | K038",
+      "website": "1701luxury.com"
+    },
+    {
+      "company": "24 ICE BV",
+      "country": "Netherlands",
+      "booth": "Hall 05.2 | J050",
+      "website": "24ice.com"
+    },
+    {
+      "company": "4A Nutrition for Food Industries SAE",
+      "country": "Egypt",
+      "booth": "Hall 05.2 | H050",
+      "website": "linooats.com"
+    },
+    {
+      "company": "A. Loacker Spa / AG",
+      "country": "Italy",
+      "booth": "Hall 10.2 | C009 D009",
+      "website": "loacker.com"
+    },
+    {
+      "company": "A.N.J.distribution, s.r.o.",
+      "country": "Slovakia",
+      "booth": "Hall 05.2 | F041 G040",
+      "website": "anj-distribution.com"
+    },
+    {
+      "company": "Aachener Printen- und Schokoladenfabrik Henry Lambertz GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "Hall 10.1 | F010 G011",
+      "website": "lambertz.de"
+    },
+    {
+      "company": "Aachener Printenbäckerei Klein e.K.",
+      "country": "Germany",
+      "booth": "Hall 10.1 | E021",
+      "website": "printen.de"
+    },
+    {
+      "company": "AAK Denmark A/S",
+      "country": "Denmark",
+      "booth": "Hall 05.2 | G018",
+      "website": "aak.com"
+    },
+    {
+      "company": "AB Vilniaus pergale",
+      "country": "Lithuania",
+      "booth": "Hall 11.1 | A038",
+      "website": "pergale.lt/en"
+    },
+    {
+      "company": "ABICAB",
+      "country": "Brazil",
+      "booth": "Hall 11.2 | B061gB069g",
+      "website": "brasilsns.org.br"
+    },
+    {
+      "company": "ABIMAPI - Brazilian Association of Biscuits, Pasta and Industrialized Breads & Cakes",
+      "country": "Brazil",
+      "booth": "Hall 11.2 | C060g",
+      "website": "abimapi.com.br"
+    },
+    {
+      "company": "ABS Sweets B.V.",
+      "country": "Netherlands",
+      "booth": "Hall 10.2 | H091",
+      "website": "abssweets.nl"
+    },
+    {
+      "company": "Acemal SA",
+      "country": "Belgium",
+      "booth": "Hall 04.1 | H051",
+      "website": "acemal.com"
+    },
+    {
+      "company": "ACMA S.p.a.",
+      "country": "Italy",
+      "booth": "Hall 04.1 | E058",
+      "website": "acma.it"
+    },
+    {
+      "company": "Adam Foods, S.L.U.",
+      "country": "Spain",
+      "booth": "Hall 11.1 | F040",
+      "website": "adamfoods.com"
+    },
+    {
+      "company": "ADV PAX Lutec GmbH",
+      "country": "Germany",
+      "booth": "Passage Halle 4 Halle 5 A006",
+      "website": "adv-pax.de"
+    },
+    {
+      "company": "AGBV Nutrition UG (haftungsbeschränkt) & co. KG",
+      "country": "Germany",
+      "booth": "Passage Halle 4 Halle 5 B011",
+      "website": "agbv-organic.com"
+    },
+    {
+      "company": "Agriflex Srl",
+      "country": "Italy",
+      "booth": "Hall 04.1 | B031 B039",
+      "website": "agriflex.it"
+    },
+    {
+      "company": "Agrisicilia S.p.A.",
+      "country": "Italy",
+      "booth": "Hall 11.2 | A059",
+      "website": "agrisicilia.eu"
+    },
+    {
+      "company": "AGROSERC S.A",
+      "country": "Spain",
+      "booth": "Hall 11.1 | G040",
+      "website": "prunita.com"
+    }
+  ],
+  "updated": "2026-10-22"
+}

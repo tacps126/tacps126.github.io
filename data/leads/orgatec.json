@@ -1,0 +1,182 @@
+{
+  "id": "orgatec",
+  "name": "ORGATEC",
+  "where": "Cologne, Germany",
+  "industry": "Office & Workspace",
+  "listUrl": "https://www.orgatec.com/orgatec-exhibitors/list-of-exhibitors/",
+  "total": 509,
+  "countries": [
+    [
+      "Germany",
+      112
+    ],
+    [
+      "China",
+      109
+    ],
+    [
+      "Spain",
+      41
+    ],
+    [
+      "Italy",
+      24
+    ],
+    [
+      "Poland",
+      23
+    ],
+    [
+      "Taiwan",
+      20
+    ],
+    [
+      "Netherlands",
+      19
+    ],
+    [
+      "Korea, Republic of",
+      19
+    ],
+    [
+      "Türkiye",
+      16
+    ],
+    [
+      "Sweden",
+      13
+    ]
+  ],
+  "countryCount": 39,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 94,
+    "phone": 61,
+    "email": 65,
+    "booth": 1
+  },
+  "sampleSize": 100,
+  "sample": [
+    {
+      "company": "706 Online BV",
+      "country": "Netherlands",
+      "booth": "",
+      "website": "706online.com"
+    },
+    {
+      "company": "A.S. Création Tapeten AG",
+      "country": "Germany",
+      "booth": "Boulevard | B001",
+      "website": "as-creation.com"
+    },
+    {
+      "company": "AakustikaA UG",
+      "country": "Germany",
+      "booth": "",
+      "website": "aakustikaa.com"
+    },
+    {
+      "company": "ABL Production DOO",
+      "country": "Serbia",
+      "booth": "",
+      "website": "abl-ltd.com"
+    },
+    {
+      "company": "Abstractview, Lda",
+      "country": "Portugal",
+      "booth": "",
+      "website": "lapodsfactory.com"
+    },
+    {
+      "company": "Acoustic tools S.L.",
+      "country": "Spain",
+      "booth": "",
+      "website": "ezacoustics.com"
+    },
+    {
+      "company": "AcousticIndex GbR",
+      "country": "Germany",
+      "booth": "",
+      "website": "acousticindex.com"
+    },
+    {
+      "company": "Actiu Berbegal y Formas, S.A.",
+      "country": "Spain",
+      "booth": "",
+      "website": "actiu.com/en"
+    },
+    {
+      "company": "AICHI CO., LTD.",
+      "country": "Japan",
+      "booth": "",
+      "website": "axona-aichi.com/en"
+    },
+    {
+      "company": "AIMMP - Portuguese Association of Wood & Furniture Industries",
+      "country": "Portugal",
+      "booth": "",
+      "website": "aimmp.pt"
+    },
+    {
+      "company": "Airiia Ltd.",
+      "country": "United Kingdom",
+      "booth": "",
+      "website": "airiia.com"
+    },
+    {
+      "company": "AKABA S.A.",
+      "country": "Spain",
+      "booth": "",
+      "website": "akaba.net"
+    },
+    {
+      "company": "AKANTE",
+      "country": "France",
+      "booth": "",
+      "website": "akante.com"
+    },
+    {
+      "company": "AKOpanel B.V.",
+      "country": "Netherlands",
+      "booth": "",
+      "website": "akopanel.nl"
+    },
+    {
+      "company": "ALBA CR spol. s r.o.",
+      "country": "Czech Republic",
+      "booth": "",
+      "website": "albaseating.com"
+    },
+    {
+      "company": "Albiral Display Solutions S.L.",
+      "country": "Spain",
+      "booth": "",
+      "website": "arthurholm.com"
+    },
+    {
+      "company": "ALKI SA",
+      "country": "France",
+      "booth": "",
+      "website": "alki.fr/en"
+    },
+    {
+      "company": "Almachair",
+      "country": "Netherlands",
+      "booth": "",
+      "website": "almachair.nl"
+    },
+    {
+      "company": "Alsanit sp. z o.o.",
+      "country": "Poland",
+      "booth": "",
+      "website": "alsanit.pl"
+    },
+    {
+      "company": "ALUMIS GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "",
+      "website": "mysmartcube.de"
+    }
+  ],
+  "updated": "2026-10-22"
+}
