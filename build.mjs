@@ -28,7 +28,7 @@ const CATS = [
     'greenhouse-jobs-scraper', 'lever-jobs-scraper', 'ashby-jobs-scraper', 'workday-jobs-scraper',
     'smartrecruiters-jobs-scraper', 'recruitee-jobs-scraper', 'personio-jobs-scraper',
     'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper']],
-  ['leads', 'Leads, events and contacts', ['contact-details', 'exhibition-scraper', 'events-scraper']],
+  ['leads', 'Leads, events and contacts', ['contact-details', 'exhibition-scraper', 'events-scraper', 'luma-events-scraper']],
   ['reviews', 'Reviews, news and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'reddit-monitor']],
   ['commerce', 'E-commerce and real estate', ['shopify-products', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
 ];
@@ -38,13 +38,14 @@ const MCP_TOOLS = [
   ['find_hiring_companies', 'Which companies are hiring for the roles you sell to', 'hiring-signals', '1¢ per company with a signal'],
   ['get_company_jobs', 'Every open job from company career pages', 'jobs-harvester', '$1 / 1,000 jobs'],
   ['search_indeed_jobs', 'Indeed listings in 9 countries', 'indeed-jobs', '$3 / 1,000 jobs'],
+  ['search_naukri_jobs', 'Naukri.com jobs (India) with full description and salary', 'naukri-jobs-scraper', '$1.50 / 1,000 jobs'],
   ['get_trustpilot_reviews', 'Trustpilot reviews, TrustScore and company profile', 'trustpilot-reviews', '$0.50 / 1,000 reviews'],
   ['get_app_reviews', 'App Store and Google Play reviews', 'app-reviews', '$0.20 / 1,000 reviews'],
   ['search_reddit', 'Reddit posts and comments by keyword or subreddit', 'reddit-monitor', '$1 / 1,000 items'],
   ['find_website_contacts', 'Emails, phones and social profiles from websites', 'contact-details', '$2 / 1,000 sites with contacts'],
   ['search_german_property_listings', 'Rent and buy listings in Germany and Austria', 'immobilienscout24-scraper', '$1 / 1,000 listings'],
   ['get_shopify_products', 'Prices, stock and variants from Shopify stores', 'shopify-products', '$1 / 1,000 products'],
-  ['get_trade_show_exhibitors', 'Trade-show exhibitors with booths and contacts (76 shows or any supported link)', 'exhibition-scraper', '$2 / 1,000 exhibitors'],
+  ['get_trade_show_exhibitors', 'Trade-show exhibitors with booths and contacts (91 shows or any supported link)', 'exhibition-scraper', '$2 / 1,000 exhibitors'],
   ['find_events', 'Upcoming events from Luma, Eventbrite and Meetup with organisers and tickets', 'events-scraper', '$1 / 1,000 events'],
 ];
 

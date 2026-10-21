@@ -2,7 +2,7 @@
 
 > Fast, low-cost web data tools built in Rust and published on Apify: jobs and hiring data, contact details, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
-- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): twelve tools for AI agents, MIT licensed, on npm and the official MCP Registry
+- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): thirteen tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/tacps126)
 - [Code recipes](https://github.com/tacps126/apify-data-recipes)
 - Contact: tacps126@gmail.com
@@ -27,8 +27,9 @@
 
 ## Leads, events and contacts
 - [Website Email Finder & Contact Details Scraper](https://apify.com/tacps126/contact-details): Website email finder: get emails, phone numbers and LinkedIn, X, Facebook, Instagram and YouTube links from any list of… ($2 per 1,000 sites with contacts)
-- [Trade Show Exhibitor List Scraper - Emails & Booths](https://apify.com/tacps126/exhibition-scraper): Exhibitor lists from 76 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo…) or any show…
+- [Trade Show Exhibitor List Scraper - Emails & Booths](https://apify.com/tacps126/exhibition-scraper): Exhibitor lists from 86 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo…) or any show…
 - [Events Scraper - Luma, Eventbrite, Meetup](https://apify.com/tacps126/events-scraper): Upcoming events from Luma, Eventbrite, Meetup and any schema.org event page: name, date, venue, organiser, hosts,…
+- [Luma Events Scraper](https://apify.com/tacps126/luma-events-scraper): Upcoming Luma (lu.ma) events by city, category, keyword or calendar link: name, date, venue with coordinates,…
 
 ## Reviews, news and social
 - [Trustpilot Reviews Scraper](https://apify.com/tacps126/trustpilot-reviews): Extract Trustpilot reviews and company details — ratings, text, reviewer info, dates, replies, TrustScore — with… (From $0.50 per 1,000 reviews)
