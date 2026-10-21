@@ -1,0 +1,182 @@
+{
+  "id": "ahr-expo",
+  "name": "AHR Expo 2027",
+  "where": "USA",
+  "industry": "HVACR",
+  "listUrl": "https://ahr27.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm",
+  "total": 1813,
+  "countries": [
+    [
+      "United States",
+      54
+    ],
+    [
+      "United States of America",
+      30
+    ],
+    [
+      "Canada",
+      6
+    ],
+    [
+      "Korea, Republic of",
+      1
+    ],
+    [
+      "Taiwan",
+      1
+    ],
+    [
+      "Brazil",
+      1
+    ],
+    [
+      "Italy",
+      1
+    ],
+    [
+      "Turkey",
+      1
+    ],
+    [
+      "Mexico",
+      1
+    ],
+    [
+      "China",
+      1
+    ]
+  ],
+  "countryCount": 13,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 99,
+    "phone": 62,
+    "email": 54,
+    "booth": 99
+  },
+  "sampleSize": 100,
+  "sample": [
+    {
+      "company": "(AHI) ANDRE Vibration Technology Inc.",
+      "country": "Canada",
+      "booth": "S10371",
+      "website": "andrehvac.com"
+    },
+    {
+      "company": "(VIMCO) Vibration Management Corporation",
+      "country": "United States",
+      "booth": "S9700",
+      "website": "vimco.biz"
+    },
+    {
+      "company": "3AC Co., Ltd.",
+      "country": "Korea, Republic of",
+      "booth": "S9860",
+      "website": "3acltd.com"
+    },
+    {
+      "company": "3M",
+      "country": "United States",
+      "booth": "S8427",
+      "website": "3m.com/buildsmarter"
+    },
+    {
+      "company": "A 1 Filter Manufacturing",
+      "country": "United States",
+      "booth": "S10544",
+      "website": "a1filter.com"
+    },
+    {
+      "company": "A-Gas",
+      "country": "United States of America",
+      "booth": "S8936",
+      "website": "agas.com/us"
+    },
+    {
+      "company": "A-Plus HVAC",
+      "country": "United States of America",
+      "booth": "N4249",
+      "website": "aplus-air.com"
+    },
+    {
+      "company": "A-Power Inc",
+      "country": "United States of America",
+      "booth": "N3911",
+      "website": "1010apower.com"
+    },
+    {
+      "company": "A.J. Manufacturing Inc.",
+      "country": "United States",
+      "booth": "S7930",
+      "website": "ajdoor.com"
+    },
+    {
+      "company": "AAA Save Energy, LLC",
+      "country": "United States",
+      "booth": "N3642",
+      "website": "aaasaveenergy.com"
+    },
+    {
+      "company": "AABC Commissioning Group (ACG)/Energy Management Association (EMA)",
+      "country": "United States of America",
+      "booth": "S6523",
+      "website": "commissioning.org/www.energymgmt.org"
+    },
+    {
+      "company": "Aalberts",
+      "country": "United States of America",
+      "booth": "S6723",
+      "website": "aalberts-ips.us"
+    },
+    {
+      "company": "Aalberts hydronic flow control",
+      "country": "United States",
+      "booth": "S6726",
+      "website": "aalberts-hfc.us"
+    },
+    {
+      "company": "Aalberts integrated piping systems",
+      "country": "United States",
+      "booth": "S6723",
+      "website": "aalberts-ips.us"
+    },
+    {
+      "company": "ABB Building Automation and Controls",
+      "country": "United States of America",
+      "booth": "S6359",
+      "website": "new.abb.com/low-voltage/products/building-automation/product-range/abb-cylon/system-informat"
+    },
+    {
+      "company": "ABB Motors and Drives",
+      "country": "United States of America",
+      "booth": "S7149",
+      "website": "new.abb.com/us/us-motion-business-area/us-tradeshows/ahr-expo"
+    },
+    {
+      "company": "ABIES Technology, Inc.",
+      "country": "Taiwan",
+      "booth": "S6517",
+      "website": "abiestech.com"
+    },
+    {
+      "company": "AboveAir, an ACS Brand",
+      "country": "United States",
+      "booth": "S7762",
+      "website": "aboveair.com"
+    },
+    {
+      "company": "ABRAVA - Brazilian Association for HVAC-R",
+      "country": "Brazil",
+      "booth": "N2168",
+      "website": "abrava.com.br"
+    },
+    {
+      "company": "AC Component Specialists, Inc.",
+      "country": "United States of America",
+      "booth": "N1412",
+      "website": "accscompressor.com"
+    }
+  ],
+  "updated": "2026-10-21"
+}

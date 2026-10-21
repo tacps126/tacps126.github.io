@@ -128,3 +128,11 @@ footer { padding:40px 0 56px; border-top:1px solid var(--border); color:var(--mu
 @media (prefers-reduced-motion: reduce) { * { transition:none !important; scroll-behavior:auto !important; } .reveal { opacity:1; transform:none; } }
 
 [hidden] { display:none !important; }
+
+/* lead pages */
+.stats.five { grid-template-columns:repeat(5,1fr); } @media (max-width:760px) { .stats.five { grid-template-columns:repeat(2,1fr); } }
+.hero .cta-row { margin-top:28px; }
+.muted { color:var(--muted); }
+.countries { list-style:none; padding:0; margin:0 0 8px; display:flex; flex-wrap:wrap; gap:8px; }
+.countries li { background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:6px 12px; font-size:.9rem; }
+table.sample td:last-child { color:var(--muted); word-break:break-all; }

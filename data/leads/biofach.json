@@ -1,0 +1,182 @@
+{
+  "id": "biofach",
+  "name": "BIOFACH",
+  "where": "Nuremberg, Germany",
+  "industry": "Organic Food",
+  "listUrl": "https://www.biofach.de/en/exhibitors-products/find-exhibitors",
+  "total": 1084,
+  "countries": [
+    [
+      "Germany",
+      373
+    ],
+    [
+      "Italy",
+      94
+    ],
+    [
+      "Netherlands",
+      93
+    ],
+    [
+      "Spain",
+      55
+    ],
+    [
+      "Austria",
+      48
+    ],
+    [
+      "France",
+      39
+    ],
+    [
+      "Turkey",
+      38
+    ],
+    [
+      "Czechia",
+      33
+    ],
+    [
+      "Sri Lanka",
+      24
+    ],
+    [
+      "India",
+      22
+    ]
+  ],
+  "countryCount": 72,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 100,
+    "phone": 100,
+    "email": 63,
+    "booth": 100
+  },
+  "sampleSize": 100,
+  "sample": [
+    {
+      "company": "AGENCE WALLONNE À L'EXPORTATION ET AUX INVESTISSEMENTS ÉTRANGERS (AWEX)",
+      "country": "Belgium",
+      "booth": "6-257",
+      "website": "www.walfood.be"
+    },
+    {
+      "company": "Agrarmarkt Austria Marketing GesmbH",
+      "country": "Austria",
+      "booth": "6-265",
+      "website": "www.bioinfo.at"
+    },
+    {
+      "company": "Agronik Ltd",
+      "country": "Bulgaria",
+      "booth": "5-381",
+      "website": "www.agronik.com"
+    },
+    {
+      "company": "Alimentastic GmbH",
+      "country": "Austria",
+      "booth": "1-473",
+      "website": "www.alimentastic.com"
+    },
+    {
+      "company": "Amru Rice (Cambodia) Co., Ltd",
+      "country": "Cambodia",
+      "booth": "4-250",
+      "website": "www.amrurice.com.kh"
+    },
+    {
+      "company": "ARGE BIO",
+      "country": "Austria",
+      "booth": "1-471",
+      "website": "www.argebio.at"
+    },
+    {
+      "company": "ARGE Heumilch",
+      "country": "Austria",
+      "booth": "6-346",
+      "website": "www.heumilch.com"
+    },
+    {
+      "company": "Australian Trade and Investment  Commission (Austrade)",
+      "country": "Australia",
+      "booth": "4-471",
+      "website": "www.austrade.gov.au"
+    },
+    {
+      "company": "Austria Bio Garantie GmbH",
+      "country": "Austria",
+      "booth": "1-279",
+      "website": "www.abg.at"
+    },
+    {
+      "company": "be-oh Marketing GmbH",
+      "country": "Austria",
+      "booth": "7-371",
+      "website": "www.biohotels.info"
+    },
+    {
+      "company": "BIDAJ Sh.P.K.",
+      "country": "Albania",
+      "booth": "4A-301",
+      "website": "www.bidaj.al"
+    },
+    {
+      "company": "BIO AUSTRIA",
+      "country": "Austria",
+      "booth": "1-465",
+      "website": "bio-austria.at"
+    },
+    {
+      "company": "Bio Müsli V.K. GmbH",
+      "country": "Austria",
+      "booth": "6-306",
+      "website": "www.thelolaway.com"
+    },
+    {
+      "company": "Bio-Hofbäckerei Mauracher GmbH",
+      "country": "Austria",
+      "booth": "7-111",
+      "website": "www.mauracherhof.com"
+    },
+    {
+      "company": "Bio-Lutz GmbH",
+      "country": "Austria",
+      "booth": "6-136",
+      "website": "www.bio-lutz.at"
+    },
+    {
+      "company": "Bio-Nahrungsmittel Produktions- und Handels GmbH",
+      "country": "Austria",
+      "booth": "6-246",
+      "website": "www.bio-nahrung.at"
+    },
+    {
+      "company": "Bioalba Group",
+      "country": "Albania",
+      "booth": "4-381",
+      "website": "www.bioalba.al"
+    },
+    {
+      "company": "Bioalpin eGen",
+      "country": "Austria",
+      "booth": "7-167",
+      "website": "www.biovomberg.at"
+    },
+    {
+      "company": "BioArt AG",
+      "country": "Austria",
+      "booth": "6-151",
+      "website": "www.bioart.at"
+    },
+    {
+      "company": "Biobes",
+      "country": "Albania",
+      "booth": "4-781",
+      "website": "www.biobes.al"
+    }
+  ],
+  "updated": "2026-10-22"
+}

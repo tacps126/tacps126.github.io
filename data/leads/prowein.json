@@ -1,0 +1,182 @@
+{
+  "id": "prowein",
+  "name": "ProWein",
+  "where": "Düsseldorf, Germany",
+  "industry": "Wine & Spirits",
+  "listUrl": "https://www.prowein.com/vis/v1/en/directory",
+  "total": 618,
+  "countries": [
+    [
+      "Italy",
+      45
+    ],
+    [
+      "Germany",
+      19
+    ],
+    [
+      "France",
+      11
+    ],
+    [
+      "Spain",
+      8
+    ],
+    [
+      "USA",
+      4
+    ],
+    [
+      "United Kingdom of Great Britain and Northern Ireland",
+      3
+    ],
+    [
+      "India",
+      2
+    ],
+    [
+      "Austria",
+      1
+    ],
+    [
+      "Belgium",
+      1
+    ],
+    [
+      "Poland",
+      1
+    ]
+  ],
+  "countryCount": 15,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 92,
+    "phone": 100,
+    "email": 100,
+    "booth": 100
+  },
+  "sampleSize": 100,
+  "sample": [
+    {
+      "company": "A-Wines California",
+      "country": "USA",
+      "booth": "Hall 5 / H115",
+      "website": "awinescalifornia.com"
+    },
+    {
+      "company": "ABK6 Family - Spirits & Wines DOMAINES FRANCIS ABECASSIS SOCIETE DU MAINE DRILHON - SNC",
+      "country": "France",
+      "booth": "Hall 3 / C53",
+      "website": "abecassis-cognac.com"
+    },
+    {
+      "company": "Agenzia Vinci & Esposito Fabio Esposito",
+      "country": "Germany",
+      "booth": "Hall 3 / M11",
+      "website": "fabioesposito.it"
+    },
+    {
+      "company": "Agro Grape Distillery S.L.",
+      "country": "Spain",
+      "booth": "Hall 3 / C54",
+      "website": "agrogrape.com"
+    },
+    {
+      "company": "ALCOHOLES Y VINOS, SA",
+      "country": "Spain",
+      "booth": "Hall 3 / A50",
+      "website": "montblanc-vodka.com"
+    },
+    {
+      "company": "Alde Gott Winzer Schwarzwald eG",
+      "country": "Germany",
+      "booth": "Hall 1 / D141",
+      "website": ""
+    },
+    {
+      "company": "All4Labels Group GmbH",
+      "country": "Germany",
+      "booth": "Hall 4 / B60",
+      "website": "all4labels.com"
+    },
+    {
+      "company": "Alliance des Vignerons Bourgogne Beaujolais",
+      "country": "France",
+      "booth": "Unsettled / NN",
+      "website": "a-v-bourgogne-beaujolais.com"
+    },
+    {
+      "company": "Alpdrinks GmbH",
+      "country": "Austria",
+      "booth": "Unsettled / NN",
+      "website": "alpdrinks.com"
+    },
+    {
+      "company": "AMKA GmbH",
+      "country": "Germany",
+      "booth": "Hall 1 / F95",
+      "website": "de.amka-group.com"
+    },
+    {
+      "company": "Andreas Oster Weinkellerei KG",
+      "country": "Germany",
+      "booth": "Hall 4 / H29",
+      "website": ""
+    },
+    {
+      "company": "ANGUS DUNDEE DISTILLERS PLC",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "booth": "Hall 3 / D72",
+      "website": "angusdundee.co.uk"
+    },
+    {
+      "company": "Antiche Distillerie Riunite s.r.l.",
+      "country": "Italy",
+      "booth": "Hall 3 / C12",
+      "website": "rossidasiago.com"
+    },
+    {
+      "company": "ANTONINI E CO. SRL",
+      "country": "Italy",
+      "booth": "Hall 3 / L01",
+      "website": "antonini.srl"
+    },
+    {
+      "company": "Antonio Nadal Destil·leries slu",
+      "country": "Spain",
+      "booth": "Hall 3 / D58",
+      "website": "antonionadal.com"
+    },
+    {
+      "company": "APEDA Government Organization",
+      "country": "India",
+      "booth": "Hall 5 / C124",
+      "website": "apeda.gov.in"
+    },
+    {
+      "company": "APEDA Government Organization",
+      "country": "India",
+      "booth": "Hall 3 / F85",
+      "website": "apeda.gov.in"
+    },
+    {
+      "company": "Arduenna Spirit Company Srl",
+      "country": "Belgium",
+      "booth": "Hall 3 / D12",
+      "website": "arduenna-gin.com"
+    },
+    {
+      "company": "Argea SpA",
+      "country": "Italy",
+      "booth": "Hall 3 / J12",
+      "website": "argea.com"
+    },
+    {
+      "company": "Arunda Sektkellerei s.r.l.",
+      "country": "Italy",
+      "booth": "Hall 3 / L75",
+      "website": "arundavivaldi.it"
+    }
+  ],
+  "updated": "2026-10-21"
+}

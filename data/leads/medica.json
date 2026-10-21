@@ -1,0 +1,182 @@
+{
+  "id": "medica",
+  "name": "MEDICA",
+  "where": "Düsseldorf, Germany",
+  "industry": "Medical Technology & Healthcare",
+  "listUrl": "https://www.medica.de/vis/v1/en/directory",
+  "total": 4618,
+  "countries": [
+    [
+      "Germany",
+      13
+    ],
+    [
+      "USA",
+      11
+    ],
+    [
+      "India",
+      10
+    ],
+    [
+      "Italy",
+      6
+    ],
+    [
+      "France",
+      6
+    ],
+    [
+      "Japan",
+      6
+    ],
+    [
+      "Korea, Republic",
+      5
+    ],
+    [
+      "United Kingdom of Great Britain and Northern Ireland",
+      5
+    ],
+    [
+      "Taiwan",
+      5
+    ],
+    [
+      "China",
+      4
+    ]
+  ],
+  "countryCount": 28,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 96,
+    "phone": 100,
+    "email": 97,
+    "booth": 100
+  },
+  "sampleSize": 100,
+  "sample": [
+    {
+      "company": "A UNO TEC SRL",
+      "country": "Italy",
+      "booth": "Hall 8b / J21",
+      "website": "aunotec.it"
+    },
+    {
+      "company": "A&D Verpackungsmaschinenbau GmbH",
+      "country": "Germany",
+      "booth": "Hall 8a / E04",
+      "website": "adpack.eu"
+    },
+    {
+      "company": "A-ZoneTech Co., LTD",
+      "country": "Korea, Republic",
+      "booth": "Hall 10 / E09",
+      "website": "a-zonetech.co.kr"
+    },
+    {
+      "company": "A. Legrand SAS",
+      "country": "France",
+      "booth": "Hall 7a / E04-7",
+      "website": "a-legrand.com"
+    },
+    {
+      "company": "A. u. K. Müller GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "Hall 8b / P19",
+      "website": ""
+    },
+    {
+      "company": "a.cure CO.,LTD",
+      "country": "Korea, Republic",
+      "booth": "Hall 16 / A50-3",
+      "website": "adotcure.com"
+    },
+    {
+      "company": "A.d.M. srl",
+      "country": "Italy",
+      "booth": "Hall 6 / D08",
+      "website": "admsrl.eu"
+    },
+    {
+      "company": "A.Hopf GmbH",
+      "country": "Germany",
+      "booth": "Hall 8a / K12",
+      "website": ""
+    },
+    {
+      "company": "A.K.TEK GmbH",
+      "country": "Germany",
+      "booth": "Hall 3 / C80",
+      "website": "ak-tek.de"
+    },
+    {
+      "company": "A.M.I. Italia S.r.l.",
+      "country": "Italy",
+      "booth": "Hall 11 / F26",
+      "website": "amiitalia.com"
+    },
+    {
+      "company": "A2MediteX Corporation",
+      "country": "Japan",
+      "booth": "Hall 8a / L25",
+      "website": "atwomeditex.com"
+    },
+    {
+      "company": "AADHAR MEDICARE PVT LTD",
+      "country": "India",
+      "booth": "Hall 4 / A44",
+      "website": "neolifeortho.com"
+    },
+    {
+      "company": "AAMEDIX GLOVE SDN BHD",
+      "country": "Malaysia",
+      "booth": "Hall 5 / E04",
+      "website": "aamedix-glove.com"
+    },
+    {
+      "company": "aap Implantate AG",
+      "country": "Germany",
+      "booth": "Hall 10 / D64",
+      "website": "aap.de"
+    },
+    {
+      "company": "AARUY Medical Electronics Co., Ltd.",
+      "country": "China",
+      "booth": "Hall 3 / H64-3",
+      "website": "en.aaruy.com"
+    },
+    {
+      "company": "AB Medical, Inc.",
+      "country": "Korea, Republic",
+      "booth": "Hall 3 / H25",
+      "website": "v-tube.com"
+    },
+    {
+      "company": "ABALASE LTD",
+      "country": "Greece",
+      "booth": "Hall 11 / G68",
+      "website": "abalase.gr"
+    },
+    {
+      "company": "Abaxis",
+      "country": "USA",
+      "booth": "Hall 3 / C26-2",
+      "website": "abaxis.com"
+    },
+    {
+      "company": "AbBaltis Ltd",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "booth": "Hall 1 / H10-1",
+      "website": "abbaltis.com"
+    },
+    {
+      "company": "ABC TIP SAĞLIK SPOR MALZ. TEKSTİL TURİZM İNŞAAT SAN. VE TİC. LTD. ŞTİ.",
+      "country": "Türkiye",
+      "booth": "Hall 4 / B13",
+      "website": "abcteks.com"
+    }
+  ],
+  "updated": "2026-10-21"
+}

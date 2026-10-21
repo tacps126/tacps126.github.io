@@ -1,6 +1,6 @@
 // Generates the whole site from the public Apify Store listing of tacps126.
 // Usage: node build.mjs        (no token needed; it reads public Apify pages only)
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
 
 const USER = 'tacps126';
 const SITE = 'https://tacps126.github.io';
@@ -110,6 +110,7 @@ const footer = () => `<footer>
       <ul>
         <li><a href="https://apify.com/${USER}">Tools on Apify</a></li>
         <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
         <li><a href="https://github.com/${USER}/apify-data-recipes">Code recipes</a></li>
       </ul>
       <ul>
@@ -434,6 +435,91 @@ writeFileSync(
   }),
 );
 
+// ---------------------------------------------------------------- lead pages (one per show)
+// Data: data/leads/<show>.json, written by apify_actors/scripts/lead_stats.py.
+const LEADS_DIR = new URL('./data/leads/', import.meta.url);
+const leads = existsSync(LEADS_DIR)
+  ? readdirSync(LEADS_DIR)
+      .filter((f) => f.endsWith('.json'))
+      .map((f) => JSON.parse(readFileSync(new URL(f, LEADS_DIR), 'utf8')))
+      .sort((a, b) => b.total - a.total)
+  : [];
+const ACTOR_URL = `https://apify.com/${USER}/exhibition-scraper`;
+const n = (x) => Number(x).toLocaleString('en-US');
+mkdirSync(new URL('./leads/', import.meta.url), { recursive: true });
+for (const l of leads) {
+  const title = `${l.name} exhibitor list ${l.updated.slice(0, 4)}: ${n(l.total)} companies with booth, website and contacts`;
+  const desc = `${l.name}${l.where ? ` (${l.where})` : ''} exhibitor list: ${n(l.total)} exhibitors${l.countriesFromSample ? '' : ` from ${l.countryCount} countries`} with booth, website, phone and email. Free sample, full list as CSV/Excel.`;
+  const tiles = [
+    [n(l.total), 'exhibitors'],
+    [l.countryCount, l.countriesFromSample ? 'countries (in sample)' : 'countries'],
+    [`${l.coverage.booth}%`, 'with booth'],
+    [`${l.coverage.website}%`, 'with website'],
+    [`${l.coverage.email}%`, 'with email*'],
+  ]
+    .map(([v, k]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(k)}</span></div>`)
+    .join('');
+  const rows = l.sample
+    .map((r) => `<tr><td>${esc(r.company)}</td><td>${esc(r.country)}</td><td>${esc(r.booth)}</td><td>${esc(r.website)}</td></tr>`)
+    .join('');
+  const countries = l.countries.map(([c, k]) => `<li>${esc(c)} <span class="muted">${n(k)}</span></li>`).join('');
+  const body = `
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">${esc(l.industry)}${l.where ? ` · ${esc(l.where)}` : ''}</p>
+  <h1>${esc(l.name)} exhibitor list</h1>
+  <p class="lead">Every exhibitor at ${esc(l.name)} as a clean spreadsheet: company, booth and hall, website, phone, address, categories and email. Read from the organiser's <a href="${esc(l.listUrl)}">official exhibitor list</a>${l.listUrl ? '' : ''}; emails missing there are looked up on each company's own website.</p>
+  <div class="stats five">${tiles}</div>
+  <div class="cta-row">
+    <a class="btn primary" href="${ACTOR_URL}">Get the full list (run it yourself, about $2 per 1,000)</a>
+    <a class="btn" href="/#build">Have it done for you</a>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <h2>Sample: 20 of ${n(l.total)} exhibitors</h2>
+  <p class="muted">The full list adds phone, email, address, categories, social profiles and the company description. Emails and phones are left out of this public sample.</p>
+  <div class="table-wrap"><table class="sample"><thead><tr><th>Company</th><th>Country</th><th>Booth</th><th>Website</th></tr></thead><tbody>${rows}</tbody></table></div>
+  <h2>Where exhibitors come from${l.countriesFromSample ? ` <span class="muted">(${l.sampleSize}-exhibitor sample)</span>` : ''}</h2>
+  <ul class="countries">${countries}</ul>
+  <p class="fine">* Contact coverage measured on a ${l.sampleSize}-exhibitor sample with emails looked up on company websites; updated ${esc(l.updated)}. Data comes from public pages; use it within GDPR and the organiser's terms.</p>
+  <h2>Get it</h2>
+  <p>Run <a href="${ACTOR_URL}">Trade Show Exhibitor List Scraper</a> with the show <code>${esc(l.id)}</code> (turn on <em>Find emails on company websites</em>), export CSV or Excel, or schedule it with <em>Changes only</em> to get new exhibitors and booth moves until the show. Prefer a ready file? Email <a href="mailto:${EMAIL}?subject=${encodeURIComponent(l.name + ' exhibitor list')}">${EMAIL}</a>.</p>
+</div></section>`;
+  writeFileSync(
+    new URL(`./leads/${l.id}.html`, import.meta.url),
+    page({
+      path: `/leads/${l.id}.html`,
+      title,
+      description: desc,
+      body,
+      jsonld: {
+        '@context': 'https://schema.org',
+        '@type': 'Dataset',
+        name: `${l.name} exhibitor list`,
+        description: desc,
+        url: `${SITE}/leads/${l.id}.html`,
+        dateModified: l.updated,
+        creator: { '@type': 'Organization', name: 'tacps126' },
+        isAccessibleForFree: false,
+      },
+    }),
+  );
+}
+if (leads.length) {
+  const list = leads
+    .map((l) => `<a class="card" href="/leads/${l.id}.html"><h3>${esc(l.name)}</h3><p>${esc(l.industry)}${l.where ? ` · ${esc(l.where)}` : ''}</p><p class="muted">${n(l.total)} exhibitors${l.countriesFromSample ? '' : ` · ${l.countryCount} countries`}</p></a>`)
+    .join('');
+  writeFileSync(
+    new URL('./leads/index.html', import.meta.url),
+    page({
+      path: '/leads/',
+      title: 'Trade show exhibitor lists with booth, website and email',
+      description: `Exhibitor lists of ${leads.length}+ trade shows (and 90+ more on request) with booth, website, phone and email, as CSV or Excel.`,
+      body: `<section class="hero"><div class="wrap"><h1>Trade show exhibitor lists</h1><p class="lead">Ready exhibitor lists with booth, website, phone and email. These are the shows with a page; <a href="${ACTOR_URL}">90+ shows</a> (and any show by link) are supported.</p><div class="grid">${list}</div></div></section>`,
+      jsonld: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Trade show exhibitor lists' },
+    }),
+  );
+}
+
 // ---------------------------------------------------------------- 404, sitemap, llms.txt
 writeFileSync(
   new URL('./404.html', import.meta.url),
@@ -452,6 +538,7 @@ writeFileSync(
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${SITE}/</loc><lastmod>${TODAY}</lastmod></url>
   <url><loc>${SITE}/mcp.html</loc><lastmod>${TODAY}</lastmod></url>
+${leads.length ? `  <url><loc>${SITE}/leads/</loc><lastmod>${TODAY}</lastmod></url>\n` : ''}${leads.map((l) => `  <url><loc>${SITE}/leads/${l.id}.html</loc><lastmod>${l.updated}</lastmod></url>`).join('\n')}
 </urlset>
 `,
 );

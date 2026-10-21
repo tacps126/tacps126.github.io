@@ -1,0 +1,182 @@
+{
+  "id": "wine-paris",
+  "name": "Wine Paris",
+  "where": "Paris, France",
+  "industry": "Wine & Spirits",
+  "listUrl": "https://wineparis.com/newfront/marketplace/exhibitors",
+  "total": 3702,
+  "countries": [
+    [
+      "France",
+      2386
+    ],
+    [
+      "Spain",
+      303
+    ],
+    [
+      "Italy",
+      275
+    ],
+    [
+      "Portugal",
+      245
+    ],
+    [
+      "Germany",
+      81
+    ],
+    [
+      "Australia",
+      55
+    ],
+    [
+      "United States",
+      31
+    ],
+    [
+      "New Zealand",
+      31
+    ],
+    [
+      "United Kingdom",
+      29
+    ],
+    [
+      "Armenia",
+      25
+    ]
+  ],
+  "countryCount": 59,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 75,
+    "phone": 41,
+    "email": 45,
+    "booth": 90
+  },
+  "sampleSize": 100,
+  "sample": [
+    {
+      "company": "0,0% JARDINS - Non-alcoholic aperitifs",
+      "country": "France",
+      "booth": "H235",
+      "website": "jardins.co"
+    },
+    {
+      "company": "0.0% SOBER SPIRITS",
+      "country": "France",
+      "booth": "A295",
+      "website": "soberspirits.com"
+    },
+    {
+      "company": "1884 Dumangin J. Fils - Champagne",
+      "country": "France",
+      "booth": "Stand",
+      "website": "www.champagne-dumangin.fr"
+    },
+    {
+      "company": "24 ICE | Frozen Cocktails",
+      "country": "Netherlands",
+      "booth": "C179",
+      "website": ""
+    },
+    {
+      "company": "6inPiemonte",
+      "country": "Italy",
+      "booth": "P250",
+      "website": "6inpiemonte.it"
+    },
+    {
+      "company": "A. DE FUSSIGNY",
+      "country": "France",
+      "booth": "Stand",
+      "website": "adefussigny.com"
+    },
+    {
+      "company": "AANA",
+      "country": "France",
+      "booth": "C141",
+      "website": "lab-alimentation-nouvelle-aquitaine.fr"
+    },
+    {
+      "company": "Abbaye de Jouques",
+      "country": "France",
+      "booth": "Stand",
+      "website": ""
+    },
+    {
+      "company": "ABBAYE SYLVA PLANA / DOMAINE DESHENRYS",
+      "country": "France",
+      "booth": "Stand",
+      "website": "www.vignoblesbouchard.com"
+    },
+    {
+      "company": "ABBAYES ET CHATEAUX EN LANGUEDOC",
+      "country": "France",
+      "booth": "Stand",
+      "website": "abbayeschateauxenlanguedoc.com"
+    },
+    {
+      "company": "ABBAZIA CASA VINICOLA",
+      "country": "Italy",
+      "booth": "T282",
+      "website": "www.abbazia.com"
+    },
+    {
+      "company": "ABK6 COGNAC / ABK6 WINES",
+      "country": "France",
+      "booth": "Stand",
+      "website": "abk6-cognac.com/abk6"
+    },
+    {
+      "company": "ABK6 FAMILY ESTATE",
+      "country": "France",
+      "booth": "E051",
+      "website": "abk6-cognac.com/fr/accueil"
+    },
+    {
+      "company": "ACALA SPARKLING TEA",
+      "country": "Lithuania",
+      "booth": "C023",
+      "website": "drinkacala.com"
+    },
+    {
+      "company": "ACCENTS & TERROIRS",
+      "country": "France",
+      "booth": "Stand",
+      "website": "www.accents-terroirs.com"
+    },
+    {
+      "company": "Acclaimed Wine Co",
+      "country": "United States",
+      "booth": "Stand",
+      "website": "acclaimedwineco.com"
+    },
+    {
+      "company": "ACKERMAN",
+      "country": "France",
+      "booth": "G231",
+      "website": "ackerman.fr"
+    },
+    {
+      "company": "ACUSTIC / RITME/ AUTOCTON / MAS VILELLA",
+      "country": "Spain",
+      "booth": "Stand",
+      "website": "acusticceller.com"
+    },
+    {
+      "company": "ADAM Jean-Baptiste - KUENTZ-BAS - Vins d'Alsace",
+      "country": "France",
+      "booth": "Stand",
+      "website": "www.jb-adam.com"
+    },
+    {
+      "company": "ADEGA CASA DA TORRE",
+      "country": "Portugal",
+      "booth": "",
+      "website": ""
+    }
+  ],
+  "updated": "2026-10-21"
+}

@@ -1,0 +1,182 @@
+{
+  "id": "ish",
+  "name": "ISH",
+  "where": "Frankfurt, Germany",
+  "industry": "HVAC, Water & Bathroom",
+  "listUrl": "https://ish.messefrankfurt.com/frankfurt/en/exhibitor-search.html",
+  "total": 1242,
+  "countries": [
+    [
+      "Germany",
+      337
+    ],
+    [
+      "Italy",
+      241
+    ],
+    [
+      "Türkiye",
+      96
+    ],
+    [
+      "Spain",
+      71
+    ],
+    [
+      "Poland",
+      57
+    ],
+    [
+      "Hong Kong",
+      45
+    ],
+    [
+      "Czech Republic",
+      31
+    ],
+    [
+      "India",
+      26
+    ],
+    [
+      "Netherlands",
+      26
+    ],
+    [
+      "France",
+      26
+    ]
+  ],
+  "countryCount": 53,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 80,
+    "phone": 76,
+    "email": 83,
+    "booth": 100
+  },
+  "sampleSize": 100,
+  "sample": [
+    {
+      "company": "227 Enterprise Private Limited",
+      "country": "India",
+      "booth": "8.0 / K64",
+      "website": "22-7.co.in"
+    },
+    {
+      "company": "2VV s.r.o.",
+      "country": "Czech Republic",
+      "booth": "8.0 / H49",
+      "website": "2vv.cz"
+    },
+    {
+      "company": "A&amp;T Europe Spa",
+      "country": "Italy",
+      "booth": "3.0 / D50F",
+      "website": "myrthapools.com"
+    },
+    {
+      "company": "A.G.S. Pipes S.R.L. - Unipersonale",
+      "country": "Italy",
+      "booth": "9.1 / F80",
+      "website": "agssrl.it"
+    },
+    {
+      "company": "a.h.s. GmbH",
+      "country": "Germany",
+      "booth": "4.1 / J81",
+      "website": "a-h-s-gmbh.com"
+    },
+    {
+      "company": "A.L.M.A.G. S.p.A. Azienda Lavorazioni Metallurgiche e Affini Gnutti",
+      "country": "Italy",
+      "booth": "9.1 / D41",
+      "website": ""
+    },
+    {
+      "company": "A.T. Gomma Guarnizioni Industriali S.r.l",
+      "country": "Italy",
+      "booth": "5.0 / B64",
+      "website": ""
+    },
+    {
+      "company": "A.T.P. Avanzate Tecnologie Plastiche S.r.l.",
+      "country": "Italy",
+      "booth": "5.0 / A85",
+      "website": "atpsrl.net"
+    },
+    {
+      "company": "Aalberts integrated piping systems B.V.",
+      "country": "Netherlands",
+      "booth": "4.0 / F92",
+      "website": "aalberts-ips.com"
+    },
+    {
+      "company": "AAT Alber Antriebstechnik GmbH",
+      "country": "Germany",
+      "booth": "5.1 / C30",
+      "website": "cargomaster.de"
+    },
+    {
+      "company": "ABA Beul Global GmbH",
+      "country": "Germany",
+      "booth": "4.0 / C07",
+      "website": "ababeulglobal.com"
+    },
+    {
+      "company": "ABN Pipe Systems, S.L.U.",
+      "country": "Spain",
+      "booth": "5.0 / B66",
+      "website": "abnpipesystems.com"
+    },
+    {
+      "company": "Abrahams HK Co., Limited",
+      "country": "Hong Kong",
+      "booth": "9.0 / A29",
+      "website": "pumphk.com"
+    },
+    {
+      "company": "Absara Industrial S.L.",
+      "country": "Spain",
+      "booth": "3.0 / D91",
+      "website": "hidrobox.com"
+    },
+    {
+      "company": "Accesorios Elasticos Lesol SL",
+      "country": "Spain",
+      "booth": "8.0 / J62",
+      "website": ""
+    },
+    {
+      "company": "ACOND a.s.",
+      "country": "Czech Republic",
+      "booth": "12.1 / C37",
+      "website": "acond.cz"
+    },
+    {
+      "company": "Adell Armatur ve Vana Fabrikalari A.S.",
+      "country": "Türkiye",
+      "booth": "4.1 / H40",
+      "website": "adell.com"
+    },
+    {
+      "company": "Ademco 1 GmbH",
+      "country": "Germany",
+      "booth": "9.1 / C20",
+      "website": "honeywell-haustechnik.de"
+    },
+    {
+      "company": "ADEY Innovation SAS",
+      "country": "France",
+      "booth": "9.0 / D38",
+      "website": "adey.com"
+    },
+    {
+      "company": "aedifion GmbH",
+      "country": "Germany",
+      "booth": "11.1 / E39",
+      "website": "aedifion.com"
+    }
+  ],
+  "updated": "2026-10-21"
+}
