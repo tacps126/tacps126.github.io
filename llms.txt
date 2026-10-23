@@ -2,7 +2,7 @@
 
 > Fast, low-cost web data tools built in Rust and published on Apify: jobs and hiring data, contact details, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
-- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): thirteen tools for AI agents, MIT licensed, on npm and the official MCP Registry
+- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): eighteen tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/tacps126)
 - [Code recipes](https://github.com/tacps126/apify-data-recipes)
 - Contact: tacps126@gmail.com
@@ -10,6 +10,9 @@
 ## Jobs and hiring
 - [Job Board Harvester — Multi-Platform](https://apify.com/tacps126/jobs-harvester): Collect jobs from company career pages (Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Recruitee, Personio,… (From $1 per 1,000 jobs)
 - [Hiring Signals & Buying Intent Data from Job Postings](https://apify.com/tacps126/hiring-signals): Buying-intent signals for sales teams: see which target companies are hiring for the roles you sell to, how many roles,… (1¢ per company with a signal)
+- [Remote Jobs Scraper — Company Career Sites](https://apify.com/tacps126/remote-jobs-scraper): Scrape remote jobs straight from company career sites — Greenhouse, Lever, Ashby, Workable and more, no aggregator… (From $2 per 1,000 jobs)
+- [Startup Jobs Scraper — Ashby, Greenhouse, Lever](https://apify.com/tacps126/startup-jobs-scraper): Scrape jobs at startups and tech companies from Ashby, Greenhouse, Lever, Workable and Rippling boards — scan 230+… (From $2 per 1,000 jobs)
+- [Job Salary Data Scraper — Pay from Job Postings](https://apify.com/tacps126/salary-data-jobs-scraper): Scrape salary ranges from real job postings on company career sites — min, max, currency, period and a yearly figure.… (From $2 per 1,000 jobs)
 - [LinkedIn Jobs Scraper](https://apify.com/tacps126/linkedin-jobs-scraper): Scrape LinkedIn job search results without logging in — keywords, location, date and remote filters. Clean output with… (From $1 per 1,000 jobs)
 - [Indeed Jobs Scraper](https://apify.com/tacps126/indeed-jobs): Scrape Indeed job listings by keyword and location in 9 countries: title, company, location, salary, job type,… (From $3 per 1,000 jobs)
 - [Glassdoor Jobs Scraper](https://apify.com/tacps126/glassdoor-jobs-scraper): Scrape Glassdoor job listings by keyword and location: title, company, location, salary range with median, job type,… (From $3 per 1,000 jobs)
@@ -30,6 +33,8 @@
 - [Trade Show Exhibitor List Scraper - Emails & Booths](https://apify.com/tacps126/exhibition-scraper): Exhibitor lists from 86 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo…) or any show…
 - [Events Scraper - Luma, Eventbrite, Meetup](https://apify.com/tacps126/events-scraper): Upcoming events from Luma, Eventbrite, Meetup and any schema.org event page: name, date, venue, organiser, hosts,…
 - [Luma Events Scraper](https://apify.com/tacps126/luma-events-scraper): Upcoming Luma (lu.ma) events by city, category, keyword or calendar link: name, date, venue with coordinates,…
+- [Eventbrite Scraper](https://apify.com/tacps126/eventbrite-events-scraper): Eventbrite events by keyword and city, or from any Eventbrite search or event link: name, date, venue and address,…
+- [Meetup Events Scraper](https://apify.com/tacps126/meetup-events-scraper): Meetup events by keyword and city, or from Meetup search and group links: name, date, venue and address, organising…
 
 ## Reviews, news and social
 - [Trustpilot Reviews Scraper](https://apify.com/tacps126/trustpilot-reviews): Extract Trustpilot reviews and company details — ratings, text, reviewer info, dates, replies, TrustScore — with… (From $0.50 per 1,000 reviews)

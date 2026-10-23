@@ -46,6 +46,54 @@
       if (navigator.clipboard) navigator.clipboard.writeText(pre.innerText).then(done, function () {});
     });
   });
+  // sort + live count
+  var sortSel = document.getElementById('sort'), count = document.getElementById('count');
+  var grid = cards.length ? cards[0].parentNode : null, original = cards.slice();
+  function sortCards() {
+    if (!grid || !sortSel) return;
+    var v = sortSel.value, list = original.slice();
+    if (v === 'price') list.sort(function (a, b) { return parseFloat(a.dataset.price) - parseFloat(b.dataset.price); });
+    if (v === 'name') list.sort(function (a, b) { return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent); });
+    list.forEach(function (c) { grid.appendChild(c); });
+    store('sort', v);
+  }
+  function countShown() { if (count) { var n = cards.filter(function (c) { return !c.hidden; }).length; count.textContent = n + (n === 1 ? ' tool' : ' tools'); } }
+  if (sortSel) { var sv = store('sort'); if (sv) sortSel.value = sv; sortSel.addEventListener('change', sortCards); sortCards(); }
+  var baseApply = apply;
+  apply = function () { baseApply(); countShown(); };
+  if (search) { search.removeEventListener('input', baseApply); search.addEventListener('input', apply); }
+  chips.forEach(function (ch) { ch.addEventListener('click', countShown); });
+  countShown();
+  // "/" focuses the search
+  document.addEventListener('keydown', function (e) {
+    if (e.key === '/' && search && document.activeElement !== search && !/input|textarea|select/i.test(document.activeElement.tagName)) { e.preventDefault(); search.focus(); }
+  });
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // spotlight follows the pointer
+  document.querySelectorAll('.spot').forEach(function (c) {
+    c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+  });
+  // scroll progress
+  var bar = document.querySelector('.progress');
+  if (bar) { var onScroll = function () { var h = document.documentElement; var max = h.scrollHeight - h.clientHeight; bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%'; }; addEventListener('scroll', onScroll, { passive: true }); onScroll(); }
+  // rotating hero words
+  var rot = document.getElementById('rotate');
+  if (rot && !reduce) {
+    var words = rot.dataset.words.split('|'), wi = 0;
+    setInterval(function () { rot.classList.add('out'); setTimeout(function () { wi = (wi + 1) % words.length; rot.textContent = words[wi]; rot.classList.remove('out'); }, 350); }, 2800);
+  }
+  // count-up stats
+  var nums = document.querySelectorAll('[data-count]');
+  if ('IntersectionObserver' in window && !reduce) {
+    var co = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return; co.unobserve(e.target);
+        var el = e.target, to = parseInt(el.dataset.count, 10), t0 = performance.now();
+        (function step(t) { var k = Math.min(1, (t - t0) / 900); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); })(t0);
+      });
+    }, { threshold: 0.4 });
+    nums.forEach(function (n) { co.observe(n); });
+  }
   // reveal on scroll
   var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {

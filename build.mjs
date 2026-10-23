@@ -5,6 +5,11 @@ import { writeFileSync, readFileSync, readdirSync, mkdirSync, existsSync } from 
 const USER = 'tacps126';
 const SITE = 'https://tacps126.github.io';
 const EMAIL = 'tacps126@gmail.com';
+const OWNER = 'Tapaswai Choudhary';
+// Listings added in the last few weeks get a "New" badge.
+const NEW = new Set(['remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
+  'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
+  'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']);
 const TODAY = new Date().toISOString().slice(0, 10);
 
 // ---------------------------------------------------------------- data
@@ -24,11 +29,14 @@ await Promise.all(
 
 const CATS = [
   ['jobs', 'Jobs and hiring', [
-    'jobs-harvester', 'hiring-signals', 'linkedin-jobs-scraper', 'indeed-jobs', 'glassdoor-jobs-scraper', 'naukri-jobs-scraper',
+    'jobs-harvester', 'hiring-signals', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper',
+    'wellfound-jobs-scraper', 'dice-jobs-scraper', 'builtin-jobs-scraper',
+    'linkedin-jobs-scraper', 'indeed-jobs', 'glassdoor-jobs-scraper', 'naukri-jobs-scraper',
     'greenhouse-jobs-scraper', 'lever-jobs-scraper', 'ashby-jobs-scraper', 'workday-jobs-scraper',
     'smartrecruiters-jobs-scraper', 'recruitee-jobs-scraper', 'personio-jobs-scraper',
     'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper']],
-  ['leads', 'Leads, events and contacts', ['contact-details', 'exhibition-scraper', 'events-scraper', 'luma-events-scraper']],
+  ['leads', 'Leads, events and contacts', ['contact-details', 'reddit-lead-finder', 'shopify-store-analyzer', 'exhibition-scraper',
+    'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
   ['reviews', 'Reviews, news and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'reddit-monitor']],
   ['commerce', 'E-commerce and real estate', ['shopify-products', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
 ];
@@ -36,21 +44,26 @@ const CATS = [
 const MCP_TOOLS = [
   ['search_google_news', "Google News with the publisher's real article URL", 'google-news', '$2 / 1,000 articles'],
   ['find_hiring_companies', 'Which companies are hiring for the roles you sell to', 'hiring-signals', '1¢ per company with a signal'],
-  ['get_company_jobs', 'Every open job from company career pages', 'jobs-harvester', '$1 / 1,000 jobs'],
+  ['get_company_jobs', 'Every open job from company career pages or just company names (13 job-board systems)', 'jobs-harvester', '$1 / 1,000 jobs'],
+  ['find_remote_jobs', 'Remote jobs from company career sites and remote-job feeds', 'remote-jobs-scraper', '$2 / 1,000 jobs'],
+  ['search_startup_jobs', 'Startup jobs on Wellfound with salary and equity', 'wellfound-jobs-scraper', '$2 / 1,000 jobs'],
+  ['search_tech_jobs', 'US tech jobs on Dice', 'dice-jobs-scraper', '$0.55 / 1,000 jobs'],
   ['search_indeed_jobs', 'Indeed listings in 9 countries', 'indeed-jobs', '$3 / 1,000 jobs'],
   ['search_naukri_jobs', 'Naukri.com jobs (India) with full description and salary', 'naukri-jobs-scraper', '$1.50 / 1,000 jobs'],
   ['get_trustpilot_reviews', 'Trustpilot reviews, TrustScore and company profile', 'trustpilot-reviews', '$0.50 / 1,000 reviews'],
   ['get_app_reviews', 'App Store and Google Play reviews', 'app-reviews', '$0.20 / 1,000 reviews'],
   ['search_reddit', 'Reddit posts and comments by keyword or subreddit', 'reddit-monitor', '$1 / 1,000 items'],
+  ['find_reddit_leads', 'Reddit posts asking for a tool like yours or an alternative to a competitor', 'reddit-lead-finder', '$2 / 1,000 leads'],
   ['find_website_contacts', 'Emails, phones and social profiles from websites', 'contact-details', '$2 / 1,000 sites with contacts'],
   ['search_german_property_listings', 'Rent and buy listings in Germany and Austria', 'immobilienscout24-scraper', '$1 / 1,000 listings'],
   ['get_shopify_products', 'Prices, stock and variants from Shopify stores', 'shopify-products', '$1 / 1,000 products'],
+  ['analyze_shopify_stores', 'Shopify store location, catalog and contacts', 'shopify-store-analyzer', '$4 / 1,000 stores'],
   ['get_trade_show_exhibitors', 'Trade-show exhibitors with booths and contacts (91 shows or any supported link)', 'exhibition-scraper', '$2 / 1,000 exhibitors'],
   ['find_events', 'Upcoming events from Luma, Eventbrite and Meetup with organisers and tickets', 'events-scraper', '$1 / 1,000 events'],
 ];
 
 // ---------------------------------------------------------------- helpers
-const WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen'];
+const WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 'twenty-one', 'twenty-two'];
 const N = MCP_TOOLS.length;
 const nWord = WORDS[N] ?? String(N);
 const NWord = nWord[0].toUpperCase() + nWord.slice(1);
@@ -89,9 +102,10 @@ const ICONS = {
 const ico = (name) => `<div class="ico">${ICONS[name]}</div>`;
 const small = (name, size) => ICONS[name].replace('<svg', `<svg width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"`);
 
-const header = (active) => `<header class="site-header">
+const header = (active) => `<div class="progress" aria-hidden="true"></div>
+<header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="/"><img src="/icon-192.png" alt="" width="30" height="30">tacps126</a>
+    <a class="brand" href="/"><img src="/icon-192.png" alt="" width="30" height="30"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
     <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">${small('menu', 20)}</button>
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="/#tools">Tools</a>
@@ -106,7 +120,7 @@ const header = (active) => `<header class="site-header">
 const footer = () => `<footer>
   <div class="wrap">
     <div class="foot">
-      <div><strong style="color:var(--text)">tacps126</strong><br>Web data tools, built in Rust.<br><a href="mailto:${EMAIL}">${EMAIL}</a></div>
+      <div><strong style="color:var(--text)">${OWNER} (tacps126)</strong><br>Web data tools, built in Rust.<br><a href="mailto:${EMAIL}">${EMAIL}</a></div>
       <ul>
         <li><a href="https://apify.com/${USER}">Tools on Apify</a></li>
         <li><a href="/mcp.html">MCP server</a></li>
@@ -194,8 +208,9 @@ const cards = CATS.flatMap(([key, label, names]) =>
     .map((a) => {
       used += 1;
       const p = priceOf(a.description);
-      return `<a class="card reveal" data-tool data-cat="${key}" href="https://apify.com/${USER}/${esc(a.name)}" rel="noopener">
-  <h3>${esc(a.title)}</h3>
+      const num = p ? Number((p.match(/[\d.]+/) || ['0'])[0]) * (p.includes('¢') ? 10 : 1) : 999;
+      return `<a class="card reveal spot" data-tool data-cat="${key}" data-price="${num}" href="https://apify.com/${USER}/${esc(a.name)}" rel="noopener">
+  <h3>${esc(a.title)}${NEW.has(a.name) ? ' <span class="new">New</span>' : ''}</h3>
   <p>${esc(short(stripPrice(a.description)))}</p>
   <div class="meta"><span class="tag">${esc(label)}</span>${p ? `<span class="price">${esc(p)}</span>` : ''}</div>
 </a>`;
@@ -212,7 +227,7 @@ const indexBody = `
     <div class="hero-grid">
       <div>
         <span class="eyebrow">Web data, built in Rust</span>
-        <h1>Clean web data for <span class="grad">jobs, news, reviews and leads</span></h1>
+        <h1>Clean web data for <span class="grad" id="rotate" data-words="jobs, news, reviews and leads|remote and startup jobs|Reddit buying intent|Shopify store leads|trade-show exhibitors">jobs, news, reviews and leads</span></h1>
         <p class="lead">${used} ready-made tools that turn public web pages into consistent, spreadsheet-ready data. Fast, cheap to run, pay per result, no subscription. Use them from Apify, from code, or from your AI agent.</p>
         <div class="cta-row">
           <a class="btn primary" href="https://apify.com/${USER}" rel="noopener">Browse the tools on Apify</a>
@@ -225,10 +240,10 @@ const indexBody = `
       </div>
     </div>
     <div class="stats">
-      <div class="stat"><b>${used}</b><span>tools on Apify</span></div>
-      <div class="stat"><b>$0.20+</b><span>per 1,000 results</span></div>
-      <div class="stat"><b>${N}</b><span>tools in the MCP server</span></div>
-      <div class="stat"><b>0</b><span>subscriptions</span></div>
+      <div class="stat"><b data-count="${used}">${used}</b><span>tools on Apify</span></div>
+      <div class="stat"><b data-count="13">13</b><span>job-board systems in one format</span></div>
+      <div class="stat"><b data-count="${N}">${N}</b><span>tools in the MCP server</span></div>
+      <div class="stat"><b data-count="91">91</b><span>trade shows built in</span></div>
     </div>
   </div>
 </section>
@@ -237,10 +252,10 @@ const indexBody = `
   <div class="wrap">
     <div class="sec-head reveal"><h2>What people use them for</h2><p>Pick a job; the tools return the same clean fields every run.</p></div>
     <div class="grid">
-      <a class="card reveal" href="#tools" data-filter="jobs">${ico('briefcase')}<h3>Recruiting and job boards</h3><p>Every open role from company career pages, LinkedIn, Indeed and Glassdoor in one format, with only-new mode for daily feeds.</p></a>
-      <a class="card reveal" href="#tools" data-filter="leads">${ico('target')}<h3>Sales and lead generation</h3><p>Hiring signals show who is hiring for the roles you sell to. Contact details add emails, phones and socials for any website list.</p></a>
-      <a class="card reveal" href="#tools" data-filter="reviews">${ico('star')}<h3>Brand and reputation</h3><p>Trustpilot and app-store reviews, Google News with real publisher links, and Reddit mentions, with alerts on new items only.</p></a>
-      <a class="card reveal" href="#tools" data-filter="commerce">${ico('chart')}<h3>Market and property data</h3><p>Shopify prices, discounts and stock, plus German rent and buy listings with coordinates and price per square metre.</p></a>
+      <a class="card reveal spot" href="#tools" data-filter="jobs">${ico('briefcase')}<h3>Recruiting and job boards</h3><p>Every open role from company career pages (13 systems, or just type a company name), LinkedIn, Indeed, Glassdoor, Wellfound, Dice and remote-job feeds in one format, with only-new mode for daily feeds.</p></a>
+      <a class="card reveal spot" href="#tools" data-filter="leads">${ico('target')}<h3>Sales and lead generation</h3><p>Hiring signals show who is hiring for the roles you sell to. Reddit Lead Finder spots people asking for a tool like yours. Contact details and the Shopify Store Analyzer add emails, phones and socials.</p></a>
+      <a class="card reveal spot" href="#tools" data-filter="reviews">${ico('star')}<h3>Brand and reputation</h3><p>Trustpilot and app-store reviews, Google News with real publisher links, and Reddit mentions, with alerts on new items only.</p></a>
+      <a class="card reveal spot" href="#tools" data-filter="commerce">${ico('chart')}<h3>Market and property data</h3><p>Shopify prices, discounts and stock, plus property listings in Germany, Austria, the UK and the Gulf with coordinates and price per square metre.</p></a>
     </div>
   </div>
 </section>
@@ -248,7 +263,7 @@ const indexBody = `
 <section class="alt" id="tools">
   <div class="wrap">
     <div class="sec-head reveal"><h2>All tools</h2><p>Each one opens its Apify page, where you can try it free with Apify's monthly credit.</p></div>
-    <div class="filters">${chips}<input class="search" id="search" type="search" placeholder="Search tools" aria-label="Search tools"></div>
+    <div class="filters">${chips}<input class="search" id="search" type="search" placeholder="Search tools  ( / )" aria-label="Search tools"><select class="sort" id="sort" aria-label="Sort tools"><option value="cat">By category</option><option value="price">Price: low to high</option><option value="name">Name</option></select><span class="count" id="count" aria-live="polite"></span></div>
     <div class="grid">
 ${cards.join('\n')}
     </div>
@@ -272,9 +287,9 @@ ${cards.join('\n')}
   <div class="wrap split">
     <div class="reveal">
       <span class="eyebrow">For AI agents</span>
-      <div class="sec-head" style="margin-top:14px"><h2>One MCP server, ${nWord} tools</h2><p>Give Claude, Cursor or any MCP client typed tools for jobs, hiring signals, news, reviews, Reddit, contacts, property and Shopify. They run on your own Apify account with a spend cap on every call.</p></div>
+      <div class="sec-head" style="margin-top:14px"><h2>One MCP server, ${nWord} tools</h2><p>Give Claude, Cursor or any MCP client typed tools for jobs (career sites, remote, startups, US tech), hiring signals, news, reviews, Reddit leads, contacts, property and Shopify. They run on your own Apify account with a spend cap on every call.</p></div>
       <div class="cta-row"><a class="btn primary" href="/mcp.html">Setup guide</a><a class="btn" href="https://smithery.ai/servers/${USER}/webdata-tools-mcp" rel="noopener">View on Smithery</a></div>
-      <div class="pills">${MCP_TOOLS.slice(0, 6).map((t) => `<span class="pill">${t[0]}</span>`).join('')}<span class="pill">+4 more</span></div>
+      <div class="pills">${MCP_TOOLS.slice(0, 6).map((t) => `<span class="pill">${t[0]}</span>`).join('')}<span class="pill">+${N - 6} more</span></div>
     </div>
     <div class="reveal">
       <div class="tabs" role="tablist" data-tabs>
@@ -306,8 +321,8 @@ ${cards.join('\n')}
   <div class="wrap">
     <div class="sec-head reveal"><h2>Open source and code</h2><p>Small things I publish openly.</p></div>
     <div class="grid two">
-      <a class="card reveal" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener"><h3>webdata-tools-mcp</h3><p>The MCP server. MIT licensed, listed in the official MCP Registry, on npm, Smithery, Glama and MCPRush.</p><div class="badges"><img alt="npm version" src="https://img.shields.io/npm/v/webdata-tools-mcp" height="20"><img alt="license MIT" src="https://img.shields.io/badge/license-MIT-blue.svg" height="20"></div></a>
-      <a class="card reveal" href="https://github.com/${USER}/apify-data-recipes" rel="noopener"><h3>apify-data-recipes</h3><p>Copy-paste scripts for hiring signals, news alerts, review monitoring, contact enrichment and job feeds.</p></a>
+      <a class="card reveal spot" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener"><h3>webdata-tools-mcp</h3><p>The MCP server. MIT licensed, listed in the official MCP Registry, on npm, Smithery, Glama and MCPRush.</p><div class="badges"><img alt="npm version" src="https://img.shields.io/npm/v/webdata-tools-mcp" height="20"><img alt="license MIT" src="https://img.shields.io/badge/license-MIT-blue.svg" height="20"></div></a>
+      <a class="card reveal spot" href="https://github.com/${USER}/apify-data-recipes" rel="noopener"><h3>apify-data-recipes</h3><p>Copy-paste scripts for hiring signals, news alerts, review monitoring, contact enrichment, Reddit leads, Shopify store leads and job feeds.</p></a>
     </div>
   </div>
 </section>`;
@@ -317,10 +332,10 @@ writeFileSync(
   page({
     path: '/',
     active: 'home',
-    title: 'tacps126 - web data tools for jobs, news, reviews and leads',
+    title: `${OWNER} (tacps126) - web data tools for jobs, news, reviews and leads`,
     description: `${used} fast, low-cost web data tools on Apify: jobs from career pages, LinkedIn and Indeed, hiring signals, Google News, Trustpilot and app reviews, Reddit, contacts, real estate and Shopify. About $1 per 1,000 results, plus an MCP server for AI agents.`,
     body: indexBody,
-    jsonld: { '@context': 'https://schema.org', '@type': 'WebSite', name: 'tacps126', url: `${SITE}/`, description: 'Web data tools for jobs, news, reviews and leads, built in Rust.' },
+    jsonld: { '@context': 'https://schema.org', '@type': 'WebSite', name: `${OWNER} (tacps126)`, url: `${SITE}/`, description: 'Web data tools for jobs, news, reviews and leads, built in Rust.', author: { '@type': 'Person', name: OWNER, alternateName: 'tacps126', email: EMAIL, url: `https://github.com/${USER}` } },
   }),
 );
 

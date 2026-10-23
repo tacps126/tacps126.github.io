@@ -136,3 +136,17 @@ footer { padding:40px 0 56px; border-top:1px solid var(--border); color:var(--mu
 .countries { list-style:none; padding:0; margin:0 0 8px; display:flex; flex-wrap:wrap; gap:8px; }
 .countries li { background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:6px 12px; font-size:.9rem; }
 table.sample td:last-child { color:var(--muted); word-break:break-all; }
+
+/* 2026-10 refresh: name, progress bar, spotlight cards, badges, sort, rotating words */
+.brand .handle { color:var(--muted); font-weight:500; }
+@media (max-width:520px) { .brand .handle { display:none; } }
+.progress { position:fixed; top:0; left:0; height:3px; width:0; z-index:40; background:linear-gradient(90deg, var(--accent), var(--accent2)); transition:width .08s linear; }
+.spot { position:relative; overflow:hidden; isolation:isolate; }
+.spot::before { content:""; position:absolute; inset:0; z-index:-1; opacity:0; transition:opacity .25s; background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%), color-mix(in srgb, var(--accent) 16%, transparent), transparent 60%); }
+.spot:hover::before { opacity:1; }
+.new { display:inline-block; vertical-align:2px; margin-left:6px; font-size:.66rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:#fff; background:linear-gradient(90deg, var(--accent), var(--accent2)); padding:2px 7px; border-radius:999px; }
+.sort { padding:9px 12px; border-radius:10px; border:1px solid var(--border); background:var(--surface); color:var(--text); font:inherit; font-size:.92rem; cursor:pointer; }
+.count { color:var(--muted); font-size:.88rem; margin-left:auto; }
+#rotate { display:inline-block; transition:opacity .35s, transform .35s; }
+#rotate.out { opacity:0; transform:translateY(8px); }
+@media (prefers-reduced-motion: reduce) { .spot::before, #rotate, .progress { transition:none; } }
