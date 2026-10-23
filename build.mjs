@@ -43,9 +43,9 @@ const CATS = [
 
 const MCP_TOOLS = [
   ['search_google_news', "Google News with the publisher's real article URL", 'google-news', '$2 / 1,000 articles'],
-  ['search_research', 'Recent papers, preprints and patents from OpenAlex, arXiv, PubMed and Europe PMC', 'research-radar', '$3 / 1,000 results'],
-  ['analyze_field', "A technology field's growth, leaders, funders and rising topics", 'innovation-radar', '$0.03 / field'],
-  ['validate_idea', 'How new or crowded an idea is, with the closest prior work', 'innovation-radar', '$0.03 / idea'],
+  ['search_research', 'Papers, preprints and patents from OpenAlex, arXiv, PubMed and Europe PMC; newest or most influential first', 'research-radar', '$3 / 1,000 results'],
+  ['analyze_field', "A technology field's opportunity score with reasons, growth, top companies and rising topics; several fields ranked", 'innovation-radar', '$0.03 / field'],
+  ['validate_idea', 'How new or crowded an idea is, who is working on it, and the closest prior work', 'innovation-radar', '$0.03 / idea'],
   ['find_hiring_companies', 'Which companies are hiring for the roles you sell to', 'hiring-signals', '1¢ per company with a signal'],
   ['get_company_jobs', 'Every open job from company career pages or just company names (13 job-board systems)', 'jobs-harvester', '$1 / 1,000 jobs'],
   ['find_remote_jobs', 'Remote jobs from company career sites and remote-job feeds', 'remote-jobs-scraper', '$2 / 1,000 jobs'],
@@ -403,7 +403,10 @@ ${toolRows}
       <div class="card reveal"><p>"Show the 1 and 2 star Trustpilot reviews of example.com from the last 30 days and group the complaints."</p></div>
       <div class="card reveal"><p>"Find news from the last 7 days about open-source LLM licensing, with the real publisher links."</p></div>
       <div class="card reveal"><p>"What does a 2-room flat in Berlin cost to rent right now? Give me the cheapest ten with coordinates."</p></div>
+      <div class="card reveal"><p>"What should a seed-stage founder build in sodium-ion batteries? Compare it with solid-state." (the <code>field-opportunity-analysis</code> prompt)</p></div>
+      <div class="card reveal"><p>"Is a drone that plants trees a new idea? Who is already working on it?" (the <code>idea-validation</code> prompt)</p></div>
     </div>
+    <p class="reveal" style="margin-top:18px">Two ready-made prompts, <code>field-opportunity-analysis</code> and <code>idea-validation</code>, turn the research tools into an innovation analyst with the same rubric for any model. Agents that load skills can use <a href="https://github.com/tacps126/webdata-tools-mcp/tree/main/skills/innovation-analyst">skills/innovation-analyst</a>.</p>
   </div>
 </section>
 

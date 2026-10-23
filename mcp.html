@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>webdata-tools-mcp - MCP server for jobs, news, reviews and leads</title>
-<meta name="description" content="Eighteen web-data tools for AI agents: job postings, hiring signals, Google News, Trustpilot and app reviews, Reddit, contacts, German property and Shopify. Runs Apify Actors on your own token with a spend cap.">
+<meta name="description" content="Twenty-one web-data tools for AI agents: job postings, hiring signals, Google News, Trustpilot and app reviews, Reddit, contacts, German property and Shopify. Runs Apify Actors on your own token with a spend cap.">
 <link rel="canonical" href="https://tacps126.github.io/mcp.html">
 <meta name="theme-color" content="#080c1c">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -13,14 +13,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tacps126">
 <meta property="og:title" content="webdata-tools-mcp - MCP server for jobs, news, reviews and leads">
-<meta property="og:description" content="Eighteen web-data tools for AI agents: job postings, hiring signals, Google News, Trustpilot and app reviews, Reddit, contacts, German property and Shopify. Runs Apify Actors on your own token with a spend cap.">
+<meta property="og:description" content="Twenty-one web-data tools for AI agents: job postings, hiring signals, Google News, Trustpilot and app reviews, Reddit, contacts, German property and Shopify. Runs Apify Actors on your own token with a spend cap.">
 <meta property="og:url" content="https://tacps126.github.io/mcp.html">
 <meta property="og:image" content="https://tacps126.github.io/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tacps126.github.io/og.png">
 <link rel="stylesheet" href="/style.css">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"webdata-tools-mcp","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Windows, Linux (Node.js 18+)","url":"https://tacps126.github.io/mcp.html","downloadUrl":"https://www.npmjs.com/package/webdata-tools-mcp","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"MCP server with eighteen web-data tools that run Apify Actors on your own account."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"webdata-tools-mcp","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Windows, Linux (Node.js 18+)","url":"https://tacps126.github.io/mcp.html","downloadUrl":"https://www.npmjs.com/package/webdata-tools-mcp","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"MCP server with twenty-one web-data tools that run Apify Actors on your own account."}</script>
 </head>
 <body>
 <div class="progress" aria-hidden="true"></div>
@@ -43,7 +43,7 @@
   <div class="wrap">
     <span class="eyebrow">MCP server</span>
     <h1>Web data tools for <span class="grad">your AI agent</span></h1>
-    <p class="lead">webdata-tools-mcp gives Claude, Cursor and any MCP client eighteen typed tools for jobs, hiring signals, news, reviews, Reddit, contacts, German property and Shopify. They run ready-made Apify Actors on your own Apify account and return clean, short results.</p>
+    <p class="lead">webdata-tools-mcp gives Claude, Cursor and any MCP client twenty-one typed tools for jobs, hiring signals, news, reviews, Reddit, contacts, German property and Shopify. They run ready-made Apify Actors on your own Apify account and return clean, short results.</p>
     <div class="cta-row">
       <a class="btn primary" href="#install">Install</a>
       <a class="btn" href="https://github.com/tacps126/webdata-tools-mcp" rel="noopener">View on GitHub</a>
@@ -100,11 +100,14 @@
 
 <section class="alt" id="tools">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>The eighteen tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Costs are Apify pay-per-result prices.</p></div>
+    <div class="sec-head reveal"><h2>The twenty-one tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Costs are Apify pay-per-result prices.</p></div>
     <div class="table-wrap"><table>
       <thead><tr><th>Tool</th><th>What it returns</th><th>Cost</th><th>Actor</th></tr></thead>
       <tbody>
 <tr><td><code>search_google_news</code></td><td>Google News with the publisher's real article URL</td><td>$2 / 1,000 articles</td><td><a href="https://apify.com/tacps126/google-news" rel="noopener">google-news</a></td></tr>
+<tr><td><code>search_research</code></td><td>Papers, preprints and patents from OpenAlex, arXiv, PubMed and Europe PMC; newest or most influential first</td><td>$3 / 1,000 results</td><td><a href="https://apify.com/tacps126/research-radar" rel="noopener">research-radar</a></td></tr>
+<tr><td><code>analyze_field</code></td><td>A technology field's opportunity score with reasons, growth, top companies and rising topics; several fields ranked</td><td>$0.03 / field</td><td><a href="https://apify.com/tacps126/innovation-radar" rel="noopener">innovation-radar</a></td></tr>
+<tr><td><code>validate_idea</code></td><td>How new or crowded an idea is, who is working on it, and the closest prior work</td><td>$0.03 / idea</td><td><a href="https://apify.com/tacps126/innovation-radar" rel="noopener">innovation-radar</a></td></tr>
 <tr><td><code>find_hiring_companies</code></td><td>Which companies are hiring for the roles you sell to</td><td>1¢ per company with a signal</td><td><a href="https://apify.com/tacps126/hiring-signals" rel="noopener">hiring-signals</a></td></tr>
 <tr><td><code>get_company_jobs</code></td><td>Every open job from company career pages or just company names (13 job-board systems)</td><td>$1 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/jobs-harvester" rel="noopener">jobs-harvester</a></td></tr>
 <tr><td><code>find_remote_jobs</code></td><td>Remote jobs from company career sites and remote-job feeds</td><td>$2 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/remote-jobs-scraper" rel="noopener">remote-jobs-scraper</a></td></tr>
@@ -135,7 +138,10 @@
       <div class="card reveal"><p>"Show the 1 and 2 star Trustpilot reviews of example.com from the last 30 days and group the complaints."</p></div>
       <div class="card reveal"><p>"Find news from the last 7 days about open-source LLM licensing, with the real publisher links."</p></div>
       <div class="card reveal"><p>"What does a 2-room flat in Berlin cost to rent right now? Give me the cheapest ten with coordinates."</p></div>
+      <div class="card reveal"><p>"What should a seed-stage founder build in sodium-ion batteries? Compare it with solid-state." (the <code>field-opportunity-analysis</code> prompt)</p></div>
+      <div class="card reveal"><p>"Is a drone that plants trees a new idea? Who is already working on it?" (the <code>idea-validation</code> prompt)</p></div>
     </div>
+    <p class="reveal" style="margin-top:18px">Two ready-made prompts, <code>field-opportunity-analysis</code> and <code>idea-validation</code>, turn the research tools into an innovation analyst with the same rubric for any model. Agents that load skills can use <a href="https://github.com/tacps126/webdata-tools-mcp/tree/main/skills/innovation-analyst">skills/innovation-analyst</a>.</p>
   </div>
 </section>
 
