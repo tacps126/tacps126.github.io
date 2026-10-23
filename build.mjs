@@ -9,7 +9,7 @@ const OWNER = 'Tapaswai Choudhary';
 // Listings added in the last few weeks get a "New" badge.
 const NEW = new Set(['remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
-  'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']);
+  'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar']);
 const TODAY = new Date().toISOString().slice(0, 10);
 
 // ---------------------------------------------------------------- data
@@ -37,12 +37,13 @@ const CATS = [
     'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper']],
   ['leads', 'Leads, events and contacts', ['contact-details', 'reddit-lead-finder', 'shopify-store-analyzer', 'exhibition-scraper',
     'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
-  ['reviews', 'Reviews, news and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'reddit-monitor']],
+  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'research-radar', 'reddit-monitor']],
   ['commerce', 'E-commerce and real estate', ['shopify-products', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
 ];
 
 const MCP_TOOLS = [
   ['search_google_news', "Google News with the publisher's real article URL", 'google-news', '$2 / 1,000 articles'],
+  ['search_research', 'Recent papers, preprints and patents from OpenAlex, arXiv, PubMed and Europe PMC', 'research-radar', '$3 / 1,000 results'],
   ['find_hiring_companies', 'Which companies are hiring for the roles you sell to', 'hiring-signals', '1¢ per company with a signal'],
   ['get_company_jobs', 'Every open job from company career pages or just company names (13 job-board systems)', 'jobs-harvester', '$1 / 1,000 jobs'],
   ['find_remote_jobs', 'Remote jobs from company career sites and remote-job feeds', 'remote-jobs-scraper', '$2 / 1,000 jobs'],
