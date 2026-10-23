@@ -290,7 +290,7 @@ ${cards.join('\n')}
   <div class="wrap split">
     <div class="reveal">
       <span class="eyebrow">For AI agents</span>
-      <div class="sec-head" style="margin-top:14px"><h2>One MCP server, ${nWord} tools</h2><p>Give Claude, Cursor or any MCP client typed tools for jobs (career sites, remote, startups, US tech), hiring signals, news, reviews, Reddit leads, contacts, property and Shopify. They run on your own Apify account with a spend cap on every call.</p></div>
+      <div class="sec-head" style="margin-top:14px"><h2>One MCP server, ${nWord} tools</h2><p>Give Claude, Cursor or any MCP client typed tools for jobs (career sites, remote, startups, US tech), hiring signals, news, research papers and field trends, reviews, Reddit leads, contacts, property and Shopify, plus analyst prompts. They run on your own Apify account with a spend cap on every call.</p></div>
       <div class="cta-row"><a class="btn primary" href="/mcp.html">Setup guide</a><a class="btn" href="https://smithery.ai/servers/${USER}/webdata-tools-mcp" rel="noopener">View on Smithery</a></div>
       <div class="pills">${MCP_TOOLS.slice(0, 6).map((t) => `<span class="pill">${t[0]}</span>`).join('')}<span class="pill">+${N - 6} more</span></div>
     </div>
@@ -336,7 +336,7 @@ writeFileSync(
     path: '/',
     active: 'home',
     title: `${OWNER} (tacps126) - web data tools for jobs, news, reviews and leads`,
-    description: `${used} fast, low-cost web data tools on Apify: jobs from career pages, LinkedIn and Indeed, hiring signals, Google News, Trustpilot and app reviews, Reddit, contacts, real estate and Shopify. About $1 per 1,000 results, plus an MCP server for AI agents.`,
+    description: `${used} fast, low-cost web data tools on Apify: jobs from career pages, LinkedIn and Indeed, hiring signals, Google News, research papers and technology trends, Trustpilot and app reviews, Reddit, contacts, trade shows and events, real estate and Shopify. About $1 per 1,000 results, plus an MCP server for AI agents.`,
     body: indexBody,
     jsonld: { '@context': 'https://schema.org', '@type': 'WebSite', name: `${OWNER} (tacps126)`, url: `${SITE}/`, description: 'Web data tools for jobs, news, reviews and leads, built in Rust.', author: { '@type': 'Person', name: OWNER, alternateName: 'tacps126', email: EMAIL, url: `https://github.com/${USER}` } },
   }),
@@ -353,7 +353,7 @@ const mcpBody = `
   <div class="wrap">
     <span class="eyebrow">MCP server</span>
     <h1>Web data tools for <span class="grad">your AI agent</span></h1>
-    <p class="lead">webdata-tools-mcp gives Claude, Cursor and any MCP client ${nWord} typed tools for jobs, hiring signals, news, reviews, Reddit, contacts, German property and Shopify. They run ready-made Apify Actors on your own Apify account and return clean, short results.</p>
+    <p class="lead">webdata-tools-mcp gives Claude, Cursor and any MCP client ${nWord} typed tools for jobs, hiring signals, news, research papers and patents, field trends and idea validation, reviews, Reddit, contacts, property, Shopify, trade shows and events, plus two analyst prompts. They run ready-made Apify Actors on your own Apify account and return clean, short results.</p>
     <div class="cta-row">
       <a class="btn primary" href="#install">Install</a>
       <a class="btn" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener">View on GitHub</a>
@@ -439,7 +439,7 @@ writeFileSync(
     path: '/mcp.html',
     active: 'mcp',
     title: 'webdata-tools-mcp - MCP server for jobs, news, reviews and leads',
-    description: `${NWord} web-data tools for AI agents: job postings, hiring signals, Google News, Trustpilot and app reviews, Reddit, contacts, German property and Shopify. Runs Apify Actors on your own token with a spend cap.`,
+    description: `${NWord} web-data tools for AI agents: job postings, hiring signals, Google News, research and field trends, Trustpilot and app reviews, Reddit, contacts, property, Shopify, exhibitors and events. Runs Apify Actors on your own token with a spend cap.`,
     body: mcpBody,
     jsonld: {
       '@context': 'https://schema.org',
@@ -576,7 +576,7 @@ writeFileSync(
   new URL('./llms.txt', import.meta.url),
   `# tacps126
 
-> Fast, low-cost web data tools built in Rust and published on Apify: jobs and hiring data, contact details, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
+> Fast, low-cost web data tools built in Rust and published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
 - [MCP server (webdata-tools-mcp)](${SITE}/mcp.html): ${nWord} tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/${USER})
