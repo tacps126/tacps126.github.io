@@ -13,6 +13,8 @@
 - [Remote Jobs Scraper — Company Career Sites](https://apify.com/tacps126/remote-jobs-scraper): Scrape remote jobs straight from company career sites — Greenhouse, Lever, Ashby, Workable and more, no aggregator… (From $2 per 1,000 jobs)
 - [Startup Jobs Scraper — Ashby, Greenhouse, Lever](https://apify.com/tacps126/startup-jobs-scraper): Scrape jobs at startups and tech companies from Ashby, Greenhouse, Lever, Workable and Rippling boards — scan 230+… (From $2 per 1,000 jobs)
 - [Job Salary Data Scraper — Pay from Job Postings](https://apify.com/tacps126/salary-data-jobs-scraper): Scrape salary ranges from real job postings on company career sites — min, max, currency, period and a yearly figure.… (From $2 per 1,000 jobs)
+- [Dice Jobs Scraper — US Tech Jobs](https://apify.com/tacps126/dice-jobs-scraper): Scrape US tech jobs from Dice — keyword and city search, no login. Salary, employer type (direct hire or recruiter),… (From $0.55 per 1,000 jobs)
+- [Built In Jobs Scraper — Tech Jobs](https://apify.com/tacps126/builtin-jobs-scraper): Scrape tech jobs from Built In — keyword search and remote jobs, no login. Salary range, seniority, in-office / hybrid… (From $0.60 per 1,000 jobs)
 - [LinkedIn Jobs Scraper](https://apify.com/tacps126/linkedin-jobs-scraper): Scrape LinkedIn job search results without logging in — keywords, location, date and remote filters. Clean output with… (From $1 per 1,000 jobs)
 - [Indeed Jobs Scraper](https://apify.com/tacps126/indeed-jobs): Scrape Indeed job listings by keyword and location in 9 countries: title, company, location, salary, job type,… (From $3 per 1,000 jobs)
 - [Glassdoor Jobs Scraper](https://apify.com/tacps126/glassdoor-jobs-scraper): Scrape Glassdoor job listings by keyword and location: title, company, location, salary range with median, job type,… (From $3 per 1,000 jobs)
@@ -46,6 +48,7 @@
 
 ## E-commerce and real estate
 - [Shopify Products Scraper](https://apify.com/tacps126/shopify-products): Scrape products from any Shopify store — prices, sale prices, discounts, stock, variants, SKUs, images and… (From $1 per 1,000 products)
+- [Property Listings: ImmoScout24, Rightmove, Property Finder](https://apify.com/tacps126/property-listings): Property listings from ImmoScout24 (DE, AT), Rightmove (UK) and Property Finder (UAE, KSA, Qatar, Bahrain, Egypt) in… (From $1 per 1,000 listings)
 - [ImmobilienScout24 Scraper](https://apify.com/tacps126/immobilienscout24-scraper): Scrape ImmobilienScout24 apartments and houses for rent or sale in Germany and Austria: price, warm rent, m², rooms,… (From $1 per 1,000 listings)
 - [Rightmove Scraper](https://apify.com/tacps126/rightmove-scraper): Scrape Rightmove properties to rent or buy anywhere in the UK: price, bedrooms, bathrooms, address and postcode, GPS,… (From $1 per 1,000 listings)
 - [Property Finder Scraper](https://apify.com/tacps126/propertyfinder-scraper): Scrape Property Finder listings in the UAE, Saudi Arabia, Qatar, Bahrain and Egypt: price, bedrooms, size, location,… (From $1 per 1,000 listings)
