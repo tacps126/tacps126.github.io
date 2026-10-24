@@ -7,7 +7,7 @@ const SITE = 'https://tacps126.github.io';
 const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
 // Listings added in the last few weeks get a "New" badge.
-const NEW = new Set(['tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
+const NEW = new Set(['alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
   'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar']);
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -38,14 +38,15 @@ const CATS = [
   ['leads', 'Leads, events and contacts', ['contact-details', 'reddit-lead-finder', 'shopify-store-analyzer', 'exhibition-scraper',
     'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
   ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'research-radar', 'innovation-radar', 'reddit-monitor']],
-  ['gov', 'Government, tenders and regulation', ['tenders-radar', 'gov-radar']],
+  ['gov', 'Government, tenders, regulation and alerts', ['tenders-radar', 'gov-radar', 'alerts-radar']],
   ['commerce', 'E-commerce and real estate', ['shopify-products', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
 ];
 
 const MCP_TOOLS = [
+  ['get_alerts', 'Official weather and disaster warnings: US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS, USGS', 'alerts-radar', '$2 / 1,000 alerts'],
   ['search_tenders', 'Public tenders and contract awards: US SAM.gov, EU TED, UK, France, Spain, Germany, Netherlands, Canada, Colombia, Australia, South Africa; by sector, CPV code or value', 'tenders-radar', '$4 / 1,000 notices'],
   ['search_google_news', "Google News with the publisher's real article URL", 'google-news', '$2 / 1,000 articles'],
-  ['search_gov_updates', 'Official government updates: Federal Register, GOV.UK, EU Commission, SEC, RBI, SEBI and any RSS feed, by sector', 'gov-radar', '$3 / 1,000 updates'],
+  ['search_gov_updates', 'Official government updates: Federal Register, GOV.UK, EU Commission, SEC, Indian regulators (RBI, SEBI, TRAI, DGFT…), any RSS feed or list page, by sector', 'gov-radar', '$3 / 1,000 updates'],
   ['search_research', 'Papers, preprints and patents from OpenAlex, arXiv, PubMed and Europe PMC; newest or most influential first', 'research-radar', '$3 / 1,000 results'],
   ['analyze_field', "A technology field's opportunity score with reasons, growth, top companies and rising topics; several fields ranked", 'innovation-radar', '$0.03 / field'],
   ['validate_idea', 'How new or crowded an idea is, who is working on it, and the closest prior work', 'innovation-radar', '$0.03 / idea'],
