@@ -7,7 +7,7 @@ const SITE = 'https://tacps126.github.io';
 const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
 // Listings added in the last few weeks get a "New" badge.
-const NEW = new Set(['grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
+const NEW = new Set(['india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
   'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar']);
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -38,12 +38,13 @@ const CATS = [
   ['leads', 'Leads, events and contacts', ['contact-details', 'reddit-lead-finder', 'shopify-store-analyzer', 'exhibition-scraper',
     'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
   ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'research-radar', 'innovation-radar', 'reddit-monitor']],
-  ['gov', 'Government, tenders, grants, regulation and alerts', ['tenders-radar', 'grants-radar', 'gov-radar', 'alerts-radar']],
+  ['gov', 'Government, tenders, grants, regulation and alerts', ['tenders-radar', 'grants-radar', 'gov-radar', 'india-district-notices', 'alerts-radar']],
   ['commerce', 'E-commerce and real estate', ['shopify-products', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
 ];
 
 const MCP_TOOLS = [
   ['search_grants', 'Open and forecast funding calls: US Grants.gov, EU Funding & Tenders (Horizon Europe…), UKRI', 'grants-radar', '$3 / 1,000 calls'],
+  ['get_india_district_notices', "Tenders, recruitment and announcements from India's 748 district websites, by state and district", 'india-district-notices', '$3 / 1,000 notices'],
   ['get_alerts', 'Official weather and disaster warnings: US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS, USGS', 'alerts-radar', '$2 / 1,000 alerts'],
   ['search_tenders', 'Public tenders and contract awards: US SAM.gov, EU TED and EU institutions, Ukraine, UK, France, Spain, Germany, Netherlands, Canada, Colombia, Australia, South Africa; by sector, CPV code or value', 'tenders-radar', '$4 / 1,000 notices'],
   ['search_google_news', "Google News with the publisher's real article URL", 'google-news', '$2 / 1,000 articles'],
