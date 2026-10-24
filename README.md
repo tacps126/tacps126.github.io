@@ -19,3 +19,11 @@ prices always match the Store. Edit these in `build.mjs`:
 
 `style.css` and `app.js` are hand-written. Preview locally with `python3 -m http.server 8765` and
 open <http://localhost:8765>.
+
+## Quality rules
+
+- Plain HTML, CSS and JavaScript; no trackers, no third-party scripts, no cookies.
+- Every page keeps the header "Tapaswai Choudhary (tacps126)", works without JavaScript for reading,
+  and stays readable at phone width.
+- Prices, counts and titles come from the Apify Store at build time; don't hard-code them in copy.
+- CI (`.github/workflows/check.yml`) syntax-checks `build.mjs` and `app.js` and checks the header.

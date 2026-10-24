@@ -1,0 +1,17 @@
+name: Check
+# Syntax-checks the generator and the page script. Offline: no tokens.
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check build.mjs && node --check app.js
+      - name: Header names the owner
+        run: grep -q "Tapaswai Choudhary (tacps126)" index.html
