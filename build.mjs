@@ -44,7 +44,7 @@ const CATS = [
 
 const MCP_TOOLS = [
   ['get_alerts', 'Official weather and disaster warnings: US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS, USGS', 'alerts-radar', '$2 / 1,000 alerts'],
-  ['search_tenders', 'Public tenders and contract awards: US SAM.gov, EU TED, UK, France, Spain, Germany, Netherlands, Canada, Colombia, Australia, South Africa; by sector, CPV code or value', 'tenders-radar', '$4 / 1,000 notices'],
+  ['search_tenders', 'Public tenders and contract awards: US SAM.gov, EU TED and EU institutions, Ukraine, UK, France, Spain, Germany, Netherlands, Canada, Colombia, Australia, South Africa; by sector, CPV code or value', 'tenders-radar', '$4 / 1,000 notices'],
   ['search_google_news', "Google News with the publisher's real article URL", 'google-news', '$2 / 1,000 articles'],
   ['search_gov_updates', 'Official government updates: Federal Register, GOV.UK, EU Commission, SEC, Indian regulators (RBI, SEBI, TRAI, DGFT…), any RSS feed or list page, by sector', 'gov-radar', '$3 / 1,000 updates'],
   ['search_research', 'Papers, preprints and patents from OpenAlex, arXiv, PubMed and Europe PMC; newest or most influential first', 'research-radar', '$3 / 1,000 results'],
