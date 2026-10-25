@@ -7,7 +7,7 @@ const SITE = 'https://tacps126.github.io';
 const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
 // Listings added in the last few weeks get a "New" badge.
-const NEW = new Set(['sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
+const NEW = new Set(['company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
   'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar']);
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -35,7 +35,7 @@ const CATS = [
     'greenhouse-jobs-scraper', 'lever-jobs-scraper', 'ashby-jobs-scraper', 'workday-jobs-scraper',
     'smartrecruiters-jobs-scraper', 'recruitee-jobs-scraper', 'personio-jobs-scraper',
     'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper']],
-  ['leads', 'Leads, events and contacts', ['contact-details', 'reddit-lead-finder', 'shopify-store-analyzer', 'exhibition-scraper',
+  ['leads', 'Leads, events and contacts', ['company-registry', 'contact-details', 'reddit-lead-finder', 'shopify-store-analyzer', 'exhibition-scraper',
     'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
   ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'research-radar', 'innovation-radar', 'reddit-monitor']],
   ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar']],
@@ -45,6 +45,7 @@ const CATS = [
 const MCP_TOOLS = [
   ['search_grants', 'Open and forecast funding calls: US Grants.gov, EU Funding & Tenders (Horizon Europe…), UKRI', 'grants-radar', '$3 / 1,000 calls'],
   ['get_india_district_notices', "Tenders, recruitment and announcements from India's 748 district websites, by state and district", 'india-district-notices', '$3 / 1,000 notices'],
+  ['find_companies', 'New companies and insolvencies (France, Norway, Finland) and company search with officers, plus the LEI index', 'company-registry', '$2.50 / 1,000 companies'],
   ['get_supplier_contracts', 'Public contracts a company won (USAspending, TED, Contracts Finder) with a summary per company', 'tenders-radar', '$4 / 1,000 awards'],
   ['screen_sanctions', 'Screen names against official OFAC, UN, EU, UK and Canada sanctions lists (verdict per name)', 'sanctions-screener', '$3 / 1,000 names'],
   ['search_recalls', 'Product recalls and safety alerts: FDA, CPSC, Health Canada, UK FSA/OPSS, EU Safety Gate', 'recalls-radar', '$2 / 1,000 recalls'],
