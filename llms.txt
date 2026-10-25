@@ -2,13 +2,13 @@
 
 > Fast, low-cost web data tools built in Rust and published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
-- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): twenty-one tools for AI agents, MIT licensed, on npm and the official MCP Registry
+- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): twenty-three tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/tacps126)
 - [Code recipes](https://github.com/tacps126/apify-data-recipes)
 - Contact: tacps126@gmail.com
 
 ## Jobs and hiring
-- [Job Board Harvester — Multi-Platform](https://apify.com/tacps126/jobs-harvester): Collect jobs from company career pages (Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Recruitee, Personio,… (From $1 per 1,000 jobs)
+- [Job Board Harvester — Multi-Platform](https://apify.com/tacps126/jobs-harvester): Jobs from 13 career-site systems (Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Workable, Personio…), AI talent… (From $1 per 1,000 jobs)
 - [Hiring Signals & Buying Intent Data from Job Postings](https://apify.com/tacps126/hiring-signals): Buying-intent signals for sales teams: see which target companies are hiring for the roles you sell to, how many roles,… (1¢ per company with a signal)
 - [Remote Jobs Scraper — Company Career Sites](https://apify.com/tacps126/remote-jobs-scraper): Scrape remote jobs straight from company career sites — Greenhouse, Lever, Ashby, Workable and more, no aggregator… (From $2 per 1,000 jobs)
 - [Startup Jobs Scraper — Ashby, Greenhouse, Lever](https://apify.com/tacps126/startup-jobs-scraper): Scrape jobs at startups and tech companies from Ashby, Greenhouse, Lever, Workable and Rippling boards — scan 230+… (From $2 per 1,000 jobs)
@@ -16,7 +16,7 @@
 - [Dice Jobs Scraper — US Tech Jobs](https://apify.com/tacps126/dice-jobs-scraper): Scrape US tech jobs from Dice — keyword and city search, no login. Salary, employer type (direct hire or recruiter),… (From $0.55 per 1,000 jobs)
 - [Built In Jobs Scraper — Tech Jobs](https://apify.com/tacps126/builtin-jobs-scraper): Scrape tech jobs from Built In — keyword search and remote jobs, no login. Salary range, seniority, in-office / hybrid… (From $0.60 per 1,000 jobs)
 - [LinkedIn Jobs Scraper](https://apify.com/tacps126/linkedin-jobs-scraper): Scrape LinkedIn job search results without logging in — keywords, location, date and remote filters. Clean output with… (From $1 per 1,000 jobs)
-- [Indeed Jobs Scraper](https://apify.com/tacps126/indeed-jobs): Scrape Indeed job listings by keyword and location in 9 countries: title, company, location, salary, job type,… (From $3 per 1,000 jobs)
+- [Indeed Jobs Scraper](https://apify.com/tacps126/indeed-jobs): Scrape Indeed job listings by keyword and location in 9 countries: title, company, location, full description (no… (From $3 per 1,000 jobs)
 - [Glassdoor Jobs Scraper](https://apify.com/tacps126/glassdoor-jobs-scraper): Scrape Glassdoor job listings by keyword and location: title, company, location, salary range with median, job type,… (From $3 per 1,000 jobs)
 - [Naukri Jobs Scraper](https://apify.com/tacps126/naukri-jobs-scraper): Scrape Naukri.com jobs by keyword and city: title, company, AmbitionBox rating, experience range, salary in lakhs (as…
 - [Greenhouse Jobs Scraper](https://apify.com/tacps126/greenhouse-jobs-scraper): Scrape all open jobs from any Greenhouse career page — just type the company name. Fast, low-cost and clean: location,… (From $1 per 1,000 jobs)
@@ -32,7 +32,7 @@
 
 ## Leads, events and contacts
 - [Website Email Finder & Contact Details Scraper](https://apify.com/tacps126/contact-details): Website email finder: get emails, phone numbers and LinkedIn, X, Facebook, Instagram and YouTube links from any list of… ($2 per 1,000 sites with contacts)
-- [Trade Show Exhibitor List Scraper - Emails & Booths](https://apify.com/tacps126/exhibition-scraper): Exhibitor lists from 86 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo…) or any show…
+- [Trade Show Exhibitor List Scraper - Emails & Booths](https://apify.com/tacps126/exhibition-scraper): Exhibitor lists from 91 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo…) or any show…
 - [Events Scraper - Luma, Eventbrite, Meetup](https://apify.com/tacps126/events-scraper): Upcoming events from Luma, Eventbrite, Meetup and any schema.org event page: name, date, venue, organiser, hosts,…
 - [Luma Events Scraper](https://apify.com/tacps126/luma-events-scraper): Upcoming Luma (lu.ma) events by city, category, keyword or calendar link: name, date, venue with coordinates,…
 - [Eventbrite Scraper](https://apify.com/tacps126/eventbrite-events-scraper): Eventbrite events by keyword and city, or from any Eventbrite search or event link: name, date, venue and address,…
@@ -45,6 +45,13 @@
 - [Research Radar — Papers, Preprints & Patents](https://apify.com/tacps126/research-radar): Search OpenAlex, arXiv, PubMed, Europe PMC and patents at once: one deduplicated, newest-first feed of papers and… (From $3 per 1,000 results)
 - [Innovation Radar — Field Trends & Idea Validation](https://apify.com/tacps126/innovation-radar): Analyse a technology field or validate a product idea from open research and patent data: growth and momentum, leading…
 - [Reddit Scraper & Keyword Monitor](https://apify.com/tacps126/reddit-monitor): Scrape Reddit posts and comments by keyword, subreddit or user — title, text, author, subreddit, links, dates. Built… (From $1 per 1,000 posts and comments)
+
+## Government, compliance, tenders, grants, regulation and alerts
+- [Tenders Radar — Public Tenders & Contract Awards](https://apify.com/tacps126/tenders-radar): Public tenders and awards from 17 official portals in one schema: US SAM.gov and USAspending, EU TED and EU…
+- [Grants Radar — Public Funding & Grant Calls](https://apify.com/tacps126/grants-radar): Open and upcoming public funding calls in one schema: US Grants.gov, EU Funding & Tenders (Horizon Europe, Digital… (From $3 per 1,000 calls)
+- [Gov Radar — Regulations, Notices & Circulars](https://apify.com/tacps126/gov-radar): Official government updates in one feed: US Federal Register and SEC, GOV.UK, European Commission, India's RBI, SEBI,… (From $3 per 1,000 updates)
+- [India District Notices — Tenders, Recruitment & Announcements](https://apify.com/tacps126/india-district-notices): Tenders, recruitment and announcements from the official websites of India's 748 districts, by state and district:… (From $3 per 1,000 notices)
+- [Alerts Radar — Weather & Disaster Warnings](https://apify.com/tacps126/alerts-radar): Official weather and disaster warnings in one schema: US National Weather Service, MeteoAlarm (38 European countries),… (From $2 per 1,000 alerts)
 
 ## E-commerce and real estate
 - [Shopify Products Scraper](https://apify.com/tacps126/shopify-products): Scrape products from any Shopify store — prices, sale prices, discounts, stock, variants, SKUs, images and… (From $1 per 1,000 products)

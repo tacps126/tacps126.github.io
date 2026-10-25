@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>webdata-tools-mcp - MCP server for jobs, news, reviews and leads</title>
-<meta name="description" content="Twenty-one web-data tools for AI agents: job postings, hiring signals, Google News, research and field trends, Trustpilot and app reviews, Reddit, contacts, property, Shopify, exhibitors and events. Runs Apify Actors on your own token with a spend cap.">
+<meta name="description" content="Twenty-three web-data tools for AI agents: job postings, hiring signals, Google News, research and field trends, Trustpilot and app reviews, Reddit, contacts, property, Shopify, exhibitors and events. Runs Apify Actors on your own token with a spend cap.">
 <link rel="canonical" href="https://tacps126.github.io/mcp.html">
 <meta name="theme-color" content="#080c1c">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -13,14 +13,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tacps126">
 <meta property="og:title" content="webdata-tools-mcp - MCP server for jobs, news, reviews and leads">
-<meta property="og:description" content="Twenty-one web-data tools for AI agents: job postings, hiring signals, Google News, research and field trends, Trustpilot and app reviews, Reddit, contacts, property, Shopify, exhibitors and events. Runs Apify Actors on your own token with a spend cap.">
+<meta property="og:description" content="Twenty-three web-data tools for AI agents: job postings, hiring signals, Google News, research and field trends, Trustpilot and app reviews, Reddit, contacts, property, Shopify, exhibitors and events. Runs Apify Actors on your own token with a spend cap.">
 <meta property="og:url" content="https://tacps126.github.io/mcp.html">
 <meta property="og:image" content="https://tacps126.github.io/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tacps126.github.io/og.png">
 <link rel="stylesheet" href="/style.css">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"webdata-tools-mcp","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Windows, Linux (Node.js 18+)","url":"https://tacps126.github.io/mcp.html","downloadUrl":"https://www.npmjs.com/package/webdata-tools-mcp","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"MCP server with twenty-one web-data tools that run Apify Actors on your own account."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"webdata-tools-mcp","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Windows, Linux (Node.js 18+)","url":"https://tacps126.github.io/mcp.html","downloadUrl":"https://www.npmjs.com/package/webdata-tools-mcp","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"MCP server with twenty-three web-data tools that run Apify Actors on your own account."}</script>
 </head>
 <body>
 <div class="progress" aria-hidden="true"></div>
@@ -43,7 +43,7 @@
   <div class="wrap">
     <span class="eyebrow">MCP server</span>
     <h1>Web data tools for <span class="grad">your AI agent</span></h1>
-    <p class="lead">webdata-tools-mcp gives Claude, Cursor and any MCP client twenty-one typed tools for jobs, hiring signals, news, research papers and patents, field trends and idea validation, reviews, Reddit, contacts, property, Shopify, trade shows and events, plus two analyst prompts. They run ready-made Apify Actors on your own Apify account and return clean, short results.</p>
+    <p class="lead">webdata-tools-mcp gives Claude, Cursor and any MCP client twenty-three typed tools for jobs, hiring signals, news, research papers and patents, field trends and idea validation, reviews, Reddit, contacts, property, Shopify, trade shows and events, plus two analyst prompts. They run ready-made Apify Actors on your own Apify account and return clean, short results.</p>
     <div class="cta-row">
       <a class="btn primary" href="#install">Install</a>
       <a class="btn" href="https://github.com/tacps126/webdata-tools-mcp" rel="noopener">View on GitHub</a>
@@ -100,29 +100,31 @@
 
 <section class="alt" id="tools">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>The twenty-one tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Costs are Apify pay-per-result prices.</p></div>
+    <div class="sec-head reveal"><h2>The twenty-three tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Costs are Apify pay-per-result prices.</p></div>
     <div class="table-wrap"><table>
       <thead><tr><th>Tool</th><th>What it returns</th><th>Cost</th><th>Actor</th></tr></thead>
       <tbody>
+<tr><td><code>search_grants</code></td><td>Open and forecast funding calls: US Grants.gov, EU Funding &amp; Tenders (Horizon Europe…), UKRI</td><td>$3 / 1,000 calls</td><td><a href="https://apify.com/tacps126/grants-radar" rel="noopener">grants-radar</a></td></tr>
+<tr><td><code>get_india_district_notices</code></td><td>Tenders, recruitment and announcements from India's 748 district websites, by state and district</td><td>$3 / 1,000 notices</td><td><a href="https://apify.com/tacps126/india-district-notices" rel="noopener">india-district-notices</a></td></tr>
+<tr><td><code>get_alerts</code></td><td>Official weather and disaster warnings: US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS, USGS</td><td>$2 / 1,000 alerts</td><td><a href="https://apify.com/tacps126/alerts-radar" rel="noopener">alerts-radar</a></td></tr>
+<tr><td><code>search_tenders</code></td><td>Public tenders and contract awards: US SAM.gov, EU TED and EU institutions, Ukraine, UK, France, Spain, Germany, Netherlands, Canada, Colombia, Australia, South Africa; by sector, CPV code or value</td><td>$4 / 1,000 notices</td><td><a href="https://apify.com/tacps126/tenders-radar" rel="noopener">tenders-radar</a></td></tr>
 <tr><td><code>search_google_news</code></td><td>Google News with the publisher's real article URL</td><td>$2 / 1,000 articles</td><td><a href="https://apify.com/tacps126/google-news" rel="noopener">google-news</a></td></tr>
+<tr><td><code>search_gov_updates</code></td><td>Official government updates: Federal Register, GOV.UK, EU Commission, SEC, Indian regulators (RBI, SEBI, TRAI, DGFT…), any RSS feed or list page, by sector</td><td>$3 / 1,000 updates</td><td><a href="https://apify.com/tacps126/gov-radar" rel="noopener">gov-radar</a></td></tr>
 <tr><td><code>search_research</code></td><td>Papers, preprints and patents from OpenAlex, arXiv, PubMed and Europe PMC; newest or most influential first</td><td>$3 / 1,000 results</td><td><a href="https://apify.com/tacps126/research-radar" rel="noopener">research-radar</a></td></tr>
 <tr><td><code>analyze_field</code></td><td>A technology field's opportunity score with reasons, growth, top companies and rising topics; several fields ranked</td><td>$0.03 / field</td><td><a href="https://apify.com/tacps126/innovation-radar" rel="noopener">innovation-radar</a></td></tr>
 <tr><td><code>validate_idea</code></td><td>How new or crowded an idea is, who is working on it, and the closest prior work</td><td>$0.03 / idea</td><td><a href="https://apify.com/tacps126/innovation-radar" rel="noopener">innovation-radar</a></td></tr>
 <tr><td><code>find_hiring_companies</code></td><td>Which companies are hiring for the roles you sell to</td><td>1¢ per company with a signal</td><td><a href="https://apify.com/tacps126/hiring-signals" rel="noopener">hiring-signals</a></td></tr>
 <tr><td><code>get_company_jobs</code></td><td>Every open job from company career pages or just company names (13 job-board systems)</td><td>$1 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/jobs-harvester" rel="noopener">jobs-harvester</a></td></tr>
 <tr><td><code>find_remote_jobs</code></td><td>Remote jobs from company career sites and remote-job feeds</td><td>$2 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/remote-jobs-scraper" rel="noopener">remote-jobs-scraper</a></td></tr>
-<tr><td><code>search_startup_jobs</code></td><td>Startup jobs on Wellfound with salary and equity</td><td>$2 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/wellfound-jobs-scraper" rel="noopener">wellfound-jobs-scraper</a></td></tr>
 <tr><td><code>search_tech_jobs</code></td><td>US tech jobs on Dice</td><td>$0.55 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/dice-jobs-scraper" rel="noopener">dice-jobs-scraper</a></td></tr>
 <tr><td><code>search_indeed_jobs</code></td><td>Indeed listings in 9 countries</td><td>$3 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/indeed-jobs" rel="noopener">indeed-jobs</a></td></tr>
 <tr><td><code>search_naukri_jobs</code></td><td>Naukri.com jobs (India) with full description and salary</td><td>$1.50 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/naukri-jobs-scraper" rel="noopener">naukri-jobs-scraper</a></td></tr>
 <tr><td><code>get_trustpilot_reviews</code></td><td>Trustpilot reviews, TrustScore and company profile</td><td>$0.50 / 1,000 reviews</td><td><a href="https://apify.com/tacps126/trustpilot-reviews" rel="noopener">trustpilot-reviews</a></td></tr>
 <tr><td><code>get_app_reviews</code></td><td>App Store and Google Play reviews</td><td>$0.20 / 1,000 reviews</td><td><a href="https://apify.com/tacps126/app-reviews" rel="noopener">app-reviews</a></td></tr>
 <tr><td><code>search_reddit</code></td><td>Reddit posts and comments by keyword or subreddit</td><td>$1 / 1,000 items</td><td><a href="https://apify.com/tacps126/reddit-monitor" rel="noopener">reddit-monitor</a></td></tr>
-<tr><td><code>find_reddit_leads</code></td><td>Reddit posts asking for a tool like yours or an alternative to a competitor</td><td>$2 / 1,000 leads</td><td><a href="https://apify.com/tacps126/reddit-lead-finder" rel="noopener">reddit-lead-finder</a></td></tr>
 <tr><td><code>find_website_contacts</code></td><td>Emails, phones and social profiles from websites</td><td>$2 / 1,000 sites with contacts</td><td><a href="https://apify.com/tacps126/contact-details" rel="noopener">contact-details</a></td></tr>
 <tr><td><code>search_german_property_listings</code></td><td>Rent and buy listings in Germany and Austria</td><td>$1 / 1,000 listings</td><td><a href="https://apify.com/tacps126/immobilienscout24-scraper" rel="noopener">immobilienscout24-scraper</a></td></tr>
 <tr><td><code>get_shopify_products</code></td><td>Prices, stock and variants from Shopify stores</td><td>$1 / 1,000 products</td><td><a href="https://apify.com/tacps126/shopify-products" rel="noopener">shopify-products</a></td></tr>
-<tr><td><code>analyze_shopify_stores</code></td><td>Shopify store location, catalog and contacts</td><td>$4 / 1,000 stores</td><td><a href="https://apify.com/tacps126/shopify-store-analyzer" rel="noopener">shopify-store-analyzer</a></td></tr>
 <tr><td><code>get_trade_show_exhibitors</code></td><td>Trade-show exhibitors with booths and contacts (91 shows or any supported link)</td><td>$2 / 1,000 exhibitors</td><td><a href="https://apify.com/tacps126/exhibition-scraper" rel="noopener">exhibition-scraper</a></td></tr>
 <tr><td><code>find_events</code></td><td>Upcoming events from Luma, Eventbrite and Meetup with organisers and tickets</td><td>$1 / 1,000 events</td><td><a href="https://apify.com/tacps126/events-scraper" rel="noopener">events-scraper</a></td></tr>
       </tbody>

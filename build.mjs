@@ -7,7 +7,7 @@ const SITE = 'https://tacps126.github.io';
 const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
 // Listings added in the last few weeks get a "New" badge.
-const NEW = new Set(['legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
+const NEW = new Set(['sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
   'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar']);
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -38,13 +38,15 @@ const CATS = [
   ['leads', 'Leads, events and contacts', ['contact-details', 'reddit-lead-finder', 'shopify-store-analyzer', 'exhibition-scraper',
     'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
   ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'research-radar', 'innovation-radar', 'reddit-monitor']],
-  ['gov', 'Government, tenders, grants, regulation and alerts', ['tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar']],
+  ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar']],
   ['commerce', 'E-commerce and real estate', ['shopify-products', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
 ];
 
 const MCP_TOOLS = [
   ['search_grants', 'Open and forecast funding calls: US Grants.gov, EU Funding & Tenders (Horizon Europe…), UKRI', 'grants-radar', '$3 / 1,000 calls'],
   ['get_india_district_notices', "Tenders, recruitment and announcements from India's 748 district websites, by state and district", 'india-district-notices', '$3 / 1,000 notices'],
+  ['screen_sanctions', 'Screen names against official OFAC, UN, EU, UK and Canada sanctions lists (verdict per name)', 'sanctions-screener', '$3 / 1,000 names'],
+  ['search_recalls', 'Product recalls and safety alerts: FDA, CPSC, Health Canada, UK FSA/OPSS, EU Safety Gate', 'recalls-radar', '$2 / 1,000 recalls'],
   ['search_legislation', 'New laws and bills: EU regulations and directives (EUR-Lex), UK Acts and SIs, US public laws and bills, Australian and Canadian regulations', 'legislation-radar', '$3 / 1,000 laws'],
   ['get_alerts', 'Official weather and disaster warnings: US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS, USGS', 'alerts-radar', '$2 / 1,000 alerts'],
   ['search_tenders', 'Public tenders and contract awards: US SAM.gov, EU TED and EU institutions, Ukraine, UK, France, Spain, Germany, Netherlands, Canada, Colombia, Australia, South Africa; by sector, CPV code or value', 'tenders-radar', '$4 / 1,000 notices'],
