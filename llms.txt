@@ -1,6 +1,6 @@
 # tacps126
 
-> Fast, low-cost web data tools built in Rust and published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
+> Fast, low-cost web data tools published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
 - [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): twenty-four tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/tacps126)

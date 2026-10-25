@@ -134,7 +134,7 @@ const header = (active) => `<div class="progress" aria-hidden="true"></div>
 const footer = () => `<footer>
   <div class="wrap">
     <div class="foot">
-      <div><strong style="color:var(--text)">${OWNER} (tacps126)</strong><br>Web data tools, built in Rust.<br><a href="mailto:${EMAIL}">${EMAIL}</a></div>
+      <div><strong style="color:var(--text)">${OWNER} (tacps126)</strong><br>Web data tools for jobs, news, reviews and leads.<br><a href="mailto:${EMAIL}">${EMAIL}</a></div>
       <ul>
         <li><a href="https://apify.com/${USER}">Tools on Apify</a></li>
         <li><a href="/mcp.html">MCP server</a></li>
@@ -240,7 +240,7 @@ const indexBody = `
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">Web data, built in Rust</span>
+        <span class="eyebrow">Web data, ready to use</span>
         <h1>Clean web data for <span class="grad" id="rotate" data-words="jobs, news, reviews and leads|remote and startup jobs|Reddit buying intent|Shopify store leads|trade-show exhibitors">jobs, news, reviews and leads</span></h1>
         <p class="lead">${used} ready-made tools that turn public web pages into consistent, spreadsheet-ready data. Fast, cheap to run, pay per result, no subscription. Use them from Apify, from code, or from your AI agent.</p>
         <div class="cta-row">
@@ -287,9 +287,9 @@ ${cards.join('\n')}
 
 <section id="why">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>Built to be fast and cheap to run</h2><p>The tools are small native programs, not heavy browser scripts. A typical run costs a fraction of a cent in platform usage, so the price you see is the price you pay.</p></div>
+    <div class="sec-head reveal"><h2>Built to be fast and cheap to run</h2><p>Runs start instantly and finish in seconds. A typical run costs a fraction of a cent in platform usage, so the price you see is the price you pay.</p></div>
     <div class="grid">
-      <div class="card reveal">${ico('bolt')}<h3>Rust, no browser by default</h3><p>Single static binaries that start instantly and run in 256 MB. A browser is used only where a site needs one.</p></div>
+      <div class="card reveal">${ico('bolt')}<h3>Fast and low cost</h3><p>Runs start instantly and finish in seconds, so platform usage stays a fraction of a cent for a typical run.</p></div>
       <div class="card reveal">${ico('coin')}<h3>Pay per result</h3><p>About $1 per 1,000 results for most tools. Where nothing is found you are not charged, and you can cap spend per run.</p></div>
       <div class="card reveal">${ico('refresh')}<h3>Only new, on a schedule</h3><p>Turn on only-new mode and each scheduled run returns just what changed, so alerts and feeds stay cheap.</p></div>
       <div class="card reveal">${ico('shield')}<h3>Careful with limits</h3><p>Rate limits are respected, failed requests are retried, and runs resume without charging twice.</p></div>
@@ -349,7 +349,7 @@ writeFileSync(
     title: `${OWNER} (tacps126) - web data tools for jobs, news, reviews and leads`,
     description: `${used} fast, low-cost web data tools on Apify: jobs from career pages, LinkedIn and Indeed, hiring signals, Google News, research papers and technology trends, Trustpilot and app reviews, Reddit, contacts, trade shows and events, real estate and Shopify. About $1 per 1,000 results, plus an MCP server for AI agents.`,
     body: indexBody,
-    jsonld: { '@context': 'https://schema.org', '@type': 'WebSite', name: `${OWNER} (tacps126)`, url: `${SITE}/`, description: 'Web data tools for jobs, news, reviews and leads, built in Rust.', author: { '@type': 'Person', name: OWNER, alternateName: 'tacps126', email: EMAIL, url: `https://github.com/${USER}` } },
+    jsonld: { '@context': 'https://schema.org', '@type': 'WebSite', name: `${OWNER} (tacps126)`, url: `${SITE}/`, description: 'Web data tools for jobs, news, reviews and leads', author: { '@type': 'Person', name: OWNER, alternateName: 'tacps126', email: EMAIL, url: `https://github.com/${USER}` } },
   }),
 );
 
@@ -587,7 +587,7 @@ writeFileSync(
   new URL('./llms.txt', import.meta.url),
   `# tacps126
 
-> Fast, low-cost web data tools built in Rust and published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
+> Fast, low-cost web data tools published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
 - [MCP server (webdata-tools-mcp)](${SITE}/mcp.html): ${nWord} tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/${USER})
