@@ -45,6 +45,7 @@ const CATS = [
 const MCP_TOOLS = [
   ['search_grants', 'Open and forecast funding calls: US Grants.gov, EU Funding & Tenders (Horizon Europe…), UKRI', 'grants-radar', '$3 / 1,000 calls'],
   ['get_india_district_notices', "Tenders, recruitment and announcements from India's 748 district websites, by state and district", 'india-district-notices', '$3 / 1,000 notices'],
+  ['get_supplier_contracts', 'Public contracts a company won (USAspending, TED, Contracts Finder) with a summary per company', 'tenders-radar', '$4 / 1,000 awards'],
   ['screen_sanctions', 'Screen names against official OFAC, UN, EU, UK and Canada sanctions lists (verdict per name)', 'sanctions-screener', '$3 / 1,000 names'],
   ['search_recalls', 'Product recalls and safety alerts: FDA, CPSC, Health Canada, UK FSA/OPSS, EU Safety Gate', 'recalls-radar', '$2 / 1,000 recalls'],
   ['search_legislation', 'New laws and bills: EU regulations and directives (EUR-Lex), UK Acts and SIs, US public laws and bills, Australian and Canadian regulations', 'legislation-radar', '$3 / 1,000 laws'],
