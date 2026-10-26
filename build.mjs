@@ -9,7 +9,7 @@ const OWNER = 'Tapaswai Choudhary';
 // Listings added in the last few weeks get a "New" badge.
 const NEW = new Set(['company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
-  'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar']);
+  'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar', 'youtube-transcripts']);
 const TODAY = new Date().toISOString().slice(0, 10);
 
 // ---------------------------------------------------------------- data
@@ -37,7 +37,7 @@ const CATS = [
     'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper']],
   ['leads', 'Leads, events and contacts', ['company-registry', 'contact-details', 'reddit-lead-finder', 'shopify-store-analyzer', 'exhibition-scraper',
     'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
-  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'research-radar', 'innovation-radar', 'reddit-monitor']],
+  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'research-radar', 'innovation-radar', 'reddit-monitor']],
   ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar']],
   ['commerce', 'E-commerce and real estate', ['shopify-products', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
 ];
@@ -45,15 +45,16 @@ const CATS = [
 const MCP_TOOLS = [
   ['search_grants', 'Open and forecast funding calls: US Grants.gov, EU Funding & Tenders (Horizon Europe…), UKRI', 'grants-radar', '$3 / 1,000 calls'],
   ['get_india_district_notices', "Tenders, recruitment and announcements from India's 748 district websites, by state and district", 'india-district-notices', '$3 / 1,000 notices'],
-  ['find_companies', 'New companies and insolvencies (France, Norway, Finland) and company search with officers, plus the LEI index', 'company-registry', '$2.50 / 1,000 companies'],
+  ['find_companies', 'New companies and insolvencies (France, Norway, Finland, Estonia, US: New York, Colorado, Connecticut, Oregon) and company search with officers, plus the LEI index', 'company-registry', '$2.50 / 1,000 companies'],
   ['get_supplier_contracts', 'Public contracts a company won (USAspending, TED, Contracts Finder) with a summary per company', 'tenders-radar', '$4 / 1,000 awards'],
-  ['screen_sanctions', 'Screen names against official OFAC, UN, EU, UK and Canada sanctions lists (verdict per name)', 'sanctions-screener', '$3 / 1,000 names'],
+  ['screen_sanctions', 'Screen names against official OFAC, UN, EU, UK, Canada and Switzerland sanctions lists (verdict per name)', 'sanctions-screener', '$3 / 1,000 names'],
   ['search_recalls', 'Product recalls and safety alerts: FDA, CPSC, Health Canada, UK FSA/OPSS, EU Safety Gate', 'recalls-radar', '$2 / 1,000 recalls'],
   ['search_legislation', 'New laws and bills: EU regulations and directives (EUR-Lex), UK Acts and SIs, US public laws and bills, Australian and Canadian regulations', 'legislation-radar', '$3 / 1,000 laws'],
   ['get_alerts', 'Official weather and disaster warnings: US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS, USGS', 'alerts-radar', '$2 / 1,000 alerts'],
   ['search_tenders', 'Public tenders and contract awards: US SAM.gov, EU TED and EU institutions, Ukraine, UK, France, Spain, Germany, Netherlands, Canada, Colombia, Australia, South Africa; by sector, CPV code or value', 'tenders-radar', '$4 / 1,000 notices'],
   ['search_google_news', "Google News with the publisher's real article URL", 'google-news', '$2 / 1,000 articles'],
   ['search_gov_updates', 'Official government updates: Federal Register, GOV.UK, EU Commission, SEC, Indian regulators (RBI, SEBI, TRAI, DGFT…), any RSS feed or list page, by sector', 'gov-radar', '$3 / 1,000 updates'],
+  ['get_youtube_transcripts', 'Full transcripts of YouTube videos, playlists, channels or searches, with timed captions', 'youtube-transcripts', '$2.50 / 1,000 transcripts'],
   ['search_research', 'Papers, preprints and patents from OpenAlex, arXiv, PubMed and Europe PMC; newest or most influential first', 'research-radar', '$3 / 1,000 results'],
   ['analyze_field', "A technology field's opportunity score with reasons, growth, top companies and rising topics; several fields ranked", 'innovation-radar', '$0.03 / field'],
   ['validate_idea', 'How new or crowded an idea is, who is working on it, and the closest prior work', 'innovation-radar', '$0.03 / idea'],
@@ -336,7 +337,7 @@ ${cards.join('\n')}
     <div class="sec-head reveal"><h2>Open source and code</h2><p>Small things I publish openly.</p></div>
     <div class="grid two">
       <a class="card reveal spot" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener"><h3>webdata-tools-mcp</h3><p>The MCP server. MIT licensed, listed in the official MCP Registry, on npm, Smithery, Glama and MCPRush.</p><div class="badges"><img alt="npm version" src="https://img.shields.io/npm/v/webdata-tools-mcp" height="20"><img alt="license MIT" src="https://img.shields.io/badge/license-MIT-blue.svg" height="20"></div></a>
-      <a class="card reveal spot" href="https://github.com/${USER}/apify-data-recipes" rel="noopener"><h3>apify-data-recipes</h3><p>Copy-paste scripts for hiring signals, news alerts, review monitoring, contact enrichment, Reddit leads, Shopify store leads and job feeds.</p></a>
+      <a class="card reveal spot" href="https://github.com/${USER}/apify-data-recipes" rel="noopener"><h3>apify-data-recipes</h3><p>Copy-paste scripts for hiring signals, news alerts, review monitoring, contact enrichment, Shopify store leads and job feeds.</p></a>
     </div>
   </div>
 </section>`;
