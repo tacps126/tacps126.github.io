@@ -55,8 +55,8 @@ const MCP_TOOLS = [
   ['search_google_news', "Google News with the publisher's real article URL", 'google-news', '$2 / 1,000 articles'],
   ['search_gov_updates', 'Official government updates: Federal Register, GOV.UK, EU Commission, SEC, Indian regulators (RBI, SEBI, TRAI, DGFT…), any RSS feed or list page, by sector', 'gov-radar', '$3 / 1,000 updates'],
   ['get_youtube_transcripts', 'Full transcripts of YouTube videos, playlists, channels or searches, with timed captions', 'youtube-transcripts', '$2.50 / 1,000 transcripts'],
-  ['search_research', 'Papers, preprints and patents from OpenAlex, arXiv, PubMed and Europe PMC; newest or most influential first', 'research-radar', '$3 / 1,000 results'],
-  ['analyze_field', "A technology field's opportunity score with reasons, growth, top companies and rising topics; several fields ranked", 'innovation-radar', '$0.03 / field'],
+  ['search_research', 'Papers, preprints and patents from OpenAlex, arXiv, PubMed, Europe PMC and the European Patent Office (worldwide); newest or most influential first', 'research-radar', '$3 / 1,000 results'],
+  ['analyze_field', "A technology field's opportunity score with reasons, growth, top companies, rising topics, patent trend and possibly free-to-use patents; several fields ranked", 'innovation-radar', '$0.03 / field'],
   ['validate_idea', 'How new or crowded an idea is, who is working on it, and the closest prior work', 'innovation-radar', '$0.03 / idea'],
   ['find_hiring_companies', 'Which companies are hiring for the roles you sell to', 'hiring-signals', '1¢ per company with a signal'],
   ['get_company_jobs', 'Every open job from company career pages or just company names (13 job-board systems)', 'jobs-harvester', '$1 / 1,000 jobs'],
@@ -337,7 +337,7 @@ ${cards.join('\n')}
     <div class="sec-head reveal"><h2>Open source and code</h2><p>Small things I publish openly.</p></div>
     <div class="grid two">
       <a class="card reveal spot" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener"><h3>webdata-tools-mcp</h3><p>The MCP server. MIT licensed, listed in the official MCP Registry, on npm, Smithery, Glama and MCPRush.</p><div class="badges"><img alt="npm version" src="https://img.shields.io/npm/v/webdata-tools-mcp" height="20"><img alt="license MIT" src="https://img.shields.io/badge/license-MIT-blue.svg" height="20"></div></a>
-      <a class="card reveal spot" href="https://github.com/${USER}/apify-data-recipes" rel="noopener"><h3>apify-data-recipes</h3><p>Copy-paste scripts for hiring signals, news alerts, review monitoring, contact enrichment, Shopify store leads and job feeds.</p></a>
+      <a class="card reveal spot" href="https://github.com/${USER}/apify-data-recipes" rel="noopener"><h3>apify-data-recipes</h3><p>Copy-paste scripts for hiring signals, news alerts, review monitoring, contact enrichment, Reddit leads, new-company leads, sanctions checks, recall alerts, YouTube transcripts, Shopify store leads and job feeds.</p></a>
     </div>
   </div>
 </section>`;
