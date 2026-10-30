@@ -7,6 +7,7 @@ Writes icon-512.png, icon-192.png, apple-touch-icon.png, favicon.png and og.png 
 The same icon.png (512 x 512) is copied by hand into the webdata-tools-mcp repo.
 favicon.svg is hand-written SVG of the same glyph.
 """
+import sys
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -73,6 +74,7 @@ d.text((260, 100), "tacps126", font=font(54), fill=(255, 255, 255, 255))
 d.text((260, 165), "web data tools on Apify", font=font(30), fill=(165, 180, 252, 255))
 d.text((80, 330), "Clean web data for jobs,", font=font(76), fill=(255, 255, 255, 255))
 d.text((80, 420), "news, reviews and leads.", font=font(76), fill=(255, 255, 255, 255))
-d.text((80, 545), "About $1 per 1,000 results  ·  40+ tools on Apify  ·  MCP server for AI agents", font=font(30), fill=(148, 163, 184, 255))
+TOOLS = sys.argv[1] if len(sys.argv) > 1 else "50+"
+d.text((80, 545), f"About $1 per 1,000 results  ·  {TOOLS} tools on Apify  ·  MCP server for AI agents", font=font(30), fill=(148, 163, 184, 255))
 og.convert("RGB").save(OUT / "og.png")
 print("assets written")

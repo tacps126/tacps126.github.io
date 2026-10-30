@@ -150,3 +150,5 @@ table.sample td:last-child { color:var(--muted); word-break:break-all; }
 #rotate { display:inline-block; transition:opacity .35s, transform .35s; }
 #rotate.out { opacity:0; transform:translateY(8px); }
 @media (prefers-reduced-motion: reduce) { .spot::before, #rotate, .progress { transition:none; } }
+
+.chip .n { opacity:.7; font-weight:400; margin-left:4px; font-size:.85em; }

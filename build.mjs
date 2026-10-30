@@ -1,6 +1,7 @@
 // Generates the whole site from the public Apify Store listing of tacps126.
 // Usage: node build.mjs        (no token needed; it reads public Apify pages only)
 import { writeFileSync, readFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 
 const USER = 'tacps126';
 const SITE = 'https://tacps126.github.io';
@@ -171,9 +172,12 @@ const page = ({ path, title, description, body, active, jsonld }) => `<!doctype 
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${SITE}${path}">
-<meta property="og:image" content="${SITE}/og.png">
+<meta property="og:image" content="${OG}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="tacps126: clean web data for jobs, news, reviews and leads">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="${SITE}/og.png">
+<meta name="twitter:image" content="${OG}">
 <link rel="stylesheet" href="/style.css">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
@@ -232,9 +236,28 @@ const cards = CATS.flatMap(([key, label, names]) =>
     }),
 );
 
-const chips = [['all', 'All'], ...CATS.map(([k, l]) => [k, l])]
-  .map(([k, l], i) => `<button class="chip" type="button" data-cat="${k}" aria-pressed="${i === 0}">${esc(l)}</button>`)
+const catCount = (names) => names.filter((n) => byName.has(n)).length;
+const chips = [['all', 'All', used], ...CATS.map(([k, l, names]) => [k, l, catCount(names)])]
+  .map(([k, l, n], i) => `<button class="chip" type="button" data-cat="${k}" aria-pressed="${i === 0}">${esc(l)} <span class="n">${n}</span></button>`)
   .join('');
+
+// Honest live numbers from the Store: runs by the public in the last 30 days
+// and how many succeeded. Shown only once there is enough to mean something.
+const runs30 = items.reduce((a, i) => {
+  const r = i.stats?.publicActorRunStats30Days || {};
+  return { total: a.total + (r.TOTAL || 0), ok: a.ok + (r.SUCCEEDED || 0) };
+}, { total: 0, ok: 0 });
+const okShare = runs30.total >= 50 ? Math.floor((100 * runs30.ok) / runs30.total) : null;
+
+// The share image's URL carries a hash of its bytes, so Discord, Slack and
+// LinkedIn (which cache previews per URL) fetch a new image when it changes.
+const OG = `${SITE}/og.png?v=${createHash('sha256').update(readFileSync(new URL('./og.png', import.meta.url))).digest('hex').slice(0, 10)}`;
+
+// One call from any language: the run-sync endpoint returns the results.
+const API_CALL = `curl -X POST \\
+  "https://api.apify.com/v2/acts/${USER}~google-news/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&format=json" \\
+  -H "Content-Type: application/json" \\
+  -d '{"queries": ["electric vehicles"], "maxItems": 20}'`;
 
 const indexBody = `
 <section class="hero">
@@ -254,8 +277,9 @@ const indexBody = `
         <p class="caption">Which AI companies are hiring security and data roles: one row per company, scored.</p>
       </div>
     </div>
-    <div class="stats">
-      <div class="stat"><b data-count="${used}">${used}</b><span>tools on Apify</span></div>
+    <div class="stats${okShare ? ' five' : ''}">
+      <div class="stat"><b data-count="${used}">${used}</b><span>tools on Apify</span></div>${okShare ? `
+      <div class="stat"><b>${okShare}%</b><span>of ${runs30.total.toLocaleString('en-US')} public runs succeeded in the last 30 days</span></div>` : ''}
       <div class="stat"><b data-count="13">13</b><span>job-board systems in one format</span></div>
       <div class="stat"><b data-count="${N}">${N}</b><span>tools in the MCP server</span></div>
       <div class="stat"><b data-count="91">91</b><span>trade shows built in</span></div>
@@ -294,6 +318,30 @@ ${cards.join('\n')}
       <div class="card reveal">${ico('coin')}<h3>Pay per result</h3><p>About $1 per 1,000 results for most tools. Where nothing is found you are not charged, and you can cap spend per run.</p></div>
       <div class="card reveal">${ico('refresh')}<h3>Only new, on a schedule</h3><p>Turn on only-new mode and each scheduled run returns just what changed, so alerts and feeds stay cheap.</p></div>
       <div class="card reveal">${ico('shield')}<h3>Careful with limits</h3><p>Rate limits are respected, failed requests are retried, and runs resume without charging twice.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="code">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">From code</span>
+      <div class="sec-head" style="margin-top:14px"><h2>One call, results back</h2><p>Every tool is an HTTP endpoint. Send the input, get the rows back as JSON, CSV, Excel or XML, or run it on a schedule and get a webhook when new items arrive. Works from any language, Make, n8n or Zapier.</p></div>
+      <div class="cta-row"><a class="btn" href="https://docs.apify.com/api/v2" rel="noopener">API reference</a><a class="btn" href="https://github.com/${USER}/apify-data-recipes" rel="noopener">Ready-made recipes</a></div>
+    </div>
+    <div class="reveal">${code('terminal', API_CALL)}</div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Before you start</h2></div>
+    <div class="faq reveal">
+      <details><summary>How do I try a tool?</summary><p>Open it on Apify and press Start. Apify's free plan includes monthly credit, enough to try every tool on real data.</p></details>
+      <details><summary>What does it cost?</summary><p>You pay per result, about $1 per 1,000 for most tools. Searches that find nothing are not charged, and every run can be capped at a spend limit you set.</p></details>
+      <details><summary>What happens when a website changes?</summary><p>The tools are run against their live sources on a schedule. When a site changes, the tool is fixed and a note goes into its changelog.</p></details>
+      <details><summary>Can it read pages behind a login or a captcha?</summary><p>No. The tools read public pages only and never solve captchas. A few accept your own sign-in for pages your account can see, and say plainly when a source is closed.</p></details>
+      <details><summary>Which formats can I get?</summary><p>JSON, CSV, Excel, XML or HTML from the run's dataset, a Google Sheet, Slack, Discord or any webhook, and only-new results on a schedule.</p></details>
     </div>
   </div>
 </section>
