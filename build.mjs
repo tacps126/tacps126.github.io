@@ -41,7 +41,9 @@ const CATS = [
     'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
   ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'research-radar', 'innovation-radar', 'reddit-monitor']],
   ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar']],
-  ['commerce', 'E-commerce and real estate', ['shopify-products', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
+  ['commerce', 'E-commerce, vehicles and real estate', ['shopify-products', 'copart-auctions', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
+  ['finance', 'Finance and markets', ['short-interest']],
+  ['travel', 'Travel and transit', ['transit-timetables']],
 ];
 
 const MCP_TOOLS = [
@@ -112,6 +114,8 @@ const ICONS = {
   target: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>',
   star: '<svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>',
   chart: '<svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>',
+  train: '<svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M9 21l2-4M15 21l-2-4"/><circle cx="9" cy="14" r=".5"/><circle cx="15" cy="14" r=".5"/></svg>',
+  trend: '<svg viewBox="0 0 24 24"><path d="M3 6l7 7 4-4 7 7M21 10v6h-6"/></svg>',
   bolt: '<svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>',
   coin: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9a2.5 2 0 0 0-2.5-1.5c-1.4 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2A2.5 2 0 0 1 9.5 15M12 6v2M12 16v2"/></svg>',
   refresh: '<svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.9-3M4 4v4h4M4 13a8 8 0 0 0 14.9 3M20 20v-4h-4"/></svg>',
@@ -438,7 +442,9 @@ const indexBody = `
       <a class="card reveal spot" href="#tools" data-filter="jobs">${ico('briefcase')}<h3>Recruiting and job boards</h3><p>Every open role from company career pages (13 systems, or just type a company name), LinkedIn, Indeed, Glassdoor, Wellfound, Dice and remote-job feeds in one format, with only-new mode for daily feeds.</p></a>
       <a class="card reveal spot" href="#tools" data-filter="leads">${ico('target')}<h3>Sales and lead generation</h3><p>Hiring signals show who is hiring for the roles you sell to. Reddit Lead Finder spots people asking for a tool like yours. Contact details and the Shopify Store Analyzer add emails, phones and socials.</p></a>
       <a class="card reveal spot" href="#tools" data-filter="reviews">${ico('star')}<h3>Brand and reputation</h3><p>Trustpilot and app-store reviews, Google News with real publisher links, and Reddit mentions, with alerts on new items only.</p></a>
-      <a class="card reveal spot" href="#tools" data-filter="commerce">${ico('chart')}<h3>Market and property data</h3><p>Shopify prices, discounts and stock, plus property listings in Germany, Austria, the UK and the Gulf with coordinates and price per square metre.</p></a>
+      <a class="card reveal spot" href="#tools" data-filter="commerce">${ico('chart')}<h3>Market, vehicle and property data</h3><p>Shopify prices, discounts and stock, Copart salvage and used car auctions with bids and damage, and property listings in Germany, Austria, the UK and the Gulf with coordinates and price per square metre.</p></a>
+      <a class="card reveal spot" href="#tools" data-filter="finance">${ico('trend')}<h3>Short interest and markets</h3><p>Official short interest for every US stock with days to cover and change, plus daily short-sale volume, by ticker or for the whole market.</p></a>
+      <a class="card reveal spot" href="#tools" data-filter="travel">${ico('train')}<h3>Transit and travel</h3><p>Journeys, next departures, stops and routes from the official timetables of ~2,900 cities and operators, with bus and metro planned in one journey.</p></a>
     </div>
   </div>
 </section>

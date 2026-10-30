@@ -61,9 +61,16 @@
 - [India District Notices — Tenders, Recruitment & Announcements](https://apify.com/tacps126/india-district-notices): Tenders, recruitment and announcements from the official websites of India's 748 districts, by state and district:… (From $3 per 1,000 notices)
 - [Alerts Radar — Weather & Disaster Warnings](https://apify.com/tacps126/alerts-radar): Official weather and disaster warnings in one schema: US National Weather Service, MeteoAlarm (38 European countries),… (From $2 per 1,000 alerts)
 
-## E-commerce and real estate
+## E-commerce, vehicles and real estate
 - [Shopify Products Scraper](https://apify.com/tacps126/shopify-products): Scrape products from any Shopify store — prices, sale prices, discounts, stock, variants, SKUs, images and… (From $1 per 1,000 products)
+- [Copart Auctions Scraper — Salvage & Used Cars, Bids, Damage](https://apify.com/tacps126/copart-auctions): Copart US salvage and used vehicle lots from any search: year, make, model, VIN, damage, title, odometer, estimated…
 - [Property Listings: ImmoScout24, Rightmove, Property Finder](https://apify.com/tacps126/property-listings): Property listings from ImmoScout24 (DE, AT), Rightmove (UK) and Property Finder (UAE, KSA, Qatar, Bahrain, Egypt) in… (From $1 per 1,000 listings)
 - [ImmobilienScout24 Scraper](https://apify.com/tacps126/immobilienscout24-scraper): Scrape ImmobilienScout24 apartments and houses for rent or sale in Germany and Austria: price, warm rent, m², rooms,… (From $1 per 1,000 listings)
 - [Rightmove Scraper](https://apify.com/tacps126/rightmove-scraper): Scrape Rightmove properties to rent or buy anywhere in the UK: price, bedrooms, bathrooms, address and postcode, GPS,… (From $1 per 1,000 listings)
 - [Property Finder Scraper](https://apify.com/tacps126/propertyfinder-scraper): Scrape Property Finder listings in the UAE, Saudi Arabia, Qatar, Bahrain and Egypt: price, bedrooms, size, location,… (From $1 per 1,000 listings)
+
+## Finance and markets
+- [Short Interest & Short Volume — FINRA, All US Stocks](https://apify.com/tacps126/short-interest): FINRA short interest for every US stock (NYSE, Nasdaq, Arca, Cboe, OTC): short interest, change, days to cover, average…
+
+## Travel and transit
+- [Transit Journey Planner & Timetables — Bus, Metro, Rail](https://apify.com/tacps126/transit-timetables): Public transport for ~2,900 cities and operators from their official timetables: journeys from A to B with changes and…
