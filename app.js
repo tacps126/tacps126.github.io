@@ -155,14 +155,57 @@
   document.querySelectorAll('.card').forEach(function (c) {
     c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
   });
-  // pricing estimate
-  var ct = document.getElementById('calc-tool'), cn = document.getElementById('calc-n'), cu = document.getElementById('calc-usd'), cnote = document.getElementById('calc-note');
-  if (ct && cn && cu) {
-    var est = function () {
-      var unit = parseFloat(ct.value), n = Math.max(0, parseInt(cn.value || '0', 10)), usd = unit * n;
-      cu.textContent = '$' + (usd < 10 ? usd.toFixed(2) : Math.round(usd).toLocaleString('en-US'));
-      cnote.textContent = n.toLocaleString('en-US') + ' ' + ct.selectedOptions[0].dataset.what + (n === 1 ? '' : 's') + ' on Apify\'s free plan; paid plans pay less';
+  // pricing estimate: a searchable tool picker, a stepper and presets
+  var combo = document.getElementById('calc-tool'), cn = document.getElementById('calc-n'), cu = document.getElementById('calc-usd'), cnote = document.getElementById('calc-note');
+  if (combo && cn && cu) {
+    var MAX = 10000000, btn = combo.querySelector('.combo-btn'), pop = combo.querySelector('.combo-pop'), q = combo.querySelector('.combo-search');
+    var opts = [].slice.call(combo.querySelectorAll('[role=option]')), groups = [].slice.call(combo.querySelectorAll('.combo-group'));
+    var num = function () { return Math.min(MAX, Math.max(0, parseInt(String(cn.value).replace(/[^0-9]/g, '') || '0', 10))); };
+    var usdText = function (v) {
+      if (v < 10) return '$' + v.toFixed(2);
+      if (v < 100000) return '$' + Math.round(v).toLocaleString('en-US');
+      return '$' + new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 1 }).format(v);
     };
-    ct.addEventListener('change', est); cn.addEventListener('input', est); est();
+    var est = function () {
+      var unit = parseFloat(combo.dataset.value || '0'), n = num(), what = combo.dataset.what || 'result';
+      cu.textContent = unit ? usdText(unit * n) : '–';
+      cnote.textContent = unit ? n.toLocaleString('en-US') + ' ' + what + (n === 1 ? '' : 's') + ' on Apify\'s free plan; paid plans pay less' : 'Choose a tool';
+    };
+    var choose = function (o) {
+      opts.forEach(function (x) { x.setAttribute('aria-selected', x === o); });
+      combo.dataset.value = o.dataset.value; combo.dataset.what = o.dataset.what;
+      combo.querySelector('.combo-val').textContent = o.querySelector('span').textContent;
+      close(); est();
+    };
+    var visible = function () { return opts.filter(function (o) { return !o.hidden; }); };
+    var open = function () { pop.hidden = false; btn.setAttribute('aria-expanded', 'true'); q.value = ''; filter(); q.focus(); };
+    var close = function () { pop.hidden = true; btn.setAttribute('aria-expanded', 'false'); };
+    var filter = function () {
+      var t = q.value.trim().toLowerCase();
+      opts.forEach(function (o) { o.hidden = !!t && o.textContent.toLowerCase().indexOf(t) === -1; });
+      groups.forEach(function (g) { var n = g.nextElementSibling, any = false; while (n && !n.classList.contains('combo-group')) { if (!n.hidden) any = true; n = n.nextElementSibling; } g.hidden = !any; });
+    };
+    btn.addEventListener('click', function () { pop.hidden ? open() : close(); });
+    q.addEventListener('input', filter);
+    opts.forEach(function (o) { o.addEventListener('click', function () { choose(o); btn.focus(); }); });
+    combo.addEventListener('keydown', function (e) {
+      var v = visible(), i = v.indexOf(document.activeElement);
+      if (e.key === 'Escape') { close(); btn.focus(); }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); if (pop.hidden) open(); else (v[i + 1] || v[0]).focus(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); (v[i - 1] || q).focus(); }
+      else if (e.key === 'Enter' && i >= 0) { e.preventDefault(); choose(v[i]); btn.focus(); }
+    });
+    document.addEventListener('click', function (e) { if (!combo.contains(e.target)) close(); });
+    var setN = function (n) { cn.value = Math.min(MAX, Math.max(1, n)).toLocaleString('en-US'); est(); };
+    document.querySelectorAll('[data-step]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var n = num(), up = b.dataset.step === '1', step = Math.pow(10, Math.max(2, String(Math.max(1, up ? n : n - 1)).length - 1));
+        setN(up ? n + step : n - step);
+      });
+    });
+    document.querySelectorAll('.preset').forEach(function (b) { b.addEventListener('click', function () { setN(parseInt(b.dataset.n, 10)); }); });
+    cn.addEventListener('input', function () { var n = num(); if (String(cn.value).replace(/[^0-9]/g, '').length > 8) cn.value = n.toLocaleString('en-US'); est(); });
+    cn.addEventListener('blur', function () { setN(num() || 1); });
+    choose(opts[0]);
   }
 })();

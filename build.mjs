@@ -194,13 +194,12 @@ function decorate(body) {
     }
     seen.add(id);
     toc.push([id, label]);
-    const num = String(toc.length).padStart(2, '0');
     const rest = chunk.slice(tag.length);
     const at = rest.indexOf('<h2', rest.indexOf('class="sec-head'));
-    return newTag + rest.slice(0, at) + `<span class="sec-num">${num}</span>` + rest.slice(at);
+    return newTag + rest.slice(0, at) + `<span class="sec-num">${esc(label)}</span>` + rest.slice(at);
   });
   const nav = toc.length >= 3
-    ? `<nav class="toc" aria-label="On this page">${toc.map(([id, l], i) => `<a href="#${id}" data-toc="${id}"><i>${String(i + 1).padStart(2, '0')}</i><span>${esc(l)}</span></a>`).join('')}</nav>\n`
+    ? `<nav class="toc" aria-label="On this page">${toc.map(([id, l]) => `<a href="#${id}" data-toc="${id}" aria-label="${esc(l)}"><span>${esc(l)}</span></a>`).join('')}</nav>\n`
     : '';
   return nav + out.join('<section');
 }
@@ -741,9 +740,26 @@ const pricingBody = `
   <div class="wrap">
     <div class="sec-head"><h2>What would it cost?</h2><p>Pick a tool and how many results you need.</p></div>
     <div class="calc">
-      <label>Tool<select id="calc-tool">${CATS.flatMap(([, , names]) => toolsOf(names)).map(priceRow).filter((r) => r.unit).map((r) => `<option value="${r.unit}" data-what="${esc(r.what)}">${esc(r.a.title)}</option>`).join('')}</select></label>
-      <label>Results<input id="calc-n" type="number" min="1" step="100" value="1000"></label>
-      <div class="calc-out"><b id="calc-usd">–</b><span id="calc-note">on Apify's free plan; paid plans pay less</span></div>
+      <div class="field"><span class="flabel" id="calc-tool-l">Tool</span>
+        <div class="combo" id="calc-tool" data-value="" data-what="">
+          <button class="combo-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="calc-tool-l"><span class="combo-val">Choose a tool</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="combo-pop" hidden>
+            <input class="combo-search" type="search" placeholder="Search ${used} tools" aria-label="Search tools" autocomplete="off">
+            <ul role="listbox" aria-labelledby="calc-tool-l">
+${CATS.map(([k, label, names]) => {
+  const rows = toolsOf(names).map(priceRow).filter((r) => r.unit);
+  return rows.length ? `<li class="combo-group" role="presentation">${esc(CAT_SHORT[k] || label)}</li>
+` + rows.map((r) => `<li role="option" tabindex="-1" data-value="${r.unit}" data-what="${esc(r.what)}"><span>${esc(r.a.title)}</span><small>${money(r.unit * 1000)} / 1k</small></li>`).join('\n') : '';
+}).join('\n')}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="field"><label class="flabel" for="calc-n">Results</label>
+        <div class="stepper"><button type="button" data-step="-1" aria-label="Fewer">−</button><input id="calc-n" type="text" inputmode="numeric" value="1,000" maxlength="11"><button type="button" data-step="1" aria-label="More">+</button></div>
+        <div class="presets">${[100, 1000, 10000, 100000].map((n) => `<button type="button" class="preset" data-n="${n}">${n >= 1000 ? n / 1000 + 'k' : n}</button>`).join('')}</div>
+      </div>
+      <div class="calc-out" aria-live="polite"><b id="calc-usd">–</b><span id="calc-note">Choose a tool</span></div>
     </div>
   </div>
 </section>
