@@ -427,3 +427,30 @@ td.num { font-variant-numeric:tabular-nums; white-space:nowrap; } td small { col
 .mactor { font-size:.85rem; color:var(--muted); margin-top:auto; } .mactor:hover { color:var(--accent); text-decoration:none; }
 
 @media (max-width:640px) { .xchip, .pchip { white-space:normal; flex-wrap:wrap; } }
+
+/* ---- questions and answers: roomy, a +/× marker, lift on hover, smooth open ---- */
+details { margin:0 0 14px; padding:0; border-radius:16px; border:1px solid var(--border); background:var(--surface); box-shadow:3px 3px 0 0 var(--edge1); transition:transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .2s, border-color .2s; max-width:880px; }
+details:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 0 var(--edge1); border-color:color-mix(in srgb, var(--accent) 45%, var(--border)); }
+details[open] { border-color:color-mix(in srgb, var(--accent) 60%, var(--border)); box-shadow:5px 5px 0 0 var(--accent); }
+summary { list-style:none; display:flex; align-items:center; justify-content:space-between; gap:18px; padding:20px 24px; cursor:pointer; font:600 1.04rem/1.4 var(--display); letter-spacing:-.01em; }
+summary::-webkit-details-marker { display:none; }
+summary::after { content:""; flex:none; width:30px; height:30px; border-radius:10px; border:1px solid var(--border);
+  background:linear-gradient(var(--accent),var(--accent)) center/12px 2px no-repeat, linear-gradient(var(--accent),var(--accent)) center/2px 12px no-repeat, var(--bg);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1), background-color .2s; }
+details[open] summary::after { background:linear-gradient(#fff,#fff) center/12px 2px no-repeat, linear-gradient(90deg, var(--accent), var(--accent2)); border-color:transparent; }
+details:hover summary::after { border-color:var(--accent); }
+details p, details ul { margin:0; padding:0 24px 22px; color:var(--muted); line-height:1.75; max-width:72ch; }
+details > *:not(summary) { animation:qa-in .3s ease; }
+@keyframes qa-in { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
+.faq, #faq .wrap > div:not(.sec-head) { max-width:880px; }
+
+/* ---- monospace as a technical accent (labels, numbers, prices), prose stays readable ---- */
+.nav-links a, .eyebrow, .sec-num, .tag, .chip, .preset, .flabel, .post-meta, .price, .pchip, .xchip, .stat span, .cov b, .cov-panel li span,
+th, td.num, .count, .legend, .toc span, .mactor, .back, .caption, .combo-pop small, .calc-out span, footer .fine {
+  font-family:var(--mono); letter-spacing:-.01em;
+}
+.nav-links a { font-size:.88rem; }
+.stat span, .caption, .calc-out span, footer .fine { font-size:.82rem; }
+.eyebrow, .sec-num { letter-spacing:.06em; }
+
+@media (prefers-reduced-motion: reduce) { details, details > *:not(summary) { animation:none; transition:none; } }

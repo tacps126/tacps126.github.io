@@ -2,6 +2,7 @@
 // Usage: node build.mjs        (no token needed; it reads public Apify pages only)
 import { writeFileSync, readFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { spawnSync } from 'node:child_process';
 
 const USER = 'tacps126';
 const SITE = 'https://tacps126.github.io';
@@ -333,6 +334,34 @@ const coverPanels = cover
 </div>`)
   .join('\n');
 
+// Price range from the Store (main event, free-plan tier, per 1,000), so the
+// copy follows price changes: "from $0.20 per 1,000; most $1–$3".
+const per1k = items
+  .map((a) => Object.values(a.currentPricingInfo?.pricingPerEvent?.actorChargeEvents || {}).find((e) => e.isPrimaryEvent))
+  .map((e) => (e ? (e.eventTieredPricingUsd?.FREE?.tieredEventPriceUsd ?? e.eventPriceUsd) : null))
+  .filter((u) => u && u < 0.01)
+  .map((u) => u * 1000)
+  .sort((a, b) => a - b);
+const q = (f) => per1k[Math.min(per1k.length - 1, Math.floor(f * per1k.length))] || 1;
+const usd = (v) => `$${Number.isInteger(v) ? v : v.toFixed(2)}`;
+const PRICE_FROM = usd(per1k[0] || 1);
+const PRICE_MOST = q(0.25) === q(0.75) ? usd(q(0.5)) : `${usd(q(0.25))}–${usd(q(0.75))}`;
+
+// The social preview is drawn from these same numbers on every build
+// (scripts/og.py, needs Pillow); without Pillow the last image stays.
+writeFileSync(new URL('./data/og.json', import.meta.url), JSON.stringify({
+  name: OWNER,
+  topics: 'jobs, news, reviews and leads.',
+  tools: used,
+  okShare,
+  mcpTools: N,
+  from: PRICE_FROM,
+  cats: CATS.map(([k, , names]) => [k, CAT_SHORT[k] || k, catCount(names)]),
+  dots: allTools.map(({ a, k }) => ({ cat: k, runs: runsOf(a) })).sort((x, y) => y.runs - x.runs),
+}));
+const og = spawnSync('python3', ['scripts/og.py', 'data/og.json'], { cwd: new URL('.', import.meta.url), stdio: 'inherit' });
+if (og.status !== 0) console.warn('og.png not redrawn (python3 with Pillow needed); keeping the last one');
+
 // The share image's URL carries a hash of its bytes, so Discord, Slack and
 // LinkedIn (which cache previews per URL) fetch a new image when it changes.
 const OG = `${SITE}/og.png?v=${createHash('sha256').update(readFileSync(new URL('./og.png', import.meta.url))).digest('hex').slice(0, 10)}`;
@@ -430,7 +459,7 @@ ${cards.join('\n')}
     <div class="sec-head reveal"><h2>Built to be fast and cheap to run</h2><p>Runs start instantly and finish in seconds. A typical run costs a fraction of a cent in platform usage, so the price you see is the price you pay.</p></div>
     <div class="grid">
       <div class="card reveal">${ico('bolt')}<h3>Fast and low cost</h3><p>Runs start instantly and finish in seconds, so platform usage stays a fraction of a cent for a typical run.</p></div>
-      <div class="card reveal">${ico('coin')}<h3>Pay per result</h3><p>About $1 per 1,000 results for most tools. Where nothing is found you are not charged, and you can cap spend per run.</p></div>
+      <div class="card reveal">${ico('coin')}<h3>Pay per result</h3><p>From ${PRICE_FROM} per 1,000 results; most tools ${PRICE_MOST}. Where nothing is found you are not charged, and you can cap spend per run.</p></div>
       <div class="card reveal">${ico('refresh')}<h3>Only new, on a schedule</h3><p>Turn on only-new mode and each scheduled run returns just what changed, so alerts and feeds stay cheap.</p></div>
       <div class="card reveal">${ico('shield')}<h3>Careful with limits</h3><p>Rate limits are respected, failed requests are retried, and runs resume without charging twice.</p></div>
     </div>
@@ -453,7 +482,7 @@ ${cards.join('\n')}
     <div class="sec-head reveal"><h2>Before you start</h2></div>
     <div class="faq reveal">
       <details><summary>How do I try a tool?</summary><p>Open it on Apify and press Start. Apify's free plan includes monthly credit, enough to try every tool on real data.</p></details>
-      <details><summary>What does it cost?</summary><p>You pay per result, about $1 per 1,000 for most tools. Searches that find nothing are not charged, and every run can be capped at a spend limit you set.</p></details>
+      <details><summary>What does it cost?</summary><p>You pay per result: from ${PRICE_FROM} per 1,000, most tools ${PRICE_MOST}, and a few optional extras such as AI insights (see <a href="/pricing.html">pricing</a>). Searches that find nothing are not charged, and every run can be capped at a spend limit you set.</p></details>
       <details><summary>What happens when a website changes?</summary><p>The tools are run against their live sources on a schedule. When a site changes, the tool is fixed and a note goes into its changelog.</p></details>
       <details><summary>Can it read pages behind a login or a captcha?</summary><p>No. The tools read public pages only and never solve captchas. A few accept your own sign-in for pages your account can see, and say plainly when a source is closed.</p></details>
       <details><summary>Which formats can I get?</summary><p>JSON, CSV, Excel, XML or HTML from the run's dataset, a Google Sheet, Slack, Discord or any webhook, and only-new results on a schedule.</p></details>

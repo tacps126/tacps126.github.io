@@ -8,8 +8,11 @@ git add -A && git commit -m "Refresh" && git push     # GitHub Pages deploys in 
 python3 scripts/make-assets.py   # only if you change the icon or the social image (needs Pillow)
 ```
 
-`build.mjs` reads the public Apify pages of the `tacps126` account, so the tool list, titles and
-prices always match the Store. Edit these in `build.mjs`:
+`build.mjs` reads the public Apify pages of the `tacps126` account, so the tool list, titles,
+prices (every charge event), run numbers and the social image (`scripts/og.py`, needs Pillow) match the
+Store. `.github/workflows/refresh.yml` rebuilds every day at 05:17 UTC and commits only when something
+changed, so a new public Actor or a price change reaches the site within a day without a manual build;
+run it now from the Actions tab ("Refresh from Apify" → Run workflow). Edit these in `build.mjs`:
 
 - `CATS` lists which public Actors appear and in which category. A new public Actor that is not listed
   is left out and the build prints a warning.
