@@ -23,7 +23,7 @@
 <meta name="twitter:image" content="https://tacps126.github.io/og.png?v=a8018c88f2">
 <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/style.css?v=33fb017807">
+<link rel="stylesheet" href="/style.css?v=e8e662c562">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"webdata-tools-mcp","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Windows, Linux (Node.js 18+)","url":"https://tacps126.github.io/mcp.html","downloadUrl":"https://www.npmjs.com/package/webdata-tools-mcp","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"MCP server with 32 web-data tools that run Apify Actors on your own account."}</script>
 </head>
@@ -108,44 +108,203 @@
 
 <section class="alt" id="tools">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-num">The 32 tools</span><h2>The 32 tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Costs are Apify pay-per-result prices.</p></div>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Tool</th><th>What it returns</th><th>Cost</th><th>Actor</th></tr></thead>
-      <tbody>
-<tr><td><code>search_grants</code></td><td>Open and forecast funding calls: US Grants.gov, EU Funding &amp; Tenders (Horizon Europe…), UKRI</td><td>$3 / 1,000 calls</td><td><a href="https://apify.com/tacps126/grants-radar" rel="noopener">grants-radar</a></td></tr>
-<tr><td><code>get_india_district_notices</code></td><td>Tenders, recruitment and announcements from India's 748 district websites, by state and district</td><td>$3 / 1,000 notices</td><td><a href="https://apify.com/tacps126/india-district-notices" rel="noopener">india-district-notices</a></td></tr>
-<tr><td><code>find_companies</code></td><td>New companies and insolvencies (France, Norway, Finland, Estonia, US: New York, Colorado, Connecticut, Oregon) and company search with officers, plus the LEI index</td><td>$2.50 / 1,000 companies</td><td><a href="https://apify.com/tacps126/company-registry" rel="noopener">company-registry</a></td></tr>
-<tr><td><code>get_supplier_contracts</code></td><td>Public contracts a company won (USAspending, TED, Contracts Finder) with a summary per company</td><td>$4 / 1,000 awards</td><td><a href="https://apify.com/tacps126/tenders-radar" rel="noopener">tenders-radar</a></td></tr>
-<tr><td><code>screen_sanctions</code></td><td>Screen names against official OFAC, UN, EU, UK, Canada and Switzerland sanctions lists (verdict per name)</td><td>$3 / 1,000 names</td><td><a href="https://apify.com/tacps126/sanctions-screener" rel="noopener">sanctions-screener</a></td></tr>
-<tr><td><code>search_recalls</code></td><td>Product recalls and safety alerts: FDA, CPSC, Health Canada, UK FSA/OPSS, EU Safety Gate</td><td>$2 / 1,000 recalls</td><td><a href="https://apify.com/tacps126/recalls-radar" rel="noopener">recalls-radar</a></td></tr>
-<tr><td><code>search_legislation</code></td><td>New laws and bills: EU regulations and directives (EUR-Lex), UK Acts and SIs, US public laws and bills, Australian and Canadian regulations</td><td>$3 / 1,000 laws</td><td><a href="https://apify.com/tacps126/legislation-radar" rel="noopener">legislation-radar</a></td></tr>
-<tr><td><code>get_alerts</code></td><td>Official weather and disaster warnings: US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS, USGS</td><td>$2 / 1,000 alerts</td><td><a href="https://apify.com/tacps126/alerts-radar" rel="noopener">alerts-radar</a></td></tr>
-<tr><td><code>search_tenders</code></td><td>Public tenders and contract awards: US SAM.gov, EU TED and EU institutions, Ukraine, UK, France, Spain, Germany, Netherlands, Canada, Colombia, Australia, South Africa; by sector, CPV code or value</td><td>$4 / 1,000 notices</td><td><a href="https://apify.com/tacps126/tenders-radar" rel="noopener">tenders-radar</a></td></tr>
-<tr><td><code>search_google_news</code></td><td>Google News with the publisher's real article URL</td><td>$2 / 1,000 articles</td><td><a href="https://apify.com/tacps126/google-news" rel="noopener">google-news</a></td></tr>
-<tr><td><code>search_gov_updates</code></td><td>Official government updates: Federal Register, GOV.UK, EU Commission, SEC, Indian regulators (RBI, SEBI, TRAI, DGFT…), any RSS feed or list page, by sector</td><td>$3 / 1,000 updates</td><td><a href="https://apify.com/tacps126/gov-radar" rel="noopener">gov-radar</a></td></tr>
-<tr><td><code>get_youtube_transcripts</code></td><td>Full transcripts of YouTube videos, playlists, channels or searches, with timed captions</td><td>$2.50 / 1,000 transcripts</td><td><a href="https://apify.com/tacps126/youtube-transcripts" rel="noopener">youtube-transcripts</a></td></tr>
-<tr><td><code>search_research</code></td><td>Papers, preprints and patents from OpenAlex, arXiv, PubMed, Europe PMC and the European Patent Office (worldwide); newest or most influential first</td><td>$3 / 1,000 results</td><td><a href="https://apify.com/tacps126/research-radar" rel="noopener">research-radar</a></td></tr>
-<tr><td><code>analyze_field</code></td><td>A technology field's opportunity score with reasons, growth, top companies, rising topics, patent trend and possibly free-to-use patents; several fields ranked</td><td>$0.03 / field</td><td><a href="https://apify.com/tacps126/innovation-radar" rel="noopener">innovation-radar</a></td></tr>
-<tr><td><code>validate_idea</code></td><td>How new or crowded an idea is, who is working on it, and the closest prior work</td><td>$0.03 / idea</td><td><a href="https://apify.com/tacps126/innovation-radar" rel="noopener">innovation-radar</a></td></tr>
-<tr><td><code>find_hiring_companies</code></td><td>Which companies are hiring for the roles you sell to</td><td>1¢ per company with a signal</td><td><a href="https://apify.com/tacps126/hiring-signals" rel="noopener">hiring-signals</a></td></tr>
-<tr><td><code>get_company_jobs</code></td><td>Every open job from company career pages or just company names (13 job-board systems)</td><td>$1 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/jobs-harvester" rel="noopener">jobs-harvester</a></td></tr>
-<tr><td><code>find_remote_jobs</code></td><td>Remote jobs from company career sites and remote-job feeds</td><td>$2 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/remote-jobs-scraper" rel="noopener">remote-jobs-scraper</a></td></tr>
-<tr><td><code>search_startup_jobs</code></td><td>Startup jobs on Wellfound with salary and equity</td><td>$2 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/wellfound-jobs-scraper" rel="noopener">wellfound-jobs-scraper</a></td></tr>
-<tr><td><code>search_tech_jobs</code></td><td>US tech jobs on Dice</td><td>$0.55 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/dice-jobs-scraper" rel="noopener">dice-jobs-scraper</a></td></tr>
-<tr><td><code>search_indeed_jobs</code></td><td>Indeed listings in 9 countries</td><td>$3 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/indeed-jobs" rel="noopener">indeed-jobs</a></td></tr>
-<tr><td><code>search_naukri_jobs</code></td><td>Naukri.com jobs (India) with full description and salary</td><td>$1.50 / 1,000 jobs</td><td><a href="https://apify.com/tacps126/naukri-jobs-scraper" rel="noopener">naukri-jobs-scraper</a></td></tr>
-<tr><td><code>get_trustpilot_reviews</code></td><td>Trustpilot reviews, TrustScore and company profile</td><td>$0.50 / 1,000 reviews</td><td><a href="https://apify.com/tacps126/trustpilot-reviews" rel="noopener">trustpilot-reviews</a></td></tr>
-<tr><td><code>get_app_reviews</code></td><td>App Store and Google Play reviews</td><td>$0.20 / 1,000 reviews</td><td><a href="https://apify.com/tacps126/app-reviews" rel="noopener">app-reviews</a></td></tr>
-<tr><td><code>search_reddit</code></td><td>Reddit posts and comments by keyword or subreddit</td><td>$1 / 1,000 items</td><td><a href="https://apify.com/tacps126/reddit-monitor" rel="noopener">reddit-monitor</a></td></tr>
-<tr><td><code>find_reddit_leads</code></td><td>Reddit posts asking for a tool like yours or an alternative to a competitor</td><td>$2 / 1,000 leads</td><td><a href="https://apify.com/tacps126/reddit-lead-finder" rel="noopener">reddit-lead-finder</a></td></tr>
-<tr><td><code>find_website_contacts</code></td><td>Emails, phones and social profiles from websites</td><td>$2 / 1,000 sites with contacts</td><td><a href="https://apify.com/tacps126/contact-details" rel="noopener">contact-details</a></td></tr>
-<tr><td><code>search_german_property_listings</code></td><td>Rent and buy listings in Germany and Austria</td><td>$1 / 1,000 listings</td><td><a href="https://apify.com/tacps126/immobilienscout24-scraper" rel="noopener">immobilienscout24-scraper</a></td></tr>
-<tr><td><code>get_shopify_products</code></td><td>Prices, stock and variants from Shopify stores</td><td>$1 / 1,000 products</td><td><a href="https://apify.com/tacps126/shopify-products" rel="noopener">shopify-products</a></td></tr>
-<tr><td><code>analyze_shopify_stores</code></td><td>Shopify store location, catalog and contacts</td><td>$4 / 1,000 stores</td><td><a href="https://apify.com/tacps126/shopify-store-analyzer" rel="noopener">shopify-store-analyzer</a></td></tr>
-<tr><td><code>get_trade_show_exhibitors</code></td><td>Trade-show exhibitors with booths and contacts (91 shows or any supported link)</td><td>$2 / 1,000 exhibitors</td><td><a href="https://apify.com/tacps126/exhibition-scraper" rel="noopener">exhibition-scraper</a></td></tr>
-<tr><td><code>find_events</code></td><td>Upcoming events from Luma, Eventbrite and Meetup with organisers and tickets</td><td>$1 / 1,000 events</td><td><a href="https://apify.com/tacps126/events-scraper" rel="noopener">events-scraper</a></td></tr>
-      </tbody>
-    </table></div>
+    <div class="sec-head reveal"><span class="sec-num">The 32 tools</span><h2>The 32 tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Prices are Apify pay-per-result prices; extras marked + are charged only when used.</p></div>
+    <div class="filters"><button class="chip" type="button" data-cat="all" aria-pressed="true">All <span class="n">32</span></button><button class="chip" type="button" data-cat="jobs" aria-pressed="false">Jobs <span class="n">7</span></button><button class="chip" type="button" data-cat="leads" aria-pressed="false">Leads <span class="n">6</span></button><button class="chip" type="button" data-cat="reviews" aria-pressed="false">Reviews and research <span class="n">8</span></button><button class="chip" type="button" data-cat="gov" aria-pressed="false">Government <span class="n">9</span></button><button class="chip" type="button" data-cat="commerce" aria-pressed="false">Commerce <span class="n">2</span></button><input class="search" id="search" type="search" placeholder="Search tools  ( / )" aria-label="Search tools"><span class="count" id="count" aria-live="polite"></span></div>
+    <div class="grid mtools">
+<article class="card mtool" data-tool data-cat="gov">
+  <div class="mtool-top"><code class="mname">search_<wbr>grants</code><button class="copy mini" type="button" data-copy="search_grants" aria-label="Copy search_grants">Copy</button></div>
+  <p>Open and forecast funding calls: US Grants.gov, EU Funding &amp; Tenders (Horizon Europe…), UKRI</p>
+  <div class="prices"><span class="pchip"><b>$3 per 1,000</b> grant call</span><span class="xchip" title="An AI reading of one delivered call: summary, what is funded, who can apply, money, deadline and (with a profile) a fit score.">+ AI insight <b>$0.01 each</b></span></div>
+  <a class="mactor" href="https://apify.com/tacps126/grants-radar" rel="noopener">Runs Grants Radar — Public Funding &amp; Grant Calls →</a>
+</article>
+<article class="card mtool" data-tool data-cat="gov">
+  <div class="mtool-top"><code class="mname">get_<wbr>india_<wbr>district_<wbr>notices</code><button class="copy mini" type="button" data-copy="get_india_district_notices" aria-label="Copy get_india_district_notices">Copy</button></div>
+  <p>Tenders, recruitment and announcements from India's 748 district websites, by state and district</p>
+  <div class="prices"><span class="pchip"><b>$3 per 1,000</b> district notice</span><span class="xchip" title="An AI reading of one delivered notice: summary in your language, what it is about, the last date and (with a profile) a fit score.">+ AI insight <b>$0.01 each</b></span></div>
+  <a class="mactor" href="https://apify.com/tacps126/india-district-notices" rel="noopener">Runs India District Notices — Tenders, Recruitment &amp; Announcements →</a>
+</article>
+<article class="card mtool" data-tool data-cat="leads">
+  <div class="mtool-top"><code class="mname">find_<wbr>companies</code><button class="copy mini" type="button" data-copy="find_companies" aria-label="Copy find_companies">Copy</button></div>
+  <p>New companies and insolvencies (France, Norway, Finland, Estonia, US: New York, Colorado, Connecticut, Oregon) and company search with officers, plus the LEI index</p>
+  <div class="prices"><span class="pchip"><b>$2.50 per 1,000</b> company</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/company-registry" rel="noopener">Runs Company Registry — New Companies, Insolvencies &amp; Search →</a>
+</article>
+<article class="card mtool" data-tool data-cat="gov">
+  <div class="mtool-top"><code class="mname">get_<wbr>supplier_<wbr>contracts</code><button class="copy mini" type="button" data-copy="get_supplier_contracts" aria-label="Copy get_supplier_contracts">Copy</button></div>
+  <p>Public contracts a company won (USAspending, TED, Contracts Finder) with a summary per company</p>
+  <div class="prices"><span class="pchip"><b>$4 per 1,000</b> tender</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/tenders-radar" rel="noopener">Runs Tenders Radar — Public Tenders &amp; Contract Awards →</a>
+</article>
+<article class="card mtool" data-tool data-cat="gov">
+  <div class="mtool-top"><code class="mname">screen_<wbr>sanctions</code><button class="copy mini" type="button" data-copy="screen_sanctions" aria-label="Copy screen_sanctions">Copy</button></div>
+  <p>Screen names against official OFAC, UN, EU, UK, Canada and Switzerland sanctions lists (verdict per name)</p>
+  <div class="prices"><span class="pchip"><b>$3 per 1,000</b> name screened</span><span class="xchip" title="One sanctions-list entry delivered (a new designation, a removal, or an exported entry).">+ List entry <b>$1 per 1,000</b></span></div>
+  <a class="mactor" href="https://apify.com/tacps126/sanctions-screener" rel="noopener">Runs Sanctions Screener — OFAC, UN, EU, UK &amp; Canada Lists →</a>
+</article>
+<article class="card mtool" data-tool data-cat="gov">
+  <div class="mtool-top"><code class="mname">search_<wbr>recalls</code><button class="copy mini" type="button" data-copy="search_recalls" aria-label="Copy search_recalls">Copy</button></div>
+  <p>Product recalls and safety alerts: FDA, CPSC, Health Canada, UK FSA/OPSS, EU Safety Gate</p>
+  <div class="prices"><span class="pchip"><b>$2 per 1,000</b> recall</span><span class="xchip" title="An AI reading of one delivered recall: what is affected, the risk and what to do (with a profile, a relevance score).">+ AI insight <b>$0.01 each</b></span></div>
+  <a class="mactor" href="https://apify.com/tacps126/recalls-radar" rel="noopener">Runs Recalls Radar — FDA, CPSC, Canada, UK &amp; EU Safety Gate →</a>
+</article>
+<article class="card mtool" data-tool data-cat="gov">
+  <div class="mtool-top"><code class="mname">search_<wbr>legislation</code><button class="copy mini" type="button" data-copy="search_legislation" aria-label="Copy search_legislation">Copy</button></div>
+  <p>New laws and bills: EU regulations and directives (EUR-Lex), UK Acts and SIs, US public laws and bills, Australian and Canadian regulations</p>
+  <div class="prices"><span class="pchip"><b>$3 per 1,000</b> law or bill</span><span class="xchip" title="An AI reading of one delivered law: what it does, who is affected and (with a profile) a relevance score.">+ AI insight <b>$0.01 each</b></span></div>
+  <a class="mactor" href="https://apify.com/tacps126/legislation-radar" rel="noopener">Runs Legislation Radar — New Laws, Regulations &amp; Bills →</a>
+</article>
+<article class="card mtool" data-tool data-cat="gov">
+  <div class="mtool-top"><code class="mname">get_<wbr>alerts</code><button class="copy mini" type="button" data-copy="get_alerts" aria-label="Copy get_alerts">Copy</button></div>
+  <p>Official weather and disaster warnings: US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS, USGS</p>
+  <div class="prices"><span class="pchip"><b>$2 per 1,000</b> alert</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/alerts-radar" rel="noopener">Runs Alerts Radar — Weather &amp; Disaster Warnings →</a>
+</article>
+<article class="card mtool" data-tool data-cat="gov">
+  <div class="mtool-top"><code class="mname">search_<wbr>tenders</code><button class="copy mini" type="button" data-copy="search_tenders" aria-label="Copy search_tenders">Copy</button></div>
+  <p>Public tenders and contract awards: US SAM.gov, EU TED and EU institutions, Ukraine, UK, France, Spain, Germany, Netherlands, Canada, Colombia, Australia, South Africa; by sector, CPV code or value</p>
+  <div class="prices"><span class="pchip"><b>$4 per 1,000</b> tender</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/tenders-radar" rel="noopener">Runs Tenders Radar — Public Tenders &amp; Contract Awards →</a>
+</article>
+<article class="card mtool" data-tool data-cat="reviews">
+  <div class="mtool-top"><code class="mname">search_<wbr>google_<wbr>news</code><button class="copy mini" type="button" data-copy="search_google_news" aria-label="Copy search_google_news">Copy</button></div>
+  <p>Google News with the publisher's real article URL</p>
+  <div class="prices"><span class="pchip"><b>$2 per 1,000</b> article</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/google-news" rel="noopener">Runs Google News Scraper →</a>
+</article>
+<article class="card mtool" data-tool data-cat="gov">
+  <div class="mtool-top"><code class="mname">search_<wbr>gov_<wbr>updates</code><button class="copy mini" type="button" data-copy="search_gov_updates" aria-label="Copy search_gov_updates">Copy</button></div>
+  <p>Official government updates: Federal Register, GOV.UK, EU Commission, SEC, Indian regulators (RBI, SEBI, TRAI, DGFT…), any RSS feed or list page, by sector</p>
+  <div class="prices"><span class="pchip"><b>$3 per 1,000</b> update</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/gov-radar" rel="noopener">Runs Gov Radar — Regulations, Notices &amp; Circulars →</a>
+</article>
+<article class="card mtool" data-tool data-cat="reviews">
+  <div class="mtool-top"><code class="mname">get_<wbr>youtube_<wbr>transcripts</code><button class="copy mini" type="button" data-copy="get_youtube_transcripts" aria-label="Copy get_youtube_transcripts">Copy</button></div>
+  <p>Full transcripts of YouTube videos, playlists, channels or searches, with timed captions</p>
+  <div class="prices"><span class="pchip"><b>$2.50 per 1,000</b> transcript</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/youtube-transcripts" rel="noopener">Runs YouTube Transcript Scraper →</a>
+</article>
+<article class="card mtool" data-tool data-cat="reviews">
+  <div class="mtool-top"><code class="mname">search_<wbr>research</code><button class="copy mini" type="button" data-copy="search_research" aria-label="Copy search_research">Copy</button></div>
+  <p>Papers, preprints and patents from OpenAlex, arXiv, PubMed, Europe PMC and the European Patent Office (worldwide); newest or most influential first</p>
+  <div class="prices"><span class="pchip"><b>$3 per 1,000</b> result</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/research-radar" rel="noopener">Runs Research Radar — Papers, Preprints &amp; Patents →</a>
+</article>
+<article class="card mtool" data-tool data-cat="reviews">
+  <div class="mtool-top"><code class="mname">analyze_<wbr>field</code><button class="copy mini" type="button" data-copy="analyze_field" aria-label="Copy analyze_field">Copy</button></div>
+  <p>A technology field's opportunity score with reasons, growth, top companies, rising topics, patent trend and possibly free-to-use patents; several fields ranked</p>
+  <div class="prices"><span class="pchip"><b>$0.03 each</b> analysis</span><span class="xchip" title="One expired or lapsed patent with its analysis (patent modes).">+ Free-to-use patent <b>$0.01 each</b></span></div>
+  <a class="mactor" href="https://apify.com/tacps126/innovation-radar" rel="noopener">Runs Innovation Radar — Field Trends &amp; Idea Validation →</a>
+</article>
+<article class="card mtool" data-tool data-cat="reviews">
+  <div class="mtool-top"><code class="mname">validate_<wbr>idea</code><button class="copy mini" type="button" data-copy="validate_idea" aria-label="Copy validate_idea">Copy</button></div>
+  <p>How new or crowded an idea is, who is working on it, and the closest prior work</p>
+  <div class="prices"><span class="pchip"><b>$0.03 each</b> analysis</span><span class="xchip" title="One expired or lapsed patent with its analysis (patent modes).">+ Free-to-use patent <b>$0.01 each</b></span></div>
+  <a class="mactor" href="https://apify.com/tacps126/innovation-radar" rel="noopener">Runs Innovation Radar — Field Trends &amp; Idea Validation →</a>
+</article>
+<article class="card mtool" data-tool data-cat="jobs">
+  <div class="mtool-top"><code class="mname">find_<wbr>hiring_<wbr>companies</code><button class="copy mini" type="button" data-copy="find_hiring_companies" aria-label="Copy find_hiring_companies">Copy</button></div>
+  <p>Which companies are hiring for the roles you sell to</p>
+  <div class="prices"><span class="pchip"><b>$0.01 each</b> company signal</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/hiring-signals" rel="noopener">Runs Hiring Signals &amp; Buying Intent Data from Job Postings →</a>
+</article>
+<article class="card mtool" data-tool data-cat="jobs">
+  <div class="mtool-top"><code class="mname">get_<wbr>company_<wbr>jobs</code><button class="copy mini" type="button" data-copy="get_company_jobs" aria-label="Copy get_company_jobs">Copy</button></div>
+  <p>Every open job from company career pages or just company names (13 job-board systems)</p>
+  <div class="prices"><span class="pchip"><b>$1 per 1,000</b> result</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/jobs-harvester" rel="noopener">Runs Job Board Harvester — Multi-Platform →</a>
+</article>
+<article class="card mtool" data-tool data-cat="jobs">
+  <div class="mtool-top"><code class="mname">find_<wbr>remote_<wbr>jobs</code><button class="copy mini" type="button" data-copy="find_remote_jobs" aria-label="Copy find_remote_jobs">Copy</button></div>
+  <p>Remote jobs from company career sites and remote-job feeds</p>
+  <div class="prices"><span class="pchip"><b>$2 per 1,000</b> job</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/remote-jobs-scraper" rel="noopener">Runs Remote Jobs Scraper — Company Career Sites →</a>
+</article>
+<article class="card mtool" data-tool data-cat="jobs">
+  <div class="mtool-top"><code class="mname">search_<wbr>startup_<wbr>jobs</code><button class="copy mini" type="button" data-copy="search_startup_jobs" aria-label="Copy search_startup_jobs">Copy</button></div>
+  <p>Startup jobs on Wellfound with salary and equity</p>
+  <div class="prices"><span class="pchip"><b>$2 per 1,000</b> job</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/wellfound-jobs-scraper" rel="noopener">Runs Wellfound Jobs Scraper — Startup Jobs →</a>
+</article>
+<article class="card mtool" data-tool data-cat="jobs">
+  <div class="mtool-top"><code class="mname">search_<wbr>tech_<wbr>jobs</code><button class="copy mini" type="button" data-copy="search_tech_jobs" aria-label="Copy search_tech_jobs">Copy</button></div>
+  <p>US tech jobs on Dice</p>
+  <div class="prices"><span class="pchip"><b>$0.55 per 1,000</b> job</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/dice-jobs-scraper" rel="noopener">Runs Dice Jobs Scraper — US Tech Jobs →</a>
+</article>
+<article class="card mtool" data-tool data-cat="jobs">
+  <div class="mtool-top"><code class="mname">search_<wbr>indeed_<wbr>jobs</code><button class="copy mini" type="button" data-copy="search_indeed_jobs" aria-label="Copy search_indeed_jobs">Copy</button></div>
+  <p>Indeed listings in 9 countries</p>
+  <div class="prices"><span class="pchip"><b>$3 per 1,000</b> job</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/indeed-jobs" rel="noopener">Runs Indeed Jobs Scraper →</a>
+</article>
+<article class="card mtool" data-tool data-cat="jobs">
+  <div class="mtool-top"><code class="mname">search_<wbr>naukri_<wbr>jobs</code><button class="copy mini" type="button" data-copy="search_naukri_jobs" aria-label="Copy search_naukri_jobs">Copy</button></div>
+  <p>Naukri.com jobs (India) with full description and salary</p>
+  <div class="prices"><span class="pchip"><b>$1.50 per 1,000</b> job</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/naukri-jobs-scraper" rel="noopener">Runs Naukri Jobs Scraper →</a>
+</article>
+<article class="card mtool" data-tool data-cat="reviews">
+  <div class="mtool-top"><code class="mname">get_<wbr>trustpilot_<wbr>reviews</code><button class="copy mini" type="button" data-copy="get_trustpilot_reviews" aria-label="Copy get_trustpilot_reviews">Copy</button></div>
+  <p>Trustpilot reviews, TrustScore and company profile</p>
+  <div class="prices"><span class="pchip"><b>$0.50 per 1,000</b> review</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/trustpilot-reviews" rel="noopener">Runs Trustpilot Reviews Scraper →</a>
+</article>
+<article class="card mtool" data-tool data-cat="reviews">
+  <div class="mtool-top"><code class="mname">get_<wbr>app_<wbr>reviews</code><button class="copy mini" type="button" data-copy="get_app_reviews" aria-label="Copy get_app_reviews">Copy</button></div>
+  <p>App Store and Google Play reviews</p>
+  <div class="prices"><span class="pchip"><b>$0.20 per 1,000</b> review</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/app-reviews" rel="noopener">Runs App Store &amp; Google Play Reviews Scraper →</a>
+</article>
+<article class="card mtool" data-tool data-cat="reviews">
+  <div class="mtool-top"><code class="mname">search_<wbr>reddit</code><button class="copy mini" type="button" data-copy="search_reddit" aria-label="Copy search_reddit">Copy</button></div>
+  <p>Reddit posts and comments by keyword or subreddit</p>
+  <div class="prices"><span class="pchip"><b>$1 per 1,000</b> post or comment</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/reddit-monitor" rel="noopener">Runs Reddit Scraper &amp; Keyword Monitor →</a>
+</article>
+<article class="card mtool" data-tool data-cat="leads">
+  <div class="mtool-top"><code class="mname">find_<wbr>reddit_<wbr>leads</code><button class="copy mini" type="button" data-copy="find_reddit_leads" aria-label="Copy find_reddit_leads">Copy</button></div>
+  <p>Reddit posts asking for a tool like yours or an alternative to a competitor</p>
+  <div class="prices"><span class="pchip"><b>$2 per 1,000</b> lead</span><span class="xchip" title="One post or comment read from Reddit (kept or filtered out).">+ Post read <b>$0.10 per 1,000</b></span></div>
+  <a class="mactor" href="https://apify.com/tacps126/reddit-lead-finder" rel="noopener">Runs Reddit Lead Finder — Buying-Intent Posts →</a>
+</article>
+<article class="card mtool" data-tool data-cat="leads">
+  <div class="mtool-top"><code class="mname">find_<wbr>website_<wbr>contacts</code><button class="copy mini" type="button" data-copy="find_website_contacts" aria-label="Copy find_website_contacts">Copy</button></div>
+  <p>Emails, phones and social profiles from websites</p>
+  <div class="prices"><span class="pchip"><b>$2 per 1,000</b> website with contacts</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/contact-details" rel="noopener">Runs Website Email Finder &amp; Contact Details Scraper →</a>
+</article>
+<article class="card mtool" data-tool data-cat="commerce">
+  <div class="mtool-top"><code class="mname">search_<wbr>german_<wbr>property_<wbr>listings</code><button class="copy mini" type="button" data-copy="search_german_property_listings" aria-label="Copy search_german_property_listings">Copy</button></div>
+  <p>Rent and buy listings in Germany and Austria</p>
+  <div class="prices"><span class="pchip"><b>$1 per 1,000</b> listing</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/immobilienscout24-scraper" rel="noopener">Runs ImmobilienScout24 Scraper →</a>
+</article>
+<article class="card mtool" data-tool data-cat="commerce">
+  <div class="mtool-top"><code class="mname">get_<wbr>shopify_<wbr>products</code><button class="copy mini" type="button" data-copy="get_shopify_products" aria-label="Copy get_shopify_products">Copy</button></div>
+  <p>Prices, stock and variants from Shopify stores</p>
+  <div class="prices"><span class="pchip"><b>$1 per 1,000</b> product</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/shopify-products" rel="noopener">Runs Shopify Products Scraper →</a>
+</article>
+<article class="card mtool" data-tool data-cat="leads">
+  <div class="mtool-top"><code class="mname">analyze_<wbr>shopify_<wbr>stores</code><button class="copy mini" type="button" data-copy="analyze_shopify_stores" aria-label="Copy analyze_shopify_stores">Copy</button></div>
+  <p>Shopify store location, catalog and contacts</p>
+  <div class="prices"><span class="pchip"><b>$4 per 1,000</b> store analyzed</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/shopify-store-analyzer" rel="noopener">Runs Shopify Store Analyzer — Contacts, Location &amp; Catalog →</a>
+</article>
+<article class="card mtool" data-tool data-cat="leads">
+  <div class="mtool-top"><code class="mname">get_<wbr>trade_<wbr>show_<wbr>exhibitors</code><button class="copy mini" type="button" data-copy="get_trade_show_exhibitors" aria-label="Copy get_trade_show_exhibitors">Copy</button></div>
+  <p>Trade-show exhibitors with booths and contacts (91 shows or any supported link)</p>
+  <div class="prices"><span class="pchip"><b>$2 per 1,000</b> result</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/exhibition-scraper" rel="noopener">Runs Trade Show Exhibitor List Scraper - Emails &amp; Booths →</a>
+</article>
+<article class="card mtool" data-tool data-cat="leads">
+  <div class="mtool-top"><code class="mname">find_<wbr>events</code><button class="copy mini" type="button" data-copy="find_events" aria-label="Copy find_events">Copy</button></div>
+  <p>Upcoming events from Luma, Eventbrite and Meetup with organisers and tickets</p>
+  <div class="prices"><span class="pchip"><b>$1 per 1,000</b> event</span></div>
+  <a class="mactor" href="https://apify.com/tacps126/events-scraper" rel="noopener">Runs Events Scraper - Luma, Eventbrite, Meetup →</a>
+</article>
+    </div>
+    <p class="empty" id="empty">No tool matches that search.</p>
   </div>
 </section>
 
@@ -211,6 +370,6 @@
     <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
   </div>
 </footer>
-<script src="/app.js?v=36a651b328" defer></script>
+<script src="/app.js?v=4ae6fde4b2" defer></script>
 </body>
 </html>

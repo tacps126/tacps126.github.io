@@ -517,11 +517,37 @@ writeFileSync(
   }),
 );
 
+const money = (usd) => (usd >= 1 ? `$${usd.toFixed(usd % 1 ? 2 : 0)}` : usd >= 0.01 ? `$${usd.toFixed(2)}` : `$${usd.toFixed(4).replace(/0+$/, '')}`);
+
+// ---------------------------------------------------------------- events
+// Everything a tool charges, from its Store pricing: the main per-result
+// event and any optional ones (AI insights, extra records). Free-plan tier,
+// the highest anyone pays. The run start fee is left out (a fraction of a cent).
+const eventsOf = (a) => Object.entries(a?.currentPricingInfo?.pricingPerEvent?.actorChargeEvents || {})
+  .filter(([k]) => k !== 'apify-actor-start')
+  .map(([k, e]) => ({ key: k, title: e.eventTitle, desc: e.eventDescription || '', unit: e.eventTieredPricingUsd?.FREE?.tieredEventPriceUsd ?? e.eventPriceUsd ?? 0, primary: !!e.isPrimaryEvent, once: !!e.isOneTimeEvent }))
+  .sort((x, y) => Number(y.primary) - Number(x.primary));
+const evPrice = (e) => (e.unit >= 0.01 ? `${money(e.unit)} each` : `${money(e.unit * 1000)} per 1,000`);
+const extrasOf = (a) => eventsOf(a).filter((e) => !e.primary);
+const extraChips = (a) => extrasOf(a).map((e) => `<span class="xchip" title="${esc(e.desc)}">+ ${esc(e.title)} <b>${evPrice(e)}</b></span>`).join('');
+
 // ---------------------------------------------------------------- mcp page
-const toolRows = MCP_TOOLS.map(
-  ([name, what, actor, price]) =>
-    `<tr><td><code>${name}</code></td><td>${esc(what)}</td><td>${esc(price)}</td><td><a href="https://apify.com/${USER}/${actor}" rel="noopener">${actor}</a></td></tr>`,
-).join('\n');
+const catOfActor = Object.fromEntries(CATS.flatMap(([k, , names]) => names.map((n) => [n, k])));
+const toolCards = MCP_TOOLS.map(([name, what, actor, price]) => {
+  const a = byName.get(actor);
+  const evs = a ? eventsOf(a) : [];
+  const main = evs.find((e) => e.primary);
+  const k = catOfActor[actor] || 'other';
+  return `<article class="card mtool" data-tool data-cat="${k}">
+  <div class="mtool-top"><code class="mname">${name.replace(/_/g, '_<wbr>')}</code><button class="copy mini" type="button" data-copy="${name}" aria-label="Copy ${name}">Copy</button></div>
+  <p>${esc(what)}</p>
+  <div class="prices">${main ? `<span class="pchip"><b>${evPrice(main)}</b> ${esc(main.title.toLowerCase())}</span>` : `<span class="pchip"><b>${esc(price)}</b></span>`}${a ? extraChips(a) : ''}</div>
+  <a class="mactor" href="https://apify.com/${USER}/${actor}" rel="noopener">Runs ${esc(a?.title || actor)} →</a>
+</article>`;
+}).join('\n');
+const mcpCats = [['all', 'All', MCP_TOOLS.length], ...CATS.map(([k, l]) => [k, CAT_SHORT[k] || l, MCP_TOOLS.filter((t) => catOfActor[t[2]] === k).length])].filter((c) => c[2] > 0);
+const mcpChips = mcpCats.map(([k, l, n], i) => `<button class="chip" type="button" data-cat="${k}" aria-pressed="${i === 0}">${esc(l)} <span class="n">${n}</span></button>`).join('');
+
 
 const mcpBody = `
 <section class="hero" style="padding-bottom:24px">
@@ -560,13 +586,12 @@ const mcpBody = `
 
 <section class="alt" id="tools">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>The ${nWord} tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Costs are Apify pay-per-result prices.</p></div>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Tool</th><th>What it returns</th><th>Cost</th><th>Actor</th></tr></thead>
-      <tbody>
-${toolRows}
-      </tbody>
-    </table></div>
+    <div class="sec-head reveal"><h2>The ${nWord} tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Prices are Apify pay-per-result prices; extras marked + are charged only when used.</p></div>
+    <div class="filters">${mcpChips}<input class="search" id="search" type="search" placeholder="Search tools  ( / )" aria-label="Search tools"><span class="count" id="count" aria-live="polite"></span></div>
+    <div class="grid mtools">
+${toolCards}
+    </div>
+    <p class="empty" id="empty">No tool matches that search.</p>
   </div>
 </section>
 
@@ -726,7 +751,6 @@ const priceRow = (a) => {
   const unit = ev ? (ev.eventTieredPricingUsd?.FREE?.tieredEventPriceUsd ?? ev.eventPriceUsd) : null;
   return { a, unit, what: ev ? ev.eventTitle.toLowerCase() : 'result', runs: a.stats?.publicActorRunStats30Days?.TOTAL || 0 };
 };
-const money = (usd) => (usd >= 1 ? `$${usd.toFixed(usd % 1 ? 2 : 0)}` : `$${usd.toFixed(2)}`);
 const pricingBody = `
 <section class="hero" style="padding-bottom:36px">
   <div class="wrap">
@@ -749,7 +773,7 @@ const pricingBody = `
 ${CATS.map(([k, label, names]) => {
   const rows = toolsOf(names).map(priceRow).filter((r) => r.unit);
   return rows.length ? `<li class="combo-group" role="presentation">${esc(CAT_SHORT[k] || label)}</li>
-` + rows.map((r) => `<li role="option" tabindex="-1" data-value="${r.unit}" data-what="${esc(r.what)}"><span>${esc(r.a.title)}</span><small>${money(r.unit * 1000)} / 1k</small></li>`).join('\n') : '';
+` + rows.map((r) => `<li role="option" tabindex="-1" data-value="${r.unit}" data-what="${esc(r.what)}" data-extras="${esc(JSON.stringify(extrasOf(r.a).map((e) => ({ t: e.title, u: e.unit, d: e.desc }))))}"><span>${esc(r.a.title)}</span><small>${money(r.unit * 1000)} / 1k</small></li>`).join('\n') : '';
 }).join('\n')}
             </ul>
           </div>
@@ -760,6 +784,7 @@ ${CATS.map(([k, label, names]) => {
         <div class="presets">${[100, 1000, 10000, 100000].map((n) => `<button type="button" class="preset" data-n="${n}">${n >= 1000 ? n / 1000 + 'k' : n}</button>`).join('')}</div>
       </div>
       <div class="calc-out" aria-live="polite"><b id="calc-usd">–</b><span id="calc-note">Choose a tool</span></div>
+      <div class="addons" id="calc-addons" hidden><span class="flabel">Optional extras this tool can charge</span><div id="calc-addon-list"></div></div>
     </div>
   </div>
 </section>
@@ -769,8 +794,8 @@ ${CATS.map(([k, label, names], i) => {
   return `<section${i % 2 ? '' : ' class="alt"'} data-label="${esc(CAT_SHORT[k] || label)}">
   <div class="wrap">
     <div class="sec-head"><h2>${esc(label)}</h2></div>
-    <div class="table-wrap"><table><thead><tr><th>Tool</th><th>Per 1,000</th><th>Runs, last 30 days</th></tr></thead><tbody>
-${rows.map((r) => `<tr><td><a href="https://apify.com/${USER}/${esc(r.a.name)}" rel="noopener">${esc(r.a.title)}</a></td><td class="num">${r.unit ? `${money(r.unit * 1000)} <small>per 1,000 ${esc(r.what)}s</small>` : esc(priceOf(r.a.description) || 'see listing')}</td><td class="num">${fmt(r.runs)}</td></tr>`).join('\n')}
+    <div class="table-wrap"><table class="rtable"><thead><tr><th>Tool</th><th>Main price</th><th>Optional extras</th><th>Runs, last 30 days</th></tr></thead><tbody>
+${rows.map((r) => `<tr><td data-th="Tool"><a href="https://apify.com/${USER}/${esc(r.a.name)}" rel="noopener">${esc(r.a.title)}</a></td><td class="num" data-th="Main price">${r.unit ? `${evPrice({ unit: r.unit })} <small>· ${esc(r.what)}</small>` : esc(priceOf(r.a.description) || 'see listing')}</td><td data-th="Optional extras">${extraChips(r.a) || '<span class="none">none</span>'}</td><td class="num" data-th="Runs, 30 days">${fmt(r.runs)}</td></tr>`).join('\n')}
     </tbody></table></div>
   </div>
 </section>`;
@@ -781,7 +806,7 @@ ${rows.map((r) => `<tr><td><a href="https://apify.com/${USER}/${esc(r.a.name)}" 
     <div class="sec-head"><h2>Billing questions</h2></div>
     <details><summary>Who bills me?</summary><p>Apify. Prices, invoices and your spending limit live in your Apify account; each tool's Apify page is the source of truth if a number here differs.</p></details>
     <details><summary>Why do prices differ by plan?</summary><p>Apify gives its paid plans a lower price per result. The figures here are the free-plan price, the highest you would pay.</p></details>
-    <details><summary>Is anything charged besides results?</summary><p>A tiny start fee per run (a fraction of a cent) and nothing for runs or searches that come back empty.</p></details>
+    <details><summary>Is anything charged besides results?</summary><p>A tiny start fee per run (a fraction of a cent). A few tools also have optional extras, listed in their row: an AI insight on each item, every list entry checked, or each post read while looking for leads. Extras are charged only when you turn them on or they happen, and your spending cap covers them too. Nothing is charged for searches that come back empty.</p></details>
   </div>
 </section>`;
 

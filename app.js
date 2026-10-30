@@ -41,6 +41,10 @@
   // copy buttons
   document.querySelectorAll('.copy').forEach(function (b) {
     b.addEventListener('click', function () {
+      if (b.dataset.copy) {
+        if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.copy).then(function () { var o = b.textContent; b.textContent = 'Copied'; setTimeout(function () { b.textContent = o; }, 1400); }, function () {});
+        return;
+      }
       var pre = b.closest('.code').querySelector('pre');
       var done = function () { var o = b.textContent; b.textContent = 'Copied'; setTimeout(function () { b.textContent = o; }, 1400); };
       if (navigator.clipboard) navigator.clipboard.writeText(pre.innerText).then(done, function () {});
@@ -166,16 +170,39 @@
       if (v < 100000) return '$' + Math.round(v).toLocaleString('en-US');
       return '$' + new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 1 }).format(v);
     };
+    var addBox = document.getElementById('calc-addons'), addList = document.getElementById('calc-addon-list');
+    var addons = function () {
+      var t = 0;
+      if (addList) addList.querySelectorAll('.addon').forEach(function (r) {
+        if (r.querySelector('input[type=checkbox]').checked) t += parseFloat(r.dataset.u) * Math.max(0, parseInt(String(r.querySelector('.aq').value).replace(/[^0-9]/g, '') || '0', 10));
+      });
+      return t;
+    };
+    var renderAddons = function (o) {
+      if (!addBox) return;
+      var ex = []; try { ex = JSON.parse(o.dataset.extras || '[]'); } catch (e) {}
+      addBox.hidden = !ex.length; addList.innerHTML = '';
+      ex.forEach(function (x) {
+        var r = document.createElement('label'); r.className = 'addon'; r.dataset.u = x.u;
+        var per = x.u >= 0.01 ? '$' + x.u.toFixed(2) + ' each' : '$' + (x.u * 1000).toFixed(2) + ' per 1,000';
+        r.innerHTML = '<input type="checkbox"><span class="at"></span><span class="ap"></span><input class="aq" type="text" inputmode="numeric" aria-label="How many">';
+        r.querySelector('.at').textContent = x.t; r.querySelector('.ap').textContent = per; r.title = x.d || '';
+        r.querySelector('.aq').value = num().toLocaleString('en-US');
+        r.addEventListener('input', est); r.addEventListener('change', est);
+        addList.appendChild(r);
+      });
+    };
     var est = function () {
       var unit = parseFloat(combo.dataset.value || '0'), n = num(), what = combo.dataset.what || 'result';
-      cu.textContent = unit ? usdText(unit * n) : '–';
-      cnote.textContent = unit ? n.toLocaleString('en-US') + ' ' + what + (n === 1 ? '' : 's') + ' on Apify\'s free plan; paid plans pay less' : 'Choose a tool';
+      cu.textContent = unit ? usdText(unit * n + addons()) : '–';
+      var x = addons();
+      cnote.textContent = unit ? n.toLocaleString('en-US') + ' × ' + what + (x ? ' + extras ' + usdText(x) : '') + ' on Apify\'s free plan; paid plans pay less' : 'Choose a tool';
     };
     var choose = function (o) {
       opts.forEach(function (x) { x.setAttribute('aria-selected', x === o); });
       combo.dataset.value = o.dataset.value; combo.dataset.what = o.dataset.what;
       combo.querySelector('.combo-val').textContent = o.querySelector('span').textContent;
-      close(); est();
+      renderAddons(o); close(); est();
     };
     var visible = function () { return opts.filter(function (o) { return !o.hidden; }); };
     var open = function () { pop.hidden = false; btn.setAttribute('aria-expanded', 'true'); q.value = ''; filter(); q.focus(); };
