@@ -104,6 +104,9 @@ const priceOf = (d) => (String(d || '').match(/(From \$[\d.,]+ per [\d,]+ [a-z ]
 const stripPrice = (d) => String(d || '').replace(/\s*(From )?\$[\d.,]+ per [\d,]+ [a-z ]+\.?$/i, '').replace(/\s*\d+¢ per [^.]+\.?.*$/i, '');
 
 const ICONS = {
+  globe: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+  filter: '<svg viewBox="0 0 24 24"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg>',
+  table: '<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16"/></svg>',
   briefcase: '<svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>',
   target: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>',
   star: '<svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>',
@@ -125,10 +128,11 @@ const header = (active) => `<div class="progress" aria-hidden="true"></div>
     <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">${small('menu', 20)}</button>
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="/#tools">Tools</a>
+      <a href="/pricing.html"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a>
       <a href="/mcp.html"${active === 'mcp' ? ' aria-current="page"' : ''}>MCP server</a>
       <a href="/#build">Custom work</a>
+      <a href="/blog/"${active === 'blog' ? ' aria-current="page"' : ''}>Blog</a>
       <a href="/about.html"${active === 'about' ? ' aria-current="page"' : ''}>About</a>
-      <a href="https://github.com/${USER}">GitHub</a>
       <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme">${small('sun', 18)}</button>
     </nav>
   </div>
@@ -141,6 +145,8 @@ const footer = () => `<footer>
       <ul>
         <li><a href="https://apify.com/${USER}">Tools on Apify</a></li>
         <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/leads/">Trade show exhibitor lists</a></li>
         <li><a href="https://github.com/${USER}/apify-data-recipes">Code recipes</a></li>
@@ -371,6 +377,16 @@ const indexBody = `
     </div>
   </div>
 </section>
+
+<div class="pipe" aria-label="How a tool works">
+  <div class="wrap pipe-row">
+    <div class="pipe-step"><span class="pipe-ico">${ico('globe')}</span><b>A public source</b><small>career pages, registers, stores, feeds</small></div>
+    <div class="pipe-flow" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="pipe-step"><span class="pipe-ico">${ico('filter')}</span><b>Read and checked</b><small>same fields every run, duplicates out</small></div>
+    <div class="pipe-flow" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="pipe-step"><span class="pipe-ico">${ico('table')}</span><b>Clean rows</b><small>CSV, Sheets, API, Slack, your agent</small></div>
+  </div>
+</div>
 
 <section id="library" data-label="Library">
   <div class="wrap">
@@ -702,6 +718,168 @@ if (leads.length) {
 }
 
 
+
+// ---------------------------------------------------------------- pricing
+// Each tool's price per result (Apify free-plan tier: paid plans pay less)
+// and its public runs in the last 30 days, straight from the Store.
+const priceRow = (a) => {
+  const ev = Object.values(a.currentPricingInfo?.pricingPerEvent?.actorChargeEvents || {}).find((e) => e.isPrimaryEvent);
+  const unit = ev ? (ev.eventTieredPricingUsd?.FREE?.tieredEventPriceUsd ?? ev.eventPriceUsd) : null;
+  return { a, unit, what: ev ? ev.eventTitle.toLowerCase() : 'result', runs: a.stats?.publicActorRunStats30Days?.TOTAL || 0 };
+};
+const money = (usd) => (usd >= 1 ? `$${usd.toFixed(usd % 1 ? 2 : 0)}` : `$${usd.toFixed(2)}`);
+const pricingBody = `
+<section class="hero" style="padding-bottom:36px">
+  <div class="wrap">
+    <span class="eyebrow">Pricing</span>
+    <h1 style="margin-top:14px">Pay per result. <span class="grad">Nothing else.</span></h1>
+    <p class="lead">No subscription and no seats. Each tool charges per result it delivers, billed by Apify; searches that find nothing are not charged, and every run can be capped at a spend limit. Apify's free plan includes monthly credit to try any of them.</p>
+  </div>
+</section>
+
+<section data-label="Estimate">
+  <div class="wrap">
+    <div class="sec-head"><h2>What would it cost?</h2><p>Pick a tool and how many results you need.</p></div>
+    <div class="calc">
+      <label>Tool<select id="calc-tool">${CATS.flatMap(([, , names]) => toolsOf(names)).map(priceRow).filter((r) => r.unit).map((r) => `<option value="${r.unit}" data-what="${esc(r.what)}">${esc(r.a.title)}</option>`).join('')}</select></label>
+      <label>Results<input id="calc-n" type="number" min="1" step="100" value="1000"></label>
+      <div class="calc-out"><b id="calc-usd">–</b><span id="calc-note">on Apify's free plan; paid plans pay less</span></div>
+    </div>
+  </div>
+</section>
+
+${CATS.map(([k, label, names], i) => {
+  const rows = toolsOf(names).map(priceRow).sort((x, y) => y.runs - x.runs);
+  return `<section${i % 2 ? '' : ' class="alt"'} data-label="${esc(CAT_SHORT[k] || label)}">
+  <div class="wrap">
+    <div class="sec-head"><h2>${esc(label)}</h2></div>
+    <div class="table-wrap"><table><thead><tr><th>Tool</th><th>Per 1,000</th><th>Runs, last 30 days</th></tr></thead><tbody>
+${rows.map((r) => `<tr><td><a href="https://apify.com/${USER}/${esc(r.a.name)}" rel="noopener">${esc(r.a.title)}</a></td><td class="num">${r.unit ? `${money(r.unit * 1000)} <small>per 1,000 ${esc(r.what)}s</small>` : esc(priceOf(r.a.description) || 'see listing')}</td><td class="num">${fmt(r.runs)}</td></tr>`).join('\n')}
+    </tbody></table></div>
+  </div>
+</section>`;
+}).join('\n')}
+
+<section data-label="Questions">
+  <div class="wrap">
+    <div class="sec-head"><h2>Billing questions</h2></div>
+    <details><summary>Who bills me?</summary><p>Apify. Prices, invoices and your spending limit live in your Apify account; each tool's Apify page is the source of truth if a number here differs.</p></details>
+    <details><summary>Why do prices differ by plan?</summary><p>Apify gives its paid plans a lower price per result. The figures here are the free-plan price, the highest you would pay.</p></details>
+    <details><summary>Is anything charged besides results?</summary><p>A tiny start fee per run (a fraction of a cent) and nothing for runs or searches that come back empty.</p></details>
+  </div>
+</section>`;
+
+writeFileSync(
+  new URL('./pricing.html', import.meta.url),
+  page({
+    path: '/pricing.html',
+    active: 'pricing',
+    title: `Pricing - ${OWNER} (tacps126), web data tools`,
+    description: `Per-result prices of ${used} web data tools on Apify, with their public runs in the last 30 days and a cost estimate. No subscription.`,
+    body: pricingBody,
+    jsonld: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Pricing', url: `${SITE}/pricing.html` },
+  }),
+);
+
+// ---------------------------------------------------------------- blog
+// posts/*.md (front matter: title, tags, date). The site is the canonical
+// home of each article; reposts on Medium or dev.to point their canonical
+// URL here, so search engines credit this site.
+const inline = (t) => esc(t)
+  .replace(/`([^`]+)`/g, '<code>$1</code>')
+  .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+  .replace(/(^|[\s(])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>')
+  .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, txt, url) => `<a href="${url}"${url.startsWith('http') ? ' rel="noopener"' : ''}>${txt}</a>`);
+function markdown(md) {
+  const out = []; const lines = md.split('\n'); let i = 0;
+  while (i < lines.length) {
+    const l = lines[i];
+    if (!l.trim()) { i++; continue; }
+    if (l.startsWith('```')) {
+      const buf = []; i++;
+      while (i < lines.length && !lines[i].startsWith('```')) buf.push(lines[i++]);
+      i++; out.push(`<div class="code"><div class="code-top"><span>${esc(l.slice(3).trim() || 'code')}</span><button class="copy" type="button">Copy</button></div><pre>${esc(buf.join('\n'))}</pre></div>`); continue;
+    }
+    const h = l.match(/^(#{2,4})\s+(.*)$/);
+    if (h) { const n = h[1].length; out.push(`<h${n} id="${slug(h[2])}">${inline(h[2])}</h${n}>`); i++; continue; }
+    if (/^---+$/.test(l.trim())) { out.push('<hr>'); i++; continue; }
+    if (l.startsWith('|')) {
+      const rows = [];
+      while (i < lines.length && lines[i].startsWith('|')) rows.push(lines[i++]);
+      const cells = (r) => r.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
+      const body = rows.filter((r, k) => k !== 1 || !/^\|[\s:|-]+\|$/.test(r.trim()));
+      out.push(`<div class="table-wrap"><table><thead><tr>${cells(body[0]).map((c) => `<th>${inline(c)}</th>`).join('')}</tr></thead><tbody>${body.slice(1).map((r) => `<tr>${cells(r).map((c) => `<td>${inline(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`);
+      continue;
+    }
+    const li = l.match(/^(\s*)([-*]|\d+\.)\s+(.*)$/);
+    if (li) {
+      const ordered = /\d/.test(li[2]); const items = [];
+      while (i < lines.length) {
+        const m = lines[i].match(/^(\s*)([-*]|\d+\.)\s+(.*)$/);
+        if (m) { items.push(m[3]); i++; continue; }
+        if (lines[i].trim() && /^\s{2,}/.test(lines[i]) && items.length) { items[items.length - 1] += ' ' + lines[i].trim(); i++; continue; }
+        break;
+      }
+      out.push(`<${ordered ? 'ol' : 'ul'}>${items.map((t) => `<li>${inline(t)}</li>`).join('')}</${ordered ? 'ol' : 'ul'}>`);
+      continue;
+    }
+    if (l.startsWith('> ')) { const buf = []; while (i < lines.length && lines[i].startsWith('> ')) buf.push(lines[i++].slice(2)); out.push(`<blockquote>${inline(buf.join(' '))}</blockquote>`); continue; }
+    const buf = [];
+    while (i < lines.length && lines[i].trim() && !/^(```|#{2,4}\s|\||\s*([-*]|\d+\.)\s|> |---+$)/.test(lines[i])) buf.push(lines[i++].trim());
+    out.push(`<p>${inline(buf.join(' '))}</p>`);
+  }
+  return out.join('\n');
+}
+const POSTS = existsSync(new URL('./posts/', import.meta.url))
+  ? readdirSync(new URL('./posts/', import.meta.url)).filter((f) => f.endsWith('.md')).map((f) => {
+      const raw = readFileSync(new URL(`./posts/${f}`, import.meta.url), 'utf8');
+      const end = raw.indexOf('\n---\n', 4);
+      const fm = Object.fromEntries(raw.slice(4, end).split('\n').map((l) => [l.slice(0, l.indexOf(':')).trim(), l.slice(l.indexOf(':') + 1).trim()]));
+      const body = raw.slice(end + 5);
+      const first = (body.split('\n\n').find((x) => x.trim() && !x.startsWith('#') && !x.startsWith('|')) || '').replace(/\s+/g, ' ').replace(/\*\*|`/g, '').trim();
+      const words = body.split(/\s+/).length;
+      return { id: f.replace(/\.md$/, ''), title: fm.title, tags: (fm.tags || '').split(',').map((t) => t.trim()).filter(Boolean), date: fm.date || TODAY, body, summary: short(first, 190), mins: Math.max(1, Math.round(words / 220)) };
+    }).sort((a, b) => b.date.localeCompare(a.date))
+  : [];
+mkdirSync(new URL('./blog/', import.meta.url), { recursive: true });
+for (const p of POSTS) {
+  writeFileSync(
+    new URL(`./blog/${p.id}.html`, import.meta.url),
+    page({
+      path: `/blog/${p.id}.html`,
+      active: 'blog',
+      title: p.title,
+      description: p.summary,
+      body: `<section class="hero" style="padding-bottom:20px"><div class="wrap narrow">
+  <a class="back" href="/blog/">← All articles</a>
+  <h1 style="margin-top:14px;max-width:none">${esc(p.title)}</h1>
+  <p class="post-meta">${p.date} · ${p.mins} min read${p.tags.length ? ' · ' + p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join(' ') : ''}</p>
+</div></section>
+<article class="post"><div class="wrap narrow">${markdown(p.body)}</div></article>
+<section class="alt"><div class="wrap"><div class="cta-band"><div><h2>Try it on your own data</h2><p>Every tool in this article runs on Apify with free monthly credit.</p></div><a class="btn primary" href="https://apify.com/${USER}" rel="noopener">Browse the tools</a></div></div></section>`,
+      jsonld: { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, datePublished: p.date, author: { '@type': 'Person', name: OWNER }, url: `${SITE}/blog/${p.id}.html` },
+    }),
+  );
+}
+writeFileSync(
+  new URL('./blog/index.html', import.meta.url),
+  page({
+    path: '/blog/',
+    active: 'blog',
+    title: `Blog - ${OWNER} (tacps126), web data how-tos`,
+    description: 'How-tos and comparisons for getting clean web data: exhibitor lists, hiring signals, news alerts, property listings.',
+    body: `<section class="hero" style="padding-bottom:30px"><div class="wrap">
+  <span class="eyebrow">Blog</span>
+  <h1 style="margin-top:14px">Guides from <span class="grad">real runs</span></h1>
+  <p class="lead">Short how-tos for getting a clean list out of the web, with the exact input to copy.</p>
+</div></section>
+<section><div class="wrap"><div class="grid two">
+${POSTS.map((p) => `<a class="card post-card" href="/blog/${p.id}.html"><span class="post-meta">${p.date} · ${p.mins} min read</span><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p><div class="meta">${p.tags.slice(0, 3).map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div></a>`).join('\n')}
+</div></div></section>`,
+    jsonld: { '@context': 'https://schema.org', '@type': 'Blog', name: 'tacps126 blog', url: `${SITE}/blog/` },
+  }),
+);
+
 // ---------------------------------------------------------------- about
 const aboutBody = `
 <section class="hero" style="padding-bottom:40px">
@@ -772,6 +950,9 @@ writeFileSync(
   <url><loc>${SITE}/</loc><lastmod>${TODAY}</lastmod></url>
   <url><loc>${SITE}/mcp.html</loc><lastmod>${TODAY}</lastmod></url>
   <url><loc>${SITE}/about.html</loc><lastmod>${TODAY}</lastmod></url>
+  <url><loc>${SITE}/pricing.html</loc><lastmod>${TODAY}</lastmod></url>
+  <url><loc>${SITE}/blog/</loc><lastmod>${TODAY}</lastmod></url>
+${POSTS.map((p) => `  <url><loc>${SITE}/blog/${p.id}.html</loc><lastmod>${p.date}</lastmod></url>`).join('\n')}
 ${leads.length ? `  <url><loc>${SITE}/leads/</loc><lastmod>${TODAY}</lastmod></url>\n` : ''}${leads.map((l) => `  <url><loc>${SITE}/leads/${l.id}.html</loc><lastmod>${l.updated}</lastmod></url>`).join('\n')}
 </urlset>
 `,

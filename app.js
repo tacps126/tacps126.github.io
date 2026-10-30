@@ -150,4 +150,19 @@
       deco.style.setProperty('--py', ((e.clientY / innerHeight - 0.5) * -12).toFixed(1) + 'px');
     }, { passive: true });
   }
+
+  // card light follows the pointer
+  document.querySelectorAll('.card').forEach(function (c) {
+    c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+  });
+  // pricing estimate
+  var ct = document.getElementById('calc-tool'), cn = document.getElementById('calc-n'), cu = document.getElementById('calc-usd'), cnote = document.getElementById('calc-note');
+  if (ct && cn && cu) {
+    var est = function () {
+      var unit = parseFloat(ct.value), n = Math.max(0, parseInt(cn.value || '0', 10)), usd = unit * n;
+      cu.textContent = '$' + (usd < 10 ? usd.toFixed(2) : Math.round(usd).toLocaleString('en-US'));
+      cnote.textContent = n.toLocaleString('en-US') + ' ' + ct.selectedOptions[0].dataset.what + (n === 1 ? '' : 's') + ' on Apify\'s free plan; paid plans pay less';
+    };
+    ct.addEventListener('change', est); cn.addEventListener('input', est); est();
+  }
 })();

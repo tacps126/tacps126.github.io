@@ -20,6 +20,14 @@ prices always match the Store. Edit these in `build.mjs`:
 `style.css` and `app.js` are hand-written. Preview locally with `python3 -m http.server 8765` and
 open <http://localhost:8765>.
 
+## Blog
+
+Add an article as `posts/<slug>.md` with front matter `title`, `tags`, `date` (YYYY-MM-DD) and run
+`node build.mjs`; it becomes `/blog/<slug>.html` and joins the blog index and sitemap. Publish here
+first; when reposting on Medium, dev.to or LinkedIn, set the post's canonical URL to
+`https://tacps126.github.io/blog/<slug>.html` (Medium: Import a story from this URL; dev.to:
+`canonical_url` in the front matter) so search engines credit this site.
+
 ## Quality rules
 
 - Plain HTML, CSS and JavaScript; no trackers, no third-party scripts, no cookies. Fonts are self-hosted
