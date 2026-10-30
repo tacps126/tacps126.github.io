@@ -157,6 +157,48 @@ const footer = () => `<footer>
   </div>
 </footer>`;
 
+// Every page gets the same furniture: each section with a heading is numbered
+// (01, 02 …) and listed in the side indicator, and every hero carries the same
+// floating layers. Built here, so no page can miss it.
+const slug = (t) => t.toLowerCase().replace(/<[^>]+>/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+const plain = (t) => t.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').trim();
+const DECO = `<div class="deco" aria-hidden="true"><div class="cube c1"><i></i><i></i><i></i></div><div class="cube c2"><i></i><i></i><i></i></div><div class="cube c3"><i></i><i></i><i></i></div><span class="orb o1"></span><span class="orb o2"></span></div>`;
+function decorate(body) {
+  const parts = body.split('<section');
+  const toc = [];
+  const seen = new Set();
+  const out = parts.map((chunk, i) => {
+    if (i === 0) return chunk;
+    const tag = chunk.slice(0, chunk.indexOf('>'));
+    if (/class="[^"]*hero/.test(tag)) {
+      return chunk.replace('>', '>' + DECO);
+    }
+    const head = chunk.indexOf('class="sec-head');
+    const h2 = head >= 0 ? chunk.indexOf('<h2', head) : -1;
+    if (h2 < 0) return chunk;
+    const text = plain(chunk.slice(chunk.indexOf('>', h2) + 1, chunk.indexOf('</h2>', h2)));
+    let id = (tag.match(/\bid="([^"]+)"/) || [])[1];
+    let label = (tag.match(/data-label="([^"]+)"/) || [])[1] || text;
+    if (label.length > 24) label = label.slice(0, 22).replace(/\s+\S*$/, '') + '…';
+    let newTag = tag;
+    if (!id) {
+      id = slug(text) || `s${i}`;
+      while (seen.has(id)) id += '-x';
+      newTag = `${tag} id="${id}"`;
+    }
+    seen.add(id);
+    toc.push([id, label]);
+    const num = String(toc.length).padStart(2, '0');
+    const rest = chunk.slice(tag.length);
+    const at = rest.indexOf('<h2', rest.indexOf('class="sec-head'));
+    return newTag + rest.slice(0, at) + `<span class="sec-num">${num}</span>` + rest.slice(at);
+  });
+  const nav = toc.length >= 3
+    ? `<nav class="toc" aria-label="On this page">${toc.map(([id, l], i) => `<a href="#${id}" data-toc="${id}"><i>${String(i + 1).padStart(2, '0')}</i><span>${esc(l)}</span></a>`).join('')}</nav>\n`
+    : '';
+  return nav + out.join('<section');
+}
+
 const page = ({ path, title, description, body, active, jsonld }) => `<!doctype html>
 <html lang="en">
 <head>
@@ -180,6 +222,8 @@ const page = ({ path, title, description, body, active, jsonld }) => `<!doctype 
 <meta property="og:image:alt" content="tacps126: clean web data for jobs, news, reviews and leads">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="${OG}">
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${CSS}">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
@@ -187,7 +231,7 @@ const page = ({ path, title, description, body, active, jsonld }) => `<!doctype 
 <body>
 ${header(active)}
 <main>
-${body}
+${decorate(body)}
 </main>
 ${footer()}
 <script src="${JS}" defer></script>
@@ -300,10 +344,7 @@ const API_CALL = `curl -X POST \\
   -H "Content-Type: application/json" \\
   -d '{"queries": ["electric vehicles"], "maxItems": 20}'`;
 
-const TOC = [['library', 'Library'], ['cover', 'Coverage'], ['uses', 'Use cases'], ['tools', 'All tools'], ['why', 'Why these'], ['code', 'From code'], ['faq', 'FAQ'], ['agents', 'AI agents'], ['build', 'Custom work']];
-const toc = `<nav class="toc" aria-label="On this page">${TOC.map(([id, l], i) => `<a href="#${id}" data-toc="${id}"><i>${String(i + 1).padStart(2, '0')}</i><span>${l}</span></a>`).join('')}</nav>`;
-
-const indexBody = `${toc}
+const indexBody = `
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
@@ -317,7 +358,7 @@ const indexBody = `${toc}
         </div>
       </div>
       <div class="hero-visual">
-        ${code('hiring-signals · real output, 2026-10-17', HERO_SAMPLE)}
+        <div class="layers">${code('hiring-signals · real output, 2026-10-17', HERO_SAMPLE)}</div>
         <p class="caption">Which AI companies are hiring security and data roles: one row per company, scored.</p>
       </div>
     </div>
@@ -331,7 +372,7 @@ const indexBody = `${toc}
   </div>
 </section>
 
-<section id="library">
+<section id="library" data-label="Library">
   <div class="wrap">
     <div class="sec-head reveal"><h2>The library, at its real size</h2><p>${used} dots, ${used} tools. The bigger the dot, the more it has been run; hover to name one, click to open it.</p></div>
     <div class="lib-tools reveal"><div class="legend">${legend}</div><div class="lib-sort" role="group" aria-label="Arrange"><button class="chip" type="button" data-arrange="use" aria-pressed="true">By use</button><button class="chip" type="button" data-arrange="topic" aria-pressed="false">By topic</button></div></div>
@@ -339,14 +380,14 @@ const indexBody = `${toc}
   </div>
 </section>
 
-<section class="alt" id="cover">
+<section class="alt" id="cover" data-label="Coverage">
   <div class="wrap">
     <div class="sec-head reveal"><h2>What we cover</h2><p>Pick a topic to see what people run most in it.</p></div>
     <div class="cov-grid reveal"><div class="cov-list">${coverList}</div><div>${coverPanels}</div></div>
   </div>
 </section>
 
-<section id="uses">
+<section id="uses" data-label="Use cases">
   <div class="wrap">
     <div class="sec-head reveal"><h2>What people use them for</h2><p>Pick a job; the tools return the same clean fields every run.</p></div>
     <div class="grid">
@@ -358,7 +399,7 @@ const indexBody = `${toc}
   </div>
 </section>
 
-<section class="alt" id="tools">
+<section class="alt" id="tools" data-label="All tools">
   <div class="wrap">
     <div class="sec-head reveal"><h2>All tools</h2><p>Each one opens its Apify page, where you can try it free with Apify's monthly credit.</p></div>
     <div class="filters">${chips}<input class="search" id="search" type="search" placeholder="Search tools  ( / )" aria-label="Search tools"><select class="sort" id="sort" aria-label="Sort tools"><option value="cat">By category</option><option value="price">Price: low to high</option><option value="name">Name</option></select><span class="count" id="count" aria-live="polite"></span></div>
@@ -369,7 +410,7 @@ ${cards.join('\n')}
   </div>
 </section>
 
-<section id="why">
+<section id="why" data-label="Why these">
   <div class="wrap">
     <div class="sec-head reveal"><h2>Built to be fast and cheap to run</h2><p>Runs start instantly and finish in seconds. A typical run costs a fraction of a cent in platform usage, so the price you see is the price you pay.</p></div>
     <div class="grid">
@@ -381,7 +422,7 @@ ${cards.join('\n')}
   </div>
 </section>
 
-<section class="alt" id="code">
+<section class="alt" id="code" data-label="From code">
   <div class="wrap split">
     <div class="reveal">
       <span class="eyebrow">From code</span>
@@ -392,7 +433,7 @@ ${cards.join('\n')}
   </div>
 </section>
 
-<section id="faq">
+<section id="faq" data-label="FAQ">
   <div class="wrap">
     <div class="sec-head reveal"><h2>Before you start</h2></div>
     <div class="faq reveal">
@@ -405,7 +446,7 @@ ${cards.join('\n')}
   </div>
 </section>
 
-<section class="alt" id="agents">
+<section class="alt" id="agents" data-label="AI agents">
   <div class="wrap split">
     <div class="reveal">
       <span class="eyebrow">For AI agents</span>
@@ -424,7 +465,7 @@ ${cards.join('\n')}
   </div>
 </section>
 
-<section id="build">
+<section id="build" data-label="Custom work">
   <div class="wrap">
     <div class="sec-head reveal"><h2>Need something that is not here?</h2><p>Custom scrapers and daily data feeds for niche job boards, recruiters and sales teams.</p></div>
     <div class="steps">
@@ -439,7 +480,7 @@ ${cards.join('\n')}
   </div>
 </section>
 
-<section class="alt" id="open">
+<section class="alt" id="open" data-label="Open source">
   <div class="wrap">
     <div class="sec-head reveal"><h2>Open source and code</h2><p>Small things I publish openly.</p></div>
     <div class="grid two">

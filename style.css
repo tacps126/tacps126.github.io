@@ -193,3 +193,94 @@ table.sample td:last-child { color:var(--muted); word-break:break-all; }
 .toc a:hover, .toc a.on { opacity:1; color:var(--text); }
 .toc a.on::before { width:26px; background:linear-gradient(90deg, var(--accent), var(--accent2)); }
 @media (min-width:1380px) { .toc { display:flex; } }
+
+/* ===================================================================
+   Design layer 2026-10-30: type, depth, layers, separators, motion.
+   Flat 3D: solid colour planes stacked with small offsets, never photoreal.
+   =================================================================== */
+@font-face { font-family:"Inter"; src:url(/fonts/inter-latin-400-normal.woff2) format("woff2"); font-weight:400; font-display:swap; }
+@font-face { font-family:"Inter"; src:url(/fonts/inter-latin-500-normal.woff2) format("woff2"); font-weight:500; font-display:swap; }
+@font-face { font-family:"Inter"; src:url(/fonts/inter-latin-600-normal.woff2) format("woff2"); font-weight:600 700; font-display:swap; }
+@font-face { font-family:"Space Grotesk"; src:url(/fonts/space-grotesk-latin-500-normal.woff2) format("woff2"); font-weight:500; font-display:swap; }
+@font-face { font-family:"Space Grotesk"; src:url(/fonts/space-grotesk-latin-700-normal.woff2) format("woff2"); font-weight:600 800; font-display:swap; }
+@font-face { font-family:"JetBrains Mono"; src:url(/fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2"); font-weight:400 700; font-display:swap; }
+
+:root { --display:"Space Grotesk", "Inter", system-ui, sans-serif; --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  --layer1:color-mix(in srgb, var(--accent) 22%, var(--surface)); --layer2:color-mix(in srgb, var(--accent2) 18%, var(--surface)); --lift:0 1px 0 rgba(255,255,255,.06) inset; }
+body { font-family:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif; font-feature-settings:"ss01","cv11"; }
+h1, h2, h3, .brand, .stat b, .cov-total b, .sec-num, .toc i { font-family:var(--display); }
+h1 { font-weight:700; letter-spacing:-.045em; }
+.sec-head h2 { font-weight:700; letter-spacing:-.035em; font-size:clamp(1.8rem,3.4vw,2.6rem); }
+.code pre, .pill, td code { font-family:var(--mono); }
+
+/* numbered sections: the same number as the side indicator */
+.sec-num { display:inline-flex; align-items:center; gap:10px; font-size:.8rem; font-weight:700; letter-spacing:.12em; color:var(--accent); margin-bottom:10px; }
+.sec-num::after { content:""; width:42px; height:2px; border-radius:2px; background:linear-gradient(90deg, var(--accent), var(--accent2)); }
+
+/* section separators: a hairline with a glowing node, instead of flat borders */
+section { position:relative; }
+section.alt { border-block:0; background:
+  radial-gradient(900px 300px at 85% 0%, color-mix(in srgb, var(--accent2) 7%, transparent), transparent 70%),
+  radial-gradient(900px 300px at 10% 100%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%), var(--bg2); }
+main > section + section::before { content:""; position:absolute; left:50%; top:0; transform:translateX(-50%); width:min(1120px, 92%); height:1px;
+  background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 55%, transparent) 30%, color-mix(in srgb, var(--accent2) 55%, transparent) 70%, transparent); }
+main > section + section::after { content:""; position:absolute; left:50%; top:-5px; transform:translateX(-50%) rotate(45deg); width:10px; height:10px;
+  background:var(--bg); border:2px solid var(--accent); box-shadow:0 0 18px 2px var(--glow1); }
+
+/* layered cards: two flat planes behind every card, fanned out on hover */
+.card, .stat, .cov-panel, .step, details, .table-wrap { position:relative; isolation:isolate; }
+.card::before, .card::after, .stat::before, .cov-panel::before { content:""; position:absolute; inset:0; border-radius:inherit; z-index:-1; pointer-events:none; transition:transform .35s cubic-bezier(.2,.8,.2,1), opacity .35s; }
+.card::before, .stat::before, .cov-panel::before { background:var(--layer1); transform:translate(6px, 6px); opacity:.55; }
+.card::after { background:var(--layer2); transform:translate(12px, 12px); opacity:.3; }
+.card { box-shadow:var(--lift), var(--shadow); transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)); transition:transform .25s ease, border-color .2s, box-shadow .25s; will-change:transform; }
+a.card:hover, .card.tilting { border-color:color-mix(in srgb, var(--accent) 60%, var(--border)); box-shadow:var(--lift), 0 24px 50px -24px var(--accent); }
+a.card:hover { transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-4px); }
+a.card:hover::before { transform:translate(10px, 10px); opacity:.7; } a.card:hover::after { transform:translate(20px, 20px); opacity:.4; }
+.card .ico { box-shadow:0 6px 0 -2px color-mix(in srgb, var(--accent) 35%, transparent); transform:translateZ(30px); }
+.stat { background:linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, transparent), color-mix(in srgb, var(--surface) 70%, transparent)); }
+.stat::after { content:""; position:absolute; left:16px; right:16px; top:0; height:2px; border-radius:2px; background:linear-gradient(90deg, var(--accent), var(--accent2)); opacity:.8; }
+.stat b { font-size:2rem; }
+
+/* hero: floating isometric cubes and soft orbs, on every page */
+.hero .deco { position:absolute; inset:0; pointer-events:none; z-index:0; transform:translate3d(var(--px,0), var(--py,0), 0); transition:transform .4s ease-out; }
+.cube { position:absolute; width:var(--s); height:var(--s); transform-style:preserve-3d; transform:rotateX(-30deg) rotateY(45deg); animation:float 9s ease-in-out infinite; }
+.cube i { position:absolute; inset:0; border-radius:4px; opacity:var(--o,1); }
+/* opacity on the cube itself would flatten its faces: it sits on the faces */
+.cube i:nth-child(1) { background:var(--accent); transform:rotateY(0deg) translateZ(calc(var(--s) / 2)); }
+.cube i:nth-child(2) { background:color-mix(in srgb, var(--accent) 70%, #000); transform:rotateY(90deg) translateZ(calc(var(--s) / 2)); }
+.cube i:nth-child(3) { background:color-mix(in srgb, var(--accent2) 85%, #fff); transform:rotateX(90deg) translateZ(calc(var(--s) / 2)); }
+.cube.c1 { --s:46px; --o:.9; right:6%; top:16%; }
+.cube.c2 { --s:26px; --o:.65; right:44%; top:9%; animation-delay:-3s; animation-duration:11s; }
+.cube.c3 { --s:34px; --o:.55; left:3%; bottom:12%; animation-delay:-6s; }
+.cube.c2 i:nth-child(1), .cube.c3 i:nth-child(1) { background:var(--accent2); }
+.cube.c2 i:nth-child(2), .cube.c3 i:nth-child(2) { background:color-mix(in srgb, var(--accent2) 65%, #000); }
+.orb { position:absolute; border-radius:50%; filter:blur(2px); background:radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--accent2) 80%, #fff), var(--accent) 70%); opacity:.35; animation:float 12s ease-in-out infinite; }
+.orb.o1 { width:14px; height:14px; left:46%; bottom:18%; } .orb.o2 { width:9px; height:9px; right:22%; bottom:30%; animation-delay:-5s; }
+@keyframes float { 0%,100% { translate:0 0; } 50% { translate:0 -14px; } }
+@media (max-width:900px) { .cube.c1 { --s:26px; top:3%; right:4%; } .cube.c2, .orb.o1 { display:none; } }
+
+/* layered hero window: the real output on top of two offset planes */
+.layers { position:relative; isolation:isolate; transform:perspective(1400px) rotateY(-6deg) rotateX(3deg); transition:transform .5s cubic-bezier(.2,.8,.2,1); }
+.layers:hover { transform:perspective(1100px) rotateY(-2deg) rotateX(1deg); }
+.layers::before, .layers::after { content:""; position:absolute; inset:0; border-radius:14px; z-index:-1; border:1px solid var(--border); }
+.layers::before { background:var(--layer1); transform:translate(18px, 18px); }
+.layers::after { background:var(--layer2); transform:translate(36px, 36px); opacity:.6; }
+.layers .code { box-shadow:0 40px 80px -30px rgba(0,0,0,.55); }
+
+/* library dots as small spheres */
+.dot { background:radial-gradient(circle at 32% 28%, color-mix(in srgb, var(--c) 35%, #fff), var(--c) 55%, color-mix(in srgb, var(--c) 70%, #000)); box-shadow:0 6px 12px -6px color-mix(in srgb, var(--c) 80%, #000); }
+.library { background:linear-gradient(180deg, var(--surface), color-mix(in srgb, var(--surface) 70%, var(--bg2))); box-shadow:var(--lift), var(--shadow); }
+
+/* buttons with a flat 3D base */
+.btn { box-shadow:0 4px 0 -1px color-mix(in srgb, var(--border) 100%, transparent); transition:transform .15s, box-shadow .15s, border-color .15s; }
+.btn:hover { transform:translateY(-2px); box-shadow:0 6px 0 -1px color-mix(in srgb, var(--accent) 45%, transparent); }
+.btn:active { transform:translateY(2px); box-shadow:0 1px 0 -1px var(--border); }
+.btn.primary { box-shadow:0 5px 0 -1px color-mix(in srgb, var(--accent) 60%, #000), 0 14px 30px -12px var(--accent); }
+
+/* side indicator: same on every page */
+.toc { left:max(14px, calc((100vw - 1120px) / 2 - 150px)); }
+.toc a.on i { color:var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cube, .orb { animation:none; } .layers, .card { transform:none !important; } .hero .deco { transform:none; }
+}

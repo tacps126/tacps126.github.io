@@ -22,7 +22,11 @@ open <http://localhost:8765>.
 
 ## Quality rules
 
-- Plain HTML, CSS and JavaScript; no trackers, no third-party scripts, no cookies.
+- Plain HTML, CSS and JavaScript; no trackers, no third-party scripts, no cookies. Fonts are self-hosted
+  in `fonts/` (Inter, Space Grotesk, JetBrains Mono; SIL Open Font License), never loaded from a CDN.
+- Every page gets the same furniture from `decorate()` in `build.mjs`: sections with a `sec-head` are
+  numbered and listed in the side indicator (`data-label` sets a short label), and every hero gets the
+  floating layers. Don't hand-build these per page.
 - Every page keeps the header "Tapaswai Choudhary (tacps126)", works without JavaScript for reading,
   and stays readable at phone width.
 - Prices, counts and titles come from the Apify Store at build time; don't hard-code them in copy.

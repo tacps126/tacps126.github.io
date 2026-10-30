@@ -133,4 +133,21 @@
     }, { rootMargin: '-45% 0px -50% 0px' });
     toc.forEach(function (a) { var t = document.getElementById(a.dataset.toc); if (t) tocIo.observe(t); });
   }
+
+  // depth: cards lean toward the pointer; hero layers drift with it
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches, fine = matchMedia('(pointer: fine)').matches;
+  if (!still && fine) {
+    document.querySelectorAll('.card, .cov-panel').forEach(function (c) {
+      c.addEventListener('pointermove', function (e) {
+        var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        c.style.setProperty('--ry', (x * 8).toFixed(2) + 'deg'); c.style.setProperty('--rx', (-y * 8).toFixed(2) + 'deg'); c.classList.add('tilting');
+      });
+      c.addEventListener('pointerleave', function () { c.style.removeProperty('--rx'); c.style.removeProperty('--ry'); c.classList.remove('tilting'); });
+    });
+    var deco = document.querySelector('.hero .deco');
+    if (deco) document.addEventListener('pointermove', function (e) {
+      deco.style.setProperty('--px', ((e.clientX / innerWidth - 0.5) * -18).toFixed(1) + 'px');
+      deco.style.setProperty('--py', ((e.clientY / innerHeight - 0.5) * -12).toFixed(1) + 'px');
+    }, { passive: true });
+  }
 })();
