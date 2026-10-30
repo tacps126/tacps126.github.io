@@ -100,4 +100,37 @@
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.08 });
     items.forEach(function (i) { io.observe(i); });
   } else { items.forEach(function (i) { i.classList.add('in'); }); }
+
+  // library: arrange dots by use or by topic
+  var lib = document.getElementById('dots');
+  if (lib) {
+    var dots = [].slice.call(lib.children), order = ['jobs', 'leads', 'reviews', 'gov', 'commerce'];
+    document.querySelectorAll('[data-arrange]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var byTopic = b.dataset.arrange === 'topic';
+        document.querySelectorAll('[data-arrange]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+        dots.slice().sort(function (x, y) {
+          if (byTopic) { var d = order.indexOf(x.dataset.k) - order.indexOf(y.dataset.k); if (d) return d; }
+          return x.dataset.rank - y.dataset.rank;
+        }).forEach(function (d) { lib.appendChild(d); });
+      });
+    });
+  }
+  // coverage: one topic at a time
+  var covs = [].slice.call(document.querySelectorAll('.cov')), panels = [].slice.call(document.querySelectorAll('.cov-panel'));
+  covs.forEach(function (c) {
+    c.addEventListener('click', function () {
+      covs.forEach(function (x) { x.setAttribute('aria-pressed', x === c); });
+      panels.forEach(function (p) { p.hidden = p.dataset.cov !== c.dataset.cov; });
+    });
+  });
+  // side indicator: mark the section in view
+  var toc = [].slice.call(document.querySelectorAll('[data-toc]'));
+  if (toc.length && 'IntersectionObserver' in window) {
+    var mark = function (id) { toc.forEach(function (a) { a.classList.toggle('on', a.dataset.toc === id); }); };
+    var tocIo = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) mark(e.target.id); });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    toc.forEach(function (a) { var t = document.getElementById(a.dataset.toc); if (t) tocIo.observe(t); });
+  }
 })();

@@ -127,6 +127,7 @@ const header = (active) => `<div class="progress" aria-hidden="true"></div>
       <a href="/#tools">Tools</a>
       <a href="/mcp.html"${active === 'mcp' ? ' aria-current="page"' : ''}>MCP server</a>
       <a href="/#build">Custom work</a>
+      <a href="/about.html"${active === 'about' ? ' aria-current="page"' : ''}>About</a>
       <a href="https://github.com/${USER}">GitHub</a>
       <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme">${small('sun', 18)}</button>
     </nav>
@@ -140,6 +141,7 @@ const footer = () => `<footer>
       <ul>
         <li><a href="https://apify.com/${USER}">Tools on Apify</a></li>
         <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="/about.html">About</a></li>
         <li><a href="/leads/">Trade show exhibitor lists</a></li>
         <li><a href="https://github.com/${USER}/apify-data-recipes">Code recipes</a></li>
       </ul>
@@ -178,7 +180,7 @@ const page = ({ path, title, description, body, active, jsonld }) => `<!doctype 
 <meta property="og:image:alt" content="tacps126: clean web data for jobs, news, reviews and leads">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="${OG}">
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="${CSS}">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
 </head>
@@ -188,7 +190,7 @@ ${header(active)}
 ${body}
 </main>
 ${footer()}
-<script src="/app.js" defer></script>
+<script src="${JS}" defer></script>
 </body>
 </html>
 `;
@@ -249,9 +251,48 @@ const runs30 = items.reduce((a, i) => {
 }, { total: 0, ok: 0 });
 const okShare = runs30.total >= 50 ? Math.floor((100 * runs30.ok) / runs30.total) : null;
 
+// "The library, at its real size": one dot per tool, area by runs, colour by
+// topic; and "What we cover": each topic with its most-run tools.
+const CAT_SHORT = { jobs: 'Jobs', leads: 'Leads', reviews: 'Reviews and research', gov: 'Government', commerce: 'Commerce' };
+const toolsOf = (names) => names.map((n) => byName.get(n)).filter(Boolean);
+const runsOf = (a) => a.stats?.totalRuns || 0;
+const fmt = (n) => n.toLocaleString('en-US');
+const allTools = CATS.flatMap(([k, , names]) => toolsOf(names).map((a) => ({ a, k })));
+const maxRuns = Math.max(1, ...allTools.map((t) => runsOf(t.a)));
+const dots = allTools
+  .slice()
+  .sort((x, y) => runsOf(y.a) - runsOf(x.a))
+  .map(({ a, k }, i) => {
+    const size = Math.round(14 + 30 * Math.sqrt(runsOf(a) / maxRuns));
+    return `<a class="dot" data-k="${k}" data-rank="${i}" style="--d:${size}px" href="https://apify.com/${USER}/${esc(a.name)}" rel="noopener" title="${esc(a.title)} · ${fmt(runsOf(a))} runs"><span class="sr">${esc(a.title)}</span></a>`;
+  })
+  .join('');
+const legend = CATS.map(([k]) => `<span class="lg" data-k="${k}">${esc(CAT_SHORT[k] || k)}</span>`).join('');
+const cover = CATS.map(([k, label, names], i) => {
+  const ts = toolsOf(names).sort((x, y) => runsOf(y) - runsOf(x));
+  return { k, label, i, n: ts.length, top: ts.slice(0, 4) };
+});
+const coverList = cover
+  .map((c) => `<button class="cov" type="button" data-cov="${c.k}" aria-pressed="${c.i === 0}"><span>${esc(c.label)}</span><b>${c.n}</b></button>`)
+  .join('');
+const coverPanels = cover
+  .map((c) => `<div class="cov-panel" data-cov="${c.k}"${c.i === 0 ? '' : ' hidden'}>
+  <div class="cov-total"><b>${c.n}</b><span>tools in ${esc(c.label.toLowerCase())}</span></div>
+  <p class="cov-sub">Most used here</p>
+  <ul>${c.top.map((a) => `<li><a href="https://apify.com/${USER}/${esc(a.name)}" rel="noopener">${esc(a.title)}</a><span>${fmt(runsOf(a))} runs</span></li>`).join('')}</ul>
+  <a class="btn" href="#tools" data-filter="${c.k}">See all ${c.n}</a>
+</div>`)
+  .join('\n');
+
 // The share image's URL carries a hash of its bytes, so Discord, Slack and
 // LinkedIn (which cache previews per URL) fetch a new image when it changes.
 const OG = `${SITE}/og.png?v=${createHash('sha256').update(readFileSync(new URL('./og.png', import.meta.url))).digest('hex').slice(0, 10)}`;
+
+// Asset URLs carry a hash of their content: an update reaches visitors at
+// once instead of after their browser's cache expires.
+const hashOf = (f) => createHash('sha256').update(readFileSync(new URL(f, import.meta.url))).digest('hex').slice(0, 10);
+const CSS = `/style.css?v=${hashOf('./style.css')}`;
+const JS = `/app.js?v=${hashOf('./app.js')}`;
 
 // One call from any language: the run-sync endpoint returns the results.
 const API_CALL = `curl -X POST \\
@@ -259,7 +300,10 @@ const API_CALL = `curl -X POST \\
   -H "Content-Type: application/json" \\
   -d '{"queries": ["electric vehicles"], "maxItems": 20}'`;
 
-const indexBody = `
+const TOC = [['library', 'Library'], ['cover', 'Coverage'], ['uses', 'Use cases'], ['tools', 'All tools'], ['why', 'Why these'], ['code', 'From code'], ['faq', 'FAQ'], ['agents', 'AI agents'], ['build', 'Custom work']];
+const toc = `<nav class="toc" aria-label="On this page">${TOC.map(([id, l], i) => `<a href="#${id}" data-toc="${id}"><i>${String(i + 1).padStart(2, '0')}</i><span>${l}</span></a>`).join('')}</nav>`;
+
+const indexBody = `${toc}
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
@@ -284,6 +328,21 @@ const indexBody = `
       <div class="stat"><b data-count="${N}">${N}</b><span>tools in the MCP server</span></div>
       <div class="stat"><b data-count="91">91</b><span>trade shows built in</span></div>
     </div>
+  </div>
+</section>
+
+<section id="library">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>The library, at its real size</h2><p>${used} dots, ${used} tools. The bigger the dot, the more it has been run; hover to name one, click to open it.</p></div>
+    <div class="lib-tools reveal"><div class="legend">${legend}</div><div class="lib-sort" role="group" aria-label="Arrange"><button class="chip" type="button" data-arrange="use" aria-pressed="true">By use</button><button class="chip" type="button" data-arrange="topic" aria-pressed="false">By topic</button></div></div>
+    <div class="library reveal" id="dots">${dots}</div>
+  </div>
+</section>
+
+<section class="alt" id="cover">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>What we cover</h2><p>Pick a topic to see what people run most in it.</p></div>
+    <div class="cov-grid reveal"><div class="cov-list">${coverList}</div><div>${coverPanels}</div></div>
   </div>
 </section>
 
@@ -601,6 +660,58 @@ if (leads.length) {
   );
 }
 
+
+// ---------------------------------------------------------------- about
+const aboutBody = `
+<section class="hero" style="padding-bottom:40px">
+  <div class="wrap">
+    <span class="eyebrow">About</span>
+    <h1 style="margin-top:14px">Clean web data, <span class="grad">fast and cheap to run</span></h1>
+    <p class="lead">I'm ${OWNER}. I build tools on Apify that hand you ready-to-use, consistent data, not raw HTML: ${used} of them for jobs, leads, research, government updates, real estate, reviews and news. ${okShare ? `${okShare}% of the ${fmt(runs30.total)} public runs in the last 30 days succeeded.` : ''}</p>
+    <div class="cta-row"><a class="btn primary" href="https://apify.com/${USER}" rel="noopener">See them on Apify</a><a class="btn" href="mailto:${EMAIL}?subject=Custom%20data%20request">Ask for a custom tool</a></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><h2>Every tool gives you</h2></div>
+    <div class="grid">
+      <div class="card">${ico('refresh')}<h3>The same fields every run</h3><p>CSV, Excel or JSON, and only-new or changes-only modes for scheduled monitoring.</p></div>
+      <div class="card">${ico('coin')}<h3>Pay only for results</h3><p>Clear per-result prices, nothing charged when nothing is found, and your spending cap is always respected.</p></div>
+      <div class="card">${ico('bolt')}<h3>Plugs in anywhere</h3><p>An instant API, an MCP endpoint for AI agents, and delivery to Slack, Discord, Google Sheets or any webhook.</p></div>
+      <div class="card">${ico('shield')}<h3>Public data, done carefully</h3><p>Rate limits respected, retries and resume without double-charging. No captcha solving and no logins for you.</p></div>
+    </div>
+  </div>
+</section>
+
+${CATS.map(([k, label, names], i) => `<section${i % 2 ? ' class="alt"' : ''}>
+  <div class="wrap">
+    <div class="sec-head"><h2>${esc(label)}</h2><p>${toolsOf(names).length} tools</p></div>
+    <ul class="about-list">${toolsOf(names).map((a) => `<li><a href="https://apify.com/${USER}/${esc(a.name)}" rel="noopener">${esc(a.title)}</a><span>${esc(short(stripPrice(a.description), 180))}</span></li>`).join('')}</ul>
+  </div>
+</section>`).join('\n')}
+
+<section class="alt">
+  <div class="wrap">
+    <div class="cta-band">
+      <div><h2>Need a source that isn't here?</h2><p>Custom scrapers, daily data feeds, and private deployments of any of these tools. Requests decide what I build next.</p></div>
+      <a class="btn primary" href="mailto:${EMAIL}?subject=Custom%20data%20request">Email ${EMAIL}</a>
+    </div>
+  </div>
+</section>`;
+
+writeFileSync(
+  new URL('./about.html', import.meta.url),
+  page({
+    path: '/about.html',
+    active: 'about',
+    title: `About - ${OWNER} (tacps126), web data tools`,
+    description: `${OWNER} builds ${used} web data tools on Apify for jobs, leads, research, government updates, real estate, reviews and news. Clean fields, pay per result.`,
+    body: aboutBody,
+    jsonld: { '@context': 'https://schema.org', '@type': 'AboutPage', name: `About ${OWNER}`, url: `${SITE}/about.html` },
+  }),
+);
+
 // ---------------------------------------------------------------- 404, sitemap, llms.txt
 writeFileSync(
   new URL('./404.html', import.meta.url),
@@ -619,6 +730,7 @@ writeFileSync(
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${SITE}/</loc><lastmod>${TODAY}</lastmod></url>
   <url><loc>${SITE}/mcp.html</loc><lastmod>${TODAY}</lastmod></url>
+  <url><loc>${SITE}/about.html</loc><lastmod>${TODAY}</lastmod></url>
 ${leads.length ? `  <url><loc>${SITE}/leads/</loc><lastmod>${TODAY}</lastmod></url>\n` : ''}${leads.map((l) => `  <url><loc>${SITE}/leads/${l.id}.html</loc><lastmod>${l.updated}</lastmod></url>`).join('\n')}
 </urlset>
 `,
