@@ -100,6 +100,15 @@ const MCP_TOOLS = [
   ['analyze_shopify_stores', 'Shopify store location, catalog and contacts', 'shopify-store-analyzer', '$4 / 1,000 stores'],
   ['get_trade_show_exhibitors', 'Trade-show exhibitors with booths and contacts (91 shows or any supported link)', 'exhibition-scraper', '$2 / 1,000 exhibitors'],
   ['find_events', 'Upcoming events from Luma, Eventbrite and Meetup with organisers and tickets', 'events-scraper', '$1 / 1,000 events'],
+  ['get_prediction_markets', 'Kalshi, Polymarket, Manifold and PredictIt odds: probability, change, volume, result, daily history', 'prediction-markets', '$3 / 1,000 markets'],
+  ['get_sports_data', 'Scores, box scores, betting lines, standings and rosters for 24 leagues', 'sports-data', '$3 / 1,000 rows'],
+  ['get_lottery_results', 'Powerball, Mega Millions and state lotto results with jackpots; hot and cold numbers', 'lottery-results', '$3 / 1,000 rows'],
+  ['search_clinical_trials', 'ClinicalTrials.gov studies by condition, drug, sponsor, phase and site, with contacts', 'clinical-trials', '$3 / 1,000 studies'],
+  ['search_vulnerabilities', 'CVEs with CVSS, affected products, CISA known-exploited status and EPSS', 'cve-feed', '$3 / 1,000 CVEs'],
+  ['search_fda_device_clearances', 'FDA 510(k) clearances and PMA approvals with applicant, device and review time', 'fda-device-clearances', '$4 / 1,000 decisions'],
+  ['search_healthcare_providers', 'US doctors, dentists and clinics from the NPI Registry by specialty and place', 'npi-providers', '$3 / 1,000 providers'],
+  ['search_podcasts', 'Apple Podcasts search and charts with owner email and activity', 'podcasts', '$4 / 1,000 podcasts'],
+  ['search_startup_funding', 'New startup raises from SEC Form D with founders and amounts', 'startup-funding', '$5 / 1,000 filings'],
 ].filter(([, , actor]) => byName.has(actor)); // tools whose Actor is not public yet stay off the site
 
 // ---------------------------------------------------------------- helpers
