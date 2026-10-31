@@ -232,8 +232,7 @@ const page = ({ path, title, description, body, active, jsonld }) => `<!doctype 
 <meta property="og:image:alt" content="tacps126: clean web data for jobs, news, reviews and leads">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="${OG}">
-<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${CSS}">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
