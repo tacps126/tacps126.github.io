@@ -5,7 +5,7 @@
 
 `build.mjs` writes data/og.json (tool count, success rate, MCP tools, price range,
 one dot per public tool) and runs this, so every build's preview shows the current
-catalogue. Needs Pillow. Uses the site's own fonts from fonts/.
+catalogue. Needs Pillow. Uses the site's own font (JetBrains Mono) from fonts/.
 
 Platforms (Discord, Slack, LinkedIn, X) only show PNG or JPEG previews, never SVG,
 which is why this renders a PNG instead of serving an SVG.
@@ -22,16 +22,23 @@ W, H = 1200, 630
 BG1, BG2 = (9, 13, 30), (24, 22, 64)
 ACCENT, ACCENT2 = (129, 140, 248), (34, 211, 238)
 TEXT, MUTED = (236, 239, 252), (154, 164, 204)
-CAT = {"jobs": (99, 102, 241), "leads": (6, 182, 212), "reviews": (245, 158, 11), "gov": (16, 185, 129), "commerce": (236, 72, 153)}
+CAT = {
+    "jobs": (99, 102, 241), "leads": (6, 182, 212), "reviews": (245, 158, 11), "gov": (16, 185, 129),
+    "commerce": (236, 72, 153), "health": (239, 68, 68), "finance": (234, 179, 8), "sports": (249, 115, 22),
+    "travel": (139, 92, 246),
+}
 
 
-def font(name, size):
-    return ImageFont.truetype(str(ROOT / "fonts" / name), size)
+def font(weight, size):
+    """The site's one typeface, JetBrains Mono, at a weight of its variable axis."""
+    f = ImageFont.truetype(str(ROOT / "fonts" / "jetbrains-mono-latin-wght-normal.woff2"), size)
+    f.set_variation_by_axes([weight])
+    return f
 
 
-DISPLAY = lambda s: font("space-grotesk-latin-700-normal.woff2", s)
-BODY = lambda s: font("inter-latin-500-normal.woff2", s)
-MONO = lambda s: font("jetbrains-mono-latin-400-normal.woff2", s)
+DISPLAY = lambda s: font(700, s)
+BODY = lambda s: font(500, s)
+MONO = lambda s: font(400, s)
 
 
 def background():
@@ -100,12 +107,12 @@ def main(path):
     tiles = [(str(data["tools"]), "public tools"), (f'{data["okShare"]}%' if data.get("okShare") else "pay", "runs succeeded" if data.get("okShare") else "per result"), (str(data["mcpTools"]), "tools for AI agents"), (data["from"], "from, per 1,000 results")]
     x = 64
     for value, label in tiles:
-        w = 210
+        w = 248
         stacked_box(d, (x, 384, x + w, 494))
         d.rounded_rectangle([x + 18, 384, x + w - 18, 387], 2, fill=ACCENT2)
         d.text((x + 20, 398), value, font=DISPLAY(42), fill=TEXT)
-        d.text((x + 20, 454), label, font=BODY(17), fill=MUTED)
-        x += w + 28
+        d.text((x + 20, 454), label, font=BODY(15), fill=MUTED)
+        x += w + 26
 
     # the library: one dot per public tool, by topic, size by runs
     dots = data["dots"]
@@ -123,16 +130,19 @@ def main(path):
         cx += 2 * r + 9
         rowh = max(rowh, 2 * r)
 
-    # topic legend with counts
+    # topic legend with counts, in the largest size that fits one row
+    cats = [(CAT.get(k, ACCENT), f"{label} {n}") for k, label, n in data["cats"]]
+    for size in range(18, 11, -1):
+        f = MONO(size)
+        if 64 + sum(d.textlength(t, font=f) + 54 for _, t in cats) - 10 <= W - 64:
+            break
     x = 64
-    for key, label, n in data["cats"]:
-        col = CAT.get(key, ACCENT)
-        text = f"{label} {n}"
-        tw = d.textlength(text, font=MONO(18))
-        d.rounded_rectangle([x, 540, x + tw + 44, 576], 18, fill=(26, 31, 64), outline=(64, 70, 120))
-        d.ellipse([x + 14, 552, x + 26, 564], fill=col)
-        d.text((x + 34, 548), text, font=MONO(18), fill=TEXT)
-        x += tw + 58
+    for col, text in cats:
+        tw = d.textlength(text, font=f)
+        d.rounded_rectangle([x, 540, x + tw + 40, 576], 18, fill=(26, 31, 64), outline=(64, 70, 120))
+        d.ellipse([x + 13, 552, x + 25, 564], fill=col)
+        d.text((x + 32, 558), text, font=f, fill=TEXT, anchor="lm")
+        x += tw + 54
 
     img.convert("RGB").save(ROOT / "og.png", optimize=True)
 
