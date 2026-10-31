@@ -53,6 +53,18 @@ const ALL_CATS = [
   ['sports', 'Sports, odds and lotteries', ['sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results']],
   ['travel', 'Travel and transit', ['transit-timetables']],
 ];
+// Local preview of the private listings through the signed-in Apify CLI (never commit its output):
+//   PREVIEW_PRIVATE=1 node build.mjs   then   git checkout -- . && git clean -fd
+if (process.env.PREVIEW_PRIVATE) {
+  const want = ALL_CATS.flatMap(([, , names]) => names).filter((n) => !byName.has(n));
+  for (const name of want) {
+    const out = spawnSync('apify', ['api', 'GET', `/v2/acts/${USER}~${name}`], { encoding: 'utf8' }).stdout || '';
+    if (!out.includes('{')) continue;
+    const d = JSON.parse(out.slice(out.indexOf('{'))).data;
+    byName.set(name, { name, title: d.title, description: d.description, stats: {}, currentPricingInfo: (d.pricingInfos || []).at(-1) });
+  }
+  console.log(`PREVIEW: ${want.length} private listings shown as public`);
+}
 const CATS = ALL_CATS.map(([k, l, names]) => [k, l, names.filter((n) => byName.has(n))]).filter(([, , names]) => names.length);
 
 const MCP_TOOLS = [

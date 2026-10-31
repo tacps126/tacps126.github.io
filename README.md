@@ -14,8 +14,12 @@ Store. `.github/workflows/refresh.yml` rebuilds every day at 05:17 UTC and commi
 changed, so a new public Actor or a price change reaches the site within a day without a manual build;
 run it now from the Actions tab ("Refresh from Apify" → Run workflow). Edit these in `build.mjs`:
 
-- `CATS` lists which public Actors appear and in which category. A new public Actor that is not listed
-  is left out and the build prints a warning.
+- `ALL_CATS` lists every Actor by category, public or not. Private ones can be listed ahead of
+  publishing: they stay off every page (cards, counts, chips, MCP rows, `llms.txt`) until the Store
+  shows them, and a category with no public Actor is left out. The next build after publishing shows
+  them, with no edit. A public Actor that is not listed is left out and the build prints a warning.
+- `PREVIEW_PRIVATE=1 node build.mjs` (needs the Apify CLI signed in) renders the private listings as
+  if public, for a local look; restore with `git checkout -- . && git clean -fd`, never commit it.
 - `MCP_TOOLS` lists the tools of the MCP server (name, one line, Actor, price). The counts on the
   pages are derived from it.
 - The copy for each section sits in `indexBody` and `mcpBody`.
