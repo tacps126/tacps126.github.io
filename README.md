@@ -19,7 +19,8 @@ run it now from the Actions tab ("Refresh from Apify" → Run workflow). Edit th
   shows them, and a category with no public Actor is left out. The next build after publishing shows
   them, with no edit. A public Actor that is not listed is left out and the build prints a warning.
 - `PREVIEW_PRIVATE=1 node build.mjs` (needs the Apify CLI signed in) renders the private listings as
-  if public, for a local look; restore with `git checkout -- . && git clean -fd`, never commit it.
+  if public, for a local look. It writes to `_preview/` (gitignored) and leaves the committed pages and
+  og.png alone; open it with `python3 -m http.server -d _preview`.
 - `MCP_TOOLS` lists the tools of the MCP server (name, one line, Actor, price). The counts on the
   pages are derived from it.
 - The copy for each section sits in `indexBody` and `mcpBody`.

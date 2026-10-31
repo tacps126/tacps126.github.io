@@ -1,6 +1,6 @@
 // Generates the whole site from the public Apify Store listing of tacps126.
 // Usage: node build.mjs        (no token needed; it reads public Apify pages only)
-import { writeFileSync, readFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
+import { writeFileSync, readFileSync, readdirSync, mkdirSync, existsSync, cpSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 
@@ -53,9 +53,13 @@ const ALL_CATS = [
   ['sports', 'Sports, odds and lotteries', ['sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results']],
   ['travel', 'Travel and transit', ['transit-timetables']],
 ];
-// Local preview of the private listings through the signed-in Apify CLI (never commit its output):
-//   PREVIEW_PRIVATE=1 node build.mjs   then   git checkout -- . && git clean -fd
-if (process.env.PREVIEW_PRIVATE) {
+// Local preview of the private listings through the signed-in Apify CLI:
+//   PREVIEW_PRIVATE=1 node build.mjs   then   python3 -m http.server -d _preview
+// Its pages go to _preview/ (gitignored), so the committed site never names a private listing.
+const PREVIEW = !!process.env.PREVIEW_PRIVATE;
+const OUT = (p) => new URL((PREVIEW ? './_preview/' : './') + p.replace(/^\.\//, ''), import.meta.url);
+if (PREVIEW) mkdirSync(OUT('./'), { recursive: true });
+if (PREVIEW) {
   const want = ALL_CATS.flatMap(([, , names]) => names).filter((n) => !byName.has(n));
   for (const name of want) {
     const out = spawnSync('apify', ['api', 'GET', `/v2/acts/${USER}~${name}`], { encoding: 'utf8' }).stdout || '';
@@ -158,7 +162,8 @@ const ICONS = {
 const ico = (name) => `<div class="ico">${ICONS[name]}</div>`;
 const small = (name, size) => ICONS[name].replace('<svg', `<svg width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"`);
 
-const header = (active) => `<div class="progress" aria-hidden="true"></div>
+const header = (active) => `<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="/"><img src="/icon-192.png" alt="" width="30" height="30"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
@@ -249,7 +254,9 @@ const page = ({ path, title, description, body, active, jsonld }) => `<!doctype 
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${SITE}${path}">
-<meta name="theme-color" content="#080c1c">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#080c1c" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -271,7 +278,7 @@ const page = ({ path, title, description, body, active, jsonld }) => `<!doctype 
 </head>
 <body>
 ${header(active)}
-<main>
+<main id="main">
 ${decorate(body)}
 </main>
 ${footer()}
@@ -420,7 +427,7 @@ const PRICE_MOST = q(0.25) === q(0.75) ? usd(q(0.5)) : `${usd(q(0.25))}–${usd(
 
 // The social preview is drawn from these same numbers on every build
 // (scripts/og.py, needs Pillow); without Pillow the last image stays.
-writeFileSync(new URL('./data/og.json', import.meta.url), JSON.stringify({
+if (!PREVIEW) writeFileSync(new URL('./data/og.json', import.meta.url), JSON.stringify({
   name: OWNER,
   topics: 'jobs, news, reviews and leads.',
   tools: used,
@@ -430,7 +437,7 @@ writeFileSync(new URL('./data/og.json', import.meta.url), JSON.stringify({
   cats: CATS.map(([k, , names]) => [k, CAT_SHORT[k] || k, catCount(names)]),
   dots: allTools.map(({ a, k }) => ({ cat: k, runs: runsOf(a) })).sort((x, y) => y.runs - x.runs),
 }));
-const og = spawnSync('python3', ['scripts/og.py', 'data/og.json'], { cwd: new URL('.', import.meta.url), stdio: 'inherit' });
+const og = PREVIEW ? { status: 0 } : spawnSync('python3', ['scripts/og.py', 'data/og.json'], { cwd: new URL('.', import.meta.url), stdio: 'inherit' });
 if (og.status !== 0) console.warn('og.png not redrawn (python3 with Pillow needed); keeping the last one');
 
 // The share image's URL carries a hash of its bytes, so Discord, Slack and
@@ -603,7 +610,7 @@ ${cards.join('\n')}
 </section>`;
 
 writeFileSync(
-  new URL('./index.html', import.meta.url),
+  OUT('./index.html'),
   page({
     path: '/',
     active: 'home',
@@ -731,7 +738,7 @@ ${toolCards}
 </section>`;
 
 writeFileSync(
-  new URL('./mcp.html', import.meta.url),
+  OUT('./mcp.html'),
   page({
     path: '/mcp.html',
     active: 'mcp',
@@ -764,7 +771,7 @@ const leads = existsSync(LEADS_DIR)
   : [];
 const ACTOR_URL = `https://apify.com/${USER}/exhibition-scraper`;
 const n = (x) => Number(x).toLocaleString('en-US');
-mkdirSync(new URL('./leads/', import.meta.url), { recursive: true });
+mkdirSync(OUT('./leads/'), { recursive: true });
 for (const l of leads) {
   const title = `${l.name} exhibitor list ${l.updated.slice(0, 4)}: ${n(l.total)} companies with booth, website and contacts`;
   const desc = `${l.name}${l.where ? ` (${l.where})` : ''} exhibitor list: ${n(l.total)} exhibitors${l.countriesFromSample ? '' : ` from ${l.countryCount} countries`} with booth, website, phone and email. Free sample, full list as CSV/Excel.`;
@@ -803,7 +810,7 @@ for (const l of leads) {
   <p>Run <a href="${ACTOR_URL}">Trade Show Exhibitor List Scraper</a> with the show <code>${esc(l.id)}</code> (turn on <em>Find emails on company websites</em>), export CSV or Excel, or schedule it with <em>Changes only</em> to get new exhibitors and booth moves until the show. Prefer a ready file? Email <a href="mailto:${EMAIL}?subject=${encodeURIComponent(l.name + ' exhibitor list')}">${EMAIL}</a>.</p>
 </div></section>`;
   writeFileSync(
-    new URL(`./leads/${l.id}.html`, import.meta.url),
+    OUT(`./leads/${l.id}.html`),
     page({
       path: `/leads/${l.id}.html`,
       title,
@@ -827,7 +834,7 @@ if (leads.length) {
     .map((l) => `<a class="card" href="/leads/${l.id}.html"><h3>${esc(l.name)}</h3><p>${esc(l.industry)}${l.where ? ` · ${esc(l.where)}` : ''}</p><p class="muted">${n(l.total)} exhibitors${l.countriesFromSample ? '' : ` · ${l.countryCount} countries`}</p></a>`)
     .join('');
   writeFileSync(
-    new URL('./leads/index.html', import.meta.url),
+    OUT('./leads/index.html'),
     page({
       path: '/leads/',
       title: 'Trade show exhibitor lists with booth, website and email',
@@ -908,7 +915,7 @@ ${rows.map((r) => `<tr><td data-th="Tool"><a href="https://apify.com/${USER}/${e
 </section>`;
 
 writeFileSync(
-  new URL('./pricing.html', import.meta.url),
+  OUT('./pricing.html'),
   page({
     path: '/pricing.html',
     active: 'pricing',
@@ -979,10 +986,10 @@ const POSTS = existsSync(new URL('./posts/', import.meta.url))
       return { id: f.replace(/\.md$/, ''), title: fm.title, tags: (fm.tags || '').split(',').map((t) => t.trim()).filter(Boolean), date: fm.date || TODAY, body, summary: short(first, 190), mins: Math.max(1, Math.round(words / 220)) };
     }).sort((a, b) => b.date.localeCompare(a.date))
   : [];
-mkdirSync(new URL('./blog/', import.meta.url), { recursive: true });
+mkdirSync(OUT('./blog/'), { recursive: true });
 for (const p of POSTS) {
   writeFileSync(
-    new URL(`./blog/${p.id}.html`, import.meta.url),
+    OUT(`./blog/${p.id}.html`),
     page({
       path: `/blog/${p.id}.html`,
       active: 'blog',
@@ -1000,7 +1007,7 @@ for (const p of POSTS) {
   );
 }
 writeFileSync(
-  new URL('./blog/index.html', import.meta.url),
+  OUT('./blog/index.html'),
   page({
     path: '/blog/',
     active: 'blog',
@@ -1058,7 +1065,7 @@ ${CATS.map(([k, label, names], i) => `<section${i % 2 ? ' class="alt"' : ''}>
 </section>`;
 
 writeFileSync(
-  new URL('./about.html', import.meta.url),
+  OUT('./about.html'),
   page({
     path: '/about.html',
     active: 'about',
@@ -1071,7 +1078,7 @@ writeFileSync(
 
 // ---------------------------------------------------------------- 404, sitemap, llms.txt
 writeFileSync(
-  new URL('./404.html', import.meta.url),
+  OUT('./404.html'),
   page({
     path: '/404.html',
     title: 'Page not found - tacps126',
@@ -1082,7 +1089,7 @@ writeFileSync(
 );
 
 writeFileSync(
-  new URL('./sitemap.xml', import.meta.url),
+  OUT('./sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${SITE}/</loc><lastmod>${TODAY}</lastmod></url>
@@ -1105,7 +1112,7 @@ const lines = CATS.flatMap(([, label, names]) => [
   '',
 ]);
 writeFileSync(
-  new URL('./llms.txt', import.meta.url),
+  OUT('./llms.txt'),
   `# tacps126
 
 > Fast, low-cost web data tools published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
@@ -1119,3 +1126,10 @@ ${lines.join('\n')}`,
 );
 
 console.log(`site built: ${used} tools, 3 pages`);
+
+if (PREVIEW) {
+  for (const f of ['style.css', 'app.js', 'fonts', 'og.png', 'favicon.svg', 'favicon.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'robots.txt']) {
+    cpSync(new URL(`./${f}`, import.meta.url), OUT(`./${f}`), { recursive: true });
+  }
+  console.log('PREVIEW: open with  python3 -m http.server -d _preview');
+}
