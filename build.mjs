@@ -11,7 +11,10 @@ const OWNER = 'Tapaswai Choudhary';
 // Listings added in the last few weeks get a "New" badge.
 const NEW = new Set(['company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
-  'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar', 'youtube-transcripts']);
+  'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar', 'youtube-transcripts',
+  'sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results',
+  'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding', 'clinical-trials', 'fda-device-clearances', 'npi-providers',
+  'podcasts', 'cve-feed']);
 const TODAY = new Date().toISOString().slice(0, 10);
 
 // ---------------------------------------------------------------- data
@@ -29,7 +32,10 @@ await Promise.all(
   }),
 );
 
-const CATS = [
+// Every listing, public or not. Private ones are listed ahead of publishing and stay off the site
+// (cards, counts, chips, MCP rows, llms.txt) until the Store shows them; a category with no public
+// listing is left out entirely.
+const ALL_CATS = [
   ['jobs', 'Jobs and hiring', [
     'jobs-harvester', 'hiring-signals', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper',
     'wellfound-jobs-scraper', 'dice-jobs-scraper', 'builtin-jobs-scraper',
@@ -39,12 +45,15 @@ const CATS = [
     'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper']],
   ['leads', 'Leads, events and contacts', ['company-registry', 'contact-details', 'reddit-lead-finder', 'shopify-store-analyzer', 'exhibition-scraper',
     'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
-  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'youtube-comments', 'research-radar', 'innovation-radar', 'reddit-monitor']],
-  ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar']],
+  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'youtube-comments', 'podcasts', 'research-radar', 'innovation-radar', 'reddit-monitor']],
+  ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar', 'cve-feed']],
+  ['health', 'Health and life sciences', ['clinical-trials', 'fda-device-clearances', 'npi-providers']],
   ['commerce', 'E-commerce, vehicles and real estate', ['shopify-products', 'copart-auctions', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
-  ['finance', 'Finance and markets', ['short-interest']],
+  ['finance', 'Finance and markets', ['short-interest', 'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding']],
+  ['sports', 'Sports, odds and lotteries', ['sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results']],
   ['travel', 'Travel and transit', ['transit-timetables']],
 ];
+const CATS = ALL_CATS.map(([k, l, names]) => [k, l, names.filter((n) => byName.has(n))]).filter(([, , names]) => names.length);
 
 const MCP_TOOLS = [
   ['search_grants', 'Open and forecast funding calls: US Grants.gov, EU Funding & Tenders (Horizon Europe…), UKRI', 'grants-radar', '$3 / 1,000 calls'],
@@ -89,11 +98,11 @@ const NWord = nWord[0].toUpperCase() + nWord.slice(1);
 
 // Warn about public Actors that no category lists (they would be missing from the site).
 {
-  const listed = new Set(CATS.flatMap(([, , names]) => names));
+  const listed = new Set(ALL_CATS.flatMap(([, , names]) => names));
   const missing = [...byName.keys()].filter((n) => !listed.has(n));
-  if (missing.length) console.warn(`WARNING: public Actors not on the site, add them to CATS: ${missing.join(', ')}`);
-  const gone = [...listed].filter((n) => !byName.has(n));
-  if (gone.length) console.warn(`WARNING: listed Actors that are no longer public: ${gone.join(', ')}`);
+  if (missing.length) console.warn(`WARNING: public Actors not on the site, add them to ALL_CATS: ${missing.join(', ')}`);
+  const hidden = [...listed].filter((n) => !byName.has(n));
+  if (hidden.length) console.log(`hidden until public (${hidden.length}): ${hidden.join(', ')}`);
 }
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -122,6 +131,8 @@ const ICONS = {
   shield: '<svg viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg>',
   sun: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
   menu: '<svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
+  pulse: '<svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg>',
+  ball: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 4.5h-5L8 10zM12 3v4M16 10l4.5-1.5M14.5 14.5 17 19M9.5 14.5 7 19M8 10 3.5 8.5"/></svg>',
 };
 const ico = (name) => `<div class="ico">${ICONS[name]}</div>`;
 const small = (name, size) => ICONS[name].replace('<svg', `<svg width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"`);
@@ -306,7 +317,7 @@ const okShare = runs30.total >= 50 ? Math.floor((100 * runs30.ok) / runs30.total
 
 // "The library, at its real size": one dot per tool, area by runs, colour by
 // topic; and "What we cover": each topic with its most-run tools.
-const CAT_SHORT = { jobs: 'Jobs', leads: 'Leads', reviews: 'Reviews and research', gov: 'Government', commerce: 'Commerce' };
+const CAT_SHORT = { jobs: 'Jobs', leads: 'Leads', reviews: 'Reviews and research', gov: 'Government', health: 'Health', commerce: 'Commerce', finance: 'Finance', sports: 'Sports', travel: 'Travel' };
 const toolsOf = (names) => names.map((n) => byName.get(n)).filter(Boolean);
 const runsOf = (a) => a.stats?.totalRuns || 0;
 const fmt = (n) => n.toLocaleString('en-US');
@@ -320,6 +331,42 @@ const dots = allTools
     return `<a class="dot" data-k="${k}" data-rank="${i}" style="--d:${size}px" href="https://apify.com/${USER}/${esc(a.name)}" rel="noopener" title="${esc(a.title)} · ${fmt(runsOf(a))} runs"><span class="sr">${esc(a.title)}</span></a>`;
   })
   .join('');
+// "What people use them for": one card per live topic. `parts` are [listing, phrase]; a phrase
+// appears only once its listing is public, so cards never name an unreleased tool.
+const USES = [
+  ['jobs', 'briefcase', 'Recruiting and job boards', 'Every open role from company career pages (13 systems, or just type a company name), LinkedIn, Indeed, Glassdoor, Wellfound, Dice and remote-job feeds in one format, with only-new mode for daily feeds.'],
+  ['leads', 'target', 'Sales and lead generation', 'Hiring signals show who is hiring for the roles you sell to. Reddit Lead Finder spots people asking for a tool like yours. Contact details and the Shopify Store Analyzer add emails, phones and socials.'],
+  ['reviews', 'star', 'Brand and reputation', 'Trustpilot and app-store reviews, Google News with real publisher links, and Reddit mentions, with alerts on new items only.'],
+  ['health', 'pulse', 'Health and life sciences', [
+    ['clinical-trials', 'Clinical trials by condition, drug, sponsor and phase with sites and contacts'],
+    ['fda-device-clearances', 'FDA 510(k) and PMA device clearances with the applicant and review time'],
+    ['npi-providers', 'US doctors, dentists and clinics from the NPI Registry by specialty and place'],
+  ]],
+  ['commerce', 'chart', 'Market, vehicle and property data', 'Shopify prices, discounts and stock, Copart salvage and used car auctions with bids and damage, and property listings in Germany, Austria, the UK and the Gulf with coordinates and price per square metre.'],
+  ['finance', 'trend', 'Markets, odds and funding', [
+    ['short-interest', 'Official short interest for every US stock with days to cover and daily short-sale volume'],
+    ['prediction-markets', 'Kalshi, Polymarket, Manifold and PredictIt odds with history and move alerts'],
+    ['startup-funding', 'new startup raises from SEC Form D with the founders behind them'],
+  ]],
+  ['sports', 'ball', 'Sports, odds and lotteries', [
+    ['sports-data', 'Scores, box scores, standings and rosters for 24 leagues'],
+    ['tennis-scores-rankings', 'ATP and WTA results and rankings'],
+    ['sports-betting-odds', 'opening, closing and settled betting lines'],
+    ['lottery-results', 'Powerball, Mega Millions and state lotto results with jackpots and hot and cold numbers'],
+  ]],
+  ['travel', 'train', 'Transit and travel', 'Journeys, next departures, stops and routes from the official timetables of ~2,900 cities and operators, with bus and metro planned in one journey.'],
+];
+const liveCats = new Set(CATS.map(([k]) => k));
+const sentence = (phrases) => {
+  const t = phrases.length > 1 ? `${phrases.slice(0, -1).join('; ')}; and ${phrases.at(-1)}` : phrases[0];
+  return `${t[0].toUpperCase()}${t.slice(1)}.`;
+};
+const useCards = USES.map(([k, icon, title, text]) => {
+  if (!liveCats.has(k)) return '';
+  const body = Array.isArray(text) ? text.filter(([n]) => byName.has(n)).map(([, p]) => p) : [text];
+  if (!body.length) return '';
+  return `      <a class="card reveal spot" href="#tools" data-filter="${k}">${ico(icon)}<h3>${title}</h3><p>${Array.isArray(text) ? sentence(body) : body[0]}</p></a>`;
+}).filter(Boolean).join('\n');
 const legend = CATS.map(([k]) => `<span class="lg" data-k="${k}">${esc(CAT_SHORT[k] || k)}</span>`).join('');
 const cover = CATS.map(([k, label, names], i) => {
   const ts = toolsOf(names).sort((x, y) => runsOf(y) - runsOf(x));
@@ -438,12 +485,7 @@ const indexBody = `
   <div class="wrap">
     <div class="sec-head reveal"><h2>What people use them for</h2><p>Pick a job; the tools return the same clean fields every run.</p></div>
     <div class="grid">
-      <a class="card reveal spot" href="#tools" data-filter="jobs">${ico('briefcase')}<h3>Recruiting and job boards</h3><p>Every open role from company career pages (13 systems, or just type a company name), LinkedIn, Indeed, Glassdoor, Wellfound, Dice and remote-job feeds in one format, with only-new mode for daily feeds.</p></a>
-      <a class="card reveal spot" href="#tools" data-filter="leads">${ico('target')}<h3>Sales and lead generation</h3><p>Hiring signals show who is hiring for the roles you sell to. Reddit Lead Finder spots people asking for a tool like yours. Contact details and the Shopify Store Analyzer add emails, phones and socials.</p></a>
-      <a class="card reveal spot" href="#tools" data-filter="reviews">${ico('star')}<h3>Brand and reputation</h3><p>Trustpilot and app-store reviews, Google News with real publisher links, and Reddit mentions, with alerts on new items only.</p></a>
-      <a class="card reveal spot" href="#tools" data-filter="commerce">${ico('chart')}<h3>Market, vehicle and property data</h3><p>Shopify prices, discounts and stock, Copart salvage and used car auctions with bids and damage, and property listings in Germany, Austria, the UK and the Gulf with coordinates and price per square metre.</p></a>
-      <a class="card reveal spot" href="#tools" data-filter="finance">${ico('trend')}<h3>Short interest and markets</h3><p>Official short interest for every US stock with days to cover and change, plus daily short-sale volume, by ticker or for the whole market.</p></a>
-      <a class="card reveal spot" href="#tools" data-filter="travel">${ico('train')}<h3>Transit and travel</h3><p>Journeys, next departures, stops and routes from the official timetables of ~2,900 cities and operators, with bus and metro planned in one journey.</p></a>
+${useCards}
     </div>
   </div>
 </section>
