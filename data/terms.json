@@ -200,6 +200,10 @@
     "aka": ["Copart scraper", "Copart API", "salvage car auctions", "used car auction data", "VIN lookup auctions", "car auction prices"],
     "uses": ["Find cars to bid on by make, model and damage", "Track auction prices for resale", "Dealer and exporter sourcing"]
   },
+  "auctions-radar": {
+    "aka": ["foreclosure auctions scraper", "bank auction properties", "court auction listings", "Zwangsversteigerung scraper", "subastas BOE scraper", "aste giudiziarie scraper", "bank e-auction India", "distressed property deals"],
+    "uses": ["Find below-market homes and land at auction near you", "Rank lots by price per m2 against similar lots", "Alerts on new lots and reserve cuts in your area", "Screen bank and court sales for a fund or buying agent"]
+  },
   "property-listings": {
     "aka": ["real estate API", "property listings data", "property scraper", "rental listings data", "UK property data", "Germany rental data", "UAE property data"],
     "uses": ["Track asking prices and rents by area", "Find new listings that match a search", "Real estate market research"]

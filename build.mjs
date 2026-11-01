@@ -14,7 +14,7 @@ const NEW = new Set(['company-registry', 'sanctions-screener', 'recalls-radar', 
   'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar', 'youtube-transcripts',
   'sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results',
   'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding', 'clinical-trials', 'fda-device-clearances', 'npi-providers',
-  'podcasts', 'cve-feed']);
+  'podcasts', 'cve-feed', 'auctions-radar']);
 const TODAY = new Date().toISOString().slice(0, 10);
 
 // Plain typing in everything the site writes (Store text included): no em or en dashes, ellipsis
@@ -78,7 +78,7 @@ const ALL_CATS = [
   ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'youtube-comments', 'podcasts', 'research-radar', 'innovation-radar', 'reddit-monitor']],
   ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar', 'cve-feed']],
   ['health', 'Health and life sciences', ['clinical-trials', 'fda-device-clearances', 'npi-providers']],
-  ['commerce', 'E-commerce, vehicles and real estate', ['shopify-products', 'copart-auctions', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
+  ['commerce', 'E-commerce, vehicles and real estate', ['shopify-products', 'copart-auctions', 'auctions-radar', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
   ['finance', 'Finance and markets', ['short-interest', 'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding']],
   ['sports', 'Sports, odds and lotteries', ['sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results']],
   ['travel', 'Travel and transit', ['transit-timetables']],
@@ -147,6 +147,7 @@ const MCP_TOOLS = [
   ['search_fda_device_clearances', 'FDA 510(k) clearances and PMA approvals with applicant, device and review time', 'fda-device-clearances', '$4 / 1,000 decisions'],
   ['search_healthcare_providers', 'US doctors, dentists and clinics from the NPI Registry by specialty and place', 'npi-providers', '$3 / 1,000 providers'],
   ['search_podcasts', 'Apple Podcasts search and charts with owner email and activity', 'podcasts', '$4 / 1,000 podcasts'],
+  ['find_property_auctions', 'Court, bank and government auctions in Germany, Spain, Italy and India, scored against similar lots and your budget', 'auctions-radar', '$15 / 1,000 lots'],
   ['search_startup_funding', 'New startup raises from SEC Form D with founders and amounts', 'startup-funding', '$5 / 1,000 filings'],
 ].filter(([, , actor]) => byName.has(actor)); // tools whose Actor is not public yet stay off the site
 
@@ -378,7 +379,7 @@ const USES = [
     ['fda-device-clearances', 'FDA 510(k) and PMA device clearances with the applicant and review time'],
     ['npi-providers', 'US doctors, dentists and clinics from the NPI Registry by specialty and place'],
   ]],
-  ['commerce', 'chart', 'Market, vehicle and property data', 'Shopify prices, discounts and stock, Copart salvage and used car auctions with bids and damage, and property listings in Germany, Austria, the UK and the Gulf with coordinates and price per square metre.'],
+  ['commerce', 'chart', 'Market, vehicle and property data', 'Shopify prices, discounts and stock, Copart salvage and used car auctions with bids and damage, court and bank auctions in Germany, Spain, Italy and India scored against similar lots, and property listings in Germany, Austria, the UK and the Gulf with coordinates and price per square metre.'],
   ['finance', 'trend', 'Markets, odds and funding', [
     ['short-interest', 'Official short interest for every US stock with days to cover and daily short-sale volume'],
     ['prediction-markets', 'Kalshi, Polymarket, Manifold and PredictIt odds with history and move alerts'],
@@ -458,7 +459,8 @@ const eventsOf = (a) => Object.entries(a?.currentPricingInfo?.pricingPerEvent?.a
   .filter(([k]) => k !== 'apify-actor-start')
   .map(([k, e]) => ({ key: k, title: e.eventTitle, desc: e.eventDescription || '', unit: e.eventTieredPricingUsd?.FREE?.tieredEventPriceUsd ?? e.eventPriceUsd ?? 0, primary: !!e.isPrimaryEvent, once: !!e.isOneTimeEvent }))
   .sort((x, y) => Number(y.primary) - Number(x.primary));
-const evPrice = (e) => (e.unit >= 0.01 ? `${money(e.unit)} each` : `${money(e.unit * 1000)} per 1,000`);
+// "each" only for whole cents: $0.015 would read as $0.01.
+const evPrice = (e) => (e.unit >= 0.01 && Math.abs(e.unit * 100 - Math.round(e.unit * 100)) < 1e-9 ? `${money(e.unit)} each` : `${money(e.unit * 1000)} per 1,000`);
 const extrasOf = (a) => eventsOf(a).filter((e) => !e.primary);
 const extraChips = (a) => extrasOf(a).map((e) => `<span class="xchip" title="${esc(e.desc)}">+ ${esc(e.title)} <b>${evPrice(e)}</b></span>`).join('');
 
@@ -1387,6 +1389,7 @@ const COVERAGE = {
   'builtin-jobs-scraper': ['US'],
   'short-interest': ['US'],
   'copart-auctions': ['US'],
+  'auctions-radar': ['DE', 'ES', 'IT', 'IN'],
   'startup-funding': ['US'],
   'npi-providers': ['US'],
   'fda-device-clearances': ['US'],

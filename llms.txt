@@ -2,7 +2,7 @@
 
 > Fast, low-cost web data tools published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
-- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): 35 tools for AI agents, MIT licensed, on npm and the official MCP Registry
+- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): 38 tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/tacps126)
 - [Code recipes](https://github.com/tacps126/apify-data-recipes)
 - Contact: tacps126@gmail.com
@@ -49,6 +49,7 @@
 - [Google News Scraper](https://tacps126.github.io/tools/google-news/): Scrape Google News: search results, topic sections and top stories in any language and country - with the publisher's... (From $2 per 1,000 articles). Run: https://apify.com/tacps126/google-news
 - [YouTube Transcript Scraper](https://tacps126.github.io/tools/youtube-transcripts/): YouTube transcripts for videos, playlists, channels and searches: full text, timestamps, language choice, translation,... (From $2.50 per 1,000 transcripts). Run: https://apify.com/tacps126/youtube-transcripts
 - [YouTube Comments Scraper: Replies, Filters & AI Summary](https://tacps126.github.io/tools/youtube-comments/): YouTube comments and replies for any video, Short, playlist, channel or search: text, author, likes, replies, pinned.... Run: https://apify.com/tacps126/youtube-comments
+- [Podcast Scraper: Apple Charts, Shows, Hosts & Episodes](https://tacps126.github.io/tools/podcasts/): Podcasts from Apple Podcasts search, top charts (any country and genre) and links, with each show's owner name and.... Run: https://apify.com/tacps126/podcasts
 - [Research Radar: Papers, Preprints & Patents](https://tacps126.github.io/tools/research-radar/): Search OpenAlex, arXiv, PubMed, Europe PMC and patents at once: one deduplicated, newest-first feed of papers and... (From $3 per 1,000 results). Run: https://apify.com/tacps126/research-radar
 - [Innovation Radar: Field Trends & Idea Validation](https://tacps126.github.io/tools/innovation-radar/): Analyse a technology field or validate a product idea from open research and patent data: growth and momentum, leading.... Run: https://apify.com/tacps126/innovation-radar
 - [Reddit Scraper & Keyword Monitor](https://tacps126.github.io/tools/reddit-monitor/): Scrape Reddit posts and comments by keyword, subreddit or user - title, text, author, subreddit, links, dates. Built... (From $1 per 1,000 posts and comments). Run: https://apify.com/tacps126/reddit-monitor
@@ -66,6 +67,7 @@
 ## [E-commerce, vehicles and real estate](https://tacps126.github.io/tools/commerce/)
 - [Shopify Products Scraper](https://tacps126.github.io/tools/shopify-products/): Scrape products from any Shopify store - prices, sale prices, discounts, stock, variants, SKUs, images and... (From $1 per 1,000 products). Run: https://apify.com/tacps126/shopify-products
 - [Copart Auctions Scraper: Salvage & Used Cars, Bids, Damage](https://tacps126.github.io/tools/copart-auctions/): Copart US salvage and used vehicle lots from any search: year, make, model, VIN, damage, title, odometer, estimated.... Run: https://apify.com/tacps126/copart-auctions
+- [Auctions Radar: Bank, Court & Government Auctions, Scored](https://tacps126.github.io/tools/auctions-radar/): Foreclosure, court and bank auctions from Germany, Spain, Italy and India in one format: price, valuation, debts, area,.... Run: https://apify.com/tacps126/auctions-radar
 - [Property Listings: ImmoScout24, Rightmove, Property Finder](https://tacps126.github.io/tools/property-listings/): Property listings from ImmoScout24 (DE, AT), Rightmove (UK) and Property Finder (UAE, KSA, Qatar, Bahrain, Egypt) in... (From $1 per 1,000 listings). Run: https://apify.com/tacps126/property-listings
 - [ImmobilienScout24 Scraper](https://tacps126.github.io/tools/immobilienscout24-scraper/): Scrape ImmobilienScout24 apartments and houses for rent or sale in Germany and Austria: price, warm rent, m², rooms,... (From $1 per 1,000 listings). Run: https://apify.com/tacps126/immobilienscout24-scraper
 - [Rightmove Scraper](https://tacps126.github.io/tools/rightmove-scraper/): Scrape Rightmove properties to rent or buy anywhere in the UK: price, bedrooms, bathrooms, address and postcode, GPS,... (From $1 per 1,000 listings). Run: https://apify.com/tacps126/rightmove-scraper
@@ -75,9 +77,12 @@
 - [Short Interest & Short Volume: FINRA, All US Stocks](https://tacps126.github.io/tools/short-interest/): FINRA short interest for every US stock (NYSE, Nasdaq, Arca, Cboe, OTC): short interest, change, days to cover, average.... Run: https://apify.com/tacps126/short-interest
 - [Prediction Markets: Kalshi, Polymarket & PredictIt Odds](https://tacps126.github.io/tools/prediction-markets/): Kalshi, Polymarket, Manifold and PredictIt markets in one table: probability, bid/ask, 24h change, volume, liquidity,.... Run: https://apify.com/tacps126/prediction-markets
 - [Kalshi Scraper: Market Odds, Volume & Open Interest](https://tacps126.github.io/tools/kalshi-markets/): Kalshi markets and events: probability, yes/no bid and ask, 24h change, volume, open interest, liquidity, close date,.... Run: https://apify.com/tacps126/kalshi-markets
+- [Startup Funding Rounds: SEC Form D Raises & Founders](https://tacps126.github.io/tools/startup-funding/): New private fundraises from SEC Form D filings: company, address, phone, industry, amount raised and offered,.... Run: https://apify.com/tacps126/startup-funding
 
 ## [Sports, odds and lotteries](https://tacps126.github.io/tools/sports/)
 - [Sports Data: NFL, NBA, MLB, NHL & Football Scores](https://tacps126.github.io/tools/sports-data/): Scores, schedules, player box scores, standings, teams and rosters for NFL, NBA, WNBA, MLB, NHL, college, Premier.... Run: https://apify.com/tacps126/sports-data
+- [NBA Scores, Box Scores & Stats](https://tacps126.github.io/tools/nba-scores-stats/): NBA scores and schedules, player box scores (points, rebounds, assists, shooting, plus/minus), standings, teams and.... Run: https://apify.com/tacps126/nba-scores-stats
+- [NFL Scores, Box Scores & Stats](https://tacps126.github.io/tools/nfl-scores-stats/): NFL scores and schedules with odds where shown, player box scores (passing, rushing, receiving, defense, kicking),.... Run: https://apify.com/tacps126/nfl-scores-stats
 - [Sports Betting Odds: NFL, NBA, NHL, MLB & Soccer Lines](https://tacps126.github.io/tools/sports-betting-odds/): Betting odds for NFL, NBA, NHL, MLB, college and European football: moneyline, spread and total with prices, opening vs.... Run: https://apify.com/tacps126/sports-betting-odds
 - [Lottery Results: Powerball, Mega Millions & State Lotto](https://tacps126.github.io/tools/lottery-results/): Powerball, Mega Millions, Millionaire for Life, NY Lotto, Take 5, Pick 10, Numbers, Win 4, Quick Draw, Lotto Texas,.... Run: https://apify.com/tacps126/lottery-results
 
