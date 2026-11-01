@@ -24,6 +24,10 @@ const PLAIN = [
   [/[ \t]*\u2014[ \t]*/g, ' - '], [/(?<=\d)[ \t]*\u2013[ \t]*(?=\d)/g, '-'], [/[ \t]+\u2013[ \t]+/g, ' - '], [/\u2013/g, '-'],
   [/\u2026/g, '...'], [/[\u2018\u2019]/g, "'"], [/[\u201c\u201d]/g, "'"], [/[ \t]*\u2192[ \t]*/g, ' > '],
 ];
+// Search terms and use cases per tool (data/terms.json): the words people search with that do
+// not fit in the Store's short title and description.
+const TERMS = JSON.parse(readFileSync(new URL('./data/terms.json', import.meta.url), 'utf8'));
+const termsOf = (name) => ({ aka: [], uses: [], ...(TERMS[name] || {}) });
 const plainText = (s) => PLAIN.reduce((t, [rx, rep]) => t.replace(rx, rep), s);
 const writeFileSync = (path, data, ...rest) => fsWrite(path, typeof data === 'string' ? plainText(data) : data, ...rest);
 
@@ -269,13 +273,13 @@ function decorate(body) {
   }).join('<section');
 }
 
-const page = ({ path, title, description, body, active, jsonld, scripts = [], og = OG, ogAlt = 'tacps126: clean web data for jobs, news, reviews and leads', modified }) => `<!doctype html>
+const page = ({ path, title, description, keywords, body, active, jsonld, scripts = [], og = OG, ogAlt = 'tacps126: clean web data for jobs, news, reviews and leads', modified }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
-<meta name="description" content="${esc(description)}">
+<meta name="description" content="${esc(description)}">${keywords ? `\n<meta name="keywords" content="${esc(keywords)}">` : ''}
 <link rel="canonical" href="${SITE}${path}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="color-scheme" content="light dark">
@@ -1159,6 +1163,8 @@ for (const { a, k } of allTools) {
     updated ? `<span class="fact">updated ${updated}</span>` : '',
   ].join('');
   const tabs = [['curl', 'curl'], ['python', 'Python'], ['js', 'JavaScript'], ['mcp', 'AI agent']];
+  const terms = termsOf(name);
+  const storeCats = (act.categories || []).map((c) => c.toLowerCase().replace(/_/g, ' ').replace(/^./, (x) => x.toUpperCase()));
   const body = `
 <section class="tool-hero">
   <div class="wrap">
@@ -1236,7 +1242,20 @@ ${[...next.map((c) => [c[1], `Send its ${c[2]} into`]), ...prev.map((c) => [c[0]
 ${peers.map((t) => `      <a class="card link" href="/tools/${t.name}/"><span class="why">Also in ${esc((CAT_SHORT[k] || k).toLowerCase())}</span><h3>${esc(t.title)}</h3><p>${esc(short(stripPrice(t.description), 110))}</p></a>`).join('\n')}
     </div>
   </div>
-</section>`;
+</section>
+${terms.uses.length || terms.aka.length ? `
+<section class="alt" id="uses" data-label="Use cases">
+  <div class="wrap">
+    <div class="sec-head"><h2>What people use ${esc(shortTitle(a.title))} for</h2></div>
+    <div class="uses-grid">
+      ${terms.uses.length ? `<ul class="uses">${terms.uses.map((u) => `<li>${esc(u)}</li>`).join('')}</ul>` : ''}
+      <div>
+        ${terms.aka.length ? `<h3 class="terms-h">Also searched as</h3><p class="terms">${terms.aka.map((t) => `<a class="xchip" href="/tools/?q=${encodeURIComponent(t)}">${esc(t)}</a>`).join(' ')}</p>` : ''}
+        <h3 class="terms-h">Categories</h3><p class="terms"><a class="xchip" href="/tools/${k}/">${esc(labelOf[k])}</a> ${storeCats.map((c) => `<span class="xchip">${esc(c)}</span>`).join(' ')}</p>
+      </div>
+    </div>
+  </div>
+</section>` : ''}`;
   mkdirSync(OUT(`./tools/${name}/`), { recursive: true });
   const url = `${SITE}/tools/${name}/`, store = `https://apify.com/${USER}/${name}`;
   const rc = a.stats?.actorReviewCount || act.stats?.actorReviewCount || 0, rr = a.stats?.actorReviewRating || act.stats?.actorReviewRating || 0;
@@ -1244,6 +1263,7 @@ ${peers.map((t) => `      <a class="card link" href="/tools/${t.name}/"><span cl
     path: `/tools/${name}/`,
     active: 'tools',
     title: seoTitle(a, act),
+    keywords: [...terms.aka, labelOf[k]].join(', '),
     description: short(scrub(act.seoDescription) || `${stripPrice(a.description)} ${main ? `${evPrice(main)}.` : ''}`, 300),
     og: ogOf(name),
     ogAlt: `${a.title}: ${short(stripPrice(a.description), 120)}`,
@@ -1253,6 +1273,7 @@ ${peers.map((t) => `      <a class="card link" href="/tools/${t.name}/"><span cl
     jsonld: [
       {
         '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: a.title, alternateName: name, applicationCategory: 'DeveloperApplication', applicationSubCategory: labelOf[k], operatingSystem: 'Web, API (Apify)',
+        ...(terms.aka.length ? { keywords: terms.aka.join(', ') } : {}),
         url, sameAs: store, installUrl: store, image: iconOf(name), screenshot: ogOf(name), description: stripPrice(a.description), author: { '@type': 'Person', name: OWNER, url: `${SITE}/about.html` },
         ...(updated ? { dateModified: updated } : {}),
         ...(main ? { offers: { '@type': 'Offer', price: String(main.unit), priceCurrency: 'USD', url: store, description: `${evPrice(main)}, pay per ${main.title.toLowerCase()}` } } : {}),
@@ -1273,6 +1294,7 @@ for (const [k, label, names] of CATS) {
   writeFileSync(OUT(`./tools/${k}/index.html`), page({
     path: `/tools/${k}/`,
     active: 'tools',
+    keywords: ts.flatMap((t) => termsOf(t.name).aka.slice(0, 2)).join(', '),
     title: `${CAT_SHORT[k] || label} data tools and APIs (${ts.length}): ${label.toLowerCase()} | tacps126`.replace(/: (.{60}).*? \| /, ': $1... | '),
     description: short(`${useBody || label}. ${ts.slice(0, 4).map((t) => t.title).join(', ')} and more, with price, input builder and sample output for each.`, 300),
     jsonld: [
@@ -1294,6 +1316,8 @@ for (const [k, label, names] of CATS) {
     <div class="grid">
 ${ts.map((t) => toolCard(t, k)).join('\n')}
     </div>
+    <h3 class="terms-h">Popular searches</h3>
+    <p class="terms">${ts.flatMap((t) => termsOf(t.name).aka.slice(0, 3).map((x) => `<a class="xchip" href="/tools/${t.name}/">${esc(x)}</a>`)).join(' ')}</p>
     <p class="note">Other topics: ${CATS.filter(([c]) => c !== k).map(([c, l]) => `<a href="/tools/${c}/">${esc(l)}</a>`).join(' · ')}</p>
   </div>
 </section>`,
@@ -1439,8 +1463,8 @@ const searchIndex = {
     const cf = fs.find(([fk, v]) => COUNTRY_FIELD.test(fk) && !enumOf(v));
     return {
       n, t: a.title, c: k, d: short(stripPrice(a.description), 150), r: runs30Of(a),
-      p: m ? evPrice(m) : priceOf(a.description) || '', w: wordsOf(`${n.replace(/-/g, ' ')} ${a.title} ${stripPrice(a.description)}`).join(' '),
-      k: keywordsOf(n, wordsOf(`${n.replace(/-/g, ' ')} ${a.title} ${stripPrice(a.description)}`).join(' ')),
+      p: m ? evPrice(m) : priceOf(a.description) || '', w: wordsOf(`${n.replace(/-/g, ' ')} ${a.title} ${stripPrice(a.description)} ${termsOf(n).aka.join(' ')}`).join(' '),
+      k: `${keywordsOf(n, wordsOf(`${n.replace(/-/g, ' ')} ${a.title} ${stripPrice(a.description)}`).join(' '))} ${wordsOf(termsOf(n).uses.join(' ')).join(' ')}`.trim(),
       f: textTargets(n), sf: textFields(n).map(([fk]) => fk).filter((fk) => SUBJECT.test(fk) && !/exclude/i.test(fk)), so: fieldsOf(schemaOf(n)).map(([fk]) => fk).filter((fk) => /^(sources|source|lists|portals|jurisdictions)$/.test(fk)), cf: cf ? [cf[0], kindOf(cf[1])] : null, o: opts, x: startInput(n), m: mcpOf(n),
       s: smp ? Object.entries(smp).filter(([, v]) => v !== null && typeof v !== 'object').slice(0, 4).map(([kk, v]) => [kk, short(String(v), 60)]) : [],
     };

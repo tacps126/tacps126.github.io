@@ -450,3 +450,13 @@ footer { padding:40px 0 56px; border-top:1px solid var(--border); color:var(--mu
 .guide-more { margin-top:14px; }
 .topic-links { display:flex; flex-wrap:wrap; gap:6px 14px; font-size:.86rem; color:var(--muted); margin:14px 0 0; }
 .topic-links a span { color:var(--muted); font-size:.78rem; }
+
+/* tool pages: use cases and search terms */
+.uses-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; align-items:start; }
+.uses { margin:0; padding-left:1.2em; display:grid; gap:8px; color:var(--text); }
+.terms-h { font-size:.8rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin:0 0 8px; font-weight:600; }
+.terms-h + .terms + .terms-h, .terms + .terms-h { margin-top:18px; }
+.terms { display:flex; flex-wrap:wrap; gap:6px; margin:0; }
+.terms .xchip { white-space:normal; }
+a.xchip:hover { color:var(--text); border-color:var(--ink2); }
+@media (max-width: 720px) { .uses-grid { grid-template-columns:1fr; } }

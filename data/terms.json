@@ -1,0 +1,247 @@
+{
+  "_": "Search terms and use cases per tool page. aka: what people type when they look for the tool (shown as links to site search, added to meta keywords and the search index). uses: what it is good for (shown as a list). Plain typing only.",
+  "jobs-harvester": {
+    "aka": ["job board scraper", "career page scraper", "ATS job scraper", "job postings API", "job aggregator API", "jobs data feed", "Greenhouse Lever Workday scraper", "multi-board job scraper", "job listings to CSV", "applicant tracking system jobs export"],
+    "uses": ["Build a job board or niche job feed", "Track hiring at a list of target companies", "Feed job postings into a recruiting CRM or ATS", "Labor market and hiring trend research", "Alert on new jobs that match your keywords"]
+  },
+  "hiring-signals": {
+    "aka": ["buying intent data", "hiring intent signals", "companies hiring for a role", "sales trigger events", "job change signals", "intent data from job postings", "account based marketing signals", "who is hiring sales leads", "layoff tracker", "WARN notice data"],
+    "uses": ["Find accounts that are hiring for the team you sell to", "Prioritize outbound by hiring momentum", "Spot new budget lines and tool adoption from job ads", "Catch layoffs and WARN notices at target companies", "Feed weekly intent lists into a CRM"]
+  },
+  "remote-jobs-scraper": {
+    "aka": ["remote jobs API", "work from home jobs scraper", "remote job board feed", "remote jobs from company sites", "distributed team jobs", "remote jobs to CSV"],
+    "uses": ["Run a remote job board with fresh postings", "Find remote roles straight from employers", "Remote work market research"]
+  },
+  "startup-jobs-scraper": {
+    "aka": ["startup jobs API", "tech startup job listings", "YC startup jobs", "Ashby jobs scraper", "early stage startup hiring", "startup job board feed"],
+    "uses": ["Build a startup job board", "Track which startups are hiring", "Source candidates for startup roles"]
+  },
+  "salary-data-jobs-scraper": {
+    "aka": ["salary data API", "pay transparency data", "salary ranges from job postings", "compensation benchmarking data", "job salary scraper", "salary by role and location"],
+    "uses": ["Benchmark pay for a role and city", "Check pay transparency compliance", "Build salary guides and comp reports"]
+  },
+  "wellfound-jobs-scraper": {
+    "aka": ["AngelList jobs scraper", "AngelList Talent scraper", "Wellfound API", "startup equity jobs", "Wellfound job listings export"],
+    "uses": ["Collect startup roles with salary and equity", "Find funded startups that are hiring", "Startup job market research"]
+  },
+  "dice-jobs-scraper": {
+    "aka": ["Dice.com scraper", "Dice jobs API", "US tech jobs data", "IT jobs scraper", "contract tech jobs", "C2C jobs list"],
+    "uses": ["Collect US tech and IT job postings", "Separate direct hire from recruiter posts", "Track contract and C2C tech demand"]
+  },
+  "builtin-jobs-scraper": {
+    "aka": ["Built In scraper", "BuiltIn jobs API", "tech jobs by city", "Built In NYC jobs", "Built In Chicago jobs", "hybrid tech jobs"],
+    "uses": ["Collect tech jobs by city with salary", "Compare remote, hybrid and in-office roles", "Tech hiring research by metro"]
+  },
+  "linkedin-jobs-scraper": {
+    "aka": ["LinkedIn jobs API", "LinkedIn job postings export", "LinkedIn job search scraper", "LinkedIn jobs to CSV", "LinkedIn jobs data", "scrape LinkedIn jobs"],
+    "uses": ["Export LinkedIn job search results", "Track jobs by keyword and location daily", "Hiring trend and competitor hiring research"]
+  },
+  "indeed-jobs": {
+    "aka": ["Indeed scraper", "Indeed jobs API", "Indeed job listings export", "scrape Indeed jobs", "Indeed jobs to CSV", "Indeed UK jobs", "Indeed Canada jobs"],
+    "uses": ["Export Indeed search results with full descriptions", "Track job demand by keyword and city", "Feed job listings into a job board"]
+  },
+  "glassdoor-jobs-scraper": {
+    "aka": ["Glassdoor scraper", "Glassdoor jobs API", "Glassdoor salary estimates", "Glassdoor job listings export", "company ratings with jobs"],
+    "uses": ["Collect jobs with salary estimates and ratings", "Compare employers by rating and pay", "Recruiting market research"]
+  },
+  "naukri-jobs-scraper": {
+    "aka": ["Naukri scraper", "Naukri.com API", "India jobs data", "Naukri job listings export", "jobs in India scraper", "salary in lakhs data"],
+    "uses": ["Collect Indian job postings with salary and experience", "Track hiring in Indian cities", "Recruitment agency sourcing"]
+  },
+  "levels-fyi-salaries": {
+    "aka": ["Levels.fyi scraper", "Levels.fyi API", "tech compensation data", "salary by level", "total compensation data", "FAANG salary data", "RSU and bonus data"],
+    "uses": ["Benchmark tech pay by company and level", "Build compensation bands", "Offer negotiation research"]
+  },
+  "greenhouse-jobs-scraper": {
+    "aka": ["Greenhouse jobs API", "Greenhouse career page scraper", "boards.greenhouse.io scraper", "Greenhouse job board export"],
+    "uses": ["Pull every open role from Greenhouse companies", "Monitor hiring at target accounts", "Feed a job board"]
+  },
+  "lever-jobs-scraper": {
+    "aka": ["Lever jobs API", "jobs.lever.co scraper", "Lever career page scraper", "Lever job board export"],
+    "uses": ["Pull every open role from Lever companies", "Monitor hiring at target accounts", "Feed a job board"]
+  },
+  "ashby-jobs-scraper": {
+    "aka": ["Ashby jobs API", "jobs.ashbyhq.com scraper", "Ashby career page scraper", "AshbyHQ job board export"],
+    "uses": ["Pull every open role from Ashby companies", "Track startup hiring", "Feed a job board"]
+  },
+  "workday-jobs-scraper": {
+    "aka": ["Workday jobs API", "myworkdayjobs scraper", "Workday career site scraper", "enterprise jobs scraper", "Workday job postings export"],
+    "uses": ["Collect jobs from large employers on Workday", "Track enterprise hiring", "Feed a job board"]
+  },
+  "smartrecruiters-jobs-scraper": {
+    "aka": ["SmartRecruiters API", "SmartRecruiters career page scraper", "jobs.smartrecruiters.com scraper"],
+    "uses": ["Pull every open role from SmartRecruiters companies", "Monitor hiring at target accounts"]
+  },
+  "recruitee-jobs-scraper": {
+    "aka": ["Recruitee API", "Recruitee career page scraper", "recruitee.com jobs export", "European startup jobs"],
+    "uses": ["Pull every open role from Recruitee companies", "Track European SMB hiring"]
+  },
+  "personio-jobs-scraper": {
+    "aka": ["Personio API", "Personio career page scraper", "jobs.personio.de scraper", "German company jobs", "DACH jobs data"],
+    "uses": ["Pull every open role from Personio companies", "Track hiring in Germany and Europe"]
+  },
+  "teamtailor-jobs-scraper": {
+    "aka": ["Teamtailor API", "Teamtailor career page scraper", "Nordic jobs data", "Teamtailor job board export"],
+    "uses": ["Pull every open role from Teamtailor companies", "Track hiring in the Nordics and Europe"]
+  },
+  "himalayas-remote-jobs-scraper": {
+    "aka": ["Himalayas scraper", "Himalayas.app jobs", "remote jobs with salary", "remote job board API"],
+    "uses": ["Collect remote jobs with pay and skills", "Run a remote job newsletter"]
+  },
+  "ai-training-jobs-scraper": {
+    "aka": ["Mercor jobs scraper", "micro1 jobs", "Turing jobs scraper", "AI trainer jobs", "RLHF jobs", "data annotation jobs", "expert gig jobs"],
+    "uses": ["Find AI training and expert gigs in one list", "Track pay rates for AI training work"]
+  },
+  "company-registry": {
+    "aka": ["company registry API", "new company registrations", "business registry data", "BODACC scraper", "insolvency data", "newly incorporated companies list", "company formation leads", "Brønnøysund register", "Finnish trade register"],
+    "uses": ["Get daily lists of newly registered companies", "Watch insolvencies and court notices", "Look up companies by name or ID", "Build fresh B2B lead lists"]
+  },
+  "contact-details": {
+    "aka": ["email finder", "website email scraper", "email extractor", "contact scraper", "phone number scraper", "find emails from domain", "social media links extractor", "lead enrichment API", "bulk email finder"],
+    "uses": ["Enrich a list of websites with emails and phones", "Find social profiles for a company list", "Build outreach lists from domains", "Clean up CRM records"]
+  },
+  "reddit-lead-finder": {
+    "aka": ["Reddit lead generation", "Reddit buying intent", "find customers on Reddit", "competitor alternative posts", "Reddit social listening for sales", "recommendation request posts"],
+    "uses": ["Find people asking for a tool like yours", "Catch posts looking for an alternative to a competitor", "Feed warm leads into Slack or a CRM"]
+  },
+  "shopify-store-analyzer": {
+    "aka": ["Shopify store lookup", "Shopify store leads", "ecommerce store data", "Shopify store contacts", "D2C brand research", "Shopify catalog size", "Shopify apps detector"],
+    "uses": ["Qualify Shopify stores before outreach", "Size catalogs and price ranges", "Find store owners' contact details"]
+  },
+  "exhibition-scraper": {
+    "aka": ["exhibitor list", "trade show exhibitor list", "exhibitor directory scraper", "trade fair leads", "expo exhibitor emails", "conference exhibitor list", "MEDICA exhibitor list", "Automechanika exhibitors", "trade show lead list"],
+    "uses": ["Build lead lists before a trade show", "Plan booth visits and meetings", "Research competitors at a show", "Find suppliers by industry"]
+  },
+  "events-scraper": {
+    "aka": ["events API", "event scraper", "local events data", "conference list", "event listings export", "upcoming events by city", "schema.org event extractor"],
+    "uses": ["Build an events calendar or newsletter", "Find events to sponsor or attend", "Event organizer lead lists"]
+  },
+  "luma-events-scraper": {
+    "aka": ["Luma scraper", "lu.ma events API", "Luma calendar export", "tech events by city", "startup events list"],
+    "uses": ["Collect Luma events by city or calendar", "Find hosts and organizers for outreach"]
+  },
+  "eventbrite-events-scraper": {
+    "aka": ["Eventbrite API alternative", "Eventbrite events export", "Eventbrite organizer list", "events by city scraper"],
+    "uses": ["Collect Eventbrite events by city and keyword", "Find organizers for outreach"]
+  },
+  "meetup-events-scraper": {
+    "aka": ["Meetup.com scraper", "Meetup API alternative", "Meetup groups and events", "community events data"],
+    "uses": ["Collect Meetup events by topic and city", "Find active community groups"]
+  },
+  "trustpilot-reviews": {
+    "aka": ["Trustpilot API", "Trustpilot review export", "TrustScore data", "customer reviews scraper", "review monitoring", "competitor reviews"],
+    "uses": ["Monitor new reviews of your brand", "Analyze competitor complaints", "Feed reviews into sentiment analysis"]
+  },
+  "app-reviews": {
+    "aka": ["App Store reviews API", "Google Play reviews scraper", "iOS app reviews export", "Android app reviews", "app review monitoring", "mobile app feedback data"],
+    "uses": ["Track new reviews after each release", "Find bugs and feature requests in reviews", "Compare ratings against competitor apps"]
+  },
+  "google-news": {
+    "aka": ["Google News API", "news API", "news scraper", "Google News RSS export", "media monitoring", "news alerts", "press coverage tracker"],
+    "uses": ["Monitor brand and competitor mentions", "Build news alerts by keyword", "Collect headlines for research or AI"]
+  },
+  "youtube-transcripts": {
+    "aka": ["YouTube transcript API", "YouTube captions download", "YouTube subtitles scraper", "video to text", "YouTube transcript to text", "channel transcripts export"],
+    "uses": ["Feed video content into AI and RAG", "Search what was said across a channel", "Repurpose videos into articles"]
+  },
+  "youtube-comments": {
+    "aka": ["YouTube comments API", "YouTube comments export", "YouTube comment scraper", "Shorts comments", "comment sentiment analysis"],
+    "uses": ["Analyze audience feedback on videos", "Find questions and objections in comments", "Track comments on competitor channels"]
+  },
+  "research-radar": {
+    "aka": ["research paper API", "scientific literature search", "arXiv scraper", "PubMed API", "OpenAlex API", "patent search API", "EPO patent search", "Espacenet data", "preprint alerts", "citation data"],
+    "uses": ["Run a literature review across sources at once", "Alert on new papers and patents in a field", "Find top cited work and authors", "Feed papers into AI research tools"]
+  },
+  "innovation-radar": {
+    "aka": ["technology landscape", "patent landscape", "research trend analysis", "idea validation", "prior art search", "innovation intelligence", "emerging technology tracking"],
+    "uses": ["Check if an idea is new before building it", "Map a field's growth, leaders and gaps", "Brief investors or R&D teams with data"]
+  },
+  "reddit-monitor": {
+    "aka": ["Reddit scraper", "Reddit API alternative", "subreddit scraper", "Reddit keyword monitor", "Reddit comments export", "social listening Reddit"],
+    "uses": ["Track keyword mentions on Reddit", "Collect posts and comments for research", "Brand and competitor monitoring"]
+  },
+  "sanctions-screener": {
+    "aka": ["sanctions screening API", "OFAC check", "OFAC SDN search", "sanctions list check", "KYC screening", "AML name screening", "UN sanctions list", "EU sanctions list", "UK sanctions list"],
+    "uses": ["Screen customers and suppliers against sanctions lists", "Batch-check a vendor list", "Add a fuzzy name check to onboarding"]
+  },
+  "recalls-radar": {
+    "aka": ["product recall API", "FDA recalls data", "CPSC recalls", "food recall alerts", "Safety Gate alerts", "drug recall data", "medical device recalls"],
+    "uses": ["Alert on recalls in your product category", "Monitor suppliers and competitors", "Compliance and quality reporting"]
+  },
+  "tenders-radar": {
+    "aka": ["public tenders API", "government tenders", "procurement data", "SAM.gov opportunities", "TED tenders", "contract awards data", "bid alerts", "RFP finder"],
+    "uses": ["Get alerts for new public tenders in your sector", "Research who wins contracts and for how much", "Find buyers and competitors"]
+  },
+  "grants-radar": {
+    "aka": ["grants API", "funding opportunities", "Grants.gov data", "Horizon Europe calls", "research funding alerts", "UKRI funding", "grant finder"],
+    "uses": ["Get alerts for new funding calls", "Plan applications around deadlines", "Grant consultancy lead lists"]
+  },
+  "legislation-radar": {
+    "aka": ["legislation tracker", "new laws API", "EUR-Lex data", "regulation tracker", "bill tracking", "regulatory change monitoring", "legal updates feed"],
+    "uses": ["Track new laws and regulations in your sector", "Feed regulatory changes to compliance teams", "Legal research alerts"]
+  },
+  "gov-radar": {
+    "aka": ["government updates feed", "Federal Register API", "regulatory notices", "RBI circulars", "SEBI circulars", "GOV.UK updates", "policy monitoring"],
+    "uses": ["Monitor regulators that affect your business", "Collect circulars and notices in one feed", "Policy research"]
+  },
+  "india-district-notices": {
+    "aka": ["India district tenders", "district recruitment notices", "India government jobs by district", "district announcements", "NIC district websites data"],
+    "uses": ["Find local government tenders in India", "Track district recruitment notices", "Local news and civic research"]
+  },
+  "alerts-radar": {
+    "aka": ["weather alerts API", "disaster warnings", "NWS alerts", "MeteoAlarm data", "severe weather feed", "emergency alerts data"],
+    "uses": ["Alert operations teams to severe weather", "Supply chain and travel risk monitoring", "Insurance and logistics planning"]
+  },
+  "shopify-products": {
+    "aka": ["Shopify scraper", "Shopify product export", "Shopify price monitoring", "Shopify products API", "competitor price tracking", "Shopify catalog export"],
+    "uses": ["Track competitor prices and stock", "Export a store's catalog", "Product research for ecommerce"]
+  },
+  "copart-auctions": {
+    "aka": ["Copart scraper", "Copart API", "salvage car auctions", "used car auction data", "VIN lookup auctions", "car auction prices"],
+    "uses": ["Find cars to bid on by make, model and damage", "Track auction prices for resale", "Dealer and exporter sourcing"]
+  },
+  "property-listings": {
+    "aka": ["real estate API", "property listings data", "property scraper", "rental listings data", "UK property data", "Germany rental data", "UAE property data"],
+    "uses": ["Track asking prices and rents by area", "Find new listings that match a search", "Real estate market research"]
+  },
+  "immobilienscout24-scraper": {
+    "aka": ["ImmoScout24 scraper", "ImmobilienScout24 API", "Germany apartments for rent", "Wohnungen mieten data", "Austria property data", "Berlin rentals data"],
+    "uses": ["Track rents and prices in German and Austrian cities", "Alert on new apartments", "Property investment research"]
+  },
+  "rightmove-scraper": {
+    "aka": ["Rightmove API", "Rightmove data export", "UK property listings", "UK house prices data", "UK rentals scraper"],
+    "uses": ["Track UK asking prices and rents", "Alert on new listings", "Property sourcing for investors"]
+  },
+  "propertyfinder-scraper": {
+    "aka": ["Property Finder API", "Dubai property data", "UAE rentals", "Saudi property listings", "Qatar property data"],
+    "uses": ["Track Gulf property prices and rents", "Alert on new listings in Dubai", "Market research for agents"]
+  },
+  "short-interest": {
+    "aka": ["short interest data", "FINRA short volume", "short squeeze screener", "days to cover", "short interest API", "daily short volume"],
+    "uses": ["Screen stocks by short interest change", "Track short volume daily", "Research squeeze candidates"]
+  },
+  "prediction-markets": {
+    "aka": ["prediction market data", "Polymarket API", "Kalshi odds", "PredictIt data", "election odds", "event probability data"],
+    "uses": ["Compare odds across prediction markets", "Track probability changes over time", "Research and forecasting dashboards"]
+  },
+  "kalshi-markets": {
+    "aka": ["Kalshi API", "Kalshi odds data", "Kalshi markets export", "event contracts data"],
+    "uses": ["Track Kalshi prices and volume", "Build event probability dashboards"]
+  },
+  "sports-data": {
+    "aka": ["sports API", "live scores API", "NFL stats", "NBA stats", "box scores data", "standings API", "football scores data"],
+    "uses": ["Power a scores app or dashboard", "Fantasy sports research", "Sports analytics"]
+  },
+  "sports-betting-odds": {
+    "aka": ["odds API", "sports betting data", "moneyline odds", "point spread data", "betting lines API", "odds comparison"],
+    "uses": ["Compare lines across games", "Track line movement", "Betting model inputs"]
+  },
+  "lottery-results": {
+    "aka": ["lottery API", "Powerball results", "Mega Millions results", "lotto numbers history", "lottery results data"],
+    "uses": ["Show latest draws on a site or app", "Analyze number history"]
+  },
+  "transit-timetables": {
+    "aka": ["transit API", "public transport API", "journey planner API", "bus timetable data", "train schedule API", "GTFS alternative"],
+    "uses": ["Plan journeys in apps and chatbots", "Commute time research", "Travel and mobility tools"]
+  }
+}
