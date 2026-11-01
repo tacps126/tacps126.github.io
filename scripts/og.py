@@ -93,15 +93,15 @@ def main(path):
     d = ImageDraw.Draw(img, "RGBA")
 
     # brand: icon + name
-    icon = Image.open(ROOT / "icon-192.png").convert("RGBA").resize((72, 72))
-    img.alpha_composite(icon, (64, 56))
+    icon = Image.open(ROOT / "icon-512.png").convert("RGBA").resize((76, 76), Image.LANCZOS)
+    img.alpha_composite(icon, (62, 54))
     d.text((154, 58), data["name"], font=DISPLAY(38), fill=TEXT)
     d.text((156, 106), "web data tools on Apify", font=MONO(20), fill=MUTED)
 
     # headline
-    d.text((64, 170), "Clean web data for", font=DISPLAY(54), fill=TEXT)
-    gradient_text(img, (64, 230), "jobs, news, reviews", DISPLAY(54))
-    gradient_text(img, (64, 290), "and leads.", DISPLAY(54))
+    d.text((64, 170), "Web data, gathered", font=DISPLAY(54), fill=TEXT)
+    gradient_text(img, (64, 230), "and refined: jobs,", DISPLAY(54))
+    gradient_text(img, (64, 290), "leads and research.", DISPLAY(54))
 
     # stat tiles with stacked edges
     tiles = [(str(data["tools"]), "public tools"), (f'{data["okShare"]}%' if data.get("okShare") else "pay", "runs succeeded" if data.get("okShare") else "per result"), (str(data["mcpTools"]), "tools for AI agents"), (data["from"], "from, per 1,000 results")]

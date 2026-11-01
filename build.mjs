@@ -200,7 +200,7 @@ const small = (name, size) => ICONS[name].replace('<svg', `<svg width="${size}" 
 const header = (active) => `<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="/"><img src="/icon-192.png" alt="" width="28" height="28"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="30" height="30"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
     <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search ${used} tools</span><kbd>⌘K</kbd></button>
     <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">${small('menu', 20)}</button>
     <nav class="nav-links" id="nav-links" aria-label="Main">
@@ -218,27 +218,37 @@ const header = (active) => `<a class="skip" href="#main">Skip to content</a>
 const footer = () => `<footer>
   <div class="wrap">
     <div class="foot">
-      <div><strong style="color:var(--text)">${OWNER} (tacps126)</strong><br>Web data tools for jobs, leads, research, markets and public records.<br><a href="mailto:${EMAIL}">${EMAIL}</a></div>
-      <ul>
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/favicon.svg" alt="" width="34" height="34"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
+        <p>Web data tools that gather, clean and enrich public data: jobs, leads, research, markets and public records. Pay per result on Apify, or call them from an AI agent.</p>
+        <p><a href="mailto:${EMAIL}">${EMAIL}</a><br><a href="mailto:${EMAIL}?subject=Custom%20data%20request">Ask for a custom dataset</a></p>
+      </div>
+      <nav aria-label="Topics"><p class="foot-h">Topics</p><ul>
+${CATS.map(([k, l]) => `        <li><a href="/tools/${k}/">${esc(CAT_SHORT[k] || l)}</a></li>`).join('\n')}
+      </ul></nav>
+      <nav aria-label="Explore"><p class="foot-h">Explore</p><ul>
         <li><a href="/tools/">All tools</a></li>
         <li><a href="/#coverage">Coverage map</a></li>
         <li><a href="/#compose">Chain tools</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
         <li><a href="/pricing.html">Pricing</a></li>
-        <li><a href="/mcp.html">MCP server</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/about.html">About</a></li>
-      </ul>
-      <ul>
+      </ul></nav>
+      <nav aria-label="Developers"><p class="foot-h">Developers</p><ul>
         <li><a href="https://apify.com/${USER}">Tools on Apify</a></li>
-        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
         <li><a href="https://github.com/${USER}/apify-data-recipes">Code recipes</a></li>
         <li><a href="https://github.com/${USER}/webdata-tools-mcp">GitHub</a></li>
         <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
         <li><a href="https://smithery.ai/servers/${USER}/webdata-tools-mcp">Smithery</a></li>
         <li><a href="https://glama.ai/mcp/servers/${USER}/webdata-tools-mcp">Glama</a></li>
-      </ul>
+      </ul></nav>
     </div>
-    <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+    <div class="foot-base">
+      <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+      <p class="fine">&copy; ${TODAY.slice(0, 4)} ${OWNER}</p>
+    </div>
   </div>
 </footer>`;
 
@@ -288,6 +298,7 @@ const page = ({ path, title, description, keywords, body, active, jsonld, script
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tacps126">
 <meta property="og:title" content="${esc(title)}">
@@ -1539,14 +1550,16 @@ ${popular.map(({ a, k }) => toolCard(a, k)).join('\n')}
   <div class="wrap">
     <div class="sec-head"><h2>Where the data comes from</h2><p>Countries shade by how many tools read their official or local sources. Hover for the tools; click or tap for a close-up with state and province lines.</p></div>
     <div class="map-grid">
-      <div class="map-box">${mapSvg}
-        <div class="map-key" aria-hidden="true"><span class="l1">1</span><span class="l2">2-4</span><span class="l3">5-7</span><span class="l4">8+</span> tools</div>
+      <div class="map-col">
+        <div class="map-box">${mapSvg}
+          <div class="map-key" aria-hidden="true"><span class="l1">1</span><span class="l2">2-4</span><span class="l3">5-7</span><span class="l4">8+</span> tools</div>
+        </div>
+        <div class="ww-box"><p class="t-kick">Worldwide: ${WORLDWIDE.length} tools that work for any country</p>
+          <p class="ww">${WORLDWIDE.map((n) => `<a href="/tools/${n}/">${esc(shortTitle(byName.get(n).title))}</a>`).join(' · ')}</p></div>
       </div>
       <div class="map-panel" id="map-panel" aria-live="polite">
         <p class="t-kick">Most covered</p>
-        <ul class="map-top">${topCountries.slice(0, 8).map((c) => `<li><button type="button" data-goto="${c}">${esc(WORLD.names[c] || c)}</button><span>${byCountry[c].length}</span></li>`).join('')}</ul>
-        <p class="t-kick">Worldwide</p>
-        <p class="ww">${WORLDWIDE.map((n) => `<a href="/tools/${n}/">${esc(byName.get(n).title)}</a>`).join(' · ')}</p>
+        <ul class="map-top">${topCountries.slice(0, 10).map((c) => `<li><button type="button" data-goto="${c}">${esc(WORLD.names[c] || c)}</button><span>${byCountry[c].length}</span></li>`).join('')}</ul>
       </div>
     </div>
     <script type="application/json" id="cov-data">${JSON.stringify(covData).replace(/</g, '\\u003c')}</script>
@@ -1661,7 +1674,7 @@ ${lines.join('\n')}`,
 console.log(`site built: ${used} tools, ${used} tool pages, ${CHAINS.length} chains, ${covered.length} countries`);
 
 if (PREVIEW) {
-  for (const f of ['style.css', 'app.js', 'tool.js', 'fonts', 'icons', 'og', 'data', 'og.png', 'favicon.svg', 'favicon.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'robots.txt']) {
+  for (const f of ['style.css', 'app.js', 'tool.js', 'fonts', 'icons', 'og', 'data', 'og.png', 'favicon.svg', 'favicon.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'site.webmanifest', 'robots.txt']) {
     cpSync(new URL(`./${f}`, import.meta.url), OUT(`./${f}`), { recursive: true });
   }
   console.log('PREVIEW: open with  python3 -m http.server -d _preview');

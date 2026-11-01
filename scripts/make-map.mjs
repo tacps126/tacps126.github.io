@@ -8,6 +8,8 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { createRequire } from 'node:module';
+import { spawnSync } from 'node:child_process';
 
 const NE = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/';
 const cache = process.argv[2] || join(tmpdir(), 'natural-earth-5.1.2');
@@ -21,6 +23,13 @@ async function load(name) {
   }
   return JSON.parse(readFileSync(file, 'utf8'));
 }
+// Polygon union and difference for India's official state shapes (dev-only, cached next to the data).
+const lib = join(cache, 'lib');
+if (!existsSync(join(lib, 'node_modules', 'polygon-clipping'))) {
+  const r = spawnSync('npm', ['install', '--no-save', '--prefix', lib, 'polygon-clipping@0.15.7'], { stdio: 'inherit' });
+  if (r.status !== 0) throw new Error('npm install polygon-clipping failed');
+}
+const pc = createRequire(join(lib, 'package.json'))('polygon-clipping');
 const countries = await load('ne_10m_admin_0_countries_ind');
 const states = await load('ne_10m_admin_1_states_provinces');
 const names = (await (await fetch('https://cdn.jsdelivr.net/npm/i18n-iso-countries@7.11.0/langs/en.json')).json()).countries;
@@ -95,11 +104,6 @@ writeFileSync(new URL('../data/world.json', import.meta.url), JSON.stringify({ w
 const geoDir = new URL('../data/geo/', import.meta.url);
 rmSync(geoDir, { recursive: true, force: true });
 mkdirSync(geoDir, { recursive: true });
-const byCountry = {};
-for (const f of states.features) {
-  const c = f.properties.iso_a2;
-  if (c && c !== '-99') (byCountry[c] ||= []).push(f);
-}
 const bboxOf = (rings, shift) => {
   let b = [Infinity, Infinity, -Infinity, -Infinity];
   for (const r of rings) for (const [lon, lat] of r) {
@@ -108,6 +112,38 @@ const bboxOf = (rings, shift) => {
   }
   return b;
 };
+const byCountry = {};
+for (const f of states.features) {
+  const c = f.properties.iso_a2;
+  if (c && c !== '-99') (byCountry[c] ||= []).push(f);
+}
+// India's official map (Survey of India): the Union Territory of Jammu and Kashmir includes the area
+// Pakistan administers as Azad Kashmir; Ladakh includes Gilgit-Baltistan, Aksai Chin and the Shaksgam
+// valley. Natural Earth's states follow the lines of control, so those areas are merged in here; the
+// country outline (India's point of view) already covers them.
+{
+  const nameOf = (f) => f.properties.name_en || f.properties.name;
+  const take = (cc, n) => {
+    const i = byCountry[cc].findIndex((f) => nameOf(f) === n);
+    if (i < 0) throw new Error(`${cc} ${n} missing from Natural Earth admin 1`);
+    return byCountry[cc].splice(i, 1)[0];
+  };
+  const jk = take('IN', 'Jammu and Kashmir'), la = take('IN', 'Ladakh');
+  const ajk = take('PK', 'Azad Kashmir'), gb = take('PK', 'Gilgit-Baltistan');
+  const g = (f) => polysOf(f.geometry);
+  // What India's outline holds beyond its states and those two areas, in the north (Aksai Chin, Shaksgam).
+  const covered = pc.union(g(jk), g(la), g(ajk), g(gb), ...byCountry.IN.map(g));
+  const rest = pc.difference(shapes.IN, covered).filter((poly) => {
+    const b = bboxOf([poly[0]], false);
+    return b[0] >= 72 && b[2] <= 81 && b[1] >= 32 && b[3] <= 37.5;
+  });
+  // Outer rings only: the slivers between two datasets would otherwise show as holes.
+  const solid = (mp) => ({ type: 'MultiPolygon', coordinates: mp.map((poly) => [poly[0]]) });
+  byCountry.IN.push(
+    { properties: jk.properties, geometry: solid(pc.union(g(jk), g(ajk))) },
+    { properties: la.properties, geometry: solid(pc.union(g(la), g(gb), ...rest.map((poly) => [poly]))) },
+  );
+}
 const area = (b) => (b[2] - b[0]) * (b[3] - b[1]);
 const VIEW = 640;
 let files = 0, bytes = 0;

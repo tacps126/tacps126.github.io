@@ -60,7 +60,7 @@ def draw(t):
     d = ImageDraw.Draw(img, "RGBA")
     col = og.CAT.get(t["cat"], og.ACCENT)
     # brand row
-    brand = Image.open(ROOT / "icon-192.png").convert("RGBA").resize((44, 44))
+    brand = Image.open(ROOT / "icon-512.png").convert("RGBA").resize((44, 44), Image.LANCZOS)
     img.alpha_composite(brand, (64, 52))
     d.text((122, 58), "tacps126 · web data tools", font=og.MONO(22), fill=og.MUTED)
     # tool icon, topic and title
