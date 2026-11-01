@@ -495,29 +495,3 @@ a:hover { text-underline-offset:3px; text-decoration-thickness:1px; }
 /* mono runs wider than a proportional face: a slightly smaller lead, and tighter planes on phones */
 .lead { font-size:1.1rem; line-height:1.7; }
 @media (max-width:640px) { .layers::before { transform:translate(8px, 8px); } .layers::after { transform:translate(16px, 16px); } .layers { margin-bottom:28px; transform:none; } }
-
-/* ---- paper (owner 2026-11-01): a sheet with soft folds and fine grain behind every page ----
-   Light: warm cream paper. Dark: deep ink-navy paper, the same folds pressed darker.
-   Both textures are generated SVG noise (no image files); the sheet stays put while the page scrolls. */
-:root {
-  --bg:#f5f1e8; --bg2:#ede7da; --surface:#fffdf8; --border:#e2dac8; --text:#1b1a2e;
-  --fold:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='turbulence' baseFrequency='.0032 .0045' numOctaves='2' seed='4' stitchTiles='stitch'/%3E%3CfeDiffuseLighting surfaceScale='11' lighting-color='%23fff'%3E%3CfeDistantLight azimuth='225' elevation='48'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E");
-  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .22 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
-  --fold-o:.38; --grain-o:.28; --age:rgba(120,90,40,.07);
-}
-:root[data-theme="dark"] { --bg:#151b36; --bg2:#171e3a; --surface:#141b36; --text:#e8ebfa; --fold-o:1; --grain-o:.12; --age:rgba(0,0,0,.35); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#151b36; --bg2:#171e3a; --surface:#141b36; --text:#e8ebfa; --fold-o:1; --grain-o:.12; --age:rgba(0,0,0,.35); } }
-html { background:var(--bg); }
-body { background:transparent; }
-body::before, body::after { content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; }
-body::before { background:radial-gradient(ellipse at 50% 40%, transparent 55%, var(--age)), var(--fold); mix-blend-mode:multiply; opacity:var(--fold-o); }
-body::after { background:var(--grain); opacity:var(--grain-o); }
-:root[data-theme="dark"] body::after { filter:invert(1); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) body::after { filter:invert(1); } }
-/* tinted bands let the sheet show through instead of covering it */
-section.alt { background:
-  radial-gradient(900px 300px at 85% 0%, color-mix(in srgb, var(--accent2) 6%, transparent), transparent 70%),
-  radial-gradient(900px 300px at 10% 100%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 70%),
-  color-mix(in srgb, var(--bg2) 55%, transparent); }
-main > section + section::after { background:var(--bg); }
-@media print { body::before, body::after { display:none; } }
