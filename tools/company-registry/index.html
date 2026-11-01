@@ -80,7 +80,7 @@
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
     <div class="tool-grid">
-      <form class="tform" id="tform" data-actor="company-registry" data-unit="0.0025" data-what="company" data-max="maxItems" data-start="{&quot;countries&quot;:[&quot;FR&quot;],&quot;events&quot;:[&quot;registration&quot;],&quot;registeredWithinDays&quot;:3,&quot;industryCodes&quot;:[&quot;56.10&quot;]}" autocomplete="off">
+      <form class="tform" id="tform" data-actor="company-registry" data-unit="0.0025" data-what="company" data-max="maxItems" data-start="{&quot;countries&quot;:[&quot;FR&quot;],&quot;events&quot;:[&quot;registration&quot;],&quot;registeredWithinDays&quot;:3,&quot;industryCodes&quot;:[&quot;56.10&quot;],&quot;maxItemsPerSource&quot;:10,&quot;maxItems&quot;:50}" autocomplete="off">
 <div class="f" data-k="mode" data-kind="str" data-def="&quot;new&quot;"><label for="f-mode"><span class="fl">What to do</span></label><select id="f-mode"><option value="new" selected>New companies and register events (feed)</option><option value="search">Search companies by name</option></select><p class="fh">Follow what the registers publish (new registrations; in France also insolvencies, deregistrations and sales), or look companies up by name.</p></div>
 <div class="f" data-k="names" data-kind="list"><label for="f-names"><span class="fl">Company names (search)</span></label><textarea id="f-names" rows="2" placeholder="One per line"></textarea><p class="fh">Names or words to search, e.g. Nokia, Equinor, Boulangerie Paul.</p></div>
 <div class="f" data-k="countries" data-kind="multi"><label for="f-countries"><span class="fl">Countries</span></label><div class="opts" role="group" aria-label="Countries"><label class="opt"><input type="checkbox" value="FR" checked><span>France (SIREN directory, BODACC)</span></label><label class="opt"><input type="checkbox" value="NO"><span>Norway (Brønnøysund)</span></label><label class="opt"><input type="checkbox" value="FI"><span>Finland (PRH / YTJ)</span></label><label class="opt"><input type="checkbox" value="EE"><span>Estonia (e-Business Register)</span></label><label class="opt"><input type="checkbox" value="CZ"><span>Czechia (ARES, search only)</span></label><label class="opt"><input type="checkbox" value="US"><span>United States (New York, Colorado, Connecticut, ...</span></label><label class="opt"><input type="checkbox" value="US-NY"><span>United States - New York only</span></label><label class="opt"><input type="checkbox" value="US-CO"><span>United States - Colorado only</span></label><label class="opt"><input type="checkbox" value="US-CT"><span>United States - Connecticut only</span></label><label class="opt"><input type="checkbox" value="US-OR"><span>United States - Oregon only</span></label><label class="opt"><input type="checkbox" value="DE"><span>Germany (LEI index)</span></label><label class="opt"><input type="checkbox" value="GB"><span>United Kingdom (LEI index)</span></label><label class="opt"><input type="checkbox" value="ES"><span>Spain (LEI index)</span></label><label class="opt"><input type="checkbox" value="IT"><span>Italy (LEI index)</span></label><label class="opt"><input type="checkbox" value="NL"><span>Netherlands (LEI index)</span></label><label class="opt"><input type="checkbox" value="SE"><span>Sweden (LEI index)</span></label><label class="opt"><input type="checkbox" value="DK"><span>Denmark (LEI index)</span></label><label class="opt"><input type="checkbox" value="IE"><span>Ireland (LEI index)</span></label><label class="opt"><input type="checkbox" value="CH"><span>Switzerland (LEI index)</span></label><label class="opt"><input type="checkbox" value="IN"><span>India (LEI index)</span></label><label class="opt"><input type="checkbox" value="SG"><span>Singapore (LEI index)</span></label><label class="opt"><input type="checkbox" value="AE"><span>United Arab Emirates (LEI index)</span></label></div><p class="fh">Empty = France, Norway, Finland and Estonia (and, for searches, the worldwide LEI index). US = the state registers of New York, Colorado, Connecticut and Oregon (searches also use the LEI index). Other countries are searched in the LEI...</p></div>
@@ -90,8 +90,8 @@
 <div class="f" data-k="industryCodes" data-kind="list"><label for="f-industryCodes"><span class="fl">Industry codes</span></label><textarea id="f-industryCodes" rows="2" placeholder="One per line">56.10</textarea><p class="fh">NACE / NAF / TOL code prefixes, dots optional (e.g. 56.10 restaurants, 62 software and IT, 49.41 road freight). Connecticut uses NAICS (e.g. 7225 restaurants).</p></div>
 <div class="f" data-k="locations" data-kind="list"><label for="f-locations"><span class="fl">Locations</span></label><textarea id="f-locations" rows="2" placeholder="One per line"></textarea><p class="fh">Cities, regions, US states or counties, or postcode prefixes (e.g. Oslo, Bouches-du-Rhône, 75 for Paris, Brooklyn, Kings).</p></div>
 <div class="f f-bool" data-k="includeOfficers" data-kind="bool" data-def="true"><label class="sw" for="f-includeOfficers"><input type="checkbox" id="f-includeOfficers" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Include officers</span></label><p class="fh">Directors, managers and registered agents as published by the register.</p></div>
-<div class="f" data-k="maxItemsPerSource" data-kind="int" data-def="500"><label for="f-maxItemsPerSource"><span class="fl">Max per register</span></label><input id="f-maxItemsPerSource" type="number" inputmode="numeric" min="1" value="500" placeholder="500"><p class="fh">Most records read from each register.</p></div>
-<div class="f" data-k="maxItems" data-kind="int" data-def="500"><label for="f-maxItems"><span class="fl">Max in total</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" value="500" placeholder="500"><p class="fh">Most companies returned.</p></div>
+<div class="f" data-k="maxItemsPerSource" data-kind="int" data-def="500"><label for="f-maxItemsPerSource"><span class="fl">Max per register</span></label><input id="f-maxItemsPerSource" type="number" inputmode="numeric" min="1" value="10" placeholder="500"><p class="fh">Most records read from each register.</p></div>
+<div class="f" data-k="maxItems" data-kind="int" data-def="500"><label for="f-maxItems"><span class="fl">Max in total</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" value="50" placeholder="500"><p class="fh">Most companies returned.</p></div>
 <details class="more"><summary>Monitoring</summary><div class="f f-bool" data-k="onlyNew" data-kind="bool" data-def="false"><label class="sw" for="f-onlyNew"><input type="checkbox" id="f-onlyNew"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Only new companies</span></label><p class="fh">Schedule the Actor (daily or weekly) and each run returns only companies and announcements earlier runs with the same settings did not deliver.</p></div></details>
         <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
       </form>
@@ -102,7 +102,7 @@
   <pre>curl -X POST \
   &quot;https://api.apify.com/v2/acts/tacps126~company-registry/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
   -H &quot;Content-Type: application/json&quot; \
-  -d '{&quot;countries&quot;:[&quot;FR&quot;],&quot;events&quot;:[&quot;registration&quot;],&quot;registeredWithinDays&quot;:3,&quot;industryCodes&quot;:[&quot;56.10&quot;]}'</pre>
+  -d '{&quot;countries&quot;:[&quot;FR&quot;],&quot;events&quot;:[&quot;registration&quot;],&quot;registeredWithinDays&quot;:3,&quot;industryCodes&quot;:[&quot;56.10&quot;],&quot;maxItemsPerSource&quot;:10,&quot;maxItems&quot;:50}'</pre>
 </div></div>
         <div class="panel" hidden><div class="code">
   <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
@@ -114,6 +114,8 @@ run = client.actor(&quot;tacps126/company-registry&quot;).call(run_input={
     &quot;events&quot;: [&quot;registration&quot;],
     &quot;registeredWithinDays&quot;: 3,
     &quot;industryCodes&quot;: [&quot;56.10&quot;],
+    &quot;maxItemsPerSource&quot;: 10,
+    &quot;maxItems&quot;: 50,
 })
 for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
     print(item)</pre>
@@ -133,7 +135,9 @@ const run = await client.actor('tacps126/company-registry').call({
   &quot;registeredWithinDays&quot;: 3,
   &quot;industryCodes&quot;: [
     &quot;56.10&quot;
-  ]
+  ],
+  &quot;maxItemsPerSource&quot;: 10,
+  &quot;maxItems&quot;: 50
 });
 const { items } = await client.dataset(run.defaultDatasetId).listItems();
 console.log(items);</pre>
@@ -145,7 +149,7 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
 
 # then ask your agent; it calls: find_companies</pre>
 </div></div>
-        <p class="cost" id="tf-cost">Up to 500 companys: at most $1.25, on Apify's free plan.</p>
+        <p class="cost" id="tf-cost">Up to 50 companys: at most $0.13, on Apify's free plan.</p>
       </aside>
     </div>
   </div>
@@ -167,6 +171,9 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
     <div class="sec-head"><span class="sec-num">Guide</span><h2>How Company Registry works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
     <article class="post guide" id="guide-body"><p>Fresh B2B leads and risk signals <strong>straight from official company registers</strong>: every new company registered in <strong>France</strong> (BODACC), <strong>Norway</strong> (Brønnøysund), <strong>Finland</strong> (PRH / YTJ), <strong>Estonia</strong> and the US states <strong>New York, Colorado, Connecticut and Oregon</strong>, French <strong>insolvency judgments</strong>, deregistrations and business sales, and <strong>company search</strong> with legal form, industry, address, employees and officers, plus the worldwide <strong>LEI index</strong> (GLEIF) for any other country.</p>
 <p><strong>Built for</strong> B2B sales teams and agencies selling to new businesses (accountants, banks, insurers, payroll, POS, web and telecom), credit-risk and collections teams, KYB and supplier onboarding, market researchers, and AI agents.</p>
+<p><strong>At a glance</strong></p>
+<ul><li><strong>Price:</strong> $2.50 per 1,000 companies. Free plan: up to 100 companies per run.</li><li><strong>First run:</strong> the prefilled input returns 40 companies registered this week in Finland, France, Norway and Estonia in about 3 seconds.</li></ul>
+<div class="table-wrap"><table><thead><tr><th>name</th><th>country</th><th>legalForm</th><th>registeredOn</th><th>city</th></tr></thead><tbody><tr><td>KL-Steel Oy</td><td>FI</td><td>Limited company</td><td>2026-11-01</td><td>Hämeenlinna</td></tr><tr><td>HACCP CONSEIL &amp; FORMATION</td><td>FR</td><td>Société par actions simplifiée</td><td>2026-10-28</td><td>Chérêt</td></tr><tr><td>A&amp;I INVEST AS</td><td>NO</td><td>Aksjeselskap</td><td>2026-10-30</td><td>Fjerdingby</td></tr><tr><td>3D4CAR OÜ</td><td>EE</td><td>Osaühing</td><td>2026-10-30</td><td>Tallinn</td></tr></tbody></table></div>
 <h3 id="g-two-modes">Two modes</h3>
 <ol><li><strong>New companies and register events</strong> (default). Choose countries and a window (<code>registeredWithinDays</code>), filter by <strong>industry codes</strong> (NACE / NAF, e.g. <code>56.10</code> restaurants, <code>62</code> IT; NAICS for Connecticut), <strong>locations</strong> (city, region, US state or county, or postcode prefix) or <strong>keywords</strong>. For France also choose the events: new companies, insolvencies, deregistrations, sales. Turn on <em>Only new</em> and schedule it daily for a lead feed.</li><li><strong>Search by name.</strong> Look companies up in France (with officers), Norway, Finland, Estonia, Czechia, New York, Colorado, Connecticut, Oregon and, for any other country, the LEI index.</li></ol>
 <h3 id="g-how-to-use-it">How to use it</h3>

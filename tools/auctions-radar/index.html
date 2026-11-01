@@ -80,7 +80,7 @@
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
     <div class="tool-grid">
-      <form class="tform" id="tform" data-actor="auctions-radar" data-unit="0.015" data-what="lot" data-max="maxItems" data-start="{&quot;countries&quot;:[&quot;DE&quot;,&quot;ES&quot;,&quot;IT&quot;,&quot;IN&quot;],&quot;maxItems&quot;:50,&quot;scanPerSource&quot;:150}" autocomplete="off">
+      <form class="tform" id="tform" data-actor="auctions-radar" data-unit="0.015" data-what="lot" data-max="maxItems" data-start="{&quot;countries&quot;:[&quot;DE&quot;,&quot;ES&quot;,&quot;IT&quot;,&quot;IN&quot;],&quot;maxItems&quot;:50,&quot;scanPerSource&quot;:80}" autocomplete="off">
 <div class="f" data-k="countries" data-kind="multi" data-def="[&quot;DE&quot;,&quot;ES&quot;,&quot;IT&quot;,&quot;IN&quot;]"><label for="f-countries"><span class="fl">Countries</span></label><div class="opts" role="group" aria-label="Countries"><label class="opt"><input type="checkbox" value="DE" checked><span>Germany: court foreclosures</span></label><label class="opt"><input type="checkbox" value="ES" checked><span>Spain: national auction portal (courts, tax agen...</span></label><label class="opt"><input type="checkbox" value="IT" checked><span>Italy: court-ordered sales</span></label><label class="opt"><input type="checkbox" value="IN" checked><span>India: public-sector bank e-auctions</span></label></div><p class="fh">Auction portals to read. Each is the official public source for its country.</p></div>
 <div class="f" data-k="assetTypes" data-kind="multi"><label for="f-assetTypes"><span class="fl">Asset types</span></label><div class="opts" role="group" aria-label="Asset types"><label class="opt"><input type="checkbox" value="apartment"><span>Apartments</span></label><label class="opt"><input type="checkbox" value="house"><span>Houses</span></label><label class="opt"><input type="checkbox" value="commercial"><span>Shops and offices</span></label><label class="opt"><input type="checkbox" value="industrial"><span>Industrial and warehouses</span></label><label class="opt"><input type="checkbox" value="land"><span>Land and plots</span></label><label class="opt"><input type="checkbox" value="agricultural"><span>Farmland</span></label><label class="opt"><input type="checkbox" value="parking"><span>Garages and parking</span></label><label class="opt"><input type="checkbox" value="vehicle"><span>Vehicles</span></label><label class="opt"><input type="checkbox" value="other"><span>Other goods</span></label></div><p class="fh">Empty = all property and vehicles.</p></div>
 <div class="f" data-k="regions" data-kind="list"><label for="f-regions"><span class="fl">States, provinces or regions</span></label><textarea id="f-regions" rows="2" placeholder="One per line"></textarea><p class="fh">Names as used locally or in English, e.g. Bayern, Berlin, Madrid, Malaga, Lombardia, Kerala, Maharashtra. Narrows the portals' own searches, so more of the matching lots are read.</p></div>
@@ -101,7 +101,7 @@
 <div class="f" data-k="fitWeight" data-kind="num" data-def="0.3"><label for="f-fitWeight"><span class="fl">Weight of your requirements</span></label><input id="f-fitWeight" type="number" inputmode="numeric" min="0" max="1" step="any" value="0.3" placeholder="0.3"><p class="fh">Share of the score that measures fit to your budget, radius and area (the rest is the lot's quality against similar lots).</p></div>
 <div class="f" data-k="sortBy" data-kind="str" data-def="&quot;score&quot;"><label for="f-sortBy"><span class="fl">Sort by</span></label><select id="f-sortBy"><option value="score" selected>Score</option><option value="auctionDate">Auction date, soonest first</option><option value="price">Lowest total cost</option><option value="pricePerSqm">Lowest price per m²</option><option value="discount">Biggest discount or price cut</option></select><p class="fh">Order of the results.</p></div>
 <div class="f" data-k="maxItems" data-kind="int" data-def="100"><label for="f-maxItems"><span class="fl">Max lots</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" max="10000" value="50" placeholder="100"><p class="fh">Most lots returned, best first.</p></div>
-<div class="f" data-k="scanPerSource" data-kind="int" data-def="300"><label for="f-scanPerSource"><span class="fl">Lots read per country</span></label><input id="f-scanPerSource" type="number" inputmode="numeric" min="1" max="5000" value="150" placeholder="300"><p class="fh">How many lots each portal is read for before scoring. More gives a better comparison and takes longer; only returned lots are charged.</p></div>
+<div class="f" data-k="scanPerSource" data-kind="int" data-def="300"><label for="f-scanPerSource"><span class="fl">Lots read per country</span></label><input id="f-scanPerSource" type="number" inputmode="numeric" min="1" max="5000" value="80" placeholder="300"><p class="fh">How many lots each portal is read for before scoring. More gives a better comparison and takes longer; only returned lots are charged.</p></div>
 <div class="f f-bool" data-k="includeUnscheduled" data-kind="bool" data-def="false"><label class="sw" for="f-includeUnscheduled"><input type="checkbox" id="f-includeUnscheduled"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Include lots without a date</span></label><p class="fh">India: also bank listings that have no auction date set yet.</p></div>
 <div class="f f-bool" data-k="saleHistory" data-kind="bool" data-def="true"><label class="sw" for="f-saleHistory"><input type="checkbox" id="f-saleHistory" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Earlier sale attempts</span></label><p class="fh">Italy: look up the court's earlier attempts to sell each lot and the price cuts since.</p></div></details>
 <details class="more"><summary>Monitoring</summary><div class="f f-bool" data-k="onlyNew" data-kind="bool" data-def="false"><label class="sw" for="f-onlyNew"><input type="checkbox" id="f-onlyNew"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Only new lots</span></label><p class="fh">Each run returns only lots that earlier runs with the same search did not deliver.</p></div>
@@ -119,7 +119,7 @@
   <pre>curl -X POST \
   &quot;https://api.apify.com/v2/acts/tacps126~auctions-radar/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
   -H &quot;Content-Type: application/json&quot; \
-  -d '{&quot;countries&quot;:[&quot;DE&quot;,&quot;ES&quot;,&quot;IT&quot;,&quot;IN&quot;],&quot;maxItems&quot;:50,&quot;scanPerSource&quot;:150}'</pre>
+  -d '{&quot;countries&quot;:[&quot;DE&quot;,&quot;ES&quot;,&quot;IT&quot;,&quot;IN&quot;],&quot;maxItems&quot;:50,&quot;scanPerSource&quot;:80}'</pre>
 </div></div>
         <div class="panel" hidden><div class="code">
   <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
@@ -129,7 +129,7 @@ client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
 run = client.actor(&quot;tacps126/auctions-radar&quot;).call(run_input={
     &quot;countries&quot;: [&quot;DE&quot;, &quot;ES&quot;, &quot;IT&quot;, &quot;IN&quot;],
     &quot;maxItems&quot;: 50,
-    &quot;scanPerSource&quot;: 150,
+    &quot;scanPerSource&quot;: 80,
 })
 for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
     print(item)</pre>
@@ -147,7 +147,7 @@ const run = await client.actor('tacps126/auctions-radar').call({
     &quot;IN&quot;
   ],
   &quot;maxItems&quot;: 50,
-  &quot;scanPerSource&quot;: 150
+  &quot;scanPerSource&quot;: 80
 });
 const { items } = await client.dataset(run.defaultDatasetId).listItems();
 console.log(items);</pre>
@@ -181,6 +181,9 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
     <div class="sec-head"><span class="sec-num">Guide</span><h2>How Auctions Radar works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
     <article class="post guide" id="guide-body"><p>Foreclosure, court, tax and bank auctions from <strong>Germany, Spain, Italy and India</strong> in one clean format: price, valuation, debts on the property, area, price per m², possession, dates, deposit, documents and photos. Every lot is <strong>scored against similar lots nearby</strong> and against <strong>your budget, place and dates</strong>, with plain-word reasons, price history and new-lot alerts.</p>
 <p><strong>Built for</strong> property investors and flippers, auction buyers and brokers, valuers and lenders, distressed-asset funds, relocation and buying agents, car and equipment traders, researchers and AI agents.</p>
+<p><strong>At a glance</strong></p>
+<ul><li><strong>Price:</strong> $15 per 1,000 lots until 1 December 2026, then $5 per 1,000 lots. Free plan: up to 50 lots per run.</li><li><strong>First run:</strong> the prefilled input returns 50 scored lots from all four countries in about 20 seconds.</li></ul>
+<div class="table-wrap"><table><thead><tr><th>score</th><th>country</th><th>kind</th><th>city</th><th>price</th><th>verdict</th></tr></thead><tbody><tr><td>100</td><td>IT</td><td>land</td><td>Siracusa</td><td>12,000 EUR</td><td>1st of 9 in land, IT. 15% below the typical price per m² of 5 similar lots; vacant.</td></tr><tr><td>100</td><td>IN</td><td>house</td><td>Guskara</td><td>1,940,000 INR</td><td>1st of 5 in house, West Bengal. 53% below the typical price per m² of 5 similar lots; the bank holds physical possession.</td></tr><tr><td>98.3</td><td>DE</td><td>agricultural</td><td>Steingaden</td><td>37,300 EUR</td><td>1st of 7 in agricultural, DE. Expert valuation report published.</td></tr></tbody></table></div>
 <h3 id="g-where-the-lots-come-from">Where the lots come from</h3>
 <div class="table-wrap"><table><thead><tr><th>Country</th><th>Auctions</th><th>Assets</th></tr></thead><tbody><tr><td>Germany</td><td>Court foreclosure auctions (Zwangsversteigerung), all 16 states</td><td>Homes, flats, land, commercial</td></tr><tr><td>Spain</td><td>Official public auctions: courts, tax agency, social security and other bodies</td><td>Property, vehicles, other goods</td></tr><tr><td>Italy</td><td>Court sales from the national sales portal</td><td>Property, vehicles, other goods</td></tr><tr><td>India</td><td>Bank auctions of repossessed assets (SARFAESI and others), all states</td><td>Property, vehicles</td></tr></tbody></table></div>
 <h3 id="g-how-the-scoring-works">How the scoring works</h3>
@@ -225,7 +228,7 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
 <h3 id="g-ai-insights-optional">AI insights (optional)</h3>
 <p>Turn on <code>aiInsights</code> for a short read of the top lots: what stands out, risks to check before bidding and questions for the seller. Use Apify's AI with no key, or your own.</p>
 <h3 id="g-pricing">Pricing</h3>
-<p><strong>$15 per 1,000 lots</strong> plus a small start fee per run. AI insights, when you turn them on, are $0.01 each. On the Apify free plan a run returns up to 50 lots.</p>
+<p><strong>$15 per 1,000 lots</strong> until 1 December 2026, then <strong>$5 per 1,000 lots</strong>, plus a small start fee per run. AI insights, when you turn them on, are $0.01 each. On the Apify free plan a run returns up to 50 lots.</p>
 <h3 id="g-good-to-know">Good to know</h3>
 <ul><li>Prices, valuations and dates are what the official portal shows when the run reads it. Always read the official notice and documents before you bid.</li><li>German lots show the court's valuation; the lowest accepted first bid is half of it.</li><li>Spanish lots can carry debts that stay with the property. <code>totalCost</code> adds them to the price, and the score counts them.</li><li>Indian lots leave out the names of borrowers and owners.</li><li>This Actor reads public auction listings only. It does not bid, register or sign in.</li><li>Want another country or portal? <strong>Contact tacps126@gmail.com</strong>.</li></ul></article>
     <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
@@ -257,7 +260,7 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
       <ul class="uses"><li>Find below-market homes and land at auction near you</li><li>Rank lots by price per m2 against similar lots</li><li>Alerts on new lots and reserve cuts in your area</li><li>Screen bank and court sales for a fund or buying agent</li></ul>
       <div>
         <h3 class="terms-h">Also searched as</h3><p class="terms"><a class="xchip" href="/tools/?q=foreclosure%20auctions%20scraper">foreclosure auctions scraper</a> <a class="xchip" href="/tools/?q=bank%20auction%20properties">bank auction properties</a> <a class="xchip" href="/tools/?q=court%20auction%20listings">court auction listings</a> <a class="xchip" href="/tools/?q=Zwangsversteigerung%20scraper">Zwangsversteigerung scraper</a> <a class="xchip" href="/tools/?q=subastas%20BOE%20scraper">subastas BOE scraper</a> <a class="xchip" href="/tools/?q=aste%20giudiziarie%20scraper">aste giudiziarie scraper</a> <a class="xchip" href="/tools/?q=bank%20e-auction%20India">bank e-auction India</a> <a class="xchip" href="/tools/?q=distressed%20property%20deals">distressed property deals</a></p>
-        <h3 class="terms-h">Categories</h3><p class="terms"><a class="xchip" href="/tools/commerce/">E-commerce, vehicles and real estate</a> <span class="xchip">Real estate</span> <span class="xchip">Automation</span></p>
+        <h3 class="terms-h">Categories</h3><p class="terms"><a class="xchip" href="/tools/commerce/">E-commerce, vehicles and real estate</a> <span class="xchip">Real estate</span> <span class="xchip">Business</span> <span class="xchip">Automation</span></p>
       </div>
     </div>
   </div>
