@@ -3,7 +3,7 @@
 Static site for <https://tacps126.github.io>. No framework, no build dependencies beyond Node 18+.
 
 ```bash
-node build.mjs                   # regenerates index.html, mcp.html, 404.html, sitemap.xml, llms.txt
+node build.mjs                   # regenerates index.html, tools/, mcp.html, 404.html, search.json, sitemap.xml, llms.txt
 git add -A && git commit -m "Refresh" && git push     # GitHub Pages deploys in about a minute
 python3 scripts/make-assets.py   # only if you change the icon or the social image (needs Pillow)
 ```
@@ -24,8 +24,19 @@ run it now from the Actions tab ("Refresh from Apify" → Run workflow). Edit th
 - `MCP_TOOLS` lists the tools of the MCP server (name, one line, Actor, price). The counts on the
   pages are derived from it.
 - The copy for each section sits in `indexBody` and `mcpBody`.
+- Each public tool gets `/tools/<name>/` from its Store input schema and README: an input form that
+  writes the API call (`tool.js`; `#in=<base64 JSON>` loads an input), sample output and fields, AI agent
+  tool name, and tools that pair with it. `CHAINS` lists the pairings (which field feeds which input);
+  the same edges drive the "Chain tools together" composer on the home page.
+- `search.json` feeds the "What data do you need?" box, the ⌘K palette and the tools index. Matching
+  runs in the browser (`SYN` words and option matching in `app.js`); there is no server.
+- The coverage map shades countries by how many tools read local sources (`WORLD`, `EU27` and the
+  per-tool country lists in `build.mjs`). `data/world.json` comes from `node scripts/make-map.mjs`
+  (Natural Earth, public domain); rerun only to change the projection or detail.
+- Tool icons are cached as 72px thumbnails in `icons/` by `scripts/thumbs.py` (needs Pillow); the build
+  runs it when a tool's Store icon changes.
 
-`style.css` and `app.js` are hand-written. Preview locally with `python3 -m http.server 8765` and
+`style.css`, `app.js` and `tool.js` are hand-written. Preview locally with `python3 -m http.server 8765` and
 open <http://localhost:8765>.
 
 ## Blog
@@ -40,10 +51,10 @@ first; when reposting on Medium, dev.to or LinkedIn, set the post's canonical UR
 
 - Plain HTML, CSS and JavaScript; no trackers, no third-party scripts, no cookies. Fonts are self-hosted
   in `fonts/` (Inter, Space Grotesk, JetBrains Mono; SIL Open Font License), never loaded from a CDN.
-- Every page gets the same furniture from `decorate()` in `build.mjs`: sections with a `sec-head` are
-  numbered and listed in the side indicator (`data-label` sets a short label), and every hero gets the
-  floating layers. Don't hand-build these per page.
+- Every page gets the same furniture from `decorate()` in `build.mjs`: sections with a `sec-head` get
+  their number label. The look is flat: no floating layers, tilt or stacked shadows. Don't hand-build
+  furniture per page.
 - Every page keeps the header "Tapaswai Choudhary (tacps126)", works without JavaScript for reading,
   and stays readable at phone width.
 - Prices, counts and titles come from the Apify Store at build time; don't hard-code them in copy.
-- CI (`.github/workflows/check.yml`) syntax-checks `build.mjs` and `app.js` and checks the header.
+- CI (`.github/workflows/check.yml`) syntax-checks `build.mjs`, `app.js` and `tool.js` and checks the header.

@@ -21,14 +21,30 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const res = await fetch(`https://api.apify.com/v2/store?username=${USER}&limit=100`);
 if (!res.ok) throw new Error(`Store API ${res.status}`);
 const items = (await res.json()).data.items;
+// Store text can lag behind the scrubbed source copy: never repeat how a tool works.
+const scrub = (s) => String(s || '').replace(/,?\s*\bno\s+brows(er)\b,?/gi, '').replace(/\s+\./g, '.').replace(/\.\s*\./g, '.').trim();
+for (const i of items) i.description = scrub(i.description);
 const byName = new Map(items.map((i) => [i.name, i]));
 // The Store listing can lag behind edits; the Actor endpoint is always current.
+// Its latest public build adds what the tool pages show: the input form (input schema),
+// the example input, the README (fields and sample row) and the dataset views.
+const DETAIL = new Map();
+const getJson = async (url) => {
+  for (let i = 0; i < 3; i++) {
+    const r = await fetch(url).catch(() => null);
+    if (r?.ok) return (await r.json()).data;
+    if (r && r.status < 500 && r.status !== 429) return null;
+    await new Promise((ok) => setTimeout(ok, 800 * (i + 1)));
+  }
+  return null;
+};
 await Promise.all(
   [...byName.keys()].map(async (name) => {
-    const r = await fetch(`https://api.apify.com/v2/acts/${USER}~${name}`);
-    if (!r.ok) return;
-    const d = (await r.json()).data;
-    byName.set(name, { ...byName.get(name), title: d.title || byName.get(name).title, description: d.description || byName.get(name).description });
+    const d = await getJson(`https://api.apify.com/v2/acts/${USER}~${name}`);
+    if (!d) return;
+    byName.set(name, { ...byName.get(name), title: d.title || byName.get(name).title, description: scrub(d.description) || byName.get(name).description });
+    const bid = d.taggedBuilds?.latest?.buildId;
+    DETAIL.set(name, { act: d, build: bid ? await getJson(`https://api.apify.com/v2/actor-builds/${bid}`) : null });
   }),
 );
 
@@ -61,11 +77,16 @@ const OUT = (p) => new URL((PREVIEW ? './_preview/' : './') + p.replace(/^\.\//,
 if (PREVIEW) mkdirSync(OUT('./'), { recursive: true });
 if (PREVIEW) {
   const want = ALL_CATS.flatMap(([, , names]) => names).filter((n) => !byName.has(n));
+  const cli = (path) => {
+    const out = spawnSync('apify', ['api', 'GET', path], { encoding: 'utf8' }).stdout || '';
+    return out.includes('{') ? JSON.parse(out.slice(out.indexOf('{'))).data : null;
+  };
   for (const name of want) {
-    const out = spawnSync('apify', ['api', 'GET', `/v2/acts/${USER}~${name}`], { encoding: 'utf8' }).stdout || '';
-    if (!out.includes('{')) continue;
-    const d = JSON.parse(out.slice(out.indexOf('{'))).data;
+    const d = cli(`/v2/acts/${USER}~${name}`);
+    if (!d) continue;
     byName.set(name, { name, title: d.title, description: d.description, stats: {}, currentPricingInfo: (d.pricingInfos || []).at(-1) });
+    const bid = d.taggedBuilds?.latest?.buildId;
+    DETAIL.set(name, { act: d, build: bid ? cli(`/v2/actor-builds/${bid}`) : null });
   }
   console.log(`PREVIEW: ${want.length} private listings shown as public`);
 }
@@ -163,16 +184,16 @@ const ico = (name) => `<div class="ico">${ICONS[name]}</div>`;
 const small = (name, size) => ICONS[name].replace('<svg', `<svg width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"`);
 
 const header = (active) => `<a class="skip" href="#main">Skip to content</a>
-<div class="progress" aria-hidden="true"></div>
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="/"><img src="/icon-192.png" alt="" width="30" height="30"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
+    <a class="brand" href="/"><img src="/icon-192.png" alt="" width="28" height="28"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search ${used} tools</span><kbd>⌘K</kbd></button>
     <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">${small('menu', 20)}</button>
     <nav class="nav-links" id="nav-links" aria-label="Main">
-      <a href="/#tools">Tools</a>
+      <a href="/tools/"${active === 'tools' ? ' aria-current="page"' : ''}>Tools</a>
+      <a href="/#coverage">Coverage</a>
       <a href="/pricing.html"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a>
-      <a href="/mcp.html"${active === 'mcp' ? ' aria-current="page"' : ''}>MCP server</a>
-      <a href="/#build">Custom work</a>
+      <a href="/mcp.html"${active === 'mcp' ? ' aria-current="page"' : ''}>AI agents</a>
       <a href="/blog/"${active === 'blog' ? ' aria-current="page"' : ''}>Blog</a>
       <a href="/about.html"${active === 'about' ? ' aria-current="page"' : ''}>About</a>
       <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme">${small('sun', 18)}</button>
@@ -183,44 +204,41 @@ const header = (active) => `<a class="skip" href="#main">Skip to content</a>
 const footer = () => `<footer>
   <div class="wrap">
     <div class="foot">
-      <div><strong style="color:var(--text)">${OWNER} (tacps126)</strong><br>Web data tools for jobs, news, reviews and leads.<br><a href="mailto:${EMAIL}">${EMAIL}</a></div>
+      <div><strong style="color:var(--text)">${OWNER} (tacps126)</strong><br>Web data tools for jobs, leads, research, markets and public records.<br><a href="mailto:${EMAIL}">${EMAIL}</a></div>
       <ul>
-        <li><a href="https://apify.com/${USER}">Tools on Apify</a></li>
-        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="/tools/">All tools</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
+        <li><a href="/#compose">Chain tools</a></li>
         <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/about.html">About</a></li>
-        <li><a href="/leads/">Trade show exhibitor lists</a></li>
-        <li><a href="https://github.com/${USER}/apify-data-recipes">Code recipes</a></li>
       </ul>
       <ul>
+        <li><a href="https://apify.com/${USER}">Tools on Apify</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="https://github.com/${USER}/apify-data-recipes">Code recipes</a></li>
         <li><a href="https://github.com/${USER}/webdata-tools-mcp">GitHub</a></li>
         <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
         <li><a href="https://smithery.ai/servers/${USER}/webdata-tools-mcp">Smithery</a></li>
         <li><a href="https://glama.ai/mcp/servers/${USER}/webdata-tools-mcp">Glama</a></li>
-        <li><a href="https://mcprush.com/to/webdata-tools-mcp?ref=badge">MCPRush</a></li>
       </ul>
     </div>
     <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
   </div>
 </footer>`;
 
-// Every page gets the same furniture: each section with a heading is numbered
-// (01, 02 …) and listed in the side indicator, and every hero carries the same
-// floating layers. Built here, so no page can miss it.
+// Every page gets the same furniture: each section with a heading gets a small
+// label above it (data-label sets a short one) and an id to link to. Built here,
+// so no page can miss it.
 const slug = (t) => t.toLowerCase().replace(/<[^>]+>/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
 const plain = (t) => t.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').trim();
-const DECO = `<div class="deco" aria-hidden="true"><div class="cube c1"><i></i><i></i><i></i></div><div class="cube c2"><i></i><i></i><i></i></div><div class="cube c3"><i></i><i></i><i></i></div><span class="orb o1"></span><span class="orb o2"></span></div>`;
 function decorate(body) {
   const parts = body.split('<section');
-  const toc = [];
   const seen = new Set();
-  const out = parts.map((chunk, i) => {
+  return parts.map((chunk, i) => {
     if (i === 0) return chunk;
     const tag = chunk.slice(0, chunk.indexOf('>'));
-    if (/class="[^"]*hero/.test(tag)) {
-      return chunk.replace('>', '>' + DECO);
-    }
     const head = chunk.indexOf('class="sec-head');
     const h2 = head >= 0 ? chunk.indexOf('<h2', head) : -1;
     if (h2 < 0) return chunk;
@@ -235,18 +253,13 @@ function decorate(body) {
       newTag = `${tag} id="${id}"`;
     }
     seen.add(id);
-    toc.push([id, label]);
     const rest = chunk.slice(tag.length);
     const at = rest.indexOf('<h2', rest.indexOf('class="sec-head'));
     return newTag + rest.slice(0, at) + `<span class="sec-num">${esc(label)}</span>` + rest.slice(at);
-  });
-  const nav = toc.length >= 3
-    ? `<nav class="toc" aria-label="On this page">${toc.map(([id, l]) => `<a href="#${id}" data-toc="${id}" aria-label="${esc(l)}"><span>${esc(l)}</span></a>`).join('')}</nav>\n`
-    : '';
-  return nav + out.join('<section');
+  }).join('<section');
 }
 
-const page = ({ path, title, description, body, active, jsonld }) => `<!doctype html>
+const page = ({ path, title, description, body, active, jsonld, scripts = [] }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -255,8 +268,8 @@ const page = ({ path, title, description, body, active, jsonld }) => `<!doctype 
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${SITE}${path}">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#080c1c" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -283,6 +296,7 @@ ${decorate(body)}
 </main>
 ${footer()}
 <script src="${JS}" defer></script>
+${scripts.map((s) => `<script src="${s}" defer></script>`).join('\n')}
 </body>
 </html>
 `;
@@ -303,38 +317,7 @@ const JSON_CFG = `{
   }
 }`;
 
-// ---------------------------------------------------------------- index
-const HERO_SAMPLE = `{
-  "company": "Databricks",
-  "board": "greenhouse",
-  "signalScore": 100,
-  "totalOpenRoles": 898,
-  "matchingRoles": 19,
-  "rolesPostedLast7Days": 7,
-  "remoteShare": 26
-}`;
-let used = 0;
-const cards = CATS.flatMap(([key, label, names]) =>
-  names
-    .map((n) => byName.get(n))
-    .filter(Boolean)
-    .map((a) => {
-      used += 1;
-      const p = priceOf(a.description);
-      const num = p ? Number((p.match(/[\d.]+/) || ['0'])[0]) * (p.includes('¢') ? 10 : 1) : 999;
-      return `<a class="card reveal spot" data-tool data-cat="${key}" data-price="${num}" href="https://apify.com/${USER}/${esc(a.name)}" rel="noopener">
-  <h3>${esc(a.title)}${NEW.has(a.name) ? ' <span class="new">New</span>' : ''}</h3>
-  <p>${esc(short(stripPrice(a.description)))}</p>
-  <div class="meta"><span class="tag">${esc(label)}</span>${p ? `<span class="price">${esc(p)}</span>` : ''}</div>
-</a>`;
-    }),
-);
-
-const catCount = (names) => names.filter((n) => byName.has(n)).length;
-const chips = [['all', 'All', used], ...CATS.map(([k, l, names]) => [k, l, catCount(names)])]
-  .map(([k, l, n], i) => `<button class="chip" type="button" data-cat="${k}" aria-pressed="${i === 0}">${esc(l)} <span class="n">${n}</span></button>`)
-  .join('');
-
+// ---------------------------------------------------------------- shared numbers
 // Honest live numbers from the Store: runs by the public in the last 30 days
 // and how many succeeded. Shown only once there is enough to mean something.
 const runs30 = items.reduce((a, i) => {
@@ -342,23 +325,18 @@ const runs30 = items.reduce((a, i) => {
   return { total: a.total + (r.TOTAL || 0), ok: a.ok + (r.SUCCEEDED || 0) };
 }, { total: 0, ok: 0 });
 const okShare = runs30.total >= 50 ? Math.floor((100 * runs30.ok) / runs30.total) : null;
+const users30 = [...DETAIL.values()].reduce((s, d) => s + (d.act?.stats?.totalUsers30Days || 0), 0);
 
-// "The library, at its real size": one dot per tool, area by runs, colour by
-// topic; and "What we cover": each topic with its most-run tools.
 const CAT_SHORT = { jobs: 'Jobs', leads: 'Leads', reviews: 'Reviews and research', gov: 'Government', health: 'Health', commerce: 'Commerce', finance: 'Finance', sports: 'Sports', travel: 'Travel' };
 const toolsOf = (names) => names.map((n) => byName.get(n)).filter(Boolean);
 const runsOf = (a) => a.stats?.totalRuns || 0;
+const runs30Of = (a) => a.stats?.publicActorRunStats30Days?.TOTAL || 0;
 const fmt = (n) => n.toLocaleString('en-US');
 const allTools = CATS.flatMap(([k, , names]) => toolsOf(names).map((a) => ({ a, k })));
-const maxRuns = Math.max(1, ...allTools.map((t) => runsOf(t.a)));
-const dots = allTools
-  .slice()
-  .sort((x, y) => runsOf(y.a) - runsOf(x.a))
-  .map(({ a, k }, i) => {
-    const size = Math.round(14 + 30 * Math.sqrt(runsOf(a) / maxRuns));
-    return `<a class="dot" data-k="${k}" data-rank="${i}" style="--d:${size}px" href="https://apify.com/${USER}/${esc(a.name)}" rel="noopener" title="${esc(a.title)} · ${fmt(runsOf(a))} runs"><span class="sr">${esc(a.title)}</span></a>`;
-  })
-  .join('');
+const used = allTools.length;
+const catOf = Object.fromEntries(allTools.map(({ a, k }) => [a.name, k]));
+const labelOf = Object.fromEntries(CATS.map(([k, l]) => [k, l]));
+
 // "What people use them for": one card per live topic. `parts` are [listing, phrase]; a phrase
 // appears only once its listing is public, so cards never name an unreleased tool.
 const USES = [
@@ -393,24 +371,9 @@ const useCards = USES.map(([k, icon, title, text]) => {
   if (!liveCats.has(k)) return '';
   const body = Array.isArray(text) ? text.filter(([n]) => byName.has(n)).map(([, p]) => p) : [text];
   if (!body.length) return '';
-  return `      <a class="card reveal spot" href="#tools" data-filter="${k}">${ico(icon)}<h3>${title}</h3><p>${Array.isArray(text) ? sentence(body) : body[0]}</p></a>`;
+  const n = CATS.find(([c]) => c === k)[2].length;
+  return `      <a class="card topic" href="/tools/?cat=${k}" data-k="${k}">${ico(icon)}<h3>${title}</h3><p>${Array.isArray(text) ? sentence(body) : body[0]}</p><span class="more">${n} tool${n === 1 ? '' : 's'} →</span></a>`;
 }).filter(Boolean).join('\n');
-const legend = CATS.map(([k]) => `<span class="lg" data-k="${k}">${esc(CAT_SHORT[k] || k)}</span>`).join('');
-const cover = CATS.map(([k, label, names], i) => {
-  const ts = toolsOf(names).sort((x, y) => runsOf(y) - runsOf(x));
-  return { k, label, i, n: ts.length, top: ts.slice(0, 4) };
-});
-const coverList = cover
-  .map((c) => `<button class="cov" type="button" data-cov="${c.k}" aria-pressed="${c.i === 0}"><span>${esc(c.label)}</span><b>${c.n}</b></button>`)
-  .join('');
-const coverPanels = cover
-  .map((c) => `<div class="cov-panel" data-cov="${c.k}"${c.i === 0 ? '' : ' hidden'}>
-  <div class="cov-total"><b>${c.n}</b><span>tools in ${esc(c.label.toLowerCase())}</span></div>
-  <p class="cov-sub">Most used here</p>
-  <ul>${c.top.map((a) => `<li><a href="https://apify.com/${USER}/${esc(a.name)}" rel="noopener">${esc(a.title)}</a><span>${fmt(runsOf(a))} runs</span></li>`).join('')}</ul>
-  <a class="btn" href="#tools" data-filter="${c.k}">See all ${c.n}</a>
-</div>`)
-  .join('\n');
 
 // Price range from the Store (main event, free-plan tier, per 1,000), so the
 // copy follows price changes: "from $0.20 per 1,000; most $1–$3".
@@ -434,7 +397,7 @@ if (!PREVIEW) writeFileSync(new URL('./data/og.json', import.meta.url), JSON.str
   okShare,
   mcpTools: N,
   from: PRICE_FROM,
-  cats: CATS.map(([k, , names]) => [k, CAT_SHORT[k] || k, catCount(names)]),
+  cats: CATS.map(([k, , names]) => [k, CAT_SHORT[k] || k, names.length]),
   dots: allTools.map(({ a, k }) => ({ cat: k, runs: runsOf(a) })).sort((x, y) => y.runs - x.runs),
 }));
 const og = PREVIEW ? { status: 0 } : spawnSync('python3', ['scripts/og.py', 'data/og.json'], { cwd: new URL('.', import.meta.url), stdio: 'inherit' });
@@ -449,177 +412,7 @@ const OG = `${SITE}/og.png?v=${createHash('sha256').update(readFileSync(new URL(
 const hashOf = (f) => createHash('sha256').update(readFileSync(new URL(f, import.meta.url))).digest('hex').slice(0, 10);
 const CSS = `/style.css?v=${hashOf('./style.css')}`;
 const JS = `/app.js?v=${hashOf('./app.js')}`;
-
-// One call from any language: the run-sync endpoint returns the results.
-const API_CALL = `curl -X POST \\
-  "https://api.apify.com/v2/acts/${USER}~google-news/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&format=json" \\
-  -H "Content-Type: application/json" \\
-  -d '{"queries": ["electric vehicles"], "maxItems": 20}'`;
-
-const indexBody = `
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <span class="eyebrow">Web data, ready to use</span>
-        <h1>Clean web data for <span class="grad" id="rotate" data-words="jobs, news, reviews and leads|remote and startup jobs|Reddit buying intent|Shopify store leads|trade-show exhibitors">jobs, news, reviews and leads</span></h1>
-        <p class="lead">${used} ready-made tools that turn public web pages into consistent, spreadsheet-ready data. Fast, cheap to run, pay per result, no subscription. Use them from Apify, from code, or from your AI agent.</p>
-        <div class="cta-row">
-          <a class="btn primary" href="https://apify.com/${USER}" rel="noopener">Browse the tools on Apify</a>
-          <a class="btn" href="/mcp.html">Connect to your AI agent</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="layers">${code('hiring-signals · real output, 2026-10-17', HERO_SAMPLE)}</div>
-        <p class="caption">Which AI companies are hiring security and data roles: one row per company, scored.</p>
-      </div>
-    </div>
-    <div class="stats${okShare ? ' five' : ''}">
-      <div class="stat"><b data-count="${used}">${used}</b><span>tools on Apify</span></div>${okShare ? `
-      <div class="stat"><b>${okShare}%</b><span>of ${runs30.total.toLocaleString('en-US')} public runs succeeded in the last 30 days</span></div>` : ''}
-      <div class="stat"><b data-count="13">13</b><span>job-board systems in one format</span></div>
-      <div class="stat"><b data-count="${N}">${N}</b><span>tools in the MCP server</span></div>
-      <div class="stat"><b data-count="91">91</b><span>trade shows built in</span></div>
-    </div>
-  </div>
-</section>
-
-<div class="pipe" aria-label="How a tool works">
-  <div class="wrap pipe-row">
-    <div class="pipe-step"><span class="pipe-ico">${ico('globe')}</span><b>A public source</b><small>career pages, registers, stores, feeds</small></div>
-    <div class="pipe-flow" aria-hidden="true"><i></i><i></i><i></i></div>
-    <div class="pipe-step"><span class="pipe-ico">${ico('filter')}</span><b>Read and checked</b><small>same fields every run, duplicates out</small></div>
-    <div class="pipe-flow" aria-hidden="true"><i></i><i></i><i></i></div>
-    <div class="pipe-step"><span class="pipe-ico">${ico('table')}</span><b>Clean rows</b><small>CSV, Sheets, API, Slack, your agent</small></div>
-  </div>
-</div>
-
-<section id="library" data-label="Library">
-  <div class="wrap">
-    <div class="sec-head reveal"><h2>The library, at its real size</h2><p>${used} dots, ${used} tools. The bigger the dot, the more it has been run; hover to name one, click to open it.</p></div>
-    <div class="lib-tools reveal"><div class="legend">${legend}</div><div class="lib-sort" role="group" aria-label="Arrange"><button class="chip" type="button" data-arrange="use" aria-pressed="true">By use</button><button class="chip" type="button" data-arrange="topic" aria-pressed="false">By topic</button></div></div>
-    <div class="library reveal" id="dots">${dots}</div>
-  </div>
-</section>
-
-<section class="alt" id="cover" data-label="Coverage">
-  <div class="wrap">
-    <div class="sec-head reveal"><h2>What we cover</h2><p>Pick a topic to see what people run most in it.</p></div>
-    <div class="cov-grid reveal"><div class="cov-list">${coverList}</div><div>${coverPanels}</div></div>
-  </div>
-</section>
-
-<section id="uses" data-label="Use cases">
-  <div class="wrap">
-    <div class="sec-head reveal"><h2>What people use them for</h2><p>Pick a job; the tools return the same clean fields every run.</p></div>
-    <div class="grid">
-${useCards}
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="tools" data-label="All tools">
-  <div class="wrap">
-    <div class="sec-head reveal"><h2>All tools</h2><p>Each one opens its Apify page, where you can try it free with Apify's monthly credit.</p></div>
-    <div class="filters">${chips}<input class="search" id="search" type="search" placeholder="Search tools  ( / )" aria-label="Search tools"><select class="sort" id="sort" aria-label="Sort tools"><option value="cat">By category</option><option value="price">Price: low to high</option><option value="name">Name</option></select><span class="count" id="count" aria-live="polite"></span></div>
-    <div class="grid">
-${cards.join('\n')}
-    </div>
-    <p class="empty" id="empty">No tool matches that search.</p>
-  </div>
-</section>
-
-<section id="why" data-label="Why these">
-  <div class="wrap">
-    <div class="sec-head reveal"><h2>Built to be fast and cheap to run</h2><p>Runs start instantly and finish in seconds. A typical run costs a fraction of a cent in platform usage, so the price you see is the price you pay.</p></div>
-    <div class="grid">
-      <div class="card reveal">${ico('bolt')}<h3>Fast and low cost</h3><p>Runs start instantly and finish in seconds, so platform usage stays a fraction of a cent for a typical run.</p></div>
-      <div class="card reveal">${ico('coin')}<h3>Pay per result</h3><p>From ${PRICE_FROM} per 1,000 results; most tools ${PRICE_MOST}. Where nothing is found you are not charged, and you can cap spend per run.</p></div>
-      <div class="card reveal">${ico('refresh')}<h3>Only new, on a schedule</h3><p>Turn on only-new mode and each scheduled run returns just what changed, so alerts and feeds stay cheap.</p></div>
-      <div class="card reveal">${ico('shield')}<h3>Careful with limits</h3><p>Rate limits are respected, failed requests are retried, and runs resume without charging twice.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="code" data-label="From code">
-  <div class="wrap split">
-    <div class="reveal">
-      <span class="eyebrow">From code</span>
-      <div class="sec-head" style="margin-top:14px"><h2>One call, results back</h2><p>Every tool is an HTTP endpoint. Send the input, get the rows back as JSON, CSV, Excel or XML, or run it on a schedule and get a webhook when new items arrive. Works from any language, Make, n8n or Zapier.</p></div>
-      <div class="cta-row"><a class="btn" href="https://docs.apify.com/api/v2" rel="noopener">API reference</a><a class="btn" href="https://github.com/${USER}/apify-data-recipes" rel="noopener">Ready-made recipes</a></div>
-    </div>
-    <div class="reveal">${code('terminal', API_CALL)}</div>
-  </div>
-</section>
-
-<section id="faq" data-label="FAQ">
-  <div class="wrap">
-    <div class="sec-head reveal"><h2>Before you start</h2></div>
-    <div class="faq reveal">
-      <details><summary>How do I try a tool?</summary><p>Open it on Apify and press Start. Apify's free plan includes monthly credit, enough to try every tool on real data.</p></details>
-      <details><summary>What does it cost?</summary><p>You pay per result: from ${PRICE_FROM} per 1,000, most tools ${PRICE_MOST}, and a few optional extras such as AI insights (see <a href="/pricing.html">pricing</a>). Searches that find nothing are not charged, and every run can be capped at a spend limit you set.</p></details>
-      <details><summary>What happens when a website changes?</summary><p>The tools are run against their live sources on a schedule. When a site changes, the tool is fixed and a note goes into its changelog.</p></details>
-      <details><summary>Can it read pages behind a login or a captcha?</summary><p>No. The tools read public pages only and never solve captchas. A few accept your own sign-in for pages your account can see, and say plainly when a source is closed.</p></details>
-      <details><summary>Which formats can I get?</summary><p>JSON, CSV, Excel, XML or HTML from the run's dataset, a Google Sheet, Slack, Discord or any webhook, and only-new results on a schedule.</p></details>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="agents" data-label="AI agents">
-  <div class="wrap split">
-    <div class="reveal">
-      <span class="eyebrow">For AI agents</span>
-      <div class="sec-head" style="margin-top:14px"><h2>One MCP server, ${nWord} tools</h2><p>Give Claude, Cursor or any MCP client typed tools for jobs (career sites, remote, startups, US tech), hiring signals, news, research papers and field trends, reviews, Reddit leads, contacts, property and Shopify, plus analyst prompts. They run on your own Apify account with a spend cap on every call.</p></div>
-      <div class="cta-row"><a class="btn primary" href="/mcp.html">Setup guide</a><a class="btn" href="https://smithery.ai/servers/${USER}/webdata-tools-mcp" rel="noopener">View on Smithery</a></div>
-      <div class="pills">${MCP_TOOLS.slice(0, 6).map((t) => `<span class="pill">${t[0]}</span>`).join('')}<span class="pill">+${N - 6} more</span></div>
-    </div>
-    <div class="reveal">
-      <div class="tabs" role="tablist" data-tabs>
-        <button class="tab" role="tab" aria-selected="true">Claude Code</button>
-        <button class="tab" role="tab" aria-selected="false">Claude Desktop, Cursor</button>
-      </div>
-      <div class="panel">${code('terminal', CLAUDE_CODE)}</div>
-      <div class="panel" hidden>${code('mcpServers config', JSON_CFG)}</div>
-    </div>
-  </div>
-</section>
-
-<section id="build" data-label="Custom work">
-  <div class="wrap">
-    <div class="sec-head reveal"><h2>Need something that is not here?</h2><p>Custom scrapers and daily data feeds for niche job boards, recruiters and sales teams.</p></div>
-    <div class="steps">
-      <div class="step reveal"><h3>Tell me the source</h3><p>Which sites or fields you need and how often.</p></div>
-      <div class="step reveal"><h3>Get a free sample</h3><p>A real file in your format within a couple of working days.</p></div>
-      <div class="step reveal"><h3>It runs every day</h3><p>CSV, Google Sheet, webhook or Slack, new items only.</p></div>
-    </div>
-    <div class="cta-band reveal" style="margin-top:36px">
-      <div><h2>Start with a sample</h2><p>Send the niche, three example employers or sites, and where the data should go.</p></div>
-      <a class="btn primary" href="mailto:${EMAIL}?subject=Custom%20data%20request">Email ${EMAIL}</a>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="open" data-label="Open source">
-  <div class="wrap">
-    <div class="sec-head reveal"><h2>Open source and code</h2><p>Small things I publish openly.</p></div>
-    <div class="grid two">
-      <a class="card reveal spot" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener"><h3>webdata-tools-mcp</h3><p>The MCP server. MIT licensed, listed in the official MCP Registry, on npm, Smithery, Glama and MCPRush.</p><div class="badges"><img alt="npm version" src="https://img.shields.io/npm/v/webdata-tools-mcp" height="20"><img alt="license MIT" src="https://img.shields.io/badge/license-MIT-blue.svg" height="20"></div></a>
-      <a class="card reveal spot" href="https://github.com/${USER}/apify-data-recipes" rel="noopener"><h3>apify-data-recipes</h3><p>Copy-paste scripts for hiring signals, news alerts, review monitoring, contact enrichment, Reddit leads, new-company leads, sanctions checks, recall alerts, YouTube transcripts, Shopify store leads and job feeds.</p></a>
-    </div>
-  </div>
-</section>`;
-
-writeFileSync(
-  OUT('./index.html'),
-  page({
-    path: '/',
-    active: 'home',
-    title: `${OWNER} (tacps126) - web data tools for jobs, news, reviews and leads`,
-    description: `${used} fast, low-cost web data tools on Apify: jobs from career pages, LinkedIn and Indeed, hiring signals, Google News, research papers and technology trends, Trustpilot and app reviews, Reddit, contacts, trade shows and events, real estate and Shopify. About $1 per 1,000 results, plus an MCP server for AI agents.`,
-    body: indexBody,
-    jsonld: { '@context': 'https://schema.org', '@type': 'WebSite', name: `${OWNER} (tacps126)`, url: `${SITE}/`, description: 'Web data tools for jobs, news, reviews and leads', author: { '@type': 'Person', name: OWNER, alternateName: 'tacps126', email: EMAIL, url: `https://github.com/${USER}` } },
-  }),
-);
+const TOOL_JS = `/tool.js?v=${hashOf('./tool.js')}`;
 
 const money = (usd) => (usd >= 1 ? `$${usd.toFixed(usd % 1 ? 2 : 0)}` : usd >= 0.01 ? `$${usd.toFixed(2)}` : `$${usd.toFixed(4).replace(/0+$/, '')}`);
 
@@ -646,7 +439,7 @@ const toolCards = MCP_TOOLS.map(([name, what, actor, price]) => {
   <div class="mtool-top"><code class="mname">${name.replace(/_/g, '_<wbr>')}</code><button class="copy mini" type="button" data-copy="${name}" aria-label="Copy ${name}">Copy</button></div>
   <p>${esc(what)}</p>
   <div class="prices">${main ? `<span class="pchip"><b>${evPrice(main)}</b> ${esc(main.title.toLowerCase())}</span>` : `<span class="pchip"><b>${esc(price)}</b></span>`}${a ? extraChips(a) : ''}</div>
-  <a class="mactor" href="https://apify.com/${USER}/${actor}" rel="noopener">Runs ${esc(a?.title || actor)} →</a>
+  <a class="mactor" href="/tools/${actor}/">Runs ${esc(a?.title || actor)} →</a>
 </article>`;
 }).join('\n');
 const mcpCats = [['all', 'All', MCP_TOOLS.length], ...CATS.map(([k, l]) => [k, CAT_SHORT[k] || l, MCP_TOOLS.filter((t) => catOfActor[t[2]] === k).length])].filter((c) => c[2] > 0);
@@ -675,7 +468,7 @@ const mcpBody = `
 
 <section id="install">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>Install in two minutes</h2><p>You need Node.js 18+ and a free Apify account. Copy your API token from Apify Console → Settings → API &amp; Integrations.</p></div>
+    <div class="sec-head"><h2>Install in two minutes</h2><p>You need Node.js 18+ and a free Apify account. Copy your API token from Apify Console → Settings → API &amp; Integrations.</p></div>
     <div class="tabs" role="tablist" data-tabs>
       <button class="tab" role="tab" aria-selected="true">Claude Code</button>
       <button class="tab" role="tab" aria-selected="false">Claude Desktop</button>
@@ -690,7 +483,7 @@ const mcpBody = `
 
 <section class="alt" id="tools">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>The ${nWord} tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Prices are Apify pay-per-result prices; extras marked + are charged only when used.</p></div>
+    <div class="sec-head"><h2>The ${nWord} tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Prices are Apify pay-per-result prices; extras marked + are charged only when used.</p></div>
     <div class="filters">${mcpChips}<input class="search" id="search" type="search" placeholder="Search tools  ( / )" aria-label="Search tools"><span class="count" id="count" aria-live="polite"></span></div>
     <div class="grid mtools">
 ${toolCards}
@@ -701,34 +494,34 @@ ${toolCards}
 
 <section id="try">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>Try asking</h2></div>
+    <div class="sec-head"><h2>Try asking</h2></div>
     <div class="grid">
-      <div class="card reveal"><p>"Which of these companies are hiring data engineers right now? boards.greenhouse.io/stripe, jobs.lever.co/spotify"</p></div>
-      <div class="card reveal"><p>"Show the 1 and 2 star Trustpilot reviews of example.com from the last 30 days and group the complaints."</p></div>
-      <div class="card reveal"><p>"Find news from the last 7 days about open-source LLM licensing, with the real publisher links."</p></div>
-      <div class="card reveal"><p>"What does a 2-room flat in Berlin cost to rent right now? Give me the cheapest ten with coordinates."</p></div>
-      <div class="card reveal"><p>"What should a seed-stage founder build in sodium-ion batteries? Compare it with solid-state." (the <code>field-opportunity-analysis</code> prompt)</p></div>
-      <div class="card reveal"><p>"Is a drone that plants trees a new idea? Who is already working on it?" (the <code>idea-validation</code> prompt)</p></div>
+      <div class="card"><p>"Which of these companies are hiring data engineers right now? boards.greenhouse.io/stripe, jobs.lever.co/spotify"</p></div>
+      <div class="card"><p>"Show the 1 and 2 star Trustpilot reviews of example.com from the last 30 days and group the complaints."</p></div>
+      <div class="card"><p>"Find news from the last 7 days about open-source LLM licensing, with the real publisher links."</p></div>
+      <div class="card"><p>"What does a 2-room flat in Berlin cost to rent right now? Give me the cheapest ten with coordinates."</p></div>
+      <div class="card"><p>"What should a seed-stage founder build in sodium-ion batteries? Compare it with solid-state." (the <code>field-opportunity-analysis</code> prompt)</p></div>
+      <div class="card"><p>"Is a drone that plants trees a new idea? Who is already working on it?" (the <code>idea-validation</code> prompt)</p></div>
     </div>
-    <p class="reveal" style="margin-top:18px">Two ready-made prompts, <code>field-opportunity-analysis</code> and <code>idea-validation</code>, turn the research tools into an innovation analyst with the same rubric for any model. Agents that load skills can use <a href="https://github.com/tacps126/webdata-tools-mcp/tree/main/skills/innovation-analyst">skills/innovation-analyst</a>.</p>
+    <p style="margin-top:18px">Two ready-made prompts, <code>field-opportunity-analysis</code> and <code>idea-validation</code>, turn the research tools into an innovation analyst with the same rubric for any model. Agents that load skills can use <a href="https://github.com/tacps126/webdata-tools-mcp/tree/main/skills/innovation-analyst">skills/innovation-analyst</a>.</p>
   </div>
 </section>
 
 <section class="alt" id="safety">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>Safe by design</h2></div>
+    <div class="sec-head"><h2>Safe by design</h2></div>
     <div class="grid">
-      <div class="card reveal">${ico('coin')}<h3>Spend cap per call</h3><p>Every call is capped at $0.50 by default (<code>WEBDATA_MAX_CHARGE_USD</code>). Apify stops the run when it is reached.</p></div>
-      <div class="card reveal">${ico('shield')}<h3>Read-only tools</h3><p>All tools only read public web data and are marked read-only, so clients can run them without extra prompts.</p></div>
-      <div class="card reveal">${ico('bolt')}<h3>Short, structured results</h3><p>Results come back as text and as structured content. Long fields are shortened and one result is limited to about 60,000 characters.</p></div>
-      <div class="card reveal">${ico('target')}<h3>Your account, your token</h3><p>The server talks only to Apify. Your token stays in your own configuration and runs bill to your own Apify account.</p></div>
+      <div class="card">${ico('coin')}<h3>Spend cap per call</h3><p>Every call is capped at $0.50 by default (<code>WEBDATA_MAX_CHARGE_USD</code>). Apify stops the run when it is reached.</p></div>
+      <div class="card">${ico('shield')}<h3>Read-only tools</h3><p>All tools only read public web data and are marked read-only, so clients can run them without extra prompts.</p></div>
+      <div class="card">${ico('bolt')}<h3>Short, structured results</h3><p>Results come back as text and as structured content. Long fields are shortened and one result is limited to about 60,000 characters.</p></div>
+      <div class="card">${ico('target')}<h3>Your account, your token</h3><p>The server talks only to Apify. Your token stays in your own configuration and runs bill to your own Apify account.</p></div>
     </div>
   </div>
 </section>
 
 <section id="faq">
   <div class="wrap" style="max-width:820px">
-    <div class="sec-head reveal"><h2>Questions</h2></div>
+    <div class="sec-head"><h2>Questions</h2></div>
     <details><summary>What does it cost?</summary><p>The server is free and MIT licensed. Each tool bills the Apify pay-per-result price shown above to your own Apify account (about $1 to $3 per 1,000 results). Apify's free plan includes monthly credit to try it.</p></details>
     <details><summary>Where does my API token go?</summary><p>Into the environment of the server process on your machine. It is sent only to Apify's API to run the Actors. It is not logged or sent anywhere else.</p></details>
     <details><summary>Can I change the limits?</summary><p>Yes: <code>WEBDATA_MAX_CHARGE_USD</code> (spend cap per call, default 0.5) and <code>WEBDATA_TIMEOUT_SECS</code> (how long one call may run, default 150, from 30 to 300).</p></details>
@@ -899,7 +692,7 @@ ${CATS.map(([k, label, names], i) => {
   <div class="wrap">
     <div class="sec-head"><h2>${esc(label)}</h2></div>
     <div class="table-wrap"><table class="rtable"><thead><tr><th>Tool</th><th>Main price</th><th>Optional extras</th><th>Runs, last 30 days</th></tr></thead><tbody>
-${rows.map((r) => `<tr><td data-th="Tool"><a href="https://apify.com/${USER}/${esc(r.a.name)}" rel="noopener">${esc(r.a.title)}</a></td><td class="num" data-th="Main price">${r.unit ? `${evPrice({ unit: r.unit })} <small>· ${esc(r.what)}</small>` : esc(priceOf(r.a.description) || 'see listing')}</td><td data-th="Optional extras">${extraChips(r.a) || '<span class="none">none</span>'}</td><td class="num" data-th="Runs, 30 days">${fmt(r.runs)}</td></tr>`).join('\n')}
+${rows.map((r) => `<tr><td data-th="Tool"><a href="/tools/${esc(r.a.name)}/">${esc(r.a.title)}</a></td><td class="num" data-th="Main price">${r.unit ? `${evPrice({ unit: r.unit })} <small>· ${esc(r.what)}</small>` : esc(priceOf(r.a.description) || 'see listing')}</td><td data-th="Optional extras">${extraChips(r.a) || '<span class="none">none</span>'}</td><td class="num" data-th="Runs, 30 days">${fmt(r.runs)}</td></tr>`).join('\n')}
     </tbody></table></div>
   </div>
 </section>`;
@@ -1001,7 +794,7 @@ for (const p of POSTS) {
   <p class="post-meta">${p.date} · ${p.mins} min read${p.tags.length ? ' · ' + p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join(' ') : ''}</p>
 </div></section>
 <article class="post"><div class="wrap narrow">${markdown(p.body)}</div></article>
-<section class="alt"><div class="wrap"><div class="cta-band"><div><h2>Try it on your own data</h2><p>Every tool in this article runs on Apify with free monthly credit.</p></div><a class="btn primary" href="https://apify.com/${USER}" rel="noopener">Browse the tools</a></div></div></section>`,
+<section class="alt"><div class="wrap"><div class="cta-band"><div><h2>Try it on your own data</h2><p>Every tool in this article runs on Apify with free monthly credit.</p></div><a class="btn primary" href="/tools/">Browse the tools</a></div></div></section>`,
       jsonld: { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, datePublished: p.date, author: { '@type': 'Person', name: OWNER }, url: `${SITE}/blog/${p.id}.html` },
     }),
   );
@@ -1051,7 +844,7 @@ const aboutBody = `
 ${CATS.map(([k, label, names], i) => `<section${i % 2 ? ' class="alt"' : ''}>
   <div class="wrap">
     <div class="sec-head"><h2>${esc(label)}</h2><p>${toolsOf(names).length} tools</p></div>
-    <ul class="about-list">${toolsOf(names).map((a) => `<li><a href="https://apify.com/${USER}/${esc(a.name)}" rel="noopener">${esc(a.title)}</a><span>${esc(short(stripPrice(a.description), 180))}</span></li>`).join('')}</ul>
+    <ul class="about-list">${toolsOf(names).map((a) => `<li><a href="/tools/${esc(a.name)}/">${esc(a.title)}</a><span>${esc(short(stripPrice(a.description), 180))}</span></li>`).join('')}</ul>
   </div>
 </section>`).join('\n')}
 
@@ -1076,6 +869,554 @@ writeFileSync(
   }),
 );
 
+// ---------------------------------------------------------------- tool pages (/tools/<name>/)
+// One page per public tool, built from its latest public build: an input form generated from the
+// input schema (only fields the Store shows), live code for the current input, the fields and a
+// sample row from its README, the price per event and its 30-day runs.
+const SKIP_FIELD = /^(proxyConfiguration|proxy|tenantId|debug|delivery|googleServiceAccountJson|monitorName|stateKey|sessionCookies|cookies|aiProvider|aiApiKey|aiModel|aiBaseUrl|openalexApiKey)$|ApiKey$|Token$|Secret$/;
+const SKIP_EDITOR = new Set(['hidden', 'proxy', 'json', 'requestListSources', 'resourcePicker', 'keyValueStore', 'dataset']);
+const textOf = (h) => String(h || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
+const schemaOf = (name) => {
+  try { return JSON.parse(DETAIL.get(name)?.build?.inputSchema || '{}'); } catch { return {}; }
+};
+const enumOf = (v) => (v.type === 'array' ? v.items?.enum : v.enum) || null;
+const enumTitlesOf = (v) => (v.type === 'array' ? v.items?.enumTitles : v.enumTitles) || null;
+const fieldsOf = (schema) => Object.entries(schema.properties || {}).filter(([k, v]) =>
+  !SKIP_FIELD.test(k) && !v.isSecret && !SKIP_EDITOR.has(v.editor) && v.type !== 'object' &&
+  !(v.type === 'array' && v.editor === 'select' && !enumOf(v)?.length) &&
+  !(v.type === 'array' && v.items && v.items.type && v.items.type !== 'string'));
+const exampleOf = (name) => {
+  try {
+    const x = JSON.parse(DETAIL.get(name)?.act?.exampleRunInput?.body || '{}');
+    return x && typeof x === 'object' && !('helloWorld' in x) ? x : {};
+  } catch { return {}; }
+};
+// The input a visitor starts from: the Store's example input, else each field's prefill.
+const startInput = (name) => {
+  const ex = exampleOf(name), out = {};
+  for (const [k, v] of fieldsOf(schemaOf(name))) {
+    const val = k in ex ? ex[k] : v.prefill;
+    if (val !== undefined && val !== null && val !== '' && !(Array.isArray(val) && !val.length)) {
+      out[k] = Array.isArray(val) ? val.map((x) => (x && typeof x === 'object' ? x.url || JSON.stringify(x) : x)) : val;
+    }
+  }
+  return out;
+};
+const kindOf = (v) => {
+  if (v.type === 'boolean') return 'bool';
+  if (v.type === 'integer') return 'int';
+  if (v.type === 'number') return 'num';
+  if (v.type === 'array') return enumOf(v) ? 'multi' : 'list';
+  return 'str';
+};
+function fieldHtml(k, v, val, required) {
+  const id = `f-${k}`, kind = kindOf(v), en = enumOf(v), et = enumTitlesOf(v) || en;
+  const def = v.default === undefined ? '' : ` data-def="${esc(JSON.stringify(v.default))}"`;
+  const help = v.description ? `<p class="fh">${esc(short(textOf(v.description), 240))}</p>` : '';
+  const label = `<span class="fl">${esc(v.title || k)}${required ? ' <em>required</em>' : ''}</span>`;
+  let control;
+  if (kind === 'bool') {
+    const on = val === undefined ? v.default === true : !!val;
+    return `<div class="f f-bool" data-k="${k}" data-kind="bool"${def}><label class="sw" for="${id}"><input type="checkbox" id="${id}"${on ? ' checked' : ''}><span class="sw-ui" aria-hidden="true"></span>${label}</label>${help}</div>`;
+  }
+  if (kind === 'int' || kind === 'num') {
+    const cur = val ?? v.default ?? '';
+    control = `<input id="${id}" type="number" inputmode="numeric"${v.minimum !== undefined ? ` min="${v.minimum}"` : ''}${v.maximum !== undefined ? ` max="${v.maximum}"` : ''}${kind === 'num' ? ' step="any"' : ''} value="${esc(cur)}" placeholder="${esc(v.default ?? '')}">`;
+  } else if (kind === 'multi') {
+    const sel = new Set(Array.isArray(val) ? val : Array.isArray(v.default) ? v.default : []);
+    control = en.length <= 24
+      ? `<div class="opts" role="group" aria-label="${esc(v.title || k)}">${en.map((e, i) => `<label class="opt"><input type="checkbox" value="${esc(e)}"${sel.has(e) ? ' checked' : ''}><span>${esc(short(et[i] ?? e, 48))}</span></label>`).join('')}</div>`
+      : `<select id="${id}" multiple size="7">${en.map((e, i) => `<option value="${esc(e)}"${sel.has(e) ? ' selected' : ''}>${esc(short(et[i] ?? e, 70))}</option>`).join('')}</select>`;
+  } else if (kind === 'list') {
+    const lines = Array.isArray(val) ? val.join('\n') : val ? String(val) : '';
+    control = `<textarea id="${id}" rows="${Math.min(6, Math.max(2, lines.split('\n').length + 1))}" placeholder="One per line">${esc(lines)}</textarea>`;
+  } else if (en) {
+    const cur = val ?? v.default ?? '';
+    control = `<select id="${id}">${en.includes('') || v.default !== undefined ? '' : '<option value="">—</option>'}${en.map((e, i) => `<option value="${esc(e)}"${e === cur ? ' selected' : ''}>${esc(short(et[i] ?? (e || 'Any'), 70))}</option>`).join('')}</select>`;
+  } else if (v.editor === 'textarea') {
+    control = `<textarea id="${id}" rows="3">${esc(val ?? '')}</textarea>`;
+  } else {
+    control = `<input id="${id}" type="text" value="${esc(val ?? '')}" placeholder="${esc(v.editor === 'datepicker' ? 'YYYY-MM-DD' : v.default ?? '')}">`;
+  }
+  return `<div class="f" data-k="${k}" data-kind="${kind}"${def}><label for="${id}">${label}</label>${control}${help}</div>`;
+}
+function formHtml(name) {
+  const schema = schemaOf(name), fields = fieldsOf(schema), start = startInput(name), req = new Set(schema.required || []);
+  if (!fields.length) return '';
+  // Fields up to the first section caption are the main ones; later sections fold away.
+  const groups = [['', []]];
+  fields.forEach(([k, v], i) => {
+    if (v.sectionCaption && i > 0) groups.push([v.sectionCaption, []]);
+    groups.at(-1)[1].push(fieldHtml(k, v, start[k], req.has(k)));
+  });
+  if (groups.length === 1 && groups[0][1].length > 8) groups.push(['More options', groups[0][1].splice(7)]);
+  return groups.map(([cap, fs], i) => (i === 0 ? fs.join('\n') : `<details class="more"><summary>${esc(cap)}</summary>${fs.join('\n')}</details>`)).join('\n');
+}
+
+// README: the sections about output give the field list and a sample row.
+const readmeOf = (name) => DETAIL.get(name)?.build?.readme || '';
+const outputSections = (md) => md.split(/^## /m).slice(1)
+  .map((s) => [s.slice(0, s.indexOf('\n')).trim(), s.slice(s.indexOf('\n') + 1)])
+  .filter(([h]) => /what you get|output|result|you get|fields|sample|data you get|what it returns/i.test(h) && !/input/i.test(h));
+function sampleOf(name) {
+  const inputKeys = new Set(Object.keys(schemaOf(name).properties || {}));
+  for (const [, body] of outputSections(readmeOf(name))) {
+    for (const [, blk] of body.matchAll(/```json\n([\s\S]*?)```/g)) {
+      let v; try { v = JSON.parse(blk); } catch { continue; }
+      if (Array.isArray(v)) v = v[0];
+      if (!v || typeof v !== 'object' || Array.isArray(v)) continue;
+      const ks = Object.keys(v);
+      if (ks.length < 3 || ks.filter((k) => inputKeys.has(k)).length >= ks.length / 2) continue;
+      return v;
+    }
+  }
+  return null;
+}
+function fieldRowsOf(name) {
+  for (const [, body] of outputSections(readmeOf(name))) {
+    const lines = body.split('\n'), at = lines.findIndex((l) => l.startsWith('|'));
+    if (at < 0) continue;
+    const rows = [];
+    for (let i = at; i < lines.length && lines[i].startsWith('|'); i++) rows.push(lines[i]);
+    const cells = (r) => r.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
+    const body2 = rows.slice(1).filter((r) => !/^\|[\s:|-]+\|$/.test(r.trim())).map(cells).filter((c) => c.length >= 2);
+    if (body2.length >= 3) return body2.map((c) => [c[0], c.slice(1).join(' ')]);
+  }
+  // No table in the README: the dataset view's columns.
+  const views = DETAIL.get(name)?.build?.actorDefinition?.storages?.dataset?.views || {};
+  const first = Object.values(views)[0];
+  const props = first?.display?.properties || {};
+  return Object.entries(props).map(([k, p]) => [`\`${k}\``, p.label || '']);
+}
+const cell = (v) => {
+  if (v === null || v === undefined) return '<span class="none">–</span>';
+  if (typeof v === 'object') return `<code>${esc(short(JSON.stringify(v), 120))}</code>`;
+  const s = String(v);
+  return /^https?:\/\//.test(s) ? `<span class="url">${esc(short(s, 70))}</span>` : esc(short(s, 160));
+};
+
+// Code for a call with a given input; tool.js renders the same text live as the form changes.
+const pyVal = (v, ind = '') => {
+  if (v === null) return 'None';
+  if (v === true) return 'True';
+  if (v === false) return 'False';
+  if (Array.isArray(v)) return v.length ? `[${v.map((x) => pyVal(x, ind)).join(', ')}]` : '[]';
+  if (typeof v === 'object') {
+    const ks = Object.keys(v);
+    if (!ks.length) return '{}';
+    return `{\n${ks.map((k) => `${ind}    ${JSON.stringify(k)}: ${pyVal(v[k], ind + '    ')},`).join('\n')}\n${ind}}`;
+  }
+  return JSON.stringify(v);
+};
+const codeFor = {
+  curl: (name, input) => `curl -X POST \\\n  "https://api.apify.com/v2/acts/${USER}~${name}/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \\\n  -H "Content-Type: application/json" \\\n  -d '${JSON.stringify(input).replace(/'/g, "'\\''")}'`,
+  python: (name, input) => `from apify_client import ApifyClient\n\nclient = ApifyClient("YOUR_APIFY_TOKEN")\nrun = client.actor("${USER}/${name}").call(run_input=${pyVal(input)})\nfor item in client.dataset(run["defaultDatasetId"]).iterate_items():\n    print(item)`,
+  js: (name, input) => `import { ApifyClient } from 'apify-client';\n\nconst client = new ApifyClient({ token: 'YOUR_APIFY_TOKEN' });\nconst run = await client.actor('${USER}/${name}').call(${JSON.stringify(input, null, 2)});\nconst { items } = await client.dataset(run.defaultDatasetId).listItems();\nconsole.log(items);`,
+};
+const mcpOf = (name) => MCP_TOOLS.filter((t) => t[2] === name).map((t) => t[0]);
+const mcpCode = (name) => {
+  const ours = mcpOf(name);
+  return ours.length
+    ? `# webdata-tools-mcp (Claude, Cursor, any MCP client)\n${CLAUDE_CODE}\n\n# then ask your agent; it calls: ${ours.join(', ')}`
+    : `# Apify's hosted MCP server, with this tool only\nhttps://mcp.apify.com?tools=${USER}/${name}`;
+};
+const primaryOf = (a) => eventsOf(a).find((e) => e.primary);
+
+// Tools that feed each other: an output field of one is the input of the next.
+// [from, to, what is passed, input field, Python expression over a row `r`, extra input for `from`]
+const CHAINS = [
+  ['exhibition-scraper', 'contact-details', 'exhibitor websites', 'startUrls', '(r.get("contact") or {}).get("website")'],
+  ['company-registry', 'contact-details', 'company websites', 'startUrls', 'r.get("website")'],
+  ['company-registry', 'sanctions-screener', 'company names', 'names', 'r.get("name")'],
+  ['company-registry', 'tenders-radar', 'company names', 'suppliers', 'r.get("name")'],
+  ['tenders-radar', 'sanctions-screener', 'winning suppliers', 'names', '[s.get("name") for s in r.get("suppliers") or []]'],
+  ['tenders-radar', 'company-registry', 'winning suppliers', 'names', '[s.get("name") for s in r.get("suppliers") or []]'],
+  ['events-scraper', 'contact-details', 'host websites', 'startUrls', '[h.get("website") for h in r.get("hosts") or []]'],
+  ['hiring-signals', 'jobs-harvester', 'hiring companies', 'companyNames', 'r.get("company")'],
+  ['jobs-harvester', 'hiring-signals', 'companies with openings', 'companies', 'r.get("company")'],
+  ['startup-funding', 'hiring-signals', 'funded companies', 'companies', 'r.get("company")'],
+  ['shopify-store-analyzer', 'shopify-products', 'store links', 'startUrls', 'r.get("url")'],
+  ['trustpilot-reviews', 'contact-details', 'company websites', 'startUrls', 'r.get("websiteUrl")', { includeCompanyDetails: true }],
+].filter(([a, b]) => byName.has(a) && byName.has(b));
+
+// Icons: small local copies (scripts/thumbs.py, needs Pillow), else the Store's own image.
+const remoteIcons = allTools.map(({ a }) => [a.name, DETAIL.get(a.name)?.act?.pictureUrl]).filter(([, u]) => u);
+if (!PREVIEW) {
+  writeFileSync(new URL('./data/icons.json', import.meta.url), JSON.stringify(remoteIcons));
+  const th = spawnSync('python3', ['scripts/thumbs.py', 'data/icons.json'], { cwd: new URL('.', import.meta.url), stdio: 'inherit' });
+  if (th.status !== 0) console.warn('icons not resized (python3 with Pillow needed); using the Store images');
+}
+const iconOf = (name) => (existsSync(new URL(`./icons/${name}.png`, import.meta.url)) ? `/icons/${name}.png` : DETAIL.get(name)?.act?.pictureUrl);
+const toolCard = (a, k) => {
+  const p = priceOf(a.description), pic = iconOf(a.name);
+  const num = p ? Number((p.match(/[\d.]+/) || ['0'])[0]) * (p.includes('¢') ? 10 : 1) : 999;
+  return `<a class="card tool" data-tool data-cat="${k}" data-price="${num}" data-runs="${runs30Of(a)}" href="/tools/${esc(a.name)}/">
+  <div class="tool-top">${pic ? `<img src="${esc(pic)}" alt="" width="36" height="36" loading="lazy">` : ''}<h3>${esc(a.title)}${NEW.has(a.name) ? ' <span class="new">New</span>' : ''}</h3></div>
+  <p>${esc(short(stripPrice(a.description)))}</p>
+  <div class="meta"><span class="tag" data-k="${k}">${esc(CAT_SHORT[k] || k)}</span>${p ? `<span class="price">${esc(p)}</span>` : ''}</div>
+</a>`;
+};
+
+mkdirSync(OUT('./tools/'), { recursive: true });
+for (const { a, k } of allTools) {
+  const name = a.name, d = DETAIL.get(name) || {}, act = d.act || {};
+  const evs = eventsOf(a), main = evs.find((e) => e.primary);
+  const r30 = a.stats?.publicActorRunStats30Days || {};
+  const ok = (r30.TOTAL || 0) >= 20 ? Math.floor((100 * (r30.SUCCEEDED || 0)) / r30.TOTAL) : null;
+  const start = startInput(name), form = formHtml(name), sample = sampleOf(name), fields = fieldRowsOf(name);
+  const maxKey = ['maxItems', 'maxResults', 'maxRows', 'maxJobs', 'maxReviews'].find((x) => schemaOf(name).properties?.[x]);
+  const maxDef = maxKey ? (start[maxKey] ?? schemaOf(name).properties[maxKey].default ?? null) : null;
+  const updated = act.taggedBuilds?.latest?.finishedAt?.slice(0, 10);
+  const pic = iconOf(name);
+  const next = CHAINS.filter((c) => c[0] === name), prev = CHAINS.filter((c) => c[1] === name);
+  const peers = toolsOf(CATS.find(([c]) => c === k)[2]).filter((x) => x.name !== name).sort((x, y) => runs30Of(y) - runs30Of(x)).slice(0, 3);
+  const facts = [
+    main ? `<span class="pchip"><b>${evPrice(main)}</b> ${esc(main.title.toLowerCase())}</span>` : (priceOf(a.description) ? `<span class="pchip"><b>${esc(priceOf(a.description))}</b></span>` : ''),
+    extraChips(a),
+    r30.TOTAL ? `<span class="fact">${fmt(r30.TOTAL)} public runs in 30 days${ok !== null ? `, ${ok}% succeeded` : ''}</span>` : '',
+    updated ? `<span class="fact">updated ${updated}</span>` : '',
+  ].join('');
+  const tabs = [['curl', 'curl'], ['python', 'Python'], ['js', 'JavaScript'], ['mcp', 'AI agent']];
+  const body = `
+<section class="tool-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/?cat=${k}">${esc(labelOf[k])}</a></nav>
+    <div class="th">
+      ${pic ? `<img class="th-ico" src="${esc(pic)}" alt="" width="64" height="64">` : ''}
+      <div>
+        <h1>${esc(a.title)}</h1>
+        <p class="lead">${esc(stripPrice(a.description))}</p>
+      </div>
+    </div>
+    <div class="facts">${facts}</div>
+    <div class="cta-row">
+      <a class="btn primary" href="https://apify.com/${USER}/${esc(name)}" rel="noopener">Run it on Apify</a>
+      ${form ? '<a class="btn" href="#try">Build the input</a>' : ''}
+      ${sample || fields.length ? '<a class="btn ghost" href="#output">See the output</a>' : ''}
+    </div>
+  </div>
+</section>
+${form ? `
+<section id="try" data-label="Try it">
+  <div class="wrap">
+    <div class="sec-head"><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
+    <div class="tool-grid">
+      <form class="tform" id="tform" data-actor="${esc(name)}" data-unit="${main ? main.unit : ''}" data-what="${esc(main ? main.title.toLowerCase() : 'result')}"${maxKey ? ` data-max="${maxKey}"` : ''} data-start="${esc(JSON.stringify(start))}" autocomplete="off">
+${form}
+        <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
+      </form>
+      <aside class="tcode">
+        <div class="tabs" role="tablist" data-tabs>${tabs.map(([id, l], i) => `<button class="tab" role="tab" type="button" data-lang="${id}" aria-selected="${i === 0}">${l}</button>`).join('')}</div>
+${tabs.map(([id], i) => `        <div class="panel"${i ? ' hidden' : ''}>${code(id === 'mcp' ? 'MCP' : id === 'curl' ? 'terminal' : id === 'python' ? 'Python · pip install apify-client' : 'JavaScript · npm i apify-client', id === 'mcp' ? mcpCode(name) : codeFor[id](name, start))}</div>`).join('\n')}
+        <p class="cost" id="tf-cost">${main && maxDef ? `Up to ${fmt(maxDef)} ${esc(main.title.toLowerCase())}s: at most ${money(main.unit * maxDef)}, on Apify's free plan.` : main ? `${evPrice(main)}, ${esc(main.title.toLowerCase())}.` : ''}</p>
+      </aside>
+    </div>
+  </div>
+</section>` : ''}
+${sample || fields.length ? `
+<section class="alt" id="output" data-label="Output">
+  <div class="wrap">
+    <div class="sec-head"><h2>What you get back</h2><p>${sample ? 'A real row from the README, and the fields every row has.' : 'The fields every row has.'}</p></div>
+    <div class="out-grid${sample ? '' : ' one'}">
+      ${sample ? `<div class="sample-box">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" aria-selected="true">Row</button><button class="tab" role="tab" type="button" aria-selected="false">JSON</button></div>
+        <div class="panel"><div class="table-wrap"><table class="kv"><tbody>${Object.entries(sample).slice(0, 18).map(([kk, vv]) => `<tr><th>${esc(kk)}</th><td>${cell(vv)}</td></tr>`).join('')}</tbody></table></div></div>
+        <div class="panel" hidden>${code('one row', JSON.stringify(sample, null, 2))}</div>
+      </div>` : ''}
+      ${fields.length ? `<div class="table-wrap fields"><table><thead><tr><th>Field</th><th>What it holds</th></tr></thead><tbody>${fields.slice(0, 30).map(([f, dsc]) => `<tr><td>${inline(f)}</td><td>${inline(dsc)}</td></tr>`).join('')}</tbody></table></div>` : ''}
+    </div>
+    <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
+  </div>
+</section>` : ''}
+<section id="pairs" data-label="Pairs well">
+  <div class="wrap">
+    <div class="sec-head"><h2>Pairs well with</h2>${next.length || prev.length ? '<p>Tools whose rows feed this one, or that take its rows further.</p>' : ''}</div>
+    <div class="grid">
+${[...next.map((c) => [c[1], `Send its ${c[2]} into`]), ...prev.map((c) => [c[0], `Feeds ${c[2]} into this tool`])].map(([n, why]) => {
+    const t = byName.get(n);
+    return `      <a class="card link" href="/tools/${n}/"><span class="why">${esc(why)}</span><h3>${esc(t.title)}</h3><p>${esc(short(stripPrice(t.description), 110))}</p></a>`;
+  }).join('\n')}
+${peers.map((t) => `      <a class="card link" href="/tools/${t.name}/"><span class="why">Also in ${esc((CAT_SHORT[k] || k).toLowerCase())}</span><h3>${esc(t.title)}</h3><p>${esc(short(stripPrice(t.description), 110))}</p></a>`).join('\n')}
+    </div>
+  </div>
+</section>`;
+  mkdirSync(OUT(`./tools/${name}/`), { recursive: true });
+  writeFileSync(OUT(`./tools/${name}/index.html`), page({
+    path: `/tools/${name}/`,
+    active: 'tools',
+    title: `${a.title} - ${OWNER} (tacps126)`,
+    description: short(`${stripPrice(a.description)} ${main ? `${evPrice(main)}.` : ''}`, 300),
+    body,
+    scripts: form ? [TOOL_JS] : [],
+    jsonld: {
+      '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: a.title, applicationCategory: 'BusinessApplication', operatingSystem: 'Web (Apify)',
+      url: `${SITE}/tools/${name}/`, description: stripPrice(a.description), author: { '@type': 'Person', name: OWNER },
+      ...(main ? { offers: { '@type': 'Offer', price: String(main.unit), priceCurrency: 'USD', description: `per ${main.title.toLowerCase()}` } } : {}),
+    },
+  }));
+}
+
+// ---------------------------------------------------------------- tools index (/tools/)
+const chipsFor = (prefix) => [['all', 'All', used], ...CATS.map(([k, , names]) => [k, CAT_SHORT[k] || k, names.length])]
+  .map(([k, l, n], i) => `<button class="chip" type="button" data-cat="${k}" aria-pressed="${i === 0}"${prefix}>${esc(l)} <span class="n">${n}</span></button>`).join('');
+writeFileSync(OUT('./tools/index.html'), page({
+  path: '/tools/',
+  active: 'tools',
+  title: `All ${used} tools - ${OWNER} (tacps126)`,
+  description: `${used} web data tools: jobs, leads and contacts, reviews and news, research, government and compliance, health, commerce, markets, sports and transit. Price, input and output for each.`,
+  jsonld: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'All tools', url: `${SITE}/tools/` },
+  body: `
+<section class="page-hero">
+  <div class="wrap">
+    <h1>All ${used} tools</h1>
+    <p class="lead">Each one has a page with its price, an input builder that writes the API call for you, and the fields it returns.</p>
+  </div>
+</section>
+<section class="tight" id="tools">
+  <div class="wrap">
+    <div class="filters">${chipsFor('')}<div class="filter-row"><input class="search" id="search" type="search" placeholder="Filter tools" aria-label="Filter tools"><select class="sort" id="sort" aria-label="Sort tools"><option value="cat">By topic</option><option value="runs">Most used</option><option value="price">Price: low to high</option><option value="name">Name</option></select><span class="count" id="count" aria-live="polite"></span></div></div>
+    <div class="grid">
+${allTools.map(({ a, k }) => toolCard(a, k)).join('\n')}
+    </div>
+    <p class="empty" id="empty">No tool matches. <a href="mailto:${EMAIL}?subject=Custom%20data%20request">Ask for a custom one</a>.</p>
+  </div>
+</section>`,
+}));
+
+// ---------------------------------------------------------------- coverage (countries per tool)
+// Countries each tool reads official or local sources for; worldwide tools are listed apart.
+const EU27 = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'];
+const METEOALARM = [...EU27.filter((c) => c !== 'BG'), 'BG', 'BA', 'IS', 'IL', 'MD', 'ME', 'MK', 'NO', 'RS', 'CH', 'GB', 'UA'];
+const COVERAGE = {
+  'tenders-radar': ['US', 'GB', 'FR', 'DE', 'NL', 'CA', 'CO', 'ES', 'AU', 'ZA', 'UA', 'BR', 'IN', ...EU27, 'NO', 'IS', 'LI'],
+  'legislation-radar': ['US', 'GB', 'AU', 'CA', ...EU27],
+  'gov-radar': ['US', 'GB', 'IN', ...EU27],
+  'grants-radar': ['US', 'GB', 'AU', ...EU27],
+  'recalls-radar': ['US', 'CA', 'GB', ...EU27],
+  'sanctions-screener': ['US', 'GB', 'CA', 'CH', ...EU27],
+  'alerts-radar': ['US', 'IN', 'BR', ...METEOALARM],
+  'company-registry': ['FR', 'NO', 'FI', 'EE', 'CZ', 'US', 'DE', 'GB', 'ES', 'IT', 'NL', 'SE', 'DK', 'IE', 'CH', 'IN', 'SG', 'AE'],
+  'india-district-notices': ['IN'],
+  'property-listings': ['DE', 'AT', 'GB', 'AE', 'SA', 'QA', 'BH', 'EG'],
+  'immobilienscout24-scraper': ['DE', 'AT'],
+  'rightmove-scraper': ['GB'],
+  'propertyfinder-scraper': ['AE', 'SA', 'QA', 'BH', 'EG'],
+  'indeed-jobs': ['US', 'GB', 'CA', 'AU', 'IE', 'DE', 'FR', 'NL', 'SG'],
+  'naukri-jobs-scraper': ['IN'],
+  'dice-jobs-scraper': ['US'],
+  'builtin-jobs-scraper': ['US'],
+  'short-interest': ['US'],
+  'copart-auctions': ['US'],
+  'startup-funding': ['US'],
+  'npi-providers': ['US'],
+  'fda-device-clearances': ['US'],
+  'kalshi-markets': ['US'],
+  'lottery-results': ['US'],
+};
+const WORLDWIDE = ['jobs-harvester', 'linkedin-jobs-scraper', 'glassdoor-jobs-scraper', 'remote-jobs-scraper', 'google-news', 'contact-details', 'exhibition-scraper', 'events-scraper', 'trustpilot-reviews', 'app-reviews', 'research-radar', 'innovation-radar', 'youtube-transcripts', 'transit-timetables', 'clinical-trials', 'cve-feed', 'sports-data', 'prediction-markets', 'shopify-products', 'podcasts']
+  .filter((n) => byName.has(n));
+const WORLD = JSON.parse(readFileSync(new URL('./data/world.json', import.meta.url), 'utf8'));
+// Small countries the 1:110m outline leaves out get a dot instead: [lon, lat].
+const DOTS = { SG: [103.8, 1.35], BH: [50.55, 26.07], MT: [14.4, 35.9], LU: [6.13, 49.6], LI: [9.55, 47.15], CY: [33.2, 35.0] };
+const byCountry = {};
+for (const [n, cs] of Object.entries(COVERAGE)) {
+  if (!byName.has(n)) continue;
+  for (const c of new Set(cs)) (byCountry[c] ||= []).push(n);
+}
+const covered = Object.keys(byCountry);
+const level = (c) => { const n = byCountry[c]?.length || 0; return n >= 8 ? 4 : n >= 5 ? 3 : n >= 2 ? 2 : n ? 1 : 0; };
+const mapX = ([lon, lat]) => [((lon + 180) / 360) * WORLD.w, ((84 - lat) / 142) * WORLD.h];
+const mapSvg = `<svg class="world" viewBox="0 0 ${WORLD.w} ${WORLD.h}" role="img" aria-label="World map: countries shaded by how many tools cover them">
+${Object.entries(WORLD.paths).map(([c, d]) => `<path d="${d}" data-c="${c}" class="l${level(c)}"${byCountry[c] ? ` tabindex="0" role="button" aria-label="${esc(WORLD.names[c] || c)}: ${byCountry[c].length} tools"` : ''}/>`).join('')}
+${Object.entries(DOTS).filter(([c]) => byCountry[c] && !WORLD.paths[c]).map(([c, ll]) => { const [x, y] = mapX(ll); return `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="5" data-c="${c}" class="l${level(c)}" tabindex="0" role="button" aria-label="${esc(WORLD.names[c] || c)}: ${byCountry[c].length} tools"/>`; }).join('')}
+</svg>`;
+const covData = {
+  names: Object.fromEntries(covered.map((c) => [c, WORLD.names[c] || c])),
+  tools: Object.fromEntries(Object.entries(byCountry).map(([c, ns]) => [c, ns])),
+  meta: Object.fromEntries([...new Set(Object.values(byCountry).flat())].map((n) => [n, [byName.get(n).title, catOf[n]]])),
+  cats: CAT_SHORT,
+};
+const topCountries = covered.sort((x, y) => byCountry[y].length - byCountry[x].length);
+
+// Where free text from the "what data" box goes: a keyword field, a names field (after "at", "of"),
+// or a links field (when the text is a link). Example subjects give way to what was asked.
+const SUBJECT = /url|link|sites|names|compan|apps|videos|quer|keyword|search|fields|ideas|terms|stores|shows|boards|subreddit|channels|symbols|titleIncludes/i;
+const textFields = (name) => fieldsOf(schemaOf(name)).filter(([, v]) => kindOf(v) === 'list' || (kindOf(v) === 'str' && !enumOf(v) && v.editor !== 'datepicker'));
+const textTargets = (name) => {
+  const f = textFields(name), as = (x) => (x ? [x[0], kindOf(x[1])] : null);
+  return {
+    kw: as(f.find(([k]) => /quer|keyword|search|terms|ideas|fields|titleIncludes|symbols/i.test(k) && !/exclude/i.test(k))),
+    nm: as(f.find(([k]) => /names|compan|apps|stores|shows|channels|subreddit/i.test(k) && !/exclude/i.test(k))),
+    url: as(f.find(([k]) => /url|link|videos/i.test(k))),
+    any: as(f.find(([k, v]) => kindOf(v) === 'list' && SUBJECT.test(k) && !/exclude|url|link|sites/i.test(k))),
+  };
+};
+// ---------------------------------------------------------------- composer (chain tools)
+const chainData = {
+  tools: Object.fromEntries([...new Set(CHAINS.flatMap((c) => [c[0], c[1]]))].map((n) => {
+    const a = byName.get(n), m = primaryOf(a);
+    return [n, { t: a.title, p: m ? evPrice(m) : priceOf(a.description) || '', w: m ? m.title.toLowerCase() : 'result', x: startInput(n), sf: textFields(n).map(([fk]) => fk).filter((fk) => SUBJECT.test(fk) && !/exclude|^role/i.test(fk)) }];
+  })),
+  edges: CHAINS,
+};
+
+// ---------------------------------------------------------------- search index (/search.json)
+// What the command palette and the "what data do you need?" box search: every tool with its
+// words, the options of its select fields (countries, sources, topics…) and its main text field.
+const STOP = new Set(['the', 'and', 'for', 'with', 'from', 'your', 'any', 'all', 'per', 'one', 'each', 'into', 'that', 'this', 'are', 'its', 'you', 'get', 'data', 'scraper', 'tool', 'only', 'new', 'more', 'than', 'list', 'every', 'clean']);
+const wordsOf = (s) => [...new Set(String(s).toLowerCase().normalize('NFKD').replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter((w) => w.length > 2 && !STOP.has(w)))];
+const COUNTRY_FIELD = /^(country|countries|countryCode|jurisdictions)$/;
+const searchIndex = {
+  tools: allTools.map(({ a, k }) => {
+    const n = a.name, fs = fieldsOf(schemaOf(n)), m = primaryOf(a), smp = sampleOf(n);
+    const opts = [];
+    for (const [fk, v] of fs) {
+      const en = enumOf(v), et = enumTitlesOf(v) || en;
+      if (!en || en.length > 160 || fk === 'aiProvider') continue;
+      en.forEach((e, i) => { if (e) opts.push([fk, e, short(textOf(et[i] ?? e), 50), kindOf(v) === 'multi' ? 1 : 0]); });
+    }
+    const cf = fs.find(([fk, v]) => COUNTRY_FIELD.test(fk) && !enumOf(v));
+    return {
+      n, t: a.title, c: k, d: short(stripPrice(a.description), 150), r: runs30Of(a),
+      p: m ? evPrice(m) : priceOf(a.description) || '', w: wordsOf(`${n.replace(/-/g, ' ')} ${a.title} ${stripPrice(a.description)}`).join(' '),
+      f: textTargets(n), sf: textFields(n).map(([fk]) => fk).filter((fk) => SUBJECT.test(fk) && !/exclude/i.test(fk)), so: fieldsOf(schemaOf(n)).map(([fk]) => fk).filter((fk) => /^(sources|source|lists|portals|jurisdictions)$/.test(fk)), cf: cf ? [cf[0], kindOf(cf[1])] : null, o: opts, x: startInput(n), m: mcpOf(n),
+      s: smp ? Object.entries(smp).filter(([, v]) => v !== null && typeof v !== 'object').slice(0, 4).map(([kk, v]) => [kk, short(String(v), 60)]) : [],
+    };
+  }),
+  cats: Object.fromEntries(CATS.map(([k, l]) => [k, l])),
+  pages: [['Home', '/'], ['All tools', '/tools/'], ['Coverage map', '/#coverage'], ['Chain tools together', '/#compose'], ['Pricing and cost estimate', '/pricing.html'], ['MCP server for AI agents', '/mcp.html'], ['Blog', '/blog/'], ['About', '/about.html'], ['Trade show exhibitor lists', '/leads/'], ['Custom data request', `mailto:${EMAIL}?subject=Custom%20data%20request`]],
+  posts: POSTS.map((p) => [p.title, `/blog/${p.id}.html`]),
+  countries: Object.fromEntries(Object.entries(WORLD.names).map(([c, nm]) => [nm.toLowerCase(), c])),
+};
+writeFileSync(OUT('./search.json'), JSON.stringify(searchIndex));
+
+// ---------------------------------------------------------------- home
+const popular = allTools.slice().sort((x, y) => runs30Of(y.a) - runs30Of(x.a)).slice(0, 6);
+const topicRuns = CATS.map(([k, , names]) => [k, toolsOf(names).reduce((s, a) => s + runs30Of(a), 0)]);
+const topicTotal = Math.max(1, topicRuns.reduce((s, [, r]) => s + r, 0));
+const EXAMPLES = ['jobs at stripe', 'tenders for solar in germany', 'trustpilot reviews of a competitor', 'new companies in norway', 'flats to rent in berlin', 'polymarket election odds', 'earthquake alerts', 'exhibitors at ism cologne'];
+const homeBody = `
+<section class="hero">
+  <div class="wrap">
+    <h1>Web data for the job you have in mind</h1>
+    <p class="lead">${used} tools that turn public pages, registers and feeds into clean rows. Say what you need; get the tool, its price and a ready call.</p>
+    <div class="intent" id="intent">
+      <form class="intent-box" role="search" action="/tools/" onsubmit="return false">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="intent-q" type="search" placeholder="What data do you need?" aria-label="What data do you need?" autocomplete="off" enterkeyhint="search">
+        <kbd>↵</kbd>
+      </form>
+      <div class="intent-ex">Try: ${EXAMPLES.map((e) => `<button type="button" class="ex" data-ex="${esc(e)}">${esc(e)}</button>`).join('')}</div>
+      <div class="intent-out" id="intent-out" hidden aria-live="polite"></div>
+    </div>
+    <ul class="proof" aria-label="In numbers">
+      <li><b>${used}</b> tools</li>${okShare ? `
+      <li><b>${okShare}%</b> of ${fmt(runs30.total)} public runs succeeded, last 30 days</li>` : ''}
+      <li><b>${covered.length}</b> countries with local sources</li>
+      <li>from <b>${PRICE_FROM}</b> per 1,000 results</li>
+      <li><b>${N}</b> tools for AI agents</li>
+    </ul>
+    <div class="topic-bar" aria-hidden="true">${topicRuns.filter(([, r]) => r).map(([k, r]) => `<i data-k="${k}" style="flex:${r}" title="${esc(CAT_SHORT[k] || k)}: ${fmt(r)} runs in 30 days"></i>`).join('')}</div>
+    <p class="topic-cap">Public runs in the last 30 days, by topic: ${topicRuns.filter(([, r]) => r).sort((x, y) => y[1] - x[1]).slice(0, 4).map(([k, r]) => `${esc((CAT_SHORT[k] || k).toLowerCase())} ${Math.round((100 * r) / topicTotal)}%`).join(', ')}.</p>
+  </div>
+</section>
+
+<section class="tight" data-label="Start here">
+  <div class="wrap bento">
+    <button class="tile t-search" type="button" data-pal><span class="t-kick">Search everything</span><b>Press <kbd>⌘K</kbd> or <kbd>/</kbd></b><span>Every tool, page and AI-agent tool by name or by need; Enter opens it, Shift+Enter copies its API call.</span></button>
+    <a class="tile t-map" href="#coverage"><span class="t-kick">Coverage</span><b>${covered.length} countries</b><span>Tenders, laws, registers, recalls, alerts, jobs and property, country by country.</span></a>
+    <a class="tile t-agent" href="/mcp.html"><span class="t-kick">For AI agents</span><b>${N} MCP tools</b><code>npx -y webdata-tools-mcp</code></a>
+    <a class="tile t-price" href="/pricing.html"><span class="t-kick">Pricing</span><b>${PRICE_FROM}–${usd(q(0.9))} / 1k</b><span>Pay per result; empty searches are free; cap every run.</span></a>
+    <a class="tile t-chain" href="#compose"><span class="t-kick">Chain tools</span><b>Exhibitors → emails</b><span>Pass one tool's rows to the next and get the script.</span></a>
+  </div>
+</section>
+
+<section class="alt" id="uses" data-label="Topics">
+  <div class="wrap">
+    <div class="sec-head"><h2>Pick a topic</h2><p>The same clean fields every run, with only-new mode for daily feeds.</p></div>
+    <div class="grid">
+${useCards}
+    </div>
+  </div>
+</section>
+
+<section id="popular" data-label="Most used">
+  <div class="wrap">
+    <div class="sec-head row"><div><h2>Most used this month</h2><p>Each page has an input builder that writes the call for you.</p></div><a class="btn" href="/tools/">All ${used} tools →</a></div>
+    <div class="grid">
+${popular.map(({ a, k }) => toolCard(a, k)).join('\n')}
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="coverage" data-label="Coverage">
+  <div class="wrap">
+    <div class="sec-head"><h2>Where the data comes from</h2><p>Countries shade by how many tools read their official or local sources. Hover or tap one.</p></div>
+    <div class="map-grid">
+      <div class="map-box">${mapSvg}
+        <div class="map-key" aria-hidden="true"><span class="l1">1</span><span class="l2">2–4</span><span class="l3">5–7</span><span class="l4">8+</span> tools</div>
+      </div>
+      <div class="map-panel" id="map-panel" aria-live="polite">
+        <p class="t-kick">Most covered</p>
+        <ul class="map-top">${topCountries.slice(0, 8).map((c) => `<li><button type="button" data-goto="${c}">${esc(WORLD.names[c] || c)}</button><span>${byCountry[c].length}</span></li>`).join('')}</ul>
+        <p class="t-kick">Worldwide</p>
+        <p class="ww">${WORLDWIDE.map((n) => `<a href="/tools/${n}/">${esc(byName.get(n).title)}</a>`).join(' · ')}</p>
+      </div>
+    </div>
+    <script type="application/json" id="cov-data">${JSON.stringify(covData).replace(/</g, '\\u003c')}</script>
+  </div>
+</section>
+
+<section id="compose" data-label="Chain tools">
+  <div class="wrap">
+    <div class="sec-head"><h2>Chain tools together</h2><p>Pick a start, then add steps: each step takes a field from the rows before it. You get one Python script that runs the whole chain.</p></div>
+    <div class="composer" id="composer">
+      <div class="chain" id="chain"><p class="muted">Start with: ${[...new Set(CHAINS.map((c) => c[0]))].map((n) => `<button class="chip" type="button" data-start="${n}">${esc(byName.get(n).title)}</button>`).join(' ')}</p></div>
+      <div class="chain-code" id="chain-code" hidden>${code('chain.py · pip install apify-client', '')}</div>
+    </div>
+    <noscript><p>Examples: exhibitors of a trade show → their websites → emails; new companies in a register → sanctions screening.</p></noscript>
+    <script type="application/json" id="chain-data">${JSON.stringify(chainData).replace(/</g, '\\u003c')}</script>
+  </div>
+</section>
+
+<section class="alt" id="faq" data-label="FAQ">
+  <div class="wrap">
+    <div class="sec-head"><h2>Before you start</h2></div>
+    <div class="faq">
+      <details><summary>How do I try a tool?</summary><p>Open its page here to see the input and output, then press Run it on Apify. Apify's free plan includes monthly credit, enough to try every tool on real data.</p></details>
+      <details><summary>What does it cost?</summary><p>You pay per result: from ${PRICE_FROM} per 1,000, most tools ${PRICE_MOST}, and a few optional extras such as AI insights (see <a href="/pricing.html">pricing</a>). Searches that find nothing are not charged, and every run can be capped at a spend limit you set.</p></details>
+      <details><summary>How do I call it from code?</summary><p>Every tool is an HTTP endpoint: send the input, get the rows back as JSON, CSV, Excel or XML. Each tool page writes the call for the input you build, in curl, Python and JavaScript. Ready-made scripts are in the <a href="https://github.com/${USER}/apify-data-recipes">recipes</a>.</p></details>
+      <details><summary>What happens when a website changes?</summary><p>The tools are run against their live sources on a schedule. When a site changes, the tool is fixed and a note goes into its changelog.</p></details>
+      <details><summary>Can it read pages behind a login or a captcha?</summary><p>No. The tools read public pages only and never solve captchas. A few accept your own sign-in for pages your account can see, and say plainly when a source is closed.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="build" data-label="Custom work">
+  <div class="wrap">
+    <div class="cta-band">
+      <div><h2>Need a source that isn't here?</h2><p>Custom scrapers and daily feeds for niche boards, registers and catalogs. Send the source, three examples and where the data should go; get a free sample.</p></div>
+      <a class="btn primary" href="mailto:${EMAIL}?subject=Custom%20data%20request">Email ${EMAIL}</a>
+    </div>
+    <div class="grid two" style="margin-top:20px">
+      <a class="card link" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener"><span class="why">Open source</span><h3>webdata-tools-mcp</h3><p>The MCP server: MIT licensed, in the official MCP Registry, on npm, Smithery and Glama.</p></a>
+      <a class="card link" href="https://github.com/${USER}/apify-data-recipes" rel="noopener"><span class="why">Open source</span><h3>apify-data-recipes</h3><p>Copy-paste scripts: hiring signals, news alerts, review monitoring, exhibitor leads, sanctions checks, market movers and more.</p></a>
+    </div>
+  </div>
+</section>`;
+
+writeFileSync(
+  OUT('./index.html'),
+  page({
+    path: '/',
+    active: 'home',
+    title: `${OWNER} (tacps126) - web data tools for jobs, leads, research and public records`,
+    description: `${used} fast, low-cost web data tools: jobs and hiring signals, contacts, trade shows and events, tenders, laws, registers and recalls, research, reviews and news, property, markets and sports. Pay per result, plus an MCP server for AI agents.`,
+    body: homeBody,
+    jsonld: { '@context': 'https://schema.org', '@type': 'WebSite', name: `${OWNER} (tacps126)`, url: `${SITE}/`, description: 'Web data tools for jobs, leads, research and public records', author: { '@type': 'Person', name: OWNER, alternateName: 'tacps126', email: EMAIL, url: `https://github.com/${USER}` } },
+  }),
+);
+
 // ---------------------------------------------------------------- 404, sitemap, llms.txt
 writeFileSync(
   OUT('./404.html'),
@@ -1097,6 +1438,8 @@ writeFileSync(
   <url><loc>${SITE}/about.html</loc><lastmod>${TODAY}</lastmod></url>
   <url><loc>${SITE}/pricing.html</loc><lastmod>${TODAY}</lastmod></url>
   <url><loc>${SITE}/blog/</loc><lastmod>${TODAY}</lastmod></url>
+  <url><loc>${SITE}/tools/</loc><lastmod>${TODAY}</lastmod></url>
+${allTools.map(({ a }) => `  <url><loc>${SITE}/tools/${a.name}/</loc><lastmod>${DETAIL.get(a.name)?.act?.taggedBuilds?.latest?.finishedAt?.slice(0, 10) || TODAY}</lastmod></url>`).join('\n')}
 ${POSTS.map((p) => `  <url><loc>${SITE}/blog/${p.id}.html</loc><lastmod>${p.date}</lastmod></url>`).join('\n')}
 ${leads.length ? `  <url><loc>${SITE}/leads/</loc><lastmod>${TODAY}</lastmod></url>\n` : ''}${leads.map((l) => `  <url><loc>${SITE}/leads/${l.id}.html</loc><lastmod>${l.updated}</lastmod></url>`).join('\n')}
 </urlset>
@@ -1125,10 +1468,10 @@ writeFileSync(
 ${lines.join('\n')}`,
 );
 
-console.log(`site built: ${used} tools, 3 pages`);
+console.log(`site built: ${used} tools, ${used} tool pages, ${CHAINS.length} chains, ${covered.length} countries`);
 
 if (PREVIEW) {
-  for (const f of ['style.css', 'app.js', 'fonts', 'og.png', 'favicon.svg', 'favicon.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'robots.txt']) {
+  for (const f of ['style.css', 'app.js', 'tool.js', 'fonts', 'icons', 'data', 'og.png', 'favicon.svg', 'favicon.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'robots.txt']) {
     cpSync(new URL(`./${f}`, import.meta.url), OUT(`./${f}`), { recursive: true });
   }
   console.log('PREVIEW: open with  python3 -m http.server -d _preview');

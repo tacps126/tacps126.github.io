@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meetup Events Scraper - Tapaswai Choudhary (tacps126)</title>
+<meta name="description" content="Meetup events by keyword and city, or from Meetup search and group links: name, date, venue and address, organising group, online or in person, full description. Fast no login. $1 per 1,000.">
+<link rel="canonical" href="https://tacps126.github.io/tools/meetup-events-scraper/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tacps126">
+<meta property="og:title" content="Meetup Events Scraper - Tapaswai Choudhary (tacps126)">
+<meta property="og:description" content="Meetup events by keyword and city, or from Meetup search and group links: name, date, venue and address, organising group, online or in person, full description. Fast no login. $1 per 1,000.">
+<meta property="og:url" content="https://tacps126.github.io/tools/meetup-events-scraper/">
+<meta property="og:image" content="https://tacps126.github.io/og.png?v=997eb83235">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="tacps126: clean web data for jobs, news, reviews and leads">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tacps126.github.io/og.png?v=997eb83235">
+<link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=a3d4787ffe">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Meetup Events Scraper","applicationCategory":"BusinessApplication","operatingSystem":"Web (Apify)","url":"https://tacps126.github.io/tools/meetup-events-scraper/","description":"Meetup events by keyword and city, or from Meetup search and group links: name, date, venue and address, organising group, online or in person, full description. Fast no login.","author":{"@type":"Person","name":"Tapaswai Choudhary"},"offers":{"@type":"Offer","price":"0.001","priceCurrency":"USD","description":"per event"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/"><img src="/icon-192.png" alt="" width="28" height="28"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 61 tools</span><kbd>⌘K</kbd></button>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/#coverage">Coverage</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/mcp.html">AI agents</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="tool-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/?cat=leads">Leads, events and contacts</a></nav>
+    <div class="th">
+      <img class="th-ico" src="/icons/meetup-events-scraper.png" alt="" width="64" height="64">
+      <div>
+        <h1>Meetup Events Scraper</h1>
+        <p class="lead">Meetup events by keyword and city, or from Meetup search and group links: name, date, venue and address, organising group, online or in person, full description. Fast no login.</p>
+      </div>
+    </div>
+    <div class="facts"><span class="pchip"><b>$1 per 1,000</b> event</span><span class="fact">10 public runs in 30 days</span><span class="fact">updated 2026-10-25</span></div>
+    <div class="cta-row">
+      <a class="btn primary" href="https://apify.com/tacps126/meetup-events-scraper" rel="noopener">Run it on Apify</a>
+      <a class="btn" href="#try">Build the input</a>
+      <a class="btn ghost" href="#output">See the output</a>
+    </div>
+  </div>
+</section>
+
+<section id="try" data-label="Try it">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
+    <div class="tool-grid">
+      <form class="tform" id="tform" data-actor="meetup-events-scraper" data-unit="0.001" data-what="event" data-max="maxItems" data-start="{&quot;searches&quot;:[&quot;AI&quot;],&quot;location&quot;:&quot;London&quot;,&quot;maxItems&quot;:50}" autocomplete="off">
+<div class="f" data-k="searches" data-kind="list"><label for="f-searches"><span class="fl">Topics or keywords</span></label><textarea id="f-searches" rows="2" placeholder="One per line">AI</textarea><p class="fh">What the events are about, e.g. `AI`, `startup`, `networking`, `marketing`. One search each.</p></div>
+<div class="f" data-k="location" data-kind="str"><label for="f-location"><span class="fl">Location</span></label><input id="f-location" type="text" value="London" placeholder=""><p class="fh">City in plain words (`London`, `San Francisco`, `Bengaluru`) or `online`. About 70 big cities are known by name; for others write `City, CC` with the two-letter country code (`Lyon, FR`), or paste a Meetup search link.</p></div>
+<div class="f" data-k="maxItems" data-kind="int" data-def="100"><label for="f-maxItems"><span class="fl">Max events per search or link</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" max="5000" value="50" placeholder="100"><p class="fh">Maximum events from each link, and from each search on each site.</p></div>
+<div class="f f-bool" data-k="includeDetails" data-kind="bool" data-def="true"><label class="sw" for="f-includeDetails"><input type="checkbox" id="f-includeDetails" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Include details</span></label><p class="fh">Open each Eventbrite and Meetup event (and Luma events missing text) for the organiser, ticket prices, end time and full description. Off = faster.</p></div>
+<div class="f f-bool" data-k="upcomingOnly" data-kind="bool" data-def="true"><label class="sw" for="f-upcomingOnly"><input type="checkbox" id="f-upcomingOnly" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Upcoming only</span></label><p class="fh">Skip events that have already ended.</p></div>
+<div class="f f-bool" data-k="onlyNew" data-kind="bool" data-def="false"><label class="sw" for="f-onlyNew"><input type="checkbox" id="f-onlyNew"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Only new events</span></label><p class="fh">Return only events no earlier run with the same input delivered. Schedule it for new-event alerts; you pay only for new events.</p></div>
+<div class="f f-bool" data-k="changesOnly" data-kind="bool" data-def="false"><label class="sw" for="f-changesOnly"><input type="checkbox" id="f-changesOnly"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Changes only</span></label><p class="fh">Return only events that are new, changed (date, venue, status, price or sold-out — with old and new values in `changes`) or gone before they started (`changeType: &quot;removed&quot;`: cancelled or unlisted) since the last run with the same input.…</p></div>
+        <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
+      </form>
+      <aside class="tcode">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" data-lang="curl" aria-selected="true">curl</button><button class="tab" role="tab" type="button" data-lang="python" aria-selected="false">Python</button><button class="tab" role="tab" type="button" data-lang="js" aria-selected="false">JavaScript</button><button class="tab" role="tab" type="button" data-lang="mcp" aria-selected="false">AI agent</button></div>
+        <div class="panel"><div class="code">
+  <div class="code-top"><span>terminal</span><button class="copy" type="button">Copy</button></div>
+  <pre>curl -X POST \
+  &quot;https://api.apify.com/v2/acts/tacps126~meetup-events-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;searches&quot;:[&quot;AI&quot;],&quot;location&quot;:&quot;London&quot;,&quot;maxItems&quot;:50}'</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;tacps126/meetup-events-scraper&quot;).call(run_input={
+    &quot;searches&quot;: [&quot;AI&quot;],
+    &quot;location&quot;: &quot;London&quot;,
+    &quot;maxItems&quot;: 50,
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item)</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>JavaScript · npm i apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: 'YOUR_APIFY_TOKEN' });
+const run = await client.actor('tacps126/meetup-events-scraper').call({
+  &quot;searches&quot;: [
+    &quot;AI&quot;
+  ],
+  &quot;location&quot;: &quot;London&quot;,
+  &quot;maxItems&quot;: 50
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items);</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>MCP</span><button class="copy" type="button">Copy</button></div>
+  <pre># Apify's hosted MCP server, with this tool only
+https://mcp.apify.com?tools=tacps126/meetup-events-scraper</pre>
+</div></div>
+        <p class="cost" id="tf-cost">Up to 50 events: at most $0.05, on Apify's free plan.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="output" data-label="Output">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Output</span><h2>What you get back</h2><p>The fields every row has.</p></div>
+    <div class="out-grid one">
+      
+      <div class="table-wrap fields"><table><thead><tr><th>Field</th><th>What it holds</th></tr></thead><tbody><tr><td><code>name</code>, <code>url</code>, <code>source</code></td><td>Event, link, and the site</td></tr><tr><td><code>startAt</code>, <code>endAt</code>, <code>timezone</code></td><td>Times (ISO 8601)</td></tr><tr><td><code>isOnline</code>, <code>status</code></td><td>Online or in person; scheduled / cancelled / postponed where published</td></tr><tr><td><code>venue</code></td><td><code>{name, street, city, region, postalCode, country, fullAddress, latitude, longitude}</code></td></tr><tr><td><code>organizer</code></td><td><code>{name, url}</code></td></tr><tr><td><code>price</code></td><td><code>{isFree, min, max, currency, soldOut}</code> where the site shows tickets</td></tr><tr><td><code>description</code>, <code>imageUrl</code></td><td>Full text (plain) and cover image</td></tr><tr><td><code>foundVia</code></td><td>The search or link it came from</td></tr></tbody></table></div>
+    </div>
+    <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
+  </div>
+</section>
+<section id="pairs" data-label="Pairs well">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2></div>
+    <div class="grid">
+
+      <a class="card link" href="/tools/exhibition-scraper/"><span class="why">Also in leads</span><h3>Trade Show Exhibitor List Scraper - Emails &amp; Booths</h3><p>Exhibitor lists from 91 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo…) or…</p></a>
+      <a class="card link" href="/tools/events-scraper/"><span class="why">Also in leads</span><h3>Events Scraper - Luma, Eventbrite, Meetup</h3><p>Upcoming events from Luma, Eventbrite, Meetup and any schema.org event page: name, date, venue, organiser,…</p></a>
+      <a class="card link" href="/tools/luma-events-scraper/"><span class="why">Also in leads</span><h3>Luma Events Scraper</h3><p>Upcoming Luma (lu.ma) events by city, category, keyword or calendar link: name, date, venue with coordinates,…</p></a>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><strong style="color:var(--text)">Tapaswai Choudhary (tacps126)</strong><br>Web data tools for jobs, leads, research, markets and public records.<br><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a></div>
+      <ul>
+        <li><a href="/tools/">All tools</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
+        <li><a href="/#compose">Chain tools</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://apify.com/tacps126">Tools on Apify</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
+        <li><a href="https://github.com/tacps126/webdata-tools-mcp">GitHub</a></li>
+        <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
+        <li><a href="https://smithery.ai/servers/tacps126/webdata-tools-mcp">Smithery</a></li>
+        <li><a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp">Glama</a></li>
+      </ul>
+    </div>
+    <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+  </div>
+</footer>
+<script src="/app.js?v=7f179ef30b" defer></script>
+<script src="/tool.js?v=a64914dde6" defer></script>
+</body>
+</html>

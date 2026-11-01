@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google News Scraper - Tapaswai Choudhary (tacps126)</title>
+<meta name="description" content="Scrape Google News: search results, topic sections and top stories in any language and country — with the publisher's real article URL, publisher, date and related coverage. Site and time filters, new-article monitoring, instant API. $2 per 1,000.">
+<link rel="canonical" href="https://tacps126.github.io/tools/google-news/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tacps126">
+<meta property="og:title" content="Google News Scraper - Tapaswai Choudhary (tacps126)">
+<meta property="og:description" content="Scrape Google News: search results, topic sections and top stories in any language and country — with the publisher's real article URL, publisher, date and related coverage. Site and time filters, new-article monitoring, instant API. $2 per 1,000.">
+<meta property="og:url" content="https://tacps126.github.io/tools/google-news/">
+<meta property="og:image" content="https://tacps126.github.io/og.png?v=997eb83235">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="tacps126: clean web data for jobs, news, reviews and leads">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tacps126.github.io/og.png?v=997eb83235">
+<link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=a3d4787ffe">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Google News Scraper","applicationCategory":"BusinessApplication","operatingSystem":"Web (Apify)","url":"https://tacps126.github.io/tools/google-news/","description":"Scrape Google News: search results, topic sections and top stories in any language and country — with the publisher's real article URL, publisher, date and related coverage. Site and time filters, new-article monitoring, instant API.","author":{"@type":"Person","name":"Tapaswai Choudhary"},"offers":{"@type":"Offer","price":"0.002","priceCurrency":"USD","description":"per article"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/"><img src="/icon-192.png" alt="" width="28" height="28"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 61 tools</span><kbd>⌘K</kbd></button>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/#coverage">Coverage</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/mcp.html">AI agents</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="tool-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/?cat=reviews">Reviews, news, research and social</a></nav>
+    <div class="th">
+      <img class="th-ico" src="/icons/google-news.png" alt="" width="64" height="64">
+      <div>
+        <h1>Google News Scraper</h1>
+        <p class="lead">Scrape Google News: search results, topic sections and top stories in any language and country — with the publisher's real article URL, publisher, date and related coverage. Site and time filters, new-article monitoring, instant API.</p>
+      </div>
+    </div>
+    <div class="facts"><span class="pchip"><b>$2 per 1,000</b> article</span><span class="fact">updated 2026-10-25</span></div>
+    <div class="cta-row">
+      <a class="btn primary" href="https://apify.com/tacps126/google-news" rel="noopener">Run it on Apify</a>
+      <a class="btn" href="#try">Build the input</a>
+      <a class="btn ghost" href="#output">See the output</a>
+    </div>
+  </div>
+</section>
+
+<section id="try" data-label="Try it">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
+    <div class="tool-grid">
+      <form class="tform" id="tform" data-actor="google-news" data-unit="0.002" data-what="article" data-max="maxItems" data-start="{&quot;queries&quot;:[&quot;artificial intelligence&quot;,&quot;\&quot;OpenAI\&quot; -stock&quot;],&quot;topics&quot;:[&quot;TECHNOLOGY&quot;],&quot;sites&quot;:[&quot;reuters.com&quot;,&quot;bbc.co.uk&quot;],&quot;timeframe&quot;:&quot;7d&quot;,&quot;language&quot;:&quot;en&quot;,&quot;country&quot;:&quot;US&quot;,&quot;maxItems&quot;:200}" autocomplete="off">
+<div class="f" data-k="queries" data-kind="list"><label for="f-queries"><span class="fl">Search queries</span></label><textarea id="f-queries" rows="3" placeholder="One per line">artificial intelligence
+&quot;OpenAI&quot; -stock</textarea><p class="fh">What to search for, one per line. Google News operators work: `&quot;exact phrase&quot;`, `-exclude`, `OR`, `intitle:word`.</p></div>
+<div class="f" data-k="topics" data-kind="multi"><label for="f-topics"><span class="fl">Topics</span></label><div class="opts" role="group" aria-label="Topics"><label class="opt"><input type="checkbox" value="TOP"><span>Top stories</span></label><label class="opt"><input type="checkbox" value="WORLD"><span>World</span></label><label class="opt"><input type="checkbox" value="NATION"><span>Your country</span></label><label class="opt"><input type="checkbox" value="BUSINESS"><span>Business</span></label><label class="opt"><input type="checkbox" value="TECHNOLOGY" checked><span>Technology</span></label><label class="opt"><input type="checkbox" value="ENTERTAINMENT"><span>Entertainment</span></label><label class="opt"><input type="checkbox" value="SPORTS"><span>Sports</span></label><label class="opt"><input type="checkbox" value="SCIENCE"><span>Science</span></label><label class="opt"><input type="checkbox" value="HEALTH"><span>Health</span></label></div><p class="fh">Topic sections to include, as shown on Google News. Can be combined with search queries.</p></div>
+<div class="f" data-k="sites" data-kind="list"><label for="f-sites"><span class="fl">Only from these sites</span></label><textarea id="f-sites" rows="3" placeholder="One per line">reuters.com
+bbc.co.uk</textarea><p class="fh">Limit searches to these publishers' domains, e.g. `reuters.com`, `bbc.co.uk`. With no search query, returns everything recent from these sites.</p></div>
+<div class="f" data-k="excludeSites" data-kind="list"><label for="f-excludeSites"><span class="fl">Never from these sites</span></label><textarea id="f-excludeSites" rows="2" placeholder="One per line"></textarea><p class="fh">Exclude these publishers' domains from searches, e.g. `example-tabloid.com`.</p></div>
+<div class="f" data-k="excludeKeywords" data-kind="list"><label for="f-excludeKeywords"><span class="fl">Drop headlines containing</span></label><textarea id="f-excludeKeywords" rows="2" placeholder="One per line"></textarea><p class="fh">Skip articles whose headline contains any of these words (case-insensitive), e.g. `stock`, `opinion`.</p></div>
+<div class="f" data-k="timeframe" data-kind="str" data-def="&quot;&quot;"><label for="f-timeframe"><span class="fl">Published within</span></label><select id="f-timeframe"><option value="">Any time</option><option value="1h">Past hour</option><option value="1d">Past 24 hours</option><option value="7d" selected>Past week</option><option value="30d">Past month</option><option value="1y">Past year</option></select><p class="fh">Only articles published in this window (applies to searches).</p></div>
+<div class="f" data-k="dateFrom" data-kind="str"><label for="f-dateFrom"><span class="fl">Published from</span></label><input id="f-dateFrom" type="text" value="" placeholder="YYYY-MM-DD"><p class="fh">Only articles published on or after this date. Use instead of “Published within” for a fixed period.</p></div>
+<div class="f" data-k="dateTo" data-kind="str"><label for="f-dateTo"><span class="fl">Published before</span></label><input id="f-dateTo" type="text" value="" placeholder="YYYY-MM-DD"><p class="fh">Only articles published before this date.</p></div>
+<div class="f" data-k="language" data-kind="str" data-def="&quot;en&quot;"><label for="f-language"><span class="fl">Language</span></label><input id="f-language" type="text" value="en" placeholder="en"><p class="fh">Edition language as a 2-letter code, e.g. `en`, `de`, `fr`, `es`, `hi`, `ja`.</p></div>
+<div class="f" data-k="country" data-kind="str" data-def="&quot;US&quot;"><label for="f-country"><span class="fl">Country</span></label><input id="f-country" type="text" value="US" placeholder="US"><p class="fh">Edition country as a 2-letter code, e.g. `US`, `GB`, `IN`, `DE`, `AU`.</p></div>
+<div class="f f-bool" data-k="resolveUrls" data-kind="bool" data-def="true"><label class="sw" for="f-resolveUrls"><input type="checkbox" id="f-resolveUrls" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Get publisher URLs</span></label><p class="fh">Return each article's real URL on the publisher's site instead of a Google News redirect link. Recommended.</p></div>
+<div class="f f-bool" data-k="includeRelated" data-kind="bool" data-def="true"><label class="sw" for="f-includeRelated"><input type="checkbox" id="f-includeRelated" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Include related coverage</span></label><p class="fh">Add other outlets' coverage of the same story (topic and top-story feeds).</p></div>
+<div class="f" data-k="maxItems" data-kind="int" data-def="200"><label for="f-maxItems"><span class="fl">Max articles</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" value="200" placeholder="200"><p class="fh">Maximum number of articles to return in total.</p></div>
+<div class="f" data-k="maxItemsPerQuery" data-kind="int"><label for="f-maxItemsPerQuery"><span class="fl">Max articles per query / topic</span></label><input id="f-maxItemsPerQuery" type="number" inputmode="numeric" min="1" max="100" value="" placeholder=""><p class="fh">Optional cap per search or topic (Google News shows up to about 100 each).</p></div>
+<details class="more"><summary>Monitoring</summary><div class="f f-bool" data-k="onlyNew" data-kind="bool" data-def="false"><label class="sw" for="f-onlyNew"><input type="checkbox" id="f-onlyNew"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Only new articles</span></label><p class="fh">Return only articles that no earlier run with the same input has delivered. Ideal for news alerts — you pay only for new articles.</p></div></details>
+        <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
+      </form>
+      <aside class="tcode">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" data-lang="curl" aria-selected="true">curl</button><button class="tab" role="tab" type="button" data-lang="python" aria-selected="false">Python</button><button class="tab" role="tab" type="button" data-lang="js" aria-selected="false">JavaScript</button><button class="tab" role="tab" type="button" data-lang="mcp" aria-selected="false">AI agent</button></div>
+        <div class="panel"><div class="code">
+  <div class="code-top"><span>terminal</span><button class="copy" type="button">Copy</button></div>
+  <pre>curl -X POST \
+  &quot;https://api.apify.com/v2/acts/tacps126~google-news/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;queries&quot;:[&quot;artificial intelligence&quot;,&quot;\&quot;OpenAI\&quot; -stock&quot;],&quot;topics&quot;:[&quot;TECHNOLOGY&quot;],&quot;sites&quot;:[&quot;reuters.com&quot;,&quot;bbc.co.uk&quot;],&quot;timeframe&quot;:&quot;7d&quot;,&quot;language&quot;:&quot;en&quot;,&quot;country&quot;:&quot;US&quot;,&quot;maxItems&quot;:200}'</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;tacps126/google-news&quot;).call(run_input={
+    &quot;queries&quot;: [&quot;artificial intelligence&quot;, &quot;\&quot;OpenAI\&quot; -stock&quot;],
+    &quot;topics&quot;: [&quot;TECHNOLOGY&quot;],
+    &quot;sites&quot;: [&quot;reuters.com&quot;, &quot;bbc.co.uk&quot;],
+    &quot;timeframe&quot;: &quot;7d&quot;,
+    &quot;language&quot;: &quot;en&quot;,
+    &quot;country&quot;: &quot;US&quot;,
+    &quot;maxItems&quot;: 200,
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item)</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>JavaScript · npm i apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: 'YOUR_APIFY_TOKEN' });
+const run = await client.actor('tacps126/google-news').call({
+  &quot;queries&quot;: [
+    &quot;artificial intelligence&quot;,
+    &quot;\&quot;OpenAI\&quot; -stock&quot;
+  ],
+  &quot;topics&quot;: [
+    &quot;TECHNOLOGY&quot;
+  ],
+  &quot;sites&quot;: [
+    &quot;reuters.com&quot;,
+    &quot;bbc.co.uk&quot;
+  ],
+  &quot;timeframe&quot;: &quot;7d&quot;,
+  &quot;language&quot;: &quot;en&quot;,
+  &quot;country&quot;: &quot;US&quot;,
+  &quot;maxItems&quot;: 200
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items);</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>MCP</span><button class="copy" type="button">Copy</button></div>
+  <pre># webdata-tools-mcp (Claude, Cursor, any MCP client)
+claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata-tools-mcp
+
+# then ask your agent; it calls: search_google_news</pre>
+</div></div>
+        <p class="cost" id="tf-cost">Up to 200 articles: at most $0.40, on Apify's free plan.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="output" data-label="Output">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Output</span><h2>What you get back</h2><p>A real row from the README, and the fields every row has.</p></div>
+    <div class="out-grid">
+      <div class="sample-box">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" aria-selected="true">Row</button><button class="tab" role="tab" type="button" aria-selected="false">JSON</button></div>
+        <div class="panel"><div class="table-wrap"><table class="kv"><tbody><tr><th>title</th><td>OpenAI shelves new AI model release over safety concerns</td></tr><tr><th>publisher</th><td>reuters.com</td></tr><tr><th>url</th><td><span class="url">https://www.reuters.com/business/openai-shelves-new-ai-model-after-...</span></td></tr><tr><th>domain</th><td>reuters.com</td></tr><tr><th>publishedAt</th><td>2026-09-28T22:34:00+00:00</td></tr><tr><th>query</th><td>openai</td></tr><tr><th>position</th><td>2</td></tr><tr><th>language</th><td>en</td></tr><tr><th>country</th><td>US</td></tr><tr><th>urlResolved</th><td>true</td></tr></tbody></table></div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>one row</span><button class="copy" type="button">Copy</button></div>
+  <pre>{
+  &quot;title&quot;: &quot;OpenAI shelves new AI model release over safety concerns&quot;,
+  &quot;publisher&quot;: &quot;reuters.com&quot;,
+  &quot;url&quot;: &quot;https://www.reuters.com/business/openai-shelves-new-ai-model-after-...&quot;,
+  &quot;domain&quot;: &quot;reuters.com&quot;,
+  &quot;publishedAt&quot;: &quot;2026-09-28T22:34:00+00:00&quot;,
+  &quot;query&quot;: &quot;openai&quot;,
+  &quot;position&quot;: 2,
+  &quot;language&quot;: &quot;en&quot;,
+  &quot;country&quot;: &quot;US&quot;,
+  &quot;urlResolved&quot;: true
+}</pre>
+</div></div>
+      </div>
+      <div class="table-wrap fields"><table><thead><tr><th>Field</th><th>What it holds</th></tr></thead><tbody><tr><td><code>title</code></td><td>Headline</td></tr><tr><td><code>publisher</code> / <code>publisherUrl</code></td><td>News outlet and its homepage</td></tr><tr><td><code>url</code> / <code>domain</code></td><td>The article on the publisher's site, and its domain</td></tr><tr><td><code>googleNewsUrl</code></td><td>The Google News link for the article</td></tr><tr><td><code>publishedAt</code></td><td>Publication time (ISO 8601, UTC)</td></tr><tr><td><code>relatedArticles</code></td><td>Other outlets' coverage of the same story (topic and top-story feeds): title, publisher, link</td></tr><tr><td><code>query</code> / <code>topic</code></td><td>Which search or topic found it</td></tr><tr><td><code>position</code></td><td>Rank in that feed</td></tr><tr><td><code>language</code> / <code>country</code></td><td>Edition it came from</td></tr><tr><td><code>urlResolved</code> / <code>scrapedAt</code></td><td>Whether the publisher URL was found, and when the article was collected</td></tr></tbody></table></div>
+    </div>
+    <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
+  </div>
+</section>
+<section id="pairs" data-label="Pairs well">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2></div>
+    <div class="grid">
+
+      <a class="card link" href="/tools/reddit-monitor/"><span class="why">Also in reviews and research</span><h3>Reddit Scraper &amp; Keyword Monitor</h3><p>Scrape Reddit posts and comments by keyword, subreddit or user — title, text, author, subreddit, links,…</p></a>
+      <a class="card link" href="/tools/app-reviews/"><span class="why">Also in reviews and research</span><h3>App Store &amp; Google Play Reviews Scraper</h3><p>Scrape app reviews from the Apple App Store and Google Play in one dataset: rating, text, author, date, app…</p></a>
+      <a class="card link" href="/tools/trustpilot-reviews/"><span class="why">Also in reviews and research</span><h3>Trustpilot Reviews Scraper</h3><p>Extract Trustpilot reviews and company details — ratings, text, reviewer info, dates, replies, TrustScore —…</p></a>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><strong style="color:var(--text)">Tapaswai Choudhary (tacps126)</strong><br>Web data tools for jobs, leads, research, markets and public records.<br><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a></div>
+      <ul>
+        <li><a href="/tools/">All tools</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
+        <li><a href="/#compose">Chain tools</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://apify.com/tacps126">Tools on Apify</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
+        <li><a href="https://github.com/tacps126/webdata-tools-mcp">GitHub</a></li>
+        <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
+        <li><a href="https://smithery.ai/servers/tacps126/webdata-tools-mcp">Smithery</a></li>
+        <li><a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp">Glama</a></li>
+      </ul>
+    </div>
+    <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+  </div>
+</footer>
+<script src="/app.js?v=7f179ef30b" defer></script>
+<script src="/tool.js?v=a64914dde6" defer></script>
+</body>
+</html>

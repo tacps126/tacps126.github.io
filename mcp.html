@@ -7,8 +7,8 @@
 <meta name="description" content="35 web-data tools for AI agents: job postings, hiring signals, Google News, research and field trends, Trustpilot and app reviews, Reddit, contacts, property, Shopify, exhibitors and events. Runs Apify Actors on your own token with a spend cap.">
 <link rel="canonical" href="https://tacps126.github.io/mcp.html">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#080c1c" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -24,22 +24,22 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tacps126.github.io/og.png?v=997eb83235">
 <link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/style.css?v=10f0d5b31a">
+<link rel="stylesheet" href="/style.css?v=a3d4787ffe">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"webdata-tools-mcp","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Windows, Linux (Node.js 18+)","url":"https://tacps126.github.io/mcp.html","downloadUrl":"https://www.npmjs.com/package/webdata-tools-mcp","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"MCP server with 35 web-data tools that run Apify Actors on your own account."}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="progress" aria-hidden="true"></div>
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="/"><img src="/icon-192.png" alt="" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+    <a class="brand" href="/"><img src="/icon-192.png" alt="" width="28" height="28"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 61 tools</span><kbd>⌘K</kbd></button>
     <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav class="nav-links" id="nav-links" aria-label="Main">
-      <a href="/#tools">Tools</a>
+      <a href="/tools/">Tools</a>
+      <a href="/#coverage">Coverage</a>
       <a href="/pricing.html">Pricing</a>
-      <a href="/mcp.html" aria-current="page">MCP server</a>
-      <a href="/#build">Custom work</a>
+      <a href="/mcp.html" aria-current="page">AI agents</a>
       <a href="/blog/">Blog</a>
       <a href="/about.html">About</a>
       <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
@@ -47,9 +47,8 @@
   </div>
 </header>
 <main id="main">
-<nav class="toc" aria-label="On this page"><a href="#install" data-toc="install" aria-label="Install in two minutes"><span>Install in two minutes</span></a><a href="#tools" data-toc="tools" aria-label="The 35 tools"><span>The 35 tools</span></a><a href="#try" data-toc="try" aria-label="Try asking"><span>Try asking</span></a><a href="#safety" data-toc="safety" aria-label="Safe by design"><span>Safe by design</span></a><a href="#faq" data-toc="faq" aria-label="Questions"><span>Questions</span></a></nav>
 
-<section class="hero" style="padding-bottom:24px"><div class="deco" aria-hidden="true"><div class="cube c1"><i></i><i></i><i></i></div><div class="cube c2"><i></i><i></i><i></i></div><div class="cube c3"><i></i><i></i><i></i></div><span class="orb o1"></span><span class="orb o2"></span></div>
+<section class="hero" style="padding-bottom:24px">
   <div class="wrap">
     <span class="eyebrow">MCP server</span>
     <h1>Web data tools for <span class="grad">your AI agent</span></h1>
@@ -70,7 +69,7 @@
 
 <section id="install">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-num">Install in two minutes</span><h2>Install in two minutes</h2><p>You need Node.js 18+ and a free Apify account. Copy your API token from Apify Console → Settings → API &amp; Integrations.</p></div>
+    <div class="sec-head"><span class="sec-num">Install in two minutes</span><h2>Install in two minutes</h2><p>You need Node.js 18+ and a free Apify account. Copy your API token from Apify Console → Settings → API &amp; Integrations.</p></div>
     <div class="tabs" role="tablist" data-tabs>
       <button class="tab" role="tab" aria-selected="true">Claude Code</button>
       <button class="tab" role="tab" aria-selected="false">Claude Desktop</button>
@@ -110,218 +109,218 @@
 
 <section class="alt" id="tools">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-num">The 35 tools</span><h2>The 35 tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Prices are Apify pay-per-result prices; extras marked + are charged only when used.</p></div>
+    <div class="sec-head"><span class="sec-num">The 35 tools</span><h2>The 35 tools</h2><p>Every tool takes simple arguments plus an optional <code>extra_input</code> for any other field the Actor documents. Prices are Apify pay-per-result prices; extras marked + are charged only when used.</p></div>
     <div class="filters"><button class="chip" type="button" data-cat="all" aria-pressed="true">All <span class="n">35</span></button><button class="chip" type="button" data-cat="jobs" aria-pressed="false">Jobs <span class="n">7</span></button><button class="chip" type="button" data-cat="leads" aria-pressed="false">Leads <span class="n">6</span></button><button class="chip" type="button" data-cat="reviews" aria-pressed="false">Reviews and research <span class="n">8</span></button><button class="chip" type="button" data-cat="gov" aria-pressed="false">Government <span class="n">9</span></button><button class="chip" type="button" data-cat="commerce" aria-pressed="false">Commerce <span class="n">2</span></button><button class="chip" type="button" data-cat="finance" aria-pressed="false">Finance <span class="n">1</span></button><button class="chip" type="button" data-cat="sports" aria-pressed="false">Sports <span class="n">2</span></button><input class="search" id="search" type="search" placeholder="Search tools  ( / )" aria-label="Search tools"><span class="count" id="count" aria-live="polite"></span></div>
     <div class="grid mtools">
 <article class="card mtool" data-tool data-cat="gov">
   <div class="mtool-top"><code class="mname">search_<wbr>grants</code><button class="copy mini" type="button" data-copy="search_grants" aria-label="Copy search_grants">Copy</button></div>
   <p>Open and forecast funding calls: US Grants.gov, EU Funding &amp; Tenders (Horizon Europe…), UKRI</p>
   <div class="prices"><span class="pchip"><b>$3 per 1,000</b> grant call</span><span class="xchip" title="An AI reading of one delivered call: summary, what is funded, who can apply, money, deadline and (with a profile) a fit score.">+ AI insight <b>$0.01 each</b></span></div>
-  <a class="mactor" href="https://apify.com/tacps126/grants-radar" rel="noopener">Runs Grants Radar — Public Funding &amp; Grant Calls →</a>
+  <a class="mactor" href="/tools/grants-radar/">Runs Grants Radar — Public Funding &amp; Grant Calls →</a>
 </article>
 <article class="card mtool" data-tool data-cat="gov">
   <div class="mtool-top"><code class="mname">get_<wbr>india_<wbr>district_<wbr>notices</code><button class="copy mini" type="button" data-copy="get_india_district_notices" aria-label="Copy get_india_district_notices">Copy</button></div>
   <p>Tenders, recruitment and announcements from India's 748 district websites, by state and district</p>
   <div class="prices"><span class="pchip"><b>$3 per 1,000</b> district notice</span><span class="xchip" title="An AI reading of one delivered notice: summary in your language, what it is about, the last date and (with a profile) a fit score.">+ AI insight <b>$0.01 each</b></span></div>
-  <a class="mactor" href="https://apify.com/tacps126/india-district-notices" rel="noopener">Runs India District Notices — Tenders, Recruitment &amp; Announcements →</a>
+  <a class="mactor" href="/tools/india-district-notices/">Runs India District Notices — Tenders, Recruitment &amp; Announcements →</a>
 </article>
 <article class="card mtool" data-tool data-cat="leads">
   <div class="mtool-top"><code class="mname">find_<wbr>companies</code><button class="copy mini" type="button" data-copy="find_companies" aria-label="Copy find_companies">Copy</button></div>
   <p>New companies and insolvencies (France, Norway, Finland, Estonia, US: New York, Colorado, Connecticut, Oregon) and company search with officers, plus the LEI index</p>
   <div class="prices"><span class="pchip"><b>$2.50 per 1,000</b> company</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/company-registry" rel="noopener">Runs Company Registry — New Companies, Insolvencies &amp; Search →</a>
+  <a class="mactor" href="/tools/company-registry/">Runs Company Registry — New Companies, Insolvencies &amp; Search →</a>
 </article>
 <article class="card mtool" data-tool data-cat="gov">
   <div class="mtool-top"><code class="mname">get_<wbr>supplier_<wbr>contracts</code><button class="copy mini" type="button" data-copy="get_supplier_contracts" aria-label="Copy get_supplier_contracts">Copy</button></div>
   <p>Public contracts a company won (USAspending, TED, Contracts Finder) with a summary per company</p>
   <div class="prices"><span class="pchip"><b>$4 per 1,000</b> tender</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/tenders-radar" rel="noopener">Runs Tenders Radar — Public Tenders &amp; Contract Awards →</a>
+  <a class="mactor" href="/tools/tenders-radar/">Runs Tenders Radar — Public Tenders &amp; Contract Awards →</a>
 </article>
 <article class="card mtool" data-tool data-cat="gov">
   <div class="mtool-top"><code class="mname">screen_<wbr>sanctions</code><button class="copy mini" type="button" data-copy="screen_sanctions" aria-label="Copy screen_sanctions">Copy</button></div>
   <p>Screen names against official OFAC, UN, EU, UK, Canada and Switzerland sanctions lists (verdict per name)</p>
   <div class="prices"><span class="pchip"><b>$3 per 1,000</b> name screened</span><span class="xchip" title="One sanctions-list entry delivered (a new designation, a removal, or an exported entry).">+ List entry <b>$1 per 1,000</b></span></div>
-  <a class="mactor" href="https://apify.com/tacps126/sanctions-screener" rel="noopener">Runs Sanctions Screener — OFAC, UN, EU, UK &amp; Canada Lists →</a>
+  <a class="mactor" href="/tools/sanctions-screener/">Runs Sanctions Screener — OFAC, UN, EU, UK &amp; Canada Lists →</a>
 </article>
 <article class="card mtool" data-tool data-cat="gov">
   <div class="mtool-top"><code class="mname">search_<wbr>recalls</code><button class="copy mini" type="button" data-copy="search_recalls" aria-label="Copy search_recalls">Copy</button></div>
   <p>Product recalls and safety alerts: FDA, CPSC, Health Canada, UK FSA/OPSS, EU Safety Gate</p>
   <div class="prices"><span class="pchip"><b>$2 per 1,000</b> recall</span><span class="xchip" title="An AI reading of one delivered recall: what is affected, the risk and what to do (with a profile, a relevance score).">+ AI insight <b>$0.01 each</b></span></div>
-  <a class="mactor" href="https://apify.com/tacps126/recalls-radar" rel="noopener">Runs Recalls Radar — FDA, CPSC, Canada, UK &amp; EU Safety Gate →</a>
+  <a class="mactor" href="/tools/recalls-radar/">Runs Recalls Radar — FDA, CPSC, Canada, UK &amp; EU Safety Gate →</a>
 </article>
 <article class="card mtool" data-tool data-cat="gov">
   <div class="mtool-top"><code class="mname">search_<wbr>legislation</code><button class="copy mini" type="button" data-copy="search_legislation" aria-label="Copy search_legislation">Copy</button></div>
   <p>New laws and bills: EU regulations and directives (EUR-Lex), UK Acts and SIs, US public laws and bills, Australian and Canadian regulations</p>
   <div class="prices"><span class="pchip"><b>$3 per 1,000</b> law or bill</span><span class="xchip" title="An AI reading of one delivered law: what it does, who is affected and (with a profile) a relevance score.">+ AI insight <b>$0.01 each</b></span></div>
-  <a class="mactor" href="https://apify.com/tacps126/legislation-radar" rel="noopener">Runs Legislation Radar — New Laws, Regulations &amp; Bills →</a>
+  <a class="mactor" href="/tools/legislation-radar/">Runs Legislation Radar — New Laws, Regulations &amp; Bills →</a>
 </article>
 <article class="card mtool" data-tool data-cat="gov">
   <div class="mtool-top"><code class="mname">get_<wbr>alerts</code><button class="copy mini" type="button" data-copy="get_alerts" aria-label="Copy get_alerts">Copy</button></div>
   <p>Official weather and disaster warnings: US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS, USGS</p>
   <div class="prices"><span class="pchip"><b>$2 per 1,000</b> alert</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/alerts-radar" rel="noopener">Runs Alerts Radar — Weather &amp; Disaster Warnings →</a>
+  <a class="mactor" href="/tools/alerts-radar/">Runs Alerts Radar — Weather &amp; Disaster Warnings →</a>
 </article>
 <article class="card mtool" data-tool data-cat="gov">
   <div class="mtool-top"><code class="mname">search_<wbr>tenders</code><button class="copy mini" type="button" data-copy="search_tenders" aria-label="Copy search_tenders">Copy</button></div>
   <p>Public tenders and contract awards: US SAM.gov, EU TED and EU institutions, Ukraine, UK, France, Spain, Germany, Netherlands, Canada, Colombia, Australia, South Africa; by sector, CPV code or value</p>
   <div class="prices"><span class="pchip"><b>$4 per 1,000</b> tender</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/tenders-radar" rel="noopener">Runs Tenders Radar — Public Tenders &amp; Contract Awards →</a>
+  <a class="mactor" href="/tools/tenders-radar/">Runs Tenders Radar — Public Tenders &amp; Contract Awards →</a>
 </article>
 <article class="card mtool" data-tool data-cat="reviews">
   <div class="mtool-top"><code class="mname">search_<wbr>google_<wbr>news</code><button class="copy mini" type="button" data-copy="search_google_news" aria-label="Copy search_google_news">Copy</button></div>
   <p>Google News with the publisher's real article URL</p>
   <div class="prices"><span class="pchip"><b>$2 per 1,000</b> article</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/google-news" rel="noopener">Runs Google News Scraper →</a>
+  <a class="mactor" href="/tools/google-news/">Runs Google News Scraper →</a>
 </article>
 <article class="card mtool" data-tool data-cat="gov">
   <div class="mtool-top"><code class="mname">search_<wbr>gov_<wbr>updates</code><button class="copy mini" type="button" data-copy="search_gov_updates" aria-label="Copy search_gov_updates">Copy</button></div>
   <p>Official government updates: Federal Register, GOV.UK, EU Commission, SEC, Indian regulators (RBI, SEBI, TRAI, DGFT…), any RSS feed or list page, by sector</p>
   <div class="prices"><span class="pchip"><b>$3 per 1,000</b> update</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/gov-radar" rel="noopener">Runs Gov Radar — Regulations, Notices &amp; Circulars →</a>
+  <a class="mactor" href="/tools/gov-radar/">Runs Gov Radar — Regulations, Notices &amp; Circulars →</a>
 </article>
 <article class="card mtool" data-tool data-cat="reviews">
   <div class="mtool-top"><code class="mname">get_<wbr>youtube_<wbr>transcripts</code><button class="copy mini" type="button" data-copy="get_youtube_transcripts" aria-label="Copy get_youtube_transcripts">Copy</button></div>
   <p>Full transcripts of YouTube videos, playlists, channels or searches, with timed captions</p>
   <div class="prices"><span class="pchip"><b>$2.50 per 1,000</b> transcript</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/youtube-transcripts" rel="noopener">Runs YouTube Transcript Scraper →</a>
+  <a class="mactor" href="/tools/youtube-transcripts/">Runs YouTube Transcript Scraper →</a>
 </article>
 <article class="card mtool" data-tool data-cat="reviews">
   <div class="mtool-top"><code class="mname">search_<wbr>research</code><button class="copy mini" type="button" data-copy="search_research" aria-label="Copy search_research">Copy</button></div>
   <p>Papers, preprints and patents from OpenAlex, arXiv, PubMed, Europe PMC and the European Patent Office (worldwide); newest or most influential first</p>
   <div class="prices"><span class="pchip"><b>$3 per 1,000</b> result</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/research-radar" rel="noopener">Runs Research Radar — Papers, Preprints &amp; Patents →</a>
+  <a class="mactor" href="/tools/research-radar/">Runs Research Radar — Papers, Preprints &amp; Patents →</a>
 </article>
 <article class="card mtool" data-tool data-cat="reviews">
   <div class="mtool-top"><code class="mname">analyze_<wbr>field</code><button class="copy mini" type="button" data-copy="analyze_field" aria-label="Copy analyze_field">Copy</button></div>
   <p>A technology field's opportunity score with reasons, growth, top companies, rising topics, patent trend and possibly free-to-use patents; several fields ranked</p>
   <div class="prices"><span class="pchip"><b>$0.03 each</b> analysis</span><span class="xchip" title="One expired or lapsed patent with its analysis (patent modes).">+ Free-to-use patent <b>$0.01 each</b></span></div>
-  <a class="mactor" href="https://apify.com/tacps126/innovation-radar" rel="noopener">Runs Innovation Radar — Field Trends &amp; Idea Validation →</a>
+  <a class="mactor" href="/tools/innovation-radar/">Runs Innovation Radar — Field Trends &amp; Idea Validation →</a>
 </article>
 <article class="card mtool" data-tool data-cat="reviews">
   <div class="mtool-top"><code class="mname">validate_<wbr>idea</code><button class="copy mini" type="button" data-copy="validate_idea" aria-label="Copy validate_idea">Copy</button></div>
   <p>How new or crowded an idea is, who is working on it, and the closest prior work</p>
   <div class="prices"><span class="pchip"><b>$0.03 each</b> analysis</span><span class="xchip" title="One expired or lapsed patent with its analysis (patent modes).">+ Free-to-use patent <b>$0.01 each</b></span></div>
-  <a class="mactor" href="https://apify.com/tacps126/innovation-radar" rel="noopener">Runs Innovation Radar — Field Trends &amp; Idea Validation →</a>
+  <a class="mactor" href="/tools/innovation-radar/">Runs Innovation Radar — Field Trends &amp; Idea Validation →</a>
 </article>
 <article class="card mtool" data-tool data-cat="jobs">
   <div class="mtool-top"><code class="mname">find_<wbr>hiring_<wbr>companies</code><button class="copy mini" type="button" data-copy="find_hiring_companies" aria-label="Copy find_hiring_companies">Copy</button></div>
   <p>Which companies are hiring for the roles you sell to</p>
   <div class="prices"><span class="pchip"><b>$0.01 each</b> company signal</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/hiring-signals" rel="noopener">Runs Hiring Signals &amp; Buying Intent Data from Job Postings →</a>
+  <a class="mactor" href="/tools/hiring-signals/">Runs Hiring Signals &amp; Buying Intent Data from Job Postings →</a>
 </article>
 <article class="card mtool" data-tool data-cat="jobs">
   <div class="mtool-top"><code class="mname">get_<wbr>company_<wbr>jobs</code><button class="copy mini" type="button" data-copy="get_company_jobs" aria-label="Copy get_company_jobs">Copy</button></div>
   <p>Every open job from company career pages or just company names (13 job-board systems)</p>
   <div class="prices"><span class="pchip"><b>$1 per 1,000</b> result</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/jobs-harvester" rel="noopener">Runs Job Board Harvester — Multi-Platform →</a>
+  <a class="mactor" href="/tools/jobs-harvester/">Runs Job Board Harvester — Multi-Platform →</a>
 </article>
 <article class="card mtool" data-tool data-cat="jobs">
   <div class="mtool-top"><code class="mname">find_<wbr>remote_<wbr>jobs</code><button class="copy mini" type="button" data-copy="find_remote_jobs" aria-label="Copy find_remote_jobs">Copy</button></div>
   <p>Remote jobs from company career sites and remote-job feeds</p>
   <div class="prices"><span class="pchip"><b>$2 per 1,000</b> job</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/remote-jobs-scraper" rel="noopener">Runs Remote Jobs Scraper — Company Career Sites →</a>
+  <a class="mactor" href="/tools/remote-jobs-scraper/">Runs Remote Jobs Scraper — Company Career Sites →</a>
 </article>
 <article class="card mtool" data-tool data-cat="jobs">
   <div class="mtool-top"><code class="mname">search_<wbr>startup_<wbr>jobs</code><button class="copy mini" type="button" data-copy="search_startup_jobs" aria-label="Copy search_startup_jobs">Copy</button></div>
   <p>Startup jobs on Wellfound with salary and equity</p>
   <div class="prices"><span class="pchip"><b>$2 per 1,000</b> job</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/wellfound-jobs-scraper" rel="noopener">Runs Wellfound Jobs Scraper — Startup Jobs →</a>
+  <a class="mactor" href="/tools/wellfound-jobs-scraper/">Runs Wellfound Jobs Scraper — Startup Jobs →</a>
 </article>
 <article class="card mtool" data-tool data-cat="jobs">
   <div class="mtool-top"><code class="mname">search_<wbr>tech_<wbr>jobs</code><button class="copy mini" type="button" data-copy="search_tech_jobs" aria-label="Copy search_tech_jobs">Copy</button></div>
   <p>US tech jobs on Dice</p>
   <div class="prices"><span class="pchip"><b>$0.55 per 1,000</b> job</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/dice-jobs-scraper" rel="noopener">Runs Dice Jobs Scraper — US Tech Jobs →</a>
+  <a class="mactor" href="/tools/dice-jobs-scraper/">Runs Dice Jobs Scraper — US Tech Jobs →</a>
 </article>
 <article class="card mtool" data-tool data-cat="jobs">
   <div class="mtool-top"><code class="mname">search_<wbr>indeed_<wbr>jobs</code><button class="copy mini" type="button" data-copy="search_indeed_jobs" aria-label="Copy search_indeed_jobs">Copy</button></div>
   <p>Indeed listings in 9 countries</p>
   <div class="prices"><span class="pchip"><b>$3 per 1,000</b> job</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/indeed-jobs" rel="noopener">Runs Indeed Jobs Scraper →</a>
+  <a class="mactor" href="/tools/indeed-jobs/">Runs Indeed Jobs Scraper →</a>
 </article>
 <article class="card mtool" data-tool data-cat="jobs">
   <div class="mtool-top"><code class="mname">search_<wbr>naukri_<wbr>jobs</code><button class="copy mini" type="button" data-copy="search_naukri_jobs" aria-label="Copy search_naukri_jobs">Copy</button></div>
   <p>Naukri.com jobs (India) with full description and salary</p>
   <div class="prices"><span class="pchip"><b>$1.50 per 1,000</b> job</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/naukri-jobs-scraper" rel="noopener">Runs Naukri Jobs Scraper →</a>
+  <a class="mactor" href="/tools/naukri-jobs-scraper/">Runs Naukri Jobs Scraper →</a>
 </article>
 <article class="card mtool" data-tool data-cat="reviews">
   <div class="mtool-top"><code class="mname">get_<wbr>trustpilot_<wbr>reviews</code><button class="copy mini" type="button" data-copy="get_trustpilot_reviews" aria-label="Copy get_trustpilot_reviews">Copy</button></div>
   <p>Trustpilot reviews, TrustScore and company profile</p>
   <div class="prices"><span class="pchip"><b>$0.50 per 1,000</b> review</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/trustpilot-reviews" rel="noopener">Runs Trustpilot Reviews Scraper →</a>
+  <a class="mactor" href="/tools/trustpilot-reviews/">Runs Trustpilot Reviews Scraper →</a>
 </article>
 <article class="card mtool" data-tool data-cat="reviews">
   <div class="mtool-top"><code class="mname">get_<wbr>app_<wbr>reviews</code><button class="copy mini" type="button" data-copy="get_app_reviews" aria-label="Copy get_app_reviews">Copy</button></div>
   <p>App Store and Google Play reviews</p>
   <div class="prices"><span class="pchip"><b>$0.20 per 1,000</b> review</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/app-reviews" rel="noopener">Runs App Store &amp; Google Play Reviews Scraper →</a>
+  <a class="mactor" href="/tools/app-reviews/">Runs App Store &amp; Google Play Reviews Scraper →</a>
 </article>
 <article class="card mtool" data-tool data-cat="reviews">
   <div class="mtool-top"><code class="mname">search_<wbr>reddit</code><button class="copy mini" type="button" data-copy="search_reddit" aria-label="Copy search_reddit">Copy</button></div>
   <p>Reddit posts and comments by keyword or subreddit</p>
   <div class="prices"><span class="pchip"><b>$1 per 1,000</b> post or comment</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/reddit-monitor" rel="noopener">Runs Reddit Scraper &amp; Keyword Monitor →</a>
+  <a class="mactor" href="/tools/reddit-monitor/">Runs Reddit Scraper &amp; Keyword Monitor →</a>
 </article>
 <article class="card mtool" data-tool data-cat="leads">
   <div class="mtool-top"><code class="mname">find_<wbr>reddit_<wbr>leads</code><button class="copy mini" type="button" data-copy="find_reddit_leads" aria-label="Copy find_reddit_leads">Copy</button></div>
   <p>Reddit posts asking for a tool like yours or an alternative to a competitor</p>
   <div class="prices"><span class="pchip"><b>$2 per 1,000</b> lead</span><span class="xchip" title="One post or comment read from Reddit (kept or filtered out).">+ Post read <b>$0.10 per 1,000</b></span></div>
-  <a class="mactor" href="https://apify.com/tacps126/reddit-lead-finder" rel="noopener">Runs Reddit Lead Finder — Buying-Intent Posts →</a>
+  <a class="mactor" href="/tools/reddit-lead-finder/">Runs Reddit Lead Finder — Buying-Intent Posts →</a>
 </article>
 <article class="card mtool" data-tool data-cat="leads">
   <div class="mtool-top"><code class="mname">find_<wbr>website_<wbr>contacts</code><button class="copy mini" type="button" data-copy="find_website_contacts" aria-label="Copy find_website_contacts">Copy</button></div>
   <p>Emails, phones and social profiles from websites</p>
   <div class="prices"><span class="pchip"><b>$2 per 1,000</b> website with contacts</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/contact-details" rel="noopener">Runs Website Email Finder &amp; Contact Details Scraper →</a>
+  <a class="mactor" href="/tools/contact-details/">Runs Website Email Finder &amp; Contact Details Scraper →</a>
 </article>
 <article class="card mtool" data-tool data-cat="commerce">
   <div class="mtool-top"><code class="mname">search_<wbr>german_<wbr>property_<wbr>listings</code><button class="copy mini" type="button" data-copy="search_german_property_listings" aria-label="Copy search_german_property_listings">Copy</button></div>
   <p>Rent and buy listings in Germany and Austria</p>
   <div class="prices"><span class="pchip"><b>$1 per 1,000</b> listing</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/immobilienscout24-scraper" rel="noopener">Runs ImmobilienScout24 Scraper →</a>
+  <a class="mactor" href="/tools/immobilienscout24-scraper/">Runs ImmobilienScout24 Scraper →</a>
 </article>
 <article class="card mtool" data-tool data-cat="commerce">
   <div class="mtool-top"><code class="mname">get_<wbr>shopify_<wbr>products</code><button class="copy mini" type="button" data-copy="get_shopify_products" aria-label="Copy get_shopify_products">Copy</button></div>
   <p>Prices, stock and variants from Shopify stores</p>
   <div class="prices"><span class="pchip"><b>$1 per 1,000</b> product</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/shopify-products" rel="noopener">Runs Shopify Products Scraper →</a>
+  <a class="mactor" href="/tools/shopify-products/">Runs Shopify Products Scraper →</a>
 </article>
 <article class="card mtool" data-tool data-cat="leads">
   <div class="mtool-top"><code class="mname">analyze_<wbr>shopify_<wbr>stores</code><button class="copy mini" type="button" data-copy="analyze_shopify_stores" aria-label="Copy analyze_shopify_stores">Copy</button></div>
   <p>Shopify store location, catalog and contacts</p>
   <div class="prices"><span class="pchip"><b>$4 per 1,000</b> store analyzed</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/shopify-store-analyzer" rel="noopener">Runs Shopify Store Analyzer — Contacts, Location &amp; Catalog →</a>
+  <a class="mactor" href="/tools/shopify-store-analyzer/">Runs Shopify Store Analyzer — Contacts, Location &amp; Catalog →</a>
 </article>
 <article class="card mtool" data-tool data-cat="leads">
   <div class="mtool-top"><code class="mname">get_<wbr>trade_<wbr>show_<wbr>exhibitors</code><button class="copy mini" type="button" data-copy="get_trade_show_exhibitors" aria-label="Copy get_trade_show_exhibitors">Copy</button></div>
   <p>Trade-show exhibitors with booths and contacts (91 shows or any supported link)</p>
   <div class="prices"><span class="pchip"><b>$2 per 1,000</b> result</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/exhibition-scraper" rel="noopener">Runs Trade Show Exhibitor List Scraper - Emails &amp; Booths →</a>
+  <a class="mactor" href="/tools/exhibition-scraper/">Runs Trade Show Exhibitor List Scraper - Emails &amp; Booths →</a>
 </article>
 <article class="card mtool" data-tool data-cat="leads">
   <div class="mtool-top"><code class="mname">find_<wbr>events</code><button class="copy mini" type="button" data-copy="find_events" aria-label="Copy find_events">Copy</button></div>
   <p>Upcoming events from Luma, Eventbrite and Meetup with organisers and tickets</p>
   <div class="prices"><span class="pchip"><b>$1 per 1,000</b> event</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/events-scraper" rel="noopener">Runs Events Scraper - Luma, Eventbrite, Meetup →</a>
+  <a class="mactor" href="/tools/events-scraper/">Runs Events Scraper - Luma, Eventbrite, Meetup →</a>
 </article>
 <article class="card mtool" data-tool data-cat="finance">
   <div class="mtool-top"><code class="mname">get_<wbr>prediction_<wbr>markets</code><button class="copy mini" type="button" data-copy="get_prediction_markets" aria-label="Copy get_prediction_markets">Copy</button></div>
   <p>Kalshi, Polymarket, Manifold and PredictIt odds: probability, change, volume, result, daily history</p>
   <div class="prices"><span class="pchip"><b>$3 per 1,000</b> market</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/prediction-markets" rel="noopener">Runs Prediction Markets — Kalshi, Polymarket &amp; PredictIt Odds →</a>
+  <a class="mactor" href="/tools/prediction-markets/">Runs Prediction Markets — Kalshi, Polymarket &amp; PredictIt Odds →</a>
 </article>
 <article class="card mtool" data-tool data-cat="sports">
   <div class="mtool-top"><code class="mname">get_<wbr>sports_<wbr>data</code><button class="copy mini" type="button" data-copy="get_sports_data" aria-label="Copy get_sports_data">Copy</button></div>
   <p>Scores, box scores, betting lines, standings and rosters for 24 leagues</p>
   <div class="prices"><span class="pchip"><b>$3 per 1,000</b> game, standing, team or player</span><span class="xchip" title="One player's stat line from one game (box scores only).">+ Box-score player line <b>$1 per 1,000</b></span></div>
-  <a class="mactor" href="https://apify.com/tacps126/sports-data" rel="noopener">Runs Sports Data — NFL, NBA, MLB, NHL &amp; Football Scores →</a>
+  <a class="mactor" href="/tools/sports-data/">Runs Sports Data — NFL, NBA, MLB, NHL &amp; Football Scores →</a>
 </article>
 <article class="card mtool" data-tool data-cat="sports">
   <div class="mtool-top"><code class="mname">get_<wbr>lottery_<wbr>results</code><button class="copy mini" type="button" data-copy="get_lottery_results" aria-label="Copy get_lottery_results">Copy</button></div>
   <p>Powerball, Mega Millions and state lotto results with jackpots; hot and cold numbers</p>
   <div class="prices"><span class="pchip"><b>$3 per 1,000</b> draw or number</span></div>
-  <a class="mactor" href="https://apify.com/tacps126/lottery-results" rel="noopener">Runs Lottery Results — Powerball, Mega Millions &amp; State Lotto →</a>
+  <a class="mactor" href="/tools/lottery-results/">Runs Lottery Results — Powerball, Mega Millions &amp; State Lotto →</a>
 </article>
     </div>
     <p class="empty" id="empty">No tool matches that search.</p>
@@ -330,34 +329,34 @@
 
 <section id="try">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-num">Try asking</span><h2>Try asking</h2></div>
+    <div class="sec-head"><span class="sec-num">Try asking</span><h2>Try asking</h2></div>
     <div class="grid">
-      <div class="card reveal"><p>"Which of these companies are hiring data engineers right now? boards.greenhouse.io/stripe, jobs.lever.co/spotify"</p></div>
-      <div class="card reveal"><p>"Show the 1 and 2 star Trustpilot reviews of example.com from the last 30 days and group the complaints."</p></div>
-      <div class="card reveal"><p>"Find news from the last 7 days about open-source LLM licensing, with the real publisher links."</p></div>
-      <div class="card reveal"><p>"What does a 2-room flat in Berlin cost to rent right now? Give me the cheapest ten with coordinates."</p></div>
-      <div class="card reveal"><p>"What should a seed-stage founder build in sodium-ion batteries? Compare it with solid-state." (the <code>field-opportunity-analysis</code> prompt)</p></div>
-      <div class="card reveal"><p>"Is a drone that plants trees a new idea? Who is already working on it?" (the <code>idea-validation</code> prompt)</p></div>
+      <div class="card"><p>"Which of these companies are hiring data engineers right now? boards.greenhouse.io/stripe, jobs.lever.co/spotify"</p></div>
+      <div class="card"><p>"Show the 1 and 2 star Trustpilot reviews of example.com from the last 30 days and group the complaints."</p></div>
+      <div class="card"><p>"Find news from the last 7 days about open-source LLM licensing, with the real publisher links."</p></div>
+      <div class="card"><p>"What does a 2-room flat in Berlin cost to rent right now? Give me the cheapest ten with coordinates."</p></div>
+      <div class="card"><p>"What should a seed-stage founder build in sodium-ion batteries? Compare it with solid-state." (the <code>field-opportunity-analysis</code> prompt)</p></div>
+      <div class="card"><p>"Is a drone that plants trees a new idea? Who is already working on it?" (the <code>idea-validation</code> prompt)</p></div>
     </div>
-    <p class="reveal" style="margin-top:18px">Two ready-made prompts, <code>field-opportunity-analysis</code> and <code>idea-validation</code>, turn the research tools into an innovation analyst with the same rubric for any model. Agents that load skills can use <a href="https://github.com/tacps126/webdata-tools-mcp/tree/main/skills/innovation-analyst">skills/innovation-analyst</a>.</p>
+    <p style="margin-top:18px">Two ready-made prompts, <code>field-opportunity-analysis</code> and <code>idea-validation</code>, turn the research tools into an innovation analyst with the same rubric for any model. Agents that load skills can use <a href="https://github.com/tacps126/webdata-tools-mcp/tree/main/skills/innovation-analyst">skills/innovation-analyst</a>.</p>
   </div>
 </section>
 
 <section class="alt" id="safety">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-num">Safe by design</span><h2>Safe by design</h2></div>
+    <div class="sec-head"><span class="sec-num">Safe by design</span><h2>Safe by design</h2></div>
     <div class="grid">
-      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9a2.5 2 0 0 0-2.5-1.5c-1.4 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2A2.5 2 0 0 1 9.5 15M12 6v2M12 16v2"/></svg></div><h3>Spend cap per call</h3><p>Every call is capped at $0.50 by default (<code>WEBDATA_MAX_CHARGE_USD</code>). Apify stops the run when it is reached.</p></div>
-      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Read-only tools</h3><p>All tools only read public web data and are marked read-only, so clients can run them without extra prompts.</p></div>
-      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Short, structured results</h3><p>Results come back as text and as structured content. Long fields are shortened and one result is limited to about 60,000 characters.</p></div>
-      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div><h3>Your account, your token</h3><p>The server talks only to Apify. Your token stays in your own configuration and runs bill to your own Apify account.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9a2.5 2 0 0 0-2.5-1.5c-1.4 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2A2.5 2 0 0 1 9.5 15M12 6v2M12 16v2"/></svg></div><h3>Spend cap per call</h3><p>Every call is capped at $0.50 by default (<code>WEBDATA_MAX_CHARGE_USD</code>). Apify stops the run when it is reached.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Read-only tools</h3><p>All tools only read public web data and are marked read-only, so clients can run them without extra prompts.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Short, structured results</h3><p>Results come back as text and as structured content. Long fields are shortened and one result is limited to about 60,000 characters.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div><h3>Your account, your token</h3><p>The server talks only to Apify. Your token stays in your own configuration and runs bill to your own Apify account.</p></div>
     </div>
   </div>
 </section>
 
 <section id="faq">
   <div class="wrap" style="max-width:820px">
-    <div class="sec-head reveal"><span class="sec-num">Questions</span><h2>Questions</h2></div>
+    <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions</h2></div>
     <details><summary>What does it cost?</summary><p>The server is free and MIT licensed. Each tool bills the Apify pay-per-result price shown above to your own Apify account (about $1 to $3 per 1,000 results). Apify's free plan includes monthly credit to try it.</p></details>
     <details><summary>Where does my API token go?</summary><p>Into the environment of the server process on your machine. It is sent only to Apify's API to run the Actors. It is not logged or sent anywhere else.</p></details>
     <details><summary>Can I change the limits?</summary><p>Yes: <code>WEBDATA_MAX_CHARGE_USD</code> (spend cap per call, default 0.5) and <code>WEBDATA_TIMEOUT_SECS</code> (how long one call may run, default 150, from 30 to 300).</p></details>
@@ -369,27 +368,30 @@
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div><strong style="color:var(--text)">Tapaswai Choudhary (tacps126)</strong><br>Web data tools for jobs, news, reviews and leads.<br><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a></div>
+      <div><strong style="color:var(--text)">Tapaswai Choudhary (tacps126)</strong><br>Web data tools for jobs, leads, research, markets and public records.<br><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a></div>
       <ul>
-        <li><a href="https://apify.com/tacps126">Tools on Apify</a></li>
-        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="/tools/">All tools</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
+        <li><a href="/#compose">Chain tools</a></li>
         <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/about.html">About</a></li>
-        <li><a href="/leads/">Trade show exhibitor lists</a></li>
-        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
       </ul>
       <ul>
+        <li><a href="https://apify.com/tacps126">Tools on Apify</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
         <li><a href="https://github.com/tacps126/webdata-tools-mcp">GitHub</a></li>
         <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
         <li><a href="https://smithery.ai/servers/tacps126/webdata-tools-mcp">Smithery</a></li>
         <li><a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp">Glama</a></li>
-        <li><a href="https://mcprush.com/to/webdata-tools-mcp?ref=badge">MCPRush</a></li>
       </ul>
     </div>
     <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
   </div>
 </footer>
-<script src="/app.js?v=4ae6fde4b2" defer></script>
+<script src="/app.js?v=7f179ef30b" defer></script>
+
 </body>
 </html>

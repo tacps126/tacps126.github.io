@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node --check build.mjs && node --check app.js
+      - run: node --check build.mjs && node --check app.js && node --check tool.js
       - name: Header names the owner
         run: grep -q "Tapaswai Choudhary (tacps126)" index.html
       - name: No keys or tokens in the published files
