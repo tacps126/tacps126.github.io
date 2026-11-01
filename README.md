@@ -31,10 +31,15 @@ run it now from the Actions tab ("Refresh from Apify" → Run workflow). Edit th
 - `search.json` feeds the "What data do you need?" box, the ⌘K palette and the tools index. Matching
   runs in the browser (`SYN` words and option matching in `app.js`); there is no server.
 - The coverage map shades countries by how many tools read local sources (`WORLD`, `EU27` and the
-  per-tool country lists in `build.mjs`). `data/world.json` comes from `node scripts/make-map.mjs`
-  (Natural Earth, public domain); rerun only to change the projection or detail.
-- Tool icons are cached as 72px thumbnails in `icons/` by `scripts/thumbs.py` (needs Pillow); the build
-  runs it when a tool's Store icon changes.
+  per-tool country lists in `build.mjs`); clicking a country opens a close-up with state and province
+  lines. `data/world.json` and `data/geo/<CC>.json` come from `node scripts/make-map.mjs` (Natural Earth
+  1:10m, public domain, in India's official point of view); rerun only to change the outlines.
+- Tool icons are the Store's own images, so they follow icon changes; `scripts/thumbs.py` (needs Pillow)
+  keeps 72px copies in `icons/` as the fallback when a Store image does not load.
+- SEO per tool page: the Store's SEO title and description, the README as a guide, a visible FAQ
+  (README questions plus facts from the listing) with FAQPage data, breadcrumbs, and a social image
+  `og/<name>.jpg` drawn by `scripts/og_tools.py` (needs Pillow; redrawn only when its inputs change).
+  Topic pages `/tools/<topic>/` list each topic's tools for search engines and people.
 
 `style.css`, `app.js` and `tool.js` are hand-written. Preview locally with `python3 -m http.server 8765` and
 open <http://localhost:8765>.

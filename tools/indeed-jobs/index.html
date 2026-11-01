@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Indeed Jobs Scraper - Tapaswai Choudhary (tacps126)</title>
-<meta name="description" content="Scrape Indeed job listings by keyword and location in 9 countries: title, company, location, full description (no login), salary, job type, benefits, skills, rating and apply link, in a clean standardized format. Filters, wide search and new-job monitoring. $3 per 1,000.">
+<title>Indeed Jobs Scraper — Salary, Benefits &amp; Skills, 9 Countries</title>
+<meta name="description" content="Scrape Indeed jobs by keyword and location in 9 countries (US, UK, CA, AU, DE, FR…): title, company, salary, job type, benefits, skills, rating, apply link. Filters, alerts. $3 per 1,000.">
 <link rel="canonical" href="https://tacps126.github.io/tools/indeed-jobs/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
@@ -14,19 +15,25 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tacps126">
-<meta property="og:title" content="Indeed Jobs Scraper - Tapaswai Choudhary (tacps126)">
-<meta property="og:description" content="Scrape Indeed job listings by keyword and location in 9 countries: title, company, location, full description (no login), salary, job type, benefits, skills, rating and apply link, in a clean standardized format. Filters, wide search and new-job monitoring. $3 per 1,000.">
+<meta property="og:title" content="Indeed Jobs Scraper — Salary, Benefits &amp; Skills, 9 Countries">
+<meta property="og:description" content="Scrape Indeed jobs by keyword and location in 9 countries (US, UK, CA, AU, DE, FR…): title, company, salary, job type, benefits, skills, rating, apply link. Filters, alerts. $3 per 1,000.">
 <meta property="og:url" content="https://tacps126.github.io/tools/indeed-jobs/">
-<meta property="og:image" content="https://tacps126.github.io/og.png?v=997eb83235">
+<meta property="og:image" content="https://tacps126.github.io/og/indeed-jobs.jpg?v=ed81fd9f4a">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="tacps126: clean web data for jobs, news, reviews and leads">
+<meta property="og:image:alt" content="Indeed Jobs Scraper: Scrape Indeed job listings by keyword and location in 9 countries: title, company, location, full description (no…">
+<meta property="og:updated_time" content="2026-10-30">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://tacps126.github.io/og.png?v=997eb83235">
+<meta name="twitter:title" content="Indeed Jobs Scraper — Salary, Benefits &amp; Skills, 9 Countries">
+<meta name="twitter:description" content="Scrape Indeed jobs by keyword and location in 9 countries (US, UK, CA, AU, DE, FR…): title, company, salary, job type, benefits, skills, rating, apply link. Filters, alerts. $3 per 1,000.">
+<meta name="twitter:image" content="https://tacps126.github.io/og/indeed-jobs.jpg?v=ed81fd9f4a">
 <link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/style.css?v=a3d4787ffe">
+<link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
+<link rel="stylesheet" href="/style.css?v=a53951fda0">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Indeed Jobs Scraper","applicationCategory":"BusinessApplication","operatingSystem":"Web (Apify)","url":"https://tacps126.github.io/tools/indeed-jobs/","description":"Scrape Indeed job listings by keyword and location in 9 countries: title, company, location, full description (no login), salary, job type, benefits, skills, rating and apply link, in a clean standardized format. Filters, wide search and new-job monitoring.","author":{"@type":"Person","name":"Tapaswai Choudhary"},"offers":{"@type":"Offer","price":"0.003","priceCurrency":"USD","description":"per job"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Indeed Jobs Scraper","alternateName":"indeed-jobs","applicationCategory":"DeveloperApplication","applicationSubCategory":"Jobs and hiring","operatingSystem":"Web, API (Apify)","url":"https://tacps126.github.io/tools/indeed-jobs/","sameAs":"https://apify.com/tacps126/indeed-jobs","installUrl":"https://apify.com/tacps126/indeed-jobs","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-yPwJmdTNyxXSIJIFY-49gPTSCtyf-indeed-jobs.png","screenshot":"https://tacps126.github.io/og/indeed-jobs.jpg?v=ed81fd9f4a","description":"Scrape Indeed job listings by keyword and location in 9 countries: title, company, location, full description (no login), salary, job type, benefits, skills, rating and apply link, in a clean standardized format. Filters, wide search and new-job monitoring.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-10-30","offers":{"@type":"Offer","price":"0.003","priceCurrency":"USD","url":"https://apify.com/tacps126/indeed-jobs","description":"$3 per 1,000, pay per job"},"featureList":["title / company: Job title and employer","location, city, region, postalCode, country, countryCode: Where the job is","workMode: remote or hybrid when the posting says so","employmentType, jobTypes: Full-time, part-time, contract, internship…","salary: {min, max, currency, period, annualMin, annualMax} when listed","salaryText: The pay exactly as Indeed shows it","benefits, schedules: E.g. health insurance, 401(k), paid time off; Monday to Friday, on call","skills: Skills and requirements Indeed tagged on the posting","summary: The short description shown in search results","description: The full job description (with Full descriptions on)","seniority, jobFunction: Derived from the title","companyRating, companyReviewCount, companyLogo, companyUrl: Employer details on Indeed"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"Jobs and hiring","item":"https://tacps126.github.io/tools/jobs/"},{"@type":"ListItem","position":4,"name":"Indeed Jobs Scraper","item":"https://tacps126.github.io/tools/indeed-jobs/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do some searches take longer?","acceptedAnswer":{"@type":"Answer","text":"Every search opens Indeed in a real browser. When Indeed shows a security check, the search is retried on a fresh connection, which adds a few seconds."}},{"@type":"Question","name":"Which countries are supported?","acceptedAnswer":{"@type":"Answer","text":"US, UK, Canada, Australia, Ireland, Germany, France, Netherlands and Singapore."}},{"@type":"Question","name":"Is it legal?","acceptedAnswer":{"@type":"Answer","text":"The Actor collects publicly listed job ads. You're responsible for how you use the data, including any personal data, under the laws that apply to you."}},{"@type":"Question","name":"How much does Indeed Jobs Scraper cost?","acceptedAnswer":{"@type":"Answer","text":"$3 per 1,000, charged only for jobs returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"What does Indeed Jobs Scraper return?","acceptedAnswer":{"@type":"Answer","text":"Every row has the same fields, including title / company, location, city, region, postalCode, country, countryCode, workMode, employmentType, jobTypes, salary, salaryText, benefits, schedules, skills. Download as JSON, CSV, Excel or XML."}},{"@type":"Question","name":"Can an AI agent use it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as search_indeed_jobs."}},{"@type":"Question","name":"Can it run on a schedule and return only new results?","acceptedAnswer":{"@type":"Answer","text":"Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input."}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -50,9 +57,9 @@
 
 <section class="tool-hero">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/?cat=jobs">Jobs and hiring</a></nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/jobs/">Jobs and hiring</a></nav>
     <div class="th">
-      <img class="th-ico" src="/icons/indeed-jobs.png" alt="" width="64" height="64">
+      <img class="th-ico" src="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-yPwJmdTNyxXSIJIFY-49gPTSCtyf-indeed-jobs.png" alt="" width="64" height="64" decoding="async" onerror="this.onerror=null;this.src='/icons/indeed-jobs.png'">
       <div>
         <h1>Indeed Jobs Scraper</h1>
         <p class="lead">Scrape Indeed job listings by keyword and location in 9 countries: title, company, location, full description (no login), salary, job type, benefits, skills, rating and apply link, in a clean standardized format. Filters, wide search and new-job monitoring.</p>
@@ -214,6 +221,50 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
     <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
   </div>
 </section>
+
+<section id="guide" data-label="Guide">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Guide</span><h2>How Indeed Jobs Scraper works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
+    <article class="post guide" id="guide-body"><p>Get job listings from <strong>Indeed</strong> by keyword and location in 9 countries as a clean, spreadsheet-ready dataset. Each job includes the title, company, location (city, state, postcode, country), the <strong>full job description</strong> (no Indeed login needed), <strong>salary range with the yearly equivalent</strong>, job type, work mode (remote / hybrid), benefits, schedule, the skills Indeed tagged, the company's rating and the link to the job. Export to JSON, CSV or Excel, send to Google Sheets or Slack, or call it as an API.</p>
+<p><strong>Built for</strong> recruiters and staffing agencies sourcing openings, job boards and aggregators, sales teams looking for companies that are hiring, analysts tracking salaries and demand, and job seekers who want new postings delivered to them.</p>
+<h3 id="g-why-this-scraper">Why this scraper</h3>
+<ul><li><strong>Full descriptions without a login.</strong> Turn on <em>Full descriptions</em> and each job comes with its complete description, the way Indeed's own job panel shows it — most Indeed scrapers return only the search snippet or ask for your cookies.</li><li><strong>Rich, standardized records.</strong> Salaries are parsed into min/max/currency/period with a yearly equivalent. Work mode, employment type, seniority and job function are filled in the same way as in our other job scrapers (Greenhouse, Lever, Workday, LinkedIn…), so you can combine sources in one table.</li><li><strong>Wide search for more jobs.</strong> Turn on <em>Wide search</em> and each query + location is searched from several angles (newest, most relevant, last 24 hours, last 3 days, full-time, contract, part-time). In our tests that gave about <strong>3× more distinct jobs</strong> for the same search.</li><li><strong>9 country sites.</strong> United States, United Kingdom, Canada, Australia, Ireland, Germany, France, Netherlands and Singapore.</li><li><strong>New-job monitoring.</strong> Schedule it with <em>Only new jobs</em> and each run returns only postings you haven't received yet, so you pay only for new ones.</li><li><strong>Changes only.</strong> Turn on <em>Changes only</em> and schedule it: each run returns only new jobs and jobs whose salary, location or title changed (with old and new values). Unchanged jobs are skipped and not charged.</li><li><strong>Filters applied for you.</strong> Title keywords, location, work mode, employment type, seniority, job function, minimum salary, &quot;with salary only&quot;, excluded companies. Filtered-out jobs are never charged.</li><li><strong>No account needed.</strong> Nothing to log in to, nothing to configure beyond your search.</li><li><strong>Resilient.</strong> If Indeed shows a security check, the search is retried on a fresh connection — but only when that has been working, so a blocked day doesn't burn your budget. Results are saved as each search finishes, and a moved run resumes without charging twice.</li></ul>
+<h3 id="g-how-to-use-it">How to use it</h3>
+<ol><li>Add <strong>Search queries</strong> (e.g. <code>registered nurse</code>, <code>data analyst</code>) and <strong>Locations</strong> (e.g. <code>Chicago, IL</code>, <code>Remote</code>).</li><li>Pick the <strong>Indeed country site</strong> and, optionally, <strong>Posted within</strong>, <strong>Job type</strong> and <strong>Sort by</strong>.</li><li>For more results per search, turn on <strong>Wide search</strong>.</li><li>Press <strong>Start</strong>. Download results from the <strong>Output</strong> tab, or connect an integration.</li></ol>
+<h4 id="g-example-input">Example input</h4>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{
+  &quot;queries&quot;: [&quot;registered nurse&quot;, &quot;software engineer&quot;],
+  &quot;locations&quot;: [&quot;Chicago, IL&quot;, &quot;Austin, TX&quot;],
+  &quot;country&quot;: &quot;us&quot;,
+  &quot;datePosted&quot;: &quot;7&quot;,
+  &quot;wideSearch&quot;: true,
+  &quot;maxItems&quot;: 500
+}</pre></div>
+<h3 id="g-using-your-own-sign-in-optional">Using your own sign-in (optional)</h3>
+<p>You do not need this. A normal run needs no account: it reads the first results page of every search, and with <strong>Full descriptions</strong> on, every job's description. Paste your own sign-in only if you want <strong>more result pages per search</strong> (set <strong>Pages per search</strong>).</p>
+<p><strong>Copy it in two minutes (Chrome, Edge or Firefox):</strong></p>
+<ol><li>Sign in to Indeed in your browser.</li><li>Press <strong>F12</strong> (Mac: <strong>Cmd+Option+I</strong>) and open the <strong>Network</strong> tab.</li><li>Reload the page (<strong>F5</strong>) and click the first request in the list.</li><li>Right-click it and choose <strong>Copy → Copy as cURL (bash)</strong> (Firefox: <strong>Copy Value → Copy as cURL</strong>).</li><li>Paste it into <strong>Your own Indeed sign-in</strong> and start the run.</li></ol>
+<p>On Safari, turn on <em>Settings → Advanced → Show features for web developers</em>, then use <em>Develop → Show Web Inspector → Network</em> and the same right-click menu.</p>
+<p>Other shapes work too: the plain <code>Cookie</code> header (<code>name=value; name2=value2</code>), the JSON export of a cookie extension, or a <code>cookies.txt</code> file. Cookies for other websites in an export are left out automatically.</p>
+<p><strong>Good to know</strong></p>
+<ul><li><strong>It is a password.</strong> Use your own account, ideally a separate one. The field is stored encrypted, never appears in your results or logs, and signing out in your browser ends that session. We never ask for your password and never sign in for you.</li><li><strong>Your account, your terms.</strong> Indeed's terms apply to your account, so use this the way you are comfortable with.</li><li><strong>It expires.</strong> Sessions last days to weeks. When one has expired, the run says so before it spends anything: copy a fresh one.</li><li><strong>Mistakes are explained, not silent.</strong> If what you pasted is a web address, empty, expired, or belongs to another site, the run stops at the start and tells you which, at no cost.</li></ul>
+<h3 id="g-how-many-jobs-per-search">How many jobs per search?</h3>
+<p>Each search returns the jobs on Indeed's first results page: about <strong>40 in the US</strong> and about <strong>15 on the other country sites</strong>. For more jobs:</p>
+<ul><li>add more <strong>locations</strong> (nearby cities, suburbs or postcodes),</li><li>add related <strong>queries</strong> (<code>RN</code>, <code>registered nurse</code>, <code>ICU nurse</code>),</li><li>turn on <strong>Wide search</strong> (about 3× more distinct jobs per query + location),</li><li>schedule the Actor with <strong>Only new jobs</strong> to build up a complete feed over time.</li></ul>
+<p>Turn on <strong>Full descriptions</strong> to add each job's complete description (read from Indeed's own job panel, no login needed). Without it you get the summary Indeed shows in search results plus the tagged skills and benefits.</p>
+<h3 id="g-pricing">Pricing</h3>
+<p>Pay per result: about <strong>$3 per 1,000 jobs</strong> (lower on higher Apify plans) plus a tiny start fee. Duplicates, filtered-out jobs and (with <em>Only new jobs</em>) already-delivered jobs are free. See the <strong>Pricing</strong> tab for exact rates, and set a maximum charge per run to cap spend.</p>
+<p>On Apify's <strong>free plan</strong> each run returns up to 100 jobs, enough to try it out. Any paid Apify plan removes the limit.</p></article>
+    <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
+  </div>
+</section>
+
+<section class="alt" id="faq" data-label="Questions">
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions about Indeed Jobs Scraper</h2></div>
+    <div class="faq"><details open><summary>Why do some searches take longer?</summary><p>Every search opens Indeed in a real browser. When Indeed shows a security check, the search is retried on a fresh connection, which adds a few seconds.</p></details><details><summary>Which countries are supported?</summary><p>US, UK, Canada, Australia, Ireland, Germany, France, Netherlands and Singapore.</p></details><details><summary>Is it legal?</summary><p>The Actor collects publicly listed job ads. You're responsible for how you use the data, including any personal data, under the laws that apply to you.</p></details><details><summary>How much does Indeed Jobs Scraper cost?</summary><p>$3 per 1,000, charged only for jobs returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>What does Indeed Jobs Scraper return?</summary><p>Every row has the same fields, including title / company, location, city, region, postalCode, country, countryCode, workMode, employmentType, jobTypes, salary, salaryText, benefits, schedules, skills. Download as JSON, CSV, Excel or XML.</p></details><details><summary>Can an AI agent use it?</summary><p>Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as <code>search_indeed_jobs</code>.</p></details><details><summary>Can it run on a schedule and return only new results?</summary><p>Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input.</p></details></div>
+  </div>
+</section>
 <section id="pairs" data-label="Pairs well">
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2></div>
@@ -252,7 +303,7 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
     <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
   </div>
 </footer>
-<script src="/app.js?v=7f179ef30b" defer></script>
+<script src="/app.js?v=d004b66e63" defer></script>
 <script src="/tool.js?v=a64914dde6" defer></script>
 </body>
 </html>

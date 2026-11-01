@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alerts Radar — Weather &amp; Disaster Warnings - Tapaswai Choudhary (tacps126)</title>
-<meta name="description" content="Official weather and disaster warnings in one schema: US National Weather Service, MeteoAlarm (38 European countries), India NDMA, Brazil INMET, GDACS and USGS. Floods, storms, heat, drought, earthquakes; severity and area filters, only-new alerts. $2 per 1,000.">
+<title>Weather &amp; Disaster Alerts API: NWS, MeteoAlarm, India</title>
+<meta name="description" content="Official weather and disaster warnings from the US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS and USGS in one schema. Severity, hazard and area filters, only-new alerts.">
 <link rel="canonical" href="https://tacps126.github.io/tools/alerts-radar/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
@@ -14,19 +15,25 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tacps126">
-<meta property="og:title" content="Alerts Radar — Weather &amp; Disaster Warnings - Tapaswai Choudhary (tacps126)">
-<meta property="og:description" content="Official weather and disaster warnings in one schema: US National Weather Service, MeteoAlarm (38 European countries), India NDMA, Brazil INMET, GDACS and USGS. Floods, storms, heat, drought, earthquakes; severity and area filters, only-new alerts. $2 per 1,000.">
+<meta property="og:title" content="Weather &amp; Disaster Alerts API: NWS, MeteoAlarm, India">
+<meta property="og:description" content="Official weather and disaster warnings from the US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS and USGS in one schema. Severity, hazard and area filters, only-new alerts.">
 <meta property="og:url" content="https://tacps126.github.io/tools/alerts-radar/">
-<meta property="og:image" content="https://tacps126.github.io/og.png?v=997eb83235">
+<meta property="og:image" content="https://tacps126.github.io/og/alerts-radar.jpg?v=341e5e81e4">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="tacps126: clean web data for jobs, news, reviews and leads">
+<meta property="og:image:alt" content="Alerts Radar — Weather &amp; Disaster Warnings: Official weather and disaster warnings in one schema: US National Weather Service, MeteoAlarm (38 European countries),…">
+<meta property="og:updated_time" content="2026-10-25">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://tacps126.github.io/og.png?v=997eb83235">
+<meta name="twitter:title" content="Weather &amp; Disaster Alerts API: NWS, MeteoAlarm, India">
+<meta name="twitter:description" content="Official weather and disaster warnings from the US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS and USGS in one schema. Severity, hazard and area filters, only-new alerts.">
+<meta name="twitter:image" content="https://tacps126.github.io/og/alerts-radar.jpg?v=341e5e81e4">
 <link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/style.css?v=a3d4787ffe">
+<link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
+<link rel="stylesheet" href="/style.css?v=a53951fda0">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Alerts Radar — Weather & Disaster Warnings","applicationCategory":"BusinessApplication","operatingSystem":"Web (Apify)","url":"https://tacps126.github.io/tools/alerts-radar/","description":"Official weather and disaster warnings in one schema: US National Weather Service, MeteoAlarm (38 European countries), India NDMA, Brazil INMET, GDACS and USGS. Floods, storms, heat, drought, earthquakes; severity and area filters, only-new alerts.","author":{"@type":"Person","name":"Tapaswai Choudhary"},"offers":{"@type":"Offer","price":"0.002","priceCurrency":"USD","description":"per alert"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Alerts Radar — Weather & Disaster Warnings","alternateName":"alerts-radar","applicationCategory":"DeveloperApplication","applicationSubCategory":"Government, compliance, tenders, grants, regulation and alerts","operatingSystem":"Web, API (Apify)","url":"https://tacps126.github.io/tools/alerts-radar/","sameAs":"https://apify.com/tacps126/alerts-radar","installUrl":"https://apify.com/tacps126/alerts-radar","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-IhSs3gwQ6O8pafPRu-bOS21ocNlq-alerts-radar.png","screenshot":"https://tacps126.github.io/og/alerts-radar.jpg?v=341e5e81e4","description":"Official weather and disaster warnings in one schema: US National Weather Service, MeteoAlarm (38 European countries), India NDMA, Brazil INMET, GDACS and USGS. Floods, storms, heat, drought, earthquakes; severity and area filters, only-new alerts.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-10-25","offers":{"@type":"Offer","price":"0.002","priceCurrency":"USD","url":"https://apify.com/tacps126/alerts-radar","description":"$2 per 1,000, pay per alert"},"featureList":["sentAt, onset, expires: When it was issued, when it starts and ends (UTC)","country, subdivisions, areas, point: ISO country, ISO 3166-2 states (IN-KL, US-TX), area names as published, [lat, lon] when given","event, hazard, categories: The issuing service's event name, our hazard type, CAP categories","severity, urgency, certainty: CAP values (extreme, severe, moderate, minor)","headline, description, instruction: As published (English when the service issues it)","messageType: alert, update or cancel","sender, attribution, url: Who issued it, the credit to show, the official page or CAP document"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"Government, compliance, tenders, grants, regulation and alerts","item":"https://tacps126.github.io/tools/gov/"},{"@type":"ListItem","position":4,"name":"Alerts Radar — Weather & Disaster Warnings","item":"https://tacps126.github.io/tools/alerts-radar/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does Alerts Radar cost?","acceptedAnswer":{"@type":"Answer","text":"$2 per 1,000, charged only for alerts returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"What does Alerts Radar return?","acceptedAnswer":{"@type":"Answer","text":"Every row has the same fields, including sentAt, onset, expires, country, subdivisions, areas, point, event, hazard, categories, severity, urgency, certainty, headline, description, instruction, messageType, sender, attribution, url. Download as JSON, CSV, Excel or XML."}},{"@type":"Question","name":"Can an AI agent use it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as get_alerts."}},{"@type":"Question","name":"Can it run on a schedule and return only new results?","acceptedAnswer":{"@type":"Answer","text":"Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input."}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -50,9 +57,9 @@
 
 <section class="tool-hero">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/?cat=gov">Government, compliance, tenders, grants, regulation and alerts</a></nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/gov/">Government, compliance, tenders, grants, regulation and alerts</a></nav>
     <div class="th">
-      <img class="th-ico" src="/icons/alerts-radar.png" alt="" width="64" height="64">
+      <img class="th-ico" src="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-IhSs3gwQ6O8pafPRu-bOS21ocNlq-alerts-radar.png" alt="" width="64" height="64" decoding="async" onerror="this.onerror=null;this.src='/icons/alerts-radar.png'">
       <div>
         <h1>Alerts Radar — Weather &amp; Disaster Warnings</h1>
         <p class="lead">Official weather and disaster warnings in one schema: US National Weather Service, MeteoAlarm (38 European countries), India NDMA, Brazil INMET, GDACS and USGS. Floods, storms, heat, drought, earthquakes; severity and area filters, only-new alerts.</p>
@@ -143,6 +150,40 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
     <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
   </div>
 </section>
+
+<section id="guide" data-label="Guide">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Guide</span><h2>How Alerts Radar works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
+    <article class="post guide" id="guide-body"><p>Official warnings from <strong>national weather and disaster services in one clean schema</strong>: floods and heavy rain, storms and cyclones, lightning, heat, cold, drought, wildfires, earthquakes, tsunamis and volcanoes. Filter by country, hazard, severity and area; schedule it and get only new alerts as a dataset, an RSS feed, a Slack message or rows in Google Sheets.</p>
+<p><strong>Built for</strong> logistics and supply-chain teams, insurers and risk analysts, agriculture and energy operators, travel and event companies, field-service and facility managers, newsrooms, and AI agents that need to know where the weather is turning dangerous.</p>
+<h3 id="g-sources">Sources</h3>
+<div class="table-wrap"><table><thead><tr><th>Region</th><th>Service</th><th>What you get</th></tr></thead><tbody><tr><td>🇺🇸 United States</td><td><strong>National Weather Service</strong></td><td>Every active watch, warning and advisory: floods, storms, heat, winter weather, fire weather, marine</td></tr><tr><td>🇪🇺 Europe (38 countries)</td><td><strong>MeteoAlarm</strong> (EUMETNET)</td><td>Awareness warnings from each national weather service, per region</td></tr><tr><td>🇮🇳 India</td><td><strong>NDMA Sachet</strong></td><td>Warnings from IMD, the Central Water Commission and state disaster authorities, in English when issued</td></tr><tr><td>🇧🇷 Brazil</td><td><strong>INMET</strong></td><td>Storm, heavy-rain, heat, low-humidity and frost warnings with affected regions</td></tr><tr><td>🌍 Worldwide</td><td><strong>GDACS</strong> (UN OCHA, European Commission)</td><td>Tropical cyclones, floods, droughts, earthquakes, volcanoes and wildfires with alert level</td></tr><tr><td>🌍 Worldwide</td><td><strong>USGS</strong></td><td>Earthquakes of magnitude 4.5 and above</td></tr></tbody></table></div>
+<p>All are official public feeds built on the Common Alerting Protocol (CAP). No logins, no keys.</p>
+<h3 id="g-why-this-actor">Why this Actor</h3>
+<ul><li><strong>One schema for every service.</strong> <code>event</code>, <code>hazard</code>, <code>severity</code>, <code>urgency</code>, <code>certainty</code>, <code>headline</code>, <code>description</code>, <code>instruction</code>, <code>areas</code>, <code>sentAt</code>, <code>onset</code>, <code>expires</code>, <code>sender</code>, <code>url</code>, plus <code>magnitude</code> and <code>point</code> for earthquakes.</li><li><strong>Hazard types across languages.</strong> &quot;Tempestade&quot;, &quot;Gewitter&quot;, &quot;Flash Flood Warning&quot; and &quot;Squally weather&quot; all land in one <code>hazard</code> value (<code>storm</code>, <code>flood</code>, <code>heat</code>, <code>cold</code>, <code>drought</code>, <code>fire</code>, <code>earthquake</code>…).</li><li><strong>Only what matters.</strong> States or provinces (pick from the list or type <code>Kerala</code>, <code>Texas</code>, <code>IN-MH</code>; misspellings get a suggestion), minimum severity (moderate by default), hazards, district or city names and keywords; expired alerts are left out.</li><li><strong>Alert feeds.</strong> Turn on <em>Only new alerts</em> and schedule it every 15 minutes or hourly: each run returns only what earlier runs didn't deliver. Follow the Standby URL with <code>&amp;format=atom</code> in any feed reader, or send results to Slack, Discord, Google Sheets or a webhook.</li><li><strong>For AI agents.</strong> Callable as an MCP tool.</li></ul>
+<h3 id="g-how-to-use-it">How to use it</h3>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{
+  &quot;states&quot;: [&quot;Kerala&quot;, &quot;Tamil Nadu&quot;],
+  &quot;hazards&quot;: [&quot;rain&quot;, &quot;flood&quot;, &quot;storm&quot;],
+  &quot;minSeverity&quot;: &quot;severe&quot;,
+  &quot;onlyNew&quot;: true
+}</pre></div>
+<h3 id="g-pricing">Pricing</h3>
+<p><strong>$2 per 1,000 alerts</strong> plus a small start fee per run. Alerts that don't match your filters, and (with <em>Only new alerts</em>) alerts already delivered, are free.</p>
+<h3 id="g-good-to-know">Good to know</h3>
+<p>These are copies of official warnings for monitoring and analysis, not an emergency notification service: always follow the issuing authority. When you republish alerts, show the <code>attribution</code> and the issue time and link to the source. MeteoAlarm asks redistributors to publish: &quot;Time delays between this website and the www.meteoalarm.org website are possible. For the most up-to-date awareness information as published by the participating National Meteorological and Hydrological Services, please refer to www.meteoalarm.org.&quot;</p>
+<h3 id="g-need-something-bigger">Need something bigger?</h3>
+<p>More countries, district-level coverage, rainfall and river-level data, or a private real-time setup: <strong>contact tacps126@gmail.com</strong>.</p></article>
+    <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
+  </div>
+</section>
+
+<section class="alt" id="faq" data-label="Questions">
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions about Alerts Radar</h2></div>
+    <div class="faq"><details open><summary>How much does Alerts Radar cost?</summary><p>$2 per 1,000, charged only for alerts returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>What does Alerts Radar return?</summary><p>Every row has the same fields, including sentAt, onset, expires, country, subdivisions, areas, point, event, hazard, categories, severity, urgency, certainty, headline, description, instruction, messageType, sender, attribution, url. Download as JSON, CSV, Excel or XML.</p></details><details><summary>Can an AI agent use it?</summary><p>Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as <code>get_alerts</code>.</p></details><details><summary>Can it run on a schedule and return only new results?</summary><p>Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input.</p></details></div>
+  </div>
+</section>
 <section id="pairs" data-label="Pairs well">
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2></div>
@@ -181,7 +222,7 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
     <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
   </div>
 </footer>
-<script src="/app.js?v=7f179ef30b" defer></script>
+<script src="/app.js?v=d004b66e63" defer></script>
 <script src="/tool.js?v=a64914dde6" defer></script>
 </body>
 </html>

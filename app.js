@@ -67,11 +67,19 @@
   function apply() {
     var q = (search && search.value || '').trim().toLowerCase(), shown = 0;
     cards.forEach(function (c) {
-      var ok = (cat === 'all' || c.dataset.cat === cat) && (!q || c.textContent.toLowerCase().indexOf(q) !== -1);
+      var ok = (cat === 'all' || c.dataset.cat === cat) && (!q || c.textContent.toLowerCase().indexOf(q) !== -1 || deep(c, q));
       c.hidden = !ok; if (ok) shown++;
     });
     if (empty) empty.classList.toggle('show', shown === 0);
     if (count) count.textContent = shown + (shown === 1 ? ' tool' : ' tools');
+  }
+  // Beyond the card text: each tool's README words from search.json ("epo", "cpv", "vin").
+  function deep(c, q) {
+    if (!IDX) return false;
+    var t = IDX.byName[(c.getAttribute('href') || '').split('/')[2]];
+    if (!t) return false;
+    var text = ' ' + t.w + ' ' + (t.k || '') + ' ';
+    return q.split(/\s+/).every(function (w) { return text.indexOf(' ' + w) !== -1 || SYN[w] === t.n; });
   }
   function pick(k) { cat = k; chips.forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.cat === k); }); apply(); }
   chips.forEach(function (ch) {
@@ -80,7 +88,12 @@
       if (history.replaceState) history.replaceState(null, '', ch.dataset.cat === 'all' ? location.pathname : '?cat=' + ch.dataset.cat);
     });
   });
-  if (search) search.addEventListener('input', apply);
+  if (search) {
+    search.addEventListener('input', apply);
+    search.addEventListener('focus', function () { index().then(apply); }, { once: true });
+    var qm = /[?&]q=([^&]+)/.exec(location.search);
+    if (qm) { search.value = decodeURIComponent(qm[1].replace(/\+/g, ' ')); index().then(apply); }
+  }
   if (sortSel && cards.length) {
     var grid = cards[0].parentNode, original = cards.slice();
     var sortCards = function () {
@@ -102,7 +115,8 @@
     if (IDX) return Promise.resolve(IDX);
     if (!idxWait) idxWait = fetch('/search.json').then(function (r) { return r.json(); }).then(function (j) {
       IDX = j;
-      IDX.byName = {}; j.tools.forEach(function (t) { IDX.byName[t.n] = t; t.ws = t.w.split(' '); t.tl = t.t.toLowerCase(); });
+      IDX.byName = {}; IDX.df = {};
+      j.tools.forEach(function (t) { IDX.byName[t.n] = t; t.ws = t.w.split(' '); t.tl = t.t.toLowerCase(); t.kw = t.k ? t.k.split(' ') : []; t.kw.concat(t.ws).forEach(function (w) { IDX.df[w] = (IDX.df[w] || 0) + 1; }); });
       IDX.cnames = Object.keys(j.countries).filter(function (n) { return n.length > 3 || n === 'usa' || n === 'uk'; }).sort(function (a, b) { return b.length - a.length; });
       IDX.countries.eu = 'EU'; IDX.countries.europe = 'EU'; IDX.countries['european union'] = 'EU'; IDX.countries.usa = 'US'; IDX.countries.uk = 'GB'; IDX.countries.us = 'US'; IDX.countries.america = 'US'; IDX.countries.britain = 'GB'; IDX.countries.england = 'GB';
       IDX.cnames.push('usa', 'uk', 'america', 'britain', 'england', 'european union', 'europe', 'eu');
@@ -131,7 +145,7 @@
     polymarket: 'prediction-markets', kalshi: 'prediction-markets', prediction: 'prediction-markets', election: 'prediction-markets',
     short: 'short-interest', shorted: 'short-interest', squeeze: 'short-interest', car: 'copart-auctions', cars: 'copart-auctions', salvage: 'copart-auctions', auction: 'copart-auctions', auctions: 'copart-auctions',
     bus: 'transit-timetables', train: 'transit-timetables', trains: 'transit-timetables', metro: 'transit-timetables', transit: 'transit-timetables', timetable: 'transit-timetables', departures: 'transit-timetables',
-    paper: 'research-radar', papers: 'research-radar', patent: 'research-radar', patents: 'research-radar', research: 'research-radar', arxiv: 'research-radar', pubmed: 'research-radar',
+    paper: 'research-radar', papers: 'research-radar', patent: 'research-radar', epo: 'research-radar', uspto: 'research-radar', wipo: 'research-radar', espacenet: 'research-radar', patents: 'research-radar', research: 'research-radar', arxiv: 'research-radar', pubmed: 'research-radar',
     idea: 'innovation-radar', ideas: 'innovation-radar', landscape: 'innovation-radar', salary: 'levels-fyi-salaries', salaries: 'levels-fyi-salaries', compensation: 'levels-fyi-salaries', remote: 'remote-jobs-scraper',
     youtube: 'youtube-transcripts', transcript: 'youtube-transcripts', transcripts: 'youtube-transcripts', comments: 'youtube-comments', podcast: 'podcasts', podcasts: 'podcasts',
     trial: 'clinical-trials', trials: 'clinical-trials', clinical: 'clinical-trials', cve: 'cve-feed', vulnerabilities: 'cve-feed', vulnerability: 'cve-feed',
@@ -153,6 +167,7 @@
         else if (SYN[w] && I.byName[SYN[w]] && t.n.indexOf(SYN[w].split('-')[0]) === 0) s += 2;
         if (w.length > 2 && !FILLER.test(w)) {
           if (t.ws.indexOf(w) !== -1) { s += t.tl.indexOf(w) !== -1 ? 4 : 2; usedTok[w] = usedTok[w] || 2; }
+          else if (t.kw.indexOf(w) !== -1) { s += (I.df[w] || 9) <= 2 ? 3.5 : (I.df[w] || 9) <= 4 ? 2 : 1; usedTok[w] = usedTok[w] || 2; }
           else if (w.length >= 5 && t.ws.some(function (x) { return x.indexOf(w.slice(0, 5)) === 0; })) s += 1;
         }
       });
@@ -265,12 +280,20 @@
     var q = palIn.value.trim().toLowerCase(), ws = wordsOf(q), out = [];
     var score = function (text) {
       if (!q) return 1;
-      var t = text.toLowerCase(), s = 0;
-      if (t.indexOf(q) === 0) s += 6; else if (t.indexOf(q) !== -1) s += 4;
-      ws.forEach(function (w) { if (t.indexOf(w) !== -1) s += 1.5; });
-      return ws.every(function (w) { return t.indexOf(w) !== -1; }) ? s + 1 : s >= 4 ? s : 0;
+      var t = ' ' + text.toLowerCase().replace(/[^a-z0-9]+/g, ' '), s = 0;
+      // Short words match at word starts only ("epo" is not in "repo").
+      var has = function (w) { return t.indexOf(w.length < 4 ? ' ' + w : w) !== -1; };
+      if (t.indexOf(' ' + q) === 0) s += 6; else if (has(q)) s += 4;
+      ws.forEach(function (w) { if (has(w)) s += 1.5; });
+      return ws.every(has) ? s + 1 : s >= 4 ? s : 0;
     };
-    IDX.tools.forEach(function (t) { var s = score(t.t + ' ' + t.n) * 2 + (q ? score(t.w) * 0.6 : 0); if (s > 0) out.push({ k: 'tool', s: s + Math.log(1 + t.r) * (q ? 0.15 : 1), t: t }); });
+    var kscore = function (t) {
+      if (!q) return 0;
+      var hits = ws.filter(function (w) { return SYN[w] === t.n || t.kw.indexOf(w) !== -1 || t.ws.indexOf(w) !== -1; });
+      var rare = hits.filter(function (w) { return SYN[w] === t.n || (IDX.df[w] || 9) <= 3; }).length;
+      return hits.length === ws.length ? 3 + rare * 2 + (hits.length - rare) * 0.5 : rare * 2.5;
+    };
+    IDX.tools.forEach(function (t) { var s = score(t.t + ' ' + t.n) * 2 + (q ? score(t.w) * 0.6 : 0) + kscore(t); if (s > 0) out.push({ k: 'tool', s: s + Math.log(1 + t.r) * (q ? 0.15 : 1), t: t }); });
     IDX.tools.forEach(function (t) { t.m.forEach(function (m) { var s = q ? score(m.replace(/_/g, ' ')) : 0; if (s > 2) out.push({ k: 'mcp', s: s, t: t, m: m }); }); });
     IDX.pages.forEach(function (p) { var s = score(p[0]); if (s > 0) out.push({ k: 'page', s: q ? s + 1 : 0.5, p: p }); });
     IDX.posts.forEach(function (p) { var s = q ? score(p[0]) : 0; if (s > 2) out.push({ k: 'post', s: s, p: p }); });
@@ -305,28 +328,70 @@
   });
   if (!/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) $$('kbd').forEach(function (k) { if (k.textContent === '⌘K') k.textContent = 'Ctrl K'; });
 
-  // ---- coverage map: hover, focus or tap a country
+  // ---- tool page guide: fold long READMEs, one click opens the rest
+  var guideBody = document.getElementById('guide-body'), guideMore = $('.guide-more');
+  if (guideBody && guideMore && guideBody.scrollHeight > 960 && location.hash.indexOf('#g-') !== 0) {
+    guideBody.classList.add('folded'); guideMore.hidden = false;
+    guideMore.addEventListener('click', function () { guideBody.classList.remove('folded'); guideMore.hidden = true; });
+  }
+
+  // ---- coverage map: hover or focus a country for its tools; click, tap or Enter pins it and
+  // opens a close-up with state and province lines (data/geo/<CC>.json, loaded on demand).
   var cov = document.getElementById('cov-data'), mapPanel = document.getElementById('map-panel');
   if (cov && mapPanel) {
     var C = JSON.parse(cov.textContent), defaultPanel = mapPanel.innerHTML, svg = $('.world'), pinned = null;
-    var show = function (c) {
-      var ns = C.tools[c];
-      if (!ns) return;
+    var mapBox = svg.parentNode, zoom = document.createElement('div'), geo = {};
+    zoom.className = 'map-zoom'; zoom.hidden = true; mapBox.appendChild(zoom);
+    var mark = function (c) {
       $$('[data-c].on', svg).forEach(function (p) { p.classList.remove('on'); });
-      $$('[data-c="' + c + '"]', svg).forEach(function (p) { p.classList.add('on'); });
+      if (c) $$('[data-c="' + c + '"]', svg).forEach(function (p) { p.classList.add('on'); });
+    };
+    var reset = function () { pinned = null; mark(null); zoom.hidden = true; mapPanel.innerHTML = defaultPanel; wireGoto(); };
+    var show = function (c) {
+      var ns = C.tools[c] || [];
+      if (!ns.length && !pinned) return;
+      mark(c);
       var by = {};
       ns.forEach(function (n) { var m = C.meta[n]; (by[m[1]] = by[m[1]] || []).push('<a href="/tools/' + n + '/">' + h(m[0]) + '</a>'); });
-      mapPanel.innerHTML = '<p class="t-kick">' + ns.length + ' tool' + (ns.length === 1 ? '' : 's') + ' with local sources</p><h3>' + h(C.names[c]) + '</h3>' +
-        Object.keys(by).map(function (k) { return '<div class="mp-group"><span class="tag" data-k="' + k + '">' + h(C.cats[k] || k) + '</span>' + by[k].join('') + '</div>'; }).join('') +
+      mapPanel.innerHTML = '<p class="t-kick">' + (ns.length ? ns.length + ' tool' + (ns.length === 1 ? '' : 's') + ' with local sources' : 'No local sources yet') + '</p><h3>' + h(C.names[c] || c) + '</h3>' +
+        (ns.length ? Object.keys(by).map(function (k) { return '<div class="mp-group"><span class="tag" data-k="' + k + '">' + h(C.cats[k] || k) + '</span>' + by[k].join('') + '</div>'; }).join('')
+          : '<p class="muted small">The worldwide tools (jobs, news, reviews, events, research) still cover it. <a href="mailto:tacps126@gmail.com?subject=' + encodeURIComponent('Data source request: ' + (C.names[c] || c)) + '">Ask for a local source</a>.</p>') +
         '<button type="button" class="btn small ghost" id="map-back">All countries</button>';
-      $('#map-back', mapPanel).addEventListener('click', function () { pinned = null; $$('[data-c].on', svg).forEach(function (p) { p.classList.remove('on'); }); mapPanel.innerHTML = defaultPanel; wireGoto(); });
+      $('#map-back', mapPanel).addEventListener('click', reset);
     };
-    var wireGoto = function () { $$('[data-goto]', mapPanel).forEach(function (b) { b.addEventListener('click', function () { pinned = b.dataset.goto; show(pinned); }); }); };
+    var drawZoom = function (c, g) {
+      var vb = '0 0 ' + g.w * g.s + ' ' + g.h * g.s, id = 'mz-' + c;
+      zoom.innerHTML = '<div class="mz-head"><strong>' + h(C.names[c] || c) + '</strong><span class="mz-name" aria-live="polite"></span>' +
+        '<button type="button" class="mz-x" aria-label="Close the close-up">×</button></div>' +
+        '<svg viewBox="' + vb + '" role="img" aria-label="' + h(C.names[c] || c) + (g.p.length ? ' with ' + g.p.length + ' states and provinces' : '') + '">' +
+        '<defs><clipPath id="' + id + '"><path d="' + g.o + '"/></clipPath></defs>' +
+        '<path class="mz-land' + ((C.tools[c] || []).length ? ' has' : '') + '" d="' + g.o + '"/>' +
+        '<g clip-path="url(#' + id + ')">' + g.p.map(function (p) { return '<path class="mz-st" d="' + p[1] + '" data-n="' + h(p[0]) + '"><title>' + h(p[0]) + '</title></path>'; }).join('') + '</g>' +
+        '<path class="mz-edge" d="' + g.o + '"/></svg>' +
+        (g.p.length ? '<p class="mz-foot">' + g.p.length + ' states and provinces · hover or tap one</p>' : '');
+      zoom.hidden = false;
+      var label = $('.mz-name', zoom);
+      $('svg', zoom).addEventListener('mouseover', function (e) { var n = e.target.getAttribute('data-n'); label.textContent = n ? '· ' + n : ''; });
+      $('svg', zoom).addEventListener('click', function (e) { var n = e.target.getAttribute('data-n'); label.textContent = n ? '· ' + n : ''; });
+      $('.mz-x', zoom).addEventListener('click', reset);
+    };
+    var openZoom = function (c) {
+      if (geo[c]) return drawZoom(c, geo[c]);
+      fetch('/data/geo/' + c + '.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (g) {
+        if (!g) return;
+        geo[c] = g;
+        if (pinned === c) drawZoom(c, g);
+      }).catch(function () {});
+    };
+    var pin = function (c) { pinned = c; show(c); openZoom(c); };
+    var wireGoto = function () { $$('[data-goto]', mapPanel).forEach(function (b) { b.addEventListener('click', function () { pin(b.dataset.goto); }); }); };
     wireGoto();
-    svg.addEventListener('mouseover', function (e) { var c = e.target.getAttribute && e.target.getAttribute('data-c'); if (c && C.tools[c] && !pinned) show(c); });
-    svg.addEventListener('click', function (e) { var c = e.target.getAttribute && e.target.getAttribute('data-c'); if (c && C.tools[c]) { pinned = c; show(c); } });
-    svg.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { var c = e.target.getAttribute('data-c'); if (c) { e.preventDefault(); pinned = c; show(c); } } });
-    svg.addEventListener('focusin', function (e) { var c = e.target.getAttribute && e.target.getAttribute('data-c'); if (c) show(c); });
+    var codeAt = function (e) { return e.target.getAttribute && e.target.getAttribute('data-c'); };
+    svg.addEventListener('mouseover', function (e) { var c = codeAt(e); if (c && C.tools[c] && !pinned) show(c); });
+    svg.addEventListener('click', function (e) { var c = codeAt(e); if (c) pin(c); });
+    svg.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { var c = codeAt(e); if (c) { e.preventDefault(); pin(c); } } });
+    svg.addEventListener('focusin', function (e) { var c = codeAt(e); if (c && !pinned) show(c); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !zoom.hidden) reset(); });
   }
 
   // ---- composer: chain tools, get one script

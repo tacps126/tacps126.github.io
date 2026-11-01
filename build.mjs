@@ -259,7 +259,7 @@ function decorate(body) {
   }).join('<section');
 }
 
-const page = ({ path, title, description, body, active, jsonld, scripts = [] }) => `<!doctype html>
+const page = ({ path, title, description, body, active, jsonld, scripts = [], og = OG, ogAlt = 'tacps126: clean web data for jobs, news, reviews and leads', modified }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -267,6 +267,7 @@ const page = ({ path, title, description, body, active, jsonld, scripts = [] }) 
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${SITE}${path}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
@@ -278,16 +279,20 @@ const page = ({ path, title, description, body, active, jsonld, scripts = [] }) 
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${SITE}${path}">
-<meta property="og:image" content="${OG}">
+<meta property="og:image" content="${og}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="tacps126: clean web data for jobs, news, reviews and leads">
+<meta property="og:image:alt" content="${esc(ogAlt)}">${modified ? `
+<meta property="og:updated_time" content="${modified}">` : ''}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="${OG}">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(description)}">
+<meta name="twitter:image" content="${og}">
 <link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
 <link rel="stylesheet" href="${CSS}">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<script type="application/ld+json">${JSON.stringify(jsonld)}</script>
+${(Array.isArray(jsonld) ? jsonld : [jsonld]).filter(Boolean).map((j) => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head>
 <body>
 ${header(active)}
@@ -367,12 +372,16 @@ const sentence = (phrases) => {
   const t = phrases.length > 1 ? `${phrases.slice(0, -1).join('; ')}; and ${phrases.at(-1)}` : phrases[0];
   return `${t[0].toUpperCase()}${t.slice(1)}.`;
 };
+const useText = Object.fromEntries(USES.map(([k, , title, text]) => {
+  const body = Array.isArray(text) ? text.filter(([n]) => byName.has(n)).map(([, p]) => p) : [text];
+  return [k, [title, body.length ? (Array.isArray(text) ? sentence(body) : body[0]) : '']];
+}));
 const useCards = USES.map(([k, icon, title, text]) => {
   if (!liveCats.has(k)) return '';
   const body = Array.isArray(text) ? text.filter(([n]) => byName.has(n)).map(([, p]) => p) : [text];
   if (!body.length) return '';
   const n = CATS.find(([c]) => c === k)[2].length;
-  return `      <a class="card topic" href="/tools/?cat=${k}" data-k="${k}">${ico(icon)}<h3>${title}</h3><p>${Array.isArray(text) ? sentence(body) : body[0]}</p><span class="more">${n} tool${n === 1 ? '' : 's'} →</span></a>`;
+  return `      <a class="card topic" href="/tools/${k}/" data-k="${k}">${ico(icon)}<h3>${title}</h3><p>${Array.isArray(text) ? sentence(body) : body[0]}</p><span class="more">${n} tool${n === 1 ? '' : 's'} →</span></a>`;
 }).filter(Boolean).join('\n');
 
 // Price range from the Store (main event, free-plan tier, per 1,000), so the
@@ -1039,22 +1048,85 @@ const CHAINS = [
   ['trustpilot-reviews', 'contact-details', 'company websites', 'startUrls', 'r.get("websiteUrl")', { includeCompanyDetails: true }],
 ].filter(([a, b]) => byName.has(a) && byName.has(b));
 
-// Icons: small local copies (scripts/thumbs.py, needs Pillow), else the Store's own image.
+// Icons: the Store's own image (it changes when the Actor's icon does), with a small local copy
+// (scripts/thumbs.py, needs Pillow) as the fallback when the Store image does not load.
 const remoteIcons = allTools.map(({ a }) => [a.name, DETAIL.get(a.name)?.act?.pictureUrl]).filter(([, u]) => u);
 if (!PREVIEW) {
   writeFileSync(new URL('./data/icons.json', import.meta.url), JSON.stringify(remoteIcons));
   const th = spawnSync('python3', ['scripts/thumbs.py', 'data/icons.json'], { cwd: new URL('.', import.meta.url), stdio: 'inherit' });
   if (th.status !== 0) console.warn('icons not resized (python3 with Pillow needed); using the Store images');
 }
-const iconOf = (name) => (existsSync(new URL(`./icons/${name}.png`, import.meta.url)) ? `/icons/${name}.png` : DETAIL.get(name)?.act?.pictureUrl);
+const localIcon = (name) => (existsSync(new URL(`./icons/${name}.png`, import.meta.url)) ? `/icons/${name}.png` : '');
+const iconOf = (name) => DETAIL.get(name)?.act?.pictureUrl || localIcon(name);
+const iconImg = (name, size, cls = '', lazy = true) => {
+  const src = iconOf(name), fb = localIcon(name);
+  if (!src) return '';
+  const onerr = fb && fb !== src ? ` onerror="this.onerror=null;this.src='${fb}'"` : '';
+  return `<img${cls ? ` class="${cls}"` : ''} src="${esc(src)}" alt="" width="${size}" height="${size}"${lazy ? ' loading="lazy"' : ''} decoding="async"${onerr}>`;
+};
 const toolCard = (a, k) => {
-  const p = priceOf(a.description), pic = iconOf(a.name);
+  const p = priceOf(a.description);
   const num = p ? Number((p.match(/[\d.]+/) || ['0'])[0]) * (p.includes('¢') ? 10 : 1) : 999;
   return `<a class="card tool" data-tool data-cat="${k}" data-price="${num}" data-runs="${runs30Of(a)}" href="/tools/${esc(a.name)}/">
-  <div class="tool-top">${pic ? `<img src="${esc(pic)}" alt="" width="36" height="36" loading="lazy">` : ''}<h3>${esc(a.title)}${NEW.has(a.name) ? ' <span class="new">New</span>' : ''}</h3></div>
+  <div class="tool-top">${iconImg(a.name, 36)}<h3>${esc(a.title)}${NEW.has(a.name) ? ' <span class="new">New</span>' : ''}</h3></div>
   <p>${esc(short(stripPrice(a.description)))}</p>
   <div class="meta"><span class="tag" data-k="${k}">${esc(CAT_SHORT[k] || k)}</span>${p ? `<span class="price">${esc(p)}</span>` : ''}</div>
 </a>`;
+};
+
+
+// ---------------------------------------------------------------- tool page SEO
+// Each tool page carries its own search title and description (the Store's SEO fields), the
+// README as a readable guide, a visible FAQ (README questions plus facts from the listing) with
+// matching FAQPage data, breadcrumbs and its own social image (og/<name>.jpg, scripts/og_tools.py).
+const mdPlain = (t) => String(t).replace(/`([^`]+)`/g, '$1').replace(/\*\*([^*]+)\*\*/g, '$1').replace(/(^|[\s(])\*([^*\s][^*]*)\*/g, '$1$2').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\s+/g, ' ').trim();
+const README_SKIP = /^(what you get|output|results?\b|sample|support|faq|frequently|questions|changelog|feedback)/i;
+const sectionsOf = (md) => md.split(/^## /m).slice(1).map((x) => [x.slice(0, x.indexOf('\n')).trim(), x.slice(x.indexOf('\n') + 1)]);
+function guideOf(name) {
+  const md = readmeOf(name).replace(/^# .*\n/, '').replace(/^!\[[^\]]*\]\([^)]*\)\s*$/gm, '');
+  const intro = md.split(/^## /m)[0].trim();
+  const keep = sectionsOf(md).filter(([h, b]) => h && b.trim() && !README_SKIP.test(h) && !outputSections(`## ${h}\n`).length);
+  if (!keep.length && !intro) return '';
+  const demoted = [intro, ...keep.map(([h, b]) => `## ${h}\n${b.replace(/^### /gm, '#### ')}`)].join('\n\n');
+  return markdown(demoted).replace(/<h2 id="/g, '<h3 id="g-').replace(/<\/h2>/g, '</h3>').replace(/<h4 id="/g, '<h4 id="g-');
+}
+function readmeFaq(name) {
+  const sec = sectionsOf(readmeOf(name)).find(([h]) => /^(faq|frequently|questions|common questions)/i.test(h));
+  if (!sec) return [];
+  const out = [], body = sec[1];
+  for (const m of body.matchAll(/^\*\*(.+?\?)\*\*\s*(.*(?:\n(?!\s*\n|\*\*|#).+)*)/gm)) if (m[2].trim()) out.push([m[1].trim(), m[2].replace(/\n/g, ' ').trim()]);
+  for (const m of body.matchAll(/^#{3,4}\s+(.+\?)\s*\n+([^\n]+(?:\n(?!\s*\n|#).+)*)/gm)) out.push([m[1].trim(), m[2].replace(/\n/g, ' ').trim()]);
+  return out;
+}
+const shortTitle = (t) => t.split(/ [—–-] |: /)[0];
+function faqOf(a, main, fields) {
+  const name = a.name, mcp = mcpOf(name), own = readmeFaq(name), nm = shortTitle(a.title);
+  const asked = (re) => own.some(([q]) => re.test(q));
+  const gen = [];
+  if (main && !asked(/cost|price|pay/i)) gen.push([`How much does ${nm} cost?`, `${evPrice(main)}, charged only for ${main.title.toLowerCase()}s returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.`]);
+  if (!asked(/code|program|developer/i)) gen.push(['Do I need to write code?', 'No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.']);
+  if (fields.length && !asked(/field|return|output|get back/i)) gen.push([`What does ${nm} return?`, `Every row has the same fields, including ${fields.slice(0, 8).map(([f]) => mdPlain(f)).join(', ')}. Download as JSON, CSV, Excel or XML.`]);
+  if (mcp.length && !asked(/agent|mcp|claude|chatgpt/i)) gen.push(['Can an AI agent use it?', `Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as ${mcp.map((m) => `\`${m}\``).join(' and ')}.`]);
+  if (!asked(/schedul|monitor|daily|new only|only new/i) && /only.?new|onlyNew|onlyChanged|monitor/i.test(JSON.stringify(schemaOf(name).properties || {}))) gen.push(['Can it run on a schedule and return only new results?', 'Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input.']);
+  return [...own, ...gen].slice(0, 10);
+}
+const ogTools = allTools.map(({ a, k }) => {
+  const m = primaryOf(a);
+  return { n: a.name, t: a.title, d: short(stripPrice(a.description), 220), p: m ? evPrice(m) : priceOf(a.description) || '', cat: k, topic: CAT_SHORT[k] || k, icon: DETAIL.get(a.name)?.act?.pictureUrl || '', local: localIcon(a.name) ? `icons/${a.name}.png` : '' };
+});
+if (!PREVIEW) {
+  writeFileSync(new URL('./data/og-tools.json', import.meta.url), JSON.stringify(ogTools));
+  const ot = spawnSync('python3', ['scripts/og_tools.py', 'data/og-tools.json'], { cwd: new URL('.', import.meta.url), stdio: 'inherit' });
+  if (ot.status !== 0) console.warn('tool preview images not drawn (python3 with Pillow needed); tool pages use the site image');
+}
+const ogOf = (name) => {
+  const f = new URL(`./og/${name}.jpg`, import.meta.url);
+  return existsSync(f) ? `${SITE}/og/${name}.jpg?v=${createHash('sha256').update(readFileSync(f)).digest('hex').slice(0, 10)}` : OG;
+};
+const seoTitle = (a, act) => {
+  const st = scrub(act.seoTitle);
+  const t = st && st.length <= 62 ? st : a.title;
+  return t.length <= 52 ? `${t} | tacps126` : t;
 };
 
 mkdirSync(OUT('./tools/'), { recursive: true });
@@ -1067,7 +1139,7 @@ for (const { a, k } of allTools) {
   const maxKey = ['maxItems', 'maxResults', 'maxRows', 'maxJobs', 'maxReviews'].find((x) => schemaOf(name).properties?.[x]);
   const maxDef = maxKey ? (start[maxKey] ?? schemaOf(name).properties[maxKey].default ?? null) : null;
   const updated = act.taggedBuilds?.latest?.finishedAt?.slice(0, 10);
-  const pic = iconOf(name);
+  const guide = guideOf(name), faq = faqOf(a, main, fields);
   const next = CHAINS.filter((c) => c[0] === name), prev = CHAINS.filter((c) => c[1] === name);
   const peers = toolsOf(CATS.find(([c]) => c === k)[2]).filter((x) => x.name !== name).sort((x, y) => runs30Of(y) - runs30Of(x)).slice(0, 3);
   const facts = [
@@ -1080,9 +1152,9 @@ for (const { a, k } of allTools) {
   const body = `
 <section class="tool-hero">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/?cat=${k}">${esc(labelOf[k])}</a></nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/${k}/">${esc(labelOf[k])}</a></nav>
     <div class="th">
-      ${pic ? `<img class="th-ico" src="${esc(pic)}" alt="" width="64" height="64">` : ''}
+      ${iconImg(name, 64, 'th-ico', false)}
       <div>
         <h1>${esc(a.title)}</h1>
         <p class="lead">${esc(stripPrice(a.description))}</p>
@@ -1128,6 +1200,21 @@ ${sample || fields.length ? `
     <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
   </div>
 </section>` : ''}
+${guide ? `
+<section id="guide" data-label="Guide">
+  <div class="wrap">
+    <div class="sec-head"><h2>How ${esc(shortTitle(a.title))} works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
+    <article class="post guide" id="guide-body">${guide}</article>
+    <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
+  </div>
+</section>` : ''}
+${faq.length ? `
+<section class="alt" id="faq" data-label="Questions">
+  <div class="wrap narrow">
+    <div class="sec-head"><h2>Questions about ${esc(shortTitle(a.title))}</h2></div>
+    <div class="faq">${faq.map(([q, ans], i) => `<details${i ? '' : ' open'}><summary>${inline(q)}</summary><p>${inline(ans)}</p></details>`).join('')}</div>
+  </div>
+</section>` : ''}
 <section id="pairs" data-label="Pairs well">
   <div class="wrap">
     <div class="sec-head"><h2>Pairs well with</h2>${next.length || prev.length ? '<p>Tools whose rows feed this one, or that take its rows further.</p>' : ''}</div>
@@ -1141,18 +1228,65 @@ ${peers.map((t) => `      <a class="card link" href="/tools/${t.name}/"><span cl
   </div>
 </section>`;
   mkdirSync(OUT(`./tools/${name}/`), { recursive: true });
+  const url = `${SITE}/tools/${name}/`, store = `https://apify.com/${USER}/${name}`;
+  const rc = a.stats?.actorReviewCount || act.stats?.actorReviewCount || 0, rr = a.stats?.actorReviewRating || act.stats?.actorReviewRating || 0;
   writeFileSync(OUT(`./tools/${name}/index.html`), page({
     path: `/tools/${name}/`,
     active: 'tools',
-    title: `${a.title} - ${OWNER} (tacps126)`,
-    description: short(`${stripPrice(a.description)} ${main ? `${evPrice(main)}.` : ''}`, 300),
+    title: seoTitle(a, act),
+    description: short(scrub(act.seoDescription) || `${stripPrice(a.description)} ${main ? `${evPrice(main)}.` : ''}`, 300),
+    og: ogOf(name),
+    ogAlt: `${a.title}: ${short(stripPrice(a.description), 120)}`,
+    modified: updated,
     body,
     scripts: form ? [TOOL_JS] : [],
-    jsonld: {
-      '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: a.title, applicationCategory: 'BusinessApplication', operatingSystem: 'Web (Apify)',
-      url: `${SITE}/tools/${name}/`, description: stripPrice(a.description), author: { '@type': 'Person', name: OWNER },
-      ...(main ? { offers: { '@type': 'Offer', price: String(main.unit), priceCurrency: 'USD', description: `per ${main.title.toLowerCase()}` } } : {}),
-    },
+    jsonld: [
+      {
+        '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: a.title, alternateName: name, applicationCategory: 'DeveloperApplication', applicationSubCategory: labelOf[k], operatingSystem: 'Web, API (Apify)',
+        url, sameAs: store, installUrl: store, image: iconOf(name), screenshot: ogOf(name), description: stripPrice(a.description), author: { '@type': 'Person', name: OWNER, url: `${SITE}/about.html` },
+        ...(updated ? { dateModified: updated } : {}),
+        ...(main ? { offers: { '@type': 'Offer', price: String(main.unit), priceCurrency: 'USD', url: store, description: `${evPrice(main)}, pay per ${main.title.toLowerCase()}` } } : {}),
+        ...(rc > 0 && rr > 0 ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: rr.toFixed(1), reviewCount: rc, bestRating: 5 } } : {}),
+        ...(fields.length ? { featureList: fields.slice(0, 12).map(([f, dsc]) => `${mdPlain(f)}: ${mdPlain(dsc)}`) } : {}),
+      },
+      { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [['Home', `${SITE}/`], ['Tools', `${SITE}/tools/`], [labelOf[k], `${SITE}/tools/${k}/`], [a.title, url]].map(([nm, u], i) => ({ '@type': 'ListItem', position: i + 1, name: nm, item: u })) },
+      faq.length ? { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, ans]) => ({ '@type': 'Question', name: mdPlain(q), acceptedAnswer: { '@type': 'Answer', text: mdPlain(ans) } })) } : null,
+    ],
+  }));
+}
+
+// ---------------------------------------------------------------- topic pages (/tools/<topic>/)
+for (const [k, label, names] of CATS) {
+  const [, useBody] = useText[k] || [label, ''];
+  const ts = toolsOf(names).sort((x, y) => runs30Of(y) - runs30Of(x));
+  mkdirSync(OUT(`./tools/${k}/`), { recursive: true });
+  writeFileSync(OUT(`./tools/${k}/index.html`), page({
+    path: `/tools/${k}/`,
+    active: 'tools',
+    title: `${CAT_SHORT[k] || label} data tools and APIs (${ts.length}): ${label.toLowerCase()} | tacps126`.replace(/: (.{60}).*? \| /, ': $1… | '),
+    description: short(`${useBody || label}. ${ts.slice(0, 4).map((t) => t.title).join(', ')} and more, with price, input builder and sample output for each.`, 300),
+    jsonld: [
+      { '@context': 'https://schema.org', '@type': 'CollectionPage', name: label, url: `${SITE}/tools/${k}/`, description: useBody || label,
+        mainEntity: { '@type': 'ItemList', numberOfItems: ts.length, itemListElement: ts.map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/tools/${t.name}/`, name: t.title })) } },
+      { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [['Home', `${SITE}/`], ['Tools', `${SITE}/tools/`], [label, `${SITE}/tools/${k}/`]].map(([nm, u], i) => ({ '@type': 'ListItem', position: i + 1, name: nm, item: u })) },
+    ],
+    body: `
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><span>${esc(CAT_SHORT[k] || label)}</span></nav>
+    <h1>${esc(CAT_SHORT[k] || label)} data tools</h1>
+    <p class="lead">${esc(useBody || `${ts.length} tools for ${label.toLowerCase()}, each with its price, an input builder and sample output.`)}</p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>${ts.length} tool${ts.length === 1 ? '' : 's'}: ${esc(label.toLowerCase())}</h2><p>Most used first. Each page has the price, an input builder that writes the API call, and sample output.</p></div>
+    <div class="grid">
+${ts.map((t) => toolCard(t, k)).join('\n')}
+    </div>
+    <p class="note">Other topics: ${CATS.filter(([c]) => c !== k).map(([c, l]) => `<a href="/tools/${c}/">${esc(l)}</a>`).join(' · ')}</p>
+  </div>
+</section>`,
   }));
 }
 
@@ -1162,7 +1296,7 @@ const chipsFor = (prefix) => [['all', 'All', used], ...CATS.map(([k, , names]) =
 writeFileSync(OUT('./tools/index.html'), page({
   path: '/tools/',
   active: 'tools',
-  title: `All ${used} tools - ${OWNER} (tacps126)`,
+  title: `All ${used} web data tools and APIs: jobs, leads, tenders, research | tacps126`,
   description: `${used} web data tools: jobs, leads and contacts, reviews and news, research, government and compliance, health, commerce, markets, sports and transit. Price, input and output for each.`,
   jsonld: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'All tools', url: `${SITE}/tools/` },
   body: `
@@ -1170,6 +1304,7 @@ writeFileSync(OUT('./tools/index.html'), page({
   <div class="wrap">
     <h1>All ${used} tools</h1>
     <p class="lead">Each one has a page with its price, an input builder that writes the API call for you, and the fields it returns.</p>
+    <p class="topic-links">By topic: ${CATS.map(([c, l, ns]) => `<a href="/tools/${c}/">${esc(CAT_SHORT[c] || l)} <span>${ns.length}</span></a>`).join('')}</p>
   </div>
 </section>
 <section class="tight" id="tools">
@@ -1216,7 +1351,7 @@ const COVERAGE = {
 const WORLDWIDE = ['jobs-harvester', 'linkedin-jobs-scraper', 'glassdoor-jobs-scraper', 'remote-jobs-scraper', 'google-news', 'contact-details', 'exhibition-scraper', 'events-scraper', 'trustpilot-reviews', 'app-reviews', 'research-radar', 'innovation-radar', 'youtube-transcripts', 'transit-timetables', 'clinical-trials', 'cve-feed', 'sports-data', 'prediction-markets', 'shopify-products', 'podcasts']
   .filter((n) => byName.has(n));
 const WORLD = JSON.parse(readFileSync(new URL('./data/world.json', import.meta.url), 'utf8'));
-// Small countries the 1:110m outline leaves out get a dot instead: [lon, lat].
+// Small countries the simplified outline leaves out get a dot instead: [lon, lat].
 const DOTS = { SG: [103.8, 1.35], BH: [50.55, 26.07], MT: [14.4, 35.9], LU: [6.13, 49.6], LI: [9.55, 47.15], CY: [33.2, 35.0] };
 const byCountry = {};
 for (const [n, cs] of Object.entries(COVERAGE)) {
@@ -1227,11 +1362,11 @@ const covered = Object.keys(byCountry);
 const level = (c) => { const n = byCountry[c]?.length || 0; return n >= 8 ? 4 : n >= 5 ? 3 : n >= 2 ? 2 : n ? 1 : 0; };
 const mapX = ([lon, lat]) => [((lon + 180) / 360) * WORLD.w, ((84 - lat) / 142) * WORLD.h];
 const mapSvg = `<svg class="world" viewBox="0 0 ${WORLD.w} ${WORLD.h}" role="img" aria-label="World map: countries shaded by how many tools cover them">
-${Object.entries(WORLD.paths).map(([c, d]) => `<path d="${d}" data-c="${c}" class="l${level(c)}"${byCountry[c] ? ` tabindex="0" role="button" aria-label="${esc(WORLD.names[c] || c)}: ${byCountry[c].length} tools"` : ''}/>`).join('')}
+${Object.entries(WORLD.paths).map(([c, d]) => `<path d="${d}" data-c="${c}" class="l${level(c)}"${byCountry[c] ? ` tabindex="0" role="button" aria-label="${esc(WORLD.names[c] || c)}: ${byCountry[c].length} tools"` : ''}><title>${esc(WORLD.names[c] || c)}</title></path>`).join('')}
 ${Object.entries(DOTS).filter(([c]) => byCountry[c] && !WORLD.paths[c]).map(([c, ll]) => { const [x, y] = mapX(ll); return `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="5" data-c="${c}" class="l${level(c)}" tabindex="0" role="button" aria-label="${esc(WORLD.names[c] || c)}: ${byCountry[c].length} tools"/>`; }).join('')}
 </svg>`;
 const covData = {
-  names: Object.fromEntries(covered.map((c) => [c, WORLD.names[c] || c])),
+  names: Object.fromEntries([...new Set([...covered, ...Object.keys(WORLD.paths)])].map((c) => [c, WORLD.names[c] || c])),
   tools: Object.fromEntries(Object.entries(byCountry).map(([c, ns]) => [c, ns])),
   meta: Object.fromEntries([...new Set(Object.values(byCountry).flat())].map((n) => [n, [byName.get(n).title, catOf[n]]])),
   cats: CAT_SHORT,
@@ -1266,6 +1401,22 @@ const chainData = {
 const STOP = new Set(['the', 'and', 'for', 'with', 'from', 'your', 'any', 'all', 'per', 'one', 'each', 'into', 'that', 'this', 'are', 'its', 'you', 'get', 'data', 'scraper', 'tool', 'only', 'new', 'more', 'than', 'list', 'every', 'clean']);
 const wordsOf = (s) => [...new Set(String(s).toLowerCase().normalize('NFKD').replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter((w) => w.length > 2 && !STOP.has(w)))];
 const COUNTRY_FIELD = /^(country|countries|countryCode|jurisdictions)$/;
+// Distinctive words from each README (source names such as EPO, USPTO, TED; data terms), so a search
+// for a source finds the tool that reads it. Words in many READMEs (boilerplate) are left out.
+// Agency names also searched by their short forms.
+const ACRONYMS = [[/european patent office/i, 'epo espacenet'], [/patent and trademark office/i, 'uspto'], [/world intellectual property/i, 'wipo'],
+  [/securities and exchange commission/i, 'sec edgar'], [/food and drug administration/i, 'fda'], [/consumer product safety/i, 'cpsc'],
+  [/tenders electronic daily/i, 'ted'], [/office of foreign assets control/i, 'ofac'], [/national weather service/i, 'nws noaa'],
+  [/companies house/i, 'ukch'], [/government e-?marketplace/i, 'gem'], [/system for award management/i, 'sam'], [/clinicaltrials\.gov/i, 'nct'],
+  [/national provider identifier/i, 'npi'], [/common vulnerabilities/i, 'cve nvd'], [/worker adjustment and retraining/i, 'warn layoffs']];
+const withAcronyms = (txt) => txt + ' ' + ACRONYMS.filter(([re]) => re.test(txt)).map(([, a]) => a).join(' ');
+const readmeWords = new Map(allTools.map(({ a }) => [a.name, wordsOf(withAcronyms(readmeOf(a.name)).replace(/```[\s\S]*?```/g, ' ').replace(/https?:\/\/\S+/g, ' ')).filter((w) => !/^\d+$/.test(w) && w.length < 24)]));
+const docFreq = new Map();
+for (const ws of readmeWords.values()) for (const w of ws) docFreq.set(w, (docFreq.get(w) || 0) + 1);
+const keywordsOf = (name, own) => {
+  const mine = new Set(own.split(' '));
+  return (readmeWords.get(name) || []).filter((w) => !mine.has(w) && docFreq.get(w) <= 6).slice(0, 260).join(' ');
+};
 const searchIndex = {
   tools: allTools.map(({ a, k }) => {
     const n = a.name, fs = fieldsOf(schemaOf(n)), m = primaryOf(a), smp = sampleOf(n);
@@ -1279,6 +1430,7 @@ const searchIndex = {
     return {
       n, t: a.title, c: k, d: short(stripPrice(a.description), 150), r: runs30Of(a),
       p: m ? evPrice(m) : priceOf(a.description) || '', w: wordsOf(`${n.replace(/-/g, ' ')} ${a.title} ${stripPrice(a.description)}`).join(' '),
+      k: keywordsOf(n, wordsOf(`${n.replace(/-/g, ' ')} ${a.title} ${stripPrice(a.description)}`).join(' ')),
       f: textTargets(n), sf: textFields(n).map(([fk]) => fk).filter((fk) => SUBJECT.test(fk) && !/exclude/i.test(fk)), so: fieldsOf(schemaOf(n)).map(([fk]) => fk).filter((fk) => /^(sources|source|lists|portals|jurisdictions)$/.test(fk)), cf: cf ? [cf[0], kindOf(cf[1])] : null, o: opts, x: startInput(n), m: mcpOf(n),
       s: smp ? Object.entries(smp).filter(([, v]) => v !== null && typeof v !== 'object').slice(0, 4).map(([kk, v]) => [kk, short(String(v), 60)]) : [],
     };
@@ -1351,7 +1503,7 @@ ${popular.map(({ a, k }) => toolCard(a, k)).join('\n')}
 
 <section class="alt" id="coverage" data-label="Coverage">
   <div class="wrap">
-    <div class="sec-head"><h2>Where the data comes from</h2><p>Countries shade by how many tools read their official or local sources. Hover or tap one.</p></div>
+    <div class="sec-head"><h2>Where the data comes from</h2><p>Countries shade by how many tools read their official or local sources. Hover for the tools; click or tap for a close-up with state and province lines.</p></div>
     <div class="map-grid">
       <div class="map-box">${mapSvg}
         <div class="map-key" aria-hidden="true"><span class="l1">1</span><span class="l2">2–4</span><span class="l3">5–7</span><span class="l4">8+</span> tools</div>
@@ -1413,7 +1565,10 @@ writeFileSync(
     title: `${OWNER} (tacps126) - web data tools for jobs, leads, research and public records`,
     description: `${used} fast, low-cost web data tools: jobs and hiring signals, contacts, trade shows and events, tenders, laws, registers and recalls, research, reviews and news, property, markets and sports. Pay per result, plus an MCP server for AI agents.`,
     body: homeBody,
-    jsonld: { '@context': 'https://schema.org', '@type': 'WebSite', name: `${OWNER} (tacps126)`, url: `${SITE}/`, description: 'Web data tools for jobs, leads, research and public records', author: { '@type': 'Person', name: OWNER, alternateName: 'tacps126', email: EMAIL, url: `https://github.com/${USER}` } },
+    jsonld: [
+      { '@context': 'https://schema.org', '@type': 'WebSite', name: `${OWNER} (tacps126)`, alternateName: 'tacps126', url: `${SITE}/`, description: 'Web data tools for jobs, leads, research and public records', author: { '@type': 'Person', name: OWNER, alternateName: 'tacps126', email: EMAIL, url: `${SITE}/about.html`, sameAs: [`https://github.com/${USER}`, `https://apify.com/${USER}`] } },
+      { '@context': 'https://schema.org', '@type': 'ItemList', name: 'Web data tools', numberOfItems: allTools.length, itemListElement: allTools.map(({ a }, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/tools/${a.name}/`, name: a.title })) },
+    ],
   }),
 );
 
@@ -1432,26 +1587,27 @@ writeFileSync(
 writeFileSync(
   OUT('./sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url><loc>${SITE}/</loc><lastmod>${TODAY}</lastmod></url>
   <url><loc>${SITE}/mcp.html</loc><lastmod>${TODAY}</lastmod></url>
   <url><loc>${SITE}/about.html</loc><lastmod>${TODAY}</lastmod></url>
   <url><loc>${SITE}/pricing.html</loc><lastmod>${TODAY}</lastmod></url>
   <url><loc>${SITE}/blog/</loc><lastmod>${TODAY}</lastmod></url>
   <url><loc>${SITE}/tools/</loc><lastmod>${TODAY}</lastmod></url>
-${allTools.map(({ a }) => `  <url><loc>${SITE}/tools/${a.name}/</loc><lastmod>${DETAIL.get(a.name)?.act?.taggedBuilds?.latest?.finishedAt?.slice(0, 10) || TODAY}</lastmod></url>`).join('\n')}
+${CATS.map(([k]) => `  <url><loc>${SITE}/tools/${k}/</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}
+${allTools.map(({ a }) => `  <url><loc>${SITE}/tools/${a.name}/</loc><lastmod>${DETAIL.get(a.name)?.act?.taggedBuilds?.latest?.finishedAt?.slice(0, 10) || TODAY}</lastmod>${ogOf(a.name) !== OG ? `<image:image><image:loc>${esc(ogOf(a.name))}</image:loc></image:image>` : ''}</url>`).join('\n')}
 ${POSTS.map((p) => `  <url><loc>${SITE}/blog/${p.id}.html</loc><lastmod>${p.date}</lastmod></url>`).join('\n')}
 ${leads.length ? `  <url><loc>${SITE}/leads/</loc><lastmod>${TODAY}</lastmod></url>\n` : ''}${leads.map((l) => `  <url><loc>${SITE}/leads/${l.id}.html</loc><lastmod>${l.updated}</lastmod></url>`).join('\n')}
 </urlset>
 `,
 );
 
-const lines = CATS.flatMap(([, label, names]) => [
-  `## ${label}`,
+const lines = CATS.flatMap(([k, label, names]) => [
+  `## [${label}](${SITE}/tools/${k}/)`,
   ...names
     .map((n) => byName.get(n))
     .filter(Boolean)
-    .map((a) => `- [${a.title}](https://apify.com/${USER}/${a.name}): ${short(stripPrice(a.description), 120)}${priceOf(a.description) ? ` (${priceOf(a.description)})` : ''}`),
+    .map((a) => `- [${a.title}](${SITE}/tools/${a.name}/): ${short(stripPrice(a.description), 120)}${priceOf(a.description) ? ` (${priceOf(a.description)})` : ''}. Run: https://apify.com/${USER}/${a.name}`),
   '',
 ]);
 writeFileSync(
@@ -1471,7 +1627,7 @@ ${lines.join('\n')}`,
 console.log(`site built: ${used} tools, ${used} tool pages, ${CHAINS.length} chains, ${covered.length} countries`);
 
 if (PREVIEW) {
-  for (const f of ['style.css', 'app.js', 'tool.js', 'fonts', 'icons', 'data', 'og.png', 'favicon.svg', 'favicon.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'robots.txt']) {
+  for (const f of ['style.css', 'app.js', 'tool.js', 'fonts', 'icons', 'og', 'data', 'og.png', 'favicon.svg', 'favicon.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'robots.txt']) {
     cpSync(new URL(`./${f}`, import.meta.url), OUT(`./${f}`), { recursive: true });
   }
   console.log('PREVIEW: open with  python3 -m http.server -d _preview');
