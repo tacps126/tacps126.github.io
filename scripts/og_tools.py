@@ -49,9 +49,9 @@ def wrap(d, text, f, width, lines):
     if len(out) < lines and cur:
         out.append(cur)
     if len(out) == lines and " ".join(out) != text:
-        while out[-1] and d.textlength(out[-1] + "…", font=f) > width:
+        while out[-1] and d.textlength(out[-1] + "...", font=f) > width:
             out[-1] = out[-1][:-1]
-        out[-1] = out[-1].rstrip(" ,;:—-") + "…"
+        out[-1] = out[-1].rstrip(" ,;: - -") + "..."
     return out
 
 

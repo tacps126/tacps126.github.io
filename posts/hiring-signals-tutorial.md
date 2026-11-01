@@ -1,5 +1,5 @@
 ---
-title: Find companies hiring for the roles you sell to — every week, automatically
+title: Find companies hiring for the roles you sell to - every week, automatically
 tags: sales, automation, api, webscraping
 date: 2026-10-02
 ---
@@ -33,7 +33,7 @@ One record per company with a signal, for example:
 
 Companies without a matching role are skipped, and you aren't charged for them.
 
-## Step 1 — list your accounts
+## Step 1 - list your accounts
 
 Paste career-page URLs. Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Recruitee,
 Personio and Teamtailor pages are detected automatically:
@@ -47,14 +47,14 @@ https://jobs.ashbyhq.com/ramp
 No account list yet? Use **searches** instead (e.g. `data engineer` in `Germany`) to
 discover companies hiring for a role.
 
-## Step 2 — describe the roles that signal intent
+## Step 2 - describe the roles that signal intent
 
 `roleKeywords` matches job titles: `data`, `analytics`, `machine learning`. Narrow it
 further with seniority, job function, work mode, locations, or "posted within N days".
 `minMatchingRoles: 3` keeps only companies hiring for several of those roles at once,
 which is a much stronger signal.
 
-## Step 3 — run it
+## Step 3 - run it
 
 Open [Hiring Signals on Apify](https://apify.com/tacps126/hiring-signals), paste the
 input, and click **Start**. Or call it from code:
@@ -76,7 +76,7 @@ for c in run.json():
     print(c["company"], c["matchingRoles"], "matching roles,", c["newMatchingRoles"], "new")
 ```
 
-## Step 4 — make it weekly
+## Step 4 - make it weekly
 
 1. Save the input as a **task**, then add a **schedule** (e.g. Mondays 08:00).
 2. Turn on **Only new or changed**. Each run then returns only companies whose matching
@@ -84,7 +84,7 @@ for c in run.json():
 3. Add an **integration**: Slack, email, Google Sheets, HubSpot via Zapier/Make, or a
    webhook to your CRM.
 
-## Step 5 — add contacts (optional)
+## Step 5 - add contacts (optional)
 
 Chain the [Website Contact Details](https://apify.com/tacps126/contact-details) Actor
 after it to collect emails and social links from each company's website. Use that data

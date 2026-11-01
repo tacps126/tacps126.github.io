@@ -1,11 +1,11 @@
 ---
-title: Google News alerts with real article URLs — to Slack or Google Sheets
+title: Google News alerts with real article URLs - to Slack or Google Sheets
 tags: news, automation, api, python
 date: 2026-10-02
 ---
 
 Google Alerts emails are hard to automate, and the Google News RSS feed gives you
-`news.google.com/rss/articles/…` redirect links instead of the publisher's URL. This
+`news.google.com/rss/articles/...` redirect links instead of the publisher's URL. This
 tutorial builds a **news monitor** that:
 
 - searches Google News for any keywords, sites, language and country
@@ -28,18 +28,18 @@ tutorial builds a **news monitor** that:
 }
 ```
 
-## Step 1 — choose what to watch
+## Step 1 - choose what to watch
 
 In [Google News Scraper](https://apify.com/tacps126/google-news):
 
 - **Search queries** take Google News operators: `"exact phrase"`, `-exclude`, `OR`,
   `intitle:word`. Example: `"Acme Corp" -stock`.
-- **Topics**: Top stories, Business, Technology, Science…
+- **Topics**: Top stories, Business, Technology, Science...
 - **Only from these sites** / **Never from these sites**: e.g. `reuters.com`, `bbc.co.uk`.
-- **Published within**: past hour, 24 h, week…
+- **Published within**: past hour, 24 h, week...
 - **Language / Country**: `de` + `DE`, `hi` + `IN`, `ja` + `JP`, and so on.
 
-## Step 2 — try it from code
+## Step 2 - try it from code
 
 ```python
 import os, requests
@@ -58,7 +58,7 @@ for a in articles:
 
 In my test runs, 100 articles come back in about 11 seconds, publisher URLs included.
 
-## Step 3 — turn it into alerts
+## Step 3 - turn it into alerts
 
 1. Save the input as a **task** and turn on **Only new articles**. Each run then returns
    only articles no earlier run delivered, and you pay only for those.

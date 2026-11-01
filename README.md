@@ -12,7 +12,7 @@ python3 scripts/make-assets.py   # only if you change the icon or the social ima
 prices (every charge event), run numbers and the social image (`scripts/og.py`, needs Pillow) match the
 Store. `.github/workflows/refresh.yml` rebuilds every day at 05:17 UTC and commits only when something
 changed, so a new public Actor or a price change reaches the site within a day without a manual build;
-run it now from the Actions tab ("Refresh from Apify" → Run workflow). Edit these in `build.mjs`:
+run it now from the Actions tab ("Refresh from Apify" > Run workflow). Edit these in `build.mjs`:
 
 - `ALL_CATS` lists every Actor by category, public or not. Private ones can be listed ahead of
   publishing: they stay off every page (cards, counts, chips, MCP rows, `llms.txt`) until the Store

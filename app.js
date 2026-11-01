@@ -171,7 +171,7 @@
           else if (w.length >= 5 && t.ws.some(function (x) { return x.indexOf(w.slice(0, 5)) === 0; })) s += 1;
         }
       });
-      // Select options (sources, countries, topics…): per field keep the options that match the most
+      // Select options (sources, countries, topics...): per field keep the options that match the most
       // words, and let one field add at most a few points, so long option lists cannot drown the rest.
       var best = {};
       t.o.forEach(function (o) {
@@ -271,7 +271,7 @@
     if (!pal) palBuild();
     lastFocus = document.activeElement;
     pal.hidden = false; root.classList.add('pal-on'); palIn.value = ''; palIn.focus();
-    palList.innerHTML = '<li class="pal-empty">Loading…</li>';
+    palList.innerHTML = '<li class="pal-empty">Loading...</li>';
     index().then(palRender);
   }
   function palClose() { if (!pal) return; pal.hidden = true; root.classList.remove('pal-on'); if (lastFocus && lastFocus.focus) lastFocus.focus(); }
@@ -300,7 +300,7 @@
     out.sort(function (a, b) { return b.s - a.s; });
     palItems = q ? out.slice(0, 12) : out.filter(function (x) { return x.k === 'tool'; }).slice(0, 7).concat(out.filter(function (x) { return x.k === 'page'; }).slice(0, 5));
     palAt = 0;
-    if (!palItems.length) { palList.innerHTML = '<li class="pal-empty">Nothing for “' + h(q) + '”. <a href="mailto:tacps126@gmail.com?subject=' + encodeURIComponent('Custom data request: ' + q) + '">Ask for a custom tool</a></li>'; return; }
+    if (!palItems.length) { palList.innerHTML = '<li class="pal-empty">Nothing for "' + h(q) + '". <a href="mailto:tacps126@gmail.com?subject=' + encodeURIComponent('Custom data request: ' + q) + '">Ask for a custom tool</a></li>'; return; }
     var lastK = null;
     palList.innerHTML = palItems.map(function (x, i) {
       var head = x.k !== lastK ? '<li class="pal-group" role="presentation">' + { tool: q ? 'Tools' : 'Most used tools', mcp: 'AI agent tools', page: 'Pages', post: 'Articles' }[x.k] + '</li>' : '';
@@ -421,7 +421,7 @@
       if (!steps.length) { chainEl.innerHTML = startHtml; wire(); chainCode.hidden = true; return; }
       var html = steps.map(function (s, i) {
         var t = G.tools[s.n];
-        return (s.e ? '<div class="link-arrow"><span>' + h(s.e[2]) + ' → <code>' + h(s.e[3]) + '</code></span></div>' : '') +
+        return (s.e ? '<div class="link-arrow"><span>' + h(s.e[2]) + ' > <code>' + h(s.e[3]) + '</code></span></div>' : '') +
           '<div class="step-card"><span class="step-n">' + (i + 1) + '</span><div><a href="/tools/' + s.n + '/">' + h(t.t) + '</a><small>' + h(t.p) + '</small></div></div>';
       }).join('');
       var nx = nexts(steps[steps.length - 1].n);
@@ -472,7 +472,7 @@
     };
     var est = function () {
       var unit = parseFloat(combo.dataset.value || '0'), n = num(), what = combo.dataset.what || 'result';
-      cu.textContent = unit ? usdText(unit * n + addons()) : '–';
+      cu.textContent = unit ? usdText(unit * n + addons()) : '-';
       var x = addons();
       cnote.textContent = unit ? n.toLocaleString('en-US') + ' × ' + what + (x ? ' + extras ' + usdText(x) : '') + ' on Apify\'s free plan; paid plans pay less' : 'Choose a tool';
     };

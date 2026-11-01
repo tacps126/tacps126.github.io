@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Google News alerts with real article URLs — to Slack or Google Sheets</title>
-<meta name="description" content="Google Alerts emails are hard to automate, and the Google News RSS feed gives you news.google.com/rss/articles/… redirect links instead of the publisher's URL. This tutorial builds a news…">
+<title>Google News alerts with real article URLs - to Slack or Google Sheets</title>
+<meta name="description" content="Google Alerts emails are hard to automate, and the Google News RSS feed gives you news.google.com/rss/articles/... redirect links instead of the publisher's URL. This tutorial builds a news...">
 <link rel="canonical" href="https://tacps126.github.io/blog/google-news-alerts-tutorial.html">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="color-scheme" content="light dark">
@@ -15,22 +15,22 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tacps126">
-<meta property="og:title" content="Google News alerts with real article URLs — to Slack or Google Sheets">
-<meta property="og:description" content="Google Alerts emails are hard to automate, and the Google News RSS feed gives you news.google.com/rss/articles/… redirect links instead of the publisher's URL. This tutorial builds a news…">
+<meta property="og:title" content="Google News alerts with real article URLs - to Slack or Google Sheets">
+<meta property="og:description" content="Google Alerts emails are hard to automate, and the Google News RSS feed gives you news.google.com/rss/articles/... redirect links instead of the publisher's URL. This tutorial builds a news...">
 <meta property="og:url" content="https://tacps126.github.io/blog/google-news-alerts-tutorial.html">
-<meta property="og:image" content="https://tacps126.github.io/og.png?v=997eb83235">
+<meta property="og:image" content="https://tacps126.github.io/og.png?v=7c356dee79">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="tacps126: clean web data for jobs, news, reviews and leads">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Google News alerts with real article URLs — to Slack or Google Sheets">
-<meta name="twitter:description" content="Google Alerts emails are hard to automate, and the Google News RSS feed gives you news.google.com/rss/articles/… redirect links instead of the publisher's URL. This tutorial builds a news…">
-<meta name="twitter:image" content="https://tacps126.github.io/og.png?v=997eb83235">
+<meta name="twitter:title" content="Google News alerts with real article URLs - to Slack or Google Sheets">
+<meta name="twitter:description" content="Google Alerts emails are hard to automate, and the Google News RSS feed gives you news.google.com/rss/articles/... redirect links instead of the publisher's URL. This tutorial builds a news...">
+<meta name="twitter:image" content="https://tacps126.github.io/og.png?v=7c356dee79">
 <link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
 <link rel="stylesheet" href="/style.css?v=a53951fda0">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Google News alerts with real article URLs — to Slack or Google Sheets","datePublished":"2026-10-02","author":{"@type":"Person","name":"Tapaswai Choudhary"},"url":"https://tacps126.github.io/blog/google-news-alerts-tutorial.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Google News alerts with real article URLs - to Slack or Google Sheets","datePublished":"2026-10-02","author":{"@type":"Person","name":"Tapaswai Choudhary"},"url":"https://tacps126.github.io/blog/google-news-alerts-tutorial.html"}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -53,10 +53,10 @@
 <main id="main">
 <section class="hero" style="padding-bottom:20px"><div class="wrap narrow">
   <a class="back" href="/blog/">← All articles</a>
-  <h1 style="margin-top:14px;max-width:none">Google News alerts with real article URLs — to Slack or Google Sheets</h1>
+  <h1 style="margin-top:14px;max-width:none">Google News alerts with real article URLs - to Slack or Google Sheets</h1>
   <p class="post-meta">2026-10-02 · 2 min read · <span class="tag">news</span> <span class="tag">automation</span> <span class="tag">api</span> <span class="tag">python</span></p>
 </div></section>
-<article class="post"><div class="wrap narrow"><p>Google Alerts emails are hard to automate, and the Google News RSS feed gives you <code>news.google.com/rss/articles/…</code> redirect links instead of the publisher's URL. This tutorial builds a <strong>news monitor</strong> that:</p>
+<article class="post"><div class="wrap narrow"><p>Google Alerts emails are hard to automate, and the Google News RSS feed gives you <code>news.google.com/rss/articles/...</code> redirect links instead of the publisher's URL. This tutorial builds a <strong>news monitor</strong> that:</p>
 <ul><li>searches Google News for any keywords, sites, language and country</li><li>returns the <strong>publisher's real article URL</strong>, publisher, date and related coverage</li><li>returns only articles you haven't seen yet, on a schedule</li><li>delivers them to Slack, email or a spreadsheet</li></ul>
 <h2 id="one-article-looks-like-this">One article looks like this</h2>
 <div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{
@@ -69,10 +69,10 @@
   &quot;country&quot;: &quot;US&quot;,
   &quot;urlResolved&quot;: true
 }</pre></div>
-<h2 id="step-1-choose-what-to-watch">Step 1 — choose what to watch</h2>
+<h2 id="step-1-choose-what-to-watch">Step 1 - choose what to watch</h2>
 <p>In <a href="https://apify.com/tacps126/google-news" rel="noopener">Google News Scraper</a>:</p>
-<ul><li><strong>Search queries</strong> take Google News operators: <code>&quot;exact phrase&quot;</code>, <code>-exclude</code>, <code>OR</code>, <code>intitle:word</code>. Example: <code>&quot;Acme Corp&quot; -stock</code>.</li><li><strong>Topics</strong>: Top stories, Business, Technology, Science…</li><li><strong>Only from these sites</strong> / <strong>Never from these sites</strong>: e.g. <code>reuters.com</code>, <code>bbc.co.uk</code>.</li><li><strong>Published within</strong>: past hour, 24 h, week…</li><li><strong>Language / Country</strong>: <code>de</code> + <code>DE</code>, <code>hi</code> + <code>IN</code>, <code>ja</code> + <code>JP</code>, and so on.</li></ul>
-<h2 id="step-2-try-it-from-code">Step 2 — try it from code</h2>
+<ul><li><strong>Search queries</strong> take Google News operators: <code>&quot;exact phrase&quot;</code>, <code>-exclude</code>, <code>OR</code>, <code>intitle:word</code>. Example: <code>&quot;Acme Corp&quot; -stock</code>.</li><li><strong>Topics</strong>: Top stories, Business, Technology, Science...</li><li><strong>Only from these sites</strong> / <strong>Never from these sites</strong>: e.g. <code>reuters.com</code>, <code>bbc.co.uk</code>.</li><li><strong>Published within</strong>: past hour, 24 h, week...</li><li><strong>Language / Country</strong>: <code>de</code> + <code>DE</code>, <code>hi</code> + <code>IN</code>, <code>ja</code> + <code>JP</code>, and so on.</li></ul>
+<h2 id="step-2-try-it-from-code">Step 2 - try it from code</h2>
 <div class="code"><div class="code-top"><span>python</span><button class="copy" type="button">Copy</button></div><pre>import os, requests
 
 articles = requests.post(
@@ -86,7 +86,7 @@ for a in articles:
     print(a[&quot;publishedAt&quot;][:10], a[&quot;publisher&quot;], &quot;-&quot;, a[&quot;title&quot;])
     print(&quot;   &quot;, a[&quot;url&quot;])</pre></div>
 <p>In my test runs, 100 articles come back in about 11 seconds, publisher URLs included.</p>
-<h2 id="step-3-turn-it-into-alerts">Step 3 — turn it into alerts</h2>
+<h2 id="step-3-turn-it-into-alerts">Step 3 - turn it into alerts</h2>
 <ol><li>Save the input as a <strong>task</strong> and turn on <strong>Only new articles</strong>. Each run then returns only articles no earlier run delivered, and you pay only for those.</li><li>Add a <strong>schedule</strong>: hourly for breaking news, daily for a digest.</li><li>Add an <strong>integration</strong>: Slack (a message per run), Google Sheets (append rows), email, or a webhook into your own app or RAG index.</li></ol>
 <p>Running several monitors? Give each a different <strong>Monitor name</strong> so they keep separate histories.</p>
 <h2 id="use-cases">Use cases</h2>
@@ -123,7 +123,7 @@ for a in articles:
     <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
   </div>
 </footer>
-<script src="/app.js?v=d004b66e63" defer></script>
+<script src="/app.js?v=93adc7d3b9" defer></script>
 
 </body>
 </html>

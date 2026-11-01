@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://tacps126.github.io/og/events-scraper.jpg?v=358c936511">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Events Scraper - Luma, Eventbrite, Meetup: Upcoming events from Luma, Eventbrite, Meetup and any schema.org event page: name, date, venue, organiser, hosts,…">
+<meta property="og:image:alt" content="Events Scraper - Luma, Eventbrite, Meetup: Upcoming events from Luma, Eventbrite, Meetup and any schema.org event page: name, date, venue, organiser, hosts,...">
 <meta property="og:updated_time" content="2026-10-25">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Events Scraper: Luma, Eventbrite, Meetup &amp; Event Pages">
@@ -65,7 +65,7 @@
         <p class="lead">Upcoming events from Luma, Eventbrite, Meetup and any schema.org event page: name, date, venue, organiser, hosts, tickets, attendees. Search by topic and city or paste links. One schema.</p>
       </div>
     </div>
-    <div class="facts"><span class="pchip"><b>$1 per 1,000</b> event</span><span class="fact">13 public runs in 30 days</span><span class="fact">updated 2026-10-25</span></div>
+    <div class="facts"><span class="pchip"><b>$1 per 1,000</b> event</span><span class="fact">14 public runs in 30 days</span><span class="fact">updated 2026-10-25</span></div>
     <div class="cta-row">
       <a class="btn primary" href="https://apify.com/tacps126/events-scraper" rel="noopener">Run it on Apify</a>
       <a class="btn" href="#try">Build the input</a>
@@ -80,13 +80,13 @@
     <div class="tool-grid">
       <form class="tform" id="tform" data-actor="events-scraper" data-unit="0.001" data-what="event" data-max="maxItems" data-start="{&quot;searches&quot;:[&quot;AI&quot;],&quot;location&quot;:&quot;London&quot;}" autocomplete="off">
 <div class="f" data-k="searches" data-kind="list"><label for="f-searches"><span class="fl">Topics or keywords</span></label><textarea id="f-searches" rows="2" placeholder="One per line">AI</textarea><p class="fh">What the events are about, e.g. `AI`, `startup`, `real estate`, `marketing`. Each search runs on every site in **Sites to search**.</p></div>
-<div class="f" data-k="location" data-kind="str"><label for="f-location"><span class="fl">Location</span></label><input id="f-location" type="text" value="London" placeholder=""><p class="fh">City in plain words (`London`, `New York`, `Bengaluru`) or `online`. Luma searches within a city; leave empty to use the keyword as a Luma category (`ai`, `tech`, `crypto`). Meetup knows about 70 big cities by name; for others write `City,…</p></div>
+<div class="f" data-k="location" data-kind="str"><label for="f-location"><span class="fl">Location</span></label><input id="f-location" type="text" value="London" placeholder=""><p class="fh">City in plain words (`London`, `New York`, `Bengaluru`) or `online`. Luma searches within a city; leave empty to use the keyword as a Luma category (`ai`, `tech`, `crypto`). Meetup knows about 70 big cities by name; for others write `City,...</p></div>
 <div class="f" data-k="sources" data-kind="multi" data-def="[&quot;luma&quot;,&quot;eventbrite&quot;,&quot;meetup&quot;]"><label for="f-sources"><span class="fl">Sites to search</span></label><div class="opts" role="group" aria-label="Sites to search"><label class="opt"><input type="checkbox" value="luma" checked><span>Luma</span></label><label class="opt"><input type="checkbox" value="eventbrite" checked><span>Eventbrite</span></label><label class="opt"><input type="checkbox" value="meetup" checked><span>Meetup</span></label></div><p class="fh">Where **Topics or keywords** are searched.</p></div>
 <div class="f" data-k="maxItems" data-kind="int" data-def="100"><label for="f-maxItems"><span class="fl">Max events per search or link</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" max="5000" value="100" placeholder="100"><p class="fh">Maximum events from each link, and from each search on each site.</p></div>
 <div class="f f-bool" data-k="includeDetails" data-kind="bool" data-def="true"><label class="sw" for="f-includeDetails"><input type="checkbox" id="f-includeDetails" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Include details</span></label><p class="fh">Open each Eventbrite and Meetup event (and Luma events missing text) for the organiser, ticket prices, end time and full description. Off = faster.</p></div>
 <div class="f f-bool" data-k="upcomingOnly" data-kind="bool" data-def="true"><label class="sw" for="f-upcomingOnly"><input type="checkbox" id="f-upcomingOnly" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Upcoming only</span></label><p class="fh">Skip events that have already ended.</p></div>
 <div class="f f-bool" data-k="onlyNew" data-kind="bool" data-def="false"><label class="sw" for="f-onlyNew"><input type="checkbox" id="f-onlyNew"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Only new events</span></label><p class="fh">Return only events no earlier run with the same input delivered. Schedule it for new-event alerts; you pay only for new events.</p></div>
-<div class="f f-bool" data-k="changesOnly" data-kind="bool" data-def="false"><label class="sw" for="f-changesOnly"><input type="checkbox" id="f-changesOnly"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Changes only</span></label><p class="fh">Return only events that are new, changed (date, venue, status, price or sold-out — with old and new values in `changes`) or gone before they started (`changeType: &quot;removed&quot;`: cancelled or unlisted) since the last run with the same input.…</p></div>
+<div class="f f-bool" data-k="changesOnly" data-kind="bool" data-def="false"><label class="sw" for="f-changesOnly"><input type="checkbox" id="f-changesOnly"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Changes only</span></label><p class="fh">Return only events that are new, changed (date, venue, status, price or sold-out - with old and new values in `changes`) or gone before they started (`changeType: &quot;removed&quot;`: cancelled or unlisted) since the last run with the same input....</p></div>
         <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
       </form>
       <aside class="tcode">
@@ -188,10 +188,10 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2><p>Tools whose rows feed this one, or that take its rows further.</p></div>
     <div class="grid">
-      <a class="card link" href="/tools/contact-details/"><span class="why">Send its host websites into</span><h3>Website Email Finder &amp; Contact Details Scraper</h3><p>Website email finder: get emails, phone numbers and LinkedIn, X, Facebook, Instagram and YouTube links from…</p></a>
-      <a class="card link" href="/tools/exhibition-scraper/"><span class="why">Also in leads</span><h3>Trade Show Exhibitor List Scraper - Emails &amp; Booths</h3><p>Exhibitor lists from 91 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo…) or…</p></a>
-      <a class="card link" href="/tools/luma-events-scraper/"><span class="why">Also in leads</span><h3>Luma Events Scraper</h3><p>Upcoming Luma (lu.ma) events by city, category, keyword or calendar link: name, date, venue with coordinates,…</p></a>
-      <a class="card link" href="/tools/eventbrite-events-scraper/"><span class="why">Also in leads</span><h3>Eventbrite Scraper</h3><p>Eventbrite events by keyword and city, or from any Eventbrite search or event link: name, date, venue and…</p></a>
+      <a class="card link" href="/tools/contact-details/"><span class="why">Send its host websites into</span><h3>Website Email Finder &amp; Contact Details Scraper</h3><p>Website email finder: get emails, phone numbers and LinkedIn, X, Facebook, Instagram and YouTube links from...</p></a>
+      <a class="card link" href="/tools/exhibition-scraper/"><span class="why">Also in leads</span><h3>Trade Show Exhibitor List Scraper - Emails &amp; Booths</h3><p>Exhibitor lists from 91 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo...) or...</p></a>
+      <a class="card link" href="/tools/luma-events-scraper/"><span class="why">Also in leads</span><h3>Luma Events Scraper</h3><p>Upcoming Luma (lu.ma) events by city, category, keyword or calendar link: name, date, venue with coordinates,...</p></a>
+      <a class="card link" href="/tools/eventbrite-events-scraper/"><span class="why">Also in leads</span><h3>Eventbrite Scraper</h3><p>Eventbrite events by keyword and city, or from any Eventbrite search or event link: name, date, venue and...</p></a>
     </div>
   </div>
 </section>
@@ -222,7 +222,7 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
     <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
   </div>
 </footer>
-<script src="/app.js?v=d004b66e63" defer></script>
+<script src="/app.js?v=93adc7d3b9" defer></script>
 <script src="/tool.js?v=a64914dde6" defer></script>
 </body>
 </html>

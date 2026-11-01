@@ -30,7 +30,7 @@ const EXTRA = { KOS: 'XK', CYN: 'CY', SOL: 'SO' };
 const codeOf = (p) => (p.ISO_A2_EH && p.ISO_A2_EH !== '-99' ? p.ISO_A2_EH : EXTRA[p.ADM0_A3]);
 const polysOf = (g) => (!g ? [] : g.type === 'Polygon' ? [g.coordinates] : g.type === 'MultiPolygon' ? g.coordinates : []);
 
-// Douglas–Peucker on projected points, iterative.
+// Douglas-Peucker on projected points, iterative.
 function simplify(pts, tol) {
   if (pts.length < 4) return pts;
   const keep = new Uint8Array(pts.length);

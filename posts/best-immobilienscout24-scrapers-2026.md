@@ -17,11 +17,11 @@ others do things mine doesn't.
 
 | Scraper | Price per 1,000 listings | Start fee per run | Countries | Notable extras |
 |---|---|---|---|---|
-| [memo23 — ImmoScout24 .de/.ch/.at + Price-Cut Archive](https://apify.com/memo23/immobilienscout24-scraper) | $1.75 | $0.005 | DE, CH, AT | Price-cut archive, phone numbers (extra fee), market analysis add-on |
-| [azzouzana — ImmobilienScout24 Scraper](https://apify.com/azzouzana/immobilienscout-immoscout-scraper) | $1.00 | $0.006 | DE | Search-URL based |
-| [clearpath — ImmoScout24 API Pro](https://apify.com/clearpath/immoscout24-api-pro) | $1.19 | $0.002 | DE | 50+ fields |
-| [igolaizola — ImmobilienScout24 Scraper](https://apify.com/igolaizola/immobilienscout24-scraper) | $1.00 (+$1 for details) | $0.01 | DE | Optional detail pages |
-| [tacps126 — ImmobilienScout24 Scraper](https://apify.com/tacps126/immobilienscout24-scraper) | $1.00 | ~$0.0001 | DE | Plain-word locations, price per m², coordinates, seller filter, only-new alerts |
+| [memo23 - ImmoScout24 .de/.ch/.at + Price-Cut Archive](https://apify.com/memo23/immobilienscout24-scraper) | $1.75 | $0.005 | DE, CH, AT | Price-cut archive, phone numbers (extra fee), market analysis add-on |
+| [azzouzana - ImmobilienScout24 Scraper](https://apify.com/azzouzana/immobilienscout-immoscout-scraper) | $1.00 | $0.006 | DE | Search-URL based |
+| [clearpath - ImmoScout24 API Pro](https://apify.com/clearpath/immoscout24-api-pro) | $1.19 | $0.002 | DE | 50+ fields |
+| [igolaizola - ImmobilienScout24 Scraper](https://apify.com/igolaizola/immobilienscout24-scraper) | $1.00 (+$1 for details) | $0.01 | DE | Optional detail pages |
+| [tacps126 - ImmobilienScout24 Scraper](https://apify.com/tacps126/immobilienscout24-scraper) | $1.00 | ~$0.0001 | DE | Plain-word locations, price per m², coordinates, seller filter, only-new alerts |
 
 Start fees matter if you run small scheduled jobs: an hourly alert costs 24 starts a day.
 
@@ -36,7 +36,7 @@ Start fees matter if you run small scheduled jobs: an hourly alert costs 24 star
 
 ```json
 {
-  "title": "Wohnen mit Herz – wie geschaffen für zwei",
+  "title": "Wohnen mit Herz - wie geschaffen für zwei",
   "offerType": "rent",
   "price": { "amount": 594.78, "currency": "EUR", "period": "month" },
   "totalRent": 800.94,

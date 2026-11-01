@@ -4,7 +4,7 @@ tags: sales, leadgeneration, tradeshows, automation
 date: 2026-10-28
 ---
 
-Automechanika Dubai runs **10–12 November 2026** at Expo City Dubai. More than 800 companies
+Automechanika Dubai runs **10-12 November 2026** at Expo City Dubai. More than 800 companies
 exhibit: parts makers, distributors, workshop-equipment brands, tyre and lubricant traders from
 the UAE, India, China, Turkey, Germany and beyond.
 
@@ -20,11 +20,11 @@ One row per exhibitor:
 |-------|---------|
 | Company | (exhibitor's legal name) |
 | Booth | S / 04742 |
-| Email | sales@… |
-| Phone | +971 … |
-| Website | https://… |
+| Email | sales@... |
+| Phone | +971 ... |
+| Website | https://... |
 | City, country | Sharjah, United Arab Emirates |
-| Description, product categories | … |
+| Description, product categories | ... |
 
 In our run, **790 of 804 exhibitors came with an email address**.
 
@@ -50,7 +50,7 @@ Leave **Include contact details** on: that's what adds email, phone and address.
 
 ## Step 3: run and download
 
-Press **Start**. When it finishes, open **Output → Export** and pick CSV or Excel. The *Contacts*
+Press **Start**. When it finishes, open **Output > Export** and pick CSV or Excel. The *Contacts*
 view gives you a flat table ready for your CRM.
 
 Cost on a paid plan: about $2 per 1,000 exhibitors, so the whole show costs less than a coffee.
@@ -73,20 +73,20 @@ Short, specific, booth in the subject: reply rates are far higher than cold emai
 ## Keep it fresh
 
 Exhibitor lists keep growing until the show opens. Turn on **Only new exhibitors** and schedule the
-tool daily (Apify → *Schedules*): each run returns only companies added since the last one.
+tool daily (Apify > *Schedules*): each run returns only companies added since the last one.
 
 ## Send it to your tools automatically
 
-- **Google Sheets:** the tool's *Integrations* tab, or our ready n8n workflow (show → Google Sheet).
-- **Clay:** *Import from Apify → Actor run*, then enrich each exhibitor with your usual providers.
-- **Make / Zapier:** the Apify app → *Run an Actor* `tacps126/exhibition-scraper` → *Get dataset items*.
+- **Google Sheets:** the tool's *Integrations* tab, or our ready n8n workflow (show > Google Sheet).
+- **Clay:** *Import from Apify > Actor run*, then enrich each exhibitor with your usual providers.
+- **Make / Zapier:** the Apify app > *Run an Actor* `tacps126/exhibition-scraper` > *Get dataset items*.
 
 Setup steps for all four: [integrations guide](https://github.com/tacps126/apify-data-recipes/tree/main/integrations).
 
 ## Other shows
 
 The same tool covers 90+ trade shows (MEDICA, Automechanika Frankfurt, Riyadh and Shanghai, SEMA Show,
-World Health Expo, Intersec Saudi Arabia…) and **any show by link**: paste the
+World Health Expo, Intersec Saudi Arabia...) and **any show by link**: paste the
 exhibitor-list URL into **Start URLs**.
 
 ---

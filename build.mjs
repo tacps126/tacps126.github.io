@@ -1,6 +1,6 @@
 // Generates the whole site from the public Apify Store listing of tacps126.
 // Usage: node build.mjs        (no token needed; it reads public Apify pages only)
-import { writeFileSync, readFileSync, readdirSync, mkdirSync, existsSync, cpSync } from 'node:fs';
+import { writeFileSync as fsWrite, readFileSync, readdirSync, mkdirSync, existsSync, cpSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 
@@ -16,6 +16,16 @@ const NEW = new Set(['company-registry', 'sanctions-screener', 'recalls-radar', 
   'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding', 'clinical-trials', 'fda-device-clearances', 'npi-providers',
   'podcasts', 'cve-feed']);
 const TODAY = new Date().toISOString().slice(0, 10);
+
+// Plain typing in everything the site writes (Store text included): no em or en dashes, ellipsis
+// characters, curly quotes or arrows. Curly double quotes become single ones so attributes and
+// JSON strings stay valid. Same rules as apify_actors/scripts/humanize_copy.py.
+const PLAIN = [
+  [/[ \t]*\u2014[ \t]*/g, ' - '], [/(?<=\d)[ \t]*\u2013[ \t]*(?=\d)/g, '-'], [/[ \t]+\u2013[ \t]+/g, ' - '], [/\u2013/g, '-'],
+  [/\u2026/g, '...'], [/[\u2018\u2019]/g, "'"], [/[\u201c\u201d]/g, "'"], [/[ \t]*\u2192[ \t]*/g, ' > '],
+];
+const plainText = (s) => PLAIN.reduce((t, [rx, rep]) => t.replace(rx, rep), s);
+const writeFileSync = (path, data, ...rest) => fsWrite(path, typeof data === 'string' ? plainText(data) : data, ...rest);
 
 // ---------------------------------------------------------------- data
 const res = await fetch(`https://api.apify.com/v2/store?username=${USER}&limit=100`);
@@ -93,7 +103,7 @@ if (PREVIEW) {
 const CATS = ALL_CATS.map(([k, l, names]) => [k, l, names.filter((n) => byName.has(n))]).filter(([, , names]) => names.length);
 
 const MCP_TOOLS = [
-  ['search_grants', 'Open and forecast funding calls: US Grants.gov, EU Funding & Tenders (Horizon Europe…), UKRI', 'grants-radar', '$3 / 1,000 calls'],
+  ['search_grants', 'Open and forecast funding calls: US Grants.gov, EU Funding & Tenders (Horizon Europe...), UKRI', 'grants-radar', '$3 / 1,000 calls'],
   ['get_india_district_notices', "Tenders, recruitment and announcements from India's 748 district websites, by state and district", 'india-district-notices', '$3 / 1,000 notices'],
   ['find_companies', 'New companies and insolvencies (France, Norway, Finland, Estonia, US: New York, Colorado, Connecticut, Oregon) and company search with officers, plus the LEI index', 'company-registry', '$2.50 / 1,000 companies'],
   ['get_supplier_contracts', 'Public contracts a company won (USAspending, TED, Contracts Finder) with a summary per company', 'tenders-radar', '$4 / 1,000 awards'],
@@ -103,7 +113,7 @@ const MCP_TOOLS = [
   ['get_alerts', 'Official weather and disaster warnings: US NWS, MeteoAlarm (38 countries), India NDMA, Brazil INMET, GDACS, USGS', 'alerts-radar', '$2 / 1,000 alerts'],
   ['search_tenders', 'Public tenders and contract awards: US SAM.gov, EU TED and EU institutions, Ukraine, UK, France, Spain, Germany, Netherlands, Canada, Colombia, Australia, South Africa; by sector, CPV code or value', 'tenders-radar', '$4 / 1,000 notices'],
   ['search_google_news', "Google News with the publisher's real article URL", 'google-news', '$2 / 1,000 articles'],
-  ['search_gov_updates', 'Official government updates: Federal Register, GOV.UK, EU Commission, SEC, Indian regulators (RBI, SEBI, TRAI, DGFT…), any RSS feed or list page, by sector', 'gov-radar', '$3 / 1,000 updates'],
+  ['search_gov_updates', 'Official government updates: Federal Register, GOV.UK, EU Commission, SEC, Indian regulators (RBI, SEBI, TRAI, DGFT...), any RSS feed or list page, by sector', 'gov-radar', '$3 / 1,000 updates'],
   ['get_youtube_transcripts', 'Full transcripts of YouTube videos, playlists, channels or searches, with timed captions', 'youtube-transcripts', '$2.50 / 1,000 transcripts'],
   ['search_research', 'Papers, preprints and patents from OpenAlex, arXiv, PubMed, Europe PMC and the European Patent Office (worldwide); newest or most influential first', 'research-radar', '$3 / 1,000 results'],
   ['analyze_field', "A technology field's opportunity score with reasons, growth, top companies, rising topics, patent trend and possibly free-to-use patents; several fields ranked", 'innovation-radar', '$0.03 / field'],
@@ -156,7 +166,7 @@ const short = (s, n = 140) => {
   const t = String(s || '').replace(/\s+/g, ' ').trim();
   if (t.length <= n) return t;
   const cut = t.slice(0, n);
-  return `${cut.slice(0, Math.max(cut.lastIndexOf(' '), 60))}…`;
+  return `${cut.slice(0, Math.max(cut.lastIndexOf(' '), 60))}...`;
 };
 const priceOf = (d) => (String(d || '').match(/(From \$[\d.,]+ per [\d,]+ [a-z ]+|\$[\d.,]+ per [\d,]+ [a-z ]+|[\d.]+¢ per [a-z ]+)/i) || [])[0];
 const stripPrice = (d) => String(d || '').replace(/\s*(From )?\$[\d.,]+ per [\d,]+ [a-z ]+\.?$/i, '').replace(/\s*\d+¢ per [^.]+\.?.*$/i, '');
@@ -245,7 +255,7 @@ function decorate(body) {
     const text = plain(chunk.slice(chunk.indexOf('>', h2) + 1, chunk.indexOf('</h2>', h2)));
     let id = (tag.match(/\bid="([^"]+)"/) || [])[1];
     let label = (tag.match(/data-label="([^"]+)"/) || [])[1] || text;
-    if (label.length > 24) label = label.slice(0, 22).replace(/\s+\S*$/, '') + '…';
+    if (label.length > 24) label = label.slice(0, 22).replace(/\s+\S*$/, '') + '...';
     let newTag = tag;
     if (!id) {
       id = slug(text) || `s${i}`;
@@ -381,11 +391,11 @@ const useCards = USES.map(([k, icon, title, text]) => {
   const body = Array.isArray(text) ? text.filter(([n]) => byName.has(n)).map(([, p]) => p) : [text];
   if (!body.length) return '';
   const n = CATS.find(([c]) => c === k)[2].length;
-  return `      <a class="card topic" href="/tools/${k}/" data-k="${k}">${ico(icon)}<h3>${title}</h3><p>${Array.isArray(text) ? sentence(body) : body[0]}</p><span class="more">${n} tool${n === 1 ? '' : 's'} →</span></a>`;
+  return `      <a class="card topic" href="/tools/${k}/" data-k="${k}">${ico(icon)}<h3>${title}</h3><p>${Array.isArray(text) ? sentence(body) : body[0]}</p><span class="more">${n} tool${n === 1 ? '' : 's'} > </span></a>`;
 }).filter(Boolean).join('\n');
 
 // Price range from the Store (main event, free-plan tier, per 1,000), so the
-// copy follows price changes: "from $0.20 per 1,000; most $1–$3".
+// copy follows price changes: "from $0.20 per 1,000; most $1-$3".
 const per1k = items
   .map((a) => Object.values(a.currentPricingInfo?.pricingPerEvent?.actorChargeEvents || {}).find((e) => e.isPrimaryEvent))
   .map((e) => (e ? (e.eventTieredPricingUsd?.FREE?.tieredEventPriceUsd ?? e.eventPriceUsd) : null))
@@ -395,7 +405,7 @@ const per1k = items
 const q = (f) => per1k[Math.min(per1k.length - 1, Math.floor(f * per1k.length))] || 1;
 const usd = (v) => `$${Number.isInteger(v) ? v : v.toFixed(2)}`;
 const PRICE_FROM = usd(per1k[0] || 1);
-const PRICE_MOST = q(0.25) === q(0.75) ? usd(q(0.5)) : `${usd(q(0.25))}–${usd(q(0.75))}`;
+const PRICE_MOST = q(0.25) === q(0.75) ? usd(q(0.5)) : `${usd(q(0.25))}-${usd(q(0.75))}`;
 
 // The social preview is drawn from these same numbers on every build
 // (scripts/og.py, needs Pillow); without Pillow the last image stays.
@@ -448,7 +458,7 @@ const toolCards = MCP_TOOLS.map(([name, what, actor, price]) => {
   <div class="mtool-top"><code class="mname">${name.replace(/_/g, '_<wbr>')}</code><button class="copy mini" type="button" data-copy="${name}" aria-label="Copy ${name}">Copy</button></div>
   <p>${esc(what)}</p>
   <div class="prices">${main ? `<span class="pchip"><b>${evPrice(main)}</b> ${esc(main.title.toLowerCase())}</span>` : `<span class="pchip"><b>${esc(price)}</b></span>`}${a ? extraChips(a) : ''}</div>
-  <a class="mactor" href="/tools/${actor}/">Runs ${esc(a?.title || actor)} →</a>
+  <a class="mactor" href="/tools/${actor}/">Runs ${esc(a?.title || actor)} > </a>
 </article>`;
 }).join('\n');
 const mcpCats = [['all', 'All', MCP_TOOLS.length], ...CATS.map(([k, l]) => [k, CAT_SHORT[k] || l, MCP_TOOLS.filter((t) => catOfActor[t[2]] === k).length])].filter((c) => c[2] > 0);
@@ -477,7 +487,7 @@ const mcpBody = `
 
 <section id="install">
   <div class="wrap">
-    <div class="sec-head"><h2>Install in two minutes</h2><p>You need Node.js 18+ and a free Apify account. Copy your API token from Apify Console → Settings → API &amp; Integrations.</p></div>
+    <div class="sec-head"><h2>Install in two minutes</h2><p>You need Node.js 18+ and a free Apify account. Copy your API token from Apify Console > Settings > API &amp; Integrations.</p></div>
     <div class="tabs" role="tablist" data-tabs>
       <button class="tab" role="tab" aria-selected="true">Claude Code</button>
       <button class="tab" role="tab" aria-selected="false">Claude Desktop</button>
@@ -689,7 +699,7 @@ ${CATS.map(([k, label, names]) => {
         <div class="stepper"><button type="button" data-step="-1" aria-label="Fewer">−</button><input id="calc-n" type="text" inputmode="numeric" value="1,000" maxlength="11"><button type="button" data-step="1" aria-label="More">+</button></div>
         <div class="presets">${[100, 1000, 10000, 100000].map((n) => `<button type="button" class="preset" data-n="${n}">${n >= 1000 ? n / 1000 + 'k' : n}</button>`).join('')}</div>
       </div>
-      <div class="calc-out" aria-live="polite"><b id="calc-usd">–</b><span id="calc-note">Choose a tool</span></div>
+      <div class="calc-out" aria-live="polite"><b id="calc-usd">-</b><span id="calc-note">Choose a tool</span></div>
       <div class="addons" id="calc-addons" hidden><span class="flabel">Optional extras this tool can charge</span><div id="calc-addon-list"></div></div>
     </div>
   </div>
@@ -941,7 +951,7 @@ function fieldHtml(k, v, val, required) {
     control = `<textarea id="${id}" rows="${Math.min(6, Math.max(2, lines.split('\n').length + 1))}" placeholder="One per line">${esc(lines)}</textarea>`;
   } else if (en) {
     const cur = val ?? v.default ?? '';
-    control = `<select id="${id}">${en.includes('') || v.default !== undefined ? '' : '<option value="">—</option>'}${en.map((e, i) => `<option value="${esc(e)}"${e === cur ? ' selected' : ''}>${esc(short(et[i] ?? (e || 'Any'), 70))}</option>`).join('')}</select>`;
+    control = `<select id="${id}">${en.includes('') || v.default !== undefined ? '' : '<option value=""> - </option>'}${en.map((e, i) => `<option value="${esc(e)}"${e === cur ? ' selected' : ''}>${esc(short(et[i] ?? (e || 'Any'), 70))}</option>`).join('')}</select>`;
   } else if (v.editor === 'textarea') {
     control = `<textarea id="${id}" rows="3">${esc(val ?? '')}</textarea>`;
   } else {
@@ -998,7 +1008,7 @@ function fieldRowsOf(name) {
   return Object.entries(props).map(([k, p]) => [`\`${k}\``, p.label || '']);
 }
 const cell = (v) => {
-  if (v === null || v === undefined) return '<span class="none">–</span>';
+  if (v === null || v === undefined) return '<span class="none">-</span>';
   if (typeof v === 'object') return `<code>${esc(short(JSON.stringify(v), 120))}</code>`;
   const s = String(v);
   return /^https?:\/\//.test(s) ? `<span class="url">${esc(short(s, 70))}</span>` : esc(short(s, 160));
@@ -1098,7 +1108,7 @@ function readmeFaq(name) {
   for (const m of body.matchAll(/^#{3,4}\s+(.+\?)\s*\n+([^\n]+(?:\n(?!\s*\n|#).+)*)/gm)) out.push([m[1].trim(), m[2].replace(/\n/g, ' ').trim()]);
   return out;
 }
-const shortTitle = (t) => t.split(/ [—–-] |: /)[0];
+const shortTitle = (t) => t.split(/ [\u2014\u2013-] |: /)[0];
 function faqOf(a, main, fields) {
   const name = a.name, mcp = mcpOf(name), own = readmeFaq(name), nm = shortTitle(a.title);
   const asked = (re) => own.some(([q]) => re.test(q));
@@ -1263,7 +1273,7 @@ for (const [k, label, names] of CATS) {
   writeFileSync(OUT(`./tools/${k}/index.html`), page({
     path: `/tools/${k}/`,
     active: 'tools',
-    title: `${CAT_SHORT[k] || label} data tools and APIs (${ts.length}): ${label.toLowerCase()} | tacps126`.replace(/: (.{60}).*? \| /, ': $1… | '),
+    title: `${CAT_SHORT[k] || label} data tools and APIs (${ts.length}): ${label.toLowerCase()} | tacps126`.replace(/: (.{60}).*? \| /, ': $1... | '),
     description: short(`${useBody || label}. ${ts.slice(0, 4).map((t) => t.title).join(', ')} and more, with price, input builder and sample output for each.`, 300),
     jsonld: [
       { '@context': 'https://schema.org', '@type': 'CollectionPage', name: label, url: `${SITE}/tools/${k}/`, description: useBody || label,
@@ -1397,7 +1407,7 @@ const chainData = {
 
 // ---------------------------------------------------------------- search index (/search.json)
 // What the command palette and the "what data do you need?" box search: every tool with its
-// words, the options of its select fields (countries, sources, topics…) and its main text field.
+// words, the options of its select fields (countries, sources, topics...) and its main text field.
 const STOP = new Set(['the', 'and', 'for', 'with', 'from', 'your', 'any', 'all', 'per', 'one', 'each', 'into', 'that', 'this', 'are', 'its', 'you', 'get', 'data', 'scraper', 'tool', 'only', 'new', 'more', 'than', 'list', 'every', 'clean']);
 const wordsOf = (s) => [...new Set(String(s).toLowerCase().normalize('NFKD').replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter((w) => w.length > 2 && !STOP.has(w)))];
 const COUNTRY_FIELD = /^(country|countries|countryCode|jurisdictions)$/;
@@ -1478,8 +1488,8 @@ const homeBody = `
     <button class="tile t-search" type="button" data-pal><span class="t-kick">Search everything</span><b>Press <kbd>⌘K</kbd> or <kbd>/</kbd></b><span>Every tool, page and AI-agent tool by name or by need; Enter opens it, Shift+Enter copies its API call.</span></button>
     <a class="tile t-map" href="#coverage"><span class="t-kick">Coverage</span><b>${covered.length} countries</b><span>Tenders, laws, registers, recalls, alerts, jobs and property, country by country.</span></a>
     <a class="tile t-agent" href="/mcp.html"><span class="t-kick">For AI agents</span><b>${N} MCP tools</b><code>npx -y webdata-tools-mcp</code></a>
-    <a class="tile t-price" href="/pricing.html"><span class="t-kick">Pricing</span><b>${PRICE_FROM}–${usd(q(0.9))} / 1k</b><span>Pay per result; empty searches are free; cap every run.</span></a>
-    <a class="tile t-chain" href="#compose"><span class="t-kick">Chain tools</span><b>Exhibitors → emails</b><span>Pass one tool's rows to the next and get the script.</span></a>
+    <a class="tile t-price" href="/pricing.html"><span class="t-kick">Pricing</span><b>${PRICE_FROM}-${usd(q(0.9))} / 1k</b><span>Pay per result; empty searches are free; cap every run.</span></a>
+    <a class="tile t-chain" href="#compose"><span class="t-kick">Chain tools</span><b>Exhibitors > emails</b><span>Pass one tool's rows to the next and get the script.</span></a>
   </div>
 </section>
 
@@ -1494,7 +1504,7 @@ ${useCards}
 
 <section id="popular" data-label="Most used">
   <div class="wrap">
-    <div class="sec-head row"><div><h2>Most used this month</h2><p>Each page has an input builder that writes the call for you.</p></div><a class="btn" href="/tools/">All ${used} tools →</a></div>
+    <div class="sec-head row"><div><h2>Most used this month</h2><p>Each page has an input builder that writes the call for you.</p></div><a class="btn" href="/tools/">All ${used} tools > </a></div>
     <div class="grid">
 ${popular.map(({ a, k }) => toolCard(a, k)).join('\n')}
     </div>
@@ -1506,7 +1516,7 @@ ${popular.map(({ a, k }) => toolCard(a, k)).join('\n')}
     <div class="sec-head"><h2>Where the data comes from</h2><p>Countries shade by how many tools read their official or local sources. Hover for the tools; click or tap for a close-up with state and province lines.</p></div>
     <div class="map-grid">
       <div class="map-box">${mapSvg}
-        <div class="map-key" aria-hidden="true"><span class="l1">1</span><span class="l2">2–4</span><span class="l3">5–7</span><span class="l4">8+</span> tools</div>
+        <div class="map-key" aria-hidden="true"><span class="l1">1</span><span class="l2">2-4</span><span class="l3">5-7</span><span class="l4">8+</span> tools</div>
       </div>
       <div class="map-panel" id="map-panel" aria-live="polite">
         <p class="t-kick">Most covered</p>
@@ -1526,7 +1536,7 @@ ${popular.map(({ a, k }) => toolCard(a, k)).join('\n')}
       <div class="chain" id="chain"><p class="muted">Start with: ${[...new Set(CHAINS.map((c) => c[0]))].map((n) => `<button class="chip" type="button" data-start="${n}">${esc(byName.get(n).title)}</button>`).join(' ')}</p></div>
       <div class="chain-code" id="chain-code" hidden>${code('chain.py · pip install apify-client', '')}</div>
     </div>
-    <noscript><p>Examples: exhibitors of a trade show → their websites → emails; new companies in a register → sanctions screening.</p></noscript>
+    <noscript><p>Examples: exhibitors of a trade show > their websites > emails; new companies in a register > sanctions screening.</p></noscript>
     <script type="application/json" id="chain-data">${JSON.stringify(chainData).replace(/</g, '\\u003c')}</script>
   </div>
 </section>
