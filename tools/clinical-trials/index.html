@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clinical Trials Scraper - ClinicalTrials.gov Studies, Sites</title>
+<meta name="description" content="Export ClinicalTrials.gov studies by condition, drug, sponsor, place, status and phase: dates, enrollment, design, contacts (email, phone) and sites. New-study alerts. $3 per 1,000.">
+<meta name="keywords" content="ClinicalTrials.gov scraper, clinical trial search API, recruiting trials by condition, trial site list, Health and life sciences">
+<link rel="canonical" href="https://tacps126.github.io/tools/clinical-trials/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tacps126">
+<meta property="og:title" content="Clinical Trials Scraper - ClinicalTrials.gov Studies, Sites">
+<meta property="og:description" content="Export ClinicalTrials.gov studies by condition, drug, sponsor, place, status and phase: dates, enrollment, design, contacts (email, phone) and sites. New-study alerts. $3 per 1,000.">
+<meta property="og:url" content="https://tacps126.github.io/tools/clinical-trials/">
+<meta property="og:image" content="https://tacps126.github.io/og/clinical-trials.jpg?v=994915e13e">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Clinical Trials Scraper: ClinicalTrials.gov Studies &amp; Sites: Clinical trials from ClinicalTrials.gov by condition, drug, sponsor, location, status, phase and sponsor type: dates,...">
+<meta property="og:updated_time" content="2026-10-30">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Clinical Trials Scraper - ClinicalTrials.gov Studies, Sites">
+<meta name="twitter:description" content="Export ClinicalTrials.gov studies by condition, drug, sponsor, place, status and phase: dates, enrollment, design, contacts (email, phone) and sites. New-study alerts. $3 per 1,000.">
+<meta name="twitter:image" content="https://tacps126.github.io/og/clinical-trials.jpg?v=994915e13e">
+<link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
+<link rel="stylesheet" href="/style.css?v=cb78145d63">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Clinical Trials Scraper: ClinicalTrials.gov Studies & Sites","alternateName":"clinical-trials","applicationCategory":"DeveloperApplication","applicationSubCategory":"Health and life sciences","operatingSystem":"Web, API (Apify)","keywords":"ClinicalTrials.gov scraper, clinical trial search API, recruiting trials by condition, trial site list","url":"https://tacps126.github.io/tools/clinical-trials/","sameAs":"https://apify.com/tacps126/clinical-trials","installUrl":"https://apify.com/tacps126/clinical-trials","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-3A3RCwBmHP5byFVHZ-cwEqH0TjTh-clinical-trials.png","screenshot":"https://tacps126.github.io/og/clinical-trials.jpg?v=994915e13e","description":"Clinical trials from ClinicalTrials.gov by condition, drug, sponsor, location, status, phase and sponsor type: dates, enrollment, design, interventions, eligibility, central contacts (name, phone, email) and sites. New-study alerts.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-10-30","offers":{"@type":"Offer","price":"0.003","priceCurrency":"USD","url":"https://apify.com/tacps126/clinical-trials","description":"$3 per 1,000, pay per study"},"featureList":["nctId, url, title, officialTitle, acronym: The study","status, startDate, primaryCompletionDate, completionDate, firstPosted, lastUpdated, whyStopped: Where it stands","sponsor, sponsorType, collaborators, organization: Who runs it","studyType, phases, enrollment, allocation, primaryPurpose, masking: Design","conditions, keywords, interventions, primaryOutcomes, summary, eligibility: What it tests and on whom","centralContacts, officials: Who to contact","countries, locationCount, locations: Where (sites with contacts and coordinates)"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"Health and life sciences","item":"https://tacps126.github.io/tools/health/"},{"@type":"ListItem","position":4,"name":"Clinical Trials Scraper: ClinicalTrials.gov Studies & Sites","item":"https://tacps126.github.io/tools/clinical-trials/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does Clinical Trials Scraper cost?","acceptedAnswer":{"@type":"Answer","text":"$3 per 1,000, charged only for studys returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"What does Clinical Trials Scraper return?","acceptedAnswer":{"@type":"Answer","text":"Every row has the same fields, including nctId, url, title, officialTitle, acronym, status, startDate, primaryCompletionDate, completionDate, firstPosted, lastUpdated, whyStopped, sponsor, sponsorType, collaborators, organization, studyType, phases, enrollment, allocation, primaryPurpose, masking, conditions, keywords, interventions, primaryOutcomes, summary, eligibility, centralContacts, officials, countries, locationCount, locations. Download as JSON, CSV, Excel or XML."}},{"@type":"Question","name":"Can an AI agent use it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as search_clinical_trials."}},{"@type":"Question","name":"Can it run on a schedule and return only new results?","acceptedAnswer":{"@type":"Answer","text":"Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 71 tools</span><kbd>⌘K</kbd></button>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/#coverage">Coverage</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/mcp.html">AI agents</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="tool-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/health/">Health and life sciences</a></nav>
+    <div class="th">
+      <img class="th-ico" src="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-3A3RCwBmHP5byFVHZ-cwEqH0TjTh-clinical-trials.png" alt="" width="64" height="64" decoding="async" onerror="this.onerror=null;this.src='/icons/clinical-trials.png'">
+      <div>
+        <h1>Clinical Trials Scraper: ClinicalTrials.gov Studies &amp; Sites</h1>
+        <p class="lead">Clinical trials from ClinicalTrials.gov by condition, drug, sponsor, location, status, phase and sponsor type: dates, enrollment, design, interventions, eligibility, central contacts (name, phone, email) and sites. New-study alerts.</p>
+      </div>
+    </div>
+    <div class="facts"><span class="pchip"><b>$3 per 1,000</b> study</span><span class="fact">updated 2026-10-30</span></div>
+    <div class="cta-row">
+      <a class="btn primary" href="https://apify.com/tacps126/clinical-trials" rel="noopener">Run it on Apify</a>
+      <a class="btn" href="#try">Build the input</a>
+      <a class="btn ghost" href="#output">See the output</a>
+    </div>
+  </div>
+</section>
+
+<section id="try" data-label="Try it">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
+    <div class="tool-grid">
+      <form class="tform" id="tform" data-actor="clinical-trials" data-unit="0.003" data-what="study" data-max="maxItems" data-start="{&quot;condition&quot;:&quot;obesity&quot;,&quot;statuses&quot;:[&quot;RECRUITING&quot;],&quot;phases&quot;:[&quot;PHASE3&quot;]}" autocomplete="off">
+<div class="f" data-k="condition" data-kind="str"><label for="f-condition"><span class="fl">Condition</span></label><input id="f-condition" type="text" value="obesity" placeholder=""><p class="fh">Disease or condition, e.g. obesity, breast cancer, Alzheimer's.</p></div>
+<div class="f" data-k="intervention" data-kind="str"><label for="f-intervention"><span class="fl">Drug or intervention</span></label><input id="f-intervention" type="text" value="" placeholder=""><p class="fh">e.g. semaglutide, pembrolizumab, device name.</p></div>
+<div class="f" data-k="sponsor" data-kind="str"><label for="f-sponsor"><span class="fl">Sponsor</span></label><input id="f-sponsor" type="text" value="" placeholder=""><p class="fh">e.g. Pfizer, Novo Nordisk, National Cancer Institute.</p></div>
+<div class="f" data-k="keywords" data-kind="str"><label for="f-keywords"><span class="fl">Other words</span></label><input id="f-keywords" type="text" value="" placeholder=""><p class="fh">Anywhere in the study record.</p></div>
+<div class="f" data-k="location" data-kind="str"><label for="f-location"><span class="fl">Location</span></label><input id="f-location" type="text" value="" placeholder=""><p class="fh">Country, state or city of a study site, e.g. India, Texas, Boston.</p></div>
+<details class="more"><summary>Filters</summary><div class="f" data-k="statuses" data-kind="multi"><label for="f-statuses"><span class="fl">Status</span></label><div class="opts" role="group" aria-label="Status"><label class="opt"><input type="checkbox" value="RECRUITING" checked><span>Recruiting</span></label><label class="opt"><input type="checkbox" value="NOT_YET_RECRUITING"><span>Not yet recruiting</span></label><label class="opt"><input type="checkbox" value="ENROLLING_BY_INVITATION"><span>Enrolling by invitation</span></label><label class="opt"><input type="checkbox" value="ACTIVE_NOT_RECRUITING"><span>Active, not recruiting</span></label><label class="opt"><input type="checkbox" value="COMPLETED"><span>Completed</span></label><label class="opt"><input type="checkbox" value="SUSPENDED"><span>Suspended</span></label><label class="opt"><input type="checkbox" value="TERMINATED"><span>Terminated</span></label><label class="opt"><input type="checkbox" value="WITHDRAWN"><span>Withdrawn</span></label><label class="opt"><input type="checkbox" value="UNKNOWN"><span>Unknown</span></label></div><p class="fh">Empty = any status.</p></div>
+<div class="f" data-k="phases" data-kind="multi"><label for="f-phases"><span class="fl">Phase</span></label><div class="opts" role="group" aria-label="Phase"><label class="opt"><input type="checkbox" value="EARLY_PHASE1"><span>Early phase 1</span></label><label class="opt"><input type="checkbox" value="PHASE1"><span>Phase 1</span></label><label class="opt"><input type="checkbox" value="PHASE2"><span>Phase 2</span></label><label class="opt"><input type="checkbox" value="PHASE3" checked><span>Phase 3</span></label><label class="opt"><input type="checkbox" value="PHASE4"><span>Phase 4</span></label><label class="opt"><input type="checkbox" value="NA"><span>Not applicable</span></label></div><p class="fh">Empty = any phase.</p></div>
+<div class="f" data-k="studyType" data-kind="str" data-def="&quot;&quot;"><label for="f-studyType"><span class="fl">Study type</span></label><select id="f-studyType"><option value="" selected>Any</option><option value="INTERVENTIONAL">Interventional</option><option value="OBSERVATIONAL">Observational</option><option value="EXPANDED_ACCESS">Expanded access</option></select><p class="fh">Kind of study.</p></div>
+<div class="f" data-k="sponsorTypes" data-kind="multi"><label for="f-sponsorTypes"><span class="fl">Sponsor type</span></label><div class="opts" role="group" aria-label="Sponsor type"><label class="opt"><input type="checkbox" value="INDUSTRY"><span>Industry</span></label><label class="opt"><input type="checkbox" value="NIH"><span>NIH</span></label><label class="opt"><input type="checkbox" value="FED"><span>Other US federal</span></label><label class="opt"><input type="checkbox" value="OTHER_GOV"><span>Other government</span></label><label class="opt"><input type="checkbox" value="NETWORK"><span>Network</span></label><label class="opt"><input type="checkbox" value="OTHER"><span>Other (universities, hospitals...)</span></label></div><p class="fh">Empty = any sponsor.</p></div>
+<div class="f" data-k="firstPostedWithinDays" data-kind="int"><label for="f-firstPostedWithinDays"><span class="fl">First posted in the last N days</span></label><input id="f-firstPostedWithinDays" type="number" inputmode="numeric" min="1" value="" placeholder=""><p class="fh">New studies only.</p></div>
+<div class="f" data-k="updatedWithinDays" data-kind="int"><label for="f-updatedWithinDays"><span class="fl">Updated in the last N days</span></label><input id="f-updatedWithinDays" type="number" inputmode="numeric" min="1" value="" placeholder=""><p class="fh">Studies with any update in this window.</p></div>
+<div class="f" data-k="maxLocationsPerStudy" data-kind="int" data-def="25"><label for="f-maxLocationsPerStudy"><span class="fl">Sites per study</span></label><input id="f-maxLocationsPerStudy" type="number" inputmode="numeric" min="0" max="1000" value="25" placeholder="25"><p class="fh">Study sites listed per row (all countries are always listed).</p></div>
+<div class="f" data-k="maxItems" data-kind="int" data-def="500"><label for="f-maxItems"><span class="fl">Max studies</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" value="500" placeholder="500"><p class="fh">Most studies returned per run.</p></div></details>
+<details class="more"><summary>Monitoring</summary><div class="f f-bool" data-k="onlyNew" data-kind="bool" data-def="false"><label class="sw" for="f-onlyNew"><input type="checkbox" id="f-onlyNew"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Only new studies</span></label><p class="fh">Schedule the Actor and each run returns only studies earlier runs did not deliver.</p></div></details>
+        <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
+      </form>
+      <aside class="tcode">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" data-lang="curl" aria-selected="true">curl</button><button class="tab" role="tab" type="button" data-lang="python" aria-selected="false">Python</button><button class="tab" role="tab" type="button" data-lang="js" aria-selected="false">JavaScript</button><button class="tab" role="tab" type="button" data-lang="mcp" aria-selected="false">AI agent</button></div>
+        <div class="panel"><div class="code">
+  <div class="code-top"><span>terminal</span><button class="copy" type="button">Copy</button></div>
+  <pre>curl -X POST \
+  &quot;https://api.apify.com/v2/acts/tacps126~clinical-trials/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;condition&quot;:&quot;obesity&quot;,&quot;statuses&quot;:[&quot;RECRUITING&quot;],&quot;phases&quot;:[&quot;PHASE3&quot;]}'</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;tacps126/clinical-trials&quot;).call(run_input={
+    &quot;condition&quot;: &quot;obesity&quot;,
+    &quot;statuses&quot;: [&quot;RECRUITING&quot;],
+    &quot;phases&quot;: [&quot;PHASE3&quot;],
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item)</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>JavaScript · npm i apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: 'YOUR_APIFY_TOKEN' });
+const run = await client.actor('tacps126/clinical-trials').call({
+  &quot;condition&quot;: &quot;obesity&quot;,
+  &quot;statuses&quot;: [
+    &quot;RECRUITING&quot;
+  ],
+  &quot;phases&quot;: [
+    &quot;PHASE3&quot;
+  ]
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items);</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>MCP</span><button class="copy" type="button">Copy</button></div>
+  <pre># webdata-tools-mcp (Claude, Cursor, any MCP client)
+claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata-tools-mcp
+
+# then ask your agent; it calls: search_clinical_trials</pre>
+</div></div>
+        <p class="cost" id="tf-cost">Up to 500 studys: at most $1.50, on Apify's free plan.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="output" data-label="Output">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Output</span><h2>What you get back</h2><p>The fields every row has.</p></div>
+    <div class="out-grid one">
+      
+      <div class="table-wrap fields"><table><thead><tr><th>Field</th><th>What it holds</th></tr></thead><tbody><tr><td><code>nctId</code>, <code>url</code>, <code>title</code>, <code>officialTitle</code>, <code>acronym</code></td><td>The study</td></tr><tr><td><code>status</code>, <code>startDate</code>, <code>primaryCompletionDate</code>, <code>completionDate</code>, <code>firstPosted</code>, <code>lastUpdated</code>, <code>whyStopped</code></td><td>Where it stands</td></tr><tr><td><code>sponsor</code>, <code>sponsorType</code>, <code>collaborators</code>, <code>organization</code></td><td>Who runs it</td></tr><tr><td><code>studyType</code>, <code>phases</code>, <code>enrollment</code>, <code>allocation</code>, <code>primaryPurpose</code>, <code>masking</code></td><td>Design</td></tr><tr><td><code>conditions</code>, <code>keywords</code>, <code>interventions</code>, <code>primaryOutcomes</code>, <code>summary</code>, <code>eligibility</code></td><td>What it tests and on whom</td></tr><tr><td><code>centralContacts</code>, <code>officials</code></td><td>Who to contact</td></tr><tr><td><code>countries</code>, <code>locationCount</code>, <code>locations</code></td><td>Where (sites with contacts and coordinates)</td></tr></tbody></table></div>
+    </div>
+    <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
+  </div>
+</section>
+
+<section id="guide" data-label="Guide">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Guide</span><h2>How Clinical Trials Scraper works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
+    <article class="post guide" id="guide-body"><p>Clinical trials from <strong>ClinicalTrials.gov</strong> (500,000+ studies worldwide) by condition, drug or intervention, sponsor and location, filtered by status, phase, study type and sponsor type. Each study comes with dates, enrollment, design, interventions, primary outcomes, eligibility, <strong>central contacts (name, phone, email)</strong>, officials, and <strong>sites</strong> with city, country and coordinates.</p>
+<p><strong>Built for</strong> CROs and site networks, pharma and biotech business development, medtech and suppliers selling to trial sites, patient-recruitment firms, investors and analysts, and AI agents.</p>
+<h3 id="g-why-this-actor">Why this Actor</h3>
+<ul><li><strong>Every filter that matters:</strong> condition, drug, sponsor, place, status, phase, study type, industry vs academic sponsor, newly posted or recently updated.</li><li><strong>Contacts and sites</strong> in each row, ready for outreach or site mapping.</li><li><strong>New-study alerts:</strong> <em>Only new studies</em> on a weekly schedule.</li><li><strong>For AI agents.</strong> Callable as an MCP tool.</li></ul>
+<h3 id="g-how-to-use-it">How to use it</h3>
+<p>Recruiting industry-sponsored phase 3 obesity trials:</p>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{ &quot;condition&quot;: &quot;obesity&quot;, &quot;statuses&quot;: [&quot;RECRUITING&quot;], &quot;phases&quot;: [&quot;PHASE3&quot;], &quot;sponsorTypes&quot;: [&quot;INDUSTRY&quot;] }</pre></div>
+<p>New oncology studies with a site in India, every week:</p>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{ &quot;condition&quot;: &quot;cancer&quot;, &quot;location&quot;: &quot;India&quot;, &quot;firstPostedWithinDays&quot;: 7, &quot;onlyNew&quot;: true }</pre></div>
+<h3 id="g-pricing">Pricing</h3>
+<p><strong>$3 per 1,000 studies</strong> plus a small start fee per run. On the Apify free plan a run returns up to 100 studies.</p>
+<h3 id="g-good-to-know">Good to know</h3>
+<ul><li>Data is as registered on ClinicalTrials.gov (U.S. National Library of Medicine). Questions: <strong>tacps126@gmail.com</strong>.</li></ul></article>
+    <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
+  </div>
+</section>
+
+<section class="alt" id="faq" data-label="Questions">
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions about Clinical Trials Scraper</h2></div>
+    <div class="faq"><details open><summary>How much does Clinical Trials Scraper cost?</summary><p>$3 per 1,000, charged only for studys returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>What does Clinical Trials Scraper return?</summary><p>Every row has the same fields, including nctId, url, title, officialTitle, acronym, status, startDate, primaryCompletionDate, completionDate, firstPosted, lastUpdated, whyStopped, sponsor, sponsorType, collaborators, organization, studyType, phases, enrollment, allocation, primaryPurpose, masking, conditions, keywords, interventions, primaryOutcomes, summary, eligibility, centralContacts, officials, countries, locationCount, locations. Download as JSON, CSV, Excel or XML.</p></details><details><summary>Can an AI agent use it?</summary><p>Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as <code>search_clinical_trials</code>.</p></details><details><summary>Can it run on a schedule and return only new results?</summary><p>Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input.</p></details></div>
+  </div>
+</section>
+<section id="pairs" data-label="Pairs well">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2></div>
+    <div class="grid">
+
+      <a class="card link" href="/tools/fda-device-clearances/"><span class="why">Also in health</span><h3>FDA 510(k) &amp; PMA Device Clearances: Medical Device Approvals</h3><p>FDA medical device 510(k) clearances and PMA approvals: applicant, contact person, address, device and...</p></a>
+      <a class="card link" href="/tools/npi-providers/"><span class="why">Also in health</span><h3>NPI Registry Scraper: US Doctors, Dentists &amp; Clinics</h3><p>US healthcare providers from the official NPI Registry: doctors, dentists, therapists, clinics and hospitals...</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="uses" data-label="Use cases">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Use cases</span><h2>What people use Clinical Trials Scraper for</h2></div>
+    <div class="uses-grid">
+      <ul class="uses"><li>Map the trial landscape for a condition or drug</li><li>Find recruiting sites and study contacts</li><li>Track new studies from competitors</li><li>Alerts on newly posted trials</li></ul>
+      <div>
+        <h3 class="terms-h">Also searched as</h3><p class="terms"><a class="xchip" href="/tools/?q=ClinicalTrials.gov%20scraper">ClinicalTrials.gov scraper</a> <a class="xchip" href="/tools/?q=clinical%20trial%20search%20API">clinical trial search API</a> <a class="xchip" href="/tools/?q=recruiting%20trials%20by%20condition">recruiting trials by condition</a> <a class="xchip" href="/tools/?q=trial%20site%20list">trial site list</a></p>
+        <h3 class="terms-h">Categories</h3><p class="terms"><a class="xchip" href="/tools/health/">Health and life sciences</a> <span class="xchip">Lead generation</span> <span class="xchip">Automation</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/favicon.svg" alt="" width="34" height="34"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+        <p>Web data tools that gather, clean and enrich public data: jobs, leads, research, markets and public records. Pay per result on Apify, or call them from an AI agent.</p>
+        <p><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a><br><a href="mailto:tacps126@gmail.com?subject=Custom%20data%20request">Ask for a custom dataset</a></p>
+      </div>
+      <nav aria-label="Topics"><p class="foot-h">Topics</p><ul>
+        <li><a href="/tools/jobs/">Jobs</a></li>
+        <li><a href="/tools/leads/">Leads</a></li>
+        <li><a href="/tools/reviews/">Reviews and research</a></li>
+        <li><a href="/tools/gov/">Government</a></li>
+        <li><a href="/tools/health/">Health</a></li>
+        <li><a href="/tools/commerce/">Commerce</a></li>
+        <li><a href="/tools/finance/">Finance</a></li>
+        <li><a href="/tools/sports/">Sports</a></li>
+        <li><a href="/tools/travel/">Travel</a></li>
+      </ul></nav>
+      <nav aria-label="Explore"><p class="foot-h">Explore</p><ul>
+        <li><a href="/tools/">All tools</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
+        <li><a href="/#compose">Chain tools</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul></nav>
+      <nav aria-label="Developers"><p class="foot-h">Developers</p><ul>
+        <li><a href="https://apify.com/tacps126">Tools on Apify</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
+        <li><a href="https://github.com/tacps126/webdata-tools-mcp">GitHub</a></li>
+        <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
+        <li><a href="https://smithery.ai/servers/tacps126/webdata-tools-mcp">Smithery</a></li>
+        <li><a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp">Glama</a></li>
+      </ul></nav>
+    </div>
+    <div class="foot-base">
+      <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+      <p class="fine">&copy; 2026 Tapaswai Choudhary</p>
+    </div>
+  </div>
+</footer>
+<script src="/app.js?v=93adc7d3b9" defer></script>
+<script src="/tool.js?v=a64914dde6" defer></script>
+</body>
+</html>

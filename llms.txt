@@ -2,7 +2,7 @@
 
 > Fast, low-cost web data tools published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
-- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): 38 tools for AI agents, MIT licensed, on npm and the official MCP Registry
+- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): 44 tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/tacps126)
 - [Code recipes](https://github.com/tacps126/apify-data-recipes)
 - Contact: tacps126@gmail.com
@@ -38,6 +38,7 @@
 - [Reddit Lead Finder: Buying-Intent Posts](https://tacps126.github.io/tools/reddit-lead-finder/): Find people on Reddit asking for a tool like yours, looking for an alternative to a competitor, comparing options or... (From $3 per 1,000 leads). Run: https://apify.com/tacps126/reddit-lead-finder
 - [Shopify Store Analyzer: Contacts, Location & Catalog](https://tacps126.github.io/tools/shopify-store-analyzer/): Analyze any list of Shopify stores: name, city and country, currency, product count, price range, discounts, top... (From $4 per 1,000 stores). Run: https://apify.com/tacps126/shopify-store-analyzer
 - [Trade Show Exhibitor List Scraper - Emails & Booths](https://tacps126.github.io/tools/exhibition-scraper/): Exhibitor lists from 91 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo..) or any show.... Run: https://apify.com/tacps126/exhibition-scraper
+- [US Import Records: Importers, Suppliers & Bills of Lading](https://tacps126.github.io/tools/us-import-records/): US customs import records for any importer or overseas supplier: totals, 12-month trend, suppliers or US customers,.... Run: https://apify.com/tacps126/us-import-records
 - [Events Scraper - Luma, Eventbrite, Meetup](https://tacps126.github.io/tools/events-scraper/): Upcoming events from Luma, Eventbrite, Meetup and any schema.org event page: name, date, venue, organiser, hosts,.... Run: https://apify.com/tacps126/events-scraper
 - [Luma Events Scraper](https://tacps126.github.io/tools/luma-events-scraper/): Upcoming Luma (lu.ma) events by city, category, keyword or calendar link: name, date, venue with coordinates,.... Run: https://apify.com/tacps126/luma-events-scraper
 - [Eventbrite Scraper](https://tacps126.github.io/tools/eventbrite-events-scraper/): Eventbrite events by keyword and city, or from any Eventbrite search or event link: name, date, venue and address,.... Run: https://apify.com/tacps126/eventbrite-events-scraper
@@ -63,6 +64,12 @@
 - [Gov Radar: Regulations, Notices & Circulars](https://tacps126.github.io/tools/gov-radar/): Official government updates in one feed: US Federal Register and SEC, GOV.UK, European Commission, India's RBI, SEBI,... (From $3 per 1,000 updates). Run: https://apify.com/tacps126/gov-radar
 - [India District Notices: Tenders, Recruitment & Announcements](https://tacps126.github.io/tools/india-district-notices/): Tenders, recruitment and announcements from the official websites of India's 748 districts, by state and district:... (From $3 per 1,000 notices). Run: https://apify.com/tacps126/india-district-notices
 - [Alerts Radar: Weather & Disaster Warnings](https://tacps126.github.io/tools/alerts-radar/): Official weather and disaster warnings in one schema: US National Weather Service, MeteoAlarm (38 European countries),... (From $2 per 1,000 alerts). Run: https://apify.com/tacps126/alerts-radar
+- [CVE Vulnerability Feed: NVD, CISA KEV & EPSS](https://tacps126.github.io/tools/cve-feed/): New and updated vulnerabilities from NVD with CVSS score and severity, CWE, affected vendors and products, references,.... Run: https://apify.com/tacps126/cve-feed
+
+## [Health and life sciences](https://tacps126.github.io/tools/health/)
+- [Clinical Trials Scraper: ClinicalTrials.gov Studies & Sites](https://tacps126.github.io/tools/clinical-trials/): Clinical trials from ClinicalTrials.gov by condition, drug, sponsor, location, status, phase and sponsor type: dates,.... Run: https://apify.com/tacps126/clinical-trials
+- [FDA 510(k) & PMA Device Clearances: Medical Device Approvals](https://tacps126.github.io/tools/fda-device-clearances/): FDA medical device 510(k) clearances and PMA approvals: applicant, contact person, address, device and generic name,.... Run: https://apify.com/tacps126/fda-device-clearances
+- [NPI Registry Scraper: US Doctors, Dentists & Clinics](https://tacps126.github.io/tools/npi-providers/): US healthcare providers from the official NPI Registry: doctors, dentists, therapists, clinics and hospitals with.... Run: https://apify.com/tacps126/npi-providers
 
 ## [E-commerce, vehicles and real estate](https://tacps126.github.io/tools/commerce/)
 - [Shopify Products Scraper](https://tacps126.github.io/tools/shopify-products/): Scrape products from any Shopify store - prices, sale prices, discounts, stock, variants, SKUs, images and... (From $1 per 1,000 products). Run: https://apify.com/tacps126/shopify-products

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NPI Registry Scraper - US Doctors, Dentists, Clinics | tacps126</title>
+<meta name="description" content="US healthcare providers from the official NPI Registry: specialty, license, address, phone, fax, authorized official. Search by specialty, state, city, ZIP; new practices. $3 per 1,000.">
+<meta name="keywords" content="NPI Registry scraper, NPPES lookup, doctor list by specialty, dentist leads, healthcare provider database, Health and life sciences">
+<link rel="canonical" href="https://tacps126.github.io/tools/npi-providers/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tacps126">
+<meta property="og:title" content="NPI Registry Scraper - US Doctors, Dentists, Clinics | tacps126">
+<meta property="og:description" content="US healthcare providers from the official NPI Registry: specialty, license, address, phone, fax, authorized official. Search by specialty, state, city, ZIP; new practices. $3 per 1,000.">
+<meta property="og:url" content="https://tacps126.github.io/tools/npi-providers/">
+<meta property="og:image" content="https://tacps126.github.io/og/npi-providers.jpg?v=3824e3f203">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NPI Registry Scraper: US Doctors, Dentists &amp; Clinics: US healthcare providers from the official NPI Registry: doctors, dentists, therapists, clinics and hospitals with...">
+<meta property="og:updated_time" content="2026-10-30">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NPI Registry Scraper - US Doctors, Dentists, Clinics | tacps126">
+<meta name="twitter:description" content="US healthcare providers from the official NPI Registry: specialty, license, address, phone, fax, authorized official. Search by specialty, state, city, ZIP; new practices. $3 per 1,000.">
+<meta name="twitter:image" content="https://tacps126.github.io/og/npi-providers.jpg?v=3824e3f203">
+<link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
+<link rel="stylesheet" href="/style.css?v=cb78145d63">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"NPI Registry Scraper: US Doctors, Dentists & Clinics","alternateName":"npi-providers","applicationCategory":"DeveloperApplication","applicationSubCategory":"Health and life sciences","operatingSystem":"Web, API (Apify)","keywords":"NPI Registry scraper, NPPES lookup, doctor list by specialty, dentist leads, healthcare provider database","url":"https://tacps126.github.io/tools/npi-providers/","sameAs":"https://apify.com/tacps126/npi-providers","installUrl":"https://apify.com/tacps126/npi-providers","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-COsT6KbR22irsaWbe-3UqtwRHno3-npi-providers.png","screenshot":"https://tacps126.github.io/og/npi-providers.jpg?v=3824e3f203","description":"US healthcare providers from the official NPI Registry: doctors, dentists, therapists, clinics and hospitals with specialty, license, practice address, phone, fax and the authorized official of organizations. Search by specialty, state, city, ZIP, name or NPI; new-provider alerts.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-10-30","offers":{"@type":"Offer","price":"0.003","priceCurrency":"USD","url":"https://apify.com/tacps126/npi-providers","description":"$3 per 1,000, pay per provider"},"featureList":["npi, type, name, credential, gender, status, enumerationDate, lastUpdated: The provider","specialty, taxonomyCode, licenseNumber, licenseState, taxonomies: What they practise and where they're licensed","street, city, state, zip, phone, fax, mailingAddress: Where to reach them","authorizedOfficial (name, title, credential, phone): Who signs for an organization","otherNames, directAddresses, url: Doing-business-as names, Direct messaging addresses, registry page"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"Health and life sciences","item":"https://tacps126.github.io/tools/health/"},{"@type":"ListItem","position":4,"name":"NPI Registry Scraper: US Doctors, Dentists & Clinics","item":"https://tacps126.github.io/tools/npi-providers/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does NPI Registry Scraper cost?","acceptedAnswer":{"@type":"Answer","text":"$3 per 1,000, charged only for providers returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"What does NPI Registry Scraper return?","acceptedAnswer":{"@type":"Answer","text":"Every row has the same fields, including npi, type, name, credential, gender, status, enumerationDate, lastUpdated, specialty, taxonomyCode, licenseNumber, licenseState, taxonomies, street, city, state, zip, phone, fax, mailingAddress, authorizedOfficial (name, title, credential, phone), otherNames, directAddresses, url. Download as JSON, CSV, Excel or XML."}},{"@type":"Question","name":"Can an AI agent use it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as search_healthcare_providers."}},{"@type":"Question","name":"Can it run on a schedule and return only new results?","acceptedAnswer":{"@type":"Answer","text":"Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 71 tools</span><kbd>⌘K</kbd></button>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/#coverage">Coverage</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/mcp.html">AI agents</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="tool-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/health/">Health and life sciences</a></nav>
+    <div class="th">
+      <img class="th-ico" src="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-COsT6KbR22irsaWbe-3UqtwRHno3-npi-providers.png" alt="" width="64" height="64" decoding="async" onerror="this.onerror=null;this.src='/icons/npi-providers.png'">
+      <div>
+        <h1>NPI Registry Scraper: US Doctors, Dentists &amp; Clinics</h1>
+        <p class="lead">US healthcare providers from the official NPI Registry: doctors, dentists, therapists, clinics and hospitals with specialty, license, practice address, phone, fax and the authorized official of organizations. Search by specialty, state, city, ZIP, name or NPI; new-provider alerts.</p>
+      </div>
+    </div>
+    <div class="facts"><span class="pchip"><b>$3 per 1,000</b> provider</span><span class="fact">updated 2026-10-30</span></div>
+    <div class="cta-row">
+      <a class="btn primary" href="https://apify.com/tacps126/npi-providers" rel="noopener">Run it on Apify</a>
+      <a class="btn" href="#try">Build the input</a>
+      <a class="btn ghost" href="#output">See the output</a>
+    </div>
+  </div>
+</section>
+
+<section id="try" data-label="Try it">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
+    <div class="tool-grid">
+      <form class="tform" id="tform" data-actor="npi-providers" data-unit="0.003" data-what="provider" data-max="maxItems" data-start="{&quot;specialties&quot;:[&quot;Dentist&quot;],&quot;states&quot;:[&quot;TX&quot;],&quot;cities&quot;:[&quot;Austin&quot;]}" autocomplete="off">
+<div class="f" data-k="specialties" data-kind="list"><label for="f-specialties"><span class="fl">Specialties</span></label><textarea id="f-specialties" rows="2" placeholder="One per line">Dentist</textarea><p class="fh">Registry specialty names, e.g. Dentist, Family Medicine, Chiropractor, Physical Therapist, Pharmacist, Nurse Practitioner.</p></div>
+<div class="f" data-k="states" data-kind="list"><label for="f-states"><span class="fl">States</span></label><textarea id="f-states" rows="2" placeholder="One per line">TX</textarea><p class="fh">Two-letter codes, e.g. TX, CA.</p></div>
+<div class="f" data-k="cities" data-kind="list"><label for="f-cities"><span class="fl">Cities</span></label><textarea id="f-cities" rows="2" placeholder="One per line">Austin</textarea><p class="fh">Practice cities. Splitting a state into cities gets past the registry's ~1,200 results per search.</p></div>
+<div class="f" data-k="postalCodes" data-kind="list"><label for="f-postalCodes"><span class="fl">ZIP codes</span></label><textarea id="f-postalCodes" rows="2" placeholder="One per line"></textarea><p class="fh">Five-digit ZIP codes (instead of states and cities).</p></div>
+<div class="f" data-k="providerType" data-kind="str" data-def="&quot;any&quot;"><label for="f-providerType"><span class="fl">Provider type</span></label><select id="f-providerType"><option value="any" selected>Any</option><option value="individual">Individuals (doctors, dentists...)</option><option value="organization">Organizations (practices, clinics, hospitals)</option></select><p class="fh">Individuals or organizations.</p></div>
+<details class="more"><summary>By name or number</summary><div class="f" data-k="firstName" data-kind="str"><label for="f-firstName"><span class="fl">First name</span></label><input id="f-firstName" type="text" value="" placeholder=""><p class="fh">Individuals.</p></div>
+<div class="f" data-k="lastName" data-kind="str"><label for="f-lastName"><span class="fl">Last name</span></label><input id="f-lastName" type="text" value="" placeholder=""><p class="fh">Individuals.</p></div>
+<div class="f" data-k="organizationName" data-kind="str"><label for="f-organizationName"><span class="fl">Organization name</span></label><input id="f-organizationName" type="text" value="" placeholder=""><p class="fh">Organizations (use * for a prefix, e.g. smile*).</p></div>
+<div class="f" data-k="npiNumbers" data-kind="list"><label for="f-npiNumbers"><span class="fl">NPI numbers</span></label><textarea id="f-npiNumbers" rows="2" placeholder="One per line"></textarea><p class="fh">Look up these NPIs.</p></div></details>
+<details class="more"><summary>Filters</summary><div class="f" data-k="enumeratedWithinDays" data-kind="int"><label for="f-enumeratedWithinDays"><span class="fl">New in the last N days</span></label><input id="f-enumeratedWithinDays" type="number" inputmode="numeric" min="1" value="" placeholder=""><p class="fh">Only providers whose NPI was issued in this window (new practices and new graduates).</p></div>
+<div class="f f-bool" data-k="withPhoneOnly" data-kind="bool" data-def="false"><label class="sw" for="f-withPhoneOnly"><input type="checkbox" id="f-withPhoneOnly"><span class="sw-ui" aria-hidden="true"></span><span class="fl">With phone only</span></label><p class="fh">Only providers with a practice phone number.</p></div>
+<div class="f" data-k="maxItems" data-kind="int" data-def="1000"><label for="f-maxItems"><span class="fl">Max providers</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" value="1000" placeholder="1000"><p class="fh">Most providers returned per run.</p></div></details>
+<details class="more"><summary>Monitoring</summary><div class="f f-bool" data-k="onlyNew" data-kind="bool" data-def="false"><label class="sw" for="f-onlyNew"><input type="checkbox" id="f-onlyNew"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Only new providers</span></label><p class="fh">Schedule the Actor and each run returns only providers earlier runs did not deliver.</p></div></details>
+        <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
+      </form>
+      <aside class="tcode">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" data-lang="curl" aria-selected="true">curl</button><button class="tab" role="tab" type="button" data-lang="python" aria-selected="false">Python</button><button class="tab" role="tab" type="button" data-lang="js" aria-selected="false">JavaScript</button><button class="tab" role="tab" type="button" data-lang="mcp" aria-selected="false">AI agent</button></div>
+        <div class="panel"><div class="code">
+  <div class="code-top"><span>terminal</span><button class="copy" type="button">Copy</button></div>
+  <pre>curl -X POST \
+  &quot;https://api.apify.com/v2/acts/tacps126~npi-providers/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;specialties&quot;:[&quot;Dentist&quot;],&quot;states&quot;:[&quot;TX&quot;],&quot;cities&quot;:[&quot;Austin&quot;]}'</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;tacps126/npi-providers&quot;).call(run_input={
+    &quot;specialties&quot;: [&quot;Dentist&quot;],
+    &quot;states&quot;: [&quot;TX&quot;],
+    &quot;cities&quot;: [&quot;Austin&quot;],
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item)</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>JavaScript · npm i apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: 'YOUR_APIFY_TOKEN' });
+const run = await client.actor('tacps126/npi-providers').call({
+  &quot;specialties&quot;: [
+    &quot;Dentist&quot;
+  ],
+  &quot;states&quot;: [
+    &quot;TX&quot;
+  ],
+  &quot;cities&quot;: [
+    &quot;Austin&quot;
+  ]
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items);</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>MCP</span><button class="copy" type="button">Copy</button></div>
+  <pre># webdata-tools-mcp (Claude, Cursor, any MCP client)
+claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata-tools-mcp
+
+# then ask your agent; it calls: search_healthcare_providers</pre>
+</div></div>
+        <p class="cost" id="tf-cost">Up to 1,000 providers: at most $3, on Apify's free plan.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="output" data-label="Output">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Output</span><h2>What you get back</h2><p>The fields every row has.</p></div>
+    <div class="out-grid one">
+      
+      <div class="table-wrap fields"><table><thead><tr><th>Field</th><th>What it holds</th></tr></thead><tbody><tr><td><code>npi</code>, <code>type</code>, <code>name</code>, <code>credential</code>, <code>gender</code>, <code>status</code>, <code>enumerationDate</code>, <code>lastUpdated</code></td><td>The provider</td></tr><tr><td><code>specialty</code>, <code>taxonomyCode</code>, <code>licenseNumber</code>, <code>licenseState</code>, <code>taxonomies</code></td><td>What they practise and where they're licensed</td></tr><tr><td><code>street</code>, <code>city</code>, <code>state</code>, <code>zip</code>, <code>phone</code>, <code>fax</code>, <code>mailingAddress</code></td><td>Where to reach them</td></tr><tr><td><code>authorizedOfficial</code> (name, title, credential, phone)</td><td>Who signs for an organization</td></tr><tr><td><code>otherNames</code>, <code>directAddresses</code>, <code>url</code></td><td>Doing-business-as names, Direct messaging addresses, registry page</td></tr></tbody></table></div>
+    </div>
+    <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
+  </div>
+</section>
+
+<section id="guide" data-label="Guide">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Guide</span><h2>How NPI Registry Scraper works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
+    <article class="post guide" id="guide-body"><p>US healthcare providers from the official <strong>NPI Registry</strong> (CMS NPPES): doctors, dentists, nurse practitioners, therapists, pharmacists, clinics, practices and hospitals. Each provider comes with <strong>specialty, license number and state, practice address, phone and fax</strong>, mailing address, and for organizations the <strong>authorized official</strong> (name, title, phone). Search by specialty, state, city, ZIP code, name or NPI; get <strong>new practices</strong> as they register.</p>
+<p><strong>Built for</strong> healthcare B2B sales (dental and medical supplies, software, pharma), medical staffing and recruiting, healthcare marketing agencies, insurers and provider networks, and AI agents.</p>
+<h3 id="g-why-this-actor">Why this Actor</h3>
+<ul><li><strong>Official source</strong>, every US provider with an NPI (about 9 million records).</li><li><strong>Complete lists:</strong> combine specialties with states and cities or ZIP codes; the Actor runs every combination.</li><li><strong>New practices:</strong> <em>New in the last N days</em> + <em>Only new providers</em> on a schedule.</li><li><strong>For AI agents.</strong> Callable as an MCP tool.</li></ul>
+<h3 id="g-how-to-use-it">How to use it</h3>
+<p>Dental practices in Austin and Dallas:</p>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{ &quot;specialties&quot;: [&quot;Dentist&quot;], &quot;states&quot;: [&quot;TX&quot;], &quot;cities&quot;: [&quot;Austin&quot;, &quot;Dallas&quot;], &quot;providerType&quot;: &quot;organization&quot; }</pre></div>
+<p>New chiropractors in Florida each week:</p>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{ &quot;specialties&quot;: [&quot;Chiropractor&quot;], &quot;states&quot;: [&quot;FL&quot;], &quot;cities&quot;: [&quot;Miami&quot;, &quot;Orlando&quot;, &quot;Tampa&quot;], &quot;enumeratedWithinDays&quot;: 30, &quot;onlyNew&quot;: true }</pre></div>
+<h3 id="g-pricing">Pricing</h3>
+<p><strong>$3 per 1,000 providers</strong> plus a small start fee per run. On the Apify free plan a run returns up to 100 providers.</p>
+<h3 id="g-good-to-know">Good to know</h3>
+<ul><li>The registry answers about 1,200 results per search: add cities or ZIP codes to get everyone in a big state (the run says when a search hit the limit).</li><li>Data is as providers report it to CMS. Questions: <strong>tacps126@gmail.com</strong>.</li></ul></article>
+    <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
+  </div>
+</section>
+
+<section class="alt" id="faq" data-label="Questions">
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions about NPI Registry Scraper</h2></div>
+    <div class="faq"><details open><summary>How much does NPI Registry Scraper cost?</summary><p>$3 per 1,000, charged only for providers returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>What does NPI Registry Scraper return?</summary><p>Every row has the same fields, including npi, type, name, credential, gender, status, enumerationDate, lastUpdated, specialty, taxonomyCode, licenseNumber, licenseState, taxonomies, street, city, state, zip, phone, fax, mailingAddress, authorizedOfficial (name, title, credential, phone), otherNames, directAddresses, url. Download as JSON, CSV, Excel or XML.</p></details><details><summary>Can an AI agent use it?</summary><p>Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as <code>search_healthcare_providers</code>.</p></details><details><summary>Can it run on a schedule and return only new results?</summary><p>Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input.</p></details></div>
+  </div>
+</section>
+<section id="pairs" data-label="Pairs well">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2></div>
+    <div class="grid">
+
+      <a class="card link" href="/tools/clinical-trials/"><span class="why">Also in health</span><h3>Clinical Trials Scraper: ClinicalTrials.gov Studies &amp; Sites</h3><p>Clinical trials from ClinicalTrials.gov by condition, drug, sponsor, location, status, phase and sponsor...</p></a>
+      <a class="card link" href="/tools/fda-device-clearances/"><span class="why">Also in health</span><h3>FDA 510(k) &amp; PMA Device Clearances: Medical Device Approvals</h3><p>FDA medical device 510(k) clearances and PMA approvals: applicant, contact person, address, device and...</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="uses" data-label="Use cases">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Use cases</span><h2>What people use NPI Registry Scraper for</h2></div>
+    <div class="uses-grid">
+      <ul class="uses"><li>Lead lists of dentists, doctors or clinics by city or state</li><li>New practices from recently issued NPIs</li><li>Verify a provider's NPI, license and address</li></ul>
+      <div>
+        <h3 class="terms-h">Also searched as</h3><p class="terms"><a class="xchip" href="/tools/?q=NPI%20Registry%20scraper">NPI Registry scraper</a> <a class="xchip" href="/tools/?q=NPPES%20lookup">NPPES lookup</a> <a class="xchip" href="/tools/?q=doctor%20list%20by%20specialty">doctor list by specialty</a> <a class="xchip" href="/tools/?q=dentist%20leads">dentist leads</a> <a class="xchip" href="/tools/?q=healthcare%20provider%20database">healthcare provider database</a></p>
+        <h3 class="terms-h">Categories</h3><p class="terms"><a class="xchip" href="/tools/health/">Health and life sciences</a> <span class="xchip">Lead generation</span> <span class="xchip">Automation</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/favicon.svg" alt="" width="34" height="34"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+        <p>Web data tools that gather, clean and enrich public data: jobs, leads, research, markets and public records. Pay per result on Apify, or call them from an AI agent.</p>
+        <p><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a><br><a href="mailto:tacps126@gmail.com?subject=Custom%20data%20request">Ask for a custom dataset</a></p>
+      </div>
+      <nav aria-label="Topics"><p class="foot-h">Topics</p><ul>
+        <li><a href="/tools/jobs/">Jobs</a></li>
+        <li><a href="/tools/leads/">Leads</a></li>
+        <li><a href="/tools/reviews/">Reviews and research</a></li>
+        <li><a href="/tools/gov/">Government</a></li>
+        <li><a href="/tools/health/">Health</a></li>
+        <li><a href="/tools/commerce/">Commerce</a></li>
+        <li><a href="/tools/finance/">Finance</a></li>
+        <li><a href="/tools/sports/">Sports</a></li>
+        <li><a href="/tools/travel/">Travel</a></li>
+      </ul></nav>
+      <nav aria-label="Explore"><p class="foot-h">Explore</p><ul>
+        <li><a href="/tools/">All tools</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
+        <li><a href="/#compose">Chain tools</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul></nav>
+      <nav aria-label="Developers"><p class="foot-h">Developers</p><ul>
+        <li><a href="https://apify.com/tacps126">Tools on Apify</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
+        <li><a href="https://github.com/tacps126/webdata-tools-mcp">GitHub</a></li>
+        <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
+        <li><a href="https://smithery.ai/servers/tacps126/webdata-tools-mcp">Smithery</a></li>
+        <li><a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp">Glama</a></li>
+      </ul></nav>
+    </div>
+    <div class="foot-base">
+      <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+      <p class="fine">&copy; 2026 Tapaswai Choudhary</p>
+    </div>
+  </div>
+</footer>
+<script src="/app.js?v=93adc7d3b9" defer></script>
+<script src="/tool.js?v=a64914dde6" defer></script>
+</body>
+</html>

@@ -247,5 +247,25 @@
   "transit-timetables": {
     "aka": ["transit API", "public transport API", "journey planner API", "bus timetable data", "train schedule API", "GTFS alternative"],
     "uses": ["Plan journeys in apps and chatbots", "Commute time research", "Travel and mobility tools"]
+  },
+  "us-import-records": {
+    "aka": ["importyeti alternative", "US customs import data", "bill of lading lookup", "find a company's suppliers", "importer database", "panjiva alternative", "who makes products for a brand"],
+    "uses": ["See who supplies a brand and how its imports are trending", "Find US importers that buy from the same factories as your customer", "Prospect importers for freight, customs brokerage or sourcing", "Alerts on a competitor's new shipments"]
+  },
+  "clinical-trials": {
+    "aka": ["ClinicalTrials.gov scraper", "clinical trial search API", "recruiting trials by condition", "trial site list"],
+    "uses": ["Map the trial landscape for a condition or drug", "Find recruiting sites and study contacts", "Track new studies from competitors", "Alerts on newly posted trials"]
+  },
+  "cve-feed": {
+    "aka": ["CVE feed API", "NVD scraper", "CISA KEV feed", "vulnerability alerts", "EPSS scores"],
+    "uses": ["Daily critical CVEs for the vendors you run", "Patch triage by exploited status and EPSS", "Security alerts into Slack or a ticket queue"]
+  },
+  "fda-device-clearances": {
+    "aka": ["FDA 510k database", "510(k) clearance search", "PMA approvals list", "medical device clearances"],
+    "uses": ["Track competitors' new device clearances", "Find medtech companies with recent approvals to sell to", "Benchmark FDA review times by product code"]
+  },
+  "npi-providers": {
+    "aka": ["NPI Registry scraper", "NPPES lookup", "doctor list by specialty", "dentist leads", "healthcare provider database"],
+    "uses": ["Lead lists of dentists, doctors or clinics by city or state", "New practices from recently issued NPIs", "Verify a provider's NPI, license and address"]
   }
 }

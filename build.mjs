@@ -14,7 +14,7 @@ const NEW = new Set(['company-registry', 'sanctions-screener', 'recalls-radar', 
   'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar', 'youtube-transcripts',
   'sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results',
   'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding', 'clinical-trials', 'fda-device-clearances', 'npi-providers',
-  'podcasts', 'cve-feed', 'auctions-radar']);
+  'podcasts', 'cve-feed', 'auctions-radar', 'us-import-records']);
 const TODAY = new Date().toISOString().slice(0, 10);
 
 // Plain typing in everything the site writes (Store text included): no em or en dashes, ellipsis
@@ -74,7 +74,7 @@ const ALL_CATS = [
     'smartrecruiters-jobs-scraper', 'recruitee-jobs-scraper', 'personio-jobs-scraper',
     'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper']],
   ['leads', 'Leads, events and contacts', ['company-registry', 'contact-details', 'reddit-lead-finder', 'shopify-store-analyzer', 'exhibition-scraper',
-    'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
+    'us-import-records', 'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
   ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'youtube-comments', 'podcasts', 'research-radar', 'innovation-radar', 'reddit-monitor']],
   ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar', 'cve-feed']],
   ['health', 'Health and life sciences', ['clinical-trials', 'fda-device-clearances', 'npi-providers']],
@@ -134,6 +134,7 @@ const MCP_TOOLS = [
   ['search_reddit', 'Reddit posts and comments by keyword or subreddit', 'reddit-monitor', '$1 / 1,000 items'],
   ['find_reddit_leads', 'Reddit posts asking for a tool like yours or an alternative to a competitor', 'reddit-lead-finder', '$2 / 1,000 leads'],
   ['find_website_contacts', 'Emails, phones and social profiles from websites', 'contact-details', '$2 / 1,000 sites with contacts'],
+  ['find_local_businesses', 'Local businesses by category and city, with their contacts', 'contact-details', '$1.25 / 1,000 businesses + $1.75 / 1,000 with site contacts'],
   ['search_german_property_listings', 'Rent and buy listings in Germany and Austria', 'immobilienscout24-scraper', '$1 / 1,000 listings'],
   ['get_shopify_products', 'Prices, stock and variants from Shopify stores', 'shopify-products', '$1 / 1,000 products'],
   ['analyze_shopify_stores', 'Shopify store location, catalog and contacts', 'shopify-store-analyzer', '$4 / 1,000 stores'],
@@ -148,6 +149,7 @@ const MCP_TOOLS = [
   ['search_healthcare_providers', 'US doctors, dentists and clinics from the NPI Registry by specialty and place', 'npi-providers', '$3 / 1,000 providers'],
   ['search_podcasts', 'Apple Podcasts search and charts with owner email and activity', 'podcasts', '$4 / 1,000 podcasts'],
   ['find_property_auctions', 'Court, bank and government auctions in Germany, Spain, Italy and India, scored against similar lots and your budget', 'auctions-radar', '$15 / 1,000 lots'],
+  ['search_import_records', 'US import records for an importer or supplier: shipment trend, suppliers, HS codes, bills of lading, lookalike importers', 'us-import-records', '$4 / 1,000 profiles, $1 / 1,000 suppliers'],
   ['search_startup_funding', 'New startup raises from SEC Form D with founders and amounts', 'startup-funding', '$5 / 1,000 filings'],
 ].filter(([, , actor]) => byName.has(actor)); // tools whose Actor is not public yet stay off the site
 
@@ -372,7 +374,7 @@ const labelOf = Object.fromEntries(CATS.map(([k, l]) => [k, l]));
 // appears only once its listing is public, so cards never name an unreleased tool.
 const USES = [
   ['jobs', 'briefcase', 'Recruiting and job boards', 'Every open role from company career pages (13 systems, or just type a company name), LinkedIn, Indeed, Glassdoor, Wellfound, Dice and remote-job feeds in one format, with only-new mode for daily feeds.'],
-  ['leads', 'target', 'Sales and lead generation', 'Hiring signals show who is hiring for the roles you sell to. Reddit Lead Finder spots people asking for a tool like yours. Contact details and the Shopify Store Analyzer add emails, phones and socials.'],
+  ['leads', 'target', 'Sales and lead generation', 'Hiring signals show who is hiring for the roles you sell to. Reddit Lead Finder spots people asking for a tool like yours. Contact details builds local lead lists by category and city and adds emails, phones and socials to any list; the Shopify Store Analyzer does the same for stores. US Import Records shows who an importer buys from and which other brands use the same factories.'],
   ['reviews', 'star', 'Brand and reputation', 'Trustpilot and app-store reviews, Google News with real publisher links, and Reddit mentions, with alerts on new items only.'],
   ['health', 'pulse', 'Health and life sciences', [
     ['clinical-trials', 'Clinical trials by condition, drug, sponsor and phase with sites and contacts'],
