@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polymarket Scraper - Odds, Volume &amp; Price History | tacps126</title>
+<meta name="description" content="Polymarket markets and odds: probability, outcome prices, 24h and 7d change, volume, liquidity, resolution, result, daily price history. Search, move alerts. $3 per 1,000.">
+<meta name="keywords" content="Polymarket API, Polymarket odds data, Polymarket markets export, election betting odds, Finance and markets">
+<link rel="canonical" href="https://tacps126.github.io/tools/polymarket-markets/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tacps126">
+<meta property="og:title" content="Polymarket Scraper - Odds, Volume &amp; Price History | tacps126">
+<meta property="og:description" content="Polymarket markets and odds: probability, outcome prices, 24h and 7d change, volume, liquidity, resolution, result, daily price history. Search, move alerts. $3 per 1,000.">
+<meta property="og:url" content="https://tacps126.github.io/tools/polymarket-markets/">
+<meta property="og:image" content="https://tacps126.github.io/og/polymarket-markets.jpg?v=f256425731">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Polymarket Scraper: Odds, Volume &amp; Price History: Polymarket markets and events: probability, outcome prices, bid/ask, 24h and 7d change, volume, liquidity, close date,...">
+<meta property="og:updated_time" content="2026-10-31">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Polymarket Scraper - Odds, Volume &amp; Price History | tacps126">
+<meta name="twitter:description" content="Polymarket markets and odds: probability, outcome prices, 24h and 7d change, volume, liquidity, resolution, result, daily price history. Search, move alerts. $3 per 1,000.">
+<meta name="twitter:image" content="https://tacps126.github.io/og/polymarket-markets.jpg?v=f256425731">
+<link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
+<link rel="stylesheet" href="/style.css?v=cb78145d63">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Polymarket Scraper: Odds, Volume & Price History","alternateName":"polymarket-markets","applicationCategory":"DeveloperApplication","applicationSubCategory":"Finance and markets","operatingSystem":"Web, API (Apify)","keywords":"Polymarket API, Polymarket odds data, Polymarket markets export, election betting odds","url":"https://tacps126.github.io/tools/polymarket-markets/","sameAs":"https://apify.com/tacps126/polymarket-markets","installUrl":"https://apify.com/tacps126/polymarket-markets","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-Qxy40ZpV9ahsKi4mk-apDvS9hran-polymarket-markets.png","screenshot":"https://tacps126.github.io/og/polymarket-markets.jpg?v=f256425731","description":"Polymarket markets and events: probability, outcome prices, bid/ask, 24h and 7d change, volume, liquidity, close date, resolution, result, daily price history. Search, categories, links, move alerts.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-10-31","offers":{"@type":"Offer","price":"0.003","priceCurrency":"USD","url":"https://apify.com/tacps126/polymarket-markets","description":"$3 per 1,000, pay per market"},"featureList":["marketId, conditionId, slug, eventId, eventTitle, question, outcome, url: The market","probability: Market-implied chance of the first outcome (\"Yes\"), 0 to 1","outcomes: Every outcome with its price, e.g. Yes 0.275, No 0.725","lastPrice, yesBid, yesAsk, noBid, noAsk, spread: Quotes, 0 to 1","change24h, change7d: Probability change over 24 hours and 7 days","volume, volume24h, liquidity: In US dollars","category, openTime, closeTime: When it trades","status (open, closed, resolved), resolutionStatus, result, rules: How it settles","priceHistory: [{date, probability}], one point per day, with History days set","previousProbability, movePoints: On alert runs: the price last delivered and the move since, in percentage points"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"Finance and markets","item":"https://tacps126.github.io/tools/finance/"},{"@type":"ListItem","position":4,"name":"Polymarket Scraper: Odds, Volume & Price History","item":"https://tacps126.github.io/tools/polymarket-markets/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does Polymarket Scraper cost?","acceptedAnswer":{"@type":"Answer","text":"$3 per 1,000, charged only for markets returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"What does Polymarket Scraper return?","acceptedAnswer":{"@type":"Answer","text":"Every row has the same fields, including marketId, conditionId, slug, eventId, eventTitle, question, outcome, url, probability, outcomes, lastPrice, yesBid, yesAsk, noBid, noAsk, spread, change24h, change7d, volume, volume24h, liquidity, category, openTime, closeTime, status (open, closed, resolved), resolutionStatus, result, rules. Download as JSON, CSV, Excel or XML."}},{"@type":"Question","name":"Can it run on a schedule and return only new results?","acceptedAnswer":{"@type":"Answer","text":"Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 74 tools</span><kbd>⌘K</kbd></button>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/#coverage">Coverage</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/mcp.html">AI agents</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="tool-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/finance/">Finance and markets</a></nav>
+    <div class="th">
+      <img class="th-ico" src="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-Qxy40ZpV9ahsKi4mk-apDvS9hran-polymarket-markets.png" alt="" width="64" height="64" decoding="async" onerror="this.onerror=null;this.src='/icons/polymarket-markets.png'">
+      <div>
+        <h1>Polymarket Scraper: Odds, Volume &amp; Price History</h1>
+        <p class="lead">Polymarket markets and events: probability, outcome prices, bid/ask, 24h and 7d change, volume, liquidity, close date, resolution, result, daily price history. Search, categories, links, move alerts.</p>
+      </div>
+    </div>
+    <div class="facts"><span class="pchip"><b>$3 per 1,000</b> market</span><span class="fact">updated 2026-10-31</span></div>
+    <div class="cta-row">
+      <a class="btn primary" href="https://apify.com/tacps126/polymarket-markets" rel="noopener">Run it on Apify</a>
+      <a class="btn" href="#try">Build the input</a>
+      <a class="btn ghost" href="#output">See the output</a>
+    </div>
+  </div>
+</section>
+
+<section id="try" data-label="Try it">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
+    <div class="tool-grid">
+      <form class="tform" id="tform" data-actor="polymarket-markets" data-unit="0.003" data-what="market" data-max="maxItems" data-start="{&quot;platforms&quot;:[&quot;polymarket&quot;],&quot;search&quot;:&quot;fed rate&quot;}" autocomplete="off">
+<div class="f" data-k="platforms" data-kind="multi" data-def="[&quot;polymarket&quot;]"><label for="f-platforms"><span class="fl">Platforms</span></label><div class="opts" role="group" aria-label="Platforms"><label class="opt"><input type="checkbox" value="polymarket" checked><span>Polymarket</span></label></div><p class="fh">Polymarket. Kalshi, Polymarket, Manifold and PredictIt together are in Prediction Markets (tacps126/prediction-markets).</p></div>
+<div class="f" data-k="search" data-kind="str"><label for="f-search"><span class="fl">Search</span></label><input id="f-search" type="text" value="fed rate" placeholder=""><p class="fh">Keywords, e.g. `fed rate`, `bitcoin`, `election`, `Super Bowl`. Leave empty for the busiest markets.</p></div>
+<div class="f" data-k="categories" data-kind="multi"><label for="f-categories"><span class="fl">Categories</span></label><div class="opts" role="group" aria-label="Categories"><label class="opt"><input type="checkbox" value="politics"><span>Politics</span></label><label class="opt"><input type="checkbox" value="elections"><span>Elections</span></label><label class="opt"><input type="checkbox" value="economics"><span>Economics (Fed, inflation, jobs)</span></label><label class="opt"><input type="checkbox" value="finance"><span>Finance and markets (indices, commodities)</span></label><label class="opt"><input type="checkbox" value="crypto"><span>Crypto</span></label><label class="opt"><input type="checkbox" value="sports"><span>Sports</span></label><label class="opt"><input type="checkbox" value="tech-science"><span>Tech and science</span></label><label class="opt"><input type="checkbox" value="ai"><span>AI</span></label><label class="opt"><input type="checkbox" value="climate-weather"><span>Climate and weather</span></label><label class="opt"><input type="checkbox" value="culture"><span>Culture and entertainment</span></label><label class="opt"><input type="checkbox" value="world"><span>World and geopolitics</span></label><label class="opt"><input type="checkbox" value="companies"><span>Companies</span></label><label class="opt"><input type="checkbox" value="health"><span>Health</span></label></div><p class="fh">Only markets in these categories (any match). Ignored when Search is set on Polymarket.</p></div>
+<div class="f" data-k="markets" data-kind="list"><label for="f-markets"><span class="fl">Markets</span></label><textarea id="f-markets" rows="2" placeholder="One per line"></textarea><p class="fh">Polymarket event or market links (polymarket.com/event/...), slugs or condition ids.</p></div>
+<div class="f" data-k="status" data-kind="str" data-def="&quot;open&quot;"><label for="f-status"><span class="fl">Status</span></label><select id="f-status"><option value="open" selected>Open (trading)</option><option value="closed">Closed and resolved</option><option value="all">All</option></select><p class="fh">Open markets (default), closed and settled markets with their result, or both.</p></div>
+<div class="f" data-k="sortBy" data-kind="str" data-def="&quot;volume24h&quot;"><label for="f-sortBy"><span class="fl">Sort by</span></label><select id="f-sortBy"><option value="volume24h" selected>24-hour volume</option><option value="volume">Total volume</option><option value="liquidity">Liquidity</option><option value="closingSoon">Closing soonest</option><option value="newest">Newest</option><option value="move24h">Biggest 24-hour move</option></select><p class="fh">Order of results. Volume and liquidity take the top of each platform in turn, since units differ.</p></div>
+<details class="more"><summary>Filters</summary><div class="f" data-k="minVolume" data-kind="num"><label for="f-minVolume"><span class="fl">Minimum total volume</span></label><input id="f-minVolume" type="number" inputmode="numeric" step="any" value="" placeholder=""><p class="fh">Minimum total volume in US dollars.</p></div>
+<div class="f" data-k="minVolume24h" data-kind="num"><label for="f-minVolume24h"><span class="fl">Minimum 24-hour volume</span></label><input id="f-minVolume24h" type="number" inputmode="numeric" step="any" value="" placeholder=""><p class="fh">Same units as total volume.</p></div>
+<div class="f" data-k="minLiquidity" data-kind="num"><label for="f-minLiquidity"><span class="fl">Minimum liquidity</span></label><input id="f-minLiquidity" type="number" inputmode="numeric" step="any" value="" placeholder=""><p class="fh">Order-book or pool liquidity (Polymarket, Manifold).</p></div>
+<div class="f" data-k="closesWithinDays" data-kind="int"><label for="f-closesWithinDays"><span class="fl">Closes within (days)</span></label><input id="f-closesWithinDays" type="number" inputmode="numeric" min="1" value="" placeholder=""><p class="fh">Only markets that close within this many days.</p></div>
+<div class="f" data-k="historyDays" data-kind="int" data-def="0"><label for="f-historyDays"><span class="fl">Price history (days)</span></label><input id="f-historyDays" type="number" inputmode="numeric" min="0" max="365" value="0" placeholder="0"><p class="fh">Add a daily price history (`priceHistory`) for Kalshi and Polymarket markets. 0 = none.</p></div>
+<div class="f" data-k="maxItems" data-kind="int" data-def="100"><label for="f-maxItems"><span class="fl">Max markets</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" value="100" placeholder="100"><p class="fh">Most markets to return (each outcome of a multi-outcome event counts as one).</p></div></details>
+<details class="more"><summary>Monitoring</summary><div class="f f-bool" data-k="onlyNew" data-kind="bool" data-def="false"><label class="sw" for="f-onlyNew"><input type="checkbox" id="f-onlyNew"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Only new</span></label><p class="fh">Schedule the Actor and each run returns only markets earlier runs did not deliver.</p></div>
+<div class="f" data-k="alertMovePoints" data-kind="num"><label for="f-alertMovePoints"><span class="fl">Alert when price moves (points)</span></label><input id="f-alertMovePoints" type="number" inputmode="numeric" min="1" max="100" step="any" value="" placeholder=""><p class="fh">Return only markets whose probability moved at least this many percentage points since they were last delivered, with `previousProbability` and `movePoints`. The first run returns every market as the baseline. Pair with a schedule and the...</p></div></details>
+        <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
+      </form>
+      <aside class="tcode">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" data-lang="curl" aria-selected="true">curl</button><button class="tab" role="tab" type="button" data-lang="python" aria-selected="false">Python</button><button class="tab" role="tab" type="button" data-lang="js" aria-selected="false">JavaScript</button><button class="tab" role="tab" type="button" data-lang="mcp" aria-selected="false">AI agent</button></div>
+        <div class="panel"><div class="code">
+  <div class="code-top"><span>terminal</span><button class="copy" type="button">Copy</button></div>
+  <pre>curl -X POST \
+  &quot;https://api.apify.com/v2/acts/tacps126~polymarket-markets/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;platforms&quot;:[&quot;polymarket&quot;],&quot;search&quot;:&quot;fed rate&quot;}'</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;tacps126/polymarket-markets&quot;).call(run_input={
+    &quot;platforms&quot;: [&quot;polymarket&quot;],
+    &quot;search&quot;: &quot;fed rate&quot;,
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item)</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>JavaScript · npm i apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: 'YOUR_APIFY_TOKEN' });
+const run = await client.actor('tacps126/polymarket-markets').call({
+  &quot;platforms&quot;: [
+    &quot;polymarket&quot;
+  ],
+  &quot;search&quot;: &quot;fed rate&quot;
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items);</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>MCP</span><button class="copy" type="button">Copy</button></div>
+  <pre># Apify's hosted MCP server, with this tool only
+https://mcp.apify.com?tools=tacps126/polymarket-markets</pre>
+</div></div>
+        <p class="cost" id="tf-cost">Up to 100 markets: at most $0.30, on Apify's free plan.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="output" data-label="Output">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Output</span><h2>What you get back</h2><p>The fields every row has.</p></div>
+    <div class="out-grid one">
+      
+      <div class="table-wrap fields"><table><thead><tr><th>Field</th><th>What it holds</th></tr></thead><tbody><tr><td><code>marketId</code>, <code>conditionId</code>, <code>slug</code>, <code>eventId</code>, <code>eventTitle</code>, <code>question</code>, <code>outcome</code>, <code>url</code></td><td>The market</td></tr><tr><td><code>probability</code></td><td>Market-implied chance of the first outcome (&quot;Yes&quot;), 0 to 1</td></tr><tr><td><code>outcomes</code></td><td>Every outcome with its price, e.g. Yes 0.275, No 0.725</td></tr><tr><td><code>lastPrice</code>, <code>yesBid</code>, <code>yesAsk</code>, <code>noBid</code>, <code>noAsk</code>, <code>spread</code></td><td>Quotes, 0 to 1</td></tr><tr><td><code>change24h</code>, <code>change7d</code></td><td>Probability change over 24 hours and 7 days</td></tr><tr><td><code>volume</code>, <code>volume24h</code>, <code>liquidity</code></td><td>In US dollars</td></tr><tr><td><code>category</code>, <code>openTime</code>, <code>closeTime</code></td><td>When it trades</td></tr><tr><td><code>status</code> (open, closed, resolved), <code>resolutionStatus</code>, <code>result</code>, <code>rules</code></td><td>How it settles</td></tr><tr><td><code>priceHistory</code></td><td><code>[{date, probability}]</code>, one point per day, with <strong>History days</strong> set</td></tr><tr><td><code>previousProbability</code>, <code>movePoints</code></td><td>On alert runs: the price last delivered and the move since, in percentage points</td></tr></tbody></table></div>
+    </div>
+    <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
+  </div>
+</section>
+
+<section id="guide" data-label="Guide">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Guide</span><h2>How Polymarket Scraper works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
+    <article class="post guide" id="guide-body"><p>Every <strong>Polymarket</strong> market you need in one table: <strong>probability</strong>, every outcome's price, bid and ask, <strong>24-hour and 7-day change</strong>, <strong>volume</strong>, <strong>liquidity</strong>, close date, resolution status and, once settled, the <strong>result</strong>. Search by keyword or category, paste event links, add <strong>daily price history</strong>, and schedule it to get an <strong>alert row whenever a market moves</strong> by the points you choose.</p>
+<p><strong>Built for</strong> traders and forecasters, journalists and newsletters, quant and research teams, app and bot builders, and AI agents.</p>
+<h3 id="g-how-to-use-it">How to use it</h3>
+<p>Busiest Polymarket markets right now:</p>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{ &quot;maxItems&quot;: 50 }</pre></div>
+<p>Fed-rate markets with 30 days of history:</p>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{ &quot;search&quot;: &quot;fed rate&quot;, &quot;historyDays&quot;: 30 }</pre></div>
+<p>Crypto markets with $10,000+ traded today, biggest movers first:</p>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{ &quot;categories&quot;: [&quot;crypto&quot;], &quot;minVolume24h&quot;: 10000, &quot;sortBy&quot;: &quot;move24h&quot; }</pre></div>
+<p>Alert when any politics market moves 5 points (schedule hourly):</p>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{ &quot;categories&quot;: [&quot;politics&quot;], &quot;minVolume24h&quot;: 5000, &quot;alertMovePoints&quot;: 5 }</pre></div>
+<p>Specific events by link:</p>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{ &quot;markets&quot;: [&quot;https://polymarket.com/event/fed-decision-in-december-20260729232808632&quot;] }</pre></div>
+<h3 id="g-options">Options</h3>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>What it does</th></tr></thead><tbody><tr><td><strong>Platforms</strong> (<code>platforms</code>)</td><td>Fixed to Polymarket in this Actor</td></tr><tr><td><strong>Search</strong> (<code>search</code>)</td><td>Keywords in the question, event or outcome, e.g. <code>fed rate</code>, <code>bitcoin</code></td></tr><tr><td><strong>Categories</strong> (<code>categories</code>)</td><td>politics, elections, economics, finance, crypto, sports, tech-science, ai, climate-weather, culture, world, companies, health</td></tr><tr><td><strong>Markets</strong> (<code>markets</code>)</td><td>Polymarket event or market links, slugs or condition ids</td></tr><tr><td><strong>Status</strong> (<code>status</code>)</td><td><code>open</code> (default), <code>closed</code> (includes resolved, with result) or <code>all</code></td></tr><tr><td><strong>Sort by</strong> (<code>sortBy</code>)</td><td><code>volume24h</code>, <code>volume</code>, <code>liquidity</code>, <code>closingSoon</code>, <code>newest</code>, <code>move24h</code></td></tr><tr><td><strong>Minimum total / 24-hour volume</strong> (<code>minVolume</code>, <code>minVolume24h</code>)</td><td>In US dollars</td></tr><tr><td><strong>Minimum liquidity</strong> (<code>minLiquidity</code>)</td><td>In US dollars</td></tr><tr><td><strong>Closes within (days)</strong> (<code>closesWithinDays</code>)</td><td>Only markets settling within this many days</td></tr><tr><td><strong>History days</strong> (<code>historyDays</code>)</td><td>Daily price history, up to 365 days</td></tr><tr><td><strong>Max markets</strong> (<code>maxItems</code>)</td><td>Most rows per run</td></tr><tr><td><strong>Only new</strong> (<code>onlyNew</code>, <code>monitorName</code>)</td><td>With a schedule, each run returns only markets earlier runs did not deliver</td></tr><tr><td><strong>Alert on moves</strong> (<code>alertMovePoints</code>)</td><td>Return only markets whose probability moved at least this many percentage points since last delivered</td></tr></tbody></table></div>
+<h3 id="g-pricing">Pricing</h3>
+<p><strong>$3 per 1,000 markets</strong>, plus a small start fee per run. Price history is included. On the Apify free plan a run returns up to 100 markets.</p>
+<h3 id="g-good-to-know">Good to know</h3>
+<ul><li>Categories: politics, elections, economics, finance, crypto, sports, tech and science, AI, climate and weather, culture, world, companies, health.</li><li>A finished game or event shows as closed while its result is being confirmed, and as resolved with <code>result</code> once settled.</li><li>The first alert run returns every match as the baseline; later runs return only moves (and new markets).</li><li>Need Kalshi, Manifold or PredictIt too? <strong>Prediction Markets</strong> (tacps126/prediction-markets) covers all four in one table.</li><li>Prices are delayed snapshots for research, not a trading feed.</li><li>Questions: <strong>tacps126@gmail.com</strong>.</li></ul></article>
+    <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
+  </div>
+</section>
+
+<section class="alt" id="faq" data-label="Questions">
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions about Polymarket Scraper</h2></div>
+    <div class="faq"><details open><summary>How much does Polymarket Scraper cost?</summary><p>$3 per 1,000, charged only for markets returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>What does Polymarket Scraper return?</summary><p>Every row has the same fields, including marketId, conditionId, slug, eventId, eventTitle, question, outcome, url, probability, outcomes, lastPrice, yesBid, yesAsk, noBid, noAsk, spread, change24h, change7d, volume, volume24h, liquidity, category, openTime, closeTime, status (open, closed, resolved), resolutionStatus, result, rules. Download as JSON, CSV, Excel or XML.</p></details><details><summary>Can it run on a schedule and return only new results?</summary><p>Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input.</p></details></div>
+  </div>
+</section>
+<section id="pairs" data-label="Pairs well">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2></div>
+    <div class="grid">
+
+      <a class="card link" href="/tools/short-interest/"><span class="why">Also in finance</span><h3>Short Interest &amp; Short Volume: FINRA, All US Stocks</h3><p>FINRA short interest for every US stock (NYSE, Nasdaq, Arca, Cboe, OTC): short interest, change, days to...</p></a>
+      <a class="card link" href="/tools/prediction-markets/"><span class="why">Also in finance</span><h3>Prediction Markets: Kalshi, Polymarket &amp; PredictIt Odds</h3><p>Kalshi, Polymarket, Manifold and PredictIt markets in one table: probability, bid/ask, 24h change, volume,...</p></a>
+      <a class="card link" href="/tools/kalshi-markets/"><span class="why">Also in finance</span><h3>Kalshi Scraper: Market Odds, Volume &amp; Open Interest</h3><p>Kalshi markets and events: probability, yes/no bid and ask, 24h change, volume, open interest, liquidity,...</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="uses" data-label="Use cases">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Use cases</span><h2>What people use Polymarket Scraper for</h2></div>
+    <div class="uses-grid">
+      <ul class="uses"><li>Track Polymarket prices and volume</li><li>Find markets that moved in the last day</li></ul>
+      <div>
+        <h3 class="terms-h">Also searched as</h3><p class="terms"><a class="xchip" href="/tools/?q=Polymarket%20API">Polymarket API</a> <a class="xchip" href="/tools/?q=Polymarket%20odds%20data">Polymarket odds data</a> <a class="xchip" href="/tools/?q=Polymarket%20markets%20export">Polymarket markets export</a> <a class="xchip" href="/tools/?q=election%20betting%20odds">election betting odds</a></p>
+        <h3 class="terms-h">Categories</h3><p class="terms"><a class="xchip" href="/tools/finance/">Finance and markets</a> <span class="xchip">News</span> <span class="xchip">Developer tools</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/favicon.svg" alt="" width="34" height="34"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+        <p>Web data tools that gather, clean and enrich public data: jobs, leads, research, markets and public records. Pay per result on Apify, or call them from an AI agent.</p>
+        <p><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a><br><a href="mailto:tacps126@gmail.com?subject=Custom%20data%20request">Ask for a custom dataset</a></p>
+      </div>
+      <nav aria-label="Topics"><p class="foot-h">Topics</p><ul>
+        <li><a href="/tools/jobs/">Jobs</a></li>
+        <li><a href="/tools/leads/">Leads</a></li>
+        <li><a href="/tools/reviews/">Reviews and research</a></li>
+        <li><a href="/tools/gov/">Government</a></li>
+        <li><a href="/tools/health/">Health</a></li>
+        <li><a href="/tools/commerce/">Commerce</a></li>
+        <li><a href="/tools/finance/">Finance</a></li>
+        <li><a href="/tools/sports/">Sports</a></li>
+        <li><a href="/tools/travel/">Travel</a></li>
+      </ul></nav>
+      <nav aria-label="Explore"><p class="foot-h">Explore</p><ul>
+        <li><a href="/tools/">All tools</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
+        <li><a href="/#compose">Chain tools</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul></nav>
+      <nav aria-label="Developers"><p class="foot-h">Developers</p><ul>
+        <li><a href="https://apify.com/tacps126">Tools on Apify</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
+        <li><a href="https://github.com/tacps126/webdata-tools-mcp">GitHub</a></li>
+        <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
+        <li><a href="https://smithery.ai/servers/tacps126/webdata-tools-mcp">Smithery</a></li>
+        <li><a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp">Glama</a></li>
+      </ul></nav>
+    </div>
+    <div class="foot-base">
+      <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+      <p class="fine">&copy; 2026 Tapaswai Choudhary</p>
+    </div>
+  </div>
+</footer>
+<script src="/app.js?v=93adc7d3b9" defer></script>
+<script src="/tool.js?v=a64914dde6" defer></script>
+</body>
+</html>

@@ -232,6 +232,18 @@
     "aka": ["Kalshi API", "Kalshi odds data", "Kalshi markets export", "event contracts data"],
     "uses": ["Track Kalshi prices and volume", "Build event probability dashboards"]
   },
+  "polymarket-markets": {
+    "aka": ["Polymarket API", "Polymarket odds data", "Polymarket markets export", "election betting odds"],
+    "uses": ["Track Polymarket prices and volume", "Find markets that moved in the last day"]
+  },
+  "football-scores-stats": {
+    "aka": ["soccer scores API", "Premier League results data", "football match data", "goalscorers and cards data", "league table export"],
+    "uses": ["Weekend results with goals and cards", "League tables for fantasy and betting models"]
+  },
+  "tennis-scores-rankings": {
+    "aka": ["tennis scores API", "ATP rankings data", "WTA rankings data", "tennis match results export"],
+    "uses": ["Daily ATP and WTA results with set scores", "Track player rankings week to week"]
+  },
   "sports-data": {
     "aka": ["sports API", "live scores API", "NFL stats", "NBA stats", "box scores data", "standings API", "football scores data"],
     "uses": ["Power a scores app or dashboard", "Fantasy sports research", "Sports analytics"]
