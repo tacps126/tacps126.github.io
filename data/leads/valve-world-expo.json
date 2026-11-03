@@ -1,0 +1,182 @@
+{
+  "id": "valve-world-expo",
+  "name": "Valve World Expo",
+  "where": "Düsseldorf, Germany",
+  "industry": "Valves & Flow Control",
+  "listUrl": "https://www.valveworldexpo.com/vis/v1/en/directory",
+  "total": 614,
+  "countries": [
+    [
+      "Germany",
+      14
+    ],
+    [
+      "Italy",
+      6
+    ],
+    [
+      "United Kingdom of Great Britain and Northern Ireland",
+      5
+    ],
+    [
+      "China",
+      3
+    ],
+    [
+      "Spain",
+      2
+    ],
+    [
+      "USA",
+      2
+    ],
+    [
+      "Czechia",
+      1
+    ],
+    [
+      "Korea, Republic",
+      1
+    ],
+    [
+      "Netherlands",
+      1
+    ],
+    [
+      "Türkiye",
+      1
+    ]
+  ],
+  "countryCount": 14,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 95,
+    "phone": 98,
+    "email": 98,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "A + R Armaturen GmbH",
+      "country": "Germany",
+      "booth": "Hall 3 / C57",
+      "website": "ar-armaturen.com"
+    },
+    {
+      "company": "ABB AG",
+      "country": "Germany",
+      "booth": "Hall 1 / A66",
+      "website": "abb.com"
+    },
+    {
+      "company": "ABC VALVE WUXI CO., LTD",
+      "country": "China",
+      "booth": "Hall 3 / K31",
+      "website": "abcvalve.com"
+    },
+    {
+      "company": "ABO valve, s.r.o.",
+      "country": "Czechia",
+      "booth": "Hall 3 / B28",
+      "website": "abovalve.com"
+    },
+    {
+      "company": "ACE Corp.,Ltd",
+      "country": "Korea, Republic",
+      "booth": "Hall 1 / C78-2",
+      "website": ""
+    },
+    {
+      "company": "ACTREG S.A.U",
+      "country": "Spain",
+      "booth": "Hall 3 / A28",
+      "website": "actreg.com"
+    },
+    {
+      "company": "ACTUATECH SPA",
+      "country": "Italy",
+      "booth": "Hall 3 / B64",
+      "website": "actuatech.com"
+    },
+    {
+      "company": "Adams Armaturen GmbH",
+      "country": "Germany",
+      "booth": "Hall 3 / E50",
+      "website": "adams-armaturen.de"
+    },
+    {
+      "company": "Admiral Valve, LLC dba CPV Manufacturing",
+      "country": "USA",
+      "booth": "Hall 3 / F82",
+      "website": "cpvmfg.com"
+    },
+    {
+      "company": "AIGNEP SPA",
+      "country": "Italy",
+      "booth": "Hall 3 / B49",
+      "website": "aignep.com"
+    },
+    {
+      "company": "Air Torque GmbH",
+      "country": "Germany",
+      "booth": "Hall 1 / B68",
+      "website": "airtorque.de"
+    },
+    {
+      "company": "Air Torque S.p.A.",
+      "country": "Italy",
+      "booth": "Hall 1 / B68",
+      "website": "airtorque.it"
+    },
+    {
+      "company": "airpower europe GmbH",
+      "country": "Germany",
+      "booth": "Hall 1 / D52",
+      "website": "airpower-gmbh.com"
+    },
+    {
+      "company": "Aisenberg GmbH",
+      "country": "Germany",
+      "booth": "Hall 3 / F44",
+      "website": "aisenberg.de"
+    },
+    {
+      "company": "AIV, L.P.",
+      "country": "USA",
+      "booth": "Hall 3 / H70",
+      "website": "aivinc.com"
+    },
+    {
+      "company": "AK Steel International B.V.",
+      "country": "Netherlands",
+      "booth": "Hall 1 / B57",
+      "website": "aksteel.eu"
+    },
+    {
+      "company": "Albrecht-Automatik GmbH",
+      "country": "Germany",
+      "booth": "Hall 1 / E03",
+      "website": "albrecht-automatik.de"
+    },
+    {
+      "company": "ALFA VANA SANAYI VE TICARET LTD. STI.",
+      "country": "Türkiye",
+      "booth": "Hall 3 / B69",
+      "website": "alfanox.com"
+    },
+    {
+      "company": "AliGuemar",
+      "country": "Algeria",
+      "booth": "Hall 3 / F11",
+      "website": ""
+    },
+    {
+      "company": "All Valves Online Ltd",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "booth": "Hall 3 / E26",
+      "website": "allvalves.co.uk"
+    }
+  ],
+  "updated": "2026-11-04"
+}

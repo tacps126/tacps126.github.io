@@ -1,0 +1,182 @@
+{
+  "id": "a-plus-a",
+  "name": "A+A",
+  "where": "Düsseldorf, Germany",
+  "industry": "Safety, Security & Health at Work",
+  "listUrl": "https://www.aplusa.de/vis/v1/en/directory",
+  "total": 2512,
+  "countries": [
+    [
+      "Germany",
+      10
+    ],
+    [
+      "India",
+      5
+    ],
+    [
+      "Portugal",
+      3
+    ],
+    [
+      "United Kingdom of Great Britain and Northern Ireland",
+      2
+    ],
+    [
+      "Pakistan",
+      2
+    ],
+    [
+      "Austria",
+      2
+    ],
+    [
+      "Italy",
+      2
+    ],
+    [
+      "Spain",
+      2
+    ],
+    [
+      "Taiwan",
+      2
+    ],
+    [
+      "Korea, Republic",
+      1
+    ]
+  ],
+  "countryCount": 19,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 95,
+    "phone": 100,
+    "email": 98,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "A&W Shoes LTD",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "booth": "Hall 14 / A59",
+      "website": "awsafer.com"
+    },
+    {
+      "company": "A+A Global Expertise",
+      "country": "Germany",
+      "booth": "Hall 10 / C87",
+      "website": ""
+    },
+    {
+      "company": "A-MI GLOBAL CO., LTD.",
+      "country": "Korea, Republic",
+      "booth": "Hall 5 / K14",
+      "website": "drmedbrace.com"
+    },
+    {
+      "company": "A-SAFE GmbH",
+      "country": "Germany",
+      "booth": "Hall 4 / H24",
+      "website": "asafe.de"
+    },
+    {
+      "company": "A. LAFONT S.A.S.",
+      "country": "France",
+      "booth": "Hall 15 / A68",
+      "website": "a-lafont.com"
+    },
+    {
+      "company": "A. Sampaio & Filhos - Têxteis S.A.",
+      "country": "Portugal",
+      "booth": "Hall 16 / H22-05",
+      "website": "asampaio.com"
+    },
+    {
+      "company": "A.B. EXPORTS PVT LTD",
+      "country": "Pakistan",
+      "booth": "Hall 17 / A66-06",
+      "website": "WWW.AB.COM.PK"
+    },
+    {
+      "company": "A.Haberkorn & Co GmbH",
+      "country": "Austria",
+      "booth": "Hall 4 / E58",
+      "website": "a-haberkorn.com"
+    },
+    {
+      "company": "A9 Scientific UK German Medical industry Ltd",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "booth": "Hall 11 / C78",
+      "website": "a9scientific-uk.com"
+    },
+    {
+      "company": "aas Akademie für Arbeits- und Sozialrecht Ruhr-Westfalen GmbH",
+      "country": "Germany",
+      "booth": "Hall 7, level 0 / A01",
+      "website": "aas-seminare.de"
+    },
+    {
+      "company": "Abatex Shpk",
+      "country": "Albania",
+      "booth": "Hall 12 / C81",
+      "website": "abatex.al"
+    },
+    {
+      "company": "Abdullah Tannery Private Limited",
+      "country": "India",
+      "booth": "Hall 11 / G77",
+      "website": "abdullahtannery.com"
+    },
+    {
+      "company": "ABDUR RAHMAN CORPORATION PVT LTD",
+      "country": "Pakistan",
+      "booth": "Hall 17 / A66-09",
+      "website": "arctex.com.pk"
+    },
+    {
+      "company": "ABEBA Spezialschuh-Ausstatter GmbH",
+      "country": "Germany",
+      "booth": "Hall 11 / F63",
+      "website": "abeba.com"
+    },
+    {
+      "company": "Abhikriti Impex Pvt. Ltd.",
+      "country": "India",
+      "booth": "Hall 13 / F56",
+      "website": "agriminternational.com"
+    },
+    {
+      "company": "ABUS August Bremicker Söhne KG",
+      "country": "Germany",
+      "booth": "Hall 1 / C81",
+      "website": "abus.com"
+    },
+    {
+      "company": "Abílio P. Carneiro & Filhos S.A.",
+      "country": "Portugal",
+      "booth": "Hall 13 / A03",
+      "website": "apcarneiro.pt"
+    },
+    {
+      "company": "Accesorios para elevación y Transporte S.A. (Elytra)",
+      "country": "Spain",
+      "booth": "Hall 4 / A54",
+      "website": "elytra.es"
+    },
+    {
+      "company": "Accoppiatura Vigevanese Srl",
+      "country": "Italy",
+      "booth": "Hall 16 / E28",
+      "website": "accoppiaturavigevanese.it"
+    },
+    {
+      "company": "ACG Accent AB",
+      "country": "Sweden",
+      "booth": "Hall 17 / C06",
+      "website": "acgaccent.se"
+    }
+  ],
+  "updated": "2026-11-04"
+}

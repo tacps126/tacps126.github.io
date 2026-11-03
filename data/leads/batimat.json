@@ -1,0 +1,182 @@
+{
+  "id": "batimat",
+  "name": "Batimat",
+  "where": "Paris, France",
+  "industry": "Construction",
+  "listUrl": "https://www.batimat.com/en-gb/who-is-coming/exhibitors-list/.html",
+  "total": 1306,
+  "countries": [
+    [
+      "France",
+      614
+    ],
+    [
+      "China",
+      200
+    ],
+    [
+      "Italy",
+      126
+    ],
+    [
+      "Türkiye",
+      61
+    ],
+    [
+      "Spain",
+      43
+    ],
+    [
+      "Poland",
+      35
+    ],
+    [
+      "Germany",
+      32
+    ],
+    [
+      "South Korea",
+      28
+    ],
+    [
+      "Portugal",
+      22
+    ],
+    [
+      "Belgium",
+      18
+    ]
+  ],
+  "countryCount": 39,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 95,
+    "phone": 90,
+    "email": 90,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "10 RAJEB",
+      "country": "Morocco",
+      "booth": "H1-S020",
+      "website": "10rajeb.ma"
+    },
+    {
+      "company": "46 RUE CHANZY – SCI",
+      "country": "France",
+      "booth": "H4-B048",
+      "website": ""
+    },
+    {
+      "company": "4A SYSTEM",
+      "country": "South Korea",
+      "booth": "H1-R102",
+      "website": "4asystem.com"
+    },
+    {
+      "company": "5 A SEC BUSINESS",
+      "country": "France",
+      "booth": "H7.2-R060",
+      "website": "5asec.fr/fr/5asec-business"
+    },
+    {
+      "company": "7c srl",
+      "country": "Italy",
+      "booth": "H7.2-J057",
+      "website": "7ctools.com"
+    },
+    {
+      "company": "7e SKY",
+      "country": "Morocco",
+      "booth": "H1-D030J",
+      "website": "boopursal.com"
+    },
+    {
+      "company": "A VIVRE EDITION",
+      "country": "France",
+      "booth": "H1-C092",
+      "website": "avivremagazine.fr"
+    },
+    {
+      "company": "A-OK FRANCE",
+      "country": "France",
+      "booth": "H6-E022",
+      "website": "aokfrance.fr"
+    },
+    {
+      "company": "A.DOC",
+      "country": "France",
+      "booth": "H1-D050",
+      "website": "sketchartisan.a-doc.com"
+    },
+    {
+      "company": "AB EQUIPEMENTS",
+      "country": "France",
+      "booth": "H6-B050",
+      "website": "as-up.fr"
+    },
+    {
+      "company": "AB METAL",
+      "country": "Latvia",
+      "booth": "H1-N050",
+      "website": "metal.lv"
+    },
+    {
+      "company": "AB TECNO Srl",
+      "country": "Italy",
+      "booth": "H4-C102A",
+      "website": "abtecno.com"
+    },
+    {
+      "company": "ABB METAL ALM. SAN. VE TİC. LTDİ. ŞTİ.",
+      "country": "Türkiye",
+      "booth": "H6-G070",
+      "website": "duraline.com.tr"
+    },
+    {
+      "company": "ABC Sistem",
+      "country": "Italy",
+      "booth": "H1-L086",
+      "website": "abcsistem.it"
+    },
+    {
+      "company": "ACIBOIS",
+      "country": "France",
+      "booth": "H6-F070",
+      "website": "groupe-millet.com"
+    },
+    {
+      "company": "ACISAN MAKINA INSAATSANAYI VE TICARET LIMITED SIRKETI",
+      "country": "Türkiye",
+      "booth": "H7.2-M054",
+      "website": "haisturkiye.com"
+    },
+    {
+      "company": "ACL – A Cimenteira do Louro",
+      "country": "Portugal",
+      "booth": "H1-E080",
+      "website": "aclweb.pt/en"
+    },
+    {
+      "company": "ACOFAL SLU",
+      "country": "Spain",
+      "booth": "H4-F130",
+      "website": "acofal.es"
+    },
+    {
+      "company": "AcouHeart Co., Ltd",
+      "country": "China",
+      "booth": "H1-P109",
+      "website": "acouheart.com"
+    },
+    {
+      "company": "ACTIS",
+      "country": "France",
+      "booth": "H1-G066",
+      "website": "actis-isolation.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

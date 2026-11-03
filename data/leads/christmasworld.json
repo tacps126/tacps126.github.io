@@ -1,0 +1,182 @@
+{
+  "id": "christmasworld",
+  "name": "Christmasworld",
+  "where": "Frankfurt, Germany",
+  "industry": "Seasonal & Festive Decorations",
+  "listUrl": "https://christmasworld.messefrankfurt.com/frankfurt/en/exhibitor-search.html",
+  "total": 667,
+  "countries": [
+    [
+      "Germany",
+      146
+    ],
+    [
+      "China",
+      106
+    ],
+    [
+      "Netherlands",
+      50
+    ],
+    [
+      "Hong Kong",
+      49
+    ],
+    [
+      "India",
+      49
+    ],
+    [
+      "Italy",
+      42
+    ],
+    [
+      "Poland",
+      29
+    ],
+    [
+      "Spain",
+      15
+    ],
+    [
+      "Belgium",
+      14
+    ],
+    [
+      "Taiwan",
+      14
+    ]
+  ],
+  "countryCount": 50,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 75,
+    "phone": 78,
+    "email": 85,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "3Way Trading Company",
+      "country": "Hong Kong",
+      "booth": "10.2 / E21E",
+      "website": "gz3way.net"
+    },
+    {
+      "company": "A K Handicrafrt Export",
+      "country": "India",
+      "booth": "10.2 / B47",
+      "website": "akhandicraftexport.com"
+    },
+    {
+      "company": "A.l. Industries LLP",
+      "country": "India",
+      "booth": "10.2 / A51",
+      "website": ""
+    },
+    {
+      "company": "Abhiuday Print Industries Private Limited",
+      "country": "India",
+      "booth": "10.2 / C60",
+      "website": "abhiudayprintindustries.com"
+    },
+    {
+      "company": "accentra GmbH &amp; Co. KG",
+      "country": "Germany",
+      "booth": "4.1 / L05",
+      "website": "accentra.de"
+    },
+    {
+      "company": "Access Mfgr &amp; Exports",
+      "country": "India",
+      "booth": "10.2 / C24",
+      "website": "bkgoverseas.com"
+    },
+    {
+      "company": "Accessorize India, Llc",
+      "country": "India",
+      "booth": "10.2 / D20",
+      "website": "aindiagroup.com"
+    },
+    {
+      "company": "Acro Novelty Design and Manufacturing Co., Ltd.",
+      "country": "Taiwan",
+      "booth": "10.2 / A41",
+      "website": ""
+    },
+    {
+      "company": "Ada Pazarlama Hediyelik Esya Ltd. Sti",
+      "country": "Türkiye",
+      "booth": "4.1 / L53",
+      "website": "adahediyelik.com"
+    },
+    {
+      "company": "ADAL Sp. z o.o",
+      "country": "Poland",
+      "booth": "4.0 / A31",
+      "website": "adal-decorations.com"
+    },
+    {
+      "company": "Adpal Sp z o.o.",
+      "country": "Poland",
+      "booth": "6.0 / D34",
+      "website": "adpal.pl"
+    },
+    {
+      "company": "Advantech Handicrafts",
+      "country": "India",
+      "booth": "10.2 / A19",
+      "website": ""
+    },
+    {
+      "company": "Alamgir Papier Machie House",
+      "country": "India",
+      "booth": "10.2 / A31",
+      "website": ""
+    },
+    {
+      "company": "ALEK OOD",
+      "country": "Bulgaria",
+      "booth": "4.0 / D41",
+      "website": ""
+    },
+    {
+      "company": "ALFAGR for Technical Industries",
+      "country": "Egypt",
+      "booth": "4.1 / G41",
+      "website": ""
+    },
+    {
+      "company": "Allied Imports Ltd.",
+      "country": "Ireland",
+      "booth": "4.0 / F58",
+      "website": "tipperarycrystal.ie"
+    },
+    {
+      "company": "Alliy International",
+      "country": "India",
+      "booth": "10.2 / C30",
+      "website": "alliyinternational.com"
+    },
+    {
+      "company": "ALRIVER EXPORT CORP.",
+      "country": "Philippines",
+      "booth": "10.2 / C40",
+      "website": "alriver.ph"
+    },
+    {
+      "company": "Alsace Bois Cr&eacute;ations",
+      "country": "France",
+      "booth": "4.1 / D45",
+      "website": "alsaceboiscreations.fr"
+    },
+    {
+      "company": "AM-Design Floristik GmbH",
+      "country": "Germany",
+      "booth": "4.1 / E10",
+      "website": "am-design-gmbh.de"
+    }
+  ],
+  "updated": "2026-11-04"
+}

@@ -1,0 +1,182 @@
+{
+  "id": "boot-dusseldorf",
+  "name": "boot Düsseldorf",
+  "where": "Germany",
+  "industry": "Boats & Water Sports",
+  "listUrl": "https://www.boot.com/vis/v1/en/search?f_type=profile",
+  "total": 1072,
+  "countries": [
+    [
+      "Germany",
+      14
+    ],
+    [
+      "Italy",
+      7
+    ],
+    [
+      "Spain",
+      2
+    ],
+    [
+      "Indonesia",
+      2
+    ],
+    [
+      "Netherlands",
+      2
+    ],
+    [
+      "France",
+      2
+    ],
+    [
+      "Malta",
+      1
+    ],
+    [
+      "Belgium",
+      1
+    ],
+    [
+      "USA",
+      1
+    ],
+    [
+      "Ireland",
+      1
+    ]
+  ],
+  "countryCount": 17,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 100,
+    "phone": 100,
+    "email": 100,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "Abacus Chemiegesellschaft mbH",
+      "country": "Germany",
+      "booth": "Hall 11 / D49",
+      "website": "abacus-shop.de"
+    },
+    {
+      "company": "Abertax Technologies Ltd",
+      "country": "Malta",
+      "booth": "Hall 10 / G66",
+      "website": "abertax.com"
+    },
+    {
+      "company": "Absolute S.p.A.",
+      "country": "Italy",
+      "booth": "Hall 6 / B28",
+      "website": "absoluteyachts.com"
+    },
+    {
+      "company": "Abyssmarine",
+      "country": "Germany",
+      "booth": "Hall 13 / G09",
+      "website": "abyssmarine.eu"
+    },
+    {
+      "company": "Accusysteme TransWatt GmbH",
+      "country": "Germany",
+      "booth": "Hall 10 / C22",
+      "website": "transwatt.de"
+    },
+    {
+      "company": "Action Sport Travel GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "Hall 13 / F31.17",
+      "website": "action-sport-tauchreisen.de"
+    },
+    {
+      "company": "ADAC e.V. Ressort Tourismus",
+      "country": "Germany",
+      "booth": "Hall 14 / E26",
+      "website": "skipper.adac.de"
+    },
+    {
+      "company": "ADAC e.V. Ressort Tourismus",
+      "country": "Germany",
+      "booth": "Hall 10 / F08",
+      "website": "skipper.adac.de"
+    },
+    {
+      "company": "Aerofoils GmbH",
+      "country": "Germany",
+      "booth": "Hall 5 / C02",
+      "website": "aerofoils.de"
+    },
+    {
+      "company": "AEROTECNICA COLTRI SPA",
+      "country": "Italy",
+      "booth": "Hall 13 / A56",
+      "website": "coltri.com"
+    },
+    {
+      "company": "AERTSSEN TRANSPORT NV",
+      "country": "Belgium",
+      "booth": "Hall 16 / A27",
+      "website": "aertssen.be"
+    },
+    {
+      "company": "Agencia Pública de Puertos de Andalucía",
+      "country": "Spain",
+      "booth": "Hall 14 / C40",
+      "website": "puertosdeandalucia.es"
+    },
+    {
+      "company": "agentur.sichtbar Thomas Dörken",
+      "country": "Germany",
+      "booth": "Hall 11 / A02",
+      "website": "agentur-sichtbar.com"
+    },
+    {
+      "company": "Agenzia Turistica BORIN S.r.l.s.",
+      "country": "Italy",
+      "booth": "Hall 14 / D26",
+      "website": "agenziaborin.com"
+    },
+    {
+      "company": "Aggressor Adventures LLC",
+      "country": "USA",
+      "booth": "Hall 13 / E32",
+      "website": "aggressor.com"
+    },
+    {
+      "company": "Agridata Limited",
+      "country": "Ireland",
+      "booth": "Hall 10 / A02",
+      "website": "passerello.com"
+    },
+    {
+      "company": "AIVeNautics Co., Ltd.",
+      "country": "Korea, Republic",
+      "booth": "Hall 10 / G75",
+      "website": "aivenautics.com"
+    },
+    {
+      "company": "akf bank GmbH & Co KG",
+      "country": "Germany",
+      "booth": "Hall 7a / G08",
+      "website": "akf.de"
+    },
+    {
+      "company": "Alam Anda Ocean Front Resort & Spa PT. Bali Alam Anda",
+      "country": "Indonesia",
+      "booth": "Hall 13 / B41",
+      "website": "alam-anda.com"
+    },
+    {
+      "company": "Albatross Sportswear UG",
+      "country": "Germany",
+      "booth": "Hall 11 / E38",
+      "website": "albatross-outdoor.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

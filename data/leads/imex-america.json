@@ -1,0 +1,141 @@
+{
+  "id": "imex-america",
+  "name": "IMEX America",
+  "where": "USA",
+  "industry": "Meetings & Events",
+  "listUrl": "https://america.imexevents.com/newfront/marketplace/exhibitors",
+  "total": 3875,
+  "countries": [],
+  "countryCount": 0,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 95,
+    "phone": 75,
+    "email": 55,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1 Hotel Austin",
+      "country": "",
+      "booth": "F1025",
+      "website": "1hotels.com/austin"
+    },
+    {
+      "company": "1 Hotel Brooklyn Bridge",
+      "country": "",
+      "booth": "F1025",
+      "website": "1hotels.com/brooklyn-bridge"
+    },
+    {
+      "company": "1 Hotel Central Park",
+      "country": "",
+      "booth": "F1025",
+      "website": "1hotels.com/central-park"
+    },
+    {
+      "company": "1 Hotel Hanalei Bay",
+      "country": "",
+      "booth": "F1025",
+      "website": "1hotels.com/hanalei-bay"
+    },
+    {
+      "company": "1 Hotel Nashville",
+      "country": "",
+      "booth": "F1025",
+      "website": "1hotels.com/nashville"
+    },
+    {
+      "company": "1 Hotel San Francisco",
+      "country": "",
+      "booth": "F1025",
+      "website": "1hotels.com/san-francisco"
+    },
+    {
+      "company": "1 Hotel Seattle",
+      "country": "",
+      "booth": "F1025",
+      "website": "1hotels.com/seattle"
+    },
+    {
+      "company": "1 Hotel South Beach",
+      "country": "",
+      "booth": "F1025",
+      "website": "1hotels.com/south-beach"
+    },
+    {
+      "company": "1 Hotel Toronto",
+      "country": "",
+      "booth": "F1025",
+      "website": "1hotels.com/toronto"
+    },
+    {
+      "company": "1 Hotel West Hollywood",
+      "country": "",
+      "booth": "F1025",
+      "website": "1hotels.com/west-hollywood"
+    },
+    {
+      "company": "24 Seven Productions",
+      "country": "",
+      "booth": "C4460",
+      "website": "24sevenpro.com"
+    },
+    {
+      "company": "2B UK DMC",
+      "country": "",
+      "booth": "E1817",
+      "website": "2b-uk.com"
+    },
+    {
+      "company": "2B UK DMC Scotland",
+      "country": "",
+      "booth": "E1705",
+      "website": "2b-uk.com"
+    },
+    {
+      "company": "2B UK DMC,  A Global DMC Partner",
+      "country": "",
+      "booth": "D3617",
+      "website": "www.2b-uk.com"
+    },
+    {
+      "company": "305 Transportation",
+      "country": "",
+      "booth": "E2446",
+      "website": "305transportation.com"
+    },
+    {
+      "company": "360 CHICAGO",
+      "country": "",
+      "booth": "D3730",
+      "website": "360chicagoevents.com"
+    },
+    {
+      "company": "3D Cruise Partners",
+      "country": "",
+      "booth": "D2665",
+      "website": "3dcruisepartners.com"
+    },
+    {
+      "company": "62ABOVE Powered by ALHI",
+      "country": "",
+      "booth": "F217",
+      "website": "62above.com"
+    },
+    {
+      "company": "9/11 Memorial & Museum",
+      "country": "",
+      "booth": "C4331",
+      "website": "911memorial.org"
+    },
+    {
+      "company": "A1A GLOBAL GROUND",
+      "country": "",
+      "booth": "C4516",
+      "website": "a1alimo.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

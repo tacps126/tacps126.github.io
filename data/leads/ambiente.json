@@ -1,0 +1,182 @@
+{
+  "id": "ambiente",
+  "name": "Ambiente",
+  "where": "Frankfurt, Germany",
+  "industry": "Consumer Goods, Tableware & Interiors",
+  "listUrl": "https://ambiente.messefrankfurt.com/frankfurt/en/exhibitor-search.html",
+  "total": 3297,
+  "countries": [
+    [
+      "India",
+      481
+    ],
+    [
+      "China",
+      352
+    ],
+    [
+      "Germany",
+      339
+    ],
+    [
+      "Italy",
+      266
+    ],
+    [
+      "Hong Kong",
+      238
+    ],
+    [
+      "Türkiye",
+      187
+    ],
+    [
+      "France",
+      125
+    ],
+    [
+      "Taiwan",
+      102
+    ],
+    [
+      "Japan",
+      94
+    ],
+    [
+      "Netherlands",
+      93
+    ]
+  ],
+  "countryCount": 74,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 82,
+    "phone": 78,
+    "email": 88,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "10 Strawberry Street",
+      "country": "United States",
+      "booth": "12.0 / A63",
+      "website": "tenstrawberrystreet.com"
+    },
+    {
+      "company": "100percent Inc.",
+      "country": "Japan",
+      "booth": "3.1 / B60",
+      "website": "100per.com"
+    },
+    {
+      "company": "151 Products Limited",
+      "country": "Great Britain and Northern Ireland",
+      "booth": "9.3 / A93",
+      "website": "151.co.uk"
+    },
+    {
+      "company": "24Bottles Societ&agrave; Benefit S.r.l.",
+      "country": "Italy",
+      "booth": "4.2 / J02",
+      "website": "24bottles.com"
+    },
+    {
+      "company": "2957-6758 Quebec Inc",
+      "country": "Canada",
+      "booth": "9.1 / B70",
+      "website": "oasismade.com"
+    },
+    {
+      "company": "2M2 Group AB",
+      "country": "Sweden",
+      "booth": "3.0 / G01",
+      "website": "2m2.se"
+    },
+    {
+      "company": "30x40 Michaela Schwarzer",
+      "country": "Germany",
+      "booth": "4.2 / E48",
+      "website": "30x40.net"
+    },
+    {
+      "company": "33 Point 3 Exports, Inc.",
+      "country": "Philippines",
+      "booth": "10.4 / B53",
+      "website": "33point3.com"
+    },
+    {
+      "company": "3D Dekoratif Esya San. ve Tic. Ltd. Sti.",
+      "country": "Türkiye",
+      "booth": "12.1 / D81",
+      "website": "3dglassware.com"
+    },
+    {
+      "company": "3DC - Intelligent Nature, Lda.",
+      "country": "Portugal",
+      "booth": "3.1 / H19",
+      "website": "3dcork.com"
+    },
+    {
+      "company": "3G Resins, Sociedade Unipessoal Lda",
+      "country": "Portugal",
+      "booth": "9.3 / C92",
+      "website": "3gresins.com"
+    },
+    {
+      "company": "4 Seasons Collections",
+      "country": "India",
+      "booth": "10.1 / C36",
+      "website": ""
+    },
+    {
+      "company": "4Everyware B.V.",
+      "country": "Netherlands",
+      "booth": "9.3 / D40",
+      "website": "4everyware.nl"
+    },
+    {
+      "company": "5a Trade SAS",
+      "country": "France",
+      "booth": "4.2 / N82",
+      "website": ""
+    },
+    {
+      "company": "A Casa K SAS di B.G. Abdelnasser",
+      "country": "Italy",
+      "booth": "3.1 / J19D",
+      "website": "facebook.com/acasak98/?locale=it_IT"
+    },
+    {
+      "company": "Aadya International",
+      "country": "India",
+      "booth": "10.4 / D33",
+      "website": "aadyahome.com"
+    },
+    {
+      "company": "Aarikka Oy",
+      "country": "Finland",
+      "booth": "3.1 / B92",
+      "website": "aarikka.com"
+    },
+    {
+      "company": "Aarke AB",
+      "country": "Sweden",
+      "booth": "9.0 / C10",
+      "website": "aarke.com"
+    },
+    {
+      "company": "Abert S.p.A.",
+      "country": "Italy",
+      "booth": "8.0 / K31",
+      "website": "abert.it"
+    },
+    {
+      "company": "Abert S.p.A. Divisione Broggi 1818",
+      "country": "Italy",
+      "booth": "12.1 / B60B",
+      "website": ""
+    }
+  ],
+  "updated": "2026-11-04"
+}

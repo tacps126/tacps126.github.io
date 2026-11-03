@@ -1,0 +1,182 @@
+{
+  "id": "interpack",
+  "name": "interpack",
+  "where": "Düsseldorf, Germany",
+  "industry": "Packaging & Processing",
+  "listUrl": "https://www.interpack.com/vis/v1/en/directory",
+  "total": 3085,
+  "countries": [
+    [
+      "Germany",
+      8
+    ],
+    [
+      "Italy",
+      4
+    ],
+    [
+      "India",
+      4
+    ],
+    [
+      "Türkiye",
+      3
+    ],
+    [
+      "Spain",
+      3
+    ],
+    [
+      "Netherlands",
+      2
+    ],
+    [
+      "Denmark",
+      2
+    ],
+    [
+      "Korea, Republic",
+      2
+    ],
+    [
+      "Belgium",
+      2
+    ],
+    [
+      "USA",
+      2
+    ]
+  ],
+  "countryCount": 17,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 98,
+    "phone": 98,
+    "email": 100,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "A&D Verpackungsmaschinenbau GmbH",
+      "country": "Germany",
+      "booth": "Hall 15 / D42",
+      "website": ""
+    },
+    {
+      "company": "A+F Automation + Fördertechnik GmbH",
+      "country": "Germany",
+      "booth": "Hall 11 / C60",
+      "website": "af-gmbh.de"
+    },
+    {
+      "company": "A+V Automation und Verpackungstechnik GmbH",
+      "country": "Germany",
+      "booth": "Hall 6 / B09",
+      "website": "av-packaging.de"
+    },
+    {
+      "company": "A-Z Color sp. z o. o. sp. k.",
+      "country": "Poland",
+      "booth": "Hall 8a / C12",
+      "website": "azcolor.com.pl"
+    },
+    {
+      "company": "A. Hatzopoulos S.A.",
+      "country": "Greece",
+      "booth": "Hall 10 / A88",
+      "website": "hatzopoulos.gr"
+    },
+    {
+      "company": "A.R.C. AMBALAJ MALZ. IML. SAN. TIC. LTD. STI.",
+      "country": "Türkiye",
+      "booth": "Hall 8a / D05",
+      "website": "arcambalaj.com.tr"
+    },
+    {
+      "company": "A.V.C. Sealing Solutions BV",
+      "country": "Netherlands",
+      "booth": "Hall 12 / C72",
+      "website": "avc.nl"
+    },
+    {
+      "company": "Aasted ApS",
+      "country": "Denmark",
+      "booth": "Hall 1 / B69",
+      "website": "aasted.eu"
+    },
+    {
+      "company": "ABI B.V.",
+      "country": "Netherlands",
+      "booth": "Hall 14 / D04",
+      "website": "abi.nl"
+    },
+    {
+      "company": "ABIEF -Associação Brasileira da Industr. de Embalagens Plásticas Flexíveis",
+      "country": "Brazil",
+      "booth": "North Entrance 1 / N1",
+      "website": "abief.org.br"
+    },
+    {
+      "company": "AblePackaging CO., LTD",
+      "country": "China",
+      "booth": "Hall 7a / D18",
+      "website": "ablepak.com"
+    },
+    {
+      "company": "Abrigo S.p.A.",
+      "country": "Italy",
+      "booth": "Hall 3 / B75",
+      "website": "abrigospa.com"
+    },
+    {
+      "company": "ACE MACHINERY CO., LTD.",
+      "country": "Korea, Republic",
+      "booth": "Hall 6 / E09",
+      "website": "acegluer.com"
+    },
+    {
+      "company": "ACE PACK Co., Ltd.",
+      "country": "Korea, Republic",
+      "booth": "Hall 8a / C72",
+      "website": "paper-cup.co.kr"
+    },
+    {
+      "company": "ACE PACKAGING Partnership Firm",
+      "country": "India",
+      "booth": "Hall 8a / F64-6",
+      "website": "acepack.co.in"
+    },
+    {
+      "company": "Acemal S.A.",
+      "country": "Belgium",
+      "booth": "Hall 4 / B36",
+      "website": "acemal.com"
+    },
+    {
+      "company": "ACEMOĞLU GIDA SAN. VE TİC. A.Ş.",
+      "country": "Türkiye",
+      "booth": "Hall 7, level 1 / E40-1",
+      "website": "oncuambalaj.com.tr"
+    },
+    {
+      "company": "ACG Pam Pharma Technologies Pvt. Ltd.",
+      "country": "India",
+      "booth": "Hall 16 / D57",
+      "website": "acg-world.com"
+    },
+    {
+      "company": "ACMA s.p.a.",
+      "country": "Italy",
+      "booth": "Hall 6 / D57",
+      "website": "acma.it"
+    },
+    {
+      "company": "ACTEGA GmbH",
+      "country": "Germany",
+      "booth": "Hall 8a / D59",
+      "website": "actega.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

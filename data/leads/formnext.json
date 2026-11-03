@@ -1,0 +1,182 @@
+{
+  "id": "formnext",
+  "name": "Formnext",
+  "where": "Frankfurt, Germany",
+  "industry": "Additive Manufacturing / 3D Printing",
+  "listUrl": "https://formnext.mesago.com/frankfurt/en/exhibitor-search.html",
+  "total": 793,
+  "countries": [
+    [
+      "Germany",
+      294
+    ],
+    [
+      "China",
+      131
+    ],
+    [
+      "United States",
+      43
+    ],
+    [
+      "Great Britain and Northern Ireland",
+      42
+    ],
+    [
+      "France",
+      41
+    ],
+    [
+      "Spain",
+      30
+    ],
+    [
+      "Italy",
+      26
+    ],
+    [
+      "Austria",
+      22
+    ],
+    [
+      "Japan",
+      19
+    ],
+    [
+      "Netherlands",
+      17
+    ]
+  ],
+  "countryCount": 40,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 100,
+    "phone": 90,
+    "email": 100,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1st Mould GmbH",
+      "country": "Germany",
+      "booth": "11.0 / A78",
+      "website": "1st-mould.de"
+    },
+    {
+      "company": "3D ADEPT Mag",
+      "country": "Belgium",
+      "booth": "12.0 / P02",
+      "website": "3dadept.com"
+    },
+    {
+      "company": "3D LAB Sp. z o.o.",
+      "country": "Poland",
+      "booth": "11.0 / B21",
+      "website": "3d-lab.pl"
+    },
+    {
+      "company": "3D Masterparts GmbH",
+      "country": "Germany",
+      "booth": "11.0 / E42",
+      "website": "3d-masterparts.com"
+    },
+    {
+      "company": "3D MicroPrint GmbH",
+      "country": "Germany",
+      "booth": "12.0 / B129",
+      "website": "3dmicroprint.com"
+    },
+    {
+      "company": "3D printing - International magazine of dental printing technology",
+      "country": "Germany",
+      "booth": "12.0 / P02",
+      "website": "dental3dprintingmagazine.dental-tribune.com"
+    },
+    {
+      "company": "3D Printing Technology, Inc.",
+      "country": "China",
+      "booth": "11.0 / F56",
+      "website": "3dptek.com"
+    },
+    {
+      "company": "3D Spark GmbH",
+      "country": "Germany",
+      "booth": "12.1 / D82",
+      "website": "voluminate.3dspark.de"
+    },
+    {
+      "company": "3D Systems Distribution Germany KISTERS AG",
+      "country": "Germany",
+      "booth": "11.0 / D01",
+      "website": "3DSystems-3DDrucker.de"
+    },
+    {
+      "company": "3D Systems Inc.",
+      "country": "United States",
+      "booth": "11.0 / D11",
+      "website": "3dsystems.com"
+    },
+    {
+      "company": "3D-TRADE GmbH",
+      "country": "Germany",
+      "booth": "12.0 / F21",
+      "website": "3d-trade.de"
+    },
+    {
+      "company": "3DCeram-Sinto S.A.S.",
+      "country": "France",
+      "booth": "11.0 / B32",
+      "website": "3dceram.com"
+    },
+    {
+      "company": "3Deus Dynamics Sas",
+      "country": "France",
+      "booth": "12.1 / A72",
+      "website": "3deusdynamics.com"
+    },
+    {
+      "company": "3devo B.V.",
+      "country": "Netherlands",
+      "booth": "12.1 / B139",
+      "website": "3devo.com"
+    },
+    {
+      "company": "3DPrint.com",
+      "country": "United States",
+      "booth": "12.0 / P02",
+      "website": "3dprint.com"
+    },
+    {
+      "company": "3Druck.com",
+      "country": "Austria",
+      "booth": "12.0 / P02",
+      "website": "3druck.com"
+    },
+    {
+      "company": "3Faktur GmbH",
+      "country": "Germany",
+      "booth": "12.1 / F69",
+      "website": "3faktur.com"
+    },
+    {
+      "company": "6K Additive, LLC",
+      "country": "United States",
+      "booth": "12.0 / A78",
+      "website": "6KAdditive.com"
+    },
+    {
+      "company": "acad group GmbH",
+      "country": "Germany",
+      "booth": "12.1 / C71",
+      "website": "acad-group.de"
+    },
+    {
+      "company": "ACAM Aachen Center for Additive Manufacturing GmbH",
+      "country": "Germany",
+      "booth": "11.0 / D32",
+      "website": "acam-aachen.de"
+    }
+  ],
+  "updated": "2026-11-04"
+}

@@ -1,0 +1,158 @@
+{
+  "id": "gsx",
+  "name": "GSX 2027",
+  "where": "USA",
+  "industry": "Security",
+  "listUrl": "https://gsx27.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm",
+  "total": 324,
+  "countries": [
+    [
+      "United States of America",
+      32
+    ],
+    [
+      "UNITED STATES",
+      6
+    ],
+    [
+      "Taiwan R.O.C.",
+      1
+    ],
+    [
+      "Singapore",
+      1
+    ]
+  ],
+  "countryCount": 4,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 100,
+    "phone": 98,
+    "email": 50,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "3Si",
+      "country": "United States of America",
+      "booth": "3335",
+      "website": "3si.com"
+    },
+    {
+      "company": "3xLOGIC   |    PACOM Systems",
+      "country": "United States of America",
+      "booth": "4209",
+      "website": "3xlogic.com"
+    },
+    {
+      "company": "9Line",
+      "country": "United States of America",
+      "booth": "4050",
+      "website": "9line.net"
+    },
+    {
+      "company": "A1 Americas",
+      "country": "United States of America",
+      "booth": "2365",
+      "website": "a1americas.com"
+    },
+    {
+      "company": "Acoem ATD",
+      "country": "United States of America",
+      "booth": "1448",
+      "website": "acoematd.com"
+    },
+    {
+      "company": "Acre Security",
+      "country": "United States of America",
+      "booth": "1214",
+      "website": "acresecurity.com"
+    },
+    {
+      "company": "Action Bullet Resistant Corp.",
+      "country": "United States of America",
+      "booth": "1143",
+      "website": "actionbullet.com"
+    },
+    {
+      "company": "ADI",
+      "country": "United States of America",
+      "booth": "1320",
+      "website": "adiglobal.com"
+    },
+    {
+      "company": "Advance Partners",
+      "country": "United States of America",
+      "booth": "1149",
+      "website": "advancepartners.com"
+    },
+    {
+      "company": "ADVANCED PROGRAMS, INC.",
+      "country": "United States of America",
+      "booth": "1667",
+      "website": "advprograms.com"
+    },
+    {
+      "company": "Advancis, Inc.",
+      "country": "United States of America",
+      "booth": "1549",
+      "website": "advancis.net"
+    },
+    {
+      "company": "Aegent Technology",
+      "country": "United States of America",
+      "booth": "1452",
+      "website": "aegenttech.com"
+    },
+    {
+      "company": "AETEK Inc.",
+      "country": "Taiwan R.O.C.",
+      "booth": "1316",
+      "website": "aetekte.com"
+    },
+    {
+      "company": "Ai-RGUS",
+      "country": "United States of America",
+      "booth": "3711",
+      "website": "ai-rgus.com"
+    },
+    {
+      "company": "AirSight",
+      "country": "United States of America",
+      "booth": "1310",
+      "website": "airsight.com"
+    },
+    {
+      "company": "Alcatraz",
+      "country": "United States of America",
+      "booth": "1723",
+      "website": "alcatraz.ai"
+    },
+    {
+      "company": "Alert Enterprise",
+      "country": "United States of America",
+      "booth": "1713",
+      "website": "alertenterprise.com"
+    },
+    {
+      "company": "AlertMedia",
+      "country": "United States of America",
+      "booth": "3329",
+      "website": "alertmedia.com"
+    },
+    {
+      "company": "Alertus Technologies",
+      "country": "UNITED STATES",
+      "booth": "3021",
+      "website": "alertus.com"
+    },
+    {
+      "company": "Alibi Security",
+      "country": "United States of America",
+      "booth": "3251",
+      "website": "alibisecurity.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

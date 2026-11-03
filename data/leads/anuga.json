@@ -1,0 +1,182 @@
+{
+  "id": "anuga",
+  "name": "Anuga",
+  "where": "Cologne, Germany",
+  "industry": "Food & Beverage",
+  "listUrl": "https://www.anuga.com/anuga-exhibitors/list-of-exhibitors/",
+  "total": 3182,
+  "countries": [
+    [
+      "Italy",
+      432
+    ],
+    [
+      "Spain",
+      302
+    ],
+    [
+      "Germany",
+      173
+    ],
+    [
+      "Türkiye",
+      173
+    ],
+    [
+      "China",
+      141
+    ],
+    [
+      "Greece",
+      106
+    ],
+    [
+      "Netherlands",
+      100
+    ],
+    [
+      "Argentina",
+      92
+    ],
+    [
+      "France",
+      92
+    ],
+    [
+      "Belgium",
+      84
+    ]
+  ],
+  "countryCount": 102,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 100,
+    "phone": 60,
+    "email": 60,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "3A Management Corp Frontier Bakery",
+      "country": "Canada",
+      "booth": "Hall 03.2 | C010",
+      "website": "youtube.com/@FrontierBakeryca/shorts"
+    },
+    {
+      "company": "3F Group Oy",
+      "country": "Finland",
+      "booth": "Hall 10.2 | A068",
+      "website": "3friends.com"
+    },
+    {
+      "company": "ACEITES ESPECIALES TH",
+      "country": "Mexico",
+      "booth": "Hall 03.1 | C078 D079",
+      "website": "aeth.mx"
+    },
+    {
+      "company": "Afreximbank",
+      "country": "Egypt",
+      "booth": "Hall 11.1 | A058",
+      "website": "afreximbank.com"
+    },
+    {
+      "company": "Aim Food Manufacturing Sdn Bhd",
+      "country": "Malaysia",
+      "booth": "Hall 07.1 | G030",
+      "website": "aimfood.com"
+    },
+    {
+      "company": "ALAZAN",
+      "country": "Mexico",
+      "booth": "Hall 03.1 | C078 D079",
+      "website": "alazan.com.mx"
+    },
+    {
+      "company": "ANTESCO",
+      "country": "Vietnam",
+      "booth": "Confexhall B030 C039",
+      "website": "antesco.com"
+    },
+    {
+      "company": "Baoqing Country Xinfeng Agricultural and Sideline Products Co., Ltd",
+      "country": "China",
+      "booth": "Confexhall B052",
+      "website": "kingplus-world.com"
+    },
+    {
+      "company": "Bello Foods",
+      "country": "Brazil",
+      "booth": "Hall 09.1 | D042",
+      "website": "belloalimentos.com.br"
+    },
+    {
+      "company": "BFB FOODS BRASIL",
+      "country": "Brazil",
+      "booth": "Hall 09.1 | D044a",
+      "website": "bfbfoods.com"
+    },
+    {
+      "company": "BFT BRAZIL TRADING COML EXP DE ALIMENTOS",
+      "country": "Brazil",
+      "booth": "Hall 09.1 | C040",
+      "website": "bftfoods.com"
+    },
+    {
+      "company": "Bialetti Industrie Spa",
+      "country": "Italy",
+      "booth": "Hall 08.1 | C090",
+      "website": "bialetti.com"
+    },
+    {
+      "company": "Birchall Tea Imporient (U.K.) Ltd",
+      "country": "United Kingdom",
+      "booth": "Hall 08.1 | B078",
+      "website": "birchalltea.co.uk"
+    },
+    {
+      "company": "Buram GmbH",
+      "country": "Germany",
+      "booth": "Hall 03.2 | A030",
+      "website": "buram.de"
+    },
+    {
+      "company": "Cabaña Juramento",
+      "country": "Argentina",
+      "booth": "Hall 06.1 | C038a",
+      "website": "juramento.com.ar"
+    },
+    {
+      "company": "Cachamai S.A.",
+      "country": "Argentina",
+      "booth": "Hall 08.1 | A076",
+      "website": "cachamai.com.ar/en/us"
+    },
+    {
+      "company": "CAFESA TRADING SRL / HESAR HNOS S.A",
+      "country": "Argentina",
+      "booth": "Hall 03.1 | B074",
+      "website": "cafesatrading.com.ar"
+    },
+    {
+      "company": "Carbo-Ar",
+      "country": "Argentina",
+      "booth": "Hall 04.1 | C096",
+      "website": "carboar.ar"
+    },
+    {
+      "company": "Center \"Kyrgyz Export\"",
+      "country": "Kyrgyzstan",
+      "booth": "Hall 11.3 | C051",
+      "website": "export.gov.kg"
+    },
+    {
+      "company": "Comesul Beef",
+      "country": "Brazil",
+      "booth": "Hall 06.1 | E076",
+      "website": "comesulbeef.com.br"
+    }
+  ],
+  "updated": "2026-11-04"
+}

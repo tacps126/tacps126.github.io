@@ -1,0 +1,174 @@
+{
+  "id": "imts",
+  "name": "IMTS 2026",
+  "where": "Chicago, USA",
+  "industry": "Manufacturing Technology",
+  "listUrl": "https://directory.imts.com/8_0/explore/exhibitor-gallery.cfm",
+  "total": 1757,
+  "countries": [
+    [
+      "United States of America",
+      31
+    ],
+    [
+      "Canada",
+      3
+    ],
+    [
+      "Germany",
+      1
+    ],
+    [
+      "Brazil",
+      1
+    ],
+    [
+      "Taiwan R.O.C.",
+      1
+    ],
+    [
+      "Denmark",
+      1
+    ],
+    [
+      "Korea, Republic of",
+      1
+    ],
+    [
+      "India",
+      1
+    ]
+  ],
+  "countryCount": 8,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 100,
+    "phone": 98,
+    "email": 68,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1factory",
+      "country": "United States of America",
+      "booth": "134350",
+      "website": "1factory.com"
+    },
+    {
+      "company": "3D MicroPrint GmbH",
+      "country": "Germany",
+      "booth": "338278",
+      "website": "3dmicroprint.com"
+    },
+    {
+      "company": "3DChimera",
+      "country": "United States of America",
+      "booth": "237633",
+      "website": "3dchimera.com"
+    },
+    {
+      "company": "3nine USA",
+      "country": "United States of America",
+      "booth": "432443",
+      "website": "3nine.us"
+    },
+    {
+      "company": "4D Technology Corporation, an Onto Innovation subsidiary",
+      "country": "United States of America",
+      "booth": "134480",
+      "website": "4dtechnology.com"
+    },
+    {
+      "company": "4D1",
+      "country": "Canada",
+      "booth": "237617",
+      "website": "4d1.io"
+    },
+    {
+      "company": "5th Axis Inc.",
+      "country": "United States of America",
+      "booth": "431452",
+      "website": "5thaxis.com"
+    },
+    {
+      "company": "80/20 LLC",
+      "country": "United States of America",
+      "booth": "236419",
+      "website": "8020.net"
+    },
+    {
+      "company": "A&W TOOL, INC.",
+      "country": "United States of America",
+      "booth": "431768",
+      "website": "awtoolinc.com"
+    },
+    {
+      "company": "A'S PRECISION MACHINING LTD",
+      "country": "Canada",
+      "booth": "432286",
+      "website": "wwww.asprecisionmachining.com"
+    },
+    {
+      "company": "AB Tools Inc.",
+      "country": "United States of America",
+      "booth": "432264",
+      "website": "abtoolsinc.com"
+    },
+    {
+      "company": "Abbott Workholding",
+      "country": "United States of America",
+      "booth": "339347",
+      "website": "abbottworkholding.com"
+    },
+    {
+      "company": "ABIMAQ - The Brazilian Association of the Machinery & Equipment Industry",
+      "country": "Brazil",
+      "booth": "432590",
+      "website": "abimaq.org.br"
+    },
+    {
+      "company": "ABRO Balancing Machines Inc.",
+      "country": "United States of America",
+      "booth": "134013",
+      "website": "abrobalancing.com"
+    },
+    {
+      "company": "ABS Import Tools Inc.",
+      "country": "United States of America",
+      "booth": "134618, 432083",
+      "website": "absimporttools.com"
+    },
+    {
+      "company": "Absolent & Diversitech | Part of Absolent Air Care Group",
+      "country": "Canada",
+      "booth": "237542",
+      "website": "absolent.com"
+    },
+    {
+      "company": "Abtex LLC",
+      "country": "United States of America",
+      "booth": "237536",
+      "website": "abtex.com"
+    },
+    {
+      "company": "ACCF International Inc - SLOKY USA",
+      "country": "United States of America",
+      "booth": "431850",
+      "website": "slokyusa.com"
+    },
+    {
+      "company": "Accretech SBS Inc.",
+      "country": "United States of America",
+      "booth": "237540",
+      "website": "accretechsbs.com"
+    },
+    {
+      "company": "ACCU-CUT Industrial Co., Ltd",
+      "country": "Taiwan R.O.C.",
+      "booth": "432428",
+      "website": "accu-cut.com.tw"
+    }
+  ],
+  "updated": "2026-11-04"
+}

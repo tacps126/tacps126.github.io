@@ -1,0 +1,174 @@
+{
+  "id": "caravan-salon",
+  "name": "CARAVAN SALON",
+  "where": "Düsseldorf, Germany",
+  "industry": "Caravans & Motorhomes",
+  "listUrl": "https://www.caravan-salon.de/vis/v1/en/directory",
+  "total": 1013,
+  "countries": [
+    [
+      "Germany",
+      29
+    ],
+    [
+      "Slovenia",
+      3
+    ],
+    [
+      "Italy",
+      2
+    ],
+    [
+      "Netherlands",
+      2
+    ],
+    [
+      "Switzerland",
+      1
+    ],
+    [
+      "Austria",
+      1
+    ],
+    [
+      "Türkiye",
+      1
+    ],
+    [
+      "Poland",
+      1
+    ]
+  ],
+  "countryCount": 8,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 80,
+    "phone": 98,
+    "email": 98,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "A. Linnepe GmbH",
+      "country": "Germany",
+      "booth": "Hall 13 / A15",
+      "website": "linnepe.eu"
+    },
+    {
+      "company": "A.M.A. Composites S.r.l.",
+      "country": "Italy",
+      "booth": "Hall 14 / B46",
+      "website": "amacomposites.it"
+    },
+    {
+      "company": "ABC Vermögensverwaltung GmbH",
+      "country": "Germany",
+      "booth": "Hall 7, level 0 / A31",
+      "website": "vitalcamping-bayerbach.de"
+    },
+    {
+      "company": "ABENTEUER SELBSTAUSBAU",
+      "country": "Germany",
+      "booth": "FG Hall 14 / G14-03",
+      "website": ""
+    },
+    {
+      "company": "Accusysteme TransWatt GmbH",
+      "country": "Germany",
+      "booth": "Hall 13 / B31",
+      "website": "transwatt.de"
+    },
+    {
+      "company": "ACE Auto Club Europa e.V.",
+      "country": "Germany",
+      "booth": "Hall 3 / F40",
+      "website": "ace.de"
+    },
+    {
+      "company": "ACR Brändli & Vögli AG",
+      "country": "Switzerland",
+      "booth": "Hall 14 / D03",
+      "website": "zenec.com"
+    },
+    {
+      "company": "ACRYFORM d.o.o.",
+      "country": "Slovenia",
+      "booth": "Hall 13 / E73",
+      "website": "acryform.com"
+    },
+    {
+      "company": "ACSI der Campingspezialist",
+      "country": "Netherlands",
+      "booth": "Hall 7, level 0 / B19",
+      "website": ""
+    },
+    {
+      "company": "ACTION MOBIL GmbH & Co. KG",
+      "country": "Austria",
+      "booth": "Hall 16 / A60",
+      "website": "actionmobil.at"
+    },
+    {
+      "company": "ACV Automobil-Club Verkehr e.V.",
+      "country": "Germany",
+      "booth": "Hall 15 / E05",
+      "website": "acv.de"
+    },
+    {
+      "company": "ADA Cosmetics International GmbH",
+      "country": "Germany",
+      "booth": "Hall 3 / D16",
+      "website": "camper.ada-shop.com/de_caravan"
+    },
+    {
+      "company": "ADAC Autovermietung GmbH",
+      "country": "Germany",
+      "booth": "Hall 5 / E01",
+      "website": ""
+    },
+    {
+      "company": "ADAC CAMPER DES JAHRES - 05.09.2026",
+      "country": "Germany",
+      "booth": "FG Hall 10 / G10-05",
+      "website": "adac.de"
+    },
+    {
+      "company": "ADAC e.V.",
+      "country": "Germany",
+      "booth": "Hall 5 / E01",
+      "website": "adac.de"
+    },
+    {
+      "company": "ADAC MOVE IT! PARCOURS - 04.09.-06.09.2026",
+      "country": "Germany",
+      "booth": "FG Hall 16 / G16-02",
+      "website": "adac.de"
+    },
+    {
+      "company": "ADALIÇELİK SAN. TİC. LTD. ŞTİ",
+      "country": "Türkiye",
+      "booth": "Hall 11 / D07",
+      "website": "tosbiq.com"
+    },
+    {
+      "company": "Adria Mobil, d.o.o.",
+      "country": "Slovenia",
+      "booth": "Hall 10 / A29-01..A29-09",
+      "website": "adria-mobil.com"
+    },
+    {
+      "company": "Adventure Camp 29.08.- 30.08 und 05.09.-06.09.2026",
+      "country": "Germany",
+      "booth": "FG Hall 16 / G16-03",
+      "website": ""
+    },
+    {
+      "company": "Affinity RV Sp. z o.o.",
+      "country": "Poland",
+      "booth": "Hall 15 / D56",
+      "website": "affinity-rv.eu"
+    }
+  ],
+  "updated": "2026-11-04"
+}

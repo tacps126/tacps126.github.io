@@ -1,0 +1,182 @@
+{
+  "id": "techtextil",
+  "name": "Techtextil",
+  "where": "Frankfurt, Germany",
+  "industry": "Technical Textiles & Nonwovens",
+  "listUrl": "https://techtextil.messefrankfurt.com/frankfurt/en/exhibitor-search.html",
+  "total": 1474,
+  "countries": [
+    [
+      "Germany",
+      340
+    ],
+    [
+      "China",
+      177
+    ],
+    [
+      "Italy",
+      171
+    ],
+    [
+      "France",
+      94
+    ],
+    [
+      "Türkiye",
+      69
+    ],
+    [
+      "India",
+      63
+    ],
+    [
+      "Spain",
+      63
+    ],
+    [
+      "Switzerland",
+      50
+    ],
+    [
+      "Korea, the Republic of (South)",
+      48
+    ],
+    [
+      "Taiwan",
+      44
+    ]
+  ],
+  "countryCount": 53,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 100,
+    "phone": 98,
+    "email": 92,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "21upcycling GmbH &amp; Co. KG",
+      "country": "Germany",
+      "booth": "12.0 / A39",
+      "website": "21upcycling.com"
+    },
+    {
+      "company": "2a S.p.a.",
+      "country": "Italy",
+      "booth": "12.1 / B47C",
+      "website": "nyguard.com"
+    },
+    {
+      "company": "3tech Textil GmbH",
+      "country": "Germany",
+      "booth": "12.1 / C62",
+      "website": "3tech-textil.de"
+    },
+    {
+      "company": "4F SAS",
+      "country": "France",
+      "booth": "9.0 / B03",
+      "website": "4f-knits.com"
+    },
+    {
+      "company": "A K INDUSTRIAL FABRICS",
+      "country": "India",
+      "booth": "11.0 / F29",
+      "website": "akindfabrics.com"
+    },
+    {
+      "company": "AB-Tec GmbH &amp; Co. KG",
+      "country": "Germany",
+      "booth": "11.0 / D58",
+      "website": "ab-tec.com"
+    },
+    {
+      "company": "Abacell",
+      "country": "Taiwan",
+      "booth": "9.1 / A55",
+      "website": "abacell.co"
+    },
+    {
+      "company": "Abhilash Enterprises",
+      "country": "India",
+      "booth": "12.0 / A66",
+      "website": "abhilashenterprises.com"
+    },
+    {
+      "company": "Abifor AG",
+      "country": "Germany",
+      "booth": "11.0 / D20",
+      "website": "abifor.com"
+    },
+    {
+      "company": "AboutMaterialZ - Ein Projekt der FILK Freiberg Institute",
+      "country": "Germany",
+      "booth": "9.1 / B43D",
+      "website": "aboutmaterialz.com"
+    },
+    {
+      "company": "Accoppiatura Vigevanese S.r.l.",
+      "country": "Italy",
+      "booth": "11.0 / D29",
+      "website": "accoppiaturavigevanese.it"
+    },
+    {
+      "company": "Ace S.r.l.",
+      "country": "Belgium",
+      "booth": "11.0 / D23",
+      "website": "ace-films.be"
+    },
+    {
+      "company": "Achilles Corporation",
+      "country": "Japan",
+      "booth": "11.0 / C51",
+      "website": "achilles.jp"
+    },
+    {
+      "company": "Acimit Servizi S.r.l.",
+      "country": "Italy",
+      "booth": "12.0 / A06",
+      "website": "acimit.it"
+    },
+    {
+      "company": "Acmetex Inc",
+      "country": "Canada",
+      "booth": "11.1 / D60",
+      "website": "acmetex.com"
+    },
+    {
+      "company": "ADITYA BIRLA GROUP",
+      "country": "India",
+      "booth": "9.1 / D10",
+      "website": "adityabirla.com"
+    },
+    {
+      "company": "Adlon Industries Private Limited",
+      "country": "India",
+      "booth": "9.0 / C81",
+      "website": "adlonindustries.com"
+    },
+    {
+      "company": "Adtracon GmbH",
+      "country": "Germany",
+      "booth": "11.0 / D41",
+      "website": "adtracon.de"
+    },
+    {
+      "company": "Advance Hitech Textile International Corporation",
+      "country": "Taiwan",
+      "booth": "12.1 / E11",
+      "website": "advtex.com.tw"
+    },
+    {
+      "company": "Aeris S.r.l.",
+      "country": "Italy",
+      "booth": "12.0 / A18",
+      "website": "aerisgroup.it"
+    }
+  ],
+  "updated": "2026-11-04"
+}

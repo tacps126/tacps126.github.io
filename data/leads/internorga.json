@@ -1,0 +1,182 @@
+{
+  "id": "internorga",
+  "name": "INTERNORGA",
+  "where": "Hamburg, Germany",
+  "industry": "Food Service & Hospitality",
+  "listUrl": "https://www.internorga.com/en/exhibit-visit/exhibitor-directory",
+  "total": 1245,
+  "countries": [
+    [
+      "Germany",
+      930
+    ],
+    [
+      "Austria",
+      59
+    ],
+    [
+      "Netherlands",
+      44
+    ],
+    [
+      "Italy",
+      43
+    ],
+    [
+      "Switzerland",
+      22
+    ],
+    [
+      "Poland",
+      17
+    ],
+    [
+      "Belgium",
+      15
+    ],
+    [
+      "Denmark",
+      15
+    ],
+    [
+      "France",
+      13
+    ],
+    [
+      "Finland",
+      12
+    ]
+  ],
+  "countryCount": 38,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 95,
+    "phone": 95,
+    "email": 98,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "11er Nahrungsmittel GmbH",
+      "country": "Austria",
+      "booth": "Hall A1",
+      "website": "11er.at"
+    },
+    {
+      "company": "2E Vertriebs-GmbH",
+      "country": "Germany",
+      "booth": "Foyer East Ground floor",
+      "website": "2e-vertrieb.de/unsere-marken"
+    },
+    {
+      "company": "3E Software House / Ordering Stack",
+      "country": "Poland",
+      "booth": "Hall A3",
+      "website": "orderingstack.com"
+    },
+    {
+      "company": "3POS GmbH",
+      "country": "Germany",
+      "booth": "Hall A2",
+      "website": "3pos.de"
+    },
+    {
+      "company": "3RPMS",
+      "country": "Germany",
+      "booth": "Hall A2",
+      "website": "3rpms-hotelsoftware.de"
+    },
+    {
+      "company": "4ILIUS GmbH",
+      "country": "Germany",
+      "booth": "Hall B3 Upper floor",
+      "website": "deinetuete.de"
+    },
+    {
+      "company": "A+S Frucht GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "Hall A1",
+      "website": "as-frucht.de"
+    },
+    {
+      "company": "A. Darbo AG",
+      "country": "Austria",
+      "booth": "Hall A4",
+      "website": "darbo.com"
+    },
+    {
+      "company": "AB Hällde Maskiner Joanna Levin",
+      "country": "Germany",
+      "booth": "Hall B6",
+      "website": "joanna-levin-hamburg.de"
+    },
+    {
+      "company": "ABC Worldwide GmbH",
+      "country": "Germany",
+      "booth": "Hall B2 Ground floor",
+      "website": "stapelstuhl24.de"
+    },
+    {
+      "company": "ACAI GmbH",
+      "country": "Germany",
+      "booth": "Hall A3",
+      "website": "acai.eu"
+    },
+    {
+      "company": "ACCENTA Music & P.O.S. GmbH",
+      "country": "Germany",
+      "booth": "Hall B2 Upper floor",
+      "website": "accenta.de"
+    },
+    {
+      "company": "Access Workspace Germany GmbH",
+      "country": "Germany",
+      "booth": "Hall A2",
+      "website": "theaccessgroup.com/de-de/hotels"
+    },
+    {
+      "company": "Achenbach Delikatessen Manufaktur Rudolf Achenbach GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "Hall B7",
+      "website": "achenbach.com"
+    },
+    {
+      "company": "Achkarrer Winzer am Schlossberg eG",
+      "country": "Germany",
+      "booth": "Foyer East Upper floor",
+      "website": "achkarrerwein.com"
+    },
+    {
+      "company": "Acht&Acht GmbH",
+      "country": "Germany",
+      "booth": "Hall B4 Upper floor",
+      "website": "achtundacht.de"
+    },
+    {
+      "company": "Acme United Europe GmbH",
+      "country": "Germany",
+      "booth": "Hall B7",
+      "website": "acmeunited.de"
+    },
+    {
+      "company": "Adalbert Zajadacz GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "Hall B6",
+      "website": "zajadacz.de"
+    },
+    {
+      "company": "ADDIPOS GmbH",
+      "country": "Germany",
+      "booth": "Hall A3",
+      "website": "addipos.com"
+    },
+    {
+      "company": "ADE Germany GmbH",
+      "country": "Germany",
+      "booth": "Hall B7",
+      "website": "ade-germany.de"
+    }
+  ],
+  "updated": "2026-11-04"
+}

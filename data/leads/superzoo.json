@@ -1,0 +1,170 @@
+{
+  "id": "superzoo",
+  "name": "SuperZoo 2026",
+  "where": "Las Vegas, USA",
+  "industry": "Pet Industry",
+  "listUrl": "https://sz2026.smallworldlabs.com/exhibitors",
+  "total": 1195,
+  "countries": [
+    [
+      "United States",
+      32
+    ],
+    [
+      "Canada",
+      3
+    ],
+    [
+      "Switzerland",
+      1
+    ],
+    [
+      "Netherlands",
+      1
+    ],
+    [
+      "New Zealand",
+      1
+    ],
+    [
+      "Nepal",
+      1
+    ],
+    [
+      "Honolulu, HI 96814",
+      1
+    ]
+  ],
+  "countryCount": 7,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 100,
+    "phone": 40,
+    "email": 35,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "10xGrow LLC - MoodifyPet",
+      "country": "United States",
+      "booth": "9172EB",
+      "website": "moodifypet.shop"
+    },
+    {
+      "company": "20North",
+      "country": "United States",
+      "booth": "5465",
+      "website": "20northmarketing.com"
+    },
+    {
+      "company": "3D CRYSTAL",
+      "country": "Canada",
+      "booth": "4864",
+      "website": "3dcrystal.com"
+    },
+    {
+      "company": "4pets",
+      "country": "Switzerland",
+      "booth": "5967",
+      "website": "4pets-products.com"
+    },
+    {
+      "company": "5-D Tropical",
+      "country": "United States",
+      "booth": "7541",
+      "website": "5dtropical.com"
+    },
+    {
+      "company": "A Pup Above",
+      "country": "United States",
+      "booth": "3138",
+      "website": "apupabove.com"
+    },
+    {
+      "company": "A&E Cage Company",
+      "country": "United States",
+      "booth": "9137, 9338",
+      "website": "aecageco.com"
+    },
+    {
+      "company": "Accredo Packaging",
+      "country": "United States",
+      "booth": "8657",
+      "website": "accredopackaging.com"
+    },
+    {
+      "company": "Ace Packaging, Inc.",
+      "country": "United States",
+      "booth": "6170",
+      "website": "acepackaginginc.com"
+    },
+    {
+      "company": "Acorn Pet Products LLC",
+      "country": "United States",
+      "booth": "11344",
+      "website": "acornpetproducts.com"
+    },
+    {
+      "company": "Adams",
+      "country": "United States",
+      "booth": "7545",
+      "website": "adamspetcare.com"
+    },
+    {
+      "company": "ADB Petite",
+      "country": "Netherlands",
+      "booth": "809",
+      "website": "easywayofgrooming.com"
+    },
+    {
+      "company": "ADM",
+      "country": "United States",
+      "booth": "2217",
+      "website": "adm.com/petnutrition"
+    },
+    {
+      "company": "ADORE Pet",
+      "country": "United States",
+      "booth": "4503",
+      "website": "adorepet.com"
+    },
+    {
+      "company": "Advance Pet Products",
+      "country": "United States",
+      "booth": "4142",
+      "website": "advancepetproduct.com"
+    },
+    {
+      "company": "Advanced Companion Animal Products",
+      "country": "United States",
+      "booth": "2504",
+      "website": "acappets.com"
+    },
+    {
+      "company": "AeriTek",
+      "country": "Canada",
+      "booth": "3320",
+      "website": "aeritekna.com"
+    },
+    {
+      "company": "Ag-Alchemy Animal Nutrition",
+      "country": "United States",
+      "booth": "3765",
+      "website": "ag-alchemy.com"
+    },
+    {
+      "company": "AlaSkins",
+      "country": "United States",
+      "booth": "9967",
+      "website": "alaskins.com"
+    },
+    {
+      "company": "ALFAPET",
+      "country": "United States",
+      "booth": "9865",
+      "website": "alfapetco.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

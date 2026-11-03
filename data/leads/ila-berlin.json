@@ -1,0 +1,182 @@
+{
+  "id": "ila-berlin",
+  "name": "ILA Berlin",
+  "where": "Germany",
+  "industry": "Aerospace & Defence",
+  "listUrl": "https://digital.ila-berlin.de/showfloor/organizations",
+  "total": 689,
+  "countries": [
+    [
+      "Germany",
+      447
+    ],
+    [
+      "United States of America",
+      27
+    ],
+    [
+      "Italy",
+      25
+    ],
+    [
+      "France",
+      23
+    ],
+    [
+      "Austria",
+      17
+    ],
+    [
+      "Israel",
+      16
+    ],
+    [
+      "Switzerland",
+      15
+    ],
+    [
+      "Hungary",
+      12
+    ],
+    [
+      "Finland",
+      11
+    ],
+    [
+      "South Korea",
+      10
+    ]
+  ],
+  "countryCount": 37,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 75,
+    "phone": 50,
+    "email": 48,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "4iG Space and Defence Technologies Ltd",
+      "country": "Hungary",
+      "booth": "Hall B",
+      "website": ""
+    },
+    {
+      "company": "4Source electronics AG",
+      "country": "Germany",
+      "booth": "Hall A",
+      "website": "www.4source.de"
+    },
+    {
+      "company": "Aachener Kreuz Merzbrück GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "Hall C",
+      "website": "www.akm-wuerselen.de"
+    },
+    {
+      "company": "Accenture Dienstleistungen GmbH",
+      "country": "Germany",
+      "booth": "Hall C",
+      "website": "www.accenture.com"
+    },
+    {
+      "company": "access technology GmbH",
+      "country": "Germany",
+      "booth": "Hall C",
+      "website": "www.access-technology.de"
+    },
+    {
+      "company": "Acciaierie Valbruna S.p.A.",
+      "country": "Germany",
+      "booth": "Hall C",
+      "website": "valbruna-stainless-steel.com/applications/aerospace-defense"
+    },
+    {
+      "company": "ACENTISS GmbH",
+      "country": "Germany",
+      "booth": "Hall C",
+      "website": "acentiss.de/de"
+    },
+    {
+      "company": "ACITURRI AERONAUTICA S.L.U.",
+      "country": "Spain",
+      "booth": "Hall A",
+      "website": ""
+    },
+    {
+      "company": "ADB Safegate Germany GmbH",
+      "country": "Germany",
+      "booth": "Chalets East",
+      "website": "adbsafegate.com"
+    },
+    {
+      "company": "Additive|Drives GmbH",
+      "country": "Germany",
+      "booth": "Hall A",
+      "website": "www.additive-drives.de"
+    },
+    {
+      "company": "ADRAL - Alentejo Regional Development Agency",
+      "country": "Portugal",
+      "booth": "Hall D",
+      "website": "adral.pt"
+    },
+    {
+      "company": "Advanced Space Power Equipment GmbH",
+      "country": "Germany",
+      "booth": "Hall B",
+      "website": "www.asp-equipment.de"
+    },
+    {
+      "company": "Advantage Austria Berlin",
+      "country": "Germany",
+      "booth": "Hall B",
+      "website": "www.advantageaustria.org/de"
+    },
+    {
+      "company": "ADZ NAGANO GmbH",
+      "country": "Germany",
+      "booth": "Hall A",
+      "website": "www.adz.de"
+    },
+    {
+      "company": "AEE Aircraft Electronic Engineering GmbH",
+      "country": "Germany",
+      "booth": "Hall A",
+      "website": ""
+    },
+    {
+      "company": "AEM Speedport",
+      "country": "Germany",
+      "booth": "Chalets East",
+      "website": "aem-speedport.de"
+    },
+    {
+      "company": "AERO MASTER CORPORATION",
+      "country": "South Korea",
+      "booth": "Hall A",
+      "website": "www.amc21.co.kr"
+    },
+    {
+      "company": "Aerodata AG",
+      "country": "Germany",
+      "booth": "Hall C",
+      "website": "www.aerodata.de"
+    },
+    {
+      "company": "Aerofina S.A.",
+      "country": "Romania",
+      "booth": "Hall A",
+      "website": "www.aerofina.ro"
+    },
+    {
+      "company": "Aeromaoz",
+      "country": "Israel",
+      "booth": "Hall D",
+      "website": ""
+    }
+  ],
+  "updated": "2026-11-04"
+}

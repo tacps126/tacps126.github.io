@@ -1,0 +1,182 @@
+{
+  "id": "prolight-sound",
+  "name": "Prolight + Sound",
+  "where": "Frankfurt, Germany",
+  "industry": "Event & Entertainment Technology",
+  "listUrl": "https://pls.messefrankfurt.com/frankfurt/en/exhibitor-search.html",
+  "total": 361,
+  "countries": [
+    [
+      "Germany",
+      182
+    ],
+    [
+      "China",
+      47
+    ],
+    [
+      "Netherlands",
+      20
+    ],
+    [
+      "Great Britain and Northern Ireland",
+      14
+    ],
+    [
+      "Italy",
+      12
+    ],
+    [
+      "France",
+      11
+    ],
+    [
+      "Belgium",
+      10
+    ],
+    [
+      "Austria",
+      9
+    ],
+    [
+      "United States",
+      8
+    ],
+    [
+      "Taiwan",
+      6
+    ]
+  ],
+  "countryCount": 30,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 100,
+    "phone": 95,
+    "email": 100,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "3D Stage Tracker Limited",
+      "country": "Ireland",
+      "booth": "12.1 / C50",
+      "website": "spotrack.com"
+    },
+    {
+      "company": "a-live event solutions UG (haftungsbeschr&auml;nkt)",
+      "country": "Germany",
+      "booth": "11.0 / A35",
+      "website": "a-livesolutions.com"
+    },
+    {
+      "company": "A.T.C. pro GmbH",
+      "country": "Austria",
+      "booth": "12.0 / D39",
+      "website": "atc-truss.com"
+    },
+    {
+      "company": "aadhoc &bull; Thomas Rohwedder | AVoIP-Solutions by aadhoc|Barco|Matrox| Netgear|PureLink|MXWendler",
+      "country": "Germany",
+      "booth": "11.0 / C30",
+      "website": "avoip-solutions.de"
+    },
+    {
+      "company": "ACME Lighting - Foshan Yi Feng Electric Industrial Co., Ltd.",
+      "country": "China",
+      "booth": "12.1 / E77",
+      "website": "acmelighting.com"
+    },
+    {
+      "company": "Action-Light Veranstaltungstechnik GmbH",
+      "country": "Germany",
+      "booth": "12.0 / B84",
+      "website": "action-light.de"
+    },
+    {
+      "company": "ADJ Supply Europe B.V.",
+      "country": "Netherlands",
+      "booth": "12.1 / E57",
+      "website": "adj.eu"
+    },
+    {
+      "company": "AED Distribution NV",
+      "country": "Belgium",
+      "booth": "12.0 / D91",
+      "website": "aeddistribution.com"
+    },
+    {
+      "company": "AED Rent NV",
+      "country": "Belgium",
+      "booth": "12.0 / D91",
+      "website": "aedgroup.com"
+    },
+    {
+      "company": "Airstar SAS",
+      "country": "France",
+      "booth": "12.1 / B81",
+      "website": "airstar-light.com"
+    },
+    {
+      "company": "alfasystem S.r.l.",
+      "country": "Italy",
+      "booth": "12.0 / C38",
+      "website": "stagesystem.it"
+    },
+    {
+      "company": "Allcolor GmbH",
+      "country": "Germany",
+      "booth": "12.0 / E39",
+      "website": "gaffer-tape.de"
+    },
+    {
+      "company": "Alternatif Ses ve Led Teknolojileri Sanayi Ticaret Limited Sirketi",
+      "country": "Türkiye",
+      "booth": "12.1 / C54",
+      "website": "alternatifses.com"
+    },
+    {
+      "company": "ALTIMATE - RIGGING",
+      "country": "France",
+      "booth": "12.0 / E79",
+      "website": "altimate-rigging.com"
+    },
+    {
+      "company": "Amate Audio SL",
+      "country": "Spain",
+      "booth": "11.0 / C14",
+      "website": "amateaudio.com"
+    },
+    {
+      "company": "AMPTOWN Cases GmbH",
+      "country": "Germany",
+      "booth": "12.1 / B42",
+      "website": "amptown-cases.com"
+    },
+    {
+      "company": "Antari Lighting and Effects Ltd.",
+      "country": "Taiwan",
+      "booth": "12.1 / D37",
+      "website": "antari.com"
+    },
+    {
+      "company": "Ape Labs GmbH",
+      "country": "Germany",
+      "booth": "12.1 / B38",
+      "website": "apelabs.com"
+    },
+    {
+      "company": "Apex Riggingschule",
+      "country": "Germany",
+      "booth": "12.0 / D39",
+      "website": "apex-riggingschule.de"
+    },
+    {
+      "company": "Area Four Industries",
+      "country": "Czech Republic",
+      "booth": "12.0 / E77",
+      "website": "areafourindustries.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

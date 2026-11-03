@@ -1,0 +1,182 @@
+{
+  "id": "aluminium",
+  "name": "ALUMINIUM 2026",
+  "where": "Düsseldorf, Germany",
+  "industry": "Aluminium Industry",
+  "listUrl": "https://www.aluminium-exhibition.com/germany/de-de/exhibitor-directory.html",
+  "total": 805,
+  "countries": [
+    [
+      "Germany",
+      161
+    ],
+    [
+      "China",
+      123
+    ],
+    [
+      "Italy",
+      107
+    ],
+    [
+      "Türkiye",
+      96
+    ],
+    [
+      "Spain",
+      33
+    ],
+    [
+      "Canada",
+      21
+    ],
+    [
+      "France",
+      19
+    ],
+    [
+      "Taiwan",
+      18
+    ],
+    [
+      "United States",
+      18
+    ],
+    [
+      "United Kingdom",
+      18
+    ]
+  ],
+  "countryCount": 54,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 98,
+    "phone": 92,
+    "email": 95,
+    "booth": 98
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "A.t.i.e. Uno Informatica S.r.L.",
+      "country": "Italy",
+      "booth": "1E57",
+      "website": "atieuno.com"
+    },
+    {
+      "company": "ABB AG",
+      "country": "Germany",
+      "booth": "5C06",
+      "website": "new.abb.com/de/en/messen-events/abb-at-aluminium-2024"
+    },
+    {
+      "company": "ABP Induction Systems GmbH",
+      "country": "Germany",
+      "booth": "6F72",
+      "website": "abpinduction.com"
+    },
+    {
+      "company": "Acciai Speciali Terni S.p.A. Divisione Fucine",
+      "country": "Italy",
+      "booth": "3H19",
+      "website": "acciaiterni.it"
+    },
+    {
+      "company": "Achenbach Buschhütten GmbH & Co KG",
+      "country": "Germany",
+      "booth": "3E13",
+      "website": "achenbach.de"
+    },
+    {
+      "company": "ADTECH METALLURGICAL MATERIALS CO., LTD",
+      "country": "China",
+      "booth": "6M18",
+      "website": "adtechamm.com"
+    },
+    {
+      "company": "Advanced Material Specialty Inc.",
+      "country": "Taiwan",
+      "booth": "4D02",
+      "website": "amspec-inc.com"
+    },
+    {
+      "company": "Aerospace Engineering Equipment (Suzhou)  Co.,Ltd",
+      "country": "China",
+      "booth": "5M07",
+      "website": "a-fsw.com"
+    },
+    {
+      "company": "Ahlins i Habo AB",
+      "country": "Sweden",
+      "booth": "1A40",
+      "website": ""
+    },
+    {
+      "company": "Aichelin Holding GmbH",
+      "country": "Germany",
+      "booth": "6E60",
+      "website": "noxmat.com"
+    },
+    {
+      "company": "AIROLDI METALLI S.p.A.",
+      "country": "Italy",
+      "booth": "3E71",
+      "website": "airoldimetalli.it"
+    },
+    {
+      "company": "AIRPROTECH SRL",
+      "country": "Italy",
+      "booth": "3A34",
+      "website": "airprotech.eu"
+    },
+    {
+      "company": "AK Corporation",
+      "country": "South Korea",
+      "booth": "4H07",
+      "website": "akglobal.net/eng/index.html"
+    },
+    {
+      "company": "AKPA Alüminyum Sanayi Ve Ticaret A.S.",
+      "country": "Türkiye",
+      "booth": "1C56",
+      "website": "akpaas.com.tr"
+    },
+    {
+      "company": "Al Alüminyum San ve Tic A.Ş.",
+      "country": "Türkiye",
+      "booth": "3H18",
+      "website": "alaluminyum.com.tr"
+    },
+    {
+      "company": "Al Forge Tech Co., Ltd",
+      "country": "Taiwan",
+      "booth": "5L08",
+      "website": "aft-forge.com/webls-zh-tw/index.html"
+    },
+    {
+      "company": "AL METAL ALÜMİNYUM SAN.TİC.A.Ş.",
+      "country": "Türkiye",
+      "booth": "3E11",
+      "website": "almetalaluminyum.com.tr"
+    },
+    {
+      "company": "Albaplant s.r.l",
+      "country": "Italy",
+      "booth": "5G03",
+      "website": "albaplantsrl.it"
+    },
+    {
+      "company": "Albarrie Canada Limited",
+      "country": "Canada",
+      "booth": "4D01",
+      "website": "albarrie.com"
+    },
+    {
+      "company": "ALBOND ALUMINYUM SAN.TIC.A.S.",
+      "country": "Türkiye",
+      "booth": "3H34",
+      "website": "albond.com.tr"
+    }
+  ],
+  "updated": "2026-11-04"
+}

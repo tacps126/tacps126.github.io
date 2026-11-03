@@ -1,0 +1,170 @@
+{
+  "id": "aaos",
+  "name": "AAOS Annual Meeting 2027",
+  "where": "USA",
+  "industry": "Orthopaedics",
+  "listUrl": "https://aaos27.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm",
+  "total": 395,
+  "countries": [
+    [
+      "United States",
+      31
+    ],
+    [
+      "Belgium",
+      2
+    ],
+    [
+      "Canada",
+      2
+    ],
+    [
+      "Korea, Republic of",
+      2
+    ],
+    [
+      "Italy",
+      1
+    ],
+    [
+      "China",
+      1
+    ],
+    [
+      "Spain",
+      1
+    ]
+  ],
+  "countryCount": 7,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 100,
+    "phone": 100,
+    "email": 70,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "3D Systems",
+      "country": "United States",
+      "booth": "2923",
+      "website": "3dsystems.com/medical-devices"
+    },
+    {
+      "company": "3D-Side",
+      "country": "Belgium",
+      "booth": "1528",
+      "website": "3d-side.com"
+    },
+    {
+      "company": "AAOS Ask an Expert Presentations",
+      "country": "United States",
+      "booth": "3807",
+      "website": "aaos.org/annual/attend/explore-the-exhibit-hall"
+    },
+    {
+      "company": "AAOS Beverage Break",
+      "country": "United States",
+      "booth": "1233, 3654, 6235",
+      "website": "aaos.org/annual/attend/explore-the-exhibit-hall"
+    },
+    {
+      "company": "AAOS Career Center",
+      "country": "Canada",
+      "booth": "4232",
+      "website": "aaos.org/annual"
+    },
+    {
+      "company": "AAOS Commons Lounge",
+      "country": "United States",
+      "booth": "5054",
+      "website": "aaos.org/annual"
+    },
+    {
+      "company": "AAOS Engagement Theater",
+      "country": "United States",
+      "booth": "4860",
+      "website": "aaos.org/annual"
+    },
+    {
+      "company": "AAOS Exchange Lounge",
+      "country": "United States",
+      "booth": "737",
+      "website": "aaos.org/annual"
+    },
+    {
+      "company": "AAOS Housing",
+      "country": "United States",
+      "booth": "5423",
+      "website": "aaos.org/annual"
+    },
+    {
+      "company": "AAOS Hub",
+      "country": "United States",
+      "booth": "5227",
+      "website": "aaos.org/annual"
+    },
+    {
+      "company": "AAOS Networking Lounge",
+      "country": "United States",
+      "booth": "3411",
+      "website": "aaos.org"
+    },
+    {
+      "company": "AAOS OrthoPAC",
+      "country": "United States",
+      "booth": "5237",
+      "website": "aaos.org"
+    },
+    {
+      "company": "AAOS Posters, ePosters & Poster Tour Theater",
+      "country": "United States",
+      "booth": "643",
+      "website": "aaos.org/annual"
+    },
+    {
+      "company": "AAOS Registries Booth",
+      "country": "United States",
+      "booth": "4715",
+      "website": "aaos.org/annual"
+    },
+    {
+      "company": "ABOS",
+      "country": "United States",
+      "booth": "4717",
+      "website": "abos.org"
+    },
+    {
+      "company": "Abyrx, INC.",
+      "country": "United States",
+      "booth": "4623",
+      "website": "abyrx.com"
+    },
+    {
+      "company": "AcuityMD",
+      "country": "United States",
+      "booth": "4522",
+      "website": "acuitymd.com"
+    },
+    {
+      "company": "Adler Ortho SpA",
+      "country": "Italy",
+      "booth": "3133",
+      "website": "adlerortho.com"
+    },
+    {
+      "company": "Advita Ortho",
+      "country": "United States",
+      "booth": "2616",
+      "website": "advita.com"
+    },
+    {
+      "company": "Aesculap, Inc.",
+      "country": "United States",
+      "booth": "1623",
+      "website": "aesculapusa.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

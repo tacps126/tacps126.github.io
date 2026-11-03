@@ -1,0 +1,182 @@
+{
+  "id": "agritechnica",
+  "name": "Agritechnica",
+  "where": "Hanover, Germany",
+  "industry": "Agricultural Machinery",
+  "listUrl": "https://digital.agritechnica.com/newfront/marketplace/exhibitors",
+  "total": 2917,
+  "countries": [
+    [
+      "Germany",
+      952
+    ],
+    [
+      "Italy",
+      345
+    ],
+    [
+      "People's Republic of China",
+      256
+    ],
+    [
+      "Turkey",
+      161
+    ],
+    [
+      "Netherlands",
+      121
+    ],
+    [
+      "France",
+      97
+    ],
+    [
+      "India",
+      92
+    ],
+    [
+      "Poland",
+      71
+    ],
+    [
+      "Spain",
+      69
+    ],
+    [
+      "United Kingdom",
+      66
+    ]
+  ],
+  "countryCount": 51,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 98,
+    "phone": 78,
+    "email": 55,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "360 Yield Center LLC",
+      "country": "United States of America",
+      "booth": "05F27",
+      "website": "www.360rain.com"
+    },
+    {
+      "company": "365FarmNet GmbH",
+      "country": "Germany",
+      "booth": "13C18",
+      "website": "www.365farmnet.com"
+    },
+    {
+      "company": "3N Kompetenzzentrum Niedersachsen Netzwerk Nachwachsende Rohstoffe e.V.",
+      "country": "Germany",
+      "booth": "24F25",
+      "website": "www.3-n.info"
+    },
+    {
+      "company": "3RTABLET",
+      "country": "People's Republic of China",
+      "booth": "17A20",
+      "website": "www.3rtablet.com"
+    },
+    {
+      "company": "3top Airtech",
+      "country": "Spain",
+      "booth": "21L08",
+      "website": "www.3top.es"
+    },
+    {
+      "company": "4Disc GmbH",
+      "country": "Germany",
+      "booth": "11D41",
+      "website": "www.4disc.de"
+    },
+    {
+      "company": "7Sense Agritech AS",
+      "country": "Norway",
+      "booth": "09E05",
+      "website": "7sense.no"
+    },
+    {
+      "company": "AAICI - Agencia Argentina de Inversiones y Comercio Internacional",
+      "country": "Argentina",
+      "booth": "09J28",
+      "website": "www.inversionycomercio.org.ar"
+    },
+    {
+      "company": "AAMS BV",
+      "country": "Belgium",
+      "booth": "09F12",
+      "website": "www.aams.be"
+    },
+    {
+      "company": "AAZ Union",
+      "country": "France",
+      "booth": "15C02",
+      "website": "www.aaz-performance.com"
+    },
+    {
+      "company": "Ab RANI PLAST Oy",
+      "country": "Finland",
+      "booth": "27D17",
+      "website": "www.raniplast.com"
+    },
+    {
+      "company": "AB Volvo Penta",
+      "country": "Sweden",
+      "booth": "15G24",
+      "website": "volvopenta.com"
+    },
+    {
+      "company": "ABB AG",
+      "country": "Germany",
+      "booth": "15H31",
+      "website": "new.abb.com/de"
+    },
+    {
+      "company": "Abelardo Cuffia SA",
+      "country": "Argentina",
+      "booth": "09J28",
+      "website": "www.abelardocuffia.com"
+    },
+    {
+      "company": "ABER Hydraulics SA",
+      "country": "Portugal",
+      "booth": "17D08",
+      "website": "www.aber.pt"
+    },
+    {
+      "company": "ABIMAQ - Brazilian Machinery Builders’ Association",
+      "country": "Brazil",
+      "booth": "09J09",
+      "website": "www.abimaq.org.br"
+    },
+    {
+      "company": "ABO Energy GmbH & Co. KGaA",
+      "country": "Germany",
+      "booth": "24C30",
+      "website": "www.aboenergy.com"
+    },
+    {
+      "company": "ABRISTHOR - Asthor Agricola S.A.",
+      "country": "Spain",
+      "booth": "07D30",
+      "website": "www.abristhor.com"
+    },
+    {
+      "company": "ABZ Innovation Kft.",
+      "country": "Hungary",
+      "booth": "21F32",
+      "website": "abzinnovation.com"
+    },
+    {
+      "company": "AC Hydraulic A/S",
+      "country": "Denmark",
+      "booth": "02A46",
+      "website": "www.achydraulic.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

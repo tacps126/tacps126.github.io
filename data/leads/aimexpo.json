@@ -1,0 +1,174 @@
+{
+  "id": "aimexpo",
+  "name": "AIMExpo 2026",
+  "where": "USA",
+  "industry": "Powersports & Motorcycles",
+  "listUrl": "https://s23.a2zinc.net/clients/MIC/AIME26/Public/EventMap.aspx?shMode=E",
+  "total": 465,
+  "countries": [
+    [
+      "United States",
+      30
+    ],
+    [
+      "Taiwan",
+      4
+    ],
+    [
+      "Sweden",
+      1
+    ],
+    [
+      "United Kingdom",
+      1
+    ],
+    [
+      "Canada",
+      1
+    ],
+    [
+      "Vietnam",
+      1
+    ],
+    [
+      "Korea (South)",
+      1
+    ],
+    [
+      "China",
+      1
+    ]
+  ],
+  "countryCount": 8,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 95,
+    "phone": 25,
+    "email": 32,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "#1GRIPPER",
+      "country": "Sweden",
+      "booth": "1935",
+      "website": "onegripper.com"
+    },
+    {
+      "company": "101 EBIKES",
+      "country": "United States",
+      "booth": "2156",
+      "website": "101bikes.com"
+    },
+    {
+      "company": "4 Wheel Showcase",
+      "country": "United States",
+      "booth": "2097",
+      "website": "AIMExpoUSA.com"
+    },
+    {
+      "company": "50 State DMV",
+      "country": "United States",
+      "booth": "1559",
+      "website": "50statedmv.com"
+    },
+    {
+      "company": "6D Helmets",
+      "country": "United States",
+      "booth": "2026",
+      "website": "6dhelmets.com"
+    },
+    {
+      "company": "700Credit",
+      "country": "United States",
+      "booth": "823",
+      "website": "700Credit.com"
+    },
+    {
+      "company": "79Bike",
+      "country": "United States",
+      "booth": "1797",
+      "website": "79bike.com"
+    },
+    {
+      "company": "ABBA Motorcycle Equipment",
+      "country": "United Kingdom",
+      "booth": "1732",
+      "website": "abbastandsusa.com"
+    },
+    {
+      "company": "ABM International, Inc.",
+      "country": "United States",
+      "booth": "1911",
+      "website": "abminternational.com"
+    },
+    {
+      "company": "ACCEL TECHNOLOGY CORPORATION",
+      "country": "Taiwan",
+      "booth": "1838",
+      "website": "accel.com.tw"
+    },
+    {
+      "company": "Accelerate2Compliance",
+      "country": "United States",
+      "booth": "934",
+      "website": "accelerate2compliance.com"
+    },
+    {
+      "company": "Aceon",
+      "country": "United States",
+      "booth": "586",
+      "website": "aceonbright.com"
+    },
+    {
+      "company": "Acewell International Co Ltd",
+      "country": "Taiwan",
+      "booth": "1453",
+      "website": "acewell-meter.com"
+    },
+    {
+      "company": "ACF-50 / Lear Chemical",
+      "country": "Canada",
+      "booth": "441",
+      "website": "learchem.com"
+    },
+    {
+      "company": "Acorn Woods Communications",
+      "country": "United States",
+      "booth": "2000",
+      "website": "acorn-woods.com"
+    },
+    {
+      "company": "Aegon Industrial Co ., Ltd",
+      "country": "Vietnam",
+      "booth": "461",
+      "website": "greatpartnercms.com"
+    },
+    {
+      "company": "Aftercare, Inc.",
+      "country": "United States",
+      "booth": "1493",
+      "website": "aftercarecorp.com"
+    },
+    {
+      "company": "AGV Helmets",
+      "country": "United States",
+      "booth": "1308",
+      "website": "agv.com"
+    },
+    {
+      "company": "AIMExpo Meeting Room",
+      "country": "United States",
+      "booth": "245",
+      "website": ""
+    },
+    {
+      "company": "AIMExpo Starting Line",
+      "country": "United States",
+      "booth": "601",
+      "website": "AIMExpoUSA.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

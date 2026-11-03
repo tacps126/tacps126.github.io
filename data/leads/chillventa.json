@@ -1,0 +1,182 @@
+{
+  "id": "chillventa",
+  "name": "Chillventa",
+  "where": "Nuremberg, Germany",
+  "industry": "Refrigeration & HVAC",
+  "listUrl": "https://www.chillventa.de/en/exhibitors-products/find-exhibitors",
+  "total": 1150,
+  "countries": [
+    [
+      "Germany",
+      272
+    ],
+    [
+      "Italy",
+      200
+    ],
+    [
+      "China",
+      184
+    ],
+    [
+      "Turkey",
+      83
+    ],
+    [
+      "France",
+      35
+    ],
+    [
+      "Spain",
+      34
+    ],
+    [
+      "India",
+      32
+    ],
+    [
+      "United Kingdom",
+      28
+    ],
+    [
+      "Netherlands",
+      25
+    ],
+    [
+      "United States",
+      22
+    ]
+  ],
+  "countryCount": 50,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 98,
+    "phone": 98,
+    "email": 68,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1. EUROVENT AISBL / IVZW / INPA",
+      "country": "Belgium",
+      "booth": "9-312",
+      "website": "eurovent.eu"
+    },
+    {
+      "company": "Airconditioning and RefrigerationEuropean Association",
+      "country": "Belgium",
+      "booth": "9-131",
+      "website": "www.area-eur.be"
+    },
+    {
+      "company": "AIT Austrian Institute Of Technology Gmbh",
+      "country": "Austria",
+      "booth": "7A-504",
+      "website": "ait.ac.at"
+    },
+    {
+      "company": "AUSTRALIA DUCTING PTY LTD",
+      "country": "Australia",
+      "booth": "7-345",
+      "website": "www.sbkj.com"
+    },
+    {
+      "company": "BAC",
+      "country": "Belgium",
+      "booth": "4-323",
+      "website": "www.baltimoreaircoil.com"
+    },
+    {
+      "company": "BTN",
+      "country": "Belgium",
+      "booth": "1-432",
+      "website": "www.btnsa.com"
+    },
+    {
+      "company": "Castel-Engineering",
+      "country": "Belgium",
+      "booth": "7-144",
+      "website": "www.castel-engineering.com"
+    },
+    {
+      "company": "CHOFU Wärmepumpen",
+      "country": "Austria",
+      "booth": "7A-604",
+      "website": "japan-waermepumpe.de"
+    },
+    {
+      "company": "COMPACFOAM GmbH",
+      "country": "Austria",
+      "booth": "9-638",
+      "website": "www.compacfoam.com"
+    },
+    {
+      "company": "CPS Products Europe",
+      "country": "Belgium",
+      "booth": "8-310",
+      "website": "www.cpsproducts.be"
+    },
+    {
+      "company": "Dunli Motor fans EU Office",
+      "country": "Belgium",
+      "booth": "7-510",
+      "website": "www.dunlielectric.com"
+    },
+    {
+      "company": "Energy Consult and Design Ltd.",
+      "country": "Bulgaria",
+      "booth": "4-517",
+      "website": "www.energycandd.com"
+    },
+    {
+      "company": "EPEE",
+      "country": "Belgium",
+      "booth": "9-225",
+      "website": "www.epeeglobal.org"
+    },
+    {
+      "company": "European Heat Pump Association(EHPA)",
+      "country": "Belgium",
+      "booth": "7A-407",
+      "website": "www.ehpa.org"
+    },
+    {
+      "company": "fautech gmbh",
+      "country": "Austria",
+      "booth": "9-109",
+      "website": "www.fautech.at"
+    },
+    {
+      "company": "Frigocommerce International Ltd.",
+      "country": "Bulgaria",
+      "booth": "1-113",
+      "website": "www.frigocommerce.com"
+    },
+    {
+      "company": "Full Gauge Controls",
+      "country": "Brazil",
+      "booth": "6-117",
+      "website": "www.fullgauge.com"
+    },
+    {
+      "company": "Getzner Werkstoffe GmbH",
+      "country": "Austria",
+      "booth": "7-315",
+      "website": "www.getzner.com"
+    },
+    {
+      "company": "Graphene Manufacturing Group",
+      "country": "Australia",
+      "booth": "7-616",
+      "website": "graphenemg.com/about-gmg"
+    },
+    {
+      "company": "HAUSER Kühlmöbel & Kältetechnik",
+      "country": "Austria",
+      "booth": "4-247",
+      "website": "hauser.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

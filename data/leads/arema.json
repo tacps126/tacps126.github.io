@@ -1,0 +1,162 @@
+{
+  "id": "arema",
+  "name": "AREMA 2026 Conference & Expo",
+  "where": "USA",
+  "industry": "Railway Engineering",
+  "listUrl": "https://fp37.a2zinc.net/clients/AREMA/arema2026/Public/EventMap.aspx?shMode=E",
+  "total": 259,
+  "countries": [
+    [
+      "United States",
+      32
+    ],
+    [
+      "Canada",
+      5
+    ],
+    [
+      "Georgia",
+      1
+    ],
+    [
+      "China",
+      1
+    ],
+    [
+      "Korea (South)",
+      1
+    ]
+  ],
+  "countryCount": 5,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 95,
+    "phone": 60,
+    "email": 50,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "A&K Railroad Materials, Inc",
+      "country": "United States",
+      "booth": "1614",
+      "website": "akrailroad.com"
+    },
+    {
+      "company": "Acuity Brands Lighting",
+      "country": "Georgia",
+      "booth": "515",
+      "website": "www.acuitybrands.com"
+    },
+    {
+      "company": "Aduvo Systems",
+      "country": "Canada",
+      "booth": "632",
+      "website": "www.aduvosystems.com"
+    },
+    {
+      "company": "Advanced Infrastructure Design, Inc.",
+      "country": "United States",
+      "booth": "915",
+      "website": "AIDPE.com"
+    },
+    {
+      "company": "Aerix Industries",
+      "country": "United States",
+      "booth": "1306",
+      "website": "aerixindustries.com"
+    },
+    {
+      "company": "Aksela Foundation",
+      "country": "United States",
+      "booth": "1817",
+      "website": "akselafoundation.com"
+    },
+    {
+      "company": "Aldon Company",
+      "country": "United States",
+      "booth": "1304",
+      "website": "www.aldonco.com"
+    },
+    {
+      "company": "American Concrete Products",
+      "country": "United States",
+      "booth": "1509",
+      "website": "amconco.com"
+    },
+    {
+      "company": "Ameristar Perimeter Security",
+      "country": "United States",
+      "booth": "1401",
+      "website": "ameristarperimeter.com/us/en"
+    },
+    {
+      "company": "Arcadis",
+      "country": "United States",
+      "booth": "511",
+      "website": "arcadis.com"
+    },
+    {
+      "company": "AREMA",
+      "country": "United States",
+      "booth": "1116",
+      "website": "arema.org"
+    },
+    {
+      "company": "AREMA Career Success Pavillion",
+      "country": "United States",
+      "booth": "100",
+      "website": ""
+    },
+    {
+      "company": "AREMA Solution Center",
+      "country": "United States",
+      "booth": "1626",
+      "website": "arema.org"
+    },
+    {
+      "company": "Argotag/Lake Aylmer Trees Inc",
+      "country": "Canada",
+      "booth": "1201",
+      "website": "argotag.com"
+    },
+    {
+      "company": "ARVA Industries Inc.",
+      "country": "Canada",
+      "booth": "817",
+      "website": "arvaindustries.com"
+    },
+    {
+      "company": "ASLRRA",
+      "country": "United States",
+      "booth": "504",
+      "website": "aslrra.org"
+    },
+    {
+      "company": "Asplundh Tree Expert, LLC - Railroad Division",
+      "country": "United States",
+      "booth": "1713",
+      "website": "asplundh.com"
+    },
+    {
+      "company": "Atlantic Track",
+      "country": "United States",
+      "booth": "1828",
+      "website": "www.atlantictrack.com"
+    },
+    {
+      "company": "AtomAI Solutions Inc.",
+      "country": "United States",
+      "booth": "928",
+      "website": "atom-ai.com"
+    },
+    {
+      "company": "Aurigo Software",
+      "country": "United States",
+      "booth": "1814",
+      "website": "aurigo.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

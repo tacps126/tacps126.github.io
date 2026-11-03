@@ -1,0 +1,182 @@
+{
+  "id": "automechanika-riyadh",
+  "name": "Automechanika Riyadh",
+  "where": "Saudi Arabia",
+  "industry": "Automotive Aftermarket",
+  "listUrl": "https://automechanika-riyadh.ksa.messefrankfurt.com/riyadh/en.html",
+  "total": 248,
+  "countries": [
+    [
+      "Hong Kong",
+      51
+    ],
+    [
+      "Saudi Arabia",
+      40
+    ],
+    [
+      "United Arab Emirates",
+      26
+    ],
+    [
+      "India",
+      24
+    ],
+    [
+      "United States",
+      19
+    ],
+    [
+      "Singapore",
+      14
+    ],
+    [
+      "Malaysia",
+      10
+    ],
+    [
+      "Türkiye",
+      10
+    ],
+    [
+      "Great Britain and Northern Ireland",
+      8
+    ],
+    [
+      "Thailand",
+      7
+    ]
+  ],
+  "countryCount": 32,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 75,
+    "phone": 100,
+    "email": 100,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "360 International Group Ltd.",
+      "country": "Hong Kong",
+      "booth": "5 / D36",
+      "website": "cn360led.com"
+    },
+    {
+      "company": "A &amp; B Films Pte. Ltd.",
+      "country": "Singapore",
+      "booth": "2 / C25",
+      "website": "solarmasterfilm.com"
+    },
+    {
+      "company": "A PLUS AUTO PTE LTD",
+      "country": "Singapore",
+      "booth": "2 / C37",
+      "website": ""
+    },
+    {
+      "company": "a4motor International FZE",
+      "country": "United Arab Emirates",
+      "booth": "1 / B32",
+      "website": "a4moto.com"
+    },
+    {
+      "company": "Abdul Latif Jameel Body and Paint Works Company Ltd.",
+      "country": "Saudi Arabia",
+      "booth": "3 / B12",
+      "website": "autohubksa.com"
+    },
+    {
+      "company": "Abdul Zahir Bashir Automotive Trading LLC",
+      "country": "United Arab Emirates",
+      "booth": "3 / B22",
+      "website": "azb.ae"
+    },
+    {
+      "company": "Abdulaziz Mofareh AlHudaybi Trading Company",
+      "country": "Saudi Arabia",
+      "booth": "null",
+      "website": ""
+    },
+    {
+      "company": "Accor Lubrifiants",
+      "country": "France",
+      "booth": "5 / D31",
+      "website": "kennol.com"
+    },
+    {
+      "company": "ACV Rich Co., Ltd.",
+      "country": "Thailand",
+      "booth": "null",
+      "website": "acvrich.com"
+    },
+    {
+      "company": "Adroit Driveshafts Private Limited",
+      "country": "India",
+      "booth": "3 / D30",
+      "website": ""
+    },
+    {
+      "company": "Advanced Cleaning Company - EcoClean",
+      "country": "Saudi Arabia",
+      "booth": "3 / D12",
+      "website": "ecoclean-sa.com"
+    },
+    {
+      "company": "AGAPART SRL",
+      "country": "Italy",
+      "booth": "3 / A37",
+      "website": "garageprotools.com"
+    },
+    {
+      "company": "AGS Logistics Company",
+      "country": "Saudi Arabia",
+      "booth": "1 / G12",
+      "website": "wwww.agslog.com"
+    },
+    {
+      "company": "Al Delta Co. for Plastic Products",
+      "country": "Egypt",
+      "booth": "1 / C38",
+      "website": "comobattery.com"
+    },
+    {
+      "company": "Al Mokamel Auto Spare Parts Trading LLC",
+      "country": "United Arab Emirates",
+      "booth": "2 / D12",
+      "website": "alarkanautoparts.com"
+    },
+    {
+      "company": "AL MUNASIB AUTO UPHOLSTERY MANUFACTURING",
+      "country": "United Arab Emirates",
+      "booth": "3 / A09",
+      "website": ""
+    },
+    {
+      "company": "Al Nasser Spare Parts Group Company",
+      "country": "Saudi Arabia",
+      "booth": "1 / E12",
+      "website": "alnasser-sa.com"
+    },
+    {
+      "company": "Al Rahmah Auto Spare Parts (L.L.C)",
+      "country": "United Arab Emirates",
+      "booth": "3 / E26",
+      "website": "alrahmahauto.com"
+    },
+    {
+      "company": "Al Ras International Trading Company",
+      "country": "Saudi Arabia",
+      "booth": "1 / D30",
+      "website": ""
+    },
+    {
+      "company": "Al Waha Filter Company Limited",
+      "country": "Saudi Arabia",
+      "booth": "5 / A41",
+      "website": ""
+    }
+  ],
+  "updated": "2026-11-04"
+}

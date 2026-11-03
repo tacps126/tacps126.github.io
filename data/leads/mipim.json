@@ -1,0 +1,182 @@
+{
+  "id": "mipim",
+  "name": "MIPIM",
+  "where": "Cannes, France",
+  "industry": "Real Estate",
+  "listUrl": "https://www.mipim.com/en-gb/portal/company-directory.html",
+  "total": 845,
+  "countries": [
+    [
+      "France",
+      221
+    ],
+    [
+      "United Kingdom",
+      171
+    ],
+    [
+      "Germany",
+      123
+    ],
+    [
+      "Italy",
+      53
+    ],
+    [
+      "Belgium",
+      31
+    ],
+    [
+      "Poland",
+      22
+    ],
+    [
+      "Denmark",
+      22
+    ],
+    [
+      "United States",
+      21
+    ],
+    [
+      "Spain",
+      20
+    ],
+    [
+      "Luxembourg",
+      18
+    ]
+  ],
+  "countryCount": 45,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 48,
+    "phone": 32,
+    "email": 32,
+    "booth": 22
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "(RX)",
+      "country": "France",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "108 HUNGARY REAL ESTATE Kft.",
+      "country": "Hungary",
+      "booth": "P-1.H 1",
+      "website": ""
+    },
+    {
+      "company": "108 REAL ESTATE",
+      "country": "Czechia",
+      "booth": "P-1.H 1",
+      "website": ""
+    },
+    {
+      "company": "2BUILD CONSULTING",
+      "country": "Belgium",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "3A PARTNERS",
+      "country": "France",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "3D ESTATE",
+      "country": "Poland",
+      "booth": "P-1.G 2",
+      "website": "3destate.pl/en"
+    },
+    {
+      "company": "A PLUS FINANCE",
+      "country": "France",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "A&M ARCHITECTS",
+      "country": "Greece",
+      "booth": "",
+      "website": "am-architects.com"
+    },
+    {
+      "company": "A&o Shearman",
+      "country": "France",
+      "booth": "P-1.H20",
+      "website": "aoshearman.com/en"
+    },
+    {
+      "company": "AAREAL BANK AG",
+      "country": "Germany",
+      "booth": "R7.C 7, R7.C 8",
+      "website": "aareal-bank.com"
+    },
+    {
+      "company": "ACC Atelier Charlotte Cavanna",
+      "country": "France",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "ACCENTA",
+      "country": "France",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "Accor France SAS ENA PME Development",
+      "country": "France",
+      "booth": "C21.A 7",
+      "website": "group.accor.com/en"
+    },
+    {
+      "company": "ACCURA",
+      "country": "Denmark",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "Accuracy",
+      "country": "France",
+      "booth": "",
+      "website": "accuracy.com"
+    },
+    {
+      "company": "ACKERMANS & VAN HAAREN",
+      "country": "Belgium",
+      "booth": "",
+      "website": "avh.be/en"
+    },
+    {
+      "company": "ADAIR LTD",
+      "country": "United Kingdom",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "ADIM PARIS ILE-DE-FRANCE",
+      "country": "France",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "ADIM PARIS ILE-DE-FRANCE HABITAT",
+      "country": "France",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "ADIM PROVENCE",
+      "country": "France",
+      "booth": "",
+      "website": "adim.fr"
+    }
+  ],
+  "updated": "2026-11-04"
+}

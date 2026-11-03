@@ -1,0 +1,182 @@
+{
+  "id": "beautyworld-middle-east",
+  "name": "Beautyworld Middle East",
+  "where": "Dubai, UAE",
+  "industry": "Beauty, Cosmetics & Fragrance",
+  "listUrl": "https://beautyworld-dubai.ae.messefrankfurt.com/dubai/en/exhibitor-search.html",
+  "total": 1454,
+  "countries": [
+    [
+      "China",
+      298
+    ],
+    [
+      "United Arab Emirates",
+      293
+    ],
+    [
+      "Korea, the Republic of (South)",
+      160
+    ],
+    [
+      "Hong Kong",
+      106
+    ],
+    [
+      "France",
+      80
+    ],
+    [
+      "India",
+      76
+    ],
+    [
+      "Italy",
+      48
+    ],
+    [
+      "Türkiye",
+      46
+    ],
+    [
+      "United States",
+      42
+    ],
+    [
+      "Brazil",
+      29
+    ]
+  ],
+  "countryCount": 58,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 75,
+    "phone": 90,
+    "email": 95,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "2H Trading &amp; Supplies",
+      "country": "Egypt",
+      "booth": "1 / H20",
+      "website": ""
+    },
+    {
+      "company": "4CS Distribution",
+      "country": "France",
+      "booth": "3 / D11",
+      "website": ""
+    },
+    {
+      "company": "A A S A Plastic  Industries L.L.C",
+      "country": "United Arab Emirates",
+      "booth": "SM / G26",
+      "website": "aasaplastic.com"
+    },
+    {
+      "company": "AALAM AL ZAAFRAN PERFUMERY L.L.C",
+      "country": "United Arab Emirates",
+      "booth": "1 / A26",
+      "website": "asperfumery.com"
+    },
+    {
+      "company": "AARAV Fragrances &amp; Flavors Private Limited",
+      "country": "India",
+      "booth": "Z1 / C12",
+      "website": "aarav.co"
+    },
+    {
+      "company": "Abacosm Ltd",
+      "country": "Greece",
+      "booth": "4 / B12",
+      "website": "dermagnetic.com"
+    },
+    {
+      "company": "Abdos Lamitubes Manufacturing LLC",
+      "country": "United Arab Emirates",
+      "booth": "SR / B11",
+      "website": "abdolamitubes.com"
+    },
+    {
+      "company": "Abdul Mateen Dhamma Perfumes Industry LLC",
+      "country": "United Arab Emirates",
+      "booth": "Z4 / C24",
+      "website": "amdperfumes.com"
+    },
+    {
+      "company": "Abely Cosmetics Co., Limited",
+      "country": "China",
+      "booth": "SR / D36",
+      "website": "abelypackaging.com"
+    },
+    {
+      "company": "Abhinav Perfumers",
+      "country": "India",
+      "booth": "Z2 / C09",
+      "website": "abhinavperfumers.com"
+    },
+    {
+      "company": "ACO Perfumes and Cosmetics LLP",
+      "country": "India",
+      "booth": "Z7 / H25",
+      "website": ""
+    },
+    {
+      "company": "Activilong Paris",
+      "country": "France",
+      "booth": "S2 / D11",
+      "website": "activilong.com"
+    },
+    {
+      "company": "Addoony Cosmetics Trading",
+      "country": "Qatar",
+      "booth": "6 / B09",
+      "website": "addoony.com"
+    },
+    {
+      "company": "Adene Perfumes &amp; Cosmetics Trading L.L.C.",
+      "country": "United Arab Emirates",
+      "booth": "1 / G27",
+      "website": ""
+    },
+    {
+      "company": "Adhespack Ind. Com. Imp. e  Exp. Ltda",
+      "country": "Brazil",
+      "booth": "SR / M12",
+      "website": ""
+    },
+    {
+      "company": "Aekyung Industrial Co., Ltd.",
+      "country": "Korea, the Republic of (South)",
+      "booth": "4 / C20",
+      "website": "aekyung.co.kr"
+    },
+    {
+      "company": "AFF AROMATICS PVT LTD",
+      "country": "India",
+      "booth": "Z2 / C11",
+      "website": "affarom.com"
+    },
+    {
+      "company": "Afnan Perfumes LLC",
+      "country": "United Arab Emirates",
+      "booth": "Z7 / L11",
+      "website": "afnanperfumes.com"
+    },
+    {
+      "company": "Afrolatam Wax Trading LLC",
+      "country": "United Arab Emirates",
+      "booth": "SR / F09",
+      "website": "noorwax.com"
+    },
+    {
+      "company": "AFURO TECH LTD.",
+      "country": "China",
+      "booth": "S3 / D43",
+      "website": ""
+    }
+  ],
+  "updated": "2026-11-04"
+}

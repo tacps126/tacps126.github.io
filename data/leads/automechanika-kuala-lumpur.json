@@ -1,0 +1,182 @@
+{
+  "id": "automechanika-kuala-lumpur",
+  "name": "Automechanika Kuala Lumpur",
+  "where": "Malaysia",
+  "industry": "Automotive Aftermarket",
+  "listUrl": "https://automechanika-kualalumpur.hk.messefrankfurt.com/kualalumpur/en/exhibitor-search.html",
+  "total": 321,
+  "countries": [
+    [
+      "China",
+      186
+    ],
+    [
+      "Malaysia",
+      94
+    ],
+    [
+      "Taiwan",
+      10
+    ],
+    [
+      "Singapore",
+      10
+    ],
+    [
+      "Italy",
+      3
+    ],
+    [
+      "United Arab Emirates",
+      3
+    ],
+    [
+      "Thailand",
+      2
+    ],
+    [
+      "Korea, the Republic of (South)",
+      2
+    ],
+    [
+      "Vietnam",
+      2
+    ],
+    [
+      "Hong Kong",
+      2
+    ]
+  ],
+  "countryCount": 17,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 85,
+    "phone": 82,
+    "email": 100,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "ABS Autocare Sdn Bhd",
+      "country": "Malaysia",
+      "booth": "null",
+      "website": "afibrake.com"
+    },
+    {
+      "company": "Accauto (Thailand) Co Ltd",
+      "country": "Thailand",
+      "booth": "1 / 1D05",
+      "website": "accauto.co.th"
+    },
+    {
+      "company": "Ace Brake Technology Sdn Bhd",
+      "country": "Malaysia",
+      "booth": "null",
+      "website": ""
+    },
+    {
+      "company": "Ace Lubricants and Chemicals Sdn Bhd",
+      "country": "Malaysia",
+      "booth": "null",
+      "website": "acelubricants.com.my"
+    },
+    {
+      "company": "AFA Industries, Inc.",
+      "country": "United States",
+      "booth": "2 / 2A12",
+      "website": "afaindustries.com"
+    },
+    {
+      "company": "AFI Metal (M) Sdn Bhd",
+      "country": "Malaysia",
+      "booth": "null",
+      "website": "afibrake.com"
+    },
+    {
+      "company": "Aipsi (Huzhou) Auto Parts Co Ltd",
+      "country": "China",
+      "booth": "2 / 2D05",
+      "website": "aipsiauto.com"
+    },
+    {
+      "company": "Alienworld Technology Berhad",
+      "country": "Malaysia",
+      "booth": "5 / 5B01",
+      "website": "facebook.com/AlienworldTechnology"
+    },
+    {
+      "company": "Allteam 8 Plt",
+      "country": "Malaysia",
+      "booth": "6 / 6B07",
+      "website": "alltoparts.allteam8.com"
+    },
+    {
+      "company": "Anhui Dyne Auto Air Conditioner Co Ltd",
+      "country": "China",
+      "booth": "2 / 2",
+      "website": "chinadyne.com"
+    },
+    {
+      "company": "Anhui Shipe Auto Science And Technology Co.,Ltd",
+      "country": "China",
+      "booth": "null",
+      "website": "shipeautoparts.com"
+    },
+    {
+      "company": "Anhui Toba Auto Parts Co.,Ltd",
+      "country": "China",
+      "booth": "null",
+      "website": "tbaparts.com"
+    },
+    {
+      "company": "Anhui Williamweir Science &amp; Technology Co Ltd",
+      "country": "China",
+      "booth": "4 / 4A05",
+      "website": "williamweir.com"
+    },
+    {
+      "company": "API Petroleum Sdn. Bhd.",
+      "country": "Malaysia",
+      "booth": "null",
+      "website": "hardexworld.com"
+    },
+    {
+      "company": "Aptronics Sdn Bhd",
+      "country": "Malaysia",
+      "booth": "null",
+      "website": "aptronics.com"
+    },
+    {
+      "company": "Aquarama Srl",
+      "country": "Italy",
+      "booth": "null",
+      "website": "aquarama.it"
+    },
+    {
+      "company": "Auto Trance Services Sdn Bhd",
+      "country": "Malaysia",
+      "booth": "6 / 6C19",
+      "website": ""
+    },
+    {
+      "company": "autocari.com",
+      "country": "Malaysia",
+      "booth": "5 / 5A11",
+      "website": "autocari.com"
+    },
+    {
+      "company": "Beijing Yongcheng Huaxin Technology Co., Ltd.",
+      "country": "China",
+      "booth": "null",
+      "website": "dts650.com"
+    },
+    {
+      "company": "Best Parts Trading Sdn Bhd",
+      "country": "Malaysia",
+      "booth": "null",
+      "website": "bestpartstrading.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

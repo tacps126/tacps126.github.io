@@ -1,0 +1,182 @@
+{
+  "id": "eurocis",
+  "name": "EuroCIS",
+  "where": "Düsseldorf, Germany",
+  "industry": "Retail Technology",
+  "listUrl": "https://www.eurocis.com/vis/v1/en/directory",
+  "total": 282,
+  "countries": [
+    [
+      "Germany",
+      19
+    ],
+    [
+      "Netherlands",
+      5
+    ],
+    [
+      "Korea, Republic",
+      3
+    ],
+    [
+      "Switzerland",
+      2
+    ],
+    [
+      "United Kingdom of Great Britain and Northern Ireland",
+      1
+    ],
+    [
+      "USA",
+      1
+    ],
+    [
+      "Türkiye",
+      1
+    ],
+    [
+      "China",
+      1
+    ],
+    [
+      "Denmark",
+      1
+    ],
+    [
+      "Croatia",
+      1
+    ]
+  ],
+  "countryCount": 15,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 78,
+    "phone": 98,
+    "email": 100,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "Abrantix AG",
+      "country": "Switzerland",
+      "booth": "Hall 1 / A68",
+      "website": "abrantix.com"
+    },
+    {
+      "company": "Adasys GmbH a Poindus Company",
+      "country": "Germany",
+      "booth": "Hall 1 / C57",
+      "website": "adasys.de"
+    },
+    {
+      "company": "adesso SE",
+      "country": "Germany",
+      "booth": "Hall 4 / E28",
+      "website": "adesso.de"
+    },
+    {
+      "company": "advarics GmbH",
+      "country": "Germany",
+      "booth": "Hall 5 / A05",
+      "website": "advarics.net"
+    },
+    {
+      "company": "Adyen N.V. German Branch",
+      "country": "Germany",
+      "booth": "Hall 4 / F20",
+      "website": ""
+    },
+    {
+      "company": "Agentur für das Undenkbare Ramona Swhajor",
+      "country": "Germany",
+      "booth": "Hall 4 / F01",
+      "website": ""
+    },
+    {
+      "company": "Aicotek B.V.",
+      "country": "Netherlands",
+      "booth": "Hall 5 / A11",
+      "website": ""
+    },
+    {
+      "company": "Albasca Barcodesysteme Daniel Krug",
+      "country": "Germany",
+      "booth": "Hall 1 / E56",
+      "website": "albasca.com"
+    },
+    {
+      "company": "anybill GmbH",
+      "country": "Germany",
+      "booth": "Hall 4 / D42",
+      "website": "anybill.de"
+    },
+    {
+      "company": "apg Solutions EMEA Ltd&#160;",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "booth": "Hall 1 / C41",
+      "website": "apgsolutions.com"
+    },
+    {
+      "company": "Aroot Co., Ltd",
+      "country": "Korea, Republic",
+      "booth": "Hall 5 / A24",
+      "website": "miniprinter.com"
+    },
+    {
+      "company": "Atrium Display B.V.",
+      "country": "Netherlands",
+      "booth": "Hall 5 / D23",
+      "website": "atriumesl.com"
+    },
+    {
+      "company": "AURES Technologies GmbH",
+      "country": "Germany",
+      "booth": "Hall 4 / C42",
+      "website": "advantech-aures.com"
+    },
+    {
+      "company": "Avery Dennison Corp.",
+      "country": "USA",
+      "booth": "Hall 5 / D05",
+      "website": "averydennison.com"
+    },
+    {
+      "company": "Axelera AI BV",
+      "country": "Netherlands",
+      "booth": "Hall 4 / B34",
+      "website": "axelera.ai"
+    },
+    {
+      "company": "Axiomtek Deutschland GmbH",
+      "country": "Germany",
+      "booth": "Hall 4 / A19",
+      "website": "axiomtek.de"
+    },
+    {
+      "company": "Axis Communications GmbH",
+      "country": "Germany",
+      "booth": "Hall 1 / C16",
+      "website": "axis.com/de-de"
+    },
+    {
+      "company": "AYVOS Bilgi Teknolojileri A.Ş.",
+      "country": "Türkiye",
+      "booth": "Hall 5 / A20",
+      "website": "holocrow.com"
+    },
+    {
+      "company": "BATSTAR GmbH",
+      "country": "Germany",
+      "booth": "Hall 1 / D14",
+      "website": "batstar.de"
+    },
+    {
+      "company": "BE-terna GmbH",
+      "country": "Germany",
+      "booth": "Hall 4 / F24",
+      "website": "be-terna.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

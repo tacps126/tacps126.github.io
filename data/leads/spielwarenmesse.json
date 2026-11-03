@@ -1,0 +1,182 @@
+{
+  "id": "spielwarenmesse",
+  "name": "Spielwarenmesse",
+  "where": "Nuremberg, Germany",
+  "industry": "Toys & Games",
+  "listUrl": "https://digital.spielwarenmesse.de/showfloor/organizations",
+  "total": 1993,
+  "countries": [
+    [
+      "China",
+      412
+    ],
+    [
+      "Germany",
+      323
+    ],
+    [
+      "Hong Kong SAR China",
+      153
+    ],
+    [
+      "United Kingdom",
+      130
+    ],
+    [
+      "United States of America",
+      99
+    ],
+    [
+      "Netherlands",
+      93
+    ],
+    [
+      "France",
+      91
+    ],
+    [
+      "Italy",
+      81
+    ],
+    [
+      "Spain",
+      79
+    ],
+    [
+      "Poland",
+      62
+    ]
+  ],
+  "countryCount": 70,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 92,
+    "phone": 58,
+    "email": 72,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1 CONZEPT APS",
+      "country": "Denmark",
+      "booth": "Hall 10.0 | G-14",
+      "website": "1conzept.dk"
+    },
+    {
+      "company": "1000 Miles Limited",
+      "country": "Hong Kong SAR China",
+      "booth": "Hall 4 | A-32",
+      "website": "1000miles.biz"
+    },
+    {
+      "company": "3DCenter, s.r.o.",
+      "country": "Czechia",
+      "booth": "Hall 2 | B-17",
+      "website": "3dcenter.cz"
+    },
+    {
+      "company": "3joygames INC",
+      "country": "Canada",
+      "booth": "Hall 10.0 | C-07",
+      "website": "www.3joygames.com"
+    },
+    {
+      "company": "3toysm",
+      "country": "Poland",
+      "booth": "Hall 3 | C-81",
+      "website": "www.3toysm.com"
+    },
+    {
+      "company": "4C Invest",
+      "country": "Luxembourg",
+      "booth": "Hall 10.0 | D-17",
+      "website": "phoenix-shield.com"
+    },
+    {
+      "company": "4M Industrial Development Limited",
+      "country": "Hong Kong SAR China",
+      "booth": "Hall 5 | C-16",
+      "website": "4m-ind.com"
+    },
+    {
+      "company": "509 Crew Hong Kong",
+      "country": "Hong Kong SAR China",
+      "booth": "Hall 1 | E-21",
+      "website": "Www.509crew.com"
+    },
+    {
+      "company": "52TOYS (HK) Co., Limited",
+      "country": "Hong Kong SAR China",
+      "booth": "Hall 12.0 | H-06",
+      "website": "www.hi52toys.com"
+    },
+    {
+      "company": "8th Wonder",
+      "country": "United Kingdom",
+      "booth": "Hall 12.0 | E-09",
+      "website": "www.8thwonder.co.uk"
+    },
+    {
+      "company": "999 Games",
+      "country": "Netherlands",
+      "booth": "Hall 10.1 | E-06",
+      "website": "www.999games.nl"
+    },
+    {
+      "company": "A. GLORY MANUFACTURERS CORP.",
+      "country": "Taiwan",
+      "booth": "Hall 11.1 | A-66",
+      "website": ""
+    },
+    {
+      "company": "A. Wendt GmbH",
+      "country": "Germany",
+      "booth": "Hall 10.1 | F-05",
+      "website": "www.tabletop-dragon.de"
+    },
+    {
+      "company": "A.S. PLASTIC TOYS CO., LTD",
+      "country": "China",
+      "booth": "Hall 11.1 | C-49",
+      "website": "as-toys.com.cn"
+    },
+    {
+      "company": "A.W.E.CO. Srl",
+      "country": "Italy",
+      "booth": "Hall 5 | D-67",
+      "website": "www.aweco.net"
+    },
+    {
+      "company": "AAA Merchandise Limited",
+      "country": "United Kingdom",
+      "booth": "Hall 4 | B-20",
+      "website": "www.aaamerchandise.com"
+    },
+    {
+      "company": "Abacus Brands, Inc.",
+      "country": "United States of America",
+      "booth": "Hall 12.0 | D-11",
+      "website": "www.abacusbrands.com"
+    },
+    {
+      "company": "abalone llc.",
+      "country": "Japan",
+      "booth": "Hall 3A | G-39",
+      "website": ""
+    },
+    {
+      "company": "Abhinav Exports",
+      "country": "India",
+      "booth": "Hall 2 | C-14",
+      "website": "www.abhinavexports.com"
+    },
+    {
+      "company": "Abysse Corp. SAS",
+      "country": "France",
+      "booth": "Hall 6 | A-09",
+      "website": "abyssecorp.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

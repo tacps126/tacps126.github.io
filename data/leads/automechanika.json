@@ -1,0 +1,182 @@
+{
+  "id": "automechanika",
+  "name": "Automechanika",
+  "where": "Frankfurt, Germany",
+  "industry": "Automotive Aftermarket",
+  "listUrl": "https://automechanika.messefrankfurt.com/frankfurt/en/exhibitor-search.html",
+  "total": 4146,
+  "countries": [
+    [
+      "China",
+      1083
+    ],
+    [
+      "Germany",
+      518
+    ],
+    [
+      "Taiwan",
+      324
+    ],
+    [
+      "Italy",
+      305
+    ],
+    [
+      "Türkiye",
+      280
+    ],
+    [
+      "Poland",
+      176
+    ],
+    [
+      "India",
+      158
+    ],
+    [
+      "Hong Kong",
+      116
+    ],
+    [
+      "Great Britain and Northern Ireland",
+      111
+    ],
+    [
+      "Korea, the Republic of (South)",
+      105
+    ]
+  ],
+  "countryCount": 76,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 98,
+    "phone": 92,
+    "email": 95,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "247LIGHTING",
+      "country": "Ireland",
+      "booth": "4.1 / B65",
+      "website": "247lighting.net"
+    },
+    {
+      "company": "31, Inc.",
+      "country": "United States",
+      "booth": "9.0 / F56",
+      "website": "31inc.com"
+    },
+    {
+      "company": "360 International Group Limited",
+      "country": "Hong Kong",
+      "booth": "10.1 / A21D",
+      "website": "cn360led.com"
+    },
+    {
+      "company": "3G Winnard Ltd.",
+      "country": "Great Britain and Northern Ireland",
+      "booth": "12.1 / B61",
+      "website": "3gttp.com"
+    },
+    {
+      "company": "3M Deutschland GmbH",
+      "country": "Germany",
+      "booth": "11.1 / E49",
+      "website": "3mdeutschland.de"
+    },
+    {
+      "company": "3RG Industrial Auto, S.L.",
+      "country": "Spain",
+      "booth": "6.1 / D49",
+      "website": "3rgindustrial.com/en"
+    },
+    {
+      "company": "4Automotive",
+      "country": "Latvia",
+      "booth": "12.0 / E75",
+      "website": "4automotive.eu"
+    },
+    {
+      "company": "4CR International GmbH &amp; Co. KG",
+      "country": "Germany",
+      "booth": "11.1 / A57",
+      "website": "4cr.com"
+    },
+    {
+      "company": "911Signal",
+      "country": "France",
+      "booth": "4.1 / B50",
+      "website": "911signal.com"
+    },
+    {
+      "company": "A-Belt-Lin Industrial &amp; Trading Co., Ltd.",
+      "country": "Taiwan",
+      "booth": "3.1 / B47",
+      "website": "abeltc.com"
+    },
+    {
+      "company": "A.B.A Otomotiv - Ahmet Bulut",
+      "country": "Türkiye",
+      "booth": "5.0 / B02",
+      "website": "aba-automotive.com"
+    },
+    {
+      "company": "A.B.S. All Brake Systems B.V.",
+      "country": "Netherlands",
+      "booth": "5.0 / C78",
+      "website": "absallbrakesystems.com"
+    },
+    {
+      "company": "AAMPACT e.V. - The International Independent Aftermarket",
+      "country": "Germany",
+      "booth": "3.0 / A80A",
+      "website": "aampact.com"
+    },
+    {
+      "company": "Aar Kay Forge Pvt. Ltd.",
+      "country": "India",
+      "booth": "8.0 / L83",
+      "website": "aarkayforge.com"
+    },
+    {
+      "company": "Aatomize Manufacturing Pvt Ltd",
+      "country": "India",
+      "booth": "4.2 / J39",
+      "website": "amplindia.co.in"
+    },
+    {
+      "company": "ABAKUS Sp. z o.o.",
+      "country": "Poland",
+      "booth": "4.1 / H41",
+      "website": "abakusautoparts.com"
+    },
+    {
+      "company": "ABDULKADIR OZCAN A.S.",
+      "country": "Türkiye",
+      "booth": "4.1 / B60",
+      "website": "turbo-battery.com/en"
+    },
+    {
+      "company": "ABNET",
+      "country": "France",
+      "booth": "12.0 / B58",
+      "website": "abnet.fr"
+    },
+    {
+      "company": "ABR Co., Ltd.",
+      "country": "Korea, the Republic of (South)",
+      "booth": "3.0 / C71I",
+      "website": "en.adbatteryrecycle.com"
+    },
+    {
+      "company": "ABR Industria e Commerciao de Autopecas EIRELI",
+      "country": "Brazil",
+      "booth": "5.1 / D32",
+      "website": ""
+    }
+  ],
+  "updated": "2026-11-04"
+}

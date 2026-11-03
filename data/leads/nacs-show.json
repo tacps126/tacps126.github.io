@@ -1,0 +1,154 @@
+{
+  "id": "nacs-show",
+  "name": "NACS Show 2026",
+  "where": "USA",
+  "industry": "Convenience Retail",
+  "listUrl": "https://nacs26.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm",
+  "total": 1151,
+  "countries": [
+    [
+      "United States",
+      29
+    ],
+    [
+      "UNITED STATES",
+      10
+    ],
+    [
+      "Canada",
+      1
+    ]
+  ],
+  "countryCount": 3,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 98,
+    "phone": 98,
+    "email": 42,
+    "booth": 95
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1440 Foods",
+      "country": "United States",
+      "booth": "C4296",
+      "website": "1440foods.com"
+    },
+    {
+      "company": "1st Phorm / Anheuser Busch",
+      "country": "United States",
+      "booth": "N3213",
+      "website": "1stphorm.com"
+    },
+    {
+      "company": "360Fuel",
+      "country": "UNITED STATES",
+      "booth": "C6064",
+      "website": "360fuel.tech"
+    },
+    {
+      "company": "365 Retail Markets",
+      "country": "United States",
+      "booth": "C6485",
+      "website": "365retailmarkets.com"
+    },
+    {
+      "company": "37th Street Bakery",
+      "country": "UNITED STATES",
+      "booth": "C5185",
+      "website": "37bakery.com"
+    },
+    {
+      "company": "3xLOGIC",
+      "country": "United States",
+      "booth": "C6281",
+      "website": "3xlogic.com"
+    },
+    {
+      "company": "5 Generation Bakers, LLC",
+      "country": "United States",
+      "booth": "C3689",
+      "website": "jennyleeswirlbread.com"
+    },
+    {
+      "company": "5-hour ENERGY",
+      "country": "United States",
+      "booth": "N1621",
+      "website": "5hourenergy.com"
+    },
+    {
+      "company": "7 STAR SAVINGS",
+      "country": "UNITED STATES",
+      "booth": "N971",
+      "website": "7starsavings.com"
+    },
+    {
+      "company": "A2i by OPIS, A Dow Jones Company",
+      "country": "United States",
+      "booth": "C5900",
+      "website": "opis.com"
+    },
+    {
+      "company": "Abbott",
+      "country": "United States",
+      "booth": "C4095",
+      "website": "abbottnutrition.com"
+    },
+    {
+      "company": "ABLE (AAT USA LLC)",
+      "country": "UNITED STATES",
+      "booth": "C6275",
+      "website": "ableat.com"
+    },
+    {
+      "company": "Accel Entertainment",
+      "country": "UNITED STATES",
+      "booth": "N474",
+      "website": "accelentertainment.com"
+    },
+    {
+      "company": "ACON Laboratories Flowflex | Convenience Catalyst (CL100)",
+      "country": "United States",
+      "booth": "",
+      "website": "aconlabs.com"
+    },
+    {
+      "company": "Acosta",
+      "country": "United States",
+      "booth": "N1051",
+      "website": "acosta.com"
+    },
+    {
+      "company": "ACP, Inc.,",
+      "country": "United States",
+      "booth": "C4706",
+      "website": "acpsolutions.com"
+    },
+    {
+      "company": "ACR Redibag, LLC",
+      "country": "United States",
+      "booth": "C3898",
+      "website": "redibagusa.com"
+    },
+    {
+      "company": "Acuative",
+      "country": "United States",
+      "booth": "C6058",
+      "website": "acuative.com"
+    },
+    {
+      "company": "Acuity Inc.",
+      "country": "United States",
+      "booth": "C6617",
+      "website": "acuitybrands.com/resources/markets/gas-station-lights-and-convenience-store-lighting"
+    },
+    {
+      "company": "Adams & Brooks, Inc.",
+      "country": "UNITED STATES",
+      "booth": "N871",
+      "website": "adams-brooks.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

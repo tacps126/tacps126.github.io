@@ -1,0 +1,182 @@
+{
+  "id": "light-building",
+  "name": "Light + Building",
+  "where": "Frankfurt, Germany",
+  "industry": "Lighting & Building Services",
+  "listUrl": "https://light-building.messefrankfurt.com/frankfurt/en/exhibitor-search.html",
+  "total": 1883,
+  "countries": [
+    [
+      "China",
+      497
+    ],
+    [
+      "Germany",
+      411
+    ],
+    [
+      "Italy",
+      150
+    ],
+    [
+      "Hong Kong",
+      135
+    ],
+    [
+      "Türkiye",
+      93
+    ],
+    [
+      "Poland",
+      58
+    ],
+    [
+      "Spain",
+      55
+    ],
+    [
+      "Netherlands",
+      48
+    ],
+    [
+      "Taiwan",
+      44
+    ],
+    [
+      "France",
+      33
+    ]
+  ],
+  "countryCount": 49,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 100,
+    "phone": 90,
+    "email": 100,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1Home Solutions GmbH",
+      "country": "Germany",
+      "booth": "11.1 / C31",
+      "website": "1home.io"
+    },
+    {
+      "company": "2 in 1 Technology Co., Limited",
+      "country": "Hong Kong",
+      "booth": "10.2 / A74A",
+      "website": "hyfdconnector.com"
+    },
+    {
+      "company": "2N TELEKOMUNIKACE a.s.",
+      "country": "Czech Republic",
+      "booth": "9.0 / C71",
+      "website": "2n.com"
+    },
+    {
+      "company": "3B Profiles S.r.l.",
+      "country": "Italy",
+      "booth": "8.0 / A45",
+      "website": "3bpro.com"
+    },
+    {
+      "company": "3F Filippi S.p.A.",
+      "country": "Italy",
+      "booth": "3.1 / D55",
+      "website": "3f-filippi.com"
+    },
+    {
+      "company": "4S4 Lighting OOD",
+      "country": "Bulgaria",
+      "booth": "4.0 / E47",
+      "website": "4s4group.bg"
+    },
+    {
+      "company": "a-emotional light",
+      "country": "Spain",
+      "booth": "3.1 / B31",
+      "website": "a-emotionallight.com"
+    },
+    {
+      "company": "A.A.G. Stucchi S.r.l. Unico Socio",
+      "country": "Italy",
+      "booth": "3.1 / D81",
+      "website": "aagstucchi.it"
+    },
+    {
+      "company": "A.F.M.E. Asociacion de Fabricantes de Material Electrico",
+      "country": "Spain",
+      "booth": "12.0 / C36",
+      "website": "afme.es"
+    },
+    {
+      "company": "ABB AG",
+      "country": "Germany",
+      "booth": "12.0 / B51",
+      "website": "new.abb.com/de"
+    },
+    {
+      "company": "ABB AG STOTZ-KONTAKT",
+      "country": "Germany",
+      "booth": "11.0 / B19",
+      "website": "new.abb.com/low-voltage/de"
+    },
+    {
+      "company": "Abdullahoglu Elektrik Aydinlatma Sanayi ve Ticaret Anonim Sirketi",
+      "country": "Türkiye",
+      "booth": "4.1 / F61A",
+      "website": "lumover.com"
+    },
+    {
+      "company": "ABN GmbH",
+      "country": "Germany",
+      "booth": "11.1 / D56",
+      "website": "abn-electro.com"
+    },
+    {
+      "company": "ACB Iluminacion, S.L.",
+      "country": "Spain",
+      "booth": "3.1 / E91",
+      "website": "acbiluminacion.com"
+    },
+    {
+      "company": "Acclaim Lighting Europe B.V.",
+      "country": "Netherlands",
+      "booth": "4.1 / D71",
+      "website": "acclaimlighting.com"
+    },
+    {
+      "company": "ACCORDIA SA",
+      "country": "Greece",
+      "booth": "12.0 / B91",
+      "website": "accordia.gr/en"
+    },
+    {
+      "company": "Acolyte",
+      "country": "Netherlands",
+      "booth": "4.1 / C30",
+      "website": "acolyteled.com"
+    },
+    {
+      "company": "ACRILUX S.r.l.",
+      "country": "Italy",
+      "booth": "8.0 / C85",
+      "website": "acrilux.com"
+    },
+    {
+      "company": "ADD - BULGARIA OOD",
+      "country": "Bulgaria",
+      "booth": "8.0 / F75",
+      "website": "add-bg.com"
+    },
+    {
+      "company": "Adels-Contact Elektrotechnische Fabrik GmbH &amp; Co. KG",
+      "country": "Germany",
+      "booth": "8.0 / C51",
+      "website": "adels-contact.de"
+    }
+  ],
+  "updated": "2026-11-04"
+}

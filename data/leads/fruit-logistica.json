@@ -1,0 +1,182 @@
+{
+  "id": "fruit-logistica",
+  "name": "FRUIT LOGISTICA",
+  "where": "Berlin, Germany",
+  "industry": "Fruit & Vegetable Trade",
+  "listUrl": "https://online.fruitlogistica.com/showfloor/organizations",
+  "total": 2770,
+  "countries": [
+    [
+      "Italy",
+      400
+    ],
+    [
+      "Netherlands",
+      353
+    ],
+    [
+      "Spain",
+      268
+    ],
+    [
+      "Germany",
+      252
+    ],
+    [
+      "France",
+      125
+    ],
+    [
+      "Egypt",
+      109
+    ],
+    [
+      "China",
+      92
+    ],
+    [
+      "Greece",
+      88
+    ],
+    [
+      "Belgium",
+      77
+    ],
+    [
+      "Türkiye",
+      66
+    ]
+  ],
+  "countryCount": 90,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 88,
+    "phone": 65,
+    "email": 75,
+    "booth": 20
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "2k Farms Ltd",
+      "country": "Ghana",
+      "booth": "",
+      "website": "2kfarms.com"
+    },
+    {
+      "company": "3 FRUTTI SRL",
+      "country": "Italy",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "3 Zeta Trasporti s.r.l. Unipersonale",
+      "country": "Italy",
+      "booth": "",
+      "website": "3zetatrasporti.it"
+    },
+    {
+      "company": "360 Quality (Seatrade Reefer Chartering)",
+      "country": "Netherlands",
+      "booth": "Hall 25",
+      "website": "360quality.org"
+    },
+    {
+      "company": "3moretti",
+      "country": "Italy",
+      "booth": "",
+      "website": "www.3moretti.it"
+    },
+    {
+      "company": "4 FRUIT COMPANY Bv.",
+      "country": "Netherlands",
+      "booth": "",
+      "website": "www.4fruitcompany.nl"
+    },
+    {
+      "company": "4XROBOTS",
+      "country": "Denmark",
+      "booth": "",
+      "website": "www.4xrobots.com"
+    },
+    {
+      "company": "A&B Packing Equipment Inc.",
+      "country": "United States of America",
+      "booth": "Hall 2.1",
+      "website": "abpacking.com"
+    },
+    {
+      "company": "A.Biomed Soc. Coop. Agr. a.r.l.",
+      "country": "Italy",
+      "booth": "",
+      "website": "www.abiomed.it"
+    },
+    {
+      "company": "A.C. EPISKOPIS",
+      "country": "Greece",
+      "booth": "",
+      "website": "www.asepiskopis.gr"
+    },
+    {
+      "company": "A.C. MELIKI",
+      "country": "Greece",
+      "booth": "",
+      "website": "www.acmeliki.gr"
+    },
+    {
+      "company": "A.C. NEOS APOLLON / Komex",
+      "country": "Greece",
+      "booth": "",
+      "website": "www.komex.gr"
+    },
+    {
+      "company": "A.C. NESPAR",
+      "country": "Greece",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "A.TSAMPAS FRUIT",
+      "country": "Greece",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "AAMIYA FARM FRESH",
+      "country": "India",
+      "booth": "",
+      "website": "www.aamiyafarmfresh.com"
+    },
+    {
+      "company": "Aartsen Breda B.V.",
+      "country": "Netherlands",
+      "booth": "Hall 1.2",
+      "website": "aartsen.com"
+    },
+    {
+      "company": "ABA Mediterranea SCA",
+      "country": "Italy",
+      "booth": "",
+      "website": "www.abamediterranea.it"
+    },
+    {
+      "company": "abbgrowers",
+      "country": "Netherlands",
+      "booth": "",
+      "website": "www.abbgrowers.com"
+    },
+    {
+      "company": "Abc Fresh",
+      "country": "Germany",
+      "booth": "",
+      "website": "www.abcfresh.de"
+    },
+    {
+      "company": "ABC Logistics",
+      "country": "Netherlands",
+      "booth": "",
+      "website": "abclogistics.nl/en"
+    }
+  ],
+  "updated": "2026-11-04"
+}

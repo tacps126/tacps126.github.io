@@ -1,0 +1,182 @@
+{
+  "id": "fachpack",
+  "name": "FACHPACK",
+  "where": "Nuremberg, Germany",
+  "industry": "Packaging",
+  "listUrl": "https://www.fachpack.de/en/exhibitors-products/find-exhibitors",
+  "total": 872,
+  "countries": [
+    [
+      "Germany",
+      472
+    ],
+    [
+      "Turkey",
+      76
+    ],
+    [
+      "Netherlands",
+      36
+    ],
+    [
+      "Italy",
+      35
+    ],
+    [
+      "Poland",
+      28
+    ],
+    [
+      "Austria",
+      27
+    ],
+    [
+      "France",
+      23
+    ],
+    [
+      "Switzerland",
+      23
+    ],
+    [
+      "Greece",
+      13
+    ],
+    [
+      "Belgium",
+      13
+    ]
+  ],
+  "countryCount": 43,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 98,
+    "phone": 98,
+    "email": 70,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "3M",
+      "country": "Germany",
+      "booth": "7A-713",
+      "website": "www.3M.com"
+    },
+    {
+      "company": "A.HATZOPOULOS S.A.",
+      "country": "Greece",
+      "booth": "4-517",
+      "website": "www.hatzopoulos.gr"
+    },
+    {
+      "company": "A.M.P.E.R.E. Deutschland GmbH",
+      "country": "Germany",
+      "booth": "3-117",
+      "website": "www.amperesystem.com"
+    },
+    {
+      "company": "Abel Wellpappe in Form GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "4A-126",
+      "website": "www.abel-wellpappe.de"
+    },
+    {
+      "company": "Abriso Jiffy NV",
+      "country": "Belgium",
+      "booth": "7-670",
+      "website": "www.abrisojiffy.com"
+    },
+    {
+      "company": "ABSORPÍ by Propagroup SpA",
+      "country": "Italy",
+      "booth": "7-766",
+      "website": "www.absorpi.com"
+    },
+    {
+      "company": "ACTI PACK SAS",
+      "country": "France",
+      "booth": "6-133",
+      "website": "www.actipack.eu"
+    },
+    {
+      "company": "activaTec International GmbH & Co.",
+      "country": "Germany",
+      "booth": "4A-118",
+      "website": "activatec.de"
+    },
+    {
+      "company": "ADANUS PLASTK LTD STI",
+      "country": "Turkey",
+      "booth": "4-125",
+      "website": "www.adanusplastik.com.tr"
+    },
+    {
+      "company": "ADAPA DACH GMBH",
+      "country": "Germany",
+      "booth": "5-461",
+      "website": "www.adapa-group.com"
+    },
+    {
+      "company": "ADV PAX Lutec GmbH",
+      "country": "Germany",
+      "booth": "7-838",
+      "website": "www.adv-pax.de"
+    },
+    {
+      "company": "AERA PACKAGING SAS",
+      "country": "France",
+      "booth": "5-462",
+      "website": "www.aera-sa.fr"
+    },
+    {
+      "company": "AERO-LIFT Vakuumtechnik GmbH",
+      "country": "Germany",
+      "booth": "3-253",
+      "website": "www.aero-lift.de"
+    },
+    {
+      "company": "Aetna Group S.p.A",
+      "country": "Italy",
+      "booth": "3C-330",
+      "website": "www.aetnagroup.com"
+    },
+    {
+      "company": "AGiONE GmbH",
+      "country": "Germany",
+      "booth": "4A-341",
+      "website": "www.agione.de"
+    },
+    {
+      "company": "AGPAK",
+      "country": "Germany",
+      "booth": "7-762",
+      "website": "www.agpack.top"
+    },
+    {
+      "company": "AGRAMA Verpackungsmaschinen GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "3C-352",
+      "website": "www.agrama.de"
+    },
+    {
+      "company": "Ahauser Gummiwalzen Lammers GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "3-309",
+      "website": "www.ahauser.com"
+    },
+    {
+      "company": "AIR PLAST Commercial & Industrial SA",
+      "country": "Greece",
+      "booth": "4-252",
+      "website": "www.air-plast.gr/en"
+    },
+    {
+      "company": "AIVENTUS UAB",
+      "country": "Lithuania",
+      "booth": "4-127",
+      "website": "www.aiventus.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

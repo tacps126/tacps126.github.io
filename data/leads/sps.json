@@ -1,0 +1,182 @@
+{
+  "id": "sps",
+  "name": "SPS",
+  "where": "Nuremberg, Germany",
+  "industry": "Industrial Automation",
+  "listUrl": "https://sps.mesago.com/nuernberg/en/exhibitor-search.html",
+  "total": 1180,
+  "countries": [
+    [
+      "Germany",
+      658
+    ],
+    [
+      "China",
+      199
+    ],
+    [
+      "Italy",
+      67
+    ],
+    [
+      "Switzerland",
+      35
+    ],
+    [
+      "Austria",
+      28
+    ],
+    [
+      "United States",
+      23
+    ],
+    [
+      "Netherlands",
+      22
+    ],
+    [
+      "Taiwan",
+      18
+    ],
+    [
+      "Türkiye",
+      15
+    ],
+    [
+      "Great Britain and Northern Ireland",
+      12
+    ]
+  ],
+  "countryCount": 37,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 100,
+    "phone": 95,
+    "email": 100,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "3DBAVARIA GmbH",
+      "country": "Germany",
+      "booth": "6 / 240",
+      "website": "3dbavaria.com"
+    },
+    {
+      "company": "3onedata Co.,ltd.",
+      "country": "China",
+      "booth": "5 / 151",
+      "website": "3onedata.com"
+    },
+    {
+      "company": "3X Motion Technologies Co.,Ltd",
+      "country": "China",
+      "booth": "3 / 259",
+      "website": "3xmotion.com"
+    },
+    {
+      "company": "40FACTORY SRL",
+      "country": "Italy",
+      "booth": "6 / 162",
+      "website": "40-factory.com"
+    },
+    {
+      "company": "42Q Sanmina Corporation",
+      "country": "United States",
+      "booth": "6 / 436",
+      "website": "42-q.com"
+    },
+    {
+      "company": "5G ACIA - 5G Alliance for Connected Industries and Automation, a Working Party of ZVEI e.V.",
+      "country": "Germany",
+      "booth": "5 / 348",
+      "website": "5g-acia.org"
+    },
+    {
+      "company": "8COM GmbH",
+      "country": "Germany",
+      "booth": "6 / 130",
+      "website": "8com.de"
+    },
+    {
+      "company": "ABB AG",
+      "country": "Germany",
+      "booth": "4 / 420",
+      "website": "new.abb.com"
+    },
+    {
+      "company": "Able Electric (Ningde) Co., Ltd.",
+      "country": "China",
+      "booth": "1 / 610",
+      "website": "ablecn.com"
+    },
+    {
+      "company": "abp Antriebstechnik GmbH",
+      "country": "Germany",
+      "booth": "1 / 471",
+      "website": "abp-antrieb.de"
+    },
+    {
+      "company": "Absolute Magnetics AG",
+      "country": "Switzerland",
+      "booth": "4A / 615",
+      "website": "absolute-magnetics.com"
+    },
+    {
+      "company": "ACD Antriebstechnik GmbH",
+      "country": "Germany",
+      "booth": "4 / 549",
+      "website": "acd-gruppe.de/antriebstechnik"
+    },
+    {
+      "company": "ACD Elektronik GmbH",
+      "country": "Germany",
+      "booth": "7 / 694",
+      "website": "acd-gruppe.de"
+    },
+    {
+      "company": "ACHSTRON Motion Control GmbH",
+      "country": "Germany",
+      "booth": "4 / 489",
+      "website": "achstron.de"
+    },
+    {
+      "company": "acontis technologies GmbH",
+      "country": "Germany",
+      "booth": "5 / 250",
+      "website": "acontis.com"
+    },
+    {
+      "company": "ACS Motion Control Ltd.",
+      "country": "Israel",
+      "booth": "4 / 353",
+      "website": "acsmotioncontrol.com"
+    },
+    {
+      "company": "ACT Motor GmbH",
+      "country": "Germany",
+      "booth": "1 / 126",
+      "website": "act-motor.com"
+    },
+    {
+      "company": "Actemium Controlmatic West GmbH",
+      "country": "Germany",
+      "booth": "7 / 590",
+      "website": "actemium.de"
+    },
+    {
+      "company": "Actronic-Solutions GmbH",
+      "country": "Germany",
+      "booth": "4 / 131",
+      "website": "actronic-solutions.de"
+    },
+    {
+      "company": "ACURITY GmbH",
+      "country": "Germany",
+      "booth": "6 / 357",
+      "website": "acurity.de"
+    }
+  ],
+  "updated": "2026-11-04"
+}

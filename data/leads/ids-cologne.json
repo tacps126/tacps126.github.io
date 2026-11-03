@@ -1,0 +1,182 @@
+{
+  "id": "ids-cologne",
+  "name": "IDS International Dental Show",
+  "where": "Cologne, Germany",
+  "industry": "Dental",
+  "listUrl": "https://www.ids-cologne.de/ids-cologne-aussteller/ausstellerverzeichnis/",
+  "total": 1317,
+  "countries": [
+    [
+      "Deutschland",
+      395
+    ],
+    [
+      "Italien",
+      119
+    ],
+    [
+      "Vereinigte Staaten von Amerika",
+      98
+    ],
+    [
+      "Korea, Süd",
+      77
+    ],
+    [
+      "China",
+      60
+    ],
+    [
+      "Türkei",
+      52
+    ],
+    [
+      "Pakistan",
+      50
+    ],
+    [
+      "Schweiz",
+      44
+    ],
+    [
+      "Spanien",
+      40
+    ],
+    [
+      "Frankreich",
+      36
+    ]
+  ],
+  "countryCount": 54,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 98,
+    "phone": 70,
+    "email": 72,
+    "booth": 0
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "2oneLab GmbH",
+      "country": "Deutschland",
+      "booth": "",
+      "website": "2onelab.com"
+    },
+    {
+      "company": "3AK CHEMIE PVT LTD - RESINWORK",
+      "country": "Indien",
+      "booth": "",
+      "website": "resinwork.com"
+    },
+    {
+      "company": "3D Dental Systems D.O.O.",
+      "country": "Slowenien",
+      "booth": "",
+      "website": "3dds.eu"
+    },
+    {
+      "company": "3D medical print KG",
+      "country": "Österreich",
+      "booth": "",
+      "website": "3dmedicalprint.com"
+    },
+    {
+      "company": "3DIEMME S.r.l.",
+      "country": "Italien",
+      "booth": "",
+      "website": "3diemme.it"
+    },
+    {
+      "company": "3DISC DENTAL CONNECT",
+      "country": "Frankreich",
+      "booth": "",
+      "website": "3disc.com"
+    },
+    {
+      "company": "3POINT DENTAL INC.",
+      "country": "Korea, Süd",
+      "booth": "",
+      "website": "3pointdental.com"
+    },
+    {
+      "company": "3Shape A/S",
+      "country": "Dänemark",
+      "booth": "",
+      "website": "3shape.com"
+    },
+    {
+      "company": "4TEK SRL",
+      "country": "Italien",
+      "booth": "",
+      "website": "4-tek.it"
+    },
+    {
+      "company": "A&A GLOBAL SRL",
+      "country": "Italien",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "A-dec International",
+      "country": "Vereinigte Staaten von Amerika",
+      "booth": "",
+      "website": "a-dec.com"
+    },
+    {
+      "company": "a-metal AG",
+      "country": "Schweiz",
+      "booth": "",
+      "website": "a-metal.com"
+    },
+    {
+      "company": "A. Schweickhardt GmbH & Co. KG",
+      "country": "Deutschland",
+      "booth": "",
+      "website": "schwert.com"
+    },
+    {
+      "company": "A9 Scientific UK German Medical Industry",
+      "country": "Großbritannien",
+      "booth": "",
+      "website": "a9scientific-uk.com"
+    },
+    {
+      "company": "AAA+ Dentistmax.de GmbH",
+      "country": "Deutschland",
+      "booth": "",
+      "website": "dentistmax.de"
+    },
+    {
+      "company": "AAD Dental GmbH",
+      "country": "Deutschland",
+      "booth": "",
+      "website": "mgmimplant.de"
+    },
+    {
+      "company": "AB Dental Devices Ltd.",
+      "country": "Israel",
+      "booth": "",
+      "website": "ab-dent.com"
+    },
+    {
+      "company": "Abdampfer Service Essen",
+      "country": "Deutschland",
+      "booth": "",
+      "website": "jordan-dampftechnik.de"
+    },
+    {
+      "company": "ABIMO - Brazilian Medical Devices Manufacturers Association",
+      "country": "Brasilien",
+      "booth": "",
+      "website": "abimo.org.br"
+    },
+    {
+      "company": "Absolute Sport Srl",
+      "country": "Italien",
+      "booth": "",
+      "website": "skeemadentalitalia.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

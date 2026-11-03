@@ -1,0 +1,182 @@
+{
+  "id": "wtm-london",
+  "name": "World Travel Market",
+  "where": "London, UK",
+  "industry": "Travel & Tourism",
+  "listUrl": "https://www.wtm.com/london/en-gb/exhibitor-directory.html",
+  "total": 4119,
+  "countries": [
+    [
+      "Italy",
+      421
+    ],
+    [
+      "Spain",
+      309
+    ],
+    [
+      "United Kingdom",
+      252
+    ],
+    [
+      "United Arab Emirates",
+      167
+    ],
+    [
+      "Egypt",
+      126
+    ],
+    [
+      "Portugal",
+      124
+    ],
+    [
+      "Türkiye",
+      121
+    ],
+    [
+      "Greece",
+      106
+    ],
+    [
+      "Sri Lanka",
+      91
+    ],
+    [
+      "India",
+      90
+    ]
+  ],
+  "countryCount": 139,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 80,
+    "phone": 75,
+    "email": 75,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "11-Infotech system Co. Ltd",
+      "country": "Thailand",
+      "booth": "S17-230",
+      "website": "11infotech.com"
+    },
+    {
+      "company": "3 Zinnen AG",
+      "country": "Italy",
+      "booth": "N2-240",
+      "website": "dreizinnen.com/en/skiing"
+    },
+    {
+      "company": "33 Seconds",
+      "country": "United Kingdom",
+      "booth": "N7-410",
+      "website": ""
+    },
+    {
+      "company": "360 Travel Design",
+      "country": "Ireland",
+      "booth": "S5-210",
+      "website": "360traveldesign.ie"
+    },
+    {
+      "company": "365 CARE TRAVEL AND TRADING JOINT STOCK COMPANY",
+      "country": "Vietnam",
+      "booth": "N9-525",
+      "website": ""
+    },
+    {
+      "company": "365 Travel",
+      "country": "Vietnam",
+      "booth": "N9-525",
+      "website": "365travel.asia"
+    },
+    {
+      "company": "365id AB",
+      "country": "Sweden",
+      "booth": "S13-420",
+      "website": "365id.com"
+    },
+    {
+      "company": "3C SRL",
+      "country": "Italy",
+      "booth": "N3-200",
+      "website": ""
+    },
+    {
+      "company": "3C Travel",
+      "country": "Italy",
+      "booth": "N4-600",
+      "website": "3ctravel.it"
+    },
+    {
+      "company": "3HB Hotels",
+      "country": "Portugal",
+      "booth": "S4-210",
+      "website": "3hb.com"
+    },
+    {
+      "company": "5th Direction",
+      "country": "Oman",
+      "booth": "S8-200",
+      "website": "5thdirection.om"
+    },
+    {
+      "company": "7°South",
+      "country": "Seychelles",
+      "booth": "N11-520",
+      "website": "7south.net"
+    },
+    {
+      "company": "8 Birds Tours and Events Co., Ltd.",
+      "country": "South Korea",
+      "booth": "N9-510",
+      "website": "8birdstravel.com"
+    },
+    {
+      "company": "9HOTEL COLLECTION",
+      "country": "France",
+      "booth": "S5-200",
+      "website": "9-hotel-collection.com/en"
+    },
+    {
+      "company": "_Air_India_",
+      "country": "India",
+      "booth": "N10-220",
+      "website": "airindia.com/?utm_source=bing&utm_medium=cpc&utm_campaign=Acquisition_Perform_SEM_Alltraveltype_United-Kingd"
+    },
+    {
+      "company": "A Bhutan 888 Tours and Treks",
+      "country": "Bhutan",
+      "booth": "N10-218",
+      "website": ""
+    },
+    {
+      "company": "A La Carte Tours & Events",
+      "country": "United Kingdom",
+      "booth": "S5-220",
+      "website": "alctoursandevents.com"
+    },
+    {
+      "company": "A&L Travel",
+      "country": "France",
+      "booth": "S5-200",
+      "website": "altraveldmc.com"
+    },
+    {
+      "company": "A. TSOKKOS HOTELS PUBLIC LTD",
+      "country": "Cyprus",
+      "booth": "N3-220",
+      "website": "tsokkos.com"
+    },
+    {
+      "company": "AA VIAJES MASTER INTERNACIONAL",
+      "country": "Spain",
+      "booth": "S2-510",
+      "website": "viajesmaster.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

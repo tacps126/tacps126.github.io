@@ -1,0 +1,174 @@
+{
+  "id": "beauty-dusseldorf",
+  "name": "BEAUTY DÜSSELDORF",
+  "where": "Germany",
+  "industry": "Beauty & Cosmetics",
+  "listUrl": "https://www.beauty.de/vis/v1/en/directory",
+  "total": 457,
+  "countries": [
+    [
+      "Germany",
+      29
+    ],
+    [
+      "Belgium",
+      3
+    ],
+    [
+      "United Kingdom of Great Britain and Northern Ireland",
+      2
+    ],
+    [
+      "Poland",
+      2
+    ],
+    [
+      "Türkiye",
+      1
+    ],
+    [
+      "Austria",
+      1
+    ],
+    [
+      "United Arab Emirates",
+      1
+    ],
+    [
+      "Korea, Republic",
+      1
+    ]
+  ],
+  "countryCount": 8,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 90,
+    "phone": 100,
+    "email": 98,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "abc nailstore gmbh",
+      "country": "Germany",
+      "booth": "Hall 10 / D60",
+      "website": "abc-nailstore.de"
+    },
+    {
+      "company": "Accessoires and More... Trendschmuck und mehr Andreas Nickel",
+      "country": "Germany",
+      "booth": "Hall 10 / B69",
+      "website": "accessoires-and-more.de"
+    },
+    {
+      "company": "Acıbadem Sağlık Hiz. ve Tic. A.Ş.",
+      "country": "Türkiye",
+      "booth": "Hall 12 / C77",
+      "website": "acibademinternational.com"
+    },
+    {
+      "company": "Addie Beauty SRL",
+      "country": "Belgium",
+      "booth": "Hall 10 / H32",
+      "website": "addiebeauty.be"
+    },
+    {
+      "company": "AFG Healthcare GmbH",
+      "country": "Austria",
+      "booth": "Hall 12 / A44",
+      "website": "code-vital.com"
+    },
+    {
+      "company": "AHMED AL MAGHRIBI PERFUMES Limited Liability Company",
+      "country": "United Arab Emirates",
+      "booth": "Hall 12 / D78",
+      "website": "ae.ahmedalmaghribi.com"
+    },
+    {
+      "company": "alessandro International GmbH",
+      "country": "Germany",
+      "booth": "Hall 11 / H34",
+      "website": ""
+    },
+    {
+      "company": "Alfa Medical Co., Ltd",
+      "country": "Korea, Republic",
+      "booth": "Hall 11 / F18",
+      "website": "alfamedical.co.kr"
+    },
+    {
+      "company": "Alix Lasers GmbH",
+      "country": "Germany",
+      "booth": "Hall 11 / L22",
+      "website": "alix-lasers.de"
+    },
+    {
+      "company": "Alma Lasers GmbH",
+      "country": "Germany",
+      "booth": "Hall 11 / A40",
+      "website": "alma-lasers.de"
+    },
+    {
+      "company": "Aloe Vera Service Klaus Denninger e.K.",
+      "country": "Germany",
+      "booth": "Hall 12 / B53",
+      "website": "aloe-kosmetik.net"
+    },
+    {
+      "company": "Amory London Ltd.",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "booth": "Hall 12 / C78",
+      "website": "amorylondon.com"
+    },
+    {
+      "company": "Ancel GmbH",
+      "country": "Germany",
+      "booth": "Hall 12 / F65",
+      "website": "pinkflashswitzerland.com"
+    },
+    {
+      "company": "Angelo Shop Herr Roman Engel",
+      "country": "Germany",
+      "booth": "Hall 10 / H65",
+      "website": "angeloshop.de"
+    },
+    {
+      "company": "Apis Natural Cosmetics Sp. z o. o.",
+      "country": "Poland",
+      "booth": "Hall 12 / E64",
+      "website": "apiscosmetics.pl"
+    },
+    {
+      "company": "ApKo Meditec GmbH",
+      "country": "Germany",
+      "booth": "Hall 11 / B22",
+      "website": "apko-meditec.de"
+    },
+    {
+      "company": "ARKADA Praxis für Podologie Tatjana Tissen",
+      "country": "Germany",
+      "booth": "Hall 10 / E30",
+      "website": "tissen-podologie.de"
+    },
+    {
+      "company": "Asclepion Laser Technologies GmbH",
+      "country": "Germany",
+      "booth": "Hall 11 / E60",
+      "website": "esthelogue-beauty.de"
+    },
+    {
+      "company": "Asclepion Laser Technologies GmbH",
+      "country": "Germany",
+      "booth": "Hall 11 / B44",
+      "website": "esthelogue-beauty.de"
+    },
+    {
+      "company": "ASEPTA GmbH",
+      "country": "Germany",
+      "booth": "Hall 10 / A30",
+      "website": "akileine.de"
+    }
+  ],
+  "updated": "2026-11-04"
+}

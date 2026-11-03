@@ -1,0 +1,182 @@
+{
+  "id": "k-online",
+  "name": "K",
+  "where": "Düsseldorf, Germany",
+  "industry": "Plastics & Rubber",
+  "listUrl": "https://www.k-online.com/vis/v1/en/directory",
+  "total": 3371,
+  "countries": [
+    [
+      "Italy",
+      5
+    ],
+    [
+      "India",
+      4
+    ],
+    [
+      "France",
+      4
+    ],
+    [
+      "Germany",
+      3
+    ],
+    [
+      "USA",
+      3
+    ],
+    [
+      "Brazil",
+      2
+    ],
+    [
+      "Thailand",
+      2
+    ],
+    [
+      "United Kingdom of Great Britain and Northern Ireland",
+      2
+    ],
+    [
+      "Spain",
+      2
+    ],
+    [
+      "Cyprus",
+      1
+    ]
+  ],
+  "countryCount": 22,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 98,
+    "phone": 98,
+    "email": 98,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "A. Carnevalli & Cia. Ltda.",
+      "country": "Brazil",
+      "booth": "Hall 16 / C70",
+      "website": "carnevalli.com"
+    },
+    {
+      "company": "A.F. Supercell Co., Ltd.",
+      "country": "Thailand",
+      "booth": "Hall 7, level 0 / B23",
+      "website": "afsupercell.com"
+    },
+    {
+      "company": "A.J. Plast Public Company Limited",
+      "country": "Thailand",
+      "booth": "Hall 7, level 1 / A23",
+      "website": "ajplast.co.th"
+    },
+    {
+      "company": "A.T.F. Automations s.r.l.",
+      "country": "Italy",
+      "booth": "Hall 3 / F57",
+      "website": "atfsrl.com"
+    },
+    {
+      "company": "AAS Advanced Automation Systems Ltd.",
+      "country": "Cyprus",
+      "booth": "Hall 12 / D13",
+      "website": "aasystems.eu"
+    },
+    {
+      "company": "Aawadkrupa PlastomechPrivate Limited (APPL - India)",
+      "country": "India",
+      "booth": "Hall 12 / A37",
+      "website": "akiropes.com"
+    },
+    {
+      "company": "Abate Basilio & C. SNC",
+      "country": "Italy",
+      "booth": "Hall 1 / C65",
+      "website": "abatebasilio.com"
+    },
+    {
+      "company": "ABIEF -Associação Brasileira da Industr. de Embalagens Plásticas Flexíveis",
+      "country": "Brazil",
+      "booth": "North Entrance 1 / 03",
+      "website": "abief.org.br"
+    },
+    {
+      "company": "Able-Speed Sdn. Bhd.",
+      "country": "Malaysia",
+      "booth": "Hall 7, level 2 / C11",
+      "website": "ablespeed.com"
+    },
+    {
+      "company": "aboni GmbH",
+      "country": "Germany",
+      "booth": "Hall 11 / G17",
+      "website": "aboni.de"
+    },
+    {
+      "company": "ACA Systems Oy",
+      "country": "Finland",
+      "booth": "Hall 11 / E50",
+      "website": "aca.fi"
+    },
+    {
+      "company": "Accrapak Systems Limited",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "booth": "Hall 9 / E31",
+      "website": "accrapak.co.uk"
+    },
+    {
+      "company": "ACERETECH MACHINERY CO., LTD",
+      "country": "China",
+      "booth": "Hall 9 / D49",
+      "website": "aceretech.com"
+    },
+    {
+      "company": "ACES Pros in Plastics BV",
+      "country": "Netherlands",
+      "booth": "Hall 8a / H14",
+      "website": "aces-plastics.com"
+    },
+    {
+      "company": "ACH Solution GmbH",
+      "country": "Austria",
+      "booth": "Hall 12 / F36",
+      "website": "ach-solution.at"
+    },
+    {
+      "company": "Acim Jouanin SAS",
+      "country": "France",
+      "booth": "Hall 11 / F48",
+      "website": "acim-jouanin.fr"
+    },
+    {
+      "company": "ACMA SERVICE srl",
+      "country": "Italy",
+      "booth": "Hall 10 / E02",
+      "website": "acmaservice.com"
+    },
+    {
+      "company": "Acme Drinktec solutions llp",
+      "country": "India",
+      "booth": "Hall 1 / D97",
+      "website": "acmedrinktec.com"
+    },
+    {
+      "company": "ACTEGA GmbH",
+      "country": "Germany",
+      "booth": "Hall 8a / F11-03",
+      "website": "actega.com"
+    },
+    {
+      "company": "AcXys Technologies SAS",
+      "country": "France",
+      "booth": "Hall 3 / D72-03",
+      "website": "acxys.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

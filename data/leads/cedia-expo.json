@@ -1,0 +1,158 @@
+{
+  "id": "cedia-expo",
+  "name": "CEDIA Expo 2026",
+  "where": "USA",
+  "industry": "Smart Home & Integration",
+  "listUrl": "https://cedia2026.smallworldlabs.com/exhibitors",
+  "total": 308,
+  "countries": [
+    [
+      "United States",
+      35
+    ],
+    [
+      "Canada",
+      2
+    ],
+    [
+      "Brazil",
+      2
+    ],
+    [
+      "China",
+      1
+    ]
+  ],
+  "countryCount": 4,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 82,
+    "phone": 42,
+    "email": 38,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "2N, An Axis company",
+      "country": "United States",
+      "booth": "C1014",
+      "website": "2n.com/en_US"
+    },
+    {
+      "company": "3B Scientific",
+      "country": "United States",
+      "booth": "3542",
+      "website": ""
+    },
+    {
+      "company": "ABBA Lighting",
+      "country": "United States",
+      "booth": "1138",
+      "website": ""
+    },
+    {
+      "company": "Acoustic Innovations",
+      "country": "United States",
+      "booth": "2932",
+      "website": "acousticinnovations.com"
+    },
+    {
+      "company": "Adako",
+      "country": "United States",
+      "booth": "1239",
+      "website": "adakousa.com"
+    },
+    {
+      "company": "ADI Global Distribution",
+      "country": "United States",
+      "booth": "1511",
+      "website": "adiglobal.com/us"
+    },
+    {
+      "company": "Airzone",
+      "country": "United States",
+      "booth": "C1116",
+      "website": "airzonecontrol.com"
+    },
+    {
+      "company": "AiSPIRE/WAC Group",
+      "country": "United States",
+      "booth": "1323",
+      "website": "AiSPIRE.com"
+    },
+    {
+      "company": "AL TRANSFO TECHNOLOGY LIMITED",
+      "country": "China",
+      "booth": "C1016",
+      "website": "altransfo.com"
+    },
+    {
+      "company": "Alarm.com",
+      "country": "United States",
+      "booth": "4300",
+      "website": "alarm.com"
+    },
+    {
+      "company": "Alcons Audio",
+      "country": "United States",
+      "booth": "SR9",
+      "website": "alconsaudio.com"
+    },
+    {
+      "company": "Alfred International Inc",
+      "country": "Canada",
+      "booth": "727",
+      "website": "alfredlocks.com"
+    },
+    {
+      "company": "Alleviate LLC",
+      "country": "United States",
+      "booth": "2944",
+      "website": ""
+    },
+    {
+      "company": "Alta Labs",
+      "country": "United States",
+      "booth": "3015",
+      "website": "alta.inc"
+    },
+    {
+      "company": "AMP Lighting",
+      "country": "United States",
+      "booth": "1742",
+      "website": "amplighting.com"
+    },
+    {
+      "company": "Amplifier Technologies Inc.",
+      "country": "United States",
+      "booth": "C1100",
+      "website": "ati-amp.com"
+    },
+    {
+      "company": "Analog Devices",
+      "country": "United States",
+      "booth": "1928",
+      "website": "analog.com"
+    },
+    {
+      "company": "Apex Technologies",
+      "country": "United States",
+      "booth": "4415",
+      "website": "apex-tech.us"
+    },
+    {
+      "company": "Aqara",
+      "country": "United States",
+      "booth": "C719",
+      "website": "aqara.com/us"
+    },
+    {
+      "company": "ARCH PROJETOS, INSTALACOES E COMERCIO DE EQUIPAMENTOS LTDA",
+      "country": "Brazil",
+      "booth": "1943",
+      "website": "WWW.ARCHTECHNOLOGIES.COM.BR"
+    }
+  ],
+  "updated": "2026-11-04"
+}

@@ -1,0 +1,182 @@
+{
+  "id": "creativeworld",
+  "name": "Creativeworld",
+  "where": "Frankfurt, Germany",
+  "industry": "Arts, Crafts & Hobby",
+  "listUrl": "https://creativeworld.messefrankfurt.com/frankfurt/en/exhibitor-search.html",
+  "total": 237,
+  "countries": [
+    [
+      "Germany",
+      46
+    ],
+    [
+      "Italy",
+      22
+    ],
+    [
+      "United States",
+      20
+    ],
+    [
+      "France",
+      16
+    ],
+    [
+      "Netherlands",
+      15
+    ],
+    [
+      "Great Britain and Northern Ireland",
+      14
+    ],
+    [
+      "Türkiye",
+      12
+    ],
+    [
+      "Spain",
+      9
+    ],
+    [
+      "China",
+      9
+    ],
+    [
+      "India",
+      8
+    ]
+  ],
+  "countryCount": 38,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 90,
+    "phone": 88,
+    "email": 88,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "ACCO UK Ltd.",
+      "country": "Great Britain and Northern Ireland",
+      "booth": "1.1 / A11",
+      "website": "derwentart.com"
+    },
+    {
+      "company": "Acrylicos Vallejo, SL",
+      "country": "Spain",
+      "booth": "1.2 / C34",
+      "website": "acrylicosvallejo.com"
+    },
+    {
+      "company": "ADACONI SRL",
+      "country": "Romania",
+      "booth": "1.1 / C11",
+      "website": "daco.org"
+    },
+    {
+      "company": "Adhesive Technologies, Inc.",
+      "country": "United States",
+      "booth": "1.1 / E60",
+      "website": ""
+    },
+    {
+      "company": "Aerpanel SAS",
+      "country": "France",
+      "booth": "1.1 / C10",
+      "website": "aerpanel.fr"
+    },
+    {
+      "company": "Alize Pazarlama Tekstil Sanayi Ve Ticaret Limited Sirketi",
+      "country": "Türkiye",
+      "booth": "1.1 / D69",
+      "website": "alizeyarns.com"
+    },
+    {
+      "company": "Amodex Products Inc",
+      "country": "United States",
+      "booth": "1.1 / D40",
+      "website": "amodexusa.com"
+    },
+    {
+      "company": "Angelus Shoe Polish Co., Inc.",
+      "country": "United States",
+      "booth": "1.1 / E64",
+      "website": ""
+    },
+    {
+      "company": "Anron Metalisers Private Limited",
+      "country": "India",
+      "booth": "1.1 / E44",
+      "website": "midasglitter.com"
+    },
+    {
+      "company": "Anyany B.V.",
+      "country": "Netherlands",
+      "booth": "1.2 / C19",
+      "website": ""
+    },
+    {
+      "company": "Argiles Bisbal S.L.",
+      "country": "Spain",
+      "booth": "1.1 / C61",
+      "website": "argilesbisbal.com"
+    },
+    {
+      "company": "Art BOYA MALZEMELERI KIRT. TUR. DIS TIC. SAN. LTD STI",
+      "country": "Türkiye",
+      "booth": "1.1 / D65",
+      "website": "ponart.com.tr"
+    },
+    {
+      "company": "Art Business Industrial Group GmbH (ABIG)",
+      "country": "Germany",
+      "booth": "1.2 / C07",
+      "website": "abig.de"
+    },
+    {
+      "company": "Art Material International Warenhandels- gesellschaft f&uuml;r Grafiker- und K&uuml;nstler- bedarf mbH",
+      "country": "Germany",
+      "booth": "1.2 / C11",
+      "website": "art-material.eu"
+    },
+    {
+      "company": "ART SELECT GmbH &amp; Co. KG",
+      "country": "Germany",
+      "booth": "1.2 / C40",
+      "website": "artselect.de"
+    },
+    {
+      "company": "Artec Co., Ltd.",
+      "country": "Japan",
+      "booth": "1.1 / D21",
+      "website": "artec-kk.co.jp"
+    },
+    {
+      "company": "Artseecraft Company Limited",
+      "country": "Hong Kong",
+      "booth": "1.1 / E03A",
+      "website": "artseecraft.com"
+    },
+    {
+      "company": "ARTSMILE OU",
+      "country": "Estonia",
+      "booth": "1.1 / E52",
+      "website": "artsmile.art"
+    },
+    {
+      "company": "Avec B.V.",
+      "country": "Netherlands",
+      "booth": "1.1 / C03",
+      "website": ""
+    },
+    {
+      "company": "Avrasya Kirtasiye ve Oyuncak Sanayi Ticaret Anonim Sirket",
+      "country": "Türkiye",
+      "booth": "1.2 / B01A",
+      "website": "lets.com.tr"
+    }
+  ],
+  "updated": "2026-11-04"
+}

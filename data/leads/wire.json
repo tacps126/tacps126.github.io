@@ -1,0 +1,182 @@
+{
+  "id": "wire",
+  "name": "wire",
+  "where": "Düsseldorf, Germany",
+  "industry": "Wire & Cable",
+  "listUrl": "https://www.wire-tradefair.com/vis/v1/en/directory",
+  "total": 2743,
+  "countries": [
+    [
+      "Italy",
+      16
+    ],
+    [
+      "Germany",
+      7
+    ],
+    [
+      "India",
+      5
+    ],
+    [
+      "China",
+      4
+    ],
+    [
+      "Korea, Republic",
+      1
+    ],
+    [
+      "United Kingdom of Great Britain and Northern Ireland",
+      1
+    ],
+    [
+      "Kenya",
+      1
+    ],
+    [
+      "Spain",
+      1
+    ],
+    [
+      "Portugal",
+      1
+    ],
+    [
+      "Sweden",
+      1
+    ]
+  ],
+  "countryCount": 12,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 100,
+    "phone": 100,
+    "email": 95,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "A&Y Zauntechnik GmbH",
+      "country": "Germany",
+      "booth": "Hall 13 / B64",
+      "website": "ay-zauntechnik.com"
+    },
+    {
+      "company": "A-TECH CO., LTD.",
+      "country": "Korea, Republic",
+      "booth": "Hall 16 / H40",
+      "website": "wirebending.kr"
+    },
+    {
+      "company": "A. Appiani Srl",
+      "country": "Italy",
+      "booth": "Hall 11 / D30",
+      "website": "appianigroup.com"
+    },
+    {
+      "company": "A. Lindemann GmbH",
+      "country": "Germany",
+      "booth": "Hall 6 / H12",
+      "website": "alindemann.de"
+    },
+    {
+      "company": "A.G.R. Filtri Srl",
+      "country": "Italy",
+      "booth": "Hall 6 / E06",
+      "website": "agrfiltri.com"
+    },
+    {
+      "company": "A.L.T.A. S.p.A.",
+      "country": "Italy",
+      "booth": "Hall 4 / B29",
+      "website": "altaspa.com"
+    },
+    {
+      "company": "A.M.I. s.r.l.",
+      "country": "Italy",
+      "booth": "Hall 5 / E28",
+      "website": "amitransfer.com"
+    },
+    {
+      "company": "A.T.R. S.r.l.",
+      "country": "Italy",
+      "booth": "Hall 12 / C31",
+      "website": "atrsteel.com"
+    },
+    {
+      "company": "Aachener Maschinenbau GmbH",
+      "country": "Germany",
+      "booth": "Hall 16 / H55",
+      "website": "amba.de"
+    },
+    {
+      "company": "Aaditya Stainless Private Limited",
+      "country": "India",
+      "booth": "Hall 1 / D09-2",
+      "website": "aadityastainless.com"
+    },
+    {
+      "company": "AAMOR INOX LIMITED",
+      "country": "India",
+      "booth": "Hall 15 / B36",
+      "website": "aamorinox.com"
+    },
+    {
+      "company": "Aarti Steel International Limited",
+      "country": "India",
+      "booth": "Hall 15 / G44",
+      "website": "aartisteelintl.com"
+    },
+    {
+      "company": "ABIS International Ltd",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "booth": "Hall 13 / B83",
+      "website": "abis-international.com"
+    },
+    {
+      "company": "Abura Technik GmbH",
+      "country": "Germany",
+      "booth": "Hall 6 / I37",
+      "website": "abura-technik.com"
+    },
+    {
+      "company": "Abyssinia Group of Industries",
+      "country": "Kenya",
+      "booth": "Hall 15 / F49",
+      "website": "abyssinagroup.com"
+    },
+    {
+      "company": "ABZ (SHANGHAI）SMART TECH. CO., LTD",
+      "country": "China",
+      "booth": "Hall 9 / A78",
+      "website": "abz-sh.com"
+    },
+    {
+      "company": "Acciai Speciali Terni S.p.A.",
+      "country": "Italy",
+      "booth": "Hall 3 / C39",
+      "website": "acciaiterni.it"
+    },
+    {
+      "company": "Acciai Speciali Zorzetto S.r.l.",
+      "country": "Italy",
+      "booth": "Hall 12 / D59",
+      "website": "zorzetto.com"
+    },
+    {
+      "company": "Acciaierie Bertoli Safau S.p.A.",
+      "country": "Italy",
+      "booth": "Hall 13 / A20",
+      "website": "absacciai.com"
+    },
+    {
+      "company": "ACCIAIERIE DI CALVISANO S.p.A.",
+      "country": "Italy",
+      "booth": "Hall 12 / D16",
+      "website": "feralpigroup.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

@@ -1,0 +1,170 @@
+{
+  "id": "fabtech",
+  "name": "FABTECH 2026",
+  "where": "USA",
+  "industry": "Metal Forming, Fabricating & Welding",
+  "listUrl": "https://fabtech2026.smallworldlabs.com/exhibitors",
+  "total": 1448,
+  "countries": [
+    [
+      "United States",
+      33
+    ],
+    [
+      "China",
+      2
+    ],
+    [
+      "Italy",
+      1
+    ],
+    [
+      "Germany",
+      1
+    ],
+    [
+      "Vietnam",
+      1
+    ],
+    [
+      "Canada",
+      1
+    ],
+    [
+      "Turkey",
+      1
+    ]
+  ],
+  "countryCount": 7,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 100,
+    "phone": 100,
+    "email": 60,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1960 SERAVESI",
+      "country": "Italy",
+      "booth": "C8119",
+      "website": "1960seravesi.com"
+    },
+    {
+      "company": "1factory Inc",
+      "country": "United States",
+      "booth": "S21061",
+      "website": "1factory.com"
+    },
+    {
+      "company": "1stSource",
+      "country": "United States",
+      "booth": "S23034",
+      "website": "1stsourceproducts.com"
+    },
+    {
+      "company": "3D.aero GmbH",
+      "country": "Germany",
+      "booth": "S12045",
+      "website": "3d-aero.com"
+    },
+    {
+      "company": "3M",
+      "country": "United States",
+      "booth": "S37014",
+      "website": "3m.com"
+    },
+    {
+      "company": "3Srobotics Technology Co., Ltd",
+      "country": "China",
+      "booth": "S39072",
+      "website": "3srobotics.com"
+    },
+    {
+      "company": "5 Star Engineering",
+      "country": "United States",
+      "booth": "N9151",
+      "website": "5starengineering.com"
+    },
+    {
+      "company": "7 Seas Sourcing LLC",
+      "country": "United States",
+      "booth": "S20019",
+      "website": "7seassourcing.com"
+    },
+    {
+      "company": "80/20",
+      "country": "United States",
+      "booth": "S46043",
+      "website": "8020.net"
+    },
+    {
+      "company": "Abagy Robotic Systems",
+      "country": "United States",
+      "booth": "S40043",
+      "website": "abagy.com"
+    },
+    {
+      "company": "ABC Sheet Metal / Steeldyne Industries",
+      "country": "United States",
+      "booth": "N9910",
+      "website": "abcsheetmetal.com"
+    },
+    {
+      "company": "ABC Vietnam Manufacturing",
+      "country": "Vietnam",
+      "booth": "N10014",
+      "website": "abc-vietnam.com"
+    },
+    {
+      "company": "ABI Engine: Actionable Business Intelligence",
+      "country": "United States",
+      "booth": "S46060",
+      "website": "abiengine.com"
+    },
+    {
+      "company": "ABIS Inc",
+      "country": "United States",
+      "booth": "C7639",
+      "website": "abiscorp.com"
+    },
+    {
+      "company": "Abrasivestocks",
+      "country": "China",
+      "booth": "S46088",
+      "website": "abrasivestocks.com"
+    },
+    {
+      "company": "ACCELaser",
+      "country": "United States",
+      "booth": "N9949",
+      "website": "accelaser.com"
+    },
+    {
+      "company": "Accurate Die Design Software Inc",
+      "country": "United States",
+      "booth": "S19019",
+      "website": "DieDesignSoftware.com"
+    },
+    {
+      "company": "Accurex Measurement",
+      "country": "United States",
+      "booth": "N8911",
+      "website": "accurexmeasure.com"
+    },
+    {
+      "company": "Accurpress America",
+      "country": "United States",
+      "booth": "C3010",
+      "website": "accurpress.com"
+    },
+    {
+      "company": "Across International",
+      "country": "United States",
+      "booth": "S14077",
+      "website": "acrossinternational.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

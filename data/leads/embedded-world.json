@@ -1,0 +1,182 @@
+{
+  "id": "embedded-world",
+  "name": "Embedded World",
+  "where": "Nuremberg, Germany",
+  "industry": "Electronics & Embedded Systems",
+  "listUrl": "https://www.embedded-world.de/en/exhibitors-products/find-exhibitors",
+  "total": 890,
+  "countries": [
+    [
+      "Germany",
+      257
+    ],
+    [
+      "China",
+      132
+    ],
+    [
+      "Taiwan",
+      118
+    ],
+    [
+      "United States",
+      89
+    ],
+    [
+      "United Kingdom",
+      43
+    ],
+    [
+      "Italy",
+      29
+    ],
+    [
+      "Netherlands",
+      27
+    ],
+    [
+      "France",
+      24
+    ],
+    [
+      "Switzerland",
+      22
+    ],
+    [
+      "Austria",
+      21
+    ]
+  ],
+  "countryCount": 41,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 100,
+    "phone": 98,
+    "email": 55,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "221e Srl",
+      "country": "Italy",
+      "booth": "5-287",
+      "website": "www.221e.com"
+    },
+    {
+      "company": "2J Antennas, s.r.o.",
+      "country": "Slovakia",
+      "booth": "3-432",
+      "website": "www.2j-antennas.com"
+    },
+    {
+      "company": "3Rtablet",
+      "country": "China",
+      "booth": "1-632",
+      "website": "www.3rtablet.com"
+    },
+    {
+      "company": "3Rtablet",
+      "country": "China",
+      "booth": "2-200",
+      "website": "www.3rtablet.com"
+    },
+    {
+      "company": "7starlake Co, Ltd.",
+      "country": "Taiwan",
+      "booth": "1-255",
+      "website": "7starlake.com"
+    },
+    {
+      "company": "9elements GmbH Cyber Security",
+      "country": "Germany",
+      "booth": "5-453",
+      "website": "9esec.io"
+    },
+    {
+      "company": "A-Switch GmbH",
+      "country": "Germany",
+      "booth": "1-422",
+      "website": "www.a-switch.de"
+    },
+    {
+      "company": "A1 Digital",
+      "country": "Germany",
+      "booth": "3-510",
+      "website": "a1.digital"
+    },
+    {
+      "company": "AA Frequency Solutions",
+      "country": "United Kingdom",
+      "booth": "3-295",
+      "website": "www.aafrequencysolutions.com"
+    },
+    {
+      "company": "AAEON Technology Europe B.V.",
+      "country": "Netherlands",
+      "booth": "1-306",
+      "website": "www.aaeon.com"
+    },
+    {
+      "company": "abietec Inc.",
+      "country": "Taiwan",
+      "booth": "3-430",
+      "website": "www.abietec.com"
+    },
+    {
+      "company": "Abinsula S.R.L.",
+      "country": "Italy",
+      "booth": "4-441",
+      "website": "www.abinsula.com"
+    },
+    {
+      "company": "Abracon LLC",
+      "country": "United States",
+      "booth": "3A-432",
+      "website": "www.abracon.com"
+    },
+    {
+      "company": "AbsInt GmbH",
+      "country": "Germany",
+      "booth": "4-138",
+      "website": "www.absint.com"
+    },
+    {
+      "company": "Accelerat",
+      "country": "Italy",
+      "booth": "5-169",
+      "website": "accelerat.eu"
+    },
+    {
+      "company": "acontis technologies GmbH",
+      "country": "Germany",
+      "booth": "4-113",
+      "website": "www.acontis.com"
+    },
+    {
+      "company": "Acromag, Inc.",
+      "country": "United States",
+      "booth": "1-115",
+      "website": "www.acromag.com"
+    },
+    {
+      "company": "Acute Technology Inc.",
+      "country": "Taiwan",
+      "booth": "4-714",
+      "website": "www.acute.com.tw"
+    },
+    {
+      "company": "AdaCore",
+      "country": "France",
+      "booth": "4-320",
+      "website": "www.adacore.com"
+    },
+    {
+      "company": "ADATA INDUSTRIAL",
+      "country": "Taiwan",
+      "booth": "3-159",
+      "website": "industrial.adata.com/en"
+    }
+  ],
+  "updated": "2026-11-04"
+}

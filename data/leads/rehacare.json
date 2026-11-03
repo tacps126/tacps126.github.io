@@ -1,0 +1,182 @@
+{
+  "id": "rehacare",
+  "name": "REHACARE",
+  "where": "Düsseldorf, Germany",
+  "industry": "Rehabilitation & Care",
+  "listUrl": "https://www.rehacare.de/vis/v1/en/directory",
+  "total": 1102,
+  "countries": [
+    [
+      "Germany",
+      21
+    ],
+    [
+      "Sweden",
+      3
+    ],
+    [
+      "USA",
+      3
+    ],
+    [
+      "France",
+      2
+    ],
+    [
+      "Netherlands",
+      2
+    ],
+    [
+      "Italy",
+      1
+    ],
+    [
+      "Denmark",
+      1
+    ],
+    [
+      "Spain",
+      1
+    ],
+    [
+      "Israel",
+      1
+    ],
+    [
+      "Taiwan",
+      1
+    ]
+  ],
+  "countryCount": 14,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 75,
+    "phone": 100,
+    "email": 100,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "A.N.G.L.A.T Association ETS",
+      "country": "Italy",
+      "booth": "Hall 6 / C75",
+      "website": "WWW.ANGLAT.ORG"
+    },
+    {
+      "company": "A/S Aabentoft",
+      "country": "Denmark",
+      "booth": "Hall 5 / F08",
+      "website": "aabentoft.dk"
+    },
+    {
+      "company": "A2J GmbH",
+      "country": "Germany",
+      "booth": "Hall 4 / C26",
+      "website": ""
+    },
+    {
+      "company": "aacurat gmbh Hilfsmittel für die Alten- und Krankenpflege",
+      "country": "Germany",
+      "booth": "Hall 6 / A58",
+      "website": ""
+    },
+    {
+      "company": "AAT Alber Antriebstechnik GmbH",
+      "country": "Germany",
+      "booth": "Hall 7, level 0 / A02-1",
+      "website": ""
+    },
+    {
+      "company": "AAT Alber Antriebstechnik GmbH",
+      "country": "Germany",
+      "booth": "Hall 6 / G26",
+      "website": ""
+    },
+    {
+      "company": "Abilia AB",
+      "country": "Sweden",
+      "booth": "Hall 5 / D05",
+      "website": "abilia.com"
+    },
+    {
+      "company": "AbilityWatch e. V.",
+      "country": "Germany",
+      "booth": "Hall 7, level 0 / C05",
+      "website": "abilitywatch.de"
+    },
+    {
+      "company": "Acapela Group SA",
+      "country": "France",
+      "booth": "Hall 5 / E10",
+      "website": "acapela-group.com"
+    },
+    {
+      "company": "ACCESS ABILITIES EXPO DUBAI",
+      "country": "Germany",
+      "booth": "Hall 7, level 0 / 70EN_03",
+      "website": ""
+    },
+    {
+      "company": "Access-Ability E.U.R.L.",
+      "country": "France",
+      "booth": "Hall 6 / H75",
+      "website": "access-ability.eu"
+    },
+    {
+      "company": "acriba Service GmbH",
+      "country": "Germany",
+      "booth": "Hall 5 / D40",
+      "website": ""
+    },
+    {
+      "company": "Activa Automobil-Service GmbH",
+      "country": "Germany",
+      "booth": "Hall 6 / E59",
+      "website": "activa-automobilservice.de"
+    },
+    {
+      "company": "ADEENE INVEST, S.L.U.–CARLETT",
+      "country": "Spain",
+      "booth": "Hall 5 / K22",
+      "website": "carlett.com"
+    },
+    {
+      "company": "ADH Assistenzdienst Harmony UG",
+      "country": "Germany",
+      "booth": "Hall 1 / G32",
+      "website": ""
+    },
+    {
+      "company": "AFIKIM MOBILITY Ltd.",
+      "country": "Israel",
+      "booth": "Hall 5 / A25",
+      "website": "afiscooters.com"
+    },
+    {
+      "company": "AG Leichter Reisen – Barrierefreie Urlaubsziele in Deutschland c/o Südliche Weinstrasse e.V.",
+      "country": "Germany",
+      "booth": "Hall 5 / A29",
+      "website": "leichter-reisen.info"
+    },
+    {
+      "company": "Air Kinetic Technologies Corp. Ltd.",
+      "country": "Taiwan",
+      "booth": "Hall 5 / G43",
+      "website": "aktc.com.tw"
+    },
+    {
+      "company": "Akces-Med sp. z o.o.",
+      "country": "Poland",
+      "booth": "Hall 4 / J17",
+      "website": "akces-med.com"
+    },
+    {
+      "company": "akquinet GmbH",
+      "country": "Germany",
+      "booth": "Hall 5 / B30",
+      "website": "akquinet.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

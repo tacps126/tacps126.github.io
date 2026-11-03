@@ -1,0 +1,182 @@
+{
+  "id": "isc-west",
+  "name": "ISC West 2026",
+  "where": "Las Vegas, USA",
+  "industry": "Security",
+  "listUrl": "https://www.discoverisc.com/west/en-us/explore/exhibitor-directory.html",
+  "total": 514,
+  "countries": [
+    [
+      "United States",
+      415
+    ],
+    [
+      "China",
+      33
+    ],
+    [
+      "Canada",
+      28
+    ],
+    [
+      "Taiwan",
+      12
+    ],
+    [
+      "South Korea",
+      6
+    ],
+    [
+      "United Kingdom",
+      5
+    ],
+    [
+      "Hong Kong",
+      2
+    ],
+    [
+      "Singapore",
+      2
+    ],
+    [
+      "India",
+      2
+    ],
+    [
+      "Israel",
+      2
+    ]
+  ],
+  "countryCount": 16,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 92,
+    "phone": 92,
+    "email": 85,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "3Deye",
+      "country": "Canada",
+      "booth": "23003",
+      "website": "3deye.ai"
+    },
+    {
+      "company": "3SI",
+      "country": "United States",
+      "booth": "16127",
+      "website": "3si.com"
+    },
+    {
+      "company": "3xLogic",
+      "country": "United States",
+      "booth": "27099",
+      "website": "3xlogic.com"
+    },
+    {
+      "company": "4Liberty Inc.",
+      "country": "United States",
+      "booth": "34039",
+      "website": "4liberty.com"
+    },
+    {
+      "company": "AAEON Electronics",
+      "country": "United States",
+      "booth": "31074",
+      "website": "aaeon.com"
+    },
+    {
+      "company": "ABA Locks",
+      "country": "United States",
+      "booth": "2134",
+      "website": ""
+    },
+    {
+      "company": "Acoem ATD",
+      "country": "United States",
+      "booth": "14138",
+      "website": "acoematd.com"
+    },
+    {
+      "company": "acre security",
+      "country": "United States",
+      "booth": "23015",
+      "website": "acresecurity.com"
+    },
+    {
+      "company": "Actineon Inc.",
+      "country": "United States",
+      "booth": "23142",
+      "website": "actineon.com/security"
+    },
+    {
+      "company": "Action-CS",
+      "country": "United States",
+      "booth": "L4",
+      "website": "action-cs.com"
+    },
+    {
+      "company": "ACX Limited",
+      "country": "Hong Kong",
+      "booth": "4063",
+      "website": ""
+    },
+    {
+      "company": "Adaptive Recognition America Corp.",
+      "country": "Hungary",
+      "booth": "6055",
+      "website": "adaptiverecognition.com"
+    },
+    {
+      "company": "ADI",
+      "country": "United States",
+      "booth": "12043",
+      "website": "adiglobal.com/us"
+    },
+    {
+      "company": "ADRM",
+      "country": "United States",
+      "booth": "1058",
+      "website": "adrm-security.com"
+    },
+    {
+      "company": "Advance Partners",
+      "country": "United States",
+      "booth": "4117",
+      "website": "advancepartners.com"
+    },
+    {
+      "company": "Advanced",
+      "country": "United Kingdom",
+      "booth": "13142",
+      "website": "advancedco.com"
+    },
+    {
+      "company": "Advanced Network Devices",
+      "country": "United States",
+      "booth": "34055",
+      "website": "anetd.com"
+    },
+    {
+      "company": "Advancis Inc",
+      "country": "United States",
+      "booth": "11127",
+      "website": "advancis.net"
+    },
+    {
+      "company": "AEROVIRONMENT, INC.",
+      "country": "United States",
+      "booth": "25131",
+      "website": ""
+    },
+    {
+      "company": "AES Corporation",
+      "country": "United States",
+      "booth": "6034",
+      "website": "aes-corp.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

@@ -1,0 +1,182 @@
+{
+  "id": "london-book-fair",
+  "name": "The London Book Fair",
+  "where": "London, UK",
+  "industry": "Publishing",
+  "listUrl": "https://www.londonbookfair.co.uk/en-gb/exhibitor-directory.html",
+  "total": 519,
+  "countries": [
+    [
+      "United Kingdom",
+      231
+    ],
+    [
+      "United States",
+      126
+    ],
+    [
+      "Germany",
+      15
+    ],
+    [
+      "India",
+      15
+    ],
+    [
+      "Spain",
+      12
+    ],
+    [
+      "China",
+      11
+    ],
+    [
+      "France",
+      10
+    ],
+    [
+      "Sweden",
+      10
+    ],
+    [
+      "Canada",
+      10
+    ],
+    [
+      "Italy",
+      7
+    ]
+  ],
+  "countryCount": 42,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 88,
+    "phone": 70,
+    "email": 80,
+    "booth": 42
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "2 Seas Literary Agency",
+      "country": "United States",
+      "booth": "",
+      "website": "2seasagency.com"
+    },
+    {
+      "company": "23 First",
+      "country": "Australia",
+      "booth": "N.G30S",
+      "website": ""
+    },
+    {
+      "company": "42 Management & Production Ltd",
+      "country": "United Kingdom",
+      "booth": "",
+      "website": "42mp.com/books"
+    },
+    {
+      "company": "A M Heath & Co Ltd",
+      "country": "United Kingdom",
+      "booth": "",
+      "website": "amheath.com"
+    },
+    {
+      "company": "A.C.E.R. Agencia Literaria",
+      "country": "Spain",
+      "booth": "",
+      "website": "acerliteraria.com"
+    },
+    {
+      "company": "A.M.K.(Service) Agency Ltd/AMK Book Services",
+      "country": "United Kingdom",
+      "booth": "S.H30, S.H39",
+      "website": "amk.org"
+    },
+    {
+      "company": "Aaron Priest Literary Agency",
+      "country": "United States",
+      "booth": "",
+      "website": "aaronpriest.com"
+    },
+    {
+      "company": "Above the Treeline, LLC",
+      "country": "United States",
+      "booth": "N-A53",
+      "website": "edelweissplus.com"
+    },
+    {
+      "company": "Abrams & Chronicle Books",
+      "country": "United Kingdom",
+      "booth": "S.C20",
+      "website": "abramsandchronicle.co.uk"
+    },
+    {
+      "company": "ACC Art Books Ltd",
+      "country": "United Kingdom",
+      "booth": "S.D40",
+      "website": "accartbooks.com/uk"
+    },
+    {
+      "company": "Activ8 Global Logistics",
+      "country": "United Kingdom",
+      "booth": "S.C60",
+      "website": "activ8.org.uk"
+    },
+    {
+      "company": "Aevitas Creative Management",
+      "country": "United States",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "Aevitas Creative Management UK",
+      "country": "United Kingdom",
+      "booth": "",
+      "website": "aevitascreative.com/acm-uk"
+    },
+    {
+      "company": "Agatha Christie Ltd.",
+      "country": "United Kingdom",
+      "booth": "",
+      "website": "agathachristie.com"
+    },
+    {
+      "company": "Agence Hoffman GmbH",
+      "country": "Germany",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "AGENCE MICHELLE LAPAUTRE",
+      "country": "France",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "Agencia Literaria Carmen Balcells",
+      "country": "Spain",
+      "booth": "",
+      "website": "agenciabalcells.com"
+    },
+    {
+      "company": "Agency Ahlbäck Oy",
+      "country": "Finland",
+      "booth": "",
+      "website": "ahlbackagency.com"
+    },
+    {
+      "company": "Aitken Alexander Associates",
+      "country": "United Kingdom",
+      "booth": "",
+      "website": "aitkenalexander.co.uk"
+    },
+    {
+      "company": "AJA Anna Jarota Agency",
+      "country": "France",
+      "booth": "",
+      "website": "annajarota.fr"
+    }
+  ],
+  "updated": "2026-11-04"
+}

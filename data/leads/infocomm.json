@@ -1,0 +1,178 @@
+{
+  "id": "infocomm",
+  "name": "InfoComm 2027",
+  "where": "USA",
+  "industry": "Pro AV",
+  "listUrl": "https://infocomm27.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm",
+  "total": 692,
+  "countries": [
+    [
+      "United States",
+      26
+    ],
+    [
+      "China",
+      4
+    ],
+    [
+      "Canada",
+      3
+    ],
+    [
+      "United Kingdom",
+      2
+    ],
+    [
+      "Turkey",
+      1
+    ],
+    [
+      "Japan",
+      1
+    ],
+    [
+      "Australia",
+      1
+    ],
+    [
+      "Taiwan Region",
+      1
+    ],
+    [
+      "Germany",
+      1
+    ]
+  ],
+  "countryCount": 9,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 92,
+    "phone": 100,
+    "email": 50,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1 SOUND",
+      "country": "United States",
+      "booth": "5849, W221A",
+      "website": "1-sound.com"
+    },
+    {
+      "company": "22MILES",
+      "country": "United States",
+      "booth": "5281",
+      "website": "22miles.com"
+    },
+    {
+      "company": "4TheWall",
+      "country": "Turkey",
+      "booth": "5371",
+      "website": "4dsistem.com"
+    },
+    {
+      "company": "7thSense",
+      "country": "United States",
+      "booth": "4380",
+      "website": "7thsense.one"
+    },
+    {
+      "company": "888VoIP",
+      "country": "United States",
+      "booth": "635",
+      "website": ""
+    },
+    {
+      "company": "A-V Services",
+      "country": "United States",
+      "booth": "535",
+      "website": "avservices.net"
+    },
+    {
+      "company": "A.C. Americas (USA) Inc.",
+      "country": "Canada",
+      "booth": "4961",
+      "website": "acamericas.com"
+    },
+    {
+      "company": "ABCCABLS technology ningbo co., ltd",
+      "country": "China",
+      "booth": "1060",
+      "website": "abccabls.com"
+    },
+    {
+      "company": "Absen Inc.",
+      "country": "United States",
+      "booth": "4127",
+      "website": "usabsen.com"
+    },
+    {
+      "company": "Acoustic Innovations",
+      "country": "United States",
+      "booth": "8281",
+      "website": "acousticinnovations.com"
+    },
+    {
+      "company": "Acoustical Fulfillment, LLC",
+      "country": "United States",
+      "booth": "6973",
+      "website": "acousticalfulfillment.com"
+    },
+    {
+      "company": "ACT Entertainment",
+      "country": "United States",
+      "booth": "5461",
+      "website": "actentertainment.com"
+    },
+    {
+      "company": "Adamson",
+      "country": "Canada",
+      "booth": "6761",
+      "website": "adamson.ai"
+    },
+    {
+      "company": "Adaptive Technologies Group",
+      "country": "United States",
+      "booth": "861",
+      "website": "adaptivetechnologiesgroup.com"
+    },
+    {
+      "company": "Adder Technology",
+      "country": "United Kingdom",
+      "booth": "3125",
+      "website": "adder.com"
+    },
+    {
+      "company": "ADI",
+      "country": "United States",
+      "booth": "3843",
+      "website": "adiglobal.com"
+    },
+    {
+      "company": "ADJ",
+      "country": "United States",
+      "booth": "5047",
+      "website": "adj.com"
+    },
+    {
+      "company": "ADTECHNO Inc.",
+      "country": "Japan",
+      "booth": "4469",
+      "website": "ad-techno.com/en"
+    },
+    {
+      "company": "Advanced Media Technologies",
+      "country": "United States",
+      "booth": "2729",
+      "website": "amt.com"
+    },
+    {
+      "company": "Advanced Mounting & Design",
+      "country": "United States",
+      "booth": "2075",
+      "website": "advancedmounting.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

@@ -1,0 +1,182 @@
+{
+  "id": "coverings",
+  "name": "Coverings 2027",
+  "where": "USA",
+  "industry": "Tile & Stone",
+  "listUrl": "https://coverings2027.smallworldlabs.com/exhibitors",
+  "total": 315,
+  "countries": [
+    [
+      "United States",
+      20
+    ],
+    [
+      "India",
+      4
+    ],
+    [
+      "Italy",
+      4
+    ],
+    [
+      "China",
+      3
+    ],
+    [
+      "Turkey",
+      2
+    ],
+    [
+      "Argentina",
+      1
+    ],
+    [
+      "Thailand",
+      1
+    ],
+    [
+      "Canada",
+      1
+    ],
+    [
+      "Greece",
+      1
+    ],
+    [
+      "Singapore",
+      1
+    ]
+  ],
+  "countryCount": 11,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 82,
+    "phone": 50,
+    "email": 40,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "41zero42",
+      "country": "Italy",
+      "booth": "600",
+      "website": "41zero42.com"
+    },
+    {
+      "company": "Advantis Quartz LLP",
+      "country": "India",
+      "booth": "1698",
+      "website": "advantisusa.com"
+    },
+    {
+      "company": "Airlift USA Inc",
+      "country": "United States",
+      "booth": "3087",
+      "website": "airliftusa.com"
+    },
+    {
+      "company": "AIXIN TECH.CO., LTD",
+      "country": "China",
+      "booth": "698",
+      "website": "ralartmosaic.com"
+    },
+    {
+      "company": "Akgun Seramik/Dura-tiles",
+      "country": "United States",
+      "booth": "421",
+      "website": "duratiles.com"
+    },
+    {
+      "company": "Alfagres",
+      "country": "United States",
+      "booth": "225",
+      "website": "alfagres.com"
+    },
+    {
+      "company": "Alila Home(Thailand) Co.,Ltd.",
+      "country": "Thailand",
+      "booth": "3282",
+      "website": "alila-home.com"
+    },
+    {
+      "company": "Altea Ceramics LLC",
+      "country": "United States",
+      "booth": "3606",
+      "website": "alteaceramics.com"
+    },
+    {
+      "company": "Altura Stone",
+      "country": "United States",
+      "booth": "1470",
+      "website": "alturastoneandtile.com"
+    },
+    {
+      "company": "AlysEdwards Tile & Stone",
+      "country": "United States",
+      "booth": "3212",
+      "website": "alysedwards.com"
+    },
+    {
+      "company": "American Business Software, Inc.",
+      "country": "United States",
+      "booth": "6026",
+      "website": "AmericanBusinessSoftware.com"
+    },
+    {
+      "company": "Anatolia & Aeterna",
+      "country": "Canada",
+      "booth": "3620, 4329",
+      "website": "anatolia.com"
+    },
+    {
+      "company": "Andean Stone Company- Simpatico Surfaces",
+      "country": "United States",
+      "booth": "3657",
+      "website": "andeanstone.com"
+    },
+    {
+      "company": "Antolini Luigi & C. SpA",
+      "country": "Italy",
+      "booth": "2074",
+      "website": "antolini.com"
+    },
+    {
+      "company": "Apollo Stone Imports Inc.",
+      "country": "Greece",
+      "booth": "2190",
+      "website": "apollostone.com"
+    },
+    {
+      "company": "ARDEX AMERICAS",
+      "country": "United States",
+      "booth": "3332",
+      "website": "ardexamericas.com"
+    },
+    {
+      "company": "Aria Marble",
+      "country": "United States",
+      "booth": "2090",
+      "website": "ariamarble.com"
+    },
+    {
+      "company": "Arts  Co., Ltd",
+      "country": "China",
+      "booth": "2049",
+      "website": "WWW.ARTSBM.COM"
+    },
+    {
+      "company": "Arvex Srl.",
+      "country": "Italy",
+      "booth": "411",
+      "website": "arvexmosaic.com"
+    },
+    {
+      "company": "Asia Dynasty Resources Pte Ltd",
+      "country": "Singapore",
+      "booth": "394",
+      "website": "asiadynasty.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

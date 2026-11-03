@@ -1,0 +1,182 @@
+{
+  "id": "euroshop",
+  "name": "EuroShop",
+  "where": "Düsseldorf, Germany",
+  "industry": "Retail Trade Fair",
+  "listUrl": "https://www.euroshop-tradefair.com/vis/v1/en/directory",
+  "total": 2014,
+  "countries": [
+    [
+      "Germany",
+      14
+    ],
+    [
+      "Italy",
+      4
+    ],
+    [
+      "Poland",
+      4
+    ],
+    [
+      "United Kingdom of Great Britain and Northern Ireland",
+      2
+    ],
+    [
+      "Switzerland",
+      2
+    ],
+    [
+      "India",
+      2
+    ],
+    [
+      "Austria",
+      2
+    ],
+    [
+      "China",
+      2
+    ],
+    [
+      "Israel",
+      1
+    ],
+    [
+      "Netherlands",
+      1
+    ]
+  ],
+  "countryCount": 16,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 88,
+    "phone": 92,
+    "email": 98,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "A&M S.R.L.",
+      "country": "Italy",
+      "booth": "Hall 1 / C64",
+      "website": "aemproduction.com"
+    },
+    {
+      "company": "A. S. VALIDIGO LTD.",
+      "country": "Israel",
+      "booth": "Hall 5 / H18",
+      "website": "VALIDIGO.com"
+    },
+    {
+      "company": "A.A.G. STUCCHI SRL US",
+      "country": "Italy",
+      "booth": "Hall 9 / F39-2",
+      "website": "aagstucchi.it"
+    },
+    {
+      "company": "Abacus Solution Management Ltd",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "booth": "Hall 6 / G42",
+      "website": "lotteryeverywhere.com"
+    },
+    {
+      "company": "ABM COMPANY SRL",
+      "country": "Italy",
+      "booth": "Hall 13 / E92",
+      "website": "abmcompany.com"
+    },
+    {
+      "company": "ABM Spolka Akcyjna s.a.",
+      "country": "Poland",
+      "booth": "Hall 13 / C30",
+      "website": "abm.com.pl"
+    },
+    {
+      "company": "Abrantix AG",
+      "country": "Switzerland",
+      "booth": "Hall 7, level 0 / B15",
+      "website": "abrantix.com"
+    },
+    {
+      "company": "Abstract Mannequins Private Limited",
+      "country": "India",
+      "booth": "Hall 10 / C11-3",
+      "website": "abstractmannequins.com"
+    },
+    {
+      "company": "ACCENTA Music & P.O.S. GmbH",
+      "country": "Germany",
+      "booth": "Hall 4 / E67",
+      "website": "accenta.de"
+    },
+    {
+      "company": "Accurate sp. j.",
+      "country": "Poland",
+      "booth": "Hall 4 / B18",
+      "website": "accurate.pl"
+    },
+    {
+      "company": "ACR GmbH",
+      "country": "Austria",
+      "booth": "Hall 9 / D44",
+      "website": "acr-group.at"
+    },
+    {
+      "company": "ACRILGRAPH SRL",
+      "country": "Italy",
+      "booth": "Hall 11 / E70",
+      "website": "acrilgraph.com"
+    },
+    {
+      "company": "acryl-decor Busse GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "Hall 4 / C33",
+      "website": ""
+    },
+    {
+      "company": "Actemium Mechatronic GmbH",
+      "country": "Germany",
+      "booth": "Hall 5 / B02",
+      "website": ""
+    },
+    {
+      "company": "Adasys GmbH a Poindus Company",
+      "country": "Germany",
+      "booth": "Hall 6 / G75",
+      "website": "adasys.de"
+    },
+    {
+      "company": "Adder Vertrieb Deutschland GmbH",
+      "country": "Germany",
+      "booth": "Hall 4 / A55",
+      "website": ""
+    },
+    {
+      "company": "ADE Vertriebs GmbH",
+      "country": "Germany",
+      "booth": "Hall 6 / B76",
+      "website": "ade-vertrieb.de"
+    },
+    {
+      "company": "adesso SE",
+      "country": "Germany",
+      "booth": "Hall 5 / E31",
+      "website": "adesso.de"
+    },
+    {
+      "company": "ADEXPO B.V.",
+      "country": "Netherlands",
+      "booth": "Hall 1 / C26",
+      "website": "adexpo.de"
+    },
+    {
+      "company": "ADITAC SOLUTIONS & SERVICES PVT LTD",
+      "country": "India",
+      "booth": "Hall 11 / C49",
+      "website": "ADITAC.COM"
+    }
+  ],
+  "updated": "2026-11-04"
+}

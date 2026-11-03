@@ -1,0 +1,182 @@
+{
+  "id": "automechanika-dubai",
+  "name": "Automechanika Dubai",
+  "where": "UAE",
+  "industry": "Automotive Aftermarket",
+  "listUrl": "https://automechanika-dubai.ae.messefrankfurt.com/dubai/en/exhibitor-list.html",
+  "total": 1253,
+  "countries": [
+    [
+      "China",
+      562
+    ],
+    [
+      "United Arab Emirates",
+      121
+    ],
+    [
+      "Hong Kong",
+      109
+    ],
+    [
+      "Taiwan",
+      98
+    ],
+    [
+      "Korea, the Republic of (South)",
+      71
+    ],
+    [
+      "Germany",
+      39
+    ],
+    [
+      "Thailand",
+      32
+    ],
+    [
+      "Türkiye",
+      30
+    ],
+    [
+      "United States",
+      23
+    ],
+    [
+      "India",
+      23
+    ]
+  ],
+  "countryCount": 50,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 98,
+    "phone": 98,
+    "email": 95,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "360 International Group Ltd.",
+      "country": "Hong Kong",
+      "booth": "null",
+      "website": "cn360led.com"
+    },
+    {
+      "company": "99 Business Media",
+      "country": "India",
+      "booth": "N / 07055",
+      "website": "99business.com"
+    },
+    {
+      "company": "Abdul Zahir Bashir Automotive Trading LLC",
+      "country": "United Arab Emirates",
+      "booth": "S / 04742",
+      "website": "azb.ae"
+    },
+    {
+      "company": "ACM Hi-Tech",
+      "country": "Pakistan",
+      "booth": "N / 06042",
+      "website": "acmgroup.com.pk"
+    },
+    {
+      "company": "ACV Rich Co., Ltd.",
+      "country": "Thailand",
+      "booth": "S / 04233",
+      "website": "acvrich.com"
+    },
+    {
+      "company": "ADD Industry （ZheJiang） Corporation Limited",
+      "country": "China",
+      "booth": "S / 05512",
+      "website": "addchina.com"
+    },
+    {
+      "company": "ADEL AUTO OTOMOTIV SANAYI VE TICARET  ANONIM SIRKETI",
+      "country": "Türkiye",
+      "booth": "S / 04612",
+      "website": "adelauto.com"
+    },
+    {
+      "company": "ADR Group of Companies (PT Selamat Sempurna TBK)",
+      "country": "Indonesia",
+      "booth": "N / 06618",
+      "website": "adr-group.com"
+    },
+    {
+      "company": "Advance Auto Supply Company Limited",
+      "country": "Thailand",
+      "booth": "S / 04040",
+      "website": "advanceauto.co.th"
+    },
+    {
+      "company": "Advance Holdings (Group) International Co., Limited",
+      "country": "Hong Kong",
+      "booth": "S / 04254",
+      "website": "advantire.com"
+    },
+    {
+      "company": "AEP (H.K.) International Trading Limited",
+      "country": "Hong Kong",
+      "booth": "N / 07937",
+      "website": "royalrhinoppf.com"
+    },
+    {
+      "company": "AFI METAL (M) SDN. BHD.",
+      "country": "Malaysia",
+      "booth": "N / 07212",
+      "website": "afibrake.com"
+    },
+    {
+      "company": "Afra Auto Spare Parts Trading Fzco",
+      "country": "United Arab Emirates",
+      "booth": "null",
+      "website": ""
+    },
+    {
+      "company": "AGS Logistics LLC",
+      "country": "United Arab Emirates",
+      "booth": "N / 07010",
+      "website": "agslog.com"
+    },
+    {
+      "company": "AHG GmbH",
+      "country": "Germany",
+      "booth": "N / 07620",
+      "website": "ahg-autoteile.de"
+    },
+    {
+      "company": "Ahmed Al Hariri General Trading LLC",
+      "country": "United Arab Emirates",
+      "booth": "N / 06709",
+      "website": "ahmedalharirigroup.com"
+    },
+    {
+      "company": "Ain Global Foundation",
+      "country": "Korea, the Republic of (South)",
+      "booth": "S / 04340",
+      "website": "ainglobal.org"
+    },
+    {
+      "company": "Aipsi (Huzhou) Auto Parts Co Ltd",
+      "country": "China",
+      "booth": "S / 03625",
+      "website": "aipsiauto.com"
+    },
+    {
+      "company": "Airpro Fragrances International - FZCO",
+      "country": "United Arab Emirates",
+      "booth": "N / 06242",
+      "website": "airprofragrances.com"
+    },
+    {
+      "company": "Airui Automotive Technology (Harbin) Co., Ltd.",
+      "country": "China",
+      "booth": "S / 02919",
+      "website": "chinaairui.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

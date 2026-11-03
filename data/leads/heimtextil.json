@@ -1,0 +1,182 @@
+{
+  "id": "heimtextil",
+  "name": "Heimtextil",
+  "where": "Frankfurt, Germany",
+  "industry": "Home & Contract Textiles",
+  "listUrl": "https://heimtextil.messefrankfurt.com/frankfurt/en/exhibitor-search.html",
+  "total": 2346,
+  "countries": [
+    [
+      "China",
+      792
+    ],
+    [
+      "India",
+      435
+    ],
+    [
+      "Pakistan",
+      264
+    ],
+    [
+      "Türkiye",
+      179
+    ],
+    [
+      "Germany",
+      111
+    ],
+    [
+      "Italy",
+      69
+    ],
+    [
+      "Spain",
+      58
+    ],
+    [
+      "Great Britain and Northern Ireland",
+      36
+    ],
+    [
+      "Hong Kong",
+      36
+    ],
+    [
+      "Portugal",
+      35
+    ]
+  ],
+  "countryCount": 63,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 82,
+    "phone": 65,
+    "email": 92,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1888 Mills, LLC",
+      "country": "United States",
+      "booth": "9.0 / B41",
+      "website": "1888mills.com"
+    },
+    {
+      "company": "5 EFFE SRL",
+      "country": "Italy",
+      "booth": "4.2 / G16",
+      "website": ""
+    },
+    {
+      "company": "A.B. Export Pvt. Ltd.",
+      "country": "Pakistan",
+      "booth": "8.0 / B31",
+      "website": "ab.com.pk"
+    },
+    {
+      "company": "Aadya International",
+      "country": "India",
+      "booth": "11.0 / A74",
+      "website": "aadyahome.com"
+    },
+    {
+      "company": "Aarnav Industries Pvt.Ltd.",
+      "country": "India",
+      "booth": "8.0 / J53D",
+      "website": "aarnavgroup.com"
+    },
+    {
+      "company": "Aauraa Home Fashion Pvt. Ltd.",
+      "country": "India",
+      "booth": "8.0 / H56B",
+      "website": "aauraahomefashion.in"
+    },
+    {
+      "company": "ABBS International Inc.",
+      "country": "India",
+      "booth": "8.0 / F90",
+      "website": "abbs.in"
+    },
+    {
+      "company": "ABC Italia S.r.l.",
+      "country": "Italy",
+      "booth": "3.1 / C50",
+      "website": "abcitalia.net"
+    },
+    {
+      "company": "ABC Tekstil Sanayi ve Ticaret A.S.",
+      "country": "Türkiye",
+      "booth": "5.0 / B41",
+      "website": "abctekstil.com"
+    },
+    {
+      "company": "ABC Textile, LLC",
+      "country": "Armenia",
+      "booth": "5.0 / C51",
+      "website": "abctextile.am"
+    },
+    {
+      "company": "Abdelrahman Elayashy Heimtextile",
+      "country": "Germany",
+      "booth": "5.1 / C50",
+      "website": "finole.de"
+    },
+    {
+      "company": "Abdul Ahad Textile Mills (Pvt) Ltd.",
+      "country": "Pakistan",
+      "booth": "8.0 / J34",
+      "website": "abdulahadtextiles.com"
+    },
+    {
+      "company": "Abdullah Enterprises",
+      "country": "Pakistan",
+      "booth": "9.1 / C41D",
+      "website": ""
+    },
+    {
+      "company": "Abdullah Textile",
+      "country": "Pakistan",
+      "booth": "9.1 / C41L",
+      "website": "kintex.com.pk"
+    },
+    {
+      "company": "Abdur Rahman Corporation (Pvt.) Ltd.",
+      "country": "Pakistan",
+      "booth": "8.0 / F56",
+      "website": "arc.com.pk"
+    },
+    {
+      "company": "Abinaya Grineters",
+      "country": "India",
+      "booth": "12.0 / E88",
+      "website": "abinayahome.com"
+    },
+    {
+      "company": "ABN Pazarlama Konfeksiyon Tekstil San. ve Tic. Ltd. Sti.",
+      "country": "Türkiye",
+      "booth": "5.0 / C28",
+      "website": "abntekstil.com"
+    },
+    {
+      "company": "Abra Cotton Creations Pvt.Ltd.",
+      "country": "India",
+      "booth": "8.0 / G57A",
+      "website": "cottoncreations.in"
+    },
+    {
+      "company": "ABS International",
+      "country": "United States",
+      "booth": "8.0 / F80",
+      "website": "abstrade.com"
+    },
+    {
+      "company": "Accent Textiles Company Limited",
+      "country": "China",
+      "booth": "9.1 / E40B",
+      "website": ""
+    }
+  ],
+  "updated": "2026-11-04"
+}

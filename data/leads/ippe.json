@@ -1,0 +1,182 @@
+{
+  "id": "ippe",
+  "name": "IPPE 2027",
+  "where": "Atlanta, USA",
+  "industry": "Poultry, Meat & Feed",
+  "listUrl": "https://ippe27.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm",
+  "total": 1338,
+  "countries": [
+    [
+      "United States of America",
+      28
+    ],
+    [
+      "China",
+      3
+    ],
+    [
+      "Brazil",
+      2
+    ],
+    [
+      "Serbia",
+      1
+    ],
+    [
+      "Italy",
+      1
+    ],
+    [
+      "Austria",
+      1
+    ],
+    [
+      "Ecuador",
+      1
+    ],
+    [
+      "Spain",
+      1
+    ],
+    [
+      "Canada",
+      1
+    ],
+    [
+      "Mexico",
+      1
+    ]
+  ],
+  "countryCount": 10,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 95,
+    "phone": 52,
+    "email": 40,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "4B Components",
+      "country": "United States of America",
+      "booth": "A1127",
+      "website": "go4b.com/usa"
+    },
+    {
+      "company": "A OK Transportation",
+      "country": "United States of America",
+      "booth": "A2908",
+      "website": ""
+    },
+    {
+      "company": "A&P Nutrition",
+      "country": "Serbia",
+      "booth": "A2443",
+      "website": "global.patent-co.com"
+    },
+    {
+      "company": "A.C. Legg, Inc.",
+      "country": "United States of America",
+      "booth": "BC39095",
+      "website": "aclegg.com"
+    },
+    {
+      "company": "A.H.A. International",
+      "country": "China",
+      "booth": "A2452",
+      "website": "ahaint.com"
+    },
+    {
+      "company": "A.T. Ferrell",
+      "country": "United States of America",
+      "booth": "A2762",
+      "website": "atferrell.com"
+    },
+    {
+      "company": "A.W.P. SpA",
+      "country": "Italy",
+      "booth": "A1002",
+      "website": "awpint.com"
+    },
+    {
+      "company": "A/B Technologies (ABT)",
+      "country": "United States of America",
+      "booth": "A1836",
+      "website": "abtusa.com"
+    },
+    {
+      "company": "AAFCO",
+      "country": "United States of America",
+      "booth": "A231",
+      "website": "aafco.org"
+    },
+    {
+      "company": "AAT Freezing",
+      "country": "Austria",
+      "booth": "B41071",
+      "website": "aat-freezing.at"
+    },
+    {
+      "company": "AB Vista Inc.",
+      "country": "United States of America",
+      "booth": "A841",
+      "website": "abvista.com"
+    },
+    {
+      "company": "ABB",
+      "country": "United States of America",
+      "booth": "B31027",
+      "website": "new.abb.com/us/us-motion-business-area/us-tradeshows/international-production-and-processing-expo-(ippe)"
+    },
+    {
+      "company": "Abel",
+      "country": "United States of America",
+      "booth": "A2329",
+      "website": "abelusa.com"
+    },
+    {
+      "company": "ABIQUIFI",
+      "country": "Brazil",
+      "booth": "B26007, B27009, B28005",
+      "website": "abiquifi.org.br"
+    },
+    {
+      "company": "ABPA Brazilian Animal Protein",
+      "country": "Brazil",
+      "booth": "B36074",
+      "website": "abpa-br.org"
+    },
+    {
+      "company": "Acme Engineering & Mfg.",
+      "country": "United States of America",
+      "booth": "B27027",
+      "website": "acmefan.com"
+    },
+    {
+      "company": "ACO",
+      "country": "United States of America",
+      "booth": "B36058",
+      "website": "ACOusa.com"
+    },
+    {
+      "company": "Actionpaq",
+      "country": "United States of America",
+      "booth": "B41033",
+      "website": "OneMotion.tech"
+    },
+    {
+      "company": "Acuity Brands Lighting",
+      "country": "United States of America",
+      "booth": "A1071",
+      "website": "holophane.com"
+    },
+    {
+      "company": "Addeasy Group",
+      "country": "China",
+      "booth": "A603",
+      "website": "addeasygroup.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

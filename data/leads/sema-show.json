@@ -1,0 +1,141 @@
+{
+  "id": "sema-show",
+  "name": "SEMA Show 2026",
+  "where": "Las Vegas, USA",
+  "industry": "Automotive Aftermarket",
+  "listUrl": "https://sema26.mapyourshow.com/8_0/explore/exhibitor-gallery.cfm",
+  "total": 2286,
+  "countries": [],
+  "countryCount": 0,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 92,
+    "phone": 48,
+    "email": 55,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1-800EveryRim OEM Wheels",
+      "country": "",
+      "booth": "48088",
+      "website": "1-800EveryRim.com"
+    },
+    {
+      "company": "12D Toolbox Sales",
+      "country": "",
+      "booth": "10277",
+      "website": ""
+    },
+    {
+      "company": "1stMILE",
+      "country": "",
+      "booth": "24713, 44219",
+      "website": "1stmile.com/shop-owners"
+    },
+    {
+      "company": "1stMILE EV Charging",
+      "country": "",
+      "booth": "24713",
+      "website": "1stmile.com/shop-owners"
+    },
+    {
+      "company": "295guys.com",
+      "country": "",
+      "booth": "11433",
+      "website": "295guys.com"
+    },
+    {
+      "company": "31 Incorporated",
+      "country": "",
+      "booth": "41089",
+      "website": "31inc.com"
+    },
+    {
+      "company": "360 Payments",
+      "country": "",
+      "booth": "11253",
+      "website": ""
+    },
+    {
+      "company": "3D Car Care",
+      "country": "",
+      "booth": "50131",
+      "website": ""
+    },
+    {
+      "company": "3M Automotive Aftermarket Division",
+      "country": "",
+      "booth": "30129",
+      "website": "3MCollision.com"
+    },
+    {
+      "company": "3M Personal Auto",
+      "country": "",
+      "booth": "50051",
+      "website": "3M.com/PersonalAuto"
+    },
+    {
+      "company": "3W Auto Life",
+      "country": "",
+      "booth": "54169",
+      "website": "3wliners.com"
+    },
+    {
+      "company": "4X4 Accessories- Landace",
+      "country": "",
+      "booth": "11367",
+      "website": "landace.cn"
+    },
+    {
+      "company": "5 Aces Solutions Inc",
+      "country": "",
+      "booth": "95001",
+      "website": "5aces.com"
+    },
+    {
+      "company": "71lbs",
+      "country": "",
+      "booth": "11517",
+      "website": "71lbs.com"
+    },
+    {
+      "company": "7fifteen Motorworks.com",
+      "country": "",
+      "booth": "22885",
+      "website": "7fifteenmotorworks.com"
+    },
+    {
+      "company": "911Signal",
+      "country": "",
+      "booth": "12879",
+      "website": "911signal.com"
+    },
+    {
+      "company": "A. Duie Pyle",
+      "country": "",
+      "booth": "12281",
+      "website": "aduiepyle.com"
+    },
+    {
+      "company": "A.J. Dralle, Inc.",
+      "country": "",
+      "booth": "34151",
+      "website": "ajdralle.net"
+    },
+    {
+      "company": "ABA Locks",
+      "country": "",
+      "booth": "12470",
+      "website": "abalocks.com/en"
+    },
+    {
+      "company": "ABHIRASHI IMPEX INDIA",
+      "country": "",
+      "booth": "24577",
+      "website": "abhirashi.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

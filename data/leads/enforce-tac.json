@@ -1,0 +1,182 @@
+{
+  "id": "enforce-tac",
+  "name": "Enforce Tac",
+  "where": "Nuremberg, Germany",
+  "industry": "Security & Defence",
+  "listUrl": "https://www.enforcetac.com/en/exhibitors-products/find-exhibitors",
+  "total": 946,
+  "countries": [
+    [
+      "Germany",
+      386
+    ],
+    [
+      "United States",
+      67
+    ],
+    [
+      "Italy",
+      35
+    ],
+    [
+      "Austria",
+      34
+    ],
+    [
+      "Israel",
+      31
+    ],
+    [
+      "United Kingdom",
+      29
+    ],
+    [
+      "Sweden",
+      28
+    ],
+    [
+      "Netherlands",
+      27
+    ],
+    [
+      "Czechia",
+      25
+    ],
+    [
+      "France",
+      22
+    ]
+  ],
+  "countryCount": 46,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 100,
+    "phone": 100,
+    "email": 35,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "'TORAY' TAK TEXTILES KOREA LNC.",
+      "country": "South Korea",
+      "booth": "7-686",
+      "website": "taktextiles.com"
+    },
+    {
+      "company": "101 Tech USA Inc.",
+      "country": "United States",
+      "booth": "10.0-315",
+      "website": "101techusa.com"
+    },
+    {
+      "company": "3C-TEX INTERNATIONAL CO., LTD.",
+      "country": "Taiwan",
+      "booth": "6-400",
+      "website": "3c-tex.com"
+    },
+    {
+      "company": "3D-WERK Black Forest GmbH",
+      "country": "Germany",
+      "booth": "9-467",
+      "website": "www.3d-werk.info"
+    },
+    {
+      "company": "3M",
+      "country": "Germany",
+      "booth": "7-472",
+      "website": "www.3M.com"
+    },
+    {
+      "company": "5.11 Tactical",
+      "country": "Sweden",
+      "booth": "9-459",
+      "website": "www.511tactical.com"
+    },
+    {
+      "company": "5.11 Tactical",
+      "country": "Sweden",
+      "booth": "9-646",
+      "website": "www.511tactical.com"
+    },
+    {
+      "company": "A-TEC AS",
+      "country": "Norway",
+      "booth": "12.0-240",
+      "website": "www.a-tec.no"
+    },
+    {
+      "company": "A. Blöchl Großhandels GmbH",
+      "country": "Germany",
+      "booth": "9-564",
+      "website": "bloechl-shop.de"
+    },
+    {
+      "company": "A. Liersch GmbH",
+      "country": "Germany",
+      "booth": "6-408",
+      "website": "www.liersch-automation.com"
+    },
+    {
+      "company": "A. Schweiger GmbH",
+      "country": "Germany",
+      "booth": "9-274",
+      "website": "www.schweiger-group.de"
+    },
+    {
+      "company": "A.R.S. - Active Resilience Solutions GmbH",
+      "country": "Germany",
+      "booth": "6-314",
+      "website": "www.activeresiliencesolutions.de"
+    },
+    {
+      "company": "A10 Equipment",
+      "country": "France",
+      "booth": "9-260",
+      "website": "a10-equipment.com"
+    },
+    {
+      "company": "Aaronia AG",
+      "country": "Germany",
+      "booth": "7A-521",
+      "website": "www.drone-detection-system.com"
+    },
+    {
+      "company": "AASIAS.com",
+      "country": "Spain",
+      "booth": "12.0-478",
+      "website": "www.aasias.com"
+    },
+    {
+      "company": "Abraservice Deutschland GmbH",
+      "country": "Germany",
+      "booth": "7-714",
+      "website": "abraservice.com/de-de"
+    },
+    {
+      "company": "ABRONA INTERNATIONAL",
+      "country": "Pakistan",
+      "booth": "6-237",
+      "website": "www.abrona.com"
+    },
+    {
+      "company": "ABTGear",
+      "country": "Hong Kong SAR China",
+      "booth": "9-164",
+      "website": "www.abtgear.com"
+    },
+    {
+      "company": "Acheron AG",
+      "country": "Switzerland",
+      "booth": "10.0-236",
+      "website": "www.acheron.ch"
+    },
+    {
+      "company": "ACS Armoured Car Systems GmbH",
+      "country": "Germany",
+      "booth": "7A-226",
+      "website": "www.acs-armoured-cars.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

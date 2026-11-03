@@ -1,0 +1,182 @@
+{
+  "id": "texprocess",
+  "name": "Texprocess",
+  "where": "Frankfurt, Germany",
+  "industry": "Textile Processing",
+  "listUrl": "https://texprocess.messefrankfurt.com/frankfurt/en/exhibitor-search.html",
+  "total": 184,
+  "countries": [
+    [
+      "Germany",
+      60
+    ],
+    [
+      "Italy",
+      25
+    ],
+    [
+      "China",
+      19
+    ],
+    [
+      "Türkiye",
+      12
+    ],
+    [
+      "Taiwan",
+      10
+    ],
+    [
+      "Great Britain and Northern Ireland",
+      8
+    ],
+    [
+      "Japan",
+      5
+    ],
+    [
+      "Belgium",
+      5
+    ],
+    [
+      "Poland",
+      4
+    ],
+    [
+      "Portugal",
+      4
+    ]
+  ],
+  "countryCount": 28,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 92,
+    "phone": 95,
+    "email": 92,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "Aitu (Zhejiang) Intelligent Sewing Technology Co., Ltd.",
+      "country": "China",
+      "booth": "8.0 / F40",
+      "website": ""
+    },
+    {
+      "company": "AMANN Group",
+      "country": "Germany",
+      "booth": "8.0 / H47",
+      "website": "amann.com"
+    },
+    {
+      "company": "Ardmel Automation Ltd.",
+      "country": "Great Britain and Northern Ireland",
+      "booth": "8.0 / B18",
+      "website": "ardmel-group.co.uk"
+    },
+    {
+      "company": "Ariadna S.A. Fabryka Nici",
+      "country": "Poland",
+      "booth": "8.0 / E64",
+      "website": "ariadna.com.pl"
+    },
+    {
+      "company": "Artitex GmbH",
+      "country": "Germany",
+      "booth": "8.0 / E41",
+      "website": "artitex.de"
+    },
+    {
+      "company": "Ascolite AG",
+      "country": "Switzerland",
+      "booth": "8.0 / H41",
+      "website": "ascolite.com"
+    },
+    {
+      "company": "AUP, Lda",
+      "country": "Portugal",
+      "booth": "8.0 / B62",
+      "website": "aup.pt/en/en.html"
+    },
+    {
+      "company": "BAi Europe",
+      "country": "France",
+      "booth": "8.0 / G17",
+      "website": "europe-bai.com"
+    },
+    {
+      "company": "Barbiero Alfonso S.A.S.",
+      "country": "Italy",
+      "booth": "8.0 / B81",
+      "website": "barbieroalfonso.it"
+    },
+    {
+      "company": "Barudan Co., Ltd.",
+      "country": "Japan",
+      "booth": "8.0 / F20",
+      "website": "barudan.co.jp/en"
+    },
+    {
+      "company": "Battistella B.G. S.r.l.",
+      "country": "Italy",
+      "booth": "8.0 / F48",
+      "website": "battistellag.it"
+    },
+    {
+      "company": "BE-terna GmbH",
+      "country": "Germany",
+      "booth": "8.0 / E39",
+      "website": "be-terna.com"
+    },
+    {
+      "company": "BeKa Industrie Ausruestung Vertriebs- GmbH",
+      "country": "Germany",
+      "booth": "8.0 / E60",
+      "website": "bekasew24.com"
+    },
+    {
+      "company": "Brother Internationale Industriemaschinen GmbH",
+      "country": "Germany",
+      "booth": "8.0 / G75",
+      "website": "brother-industrial.com"
+    },
+    {
+      "company": "bullmer GmbH",
+      "country": "Germany",
+      "booth": "8.0 / F40",
+      "website": "bullmer.de"
+    },
+    {
+      "company": "C.A.R.T.CONF SRL",
+      "country": "Italy",
+      "booth": "8.0 / C71",
+      "website": "cartconf.it"
+    },
+    {
+      "company": "CANDLE THREAD EU",
+      "country": "Belgium",
+      "booth": "8.0 / E19",
+      "website": ""
+    },
+    {
+      "company": "CARCANO EGIDIO &amp; C SRL",
+      "country": "Italy",
+      "booth": "8.0 / E56",
+      "website": "carcanoegidio.it"
+    },
+    {
+      "company": "Chung Tien Enterprise Co., Ltd.",
+      "country": "Taiwan",
+      "booth": "8.0 / F39A",
+      "website": ""
+    },
+    {
+      "company": "CITEVE - Centro Tecnol&oacute;gico Das Ind&uacute;strias T&ecirc;xtil e do Vestu&aacute;rio De Portugal",
+      "country": "Portugal",
+      "booth": "8.0 / E31",
+      "website": "citeve.pt"
+    }
+  ],
+  "updated": "2026-11-04"
+}

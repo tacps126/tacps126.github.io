@@ -1,0 +1,141 @@
+{
+  "id": "imex-frankfurt",
+  "name": "IMEX Frankfurt",
+  "where": "Frankfurt, Germany",
+  "industry": "Meetings & Events",
+  "listUrl": "https://if26-live-imexexhibitions.expoplatform.com/newfront/marketplace/exhibitors",
+  "total": 2924,
+  "countries": [],
+  "countryCount": 0,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 92,
+    "phone": 80,
+    "email": 58,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "-45dB",
+      "country": "",
+      "booth": "A610",
+      "website": "minus45db.com"
+    },
+    {
+      "company": "1 Hotel South Beach",
+      "country": "",
+      "booth": "E150",
+      "website": "1hotels.com/south-beach"
+    },
+    {
+      "company": "1 Hotel Copenhagen",
+      "country": "",
+      "booth": "B250",
+      "website": "1hotels.com/copenhagen"
+    },
+    {
+      "company": "25hours Hotels",
+      "country": "",
+      "booth": "B650",
+      "website": "25hours-hotels.com"
+    },
+    {
+      "company": "2B UK DMC",
+      "country": "",
+      "booth": "B440",
+      "website": "2b-uk.com"
+    },
+    {
+      "company": "2B UK DMC - Scotland",
+      "country": "",
+      "booth": "B420",
+      "website": "www.2b-uk.com"
+    },
+    {
+      "company": "2MTravel Europe",
+      "country": "",
+      "booth": "D600",
+      "website": "2mtraveleurope.com"
+    },
+    {
+      "company": "2xceed",
+      "country": "",
+      "booth": "D630",
+      "website": "www.2xceed.com"
+    },
+    {
+      "company": "2xceed",
+      "country": "",
+      "booth": "C550",
+      "website": "www.2xceed.com"
+    },
+    {
+      "company": "3E HOLIDAYS LLC",
+      "country": "",
+      "booth": "D630",
+      "website": "www.3eholidays.ae"
+    },
+    {
+      "company": "4 TITANIC Hotels Berlin",
+      "country": "",
+      "booth": "B010",
+      "website": "titanic.com.tr/destinations/berlin"
+    },
+    {
+      "company": "4foreverything",
+      "country": "",
+      "booth": "C250",
+      "website": "www.4foreverything.com"
+    },
+    {
+      "company": "4L Collection Hotels",
+      "country": "",
+      "booth": "D400",
+      "website": "4lcollection.com/en"
+    },
+    {
+      "company": "5 Senses Lifestyle",
+      "country": "",
+      "booth": "C230",
+      "website": "beone-event.es"
+    },
+    {
+      "company": "62°N DMC Faroe Islands",
+      "country": "",
+      "booth": "B225",
+      "website": "62n.fo/travel/en"
+    },
+    {
+      "company": "7Pines Resorts (Ibiza & Sardinia) and Schloss Roxburghe Golf & Spa",
+      "country": "",
+      "booth": "A600",
+      "website": "7pines.com"
+    },
+    {
+      "company": "8 Birds Tours and Events Co., Ltd.",
+      "country": "",
+      "booth": "E500",
+      "website": "www.8birdstravel.com"
+    },
+    {
+      "company": "AA VIAJES MASTER DMC",
+      "country": "",
+      "booth": "D350",
+      "website": ""
+    },
+    {
+      "company": "ABAX TRAVEL DMC",
+      "country": "",
+      "booth": "E110",
+      "website": "abaxtravel.com.ar"
+    },
+    {
+      "company": "Abbaye des Vaux-de-Cernay, a Paris Society hotel",
+      "country": "",
+      "booth": "B650",
+      "website": "abbayedesvauxdecernay.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

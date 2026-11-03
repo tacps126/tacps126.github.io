@@ -1,0 +1,182 @@
+{
+  "id": "interzoo",
+  "name": "Interzoo",
+  "where": "Nuremberg, Germany",
+  "industry": "Pet Supplies",
+  "listUrl": "https://www.interzoo.com/en/exhibitors-products/find-exhibitors",
+  "total": 2403,
+  "countries": [
+    [
+      "China",
+      569
+    ],
+    [
+      "Germany",
+      313
+    ],
+    [
+      "Italy",
+      150
+    ],
+    [
+      "United States",
+      108
+    ],
+    [
+      "Netherlands",
+      96
+    ],
+    [
+      "Poland",
+      95
+    ],
+    [
+      "Spain",
+      91
+    ],
+    [
+      "India",
+      90
+    ],
+    [
+      "Turkey",
+      87
+    ],
+    [
+      "United Kingdom",
+      87
+    ]
+  ],
+  "countryCount": 68,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 88,
+    "phone": 95,
+    "email": 52,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "4 Healthy Pets NV -  Edgard & Cooper",
+      "country": "Belgium",
+      "booth": "9-449",
+      "website": "www.edgardcooper.com"
+    },
+    {
+      "company": "Absolute Petfood  - TM Grandorf",
+      "country": "Belgium",
+      "booth": "6-206",
+      "website": "grandorf.eu"
+    },
+    {
+      "company": "ADB Petite",
+      "country": "Belgium",
+      "booth": "10-220",
+      "website": "www.easywayofgrooming.com"
+    },
+    {
+      "company": "AGROS Trading GmbH",
+      "country": "Austria",
+      "booth": "9-223",
+      "website": "www.agros.pet"
+    },
+    {
+      "company": "Allvita Animal Health",
+      "country": "Australia",
+      "booth": "1-115",
+      "website": ""
+    },
+    {
+      "company": "Aniveri GmbH Damit es unseren Tieren gut geht",
+      "country": "Austria",
+      "booth": "3C-630",
+      "website": "www.aniveri.com"
+    },
+    {
+      "company": "Arvesta Animal Nutrition BV",
+      "country": "Belgium",
+      "booth": "5-121",
+      "website": "www.hobbyfirst.com"
+    },
+    {
+      "company": "Bono Fido Pet Products P/L",
+      "country": "Australia",
+      "booth": "3-327",
+      "website": "www.rcipetloves.com"
+    },
+    {
+      "company": "Clever Dog Shop",
+      "country": "Austria",
+      "booth": "3-807",
+      "website": "www.cdog.store"
+    },
+    {
+      "company": "CONSTANTIA FLEXIBLES INTERNATIONAL GMBH",
+      "country": "Austria",
+      "booth": "9-643",
+      "website": "www.cflex.com"
+    },
+    {
+      "company": "Coveris",
+      "country": "Austria",
+      "booth": "6-134",
+      "website": "www.coveris.com"
+    },
+    {
+      "company": "DOOG",
+      "country": "Australia",
+      "booth": "6-123",
+      "website": "www.doog.com.au"
+    },
+    {
+      "company": "Ewalia GmbH",
+      "country": "Austria",
+      "booth": "10-436",
+      "website": "ewalia.com/de"
+    },
+    {
+      "company": "FuzzYard Pty Ltd.",
+      "country": "Australia",
+      "booth": "3-668",
+      "website": "www.fuzzyard.com"
+    },
+    {
+      "company": "Gogo Treats",
+      "country": "Australia",
+      "booth": "3C-648",
+      "website": "gogotreats.com.au"
+    },
+    {
+      "company": "Hanfred HTG GmbH",
+      "country": "Austria",
+      "booth": "7A-406",
+      "website": "www.hanfred.at"
+    },
+    {
+      "company": "HEROSAN healthcare GmbH",
+      "country": "Austria",
+      "booth": "2-522",
+      "website": "herosan.eu/interzoo"
+    },
+    {
+      "company": "Heuland & Friends GmbH",
+      "country": "Austria",
+      "booth": "6-432",
+      "website": "www.heu-kaufen.com"
+    },
+    {
+      "company": "Jahie Pty Ltd",
+      "country": "Australia",
+      "booth": "4-638",
+      "website": "jahie.co"
+    },
+    {
+      "company": "JOSIE AUSTRALIA HAIR AND BEAUTY SU",
+      "country": "Australia",
+      "booth": "10-328",
+      "website": "www.jrl.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

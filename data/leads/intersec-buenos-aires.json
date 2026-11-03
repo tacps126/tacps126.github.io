@@ -1,0 +1,158 @@
+{
+  "id": "intersec-buenos-aires",
+  "name": "Intersec Buenos Aires",
+  "where": "Argentina",
+  "industry": "Security & Fire Protection",
+  "listUrl": "https://intersec-buenos-aires.ar.messefrankfurt.com/buenos-aires/en/exhibitor-search.html",
+  "total": 119,
+  "countries": [
+    [
+      "Argentina",
+      100
+    ],
+    [
+      "China",
+      14
+    ],
+    [
+      "United States",
+      4
+    ],
+    [
+      "Germany",
+      1
+    ]
+  ],
+  "countryCount": 4,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 72,
+    "phone": 90,
+    "email": 92,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "A. Marshall Moffat S.A.",
+      "country": "Argentina",
+      "booth": "1 / F-30",
+      "website": "marshallmoffat.com"
+    },
+    {
+      "company": "ANETO S.A. - Beal Argentina",
+      "country": "Argentina",
+      "booth": "1 / A-48",
+      "website": "beal-argentina.com"
+    },
+    {
+      "company": "ARGSEGURIDAD S.R.L.",
+      "country": "Argentina",
+      "booth": "1 / K-10",
+      "website": "argseguridad.com"
+    },
+    {
+      "company": "ASOCIACION DE ERGONOMIA ARGENTINA",
+      "country": "Argentina",
+      "booth": "1 / A-35",
+      "website": ""
+    },
+    {
+      "company": "ATT CALZADOS",
+      "country": "Argentina",
+      "booth": "1 / A-10",
+      "website": "argentinatodoterreno.com.ar"
+    },
+    {
+      "company": "AUDOOR SYSTEM S.A.",
+      "country": "Argentina",
+      "booth": "1 / I-18",
+      "website": "audoor.com.ar"
+    },
+    {
+      "company": "Automation Systems S.A.",
+      "country": "Argentina",
+      "booth": "1 / G-02",
+      "website": "automasys.com.ar"
+    },
+    {
+      "company": "Bac-Dall Argentina S.A.",
+      "country": "Argentina",
+      "booth": "1 / A-30",
+      "website": "bac-dall.com.ar"
+    },
+    {
+      "company": "BIG DIPPER S.R.L.",
+      "country": "Argentina",
+      "booth": "1 / E-10",
+      "website": ""
+    },
+    {
+      "company": "Bioseif",
+      "country": "Argentina",
+      "booth": "1 / F-50",
+      "website": "bioseif.com.ar"
+    },
+    {
+      "company": "Borcal S.A.I.C.",
+      "country": "Argentina",
+      "booth": "1 / I-50",
+      "website": "borcal.com.ar"
+    },
+    {
+      "company": "Boris Hnos. S.A.",
+      "country": "Argentina",
+      "booth": "1 / F-20",
+      "website": "borishnos.com.ar"
+    },
+    {
+      "company": "BuildingReports",
+      "country": "United States",
+      "booth": "1 / H-52",
+      "website": "la.buildingreports.com"
+    },
+    {
+      "company": "Bykom S.A.",
+      "country": "Argentina",
+      "booth": "1 / I-04",
+      "website": ""
+    },
+    {
+      "company": "C&aacute;mara Argentina de Seguridad",
+      "country": "Argentina",
+      "booth": "1 / D-20",
+      "website": ""
+    },
+    {
+      "company": "Caran S.A.",
+      "country": "Argentina",
+      "booth": "1 / D-28",
+      "website": "caran.com.ar"
+    },
+    {
+      "company": "CASEL CAM.ARG.DE SEG.ELECTRON.",
+      "country": "Argentina",
+      "booth": "1 / C-02",
+      "website": ""
+    },
+    {
+      "company": "Cemla S.A.",
+      "country": "Argentina",
+      "booth": "1 / F-40",
+      "website": "cemla.com.ar"
+    },
+    {
+      "company": "CGN Begood Technology Co., Ltd.",
+      "country": "China",
+      "booth": "1 / K20",
+      "website": "begood.com.cn"
+    },
+    {
+      "company": "CHANGCHUN FEILIN ELECTRONIC CO.,LTD",
+      "country": "China",
+      "booth": "1 / K12",
+      "website": "filn.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

@@ -1,0 +1,182 @@
+{
+  "id": "equiphotel",
+  "name": "EquipHotel",
+  "where": "Paris, France",
+  "industry": "Hospitality",
+  "listUrl": "https://www.equiphotel.com/en-gb/exhibitors/exhibitors-list.html",
+  "total": 1077,
+  "countries": [
+    [
+      "France",
+      718
+    ],
+    [
+      "Italy",
+      73
+    ],
+    [
+      "Spain",
+      36
+    ],
+    [
+      "Belgium",
+      24
+    ],
+    [
+      "China",
+      24
+    ],
+    [
+      "Portugal",
+      23
+    ],
+    [
+      "Greece",
+      21
+    ],
+    [
+      "Germany",
+      20
+    ],
+    [
+      "Netherlands",
+      19
+    ],
+    [
+      "United Kingdom",
+      16
+    ]
+  ],
+  "countryCount": 39,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 95,
+    "phone": 90,
+    "email": 92,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "10 HEURES 10",
+      "country": "France",
+      "booth": "P7.2-E016",
+      "website": ""
+    },
+    {
+      "company": "101 COPENHAGEN",
+      "country": "Denmark",
+      "booth": "P7.2-K029",
+      "website": "101cph.com"
+    },
+    {
+      "company": "2ISR (INGENIERIE INFORMATIQUE SYSTEME ET RESEAU)",
+      "country": "France",
+      "booth": "P7.3-A027",
+      "website": "wifi.2isr.fr"
+    },
+    {
+      "company": "31R GMBH",
+      "country": "France",
+      "booth": "P7.2-EC2",
+      "website": ""
+    },
+    {
+      "company": "3G RESINS",
+      "country": "Portugal",
+      "booth": "P7.1-P014",
+      "website": "3gresins.com"
+    },
+    {
+      "company": "A.E.I. APPEL ELECTRONIQUE INDUSTRIES",
+      "country": "France",
+      "booth": "P7.3-B054",
+      "website": "aeitech.com"
+    },
+    {
+      "company": "ABET France Sarl",
+      "country": "France",
+      "booth": "P7.1-G034",
+      "website": "fr.abetlaminati.com"
+    },
+    {
+      "company": "ACAD EQUIPEMENT",
+      "country": "France",
+      "booth": "P7.3-F055",
+      "website": "acad-pro.com"
+    },
+    {
+      "company": "Académie du Tourisme",
+      "country": "France",
+      "booth": "P7.3-A028",
+      "website": "academie-tourisme.fr"
+    },
+    {
+      "company": "ACB ILUMINACION, S.L",
+      "country": "Spain",
+      "booth": "P7.2-E008",
+      "website": "acb.lighting"
+    },
+    {
+      "company": "Access'Hôtel",
+      "country": "France",
+      "booth": "P7.3-G085",
+      "website": "accesshotel.fr"
+    },
+    {
+      "company": "ACCOR",
+      "country": "France",
+      "booth": "P7.3-L027",
+      "website": "group.accor.com/fr/hotel-development"
+    },
+    {
+      "company": "ACFRI",
+      "country": "France",
+      "booth": "P7.3-S055",
+      "website": "acfri.com"
+    },
+    {
+      "company": "Acht & Acht GmbH",
+      "country": "Germany",
+      "booth": "P7.2-G073",
+      "website": "achtundacht.com"
+    },
+    {
+      "company": "ACIAL",
+      "country": "France",
+      "booth": "P7.2-P053",
+      "website": "acial.com"
+    },
+    {
+      "company": "ACM",
+      "country": "France",
+      "booth": "P7.2-D053",
+      "website": "acmfrance.fr/hotellerie"
+    },
+    {
+      "company": "ACORUS",
+      "country": "France",
+      "booth": "P7.1-C034",
+      "website": "groupe-acorus.fr"
+    },
+    {
+      "company": "ACTA MOBILIER",
+      "country": "France",
+      "booth": "P7.2-J072",
+      "website": "acta-mobilier.fr"
+    },
+    {
+      "company": "ACTEMOTEL",
+      "country": "France",
+      "booth": "P7.1-G031",
+      "website": "actemotel.com"
+    },
+    {
+      "company": "ADA France   SARL",
+      "country": "France",
+      "booth": "P4.F006",
+      "website": "pinkplanetgroup.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

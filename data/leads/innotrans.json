@@ -1,0 +1,182 @@
+{
+  "id": "innotrans",
+  "name": "InnoTrans",
+  "where": "Berlin, Germany",
+  "industry": "Rail & Transport Technology",
+  "listUrl": "https://plus.innotrans.de/showfloor/organizations",
+  "total": 3117,
+  "countries": [
+    [
+      "Germany",
+      1050
+    ],
+    [
+      "China",
+      241
+    ],
+    [
+      "France",
+      221
+    ],
+    [
+      "Italy",
+      213
+    ],
+    [
+      "Switzerland",
+      144
+    ],
+    [
+      "Austria",
+      111
+    ],
+    [
+      "Spain",
+      108
+    ],
+    [
+      "United Kingdom",
+      104
+    ],
+    [
+      "India",
+      91
+    ],
+    [
+      "Poland",
+      90
+    ]
+  ],
+  "countryCount": 60,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 92,
+    "phone": 55,
+    "email": 90,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "2iSYS Co. Ltd.",
+      "country": "South Korea",
+      "booth": "Hall 3.2",
+      "website": ""
+    },
+    {
+      "company": "3A Composites GmbH",
+      "country": "Germany",
+      "booth": "Hall 3.1",
+      "website": "www.3acindustry.com"
+    },
+    {
+      "company": "3B Logos GmbH",
+      "country": "Germany",
+      "booth": "Hall 7.1a",
+      "website": "www.3blogos.de"
+    },
+    {
+      "company": "3Binfra infrastruktur management systeme GmbH",
+      "country": "Austria",
+      "booth": "Hall 21",
+      "website": "www.3binfra.at"
+    },
+    {
+      "company": "3M Deutschland GmbH",
+      "country": "Germany",
+      "booth": "Hall 8.2",
+      "website": ""
+    },
+    {
+      "company": "3onedata Co., Ltd.",
+      "country": "China",
+      "booth": "Hall 4.1",
+      "website": "www.3onedata.com"
+    },
+    {
+      "company": "4AI Systems",
+      "country": "Australia",
+      "booth": "Hall 7.1a",
+      "website": "www.4aisys.com"
+    },
+    {
+      "company": "4MADE a.s.",
+      "country": "Czechia",
+      "booth": "Hall 20",
+      "website": "www.4made.cz"
+    },
+    {
+      "company": "4RAIL, a.s.",
+      "country": "Czechia",
+      "booth": "Hall 6.2",
+      "website": "www.4rail.cz"
+    },
+    {
+      "company": "4Tel",
+      "country": "Australia",
+      "booth": "Hall 7.1a",
+      "website": "4tel.com.au"
+    },
+    {
+      "company": "5M s.r.o.",
+      "country": "Czechia",
+      "booth": "Hall 3.1",
+      "website": "www.5m.cz"
+    },
+    {
+      "company": "A&R TECH GmbH",
+      "country": "Austria",
+      "booth": "Hall 27",
+      "website": "www.artech.at"
+    },
+    {
+      "company": "A+S Consult GmbH",
+      "country": "Germany",
+      "booth": "Hall 7.2b",
+      "website": ""
+    },
+    {
+      "company": "A. Rawie GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "Hall 26",
+      "website": "www.rawie.de"
+    },
+    {
+      "company": "A.M.R.A. S.p.A.",
+      "country": "Italy",
+      "booth": "Hall 11.1",
+      "website": "www.amra-chauvin-arnoux.it/en"
+    },
+    {
+      "company": "A.S.E.A. MOUMTZIS S.A.",
+      "country": "Greece",
+      "booth": "Hall 9",
+      "website": "asea.gr"
+    },
+    {
+      "company": "A.S.T. Angewandte System Technik GmbH",
+      "country": "Germany",
+      "booth": "Hall 20",
+      "website": "www.ast.de"
+    },
+    {
+      "company": "AAC Controls",
+      "country": "United States of America",
+      "booth": "Hall 11.1",
+      "website": "www.a-a-c.com"
+    },
+    {
+      "company": "Aareplast AG",
+      "country": "Switzerland",
+      "booth": "Hall 8.1",
+      "website": "www.aareplast.com"
+    },
+    {
+      "company": "Aarsleff Rail A/S",
+      "country": "Denmark",
+      "booth": "Hall 11.2",
+      "website": "aarsleffrail.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

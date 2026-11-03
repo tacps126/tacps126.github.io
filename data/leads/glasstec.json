@@ -1,0 +1,182 @@
+{
+  "id": "glasstec",
+  "name": "glasstec",
+  "where": "Düsseldorf, Germany",
+  "industry": "Glass Production & Processing",
+  "listUrl": "https://www.glasstec-online.com/vis/v1/en/directory",
+  "total": 1222,
+  "countries": [
+    [
+      "China",
+      14
+    ],
+    [
+      "Italy",
+      7
+    ],
+    [
+      "Germany",
+      6
+    ],
+    [
+      "USA",
+      3
+    ],
+    [
+      "Türkiye",
+      3
+    ],
+    [
+      "India",
+      2
+    ],
+    [
+      "Czechia",
+      1
+    ],
+    [
+      "Austria",
+      1
+    ],
+    [
+      "Japan",
+      1
+    ],
+    [
+      "Belgium",
+      1
+    ]
+  ],
+  "countryCount": 11,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 95,
+    "phone": 100,
+    "email": 95,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "A+W Software GmbH",
+      "country": "Germany",
+      "booth": "Hall 14 / E59",
+      "website": ""
+    },
+    {
+      "company": "A151 S.r.l.",
+      "country": "Italy",
+      "booth": "Hall 14 / A37",
+      "website": "glassonline.com"
+    },
+    {
+      "company": "ABLE TARGET LIMITED",
+      "country": "China",
+      "booth": "Hall 12 / F15",
+      "website": "abletarget.com"
+    },
+    {
+      "company": "Accuramech Industrial Engineering Pvt., Ltd.",
+      "country": "India",
+      "booth": "Hall 13 / A49",
+      "website": "accuramech.com"
+    },
+    {
+      "company": "AceLabs s.r.l.",
+      "country": "Italy",
+      "booth": "Hall 16 / A20",
+      "website": "acelabs.it"
+    },
+    {
+      "company": "ACMOS CHEMIE KG",
+      "country": "Germany",
+      "booth": "Hall 13 / F73",
+      "website": "acmos.com"
+    },
+    {
+      "company": "Adelio Lattuada Srl",
+      "country": "Italy",
+      "booth": "Hall 16 / A30",
+      "website": "adeliolattuada.com"
+    },
+    {
+      "company": "ADI s.r.l.",
+      "country": "Italy",
+      "booth": "Hall 16 / C38",
+      "website": "aditools.com"
+    },
+    {
+      "company": "AdvaMat Coatings s.r.o.",
+      "country": "Czechia",
+      "booth": "Hall 11 / G80",
+      "website": "advamatcoatings.com"
+    },
+    {
+      "company": "ADVANCED CONTAINER HANDLING S.R.L.",
+      "country": "Italy",
+      "booth": "Hall 12 / D15",
+      "website": "achandling.it"
+    },
+    {
+      "company": "Advanced Control Solutions, Inc.",
+      "country": "USA",
+      "booth": "Hall 13 / A02",
+      "website": "acsitoledo.com"
+    },
+    {
+      "company": "Advanced Energy Industries GmbH",
+      "country": "Germany",
+      "booth": "Hall 12 / E32",
+      "website": "advancedenergy.com/de-de"
+    },
+    {
+      "company": "AEROPE GmbH",
+      "country": "Austria",
+      "booth": "Hall 12 / D41",
+      "website": "aerope.at"
+    },
+    {
+      "company": "AGC Ceramics Co., Ltd.",
+      "country": "Japan",
+      "booth": "Hall 13 / C13",
+      "website": "agcc.jp"
+    },
+    {
+      "company": "AGC Glass Europe Fineo by AGC",
+      "country": "Belgium",
+      "booth": "Hall 10 / G82",
+      "website": "fineoglass.eu"
+    },
+    {
+      "company": "Agr International Inc.",
+      "country": "USA",
+      "booth": "Hall 14 / C40",
+      "website": "agrintl.com"
+    },
+    {
+      "company": "Akar Makina San. ve Tic. A.S.",
+      "country": "Türkiye",
+      "booth": "Hall 15 / F43",
+      "website": "akarmak.com"
+    },
+    {
+      "company": "Akdag Makina Kalip ve Yedek Parca Akdag Moulds and Spare Parts",
+      "country": "Türkiye",
+      "booth": "Hall 13 / F66",
+      "website": "akdagmakina.com"
+    },
+    {
+      "company": "AKSHAR GLOBAL",
+      "country": "India",
+      "booth": "Hall 11 / E73",
+      "website": "aksharglobal.com"
+    },
+    {
+      "company": "ALL GLASS (SUQIAN) LIMITED",
+      "country": "China",
+      "booth": "Hall 11 / A84-1",
+      "website": "en.allglass.cn"
+    }
+  ],
+  "updated": "2026-11-04"
+}

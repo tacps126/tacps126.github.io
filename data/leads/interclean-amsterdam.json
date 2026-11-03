@@ -1,0 +1,182 @@
+{
+  "id": "interclean-amsterdam",
+  "name": "Interclean Amsterdam",
+  "where": "Netherlands",
+  "industry": "Cleaning Industry",
+  "listUrl": "https://www.intercleanshow.com/amsterdam/exhibitor-list",
+  "total": 885,
+  "countries": [
+    [
+      "CN",
+      199
+    ],
+    [
+      "IT",
+      146
+    ],
+    [
+      "DE",
+      71
+    ],
+    [
+      "NL",
+      60
+    ],
+    [
+      "ES",
+      55
+    ],
+    [
+      "GB",
+      44
+    ],
+    [
+      "FR",
+      33
+    ],
+    [
+      "US",
+      33
+    ],
+    [
+      "TR",
+      33
+    ],
+    [
+      "PL",
+      29
+    ]
+  ],
+  "countryCount": 52,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 98,
+    "phone": 75,
+    "email": 65,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "2Pure Products",
+      "country": "GB",
+      "booth": "12.302",
+      "website": "2pureproducts.com"
+    },
+    {
+      "company": "3M",
+      "country": "DE",
+      "booth": "08.328",
+      "website": "3m.com/3m/en_US/facility-management-us"
+    },
+    {
+      "company": "4B DISTRIB",
+      "country": "FR",
+      "booth": "05.437",
+      "website": "4bdistrib.com"
+    },
+    {
+      "company": "4cleanpro Srl",
+      "country": "IT",
+      "booth": "02.117",
+      "website": "4cleanpro.com"
+    },
+    {
+      "company": "A&B Laboratorios de Biotecnología S.A. (Innovative Solutions)",
+      "country": "ES",
+      "booth": "05.417",
+      "website": "ab-laboratorios.com"
+    },
+    {
+      "company": "A+B Bürsten-Technik AG",
+      "country": "CH",
+      "booth": "08.109",
+      "website": "buersten-technik.ch"
+    },
+    {
+      "company": "A.C.E.M. s.r.l.",
+      "country": "IT",
+      "booth": "07.209",
+      "website": "acemcablaggi.com"
+    },
+    {
+      "company": "Abena International A/S",
+      "country": "DK",
+      "booth": "11.105",
+      "website": "abena.com"
+    },
+    {
+      "company": "Ableman International Co. Ltd.",
+      "country": "TW",
+      "booth": "11.512",
+      "website": "ableman-international.com.tw"
+    },
+    {
+      "company": "Achton A/S",
+      "country": "DK",
+      "booth": "12.607",
+      "website": "achton-as.com"
+    },
+    {
+      "company": "ACS Industries, Inc",
+      "country": "US",
+      "booth": "02.412",
+      "website": "acs-cp.com"
+    },
+    {
+      "company": "ADDEV Materials - The Wipe Factory",
+      "country": "FR",
+      "booth": "12.513",
+      "website": "thewipefactory.eu"
+    },
+    {
+      "company": "Adiatek S.r.l.",
+      "country": "IT",
+      "booth": "02.213",
+      "website": "adiatek.com"
+    },
+    {
+      "company": "ADIX PAPER d.o.o.",
+      "country": "HR",
+      "booth": "12.701",
+      "website": "tubeless.com"
+    },
+    {
+      "company": "ADLATUS Robotics GmbH",
+      "country": "DE",
+      "booth": "05.527",
+      "website": "adlatus-robotics.com"
+    },
+    {
+      "company": "Aeotic",
+      "country": "FR",
+      "booth": "07.338",
+      "website": "aeotic.com"
+    },
+    {
+      "company": "Afacan Plastik Endustriyel Temizlik ve Saglik Urunleri Ins. San. Tic. Ltd. Sti.",
+      "country": "TR",
+      "booth": "11.414",
+      "website": "afacanplastik.com/en"
+    },
+    {
+      "company": "Afidamp",
+      "country": "IT",
+      "booth": "06.105",
+      "website": "afidamp.it"
+    },
+    {
+      "company": "AgiBot Innovation (Shanghai) Technology Co., Ltd.",
+      "country": "CN",
+      "booth": "08.208",
+      "website": "zhiyuan-robot.com"
+    },
+    {
+      "company": "AL-KO Vehicle Technology Electronics Srl (Nordelettronica)",
+      "country": "IT",
+      "booth": "05.424",
+      "website": "nordelettronica.it"
+    }
+  ],
+  "updated": "2026-11-04"
+}

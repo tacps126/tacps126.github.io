@@ -1,0 +1,182 @@
+{
+  "id": "intersec",
+  "name": "Intersec",
+  "where": "Dubai, UAE",
+  "industry": "Security, Safety & Fire Protection",
+  "listUrl": "https://intersecglobal.ae.messefrankfurt.com/dubai/en/exhibitor-search.html",
+  "total": 473,
+  "countries": [
+    [
+      "United Arab Emirates",
+      127
+    ],
+    [
+      "Germany",
+      45
+    ],
+    [
+      "Great Britain and Northern Ireland",
+      43
+    ],
+    [
+      "United States",
+      40
+    ],
+    [
+      "India",
+      31
+    ],
+    [
+      "Türkiye",
+      20
+    ],
+    [
+      "Korea, the Republic of (South)",
+      18
+    ],
+    [
+      "Italy",
+      16
+    ],
+    [
+      "Singapore",
+      12
+    ],
+    [
+      "Taiwan",
+      11
+    ]
+  ],
+  "countryCount": 44,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 82,
+    "phone": 95,
+    "email": 98,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "360 SECURITY SYSTEMS &amp; EQUIPMENT TRADING L.L.C",
+      "country": "United Arab Emirates",
+      "booth": "S1 / C20",
+      "website": ""
+    },
+    {
+      "company": "A1Fire PTE. LTD.",
+      "country": "Singapore",
+      "booth": "5 / D09",
+      "website": "a1fire.com.sg"
+    },
+    {
+      "company": "ABCOM Distribution LLC",
+      "country": "United Arab Emirates",
+      "booth": "2 / F34",
+      "website": "abcom.ae"
+    },
+    {
+      "company": "Abus August Bremicker Soehne KG",
+      "country": "Germany",
+      "booth": "SA / D11",
+      "website": "abus.com"
+    },
+    {
+      "company": "Acix Middle East General Trading LLC",
+      "country": "United Arab Emirates",
+      "booth": "null",
+      "website": "acixme.com"
+    },
+    {
+      "company": "ACT POWER Taiwan Co., Ltd.",
+      "country": "Taiwan",
+      "booth": "S3 / D41",
+      "website": "actpower.com"
+    },
+    {
+      "company": "Advanced Electronics Limited",
+      "country": "Great Britain and Northern Ireland",
+      "booth": "4 / A24",
+      "website": "advancedco.com"
+    },
+    {
+      "company": "Advanced Engineering  Technology FZ-LLC",
+      "country": "United Arab Emirates",
+      "booth": "null",
+      "website": "vantecindust.co.uk"
+    },
+    {
+      "company": "Advanced ICT Security Systems &amp; Equipment Trading LLC",
+      "country": "United Arab Emirates",
+      "booth": "S3 / E26",
+      "website": ""
+    },
+    {
+      "company": "Advancis Software &amp; Services GmbH",
+      "country": "Germany",
+      "booth": "2 / F09",
+      "website": "advancis.de"
+    },
+    {
+      "company": "Aero Nex FZCO",
+      "country": "United Arab Emirates",
+      "booth": "3 / B12",
+      "website": ""
+    },
+    {
+      "company": "Aetek Inc.",
+      "country": "Taiwan",
+      "booth": "1 / F15",
+      "website": "aetektec.com"
+    },
+    {
+      "company": "AETS Automatic Parking Systems Manufacturing F.Z.E",
+      "country": "United Arab Emirates",
+      "booth": "S1 / G41",
+      "website": ""
+    },
+    {
+      "company": "AG Fire Sprinkler SL",
+      "country": "Spain",
+      "booth": "4 / B12",
+      "website": "komtes.com"
+    },
+    {
+      "company": "Aikah for General Trading LLC",
+      "country": "United Arab Emirates",
+      "booth": "8 / A31",
+      "website": "aikah.com"
+    },
+    {
+      "company": "Airfire Worldwide S.L.",
+      "country": "Spain",
+      "booth": "7 / G30",
+      "website": "airfire.eu"
+    },
+    {
+      "company": "Ajax System Trading FZE",
+      "country": "United Arab Emirates",
+      "booth": "S1 / E12",
+      "website": "ajax.systems"
+    },
+    {
+      "company": "Aktuel Gecis Kontrol ELK.MED.SIST.LTD. STI.",
+      "country": "Türkiye",
+      "booth": "S1 / C34",
+      "website": "aktuelturnike.com.tr"
+    },
+    {
+      "company": "Alcan International (L.L.C)",
+      "country": "United Arab Emirates",
+      "booth": "3 / G40",
+      "website": "alcan.com"
+    },
+    {
+      "company": "Aligntech International DMCC",
+      "country": "United Arab Emirates",
+      "booth": "3 / B22",
+      "website": "aligngroup.org"
+    }
+  ],
+  "updated": "2026-11-04"
+}

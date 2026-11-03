@@ -1,0 +1,182 @@
+{
+  "id": "fibo-germany",
+  "name": "FIBO Germany",
+  "where": "Cologne",
+  "industry": "Fitness, Wellness & Health",
+  "listUrl": "https://www.fibo.com/germany/en-gb/exhibitor-directory.html",
+  "total": 1103,
+  "countries": [
+    [
+      "Germany",
+      400
+    ],
+    [
+      "China",
+      201
+    ],
+    [
+      "Taiwan",
+      64
+    ],
+    [
+      "United States",
+      50
+    ],
+    [
+      "Italy",
+      38
+    ],
+    [
+      "Netherlands",
+      37
+    ],
+    [
+      "United Kingdom",
+      30
+    ],
+    [
+      "Spain",
+      30
+    ],
+    [
+      "Austria",
+      29
+    ],
+    [
+      "Poland",
+      28
+    ]
+  ],
+  "countryCount": 53,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 92,
+    "phone": 82,
+    "email": 88,
+    "booth": 98
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1A Brands GmbH & Co. KG",
+      "country": "Germany",
+      "booth": "8A83",
+      "website": "1abrands.de"
+    },
+    {
+      "company": "3 Zenses",
+      "country": "Germany",
+      "booth": "5.2B84",
+      "website": "3zenses.de"
+    },
+    {
+      "company": "33 Beverage Innovations GmbH",
+      "country": "Germany",
+      "booth": "5.2B43",
+      "website": "drinkchurchill.shop"
+    },
+    {
+      "company": "33 Threads",
+      "country": "Switzerland",
+      "booth": "1D29",
+      "website": "taviactive.com"
+    },
+    {
+      "company": "A&D Sports Ltd",
+      "country": "United Kingdom",
+      "booth": "6E02",
+      "website": "exigosports.com"
+    },
+    {
+      "company": "ABC Fitness",
+      "country": "United States",
+      "booth": "COND08",
+      "website": "abcfitness.com"
+    },
+    {
+      "company": "Abisal Sp. z o.o.",
+      "country": "Poland",
+      "booth": "6A30",
+      "website": "hms-fitness.com"
+    },
+    {
+      "company": "ABRISH INTERNATIONAL",
+      "country": "Pakistan",
+      "booth": "4.2D25",
+      "website": "abrishint.com"
+    },
+    {
+      "company": "Academia NeuEra SaRL",
+      "country": "Switzerland",
+      "booth": "10.2A23",
+      "website": "qbiohacking.com"
+    },
+    {
+      "company": "ACISO CONSULTING GmbH",
+      "country": "Germany",
+      "booth": "6C11",
+      "website": "aciso.com"
+    },
+    {
+      "company": "ACTIVE LIFESTYLE PTE LTD",
+      "country": "Singapore",
+      "booth": "9C48",
+      "website": "doitfitness.com.sg"
+    },
+    {
+      "company": "ADAC e.V.",
+      "country": "Germany",
+      "booth": "5.2D20",
+      "website": ""
+    },
+    {
+      "company": "Adams Vision",
+      "country": "Romania",
+      "booth": "5.2B57",
+      "website": "adamssupplements.com/en"
+    },
+    {
+      "company": "ADFINITY LTD",
+      "country": "Germany",
+      "booth": "11.1D61",
+      "website": "sniffys.de"
+    },
+    {
+      "company": "Adyen NV - German Branch 1850 Marketing Germany - Media Distribution - Events",
+      "country": "Germany",
+      "booth": "CONE26",
+      "website": "adyen.com"
+    },
+    {
+      "company": "Aerobic & Fitness, S.L.U.",
+      "country": "Spain",
+      "booth": "7A20",
+      "website": "olive.aerobicyfitness.com/en"
+    },
+    {
+      "company": "Aerotekk Pty Ltd",
+      "country": "Australia",
+      "booth": "11.1H17",
+      "website": "aerotekk.co"
+    },
+    {
+      "company": "Agrisicilia SpA",
+      "country": "Italy",
+      "booth": "5.2A61",
+      "website": "agrisicilia.eu"
+    },
+    {
+      "company": "ahead GmbH",
+      "country": "Germany",
+      "booth": "5.2A10, 5.2A06",
+      "website": "ahead-nutrition.com"
+    },
+    {
+      "company": "AIONIQ",
+      "country": "Netherlands",
+      "booth": "11.1H48",
+      "website": "aioniq.eu"
+    }
+  ],
+  "updated": "2026-11-04"
+}

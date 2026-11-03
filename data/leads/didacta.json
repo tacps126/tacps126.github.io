@@ -1,0 +1,182 @@
+{
+  "id": "didacta",
+  "name": "didacta",
+  "where": "Cologne, Germany",
+  "industry": "Education",
+  "listUrl": "https://www.didacta-koeln.de/didacta-aussteller/ausstellerverzeichnis/",
+  "total": 727,
+  "countries": [
+    [
+      "Deutschland",
+      592
+    ],
+    [
+      "Österreich",
+      10
+    ],
+    [
+      "Niederlande",
+      8
+    ],
+    [
+      "China",
+      8
+    ],
+    [
+      "Schweiz",
+      5
+    ],
+    [
+      "Ägypten",
+      5
+    ],
+    [
+      "Spanien",
+      5
+    ],
+    [
+      "Großbritannien",
+      4
+    ],
+    [
+      "Argentinien",
+      4
+    ],
+    [
+      "Kolumbien",
+      4
+    ]
+  ],
+  "countryCount": 57,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 95,
+    "phone": 70,
+    "email": 62,
+    "booth": 95
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "3B Scientific GmbH",
+      "country": "Deutschland",
+      "booth": "Halle 06.1 | C029",
+      "website": "3bscientific.com"
+    },
+    {
+      "company": "3DQR GmbH",
+      "country": "Deutschland",
+      "booth": "Halle 06.1 | A039",
+      "website": "3dqr.de"
+    },
+    {
+      "company": "4teachers GmbH",
+      "country": "Deutschland",
+      "booth": "Halle 08.1 | A041",
+      "website": "4teachers.de"
+    },
+    {
+      "company": "8samsam GmbH & Co. KG",
+      "country": "Deutschland",
+      "booth": "Halle 08.1 | E062",
+      "website": "yogitier.de"
+    },
+    {
+      "company": "a&o hostels Marketing GmbH",
+      "country": "Deutschland",
+      "booth": "Halle 08.1 | C042",
+      "website": "aohostels.com/de"
+    },
+    {
+      "company": "AAP Lehrerwelt GmbH",
+      "country": "Deutschland",
+      "booth": "Halle 08.1 | B030a",
+      "website": "aap-lehrerwelt.de"
+    },
+    {
+      "company": "ABACUS Franchise GmbH",
+      "country": "Deutschland",
+      "booth": "Halle 07.1 | C054",
+      "website": "abacus-nachhilfe.de"
+    },
+    {
+      "company": "Abihome GmbH",
+      "country": "Deutschland",
+      "booth": "Halle 07.1 | C079",
+      "website": "gradoo.com/pages/schulshop"
+    },
+    {
+      "company": "ABRAXA INTERNATIONAL SRL",
+      "country": "Rumänien",
+      "booth": "Halle 06.1 | D101",
+      "website": "abraxainternational.com"
+    },
+    {
+      "company": "Accessory-Tech GmbH",
+      "country": "Deutschland",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "Achtung für Tiere e. V.",
+      "country": "Deutschland",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "ACS Group",
+      "country": "Deutschland",
+      "booth": "Halle 06.1 | F055 E050",
+      "website": "acsgroup.de"
+    },
+    {
+      "company": "ActiveFloor Aps",
+      "country": "Dänemark",
+      "booth": "Halle 06.1 | E002",
+      "website": "activefloor.com/de"
+    },
+    {
+      "company": "ADHS Deutschland e.V.",
+      "country": "Deutschland",
+      "booth": "Halle 07.1 | D048",
+      "website": "adhs-deutschland.de"
+    },
+    {
+      "company": "ADIRO Automatisierungstechnik GmbH",
+      "country": "Deutschland",
+      "booth": "Halle 06.1 | B010 D011",
+      "website": "adiro.com/de"
+    },
+    {
+      "company": "AixConcept",
+      "country": "Deutschland",
+      "booth": "Halle 06.1 | D030",
+      "website": "aixconcept.de"
+    },
+    {
+      "company": "Akademie für Kindergarten Kita und Hort GmbH",
+      "country": "Deutschland",
+      "booth": "Halle 08.1 | D100",
+      "website": "kindergartenakademie.de"
+    },
+    {
+      "company": "Akademie für Lernpädagogik (AfL) GmbH",
+      "country": "Deutschland",
+      "booth": "Halle 08.1 | B018 C019",
+      "website": "akademie-lernpaedagogik.de"
+    },
+    {
+      "company": "Aktion Lebensrecht für Alle e.V.",
+      "country": "Deutschland",
+      "booth": "Halle 07.1 | A055",
+      "website": "alfa-ev.de"
+    },
+    {
+      "company": "ALCASA Elektronik AG",
+      "country": "Deutschland",
+      "booth": "Halle 07.1 | E027",
+      "website": "alcasa.de"
+    }
+  ],
+  "updated": "2026-11-04"
+}

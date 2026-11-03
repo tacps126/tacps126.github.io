@@ -1,0 +1,182 @@
+{
+  "id": "eurotier",
+  "name": "EuroTier",
+  "where": "Hanover, Germany",
+  "industry": "Livestock Farming",
+  "listUrl": "https://digital.eurotier.com/newfront/marketplace/exhibitors",
+  "total": 2195,
+  "countries": [
+    [
+      "Germany",
+      766
+    ],
+    [
+      "People's Republic of China",
+      317
+    ],
+    [
+      "Netherlands",
+      175
+    ],
+    [
+      "France",
+      114
+    ],
+    [
+      "Italy",
+      104
+    ],
+    [
+      "Spain",
+      96
+    ],
+    [
+      "Turkey",
+      65
+    ],
+    [
+      "Belgium",
+      56
+    ],
+    [
+      "Denmark",
+      53
+    ],
+    [
+      "Poland",
+      44
+    ]
+  ],
+  "countryCount": 58,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 98,
+    "phone": 85,
+    "email": 68,
+    "booth": 98
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1001 Green Products GmbH",
+      "country": "Germany",
+      "booth": "25G19",
+      "website": "www.1001greenproducts.com"
+    },
+    {
+      "company": "2G Energy AG",
+      "country": "Germany",
+      "booth": "24B11",
+      "website": "2-g.com"
+    },
+    {
+      "company": "3N Niedersachsen Netzwerk Nachwachsende Rohstoffe und Bioökonomie e.V.",
+      "country": "Germany",
+      "booth": "25L21",
+      "website": "www.3-n.info"
+    },
+    {
+      "company": "3tres3",
+      "country": "Spain",
+      "booth": "",
+      "website": ""
+    },
+    {
+      "company": "4-D AG Fashion",
+      "country": "United States of America",
+      "booth": "11D11",
+      "website": "www.4dagfashion.com"
+    },
+    {
+      "company": "A. CONRADS Ing.-Büro & Holzbaubetrieb e.K.",
+      "country": "Germany",
+      "booth": "15K16",
+      "website": "holzbau-conrads.de"
+    },
+    {
+      "company": "A.B.S. Silo- und Förderanlagen GmbH",
+      "country": "Germany",
+      "booth": "12D20",
+      "website": "www.abs-silos.de"
+    },
+    {
+      "company": "AAG / Aalborg Gummivarefabrik A/S",
+      "country": "Denmark",
+      "booth": "15J18",
+      "website": "aag-gummi.dk"
+    },
+    {
+      "company": "Ab E Discovery DBA Optum Immunity",
+      "country": "United States of America",
+      "booth": "21K24",
+      "website": "www.optumimmunity.com"
+    },
+    {
+      "company": "AB Energy Deutschland GmbH",
+      "country": "Germany",
+      "booth": "25B17",
+      "website": "www.gruppoab.com/de"
+    },
+    {
+      "company": "AB Kauno Grūdai",
+      "country": "Lithuania",
+      "booth": "21K05",
+      "website": "www.kaunogrudai.lt"
+    },
+    {
+      "company": "AB Neo - a division of AB Agri",
+      "country": "United Kingdom",
+      "booth": "15C02",
+      "website": "www.ab-neo.com"
+    },
+    {
+      "company": "AB Vista Iberia SL",
+      "country": "Spain",
+      "booth": "21E04",
+      "website": "www.abvista.com"
+    },
+    {
+      "company": "ABATO Motoren B.V.",
+      "country": "Netherlands",
+      "booth": "15B11",
+      "website": "www.abato.nl"
+    },
+    {
+      "company": "Abbi-Aerotech B.V.",
+      "country": "Netherlands",
+      "booth": "11G10",
+      "website": "www.abbi-aerotech.com"
+    },
+    {
+      "company": "ABM Trade LLC",
+      "country": "Ukraine",
+      "booth": "22C31",
+      "website": "abm.com.ua/en"
+    },
+    {
+      "company": "ABRISTHOR - Asthor Agricola S.A.",
+      "country": "Spain",
+      "booth": "12A41",
+      "website": "abristhor.com/en"
+    },
+    {
+      "company": "ACE LED LIGHT Co., Ltd.",
+      "country": "People's Republic of China",
+      "booth": "25J35",
+      "website": "www.aceledlight.com"
+    },
+    {
+      "company": "ACN PLAST",
+      "country": "Turkey",
+      "booth": "17E48",
+      "website": "www.acnplast.com/en/home"
+    },
+    {
+      "company": "ACO Funki A/S",
+      "country": "Denmark",
+      "booth": "15D14",
+      "website": "www.acofunki.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

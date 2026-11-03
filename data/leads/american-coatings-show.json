@@ -1,0 +1,162 @@
+{
+  "id": "american-coatings-show",
+  "name": "American Coatings Show 2026",
+  "where": "USA",
+  "industry": "Paints & Coatings",
+  "listUrl": "https://s23.a2zinc.net/clients/ACMedia/americancoatingsshow2026/Public/EventMap.aspx?shMode=E",
+  "total": 541,
+  "countries": [
+    [
+      "United States",
+      32
+    ],
+    [
+      "Canada",
+      3
+    ],
+    [
+      "Turkey",
+      2
+    ],
+    [
+      "China",
+      2
+    ],
+    [
+      "Spain",
+      1
+    ]
+  ],
+  "countryCount": 5,
+  "countriesFromSample": true,
+  "coverage": {
+    "website": 98,
+    "phone": 65,
+    "email": 65,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "Aal Chem",
+      "country": "United States",
+      "booth": "2340",
+      "website": "aalchem.com"
+    },
+    {
+      "company": "AB Specialty Silicones",
+      "country": "United States",
+      "booth": "850",
+      "website": "andisil.com"
+    },
+    {
+      "company": "ACCESS Rudolf Technologies",
+      "country": "United States",
+      "booth": "3037",
+      "website": "accessrudolftech.com"
+    },
+    {
+      "company": "Ace Glass",
+      "country": "United States",
+      "booth": "1977",
+      "website": "aceglass.com"
+    },
+    {
+      "company": "Acme-Hardesty",
+      "country": "United States",
+      "booth": "2657",
+      "website": "acme-hardesty.com"
+    },
+    {
+      "company": "ACS Community Hub",
+      "country": "United States",
+      "booth": "2088",
+      "website": ""
+    },
+    {
+      "company": "Actylis",
+      "country": "United States",
+      "booth": "1560",
+      "website": "actylis.com"
+    },
+    {
+      "company": "Acumatica",
+      "country": "United States",
+      "booth": "3188",
+      "website": "acumatica.com"
+    },
+    {
+      "company": "Adage Technologies",
+      "country": "United States",
+      "booth": "704",
+      "website": "adagetech.com"
+    },
+    {
+      "company": "Aditya Birla Chemicals Advanced Materials",
+      "country": "United States",
+      "booth": "746",
+      "website": "aditybirlachemicals.com"
+    },
+    {
+      "company": "ADLI Logistics",
+      "country": "Canada",
+      "booth": "803",
+      "website": "adlilogistics.com"
+    },
+    {
+      "company": "Admix",
+      "country": "United States",
+      "booth": "2865",
+      "website": "admix.com"
+    },
+    {
+      "company": "ADO USA",
+      "country": "United States",
+      "booth": "430",
+      "website": "adousa.net"
+    },
+    {
+      "company": "Advent Silica Materials",
+      "country": "United States",
+      "booth": "2956",
+      "website": "adventsilica.com"
+    },
+    {
+      "company": "AFCONA Additives USA",
+      "country": "United States",
+      "booth": "1254",
+      "website": "afcona.com/en"
+    },
+    {
+      "company": "AGC Chemicals Americas",
+      "country": "United States",
+      "booth": "2159",
+      "website": "luminflonusa.com"
+    },
+    {
+      "company": "AKPA Kimya Ambalaj ve Sanayi Ticaret A. S.",
+      "country": "Turkey",
+      "booth": "2273",
+      "website": "akpakimya.com"
+    },
+    {
+      "company": "Akrochem Corporation",
+      "country": "United States",
+      "booth": "2478",
+      "website": "akrochem.com"
+    },
+    {
+      "company": "AL-FARBEN - Torrecid Group",
+      "country": "Spain",
+      "booth": "1137",
+      "website": "alfarben.com"
+    },
+    {
+      "company": "Alberdingk Boley",
+      "country": "United States",
+      "booth": "2757",
+      "website": "alberdingkusa.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

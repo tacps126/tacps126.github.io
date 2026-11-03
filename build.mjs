@@ -607,12 +607,14 @@ const leads = existsSync(LEADS_DIR)
 const ACTOR_URL = `https://apify.com/${USER}/exhibition-scraper`;
 const n = (x) => Number(x).toLocaleString('en-US');
 mkdirSync(OUT('./leads/'), { recursive: true });
+// Up to 8 other shows for internal links: same industry first, then the biggest.
+const related = (l) => [...leads.filter((o) => o.id !== l.id && o.industry === l.industry), ...leads.filter((o) => o.id !== l.id && o.industry !== l.industry)].slice(0, 8);
 for (const l of leads) {
-  const title = `${l.name} exhibitor list ${l.updated.slice(0, 4)}: ${n(l.total)} companies with booth, website and contacts`;
-  const desc = `${l.name}${l.where ? ` (${l.where})` : ''} exhibitor list: ${n(l.total)} exhibitors${l.countriesFromSample ? '' : ` from ${l.countryCount} countries`} with booth, website, phone and email. Free sample, full list as CSV/Excel.`;
+  const title = `${l.name} exhibitor list${/\b20\d\d\b/.test(l.name) ? '' : ` ${l.updated.slice(0, 4)}`}: ${n(l.total)} companies with booth, website and contacts`;
+  const desc = `${l.name}${l.where ? ` (${l.where})` : ''} exhibitor list: ${n(l.total)} exhibitors${l.countriesFromSample || !l.countryCount ? '' : ` from ${l.countryCount} countries`} with booth, website, phone and email. Free sample, full list as CSV/Excel.`;
   const tiles = [
     [n(l.total), 'exhibitors'],
-    [l.countryCount, l.countriesFromSample ? 'countries (in sample)' : 'countries'],
+    ...(l.countryCount ? [[l.countryCount, l.countriesFromSample ? 'countries (in sample)' : 'countries']] : []),
     [`${l.coverage.booth}%`, 'with booth'],
     [`${l.coverage.website}%`, 'with website'],
     [`${l.coverage.email}%`, 'with email*'],
@@ -628,7 +630,7 @@ for (const l of leads) {
   <p class="eyebrow">${esc(l.industry)}${l.where ? ` · ${esc(l.where)}` : ''}</p>
   <h1>${esc(l.name)} exhibitor list</h1>
   <p class="lead">Every exhibitor at ${esc(l.name)} as a clean spreadsheet: company, booth and hall, website, phone, address, categories and email. Read from the organiser's <a href="${esc(l.listUrl)}">official exhibitor list</a>${l.listUrl ? '' : ''}; emails missing there are looked up on each company's own website.</p>
-  <div class="stats five">${tiles}</div>
+  <div class="stats${l.countryCount ? ' five' : ''}">${tiles}</div>
   <div class="cta-row">
     <a class="btn primary" href="${ACTOR_URL}">Get the full list (run it yourself, about $2 per 1,000)</a>
     <a class="btn" href="/#build">Have it done for you</a>
@@ -638,11 +640,14 @@ for (const l of leads) {
   <h2>Sample: 20 of ${n(l.total)} exhibitors</h2>
   <p class="muted">The full list adds phone, email, address, categories, social profiles and the company description. Emails and phones are left out of this public sample.</p>
   <div class="table-wrap"><table class="sample"><thead><tr><th>Company</th><th>Country</th><th>Booth</th><th>Website</th></tr></thead><tbody>${rows}</tbody></table></div>
-  <h2>Where exhibitors come from${l.countriesFromSample ? ` <span class="muted">(${l.sampleSize}-exhibitor sample)</span>` : ''}</h2>
-  <ul class="countries">${countries}</ul>
+${countries ? `  <h2>Where exhibitors come from${l.countriesFromSample ? ` <span class="muted">(${l.sampleSize}-exhibitor sample)</span>` : ''}</h2>
+  <ul class="countries">${countries}</ul>` : ''}
   <p class="fine">* Contact coverage measured on a ${l.sampleSize}-exhibitor sample with emails looked up on company websites; updated ${esc(l.updated)}. Data comes from public pages; use it within GDPR and the organiser's terms.</p>
   <h2>Get it</h2>
   <p>Run <a href="${ACTOR_URL}">Trade Show Exhibitor List Scraper</a> with the show <code>${esc(l.id)}</code> (turn on <em>Find emails on company websites</em>), export CSV or Excel, or schedule it with <em>Changes only</em> to get new exhibitors and booth moves until the show. Prefer a ready file? Email <a href="mailto:${EMAIL}?subject=${encodeURIComponent(l.name + ' exhibitor list')}">${EMAIL}</a>.</p>
+
+  <h2>More exhibitor lists</h2>
+  <p class="terms">${related(l).map((o) => `<a class="xchip" href="/leads/${o.id}.html">${esc(o.name)}</a>`).join(' ')} <a class="xchip" href="/leads/">All shows</a></p>
 </div></section>`;
   writeFileSync(
     OUT(`./leads/${l.id}.html`),
@@ -666,7 +671,7 @@ for (const l of leads) {
 }
 if (leads.length) {
   const list = leads
-    .map((l) => `<a class="card" href="/leads/${l.id}.html"><h3>${esc(l.name)}</h3><p>${esc(l.industry)}${l.where ? ` · ${esc(l.where)}` : ''}</p><p class="muted">${n(l.total)} exhibitors${l.countriesFromSample ? '' : ` · ${l.countryCount} countries`}</p></a>`)
+    .map((l) => `<a class="card" href="/leads/${l.id}.html"><h3>${esc(l.name)}</h3><p>${esc(l.industry)}${l.where ? ` · ${esc(l.where)}` : ''}</p><p class="muted">${n(l.total)} exhibitors${l.countriesFromSample || !l.countryCount ? '' : ` · ${l.countryCount} countries`}</p></a>`)
     .join('');
   writeFileSync(
     OUT('./leads/index.html'),
@@ -1262,6 +1267,13 @@ ${peers.map((t) => `      <a class="card link" href="/tools/${t.name}/"><span cl
     </div>
   </div>
 </section>
+${name === 'exhibition-scraper' && leads.length ? `
+<section id="shows" data-label="Shows">
+  <div class="wrap">
+    <div class="sec-head"><h2>Exhibitor lists by show</h2><p>Size, contact coverage and a free sample for each show.</p></div>
+    <p class="terms">${leads.map((l) => `<a class="xchip" href="/leads/${l.id}.html">${esc(l.name)}</a>`).join(' ')}</p>
+  </div>
+</section>` : ''}
 ${terms.uses.length || terms.aka.length ? `
 <section class="alt" id="uses" data-label="Use cases">
   <div class="wrap">

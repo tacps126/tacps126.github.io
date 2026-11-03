@@ -1,0 +1,182 @@
+{
+  "id": "automechanika-shanghai",
+  "name": "Automechanika Shanghai",
+  "where": "China",
+  "industry": "Automotive Aftermarket",
+  "listUrl": "https://automechanika-shanghai.hk.messefrankfurt.com/shanghai/en/exhibitor-search.html",
+  "total": 7194,
+  "countries": [
+    [
+      "China",
+      6708
+    ],
+    [
+      "Korea, the Republic of (South)",
+      88
+    ],
+    [
+      "Taiwan",
+      55
+    ],
+    [
+      "Türkiye",
+      53
+    ],
+    [
+      "Malaysia",
+      42
+    ],
+    [
+      "India",
+      28
+    ],
+    [
+      "Thailand",
+      28
+    ],
+    [
+      "Singapore",
+      23
+    ],
+    [
+      "Germany",
+      23
+    ],
+    [
+      "Italy",
+      19
+    ]
+  ],
+  "countryCount": 42,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 90,
+    "phone": 82,
+    "email": 98,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "31 Incorporated",
+      "country": "United States",
+      "booth": "7.2 / A29",
+      "website": "31inc.com"
+    },
+    {
+      "company": "A.L. GROUP",
+      "country": "China",
+      "booth": "2.1 / F98",
+      "website": "algroup.com"
+    },
+    {
+      "company": "ABA Automotive Rulman Sanayi Anonim Sirketi",
+      "country": "Türkiye",
+      "booth": "2.1 / AE01",
+      "website": "aba-automotive.com"
+    },
+    {
+      "company": "ABHIRASHI IMPEX",
+      "country": "India",
+      "booth": "4.1 / K44",
+      "website": "alfainst.com"
+    },
+    {
+      "company": "Aborn Automotive Sensor (Zhejiang) Co Ltd",
+      "country": "China",
+      "booth": "4.1 / F52",
+      "website": "aborn.cn"
+    },
+    {
+      "company": "ABRO Industries, Inc.",
+      "country": "United States",
+      "booth": "2.2 / B51",
+      "website": "abro.com.cn"
+    },
+    {
+      "company": "ACCELINK",
+      "country": "China",
+      "booth": "5.1 / F60",
+      "website": "accelink.com"
+    },
+    {
+      "company": "Accor / KENNOL",
+      "country": "France",
+      "booth": "null",
+      "website": "kennol.com"
+    },
+    {
+      "company": "Accufill (Shanghai) Technology Co Ltd",
+      "country": "China",
+      "booth": "5.2 / B65",
+      "website": "accufillgroup.com"
+    },
+    {
+      "company": "Aceon Bright, Inc.",
+      "country": "United States",
+      "booth": "2.1 / F121",
+      "website": "aceonbright.com"
+    },
+    {
+      "company": "ACMA Mobility Foundation",
+      "country": "India",
+      "booth": "2.1 / M144",
+      "website": "acma.in"
+    },
+    {
+      "company": "ACR (China) Inc",
+      "country": "China",
+      "booth": "7.1 / H119",
+      "website": "cnacr.com"
+    },
+    {
+      "company": "ACV RICH CO., LTD",
+      "country": "Thailand",
+      "booth": "2.1 / AB03",
+      "website": "acvrich.com"
+    },
+    {
+      "company": "ACV Suspension Systems Company",
+      "country": "Türkiye",
+      "booth": "2.1 / E20",
+      "website": "acvsuspension.com"
+    },
+    {
+      "company": "ADD Industry (ZheJiang)Corporation Limited",
+      "country": "China",
+      "booth": "3 / M35",
+      "website": "addchina.com"
+    },
+    {
+      "company": "Advance Auto Inc",
+      "country": "Korea, the Republic of (South)",
+      "booth": "2.1 / M116",
+      "website": "advanceauto.co.kr"
+    },
+    {
+      "company": "Adventry Transmission Systems (Hangzhou) Co., Ltd.",
+      "country": "China",
+      "booth": "2.1 / F146",
+      "website": "goodyearbelts.com"
+    },
+    {
+      "company": "AEP (H.K) International Trading Limited",
+      "country": "Hong Kong",
+      "booth": "8.2 / E22",
+      "website": "royalrhinoppf.com"
+    },
+    {
+      "company": "Aeroflex Sealing Material Mfg. Co., India",
+      "country": "India",
+      "booth": "1.1 / A101",
+      "website": "aeroflexsealing.com"
+    },
+    {
+      "company": "AFA Industries, Inc.",
+      "country": "United States",
+      "booth": "1.1 / F95",
+      "website": "afaindustries.com"
+    }
+  ],
+  "updated": "2026-11-04"
+}

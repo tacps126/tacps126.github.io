@@ -1,0 +1,182 @@
+{
+  "id": "iffa",
+  "name": "IFFA",
+  "where": "Frankfurt, Germany",
+  "industry": "Meat & Protein Processing",
+  "listUrl": "https://iffa.messefrankfurt.com/frankfurt/en/exhibitor-search.html",
+  "total": 1022,
+  "countries": [
+    [
+      "Germany",
+      320
+    ],
+    [
+      "Italy",
+      99
+    ],
+    [
+      "Spain",
+      79
+    ],
+    [
+      "Netherlands",
+      65
+    ],
+    [
+      "China",
+      52
+    ],
+    [
+      "Poland",
+      50
+    ],
+    [
+      "Denmark",
+      42
+    ],
+    [
+      "United States",
+      41
+    ],
+    [
+      "France",
+      39
+    ],
+    [
+      "Belgium",
+      26
+    ]
+  ],
+  "countryCount": 52,
+  "countriesFromSample": false,
+  "coverage": {
+    "website": 98,
+    "phone": 92,
+    "email": 90,
+    "booth": 100
+  },
+  "sampleSize": 40,
+  "sample": [
+    {
+      "company": "1. Bayerische Fleischerschule Landshut Dr. Herbert Huber GmbH",
+      "country": "Germany",
+      "booth": "12.0 / F30",
+      "website": "fleischerschule-landshut.de"
+    },
+    {
+      "company": "3A BIOTECH SL",
+      "country": "Spain",
+      "booth": "11.1 / A51",
+      "website": "tres-a.com"
+    },
+    {
+      "company": "A K N Thermal Plastic Utensils Manufacturing L.L.C.",
+      "country": "United Arab Emirates",
+      "booth": "11.1 / A30",
+      "website": "akncasing.com"
+    },
+    {
+      "company": "Abad Maquinaria Industrial, S.L. Laint",
+      "country": "Spain",
+      "booth": "9.0 / A04",
+      "website": "laint.es"
+    },
+    {
+      "company": "Abele Stegmaier GmbH Schlachtanlagen und Metallbau",
+      "country": "Germany",
+      "booth": "9.0 / F24",
+      "website": "profi-schlachtanlagen.de"
+    },
+    {
+      "company": "ABI b.v.",
+      "country": "Netherlands",
+      "booth": "9.1 / H41",
+      "website": "abi.nl"
+    },
+    {
+      "company": "ABIMAQ - Associacao Brasileira da Industria de Maquinas e Equipamentos",
+      "country": "Brazil",
+      "booth": "8.0 / A30F",
+      "website": "brazilmachinery.com"
+    },
+    {
+      "company": "Accuratech ApS",
+      "country": "Denmark",
+      "booth": "9.1 / F44C",
+      "website": "accuratech.dk/en"
+    },
+    {
+      "company": "aditec Industrieelektronik GmbH",
+      "country": "Germany",
+      "booth": "9.1 / C91",
+      "website": "aditec.net"
+    },
+    {
+      "company": "ADM",
+      "country": "Switzerland",
+      "booth": "11.0 / D97",
+      "website": "adm.com"
+    },
+    {
+      "company": "Adpan Europa Sl",
+      "country": "Spain",
+      "booth": "11.1 / D65",
+      "website": "adpan.es"
+    },
+    {
+      "company": "Advanced Packaging Association AISBL",
+      "country": "Belgium",
+      "booth": "11.0 / A34",
+      "website": "advanced-packaging-association.org"
+    },
+    {
+      "company": "Aegimesh Lda.",
+      "country": "Portugal",
+      "booth": "9.1 / E66",
+      "website": "u-safe.net"
+    },
+    {
+      "company": "Aerosol Plus AB",
+      "country": "Sweden",
+      "booth": "8.0 / G61",
+      "website": "berkos.se"
+    },
+    {
+      "company": "AF Food Technology GmbH &amp; Co. KG",
+      "country": "Germany",
+      "booth": "8.0 / G39",
+      "website": "af-food-technology.com"
+    },
+    {
+      "company": "Afher Eurobelt, S.A.",
+      "country": "Spain",
+      "booth": "9.1 / D11",
+      "website": "eurobelt.com"
+    },
+    {
+      "company": "AGBM by Porta",
+      "country": "Argentina",
+      "booth": "11.0 / C80",
+      "website": "agbm.com.ar"
+    },
+    {
+      "company": "Agricarnitec Santini e C. srl",
+      "country": "Italy",
+      "booth": "12.0 / A35",
+      "website": "agricarnitec.it"
+    },
+    {
+      "company": "AICON X-RAY GmbH",
+      "country": "Germany",
+      "booth": "12.0 / D20",
+      "website": "aiconxray.com"
+    },
+    {
+      "company": "Air Products Inc.",
+      "country": "Germany",
+      "booth": "9.0 / F51",
+      "website": "airproducts.de/industries/food"
+    }
+  ],
+  "updated": "2026-11-04"
+}
