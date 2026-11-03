@@ -27,6 +27,10 @@ const PLAIN = [
 // Search terms and use cases per tool (data/terms.json): the words people search with that do
 // not fit in the Store's short title and description.
 const TERMS = JSON.parse(readFileSync(new URL('./data/terms.json', import.meta.url), 'utf8'));
+// Search engine ownership tags (data/verify.json): paste only the content value each console gives.
+const VERIFY = existsSync(new URL('./data/verify.json', import.meta.url)) ? JSON.parse(readFileSync(new URL('./data/verify.json', import.meta.url), 'utf8')) : {};
+const verifyTags = [['google', 'google-site-verification'], ['bing', 'msvalidate.01'], ['yandex', 'yandex-verification']]
+  .filter(([k]) => VERIFY[k]).map(([k, n]) => `\n<meta name="${n}" content="${VERIFY[k]}">`).join('');
 const termsOf = (name) => ({ aka: [], uses: [], ...(TERMS[name] || {}) });
 const plainText = (s) => PLAIN.reduce((t, [rx, rep]) => t.replace(rx, rep), s);
 const writeFileSync = (path, data, ...rest) => fsWrite(path, typeof data === 'string' ? plainText(data) : data, ...rest);
@@ -294,7 +298,7 @@ const page = ({ path, title, description, keywords, body, active, jsonld, script
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">${keywords ? `\n<meta name="keywords" content="${esc(keywords)}">` : ''}
 <link rel="canonical" href="${SITE}${path}">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">${path === '/' ? verifyTags : ''}
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
@@ -1636,23 +1640,38 @@ writeFileSync(
   }),
 );
 
+// Sitemap dates move only when a page's HTML changes (data/lastmod.json keeps a hash per page), so search
+// engines can trust them; a daily refresh that changes nothing keeps the old date. scripts/indexnow.mjs
+// sends the pages dated today to IndexNow (Bing, Yandex and others) after a push.
+const LASTMOD_FILE = new URL('./data/lastmod.json', import.meta.url);
+const LASTMOD = existsSync(LASTMOD_FILE) ? JSON.parse(readFileSync(LASTMOD_FILE, 'utf8')) : {};
+const seen = new Set();
+const lastmod = (path) => {
+  seen.add(path);
+  const hash = createHash('sha1').update(readFileSync(OUT('.' + (path.endsWith('/') ? path + 'index.html' : path)))).digest('hex').slice(0, 16);
+  if (LASTMOD[path]?.hash !== hash) LASTMOD[path] = { hash, date: TODAY };
+  return LASTMOD[path].date;
+};
+const entry = (path, extra = '') => `  <url><loc>${SITE}${path}</loc><lastmod>${lastmod(path)}</lastmod>${extra}</url>`;
 writeFileSync(
   OUT('./sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url><loc>${SITE}/</loc><lastmod>${TODAY}</lastmod></url>
-  <url><loc>${SITE}/mcp.html</loc><lastmod>${TODAY}</lastmod></url>
-  <url><loc>${SITE}/about.html</loc><lastmod>${TODAY}</lastmod></url>
-  <url><loc>${SITE}/pricing.html</loc><lastmod>${TODAY}</lastmod></url>
-  <url><loc>${SITE}/blog/</loc><lastmod>${TODAY}</lastmod></url>
-  <url><loc>${SITE}/tools/</loc><lastmod>${TODAY}</lastmod></url>
-${CATS.map(([k]) => `  <url><loc>${SITE}/tools/${k}/</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}
-${allTools.map(({ a }) => `  <url><loc>${SITE}/tools/${a.name}/</loc><lastmod>${DETAIL.get(a.name)?.act?.taggedBuilds?.latest?.finishedAt?.slice(0, 10) || TODAY}</lastmod>${ogOf(a.name) !== OG ? `<image:image><image:loc>${esc(ogOf(a.name))}</image:loc></image:image>` : ''}</url>`).join('\n')}
-${POSTS.map((p) => `  <url><loc>${SITE}/blog/${p.id}.html</loc><lastmod>${p.date}</lastmod></url>`).join('\n')}
-${leads.length ? `  <url><loc>${SITE}/leads/</loc><lastmod>${TODAY}</lastmod></url>\n` : ''}${leads.map((l) => `  <url><loc>${SITE}/leads/${l.id}.html</loc><lastmod>${l.updated}</lastmod></url>`).join('\n')}
+${[
+  ...['/', '/mcp.html', '/about.html', '/pricing.html', '/blog/', '/tools/'].map((p) => entry(p)),
+  ...CATS.map(([k]) => entry(`/tools/${k}/`)),
+  ...allTools.map(({ a }) => entry(`/tools/${a.name}/`, ogOf(a.name) !== OG ? `<image:image><image:loc>${esc(ogOf(a.name))}</image:loc></image:image>` : '')),
+  ...POSTS.map((p) => entry(`/blog/${p.id}.html`)),
+  ...(leads.length ? [entry('/leads/')] : []),
+  ...leads.map((l) => entry(`/leads/${l.id}.html`)),
+].join('\n')}
 </urlset>
 `,
 );
+if (!PREVIEW) {
+  const kept = Object.fromEntries(Object.keys(LASTMOD).filter((k) => seen.has(k)).sort().map((k) => [k, LASTMOD[k]]));
+  fsWrite(LASTMOD_FILE, JSON.stringify(kept, null, 1) + '\n');
+}
 
 const lines = CATS.flatMap(([k, label, names]) => [
   `## [${label}](${SITE}/tools/${k}/)`,

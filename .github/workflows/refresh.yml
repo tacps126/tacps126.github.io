@@ -35,3 +35,7 @@ jobs:
           git add -A
           git commit -m "Refresh from the Apify Store"
           git push
+      - name: Tell IndexNow about pages that changed today
+        # Waits for GitHub Pages to serve the push first; a failure here never fails the refresh.
+        continue-on-error: true
+        run: sleep 90 && node scripts/indexnow.mjs
