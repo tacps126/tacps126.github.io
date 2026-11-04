@@ -253,7 +253,7 @@ ${CATS.map(([k, l]) => `        <li><a href="/tools/${k}/">${esc(CAT_SHORT[k] ||
       </ul></nav>
     </div>
     <div class="foot-base">
-      <p class="fine">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+      <p class="fine" id="data-use">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
       <p class="fine">&copy; ${TODAY.slice(0, 4)} ${OWNER}</p>
     </div>
   </div>
@@ -665,6 +665,8 @@ ${countries ? `  <h2>Where exhibitors come from${l.countriesFromSample ? ` <span
         dateModified: l.updated,
         creator: { '@type': 'Organization', name: 'tacps126' },
         isAccessibleForFree: false,
+        // Terms of use for the data (Search Console asks Datasets for a license).
+        license: `${SITE}/about.html#data-use`,
       },
     }),
   );
