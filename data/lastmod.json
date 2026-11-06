@@ -1,10 +1,10 @@
 {
  "/": {
-  "hash": "2796ecc3ed719704",
+  "hash": "d90d0512cbb9280a",
   "date": "2026-11-06"
  },
  "/about.html": {
-  "hash": "d5a60e6012f001d8",
+  "hash": "17d209815db2e060",
   "date": "2026-11-06"
  },
  "/blog/": {
@@ -380,7 +380,7 @@
   "date": "2026-11-06"
  },
  "/tools/": {
-  "hash": "68ab3d1ecabcf31d",
+  "hash": "c84a94cf5e27d988",
   "date": "2026-11-06"
  },
  "/tools/ai-training-jobs-scraper/": {
@@ -388,7 +388,7 @@
   "date": "2026-11-06"
  },
  "/tools/alerts-radar/": {
-  "hash": "34539182c97a60ab",
+  "hash": "96fc1c70cc6c04b6",
   "date": "2026-11-06"
  },
  "/tools/app-reviews/": {
@@ -412,15 +412,15 @@
   "date": "2026-11-06"
  },
  "/tools/commerce/": {
-  "hash": "fb9b5cd611ad9979",
+  "hash": "e3c5183f83c58700",
   "date": "2026-11-06"
  },
  "/tools/company-registry/": {
-  "hash": "e0c54af44cb6b073",
+  "hash": "34083e243778b912",
   "date": "2026-11-06"
  },
  "/tools/contact-details/": {
-  "hash": "0a5db6d65f18e052",
+  "hash": "b397d4bc1b4e9888",
   "date": "2026-11-06"
  },
  "/tools/copart-auctions/": {
@@ -428,7 +428,7 @@
   "date": "2026-11-06"
  },
  "/tools/cve-feed/": {
-  "hash": "ecb0e95e4dee24cd",
+  "hash": "acb57c421ce77ca1",
   "date": "2026-11-06"
  },
  "/tools/dice-jobs-scraper/": {
@@ -444,7 +444,7 @@
   "date": "2026-11-06"
  },
  "/tools/exhibition-scraper/": {
-  "hash": "53cfd4d6d240f60d",
+  "hash": "fa5afe8c864d07ec",
   "date": "2026-11-06"
  },
  "/tools/fda-device-clearances/": {
@@ -456,11 +456,11 @@
   "date": "2026-11-06"
  },
  "/tools/football-scores-stats/": {
-  "hash": "0415b03cf95bb67c",
+  "hash": "e1347169f1ddcdf1",
   "date": "2026-11-06"
  },
  "/tools/glassdoor-jobs-scraper/": {
-  "hash": "7cf31f571d0d73fa",
+  "hash": "c4856ad26fa76389",
   "date": "2026-11-06"
  },
  "/tools/google-news/": {
@@ -468,15 +468,15 @@
   "date": "2026-11-06"
  },
  "/tools/gov-radar/": {
-  "hash": "c386ba8eef8ae5d3",
+  "hash": "b5d4985c3ccf88e0",
   "date": "2026-11-06"
  },
  "/tools/gov/": {
-  "hash": "005d527a9ec646ef",
+  "hash": "c72d1b4a68cd3502",
   "date": "2026-11-06"
  },
  "/tools/grants-radar/": {
-  "hash": "c12ae8d6abfddcff",
+  "hash": "bebed4918ef03dc2",
   "date": "2026-11-06"
  },
  "/tools/greenhouse-jobs-scraper/": {
@@ -500,11 +500,11 @@
   "date": "2026-11-06"
  },
  "/tools/indeed-jobs/": {
-  "hash": "df0bcea4d62538e0",
+  "hash": "1e7303f49130dc20",
   "date": "2026-11-06"
  },
  "/tools/india-district-notices/": {
-  "hash": "082baaec20d2688b",
+  "hash": "ff7a7f61d0a00249",
   "date": "2026-11-06"
  },
  "/tools/innovation-radar/": {
@@ -516,7 +516,7 @@
   "date": "2026-11-06"
  },
  "/tools/jobs/": {
-  "hash": "25f522b3f1cca215",
+  "hash": "72498bfa9a910891",
   "date": "2026-11-06"
  },
  "/tools/kalshi-markets/": {
@@ -524,11 +524,11 @@
   "date": "2026-11-06"
  },
  "/tools/leads/": {
-  "hash": "352c09eb4949e77f",
+  "hash": "2220e406bfd40cae",
   "date": "2026-11-06"
  },
  "/tools/legislation-radar/": {
-  "hash": "5c6eb4100a931cc7",
+  "hash": "2cb590988b7f87ba",
   "date": "2026-11-06"
  },
  "/tools/levels-fyi-salaries/": {
@@ -544,7 +544,7 @@
   "date": "2026-11-06"
  },
  "/tools/lottery-results/": {
-  "hash": "9da2a1da38d2e84a",
+  "hash": "fab73d56a75364c3",
   "date": "2026-11-06"
  },
  "/tools/luma-events-scraper/": {
@@ -552,7 +552,7 @@
   "date": "2026-11-06"
  },
  "/tools/meetup-events-scraper/": {
-  "hash": "666bba9f38c21825",
+  "hash": "4b812626161f6b80",
   "date": "2026-11-06"
  },
  "/tools/naukri-jobs-scraper/": {
@@ -560,11 +560,11 @@
   "date": "2026-11-06"
  },
  "/tools/nba-scores-stats/": {
-  "hash": "7ffc05f6bd5f0155",
+  "hash": "a0640be6e795a42b",
   "date": "2026-11-06"
  },
  "/tools/nfl-scores-stats/": {
-  "hash": "537373017e9717ff",
+  "hash": "1cc765338d4e7eb0",
   "date": "2026-11-06"
  },
  "/tools/npi-providers/": {
@@ -592,11 +592,11 @@
   "date": "2026-11-06"
  },
  "/tools/propertyfinder-scraper/": {
-  "hash": "ba10762082e4f5d3",
+  "hash": "2ddfb5bca904b1d5",
   "date": "2026-11-06"
  },
  "/tools/recalls-radar/": {
-  "hash": "aa319329333b0509",
+  "hash": "a07afb25c3990939",
   "date": "2026-11-06"
  },
  "/tools/recruitee-jobs-scraper/": {
@@ -620,7 +620,7 @@
   "date": "2026-11-06"
  },
  "/tools/reviews/": {
-  "hash": "59cc4644a2429eda",
+  "hash": "06624a09d2ea0289",
   "date": "2026-11-06"
  },
  "/tools/rightmove-scraper/": {
@@ -632,7 +632,7 @@
   "date": "2026-11-06"
  },
  "/tools/sanctions-screener/": {
-  "hash": "59a8a1b797326ada",
+  "hash": "13b45abf58cde281",
   "date": "2026-11-06"
  },
  "/tools/shopify-products/": {
@@ -652,15 +652,15 @@
   "date": "2026-11-06"
  },
  "/tools/sports-betting-odds/": {
-  "hash": "21085190e718854f",
+  "hash": "8144028f143aa9b6",
   "date": "2026-11-06"
  },
  "/tools/sports-data/": {
-  "hash": "1865273702ca1393",
+  "hash": "f06852e1e4c38aef",
   "date": "2026-11-06"
  },
  "/tools/sports/": {
-  "hash": "27a9342c62502343",
+  "hash": "b0338e07c1b85f7b",
   "date": "2026-11-06"
  },
  "/tools/startup-funding/": {
@@ -676,11 +676,11 @@
   "date": "2026-11-06"
  },
  "/tools/tenders-radar/": {
-  "hash": "197314969402bbaf",
+  "hash": "f86411b338d78f30",
   "date": "2026-11-06"
  },
  "/tools/tennis-scores-rankings/": {
-  "hash": "b316482accae06a6",
+  "hash": "63f7829867eec2c6",
   "date": "2026-11-06"
  },
  "/tools/transit-timetables/": {
@@ -692,7 +692,7 @@
   "date": "2026-11-06"
  },
  "/tools/trustpilot-reviews/": {
-  "hash": "1845f318f6e2c169",
+  "hash": "ee9c323c8ce78ce2",
   "date": "2026-11-06"
  },
  "/tools/us-import-records/": {
@@ -712,7 +712,7 @@
   "date": "2026-11-06"
  },
  "/tools/youtube-transcripts/": {
-  "hash": "05b997b99fb547aa",
+  "hash": "972627deecbd9f72",
   "date": "2026-11-06"
  }
 }
