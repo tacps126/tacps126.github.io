@@ -290,13 +290,27 @@ function decorate(body) {
   }).join('<section');
 }
 
+const clampTitle = (t) => {
+  if (t.length <= 65) return t;
+  const bare = t.replace(/\s*\|\s*tacps126$/, '');
+  if (bare.length <= 65) return bare;
+  return bare.slice(0, 66).replace(/[\s,:;(-]+\S*$/, '').replace(/[\s,:;(-]+$/, '');
+};
+const clampDesc = (d) => {
+  if (d.length <= 158) return d;
+  const cut = d.slice(0, 159);
+  const stop = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('; '));
+  if (stop >= 90) return cut.slice(0, stop + 1).replace(/;$/, '.');
+  return cut.replace(/[\s,:;(-]+\S*$/, '').replace(/[\s,:;(-]+$/, '') + '.';
+};
+
 const page = ({ path, title, description, keywords, body, active, jsonld, scripts = [], og = OG, ogAlt = 'tacps126: clean web data for jobs, news, reviews and leads', modified }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)}</title>
-<meta name="description" content="${esc(description)}">${keywords ? `\n<meta name="keywords" content="${esc(keywords)}">` : ''}
+<title>${esc(clampTitle(title))}</title>
+<meta name="description" content="${esc(clampDesc(description))}">${keywords ? `\n<meta name="keywords" content="${esc(keywords)}">` : ''}
 <link rel="canonical" href="${SITE}${path}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">${path === '/' ? verifyTags : ''}
 <meta name="color-scheme" content="light dark">
