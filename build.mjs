@@ -207,7 +207,7 @@ const small = (name, size) => ICONS[name].replace('<svg', `<svg width="${size}" 
 const header = (active) => `<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="30" height="30"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
+    <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="30" height="30"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
     <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search ${used} tools</span><kbd>⌘K</kbd></button>
     <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">${small('menu', 20)}</button>
     <nav class="nav-links" id="nav-links" aria-label="Main">
@@ -226,7 +226,7 @@ const footer = () => `<footer>
   <div class="wrap">
     <div class="foot">
       <div class="foot-brand">
-        <a class="brand" href="/"><img src="/favicon.svg" alt="" width="34" height="34"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
+        <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="34" height="34"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
         <p>Web data tools that gather, clean and enrich public data: jobs, leads, research, markets and public records. Pay per result on Apify, or call them from an AI agent.</p>
         <p><a href="mailto:${EMAIL}">${EMAIL}</a><br><a href="mailto:${EMAIL}?subject=Custom%20data%20request">Ask for a custom dataset</a></p>
       </div>
@@ -291,10 +291,10 @@ function decorate(body) {
 }
 
 const clampTitle = (t) => {
-  if (t.length <= 65) return t;
+  if (t.length <= 58) return t;
   const bare = t.replace(/\s*\|\s*tacps126$/, '');
-  if (bare.length <= 65) return bare;
-  return bare.slice(0, 66).replace(/[\s,:;(-]+\S*$/, '').replace(/[\s,:;(-]+$/, '');
+  if (bare.length <= 58) return bare;
+  return bare.slice(0, 59).replace(/[\s,:;(-]+\S*$/, '').replace(/[\s,:;(-]+$/, '');
 };
 const clampDesc = (d) => {
   if (d.length <= 158) return d;
@@ -1116,7 +1116,7 @@ const iconImg = (name, size, cls = '', lazy = true) => {
   const src = iconOf(name), fb = localIcon(name);
   if (!src) return '';
   const onerr = fb && fb !== src ? ` onerror="this.onerror=null;this.src='${fb}'"` : '';
-  return `<img${cls ? ` class="${cls}"` : ''} src="${esc(src)}" alt="" width="${size}" height="${size}"${lazy ? ' loading="lazy"' : ''} decoding="async"${onerr}>`;
+  return `<img${cls ? ` class="${cls}"` : ''} src="${esc(src)}" alt="${esc((DETAIL.get(name)?.act?.title || name) + ' icon')}" width="${size}" height="${size}"${lazy ? ' loading="lazy"' : ''} decoding="async"${onerr}>`;
 };
 const toolCard = (a, k) => {
   const p = priceOf(a.description);
