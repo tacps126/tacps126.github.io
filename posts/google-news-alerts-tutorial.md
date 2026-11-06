@@ -78,7 +78,7 @@ histories.
 
 ## Cost
 
-About **$2 per 1,000 articles**, and with "only new" you pay only for articles you
+About **$3 per 1,000 articles**, and with "only new" you pay only for articles you
 haven't already received.
 
 ---

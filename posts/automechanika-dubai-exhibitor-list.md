@@ -53,7 +53,7 @@ Leave **Include contact details** on: that's what adds email, phone and address.
 Press **Start**. When it finishes, open **Output > Export** and pick CSV or Excel. The *Contacts*
 view gives you a flat table ready for your CRM.
 
-Cost on a paid plan: about $2 per 1,000 exhibitors, so the whole show costs less than a coffee.
+Cost on a paid plan: about $3 per 1,000 exhibitors, so the whole show costs less than a coffee.
 
 ## Step 4: narrow it down
 
