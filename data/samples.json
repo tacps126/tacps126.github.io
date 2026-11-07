@@ -1,0 +1,22 @@
+{
+  "auctions-radar": {
+    "csv": "https://api.apify.com/v2/key-value-stores/R9Y0tpyE7uMWvhJJk/records/auctions-radar.csv?signature=1ijuDT1Qo5Sqp2bGIhGPC",
+    "json": "https://api.apify.com/v2/key-value-stores/R9Y0tpyE7uMWvhJJk/records/auctions-radar.json?signature=11zw68Rh7aqckFXjSfntm"
+  },
+  "company-registry": {
+    "csv": "https://api.apify.com/v2/key-value-stores/R9Y0tpyE7uMWvhJJk/records/company-registry.csv?signature=iJtGR02Tjf75W79jznd7",
+    "json": "https://api.apify.com/v2/key-value-stores/R9Y0tpyE7uMWvhJJk/records/company-registry.json?signature=DURSl5rTSDA9JotAbT8R"
+  },
+  "exhibition-scraper": {
+    "csv": "https://api.apify.com/v2/key-value-stores/R9Y0tpyE7uMWvhJJk/records/exhibition-scraper.csv?signature=TlzyNDlOyVysqUuf8azn",
+    "json": "https://api.apify.com/v2/key-value-stores/R9Y0tpyE7uMWvhJJk/records/exhibition-scraper.json?signature=ZwEvqfmfmCNiCMNpYkFp"
+  },
+  "hiring-signals": {
+    "csv": "https://api.apify.com/v2/key-value-stores/R9Y0tpyE7uMWvhJJk/records/hiring-signals.csv?signature=5Hwu1kRCmTcEWClMMW2Z",
+    "json": "https://api.apify.com/v2/key-value-stores/R9Y0tpyE7uMWvhJJk/records/hiring-signals.json?signature=105bvlf1qhh2TTkvcA1BI"
+  },
+  "sanctions-screener": {
+    "csv": "https://api.apify.com/v2/key-value-stores/R9Y0tpyE7uMWvhJJk/records/sanctions-screener.csv?signature=ceVdECLxNk2vFGVx0dbz",
+    "json": "https://api.apify.com/v2/key-value-stores/R9Y0tpyE7uMWvhJJk/records/sanctions-screener.json?signature=1KYJFVJb1hP8ucR6etzKS"
+  }
+}

@@ -27,6 +27,8 @@ const PLAIN = [
 // Search terms and use cases per tool (data/terms.json): the words people search with that do
 // not fit in the Store's short title and description.
 const TERMS = JSON.parse(readFileSync(new URL('./data/terms.json', import.meta.url), 'utf8'));
+// Public sample files per tool (data/samples.json, copied from apify_actors/docs/marketing/samples-links.json).
+const SAMPLES = existsSync(new URL('./data/samples.json', import.meta.url)) ? JSON.parse(readFileSync(new URL('./data/samples.json', import.meta.url), 'utf8')) : {};
 // Search engine ownership tags (data/verify.json): paste only the content value each console gives.
 const VERIFY = existsSync(new URL('./data/verify.json', import.meta.url)) ? JSON.parse(readFileSync(new URL('./data/verify.json', import.meta.url), 'utf8')) : {};
 const verifyTags = [['google', 'google-site-verification'], ['bing', 'msvalidate.01'], ['yandex', 'yandex-verification']]
@@ -1221,6 +1223,7 @@ for (const { a, k } of allTools) {
       <a class="btn primary" href="https://apify.com/${USER}/${esc(name)}" rel="noopener">Run it on Apify</a>
       ${form ? '<a class="btn" href="#try">Build the input</a>' : ''}
       ${sample || fields.length ? '<a class="btn ghost" href="#output">See the output</a>' : ''}
+      ${SAMPLES[name]?.csv ? `<a class="btn ghost" href="${esc(SAMPLES[name].csv)}" rel="noopener" download>Download sample data (CSV)</a>` : ''}
     </div>
   </div>
 </section>
