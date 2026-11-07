@@ -101,9 +101,9 @@
     </div>
     <div class="card" id="hiring-signals" style="margin-bottom:22px">
       <h3>Hiring activity</h3>
-      <p><strong>You need:</strong> Jobs page link (Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Recruitee, Personio or Teamtailor). <strong>You get:</strong> open roles, roles posted in the last 7 days, split by function, seniority and location, and a hiring signal score.</p>
-      <p>Tool: <a href="/tools/hiring-signals/"><code>tacps126/hiring-signals</code></a> &middot; about $0.011 per row &middot; fields to add as columns: <code>totalOpenRoles</code>, <code>rolesPostedLast7Days</code>, <code>functions</code>, <code>seniority</code>, <code>topLocations</code>, <code>remoteShare</code>, <code>signalScore</code></p>
-      <div class="code"><div class="code-top"><span>input</span><button class="copy" type="button">Copy</button></div><pre>{&quot;companies&quot;:[&quot;/Jobs Page&quot;]}</pre></div>
+      <p><strong>You need:</strong> Company website (a name or a jobs page link also works). <strong>You get:</strong> open roles, roles posted in the last 7 days, split by function, seniority and location, a hiring signal score and the jobs page it found; companies without a supported jobs board come back as no-job-board-found at no charge.</p>
+      <p>Tool: <a href="/tools/hiring-signals/"><code>tacps126/hiring-signals</code></a> &middot; about $0.011 per row &middot; fields to add as columns: <code>totalOpenRoles</code>, <code>rolesPostedLast7Days</code>, <code>functions</code>, <code>seniority</code>, <code>topLocations</code>, <code>remoteShare</code>, <code>signalScore</code>, <code>jobsPage</code>, <code>status</code></p>
+      <div class="code"><div class="code-top"><span>input</span><button class="copy" type="button">Copy</button></div><pre>{&quot;companies&quot;:[&quot;/Website&quot;],&quot;includeRoles&quot;:false}</pre></div>
     </div>
     <div class="card" id="shopify-store-analyzer" style="margin-bottom:22px">
       <h3>Shopify store profile</h3>
@@ -116,6 +116,12 @@
       <p><strong>You need:</strong> Company name. <strong>You get:</strong> the latest news articles naming the company (3 per row here), with publisher, date and the article link.</p>
       <p>Tool: <a href="/tools/google-news/"><code>tacps126/google-news</code></a> &middot; about $0.01 per row &middot; fields to add as columns: <code>title</code>, <code>url</code>, <code>publisher</code>, <code>publishedAt</code></p>
       <div class="code"><div class="code-top"><span>input</span><button class="copy" type="button">Copy</button></div><pre>{&quot;queries&quot;:[&quot;\&quot;/Company Name\&quot;&quot;],&quot;timeframe&quot;:&quot;30d&quot;,&quot;maxItems&quot;:3}</pre></div>
+    </div>
+    <div class="card" id="youtube-transcripts" style="margin-bottom:22px">
+      <h3>YouTube video transcript</h3>
+      <p><strong>You need:</strong> YouTube video link. <strong>You get:</strong> the full transcript text with title, channel, length, views and caption language, ready for an AI column to summarize.</p>
+      <p>Tool: <a href="/tools/youtube-transcripts/"><code>tacps126/youtube-transcripts</code></a> &middot; about 0.35 cents per row &middot; fields to add as columns: <code>transcript</code>, <code>title</code>, <code>channel</code>, <code>wordCount</code>, <code>lengthSeconds</code>, <code>views</code></p>
+      <div class="code"><div class="code-top"><span>input</span><button class="copy" type="button">Copy</button></div><pre>{&quot;videos&quot;:[&quot;/Video URL&quot;],&quot;languages&quot;:[&quot;en&quot;],&quot;includeSegments&quot;:false}</pre></div>
     </div>
   </div>
 </section>
@@ -146,6 +152,12 @@
       <p>Every company hiring for the role, with open roles and a hiring signal score. Good next column: <a href="#contact-details">Emails and phones from a website</a>.</p>
       <p>Tool: <a href="/tools/hiring-signals/"><code>tacps126/hiring-signals</code></a></p>
       <div class="code"><div class="code-top"><span>input</span><button class="copy" type="button">Copy</button></div><pre>{&quot;searches&quot;:[&quot;head of security&quot;],&quot;searchLocation&quot;:&quot;United States&quot;}</pre></div>
+    </div>
+    <div class="card" id="auctions-radar-source" style="margin-bottom:22px">
+      <h3>Bank and court property auctions</h3>
+      <p>Upcoming property auctions from bank and court portals with price, auction date, location and a deal score.</p>
+      <p>Tool: <a href="/tools/auctions-radar/"><code>tacps126/auctions-radar</code></a></p>
+      <div class="code"><div class="code-top"><span>input</span><button class="copy" type="button">Copy</button></div><pre>{&quot;countries&quot;:[&quot;DE&quot;,&quot;ES&quot;],&quot;maxItems&quot;:100}</pre></div>
     </div>
   </div>
 </section>

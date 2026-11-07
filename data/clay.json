@@ -5,8 +5,17 @@
       "actor": "sanctions-screener",
       "title": "Sanctions check",
       "need": "Company or person name",
-      "input": {"names": ["/Name"]},
-      "map": ["status", "topScore", "matchCount", "matches"],
+      "input": {
+        "names": [
+          "/Name"
+        ]
+      },
+      "map": [
+        "status",
+        "topScore",
+        "matchCount",
+        "matches"
+      ],
       "gives": "match, possible-match or no-match against OFAC, UN, UK, Canada, Switzerland and EU lists, with the listing, programme and source link",
       "costPerRow": 0.008,
       "seconds": 7,
@@ -16,8 +25,19 @@
       "actor": "contact-details",
       "title": "Emails and phones from a website",
       "need": "Website or domain",
-      "input": {"startUrls": ["/Website"], "maxPagesPerSite": 5},
-      "map": ["primaryEmail", "emails", "phones", "contactPageUrl", "companyName"],
+      "input": {
+        "startUrls": [
+          "/Website"
+        ],
+        "maxPagesPerSite": 5
+      },
+      "map": [
+        "primaryEmail",
+        "emails",
+        "phones",
+        "contactPageUrl",
+        "companyName"
+      ],
       "gives": "public emails, phone numbers, social profiles and the contact page, read from the company's own site",
       "costPerRow": 0.00275,
       "seconds": 2,
@@ -27,8 +47,26 @@
       "actor": "company-registry",
       "title": "Official company registry record",
       "need": "Company name and 2-letter country code",
-      "input": {"mode": "search", "names": ["/Company Name"], "countries": ["/Country Code"], "maxItems": 1},
-      "map": ["registryId", "legalForm", "status", "registeredOn", "industry", "employees", "address", "website"],
+      "input": {
+        "mode": "search",
+        "names": [
+          "/Company Name"
+        ],
+        "countries": [
+          "/Country Code"
+        ],
+        "maxItems": 1
+      },
+      "map": [
+        "registryId",
+        "legalForm",
+        "status",
+        "registeredOn",
+        "industry",
+        "employees",
+        "address",
+        "website"
+      ],
       "gives": "registration number, legal form, status, founding date, industry code and registered address from the official register",
       "costPerRow": 0.0035,
       "seconds": 4,
@@ -38,8 +76,21 @@
       "actor": "us-import-records",
       "title": "US import volume and suppliers",
       "need": "Company name (US importers)",
-      "input": {"companies": ["/Company Name"], "includePartners": false, "maxItems": 1},
-      "map": ["shipments12m", "shipmentGrowthPct", "lastShipment", "topCountries", "products", "topCarriers"],
+      "input": {
+        "companies": [
+          "/Company Name"
+        ],
+        "includePartners": false,
+        "maxItems": 1
+      },
+      "map": [
+        "shipments12m",
+        "shipmentGrowthPct",
+        "lastShipment",
+        "topCountries",
+        "products",
+        "topCarriers"
+      ],
       "gives": "sea shipments in the last 12 months and the 12 before, growth, sourcing countries, product categories and carriers",
       "costPerRow": 0.005,
       "seconds": 3,
@@ -48,20 +99,49 @@
     {
       "actor": "hiring-signals",
       "title": "Hiring activity",
-      "need": "Jobs page link (Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Recruitee, Personio or Teamtailor)",
-      "input": {"companies": ["/Jobs Page"]},
-      "map": ["totalOpenRoles", "rolesPostedLast7Days", "functions", "seniority", "topLocations", "remoteShare", "signalScore"],
-      "gives": "open roles, roles posted in the last 7 days, split by function, seniority and location, and a hiring signal score",
+      "need": "Company website (a name or a jobs page link also works)",
+      "input": {
+        "companies": [
+          "/Website"
+        ],
+        "includeRoles": false
+      },
+      "map": [
+        "totalOpenRoles",
+        "rolesPostedLast7Days",
+        "functions",
+        "seniority",
+        "topLocations",
+        "remoteShare",
+        "signalScore",
+        "jobsPage",
+        "status"
+      ],
+      "gives": "open roles, roles posted in the last 7 days, split by function, seniority and location, a hiring signal score and the jobs page it found; companies without a supported jobs board come back as no-job-board-found at no charge",
       "costPerRow": 0.011,
-      "seconds": 9,
-      "tested": "local"
+      "seconds": 7,
+      "tested": "local: 15 of 18 company websites found their board, no wrong matches"
     },
     {
       "actor": "shopify-store-analyzer",
       "title": "Shopify store profile",
       "need": "Store website",
-      "input": {"startUrls": ["/Website"]},
-      "map": ["storeName", "productCount", "catalog", "currency", "country", "primaryEmail", "primaryPhone", "instagram", "shipsToCountries"],
+      "input": {
+        "startUrls": [
+          "/Website"
+        ]
+      },
+      "map": [
+        "storeName",
+        "productCount",
+        "catalog",
+        "currency",
+        "country",
+        "primaryEmail",
+        "primaryPhone",
+        "instagram",
+        "shipsToCountries"
+      ],
       "gives": "catalog size and freshness, price range, location, currency, payment options, public contacts and social profiles",
       "costPerRow": 0.00935,
       "seconds": 10,
@@ -71,11 +151,48 @@
       "actor": "google-news",
       "title": "Recent news mentions",
       "need": "Company name",
-      "input": {"queries": ["\"/Company Name\""], "timeframe": "30d", "maxItems": 3},
-      "map": ["title", "url", "publisher", "publishedAt"],
+      "input": {
+        "queries": [
+          "\"/Company Name\""
+        ],
+        "timeframe": "30d",
+        "maxItems": 3
+      },
+      "map": [
+        "title",
+        "url",
+        "publisher",
+        "publishedAt"
+      ],
       "gives": "the latest news articles naming the company (3 per row here), with publisher, date and the article link",
       "costPerRow": 0.01,
       "seconds": 2,
+      "tested": "local"
+    },
+    {
+      "actor": "youtube-transcripts",
+      "title": "YouTube video transcript",
+      "need": "YouTube video link",
+      "input": {
+        "videos": [
+          "/Video URL"
+        ],
+        "languages": [
+          "en"
+        ],
+        "includeSegments": false
+      },
+      "map": [
+        "transcript",
+        "title",
+        "channel",
+        "wordCount",
+        "lengthSeconds",
+        "views"
+      ],
+      "gives": "the full transcript text with title, channel, length, views and caption language, ready for an AI column to summarize",
+      "costPerRow": 0.0035,
+      "seconds": 1,
       "tested": "local"
     }
   ],
@@ -83,30 +200,61 @@
     {
       "actor": "exhibition-scraper",
       "title": "Exhibitors of a trade show",
-      "input": {"exhibitions": "automechanika-dubai", "maxResults": 200},
+      "input": {
+        "exhibitions": "automechanika-dubai",
+        "maxResults": 200
+      },
       "gives": "every exhibitor of the show with website, country, booth and categories; add the contact-details column next",
       "then": "contact-details"
     },
     {
       "actor": "startup-funding",
       "title": "Companies that just raised money",
-      "input": {"postedWithinDays": 7, "minAmountRaised": 1000000},
+      "input": {
+        "postedWithinDays": 7,
+        "minAmountRaised": 1000000
+      },
       "gives": "US companies that filed a Form D raise in the last 7 days, with amount, industry and named executives",
       "then": "google-news"
     },
     {
       "actor": "company-registry",
       "title": "Newly registered companies",
-      "input": {"mode": "new", "countries": ["NO", "FI"], "registeredWithinDays": 7},
+      "input": {
+        "mode": "new",
+        "countries": [
+          "NO",
+          "FI"
+        ],
+        "registeredWithinDays": 7
+      },
       "gives": "companies registered in the last 7 days with legal form, industry and address",
       "then": "contact-details"
     },
     {
       "actor": "hiring-signals",
       "title": "Companies hiring for a role",
-      "input": {"searches": ["head of security"], "searchLocation": "United States"},
+      "input": {
+        "searches": [
+          "head of security"
+        ],
+        "searchLocation": "United States"
+      },
       "gives": "every company hiring for the role, with open roles and a hiring signal score",
       "then": "contact-details"
+    },
+    {
+      "actor": "auctions-radar",
+      "title": "Bank and court property auctions",
+      "input": {
+        "countries": [
+          "DE",
+          "ES"
+        ],
+        "maxItems": 100
+      },
+      "gives": "upcoming property auctions from bank and court portals with price, auction date, location and a deal score",
+      "then": null
     }
   ]
 }
