@@ -29,6 +29,8 @@ const PLAIN = [
 const TERMS = JSON.parse(readFileSync(new URL('./data/terms.json', import.meta.url), 'utf8'));
 // Public sample files per tool (data/samples.json, copied from apify_actors/docs/marketing/samples-links.json).
 const SAMPLES = existsSync(new URL('./data/samples.json', import.meta.url)) ? JSON.parse(readFileSync(new URL('./data/samples.json', import.meta.url), 'utf8')) : {};
+// Free weekly datasets on Hugging Face per tool (data/hf.json, from apify_actors/docs/marketing/hf-links.json).
+const HF_DATA = existsSync(new URL('./data/hf.json', import.meta.url)) ? JSON.parse(readFileSync(new URL('./data/hf.json', import.meta.url), 'utf8')) : {};
 // Search engine ownership tags (data/verify.json): paste only the content value each console gives.
 const VERIFY = existsSync(new URL('./data/verify.json', import.meta.url)) ? JSON.parse(readFileSync(new URL('./data/verify.json', import.meta.url), 'utf8')) : {};
 const verifyTags = [['google', 'google-site-verification'], ['bing', 'msvalidate.01'], ['yandex', 'yandex-verification']]
@@ -1224,6 +1226,7 @@ for (const { a, k } of allTools) {
       ${form ? '<a class="btn" href="#try">Build the input</a>' : ''}
       ${sample || fields.length ? '<a class="btn ghost" href="#output">See the output</a>' : ''}
       ${SAMPLES[name]?.csv ? `<a class="btn ghost" href="${esc(SAMPLES[name].csv)}" rel="noopener" download>Download sample data (CSV)</a>` : ''}
+      ${HF_DATA[name] ? `<a class="btn ghost" href="${esc(HF_DATA[name])}" rel="noopener">Free weekly dataset</a>` : ''}
     </div>
   </div>
 </section>

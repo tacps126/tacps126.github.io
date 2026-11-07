@@ -1,0 +1,5 @@
+{
+  "company-registry": "https://huggingface.co/datasets/tacps126/new-company-registrations",
+  "recalls-radar": "https://huggingface.co/datasets/tacps126/product-recalls",
+  "auctions-radar": "https://huggingface.co/datasets/tacps126/bank-property-auctions"
+}
