@@ -863,7 +863,14 @@ const clayBody = `
 </section>
 <section class="alt" data-label="Example">
   <div class="wrap">
-    <div class="sec-head"><h2>What it looks like</h2><p>Five accounts, five columns: registry record, US imports, news, sanctions check and hiring activity, with three fields pulled out as their own columns. One of the five is a sanctions match.</p></div>
+    <div class="sec-head"><h2>What it looks like</h2><p>Two real tables, built with the recipes on this page.</p></div>
+    <h3>Trade show leads</h3>
+    <p>Ten exhibitors from a trade show, imported as a source, then one column reads each exhibitor's website. Seven come back with an email, eight with a phone; sites that are down simply return nothing.</p>
+    <div style="overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:#fff;margin-bottom:28px">
+      <img src="/img/clay-trade-show.png" alt="A Clay table of ten trade show exhibitors with company, country and website, plus a website contacts column and the primary email and phone pulled out as columns" width="2000" height="484" loading="lazy" decoding="async" style="display:block;max-width:none;width:1200px;height:auto">
+    </div>
+    <h3>Account research</h3>
+    <p>Five accounts, five columns: registry record, US imports, news, sanctions check and hiring activity, with three fields pulled out as their own columns. One of the five is a sanctions match.</p>
     <div style="overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:#fff">
       <img src="/img/clay-account-research.png" alt="A Clay table of five companies with Apify columns for registry record, US imports, news, sanctions check and hiring activity" width="2000" height="272" loading="lazy" decoding="async" style="display:block;max-width:none;width:1200px;height:auto">
     </div>
