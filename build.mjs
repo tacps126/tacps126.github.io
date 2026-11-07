@@ -861,6 +861,14 @@ const clayBody = `
     </ol>
   </div>
 </section>
+<section class="alt" data-label="Example">
+  <div class="wrap">
+    <div class="sec-head"><h2>What it looks like</h2><p>Five accounts, five columns: registry record, US imports, news, sanctions check and hiring activity, with three fields pulled out as their own columns. One of the five is a sanctions match.</p></div>
+    <div style="overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:#fff">
+      <img src="/img/clay-account-research.png" alt="A Clay table of five companies with Apify columns for registry record, US imports, news, sanctions check and hiring activity" width="2000" height="272" loading="lazy" decoding="async" style="display:block;max-width:none;width:1200px;height:auto">
+    </div>
+  </div>
+</section>
 <section class="alt" data-label="Columns">
   <div class="wrap">
     <div class="sec-head"><h2>Enrichment columns</h2><p>One row in, one answer out. Cost is per row on your Apify account, at free plan prices.</p></div>
