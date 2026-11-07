@@ -243,6 +243,7 @@ ${CATS.map(([k, l]) => `        <li><a href="/tools/${k}/">${esc(CAT_SHORT[k] ||
         <li><a href="/#compose">Chain tools</a></li>
         <li><a href="/leads/">Trade show exhibitor lists</a></li>
         <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/datasets.html">Free datasets</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/about.html">About</a></li>
       </ul></nav>
@@ -783,6 +784,52 @@ writeFileSync(
     description: `Per-result prices of ${used} web data tools on Apify, with their public runs in the last 30 days and a cost estimate. No subscription.`,
     body: pricingBody,
     jsonld: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Pricing', url: `${SITE}/pricing.html` },
+  }),
+);
+
+// ---------------------------------------------------------------- free datasets
+// data/samples.json (CSV/JSON samples per tool) and data/hf.json (weekly Hugging Face datasets).
+const HF_INFO = {
+  'company-registry': ['New company registrations', 'Companies registered in the last 7 days in official business registers (Finland, Estonia, France, Norway).'],
+  'recalls-radar': ['Product recalls', 'Recalls announced in the last 7 days by US, UK, EU and Canadian safety agencies.'],
+  'auctions-radar': ['Bank and court property auctions', 'Upcoming property auctions in Germany, Spain, Italy and India, with price, date and a deal score.'],
+};
+const toolTitle = (n) => byName.get(n)?.title || n;
+const datasetsBody = `
+<section class="hero" style="padding-bottom:36px">
+  <div class="wrap">
+    <span class="eyebrow">Free data</span>
+    <h1 style="margin-top:14px">Download real results. <span class="grad">No account needed.</span></h1>
+    <p class="lead">Weekly datasets on Hugging Face and sample files from recent runs, free to open in a browser, a spreadsheet or code. For fresh, filtered or scheduled data, run the tool itself.</p>
+  </div>
+</section>
+<section data-label="Weekly datasets">
+  <div class="wrap">
+    <div class="sec-head"><h2>Weekly datasets on Hugging Face</h2><p>Refreshed every week; each holds the latest 7 days.</p></div>
+    <div class="table-wrap"><table class="rtable"><thead><tr><th>Dataset</th><th>What is in it</th><th>Made by</th></tr></thead><tbody>
+${Object.entries(HF_DATA).filter(([n]) => HF_INFO[n]).map(([n, url]) => `<tr><td data-th="Dataset"><a href="${esc(url)}" rel="noopener">${esc(HF_INFO[n][0])}</a></td><td data-th="What is in it">${esc(HF_INFO[n][1])}</td><td data-th="Made by"><a href="/tools/${esc(n)}/">${esc(toolTitle(n))}</a></td></tr>`).join('\n')}
+    </tbody></table></div>
+    <p class="muted">Load one in Python: <code>pandas.read_csv("https://huggingface.co/datasets/tacps126/product-recalls/resolve/main/data/latest.csv")</code></p>
+  </div>
+</section>
+<section class="alt" data-label="Samples">
+  <div class="wrap">
+    <div class="sec-head"><h2>Sample files from recent runs</h2><p>A small slice of real output per tool, as CSV or JSON.</p></div>
+    <div class="table-wrap"><table class="rtable"><thead><tr><th>Tool</th><th>Download</th></tr></thead><tbody>
+${Object.entries(SAMPLES).map(([n, l]) => `<tr><td data-th="Tool"><a href="/tools/${esc(n)}/">${esc(toolTitle(n))}</a></td><td data-th="Download"><a href="${esc(l.csv)}" rel="noopener">CSV</a> · <a href="${esc(l.json)}" rel="noopener">JSON</a></td></tr>`).join('\n')}
+    </tbody></table></div>
+    <p class="muted">Samples leave out personal contact details. Data comes from public sources; each record links to its origin.</p>
+  </div>
+</section>`;
+writeFileSync(
+  OUT('./datasets.html'),
+  page({
+    path: '/datasets.html',
+    active: 'datasets',
+    title: 'Free datasets and sample data - tacps126',
+    description: 'Free weekly datasets (new companies, product recalls, property auctions) and sample CSV/JSON files from real tool runs. No account needed.',
+    body: datasetsBody,
+    jsonld: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Free datasets and sample data', url: `${SITE}/datasets.html` },
   }),
 );
 
@@ -1524,7 +1571,7 @@ const searchIndex = {
     };
   }),
   cats: Object.fromEntries(CATS.map(([k, l]) => [k, l])),
-  pages: [['Home', '/'], ['All tools', '/tools/'], ['Coverage map', '/#coverage'], ['Chain tools together', '/#compose'], ['Pricing and cost estimate', '/pricing.html'], ['MCP server for AI agents', '/mcp.html'], ['Blog', '/blog/'], ['About', '/about.html'], ['Trade show exhibitor lists', '/leads/'], ['Custom data request', `mailto:${EMAIL}?subject=Custom%20data%20request`]],
+  pages: [['Home', '/'], ['All tools', '/tools/'], ['Coverage map', '/#coverage'], ['Chain tools together', '/#compose'], ['Pricing and cost estimate', '/pricing.html'], ['Free datasets and samples', '/datasets.html'], ['MCP server for AI agents', '/mcp.html'], ['Blog', '/blog/'], ['About', '/about.html'], ['Trade show exhibitor lists', '/leads/'], ['Custom data request', `mailto:${EMAIL}?subject=Custom%20data%20request`]],
   posts: POSTS.map((p) => [p.title, `/blog/${p.id}.html`]),
   countries: Object.fromEntries(Object.entries(WORLD.names).map(([c, nm]) => [nm.toLowerCase(), c])),
 };
@@ -1692,7 +1739,7 @@ writeFileSync(
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${[
-  ...['/', '/mcp.html', '/about.html', '/pricing.html', '/blog/', '/tools/'].map((p) => entry(p)),
+  ...['/', '/mcp.html', '/about.html', '/pricing.html', '/datasets.html', '/blog/', '/tools/'].map((p) => entry(p)),
   ...CATS.map(([k]) => entry(`/tools/${k}/`)),
   ...allTools.map(({ a }) => entry(`/tools/${a.name}/`, ogOf(a.name) !== OG ? `<image:image><image:loc>${esc(ogOf(a.name))}</image:loc></image:image>` : '')),
   ...POSTS.map((p) => entry(`/blog/${p.id}.html`)),
