@@ -847,7 +847,7 @@ const clayBody = `
   <div class="wrap">
     <span class="eyebrow">Clay</span>
     <h1 style="margin-top:14px">Our tools as Clay columns. <span class="grad">Copy, paste, run.</span></h1>
-    <p class="lead">Every tool here runs inside <a href="https://www.clay.com/" rel="noopener">Clay</a> through its Apify integration: add a column, paste the input, and each row is enriched in seconds. Billing goes to your own Apify account, at the tool's normal per-result price.</p>
+    <p class="lead">Every tool here runs inside <a href="https://clay.com?via=bec1a7" rel="noopener">Clay</a> through its Apify integration: add a column, paste the input, and each row is enriched in seconds. Billing goes to your own Apify account, at the tool's normal per-result price.</p>
   </div>
 </section>
 <section data-label="Setup">
