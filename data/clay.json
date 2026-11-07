@@ -1,0 +1,112 @@
+{
+  "_note": "Clay recipes for our Actors. Source of truth for the site page /clay.html (copied to tacps126.github.io/data/clay.json), the README 'Use it in Clay' blocks and the post drafts. Public copy: no stack, tactics or infra. Column inputs: in Clay, '/Column' means type / inside the quotes and pick that column. Tested 2026-11-07: sanctions-screener in a real Clay table (limited Apify token works); the others with the same one-row input in local runs (speed below is that run, not counting Apify start-up of a few seconds); shopify-store-analyzer from its Apify health run. costPerRow = start fee + one result at the FREE tier price.",
+  "columns": [
+    {
+      "actor": "sanctions-screener",
+      "title": "Sanctions check",
+      "need": "Company or person name",
+      "input": {"names": ["/Name"]},
+      "map": ["status", "topScore", "matchCount", "matches"],
+      "gives": "match, possible-match or no-match against OFAC, UN, UK, Canada, Switzerland and EU lists, with the listing, programme and source link",
+      "costPerRow": 0.008,
+      "seconds": 7,
+      "tested": "clay"
+    },
+    {
+      "actor": "contact-details",
+      "title": "Emails and phones from a website",
+      "need": "Website or domain",
+      "input": {"startUrls": ["/Website"], "maxPagesPerSite": 5},
+      "map": ["primaryEmail", "emails", "phones", "contactPageUrl", "companyName"],
+      "gives": "public emails, phone numbers, social profiles and the contact page, read from the company's own site",
+      "costPerRow": 0.00275,
+      "seconds": 2,
+      "tested": "local"
+    },
+    {
+      "actor": "company-registry",
+      "title": "Official company registry record",
+      "need": "Company name and 2-letter country code",
+      "input": {"mode": "search", "names": ["/Company Name"], "countries": ["/Country Code"], "maxItems": 1},
+      "map": ["registryId", "legalForm", "status", "registeredOn", "industry", "employees", "address", "website"],
+      "gives": "registration number, legal form, status, founding date, industry code and registered address from the official register",
+      "costPerRow": 0.0035,
+      "seconds": 4,
+      "tested": "local"
+    },
+    {
+      "actor": "us-import-records",
+      "title": "US import volume and suppliers",
+      "need": "Company name (US importers)",
+      "input": {"companies": ["/Company Name"], "includePartners": false, "maxItems": 1},
+      "map": ["shipments12m", "shipmentGrowthPct", "lastShipment", "topCountries", "products", "topCarriers"],
+      "gives": "sea shipments in the last 12 months and the 12 before, growth, sourcing countries, product categories and carriers",
+      "costPerRow": 0.005,
+      "seconds": 3,
+      "tested": "local"
+    },
+    {
+      "actor": "hiring-signals",
+      "title": "Hiring activity",
+      "need": "Jobs page link (Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Recruitee, Personio or Teamtailor)",
+      "input": {"companies": ["/Jobs Page"]},
+      "map": ["totalOpenRoles", "rolesPostedLast7Days", "functions", "seniority", "topLocations", "remoteShare", "signalScore"],
+      "gives": "open roles, roles posted in the last 7 days, split by function, seniority and location, and a hiring signal score",
+      "costPerRow": 0.011,
+      "seconds": 9,
+      "tested": "local"
+    },
+    {
+      "actor": "shopify-store-analyzer",
+      "title": "Shopify store profile",
+      "need": "Store website",
+      "input": {"startUrls": ["/Website"]},
+      "map": ["storeName", "productCount", "catalog", "currency", "country", "primaryEmail", "primaryPhone", "instagram", "shipsToCountries"],
+      "gives": "catalog size and freshness, price range, location, currency, payment options, public contacts and social profiles",
+      "costPerRow": 0.00935,
+      "seconds": 10,
+      "tested": "apify"
+    },
+    {
+      "actor": "google-news",
+      "title": "Recent news mentions",
+      "need": "Company name",
+      "input": {"queries": ["\"/Company Name\""], "timeframe": "30d", "maxItems": 3},
+      "map": ["title", "url", "publisher", "publishedAt"],
+      "gives": "the latest news articles naming the company (3 per row here), with publisher, date and the article link",
+      "costPerRow": 0.01,
+      "seconds": 2,
+      "tested": "local"
+    }
+  ],
+  "sources": [
+    {
+      "actor": "exhibition-scraper",
+      "title": "Exhibitors of a trade show",
+      "input": {"exhibitions": "automechanika-dubai", "maxResults": 200},
+      "gives": "every exhibitor of the show with website, country, booth and categories; add the contact-details column next",
+      "then": "contact-details"
+    },
+    {
+      "actor": "startup-funding",
+      "title": "Companies that just raised money",
+      "input": {"postedWithinDays": 7, "minAmountRaised": 1000000},
+      "gives": "US companies that filed a Form D raise in the last 7 days, with amount, industry and named executives",
+      "then": "google-news"
+    },
+    {
+      "actor": "company-registry",
+      "title": "Newly registered companies",
+      "input": {"mode": "new", "countries": ["NO", "FI"], "registeredWithinDays": 7},
+      "gives": "companies registered in the last 7 days with legal form, industry and address",
+      "then": "contact-details"
+    },
+    {
+      "actor": "hiring-signals",
+      "title": "Companies hiring for a role",
+      "input": {"searches": ["head of security"], "searchLocation": "United States"},
+      "gives": "every company hiring for the role, with open roles and a hiring signal score",
+      "then": "contact-details"
+    }
+  ]
+}

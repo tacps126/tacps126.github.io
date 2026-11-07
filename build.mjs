@@ -31,6 +31,9 @@ const TERMS = JSON.parse(readFileSync(new URL('./data/terms.json', import.meta.u
 const SAMPLES = existsSync(new URL('./data/samples.json', import.meta.url)) ? JSON.parse(readFileSync(new URL('./data/samples.json', import.meta.url), 'utf8')) : {};
 // Free weekly datasets on Hugging Face per tool (data/hf.json, from apify_actors/docs/marketing/hf-links.json).
 const HF_DATA = existsSync(new URL('./data/hf.json', import.meta.url)) ? JSON.parse(readFileSync(new URL('./data/hf.json', import.meta.url), 'utf8')) : {};
+// Clay recipes (data/clay.json, copied from apify_actors/docs/marketing/clay/recipes.json).
+const CLAY = existsSync(new URL('./data/clay.json', import.meta.url)) ? JSON.parse(readFileSync(new URL('./data/clay.json', import.meta.url), 'utf8')) : { columns: [], sources: [] };
+const CLAY_TOOLS = new Set([...CLAY.columns, ...CLAY.sources].map((r) => r.actor));
 // Search engine ownership tags (data/verify.json): paste only the content value each console gives.
 const VERIFY = existsSync(new URL('./data/verify.json', import.meta.url)) ? JSON.parse(readFileSync(new URL('./data/verify.json', import.meta.url), 'utf8')) : {};
 const verifyTags = [['google', 'google-site-verification'], ['bing', 'msvalidate.01'], ['yandex', 'yandex-verification']]
@@ -244,6 +247,7 @@ ${CATS.map(([k, l]) => `        <li><a href="/tools/${k}/">${esc(CAT_SHORT[k] ||
         <li><a href="/leads/">Trade show exhibitor lists</a></li>
         <li><a href="/pricing.html">Pricing</a></li>
         <li><a href="/datasets.html">Free datasets</a></li>
+        <li><a href="/clay.html">Use with Clay</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/about.html">About</a></li>
       </ul></nav>
@@ -833,6 +837,76 @@ writeFileSync(
   }),
 );
 
+// ---------------------------------------------------------------- clay
+// data/clay.json: Run Apify Actor column recipes and Import-from-Apify sources.
+const clayMoney = (x) => (x < 0.01 ? `${+(x * 100).toFixed(3)} cents` : `$${+x.toFixed(3)}`);
+const clayCode = (o) => `<div class="code"><div class="code-top"><span>input</span><button class="copy" type="button">Copy</button></div><pre>${esc(JSON.stringify(o))}</pre></div>`;
+const clayTitle = (a) => CLAY.columns.find((x) => x.actor === a)?.title || a;
+const clayBody = `
+<section class="hero" style="padding-bottom:36px">
+  <div class="wrap">
+    <span class="eyebrow">Clay</span>
+    <h1 style="margin-top:14px">Our tools as Clay columns. <span class="grad">Copy, paste, run.</span></h1>
+    <p class="lead">Every tool here runs inside <a href="https://www.clay.com/" rel="noopener">Clay</a> through its Apify integration: add a column, paste the input, and each row is enriched in seconds. Billing goes to your own Apify account, at the tool's normal per-result price.</p>
+  </div>
+</section>
+<section data-label="Setup">
+  <div class="wrap">
+    <div class="sec-head"><h2>One-time setup</h2></div>
+    <ol>
+      <li>Create a free <a href="https://apify.com/" rel="noopener">Apify</a> account (it includes monthly free credit) and copy an API token from <em>Settings, API and Integrations</em>.</li>
+      <li>In Clay, open a table, <em>Add column</em>, search <strong>Apify</strong>, pick <strong>Run Apify Actor</strong> and connect the token.</li>
+      <li>Pick a recipe below, paste its input, and type <code>/</code> inside the quotes to insert your own column (the recipes write it as <code>/Website</code>, <code>/Company Name</code> and so on).</li>
+      <li>Turn auto-update off, save, and run one row first. On a result, <em>Add as column</em> turns any field into its own column.</li>
+    </ol>
+  </div>
+</section>
+<section class="alt" data-label="Columns">
+  <div class="wrap">
+    <div class="sec-head"><h2>Enrichment columns</h2><p>One row in, one answer out. Cost is per row on your Apify account, at free plan prices.</p></div>
+${CLAY.columns.map((c) => `
+    <div class="card" id="${esc(c.actor)}" style="margin-bottom:22px">
+      <h3>${esc(c.title)}</h3>
+      <p><strong>You need:</strong> ${esc(c.need)}. <strong>You get:</strong> ${esc(c.gives)}.</p>
+      <p>Tool: <a href="/tools/${esc(c.actor)}/"><code>tacps126/${esc(c.actor)}</code></a> &middot; about ${esc(clayMoney(c.costPerRow))} per row &middot; fields to add as columns: ${c.map.map((f) => `<code>${esc(f)}</code>`).join(', ')}</p>
+      ${clayCode(c.input)}
+    </div>`).join('')}
+  </div>
+</section>
+<section data-label="Sources">
+  <div class="wrap">
+    <div class="sec-head"><h2>Start a table from a list</h2><p>In Clay, <em>Import data from Apify actor</em>, pick the tool and paste the input. Then add an enrichment column.</p></div>
+${CLAY.sources.map((c) => `
+    <div class="card" id="${esc(c.actor)}-source" style="margin-bottom:22px">
+      <h3>${esc(c.title)}</h3>
+      <p>${esc(c.gives[0].toUpperCase() + c.gives.slice(1))}.${c.then ? ` Good next column: <a href="#${esc(c.then)}">${esc(clayTitle(c.then))}</a>.` : ''}</p>
+      <p>Tool: <a href="/tools/${esc(c.actor)}/"><code>tacps126/${esc(c.actor)}</code></a></p>
+      ${clayCode(c.input)}
+    </div>`).join('')}
+  </div>
+</section>
+<section class="alt" data-label="Help">
+  <div class="wrap">
+    <div class="sec-head"><h2>Good to know</h2></div>
+    <ul>
+      <li>Clay starts one tool run per row. Keep auto-update off until one row looks right.</li>
+      <li>The error <code>Cannot parse input JSON body</code> means the input is not full JSON: keep the braces, brackets and quotes around your column.</li>
+      <li>Need another column, or a table built for your list? <a href="mailto:${EMAIL}?subject=Clay%20recipe">Email us</a>.</li>
+    </ul>
+  </div>
+</section>`;
+writeFileSync(
+  OUT('./clay.html'),
+  page({
+    path: '/clay.html',
+    active: 'clay',
+    title: 'Use our data tools in Clay - tacps126',
+    description: 'Copy-paste Clay recipes: sanctions check, company registry record, US import volumes, hiring activity, website emails, Shopify store profile and news, as Run Apify Actor columns.',
+    body: clayBody,
+    jsonld: { '@context': 'https://schema.org', '@type': 'HowTo', name: 'Use tacps126 data tools in Clay', url: `${SITE}/clay.html` },
+  }),
+);
+
 // ---------------------------------------------------------------- blog
 // posts/*.md (front matter: title, tags, date). The site is the canonical
 // home of each article; reposts on Medium or dev.to point their canonical
@@ -1274,6 +1348,7 @@ for (const { a, k } of allTools) {
       ${sample || fields.length ? '<a class="btn ghost" href="#output">See the output</a>' : ''}
       ${SAMPLES[name]?.csv ? `<a class="btn ghost" href="${esc(SAMPLES[name].csv)}" rel="noopener" download>Download sample data (CSV)</a>` : ''}
       ${HF_DATA[name] ? `<a class="btn ghost" href="${esc(HF_DATA[name])}" rel="noopener">Free weekly dataset</a>` : ''}
+      ${CLAY_TOOLS.has(name) ? `<a class="btn ghost" href="/clay.html#${esc(name)}">Use it in Clay</a>` : ''}
     </div>
   </div>
 </section>
@@ -1571,7 +1646,7 @@ const searchIndex = {
     };
   }),
   cats: Object.fromEntries(CATS.map(([k, l]) => [k, l])),
-  pages: [['Home', '/'], ['All tools', '/tools/'], ['Coverage map', '/#coverage'], ['Chain tools together', '/#compose'], ['Pricing and cost estimate', '/pricing.html'], ['Free datasets and samples', '/datasets.html'], ['MCP server for AI agents', '/mcp.html'], ['Blog', '/blog/'], ['About', '/about.html'], ['Trade show exhibitor lists', '/leads/'], ['Custom data request', `mailto:${EMAIL}?subject=Custom%20data%20request`]],
+  pages: [['Home', '/'], ['All tools', '/tools/'], ['Coverage map', '/#coverage'], ['Chain tools together', '/#compose'], ['Pricing and cost estimate', '/pricing.html'], ['Free datasets and samples', '/datasets.html'], ['Use the tools in Clay', '/clay.html'], ['MCP server for AI agents', '/mcp.html'], ['Blog', '/blog/'], ['About', '/about.html'], ['Trade show exhibitor lists', '/leads/'], ['Custom data request', `mailto:${EMAIL}?subject=Custom%20data%20request`]],
   posts: POSTS.map((p) => [p.title, `/blog/${p.id}.html`]),
   countries: Object.fromEntries(Object.entries(WORLD.names).map(([c, nm]) => [nm.toLowerCase(), c])),
 };
@@ -1739,7 +1814,7 @@ writeFileSync(
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${[
-  ...['/', '/mcp.html', '/about.html', '/pricing.html', '/datasets.html', '/blog/', '/tools/'].map((p) => entry(p)),
+  ...['/', '/mcp.html', '/about.html', '/pricing.html', '/datasets.html', '/clay.html', '/blog/', '/tools/'].map((p) => entry(p)),
   ...CATS.map(([k]) => entry(`/tools/${k}/`)),
   ...allTools.map(({ a }) => entry(`/tools/${a.name}/`, ogOf(a.name) !== OG ? `<image:image><image:loc>${esc(ogOf(a.name))}</image:loc></image:image>` : '')),
   ...POSTS.map((p) => entry(`/blog/${p.id}.html`)),
