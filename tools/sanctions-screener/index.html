@@ -31,7 +31,7 @@
 <meta name="twitter:image" content="https://tacps126.github.io/og/sanctions-screener.jpg?v=8e9c69e2b2">
 <link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
-<link rel="stylesheet" href="/style.css?v=cb78145d63">
+<link rel="stylesheet" href="/style.css?v=b743fdae68">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Sanctions Screener: OFAC, UN, EU, UK & Canada Lists","alternateName":"sanctions-screener","applicationCategory":"DeveloperApplication","applicationSubCategory":"Government, compliance, tenders, grants, regulation and alerts","operatingSystem":"Web, API (Apify)","keywords":"sanctions screening API, OFAC check, OFAC SDN search, sanctions list check, KYC screening, AML name screening, UN sanctions list, EU sanctions list, UK sanctions list","url":"https://tacps126.github.io/tools/sanctions-screener/","sameAs":"https://apify.com/tacps126/sanctions-screener","installUrl":"https://apify.com/tacps126/sanctions-screener","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-U6r10yiBVhZnp2O0a-XuZ6OPuLqx-sanctions-screener.png","screenshot":"https://tacps126.github.io/og/sanctions-screener.jpg?v=8e9c69e2b2","description":"Screen names against the official OFAC SDN and consolidated, UN, EU, UK, Canada and Switzerland sanctions lists: fuzzy matching, birth-year and country checks, verdicts. Follow new designations, export the lists. Real-time API.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-11-07","offers":{"@type":"Offer","price":"0.003","priceCurrency":"USD","url":"https://apify.com/tacps126/sanctions-screener","description":"$3 per 1,000, pay per name screened"},"featureList":["status, topScore: match, 100","matches[].matchedName: PUTIN, Vladimir (the name or alias that matched)","matches[].list, listName: us-ofac-sdn, US OFAC Specially Designated Nationals (SDN) List","matches[].programs: RUSSIA-EO14024","matches[].countries, birthDates, identifiers: Russia, 1952-10-07, Passport ...","matches[].checks: birthYear: consistent, country: different","matches[].url: the entry on the publisher's site"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"Government, compliance, tenders, grants, regulation and alerts","item":"https://tacps126.github.io/tools/gov/"},{"@type":"ListItem","position":4,"name":"Sanctions Screener: OFAC, UN, EU, UK & Canada Lists","item":"https://tacps126.github.io/tools/sanctions-screener/"}]}</script>
@@ -48,6 +48,7 @@
       <a href="/tools/" aria-current="page">Tools</a>
       <a href="/#coverage">Coverage</a>
       <a href="/pricing.html">Pricing</a>
+      <a href="/integrations.html">Integrations</a>
       <a href="/mcp.html">AI agents</a>
       <a href="/blog/">Blog</a>
       <a href="/about.html">About</a>
@@ -180,6 +181,11 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
   &quot;minScore&quot;: 85,
   &quot;matchScore&quot;: 95
 }</pre></div>
+<h3 id="g-use-it-in-clay">Use it in Clay</h3>
+<p>Add a <strong>Run Apify Actor</strong> column (Clay's Apify integration, connected to your Apify account), pick <code>tacps126/sanctions-screener</code> and use this input. Type <code>/</code> inside the quotes to insert your column (company or person name):</p>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{&quot;names&quot;: [&quot;/Name&quot;]}</pre></div>
+<p>Each row gets match, possible-match or no-match against OFAC, UN, UK, Canada, Switzerland and EU lists, with the listing, programme and source link. Keep auto-update off while you test.</p>
+<p>More Clay recipes: <a href="https://tacps126.github.io/clay.html" rel="noopener">tacps126.github.io/clay.html</a>.</p>
 <h3 id="g-pricing">Pricing</h3>
 <p><strong>$3 per 1,000 names screened</strong> (match or not) and <strong>$1 per 1,000 list entries</strong> delivered in <code>changes</code> and <code>export</code>, plus a small start fee per run.</p>
 <h3 id="g-good-to-know">Good to know</h3>
@@ -247,6 +253,7 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
         <li><a href="/leads/">Trade show exhibitor lists</a></li>
         <li><a href="/pricing.html">Pricing</a></li>
         <li><a href="/datasets.html">Free datasets</a></li>
+        <li><a href="/integrations.html">Integrations</a></li>
         <li><a href="/clay.html">Use with Clay</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/about.html">About</a></li>

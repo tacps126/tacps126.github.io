@@ -31,7 +31,7 @@
 <meta name="twitter:image" content="https://tacps126.github.io/og/shopify-store-analyzer.jpg?v=387107c006">
 <link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
-<link rel="stylesheet" href="/style.css?v=cb78145d63">
+<link rel="stylesheet" href="/style.css?v=b743fdae68">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Shopify Store Analyzer: Contacts, Location & Catalog","alternateName":"shopify-store-analyzer","applicationCategory":"DeveloperApplication","applicationSubCategory":"Leads, events and contacts","operatingSystem":"Web, API (Apify)","keywords":"Shopify store lookup, Shopify store leads, ecommerce store data, Shopify store contacts, D2C brand research, Shopify catalog size, Shopify apps detector","url":"https://tacps126.github.io/tools/shopify-store-analyzer/","sameAs":"https://apify.com/tacps126/shopify-store-analyzer","installUrl":"https://apify.com/tacps126/shopify-store-analyzer","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-UqoyKvfTAfXBcJoO3-fmvLtfJrin-shopify-store-analyzer.png","screenshot":"https://tacps126.github.io/og/shopify-store-analyzer.jpg?v=387107c006","description":"Analyze Shopify stores: location, currency, product count, price range, top brands, newest product, plus e-mails, phones and socials. Filter by country, size, price, activity and e-mail; sort by size or newest product. For B2B leads.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-11-07","offers":{"@type":"Offer","price":"0.004","priceCurrency":"USD","url":"https://apify.com/tacps126/shopify-store-analyzer","description":"$4 per 1,000, pay per store analyzed"},"featureList":["storeName / description: Store name and its own description","domain / url / myshopifyDomain: Website, and its *.myshopify.com address","city / province / country: Where the store is based (ISO country code)","currency / shipsToCountries: Store currency and the countries it ships to","productCount / collectionCount: Published products and collections","shopPayInstallments / cardBrands: Shop Pay Installments and accepted cards","catalog: Newest products: priceMin, priceMax, priceMedian, onSalePercent, inStockPercent, topVendors, topProductTypes, newestProductAt, productsSampled","primaryEmail / emails: Best contact e-mail and all found","primaryPhone / phones: Phone numbers in international format","instagram / facebook / tiktok / linkedin / youtube / twitter: Social profiles","address / contactPageUrl: Postal address and contact page, when found","scrapedAt: When the store was analyzed"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"Leads, events and contacts","item":"https://tacps126.github.io/tools/leads/"},{"@type":"ListItem","position":4,"name":"Shopify Store Analyzer: Contacts, Location & Catalog","item":"https://tacps126.github.io/tools/shopify-store-analyzer/"}]}</script>
@@ -48,6 +48,7 @@
       <a href="/tools/" aria-current="page">Tools</a>
       <a href="/#coverage">Coverage</a>
       <a href="/pricing.html">Pricing</a>
+      <a href="/integrations.html">Integrations</a>
       <a href="/mcp.html">AI agents</a>
       <a href="/blog/">Blog</a>
       <a href="/about.html">About</a>
@@ -208,6 +209,11 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
 <p>The Actor also runs in <strong>Standby mode</strong> - an always-ready endpoint that answers in the response. Find the URL on the <strong>Standby</strong> tab:</p>
 <div class="code"><div class="code-top"><span>bash</span><button class="copy" type="button">Copy</button></div><pre>curl &quot;https://&lt;standby-url&gt;/?url=allbirds.com&quot; \
   -H &quot;Authorization: Bearer &lt;YOUR_APIFY_TOKEN&gt;&quot;</pre></div>
+<h3 id="g-use-it-in-clay">Use it in Clay</h3>
+<p>Add a <strong>Run Apify Actor</strong> column (Clay's Apify integration, connected to your Apify account), pick <code>tacps126/shopify-store-analyzer</code> and use this input. Type <code>/</code> inside the quotes to insert your column (store website):</p>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{&quot;startUrls&quot;: [&quot;/Website&quot;]}</pre></div>
+<p>Each row gets catalog size and freshness, price range, location, currency, payment options, public contacts and social profiles. Keep auto-update off while you test.</p>
+<p>More Clay recipes: <a href="https://tacps126.github.io/clay.html" rel="noopener">tacps126.github.io/clay.html</a>.</p>
 <h3 id="g-pricing">Pricing</h3>
 <p>Pay per store analyzed: <strong>$4 per 1,000 stores</strong> plus a small start fee per run. Sites that aren't Shopify stores and stores your filters drop are free. See the <strong>Pricing</strong> tab for exact rates, and set a maximum charge per run to cap spend.</p>
 <p>On Apify's <strong>free plan</strong> each run analyzes up to 100 stores. Any paid Apify plan removes the limit.</p>
@@ -275,6 +281,7 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
         <li><a href="/leads/">Trade show exhibitor lists</a></li>
         <li><a href="/pricing.html">Pricing</a></li>
         <li><a href="/datasets.html">Free datasets</a></li>
+        <li><a href="/integrations.html">Integrations</a></li>
         <li><a href="/clay.html">Use with Clay</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/about.html">About</a></li>

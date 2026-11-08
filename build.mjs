@@ -221,6 +221,7 @@ const header = (active) => `<a class="skip" href="#main">Skip to content</a>
       <a href="/tools/"${active === 'tools' ? ' aria-current="page"' : ''}>Tools</a>
       <a href="/#coverage">Coverage</a>
       <a href="/pricing.html"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a>
+      <a href="/integrations.html"${active === 'integrations' || active === 'clay' ? ' aria-current="page"' : ''}>Integrations</a>
       <a href="/mcp.html"${active === 'mcp' ? ' aria-current="page"' : ''}>AI agents</a>
       <a href="/blog/"${active === 'blog' ? ' aria-current="page"' : ''}>Blog</a>
       <a href="/about.html"${active === 'about' ? ' aria-current="page"' : ''}>About</a>
@@ -247,6 +248,7 @@ ${CATS.map(([k, l]) => `        <li><a href="/tools/${k}/">${esc(CAT_SHORT[k] ||
         <li><a href="/leads/">Trade show exhibitor lists</a></li>
         <li><a href="/pricing.html">Pricing</a></li>
         <li><a href="/datasets.html">Free datasets</a></li>
+        <li><a href="/integrations.html">Integrations</a></li>
         <li><a href="/clay.html">Use with Clay</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/about.html">About</a></li>
@@ -922,6 +924,64 @@ writeFileSync(
   }),
 );
 
+// ---------------------------------------------------------------- integrations
+// One place for every way to use the tools outside Apify's own console:
+// our guides first (Clay, AI agents, datasets, code), then the platform's
+// built-in connectors that work with every tool.
+const DOCS = 'https://docs.apify.com/platform/integrations';
+const OURS = [
+  ['Clay', '/clay.html', 'table', `${CLAY_TOOLS.size} tools as Run Apify Actor columns`, 'Copy-paste recipes: sanctions check, company registry record, US import volumes, hiring activity, website emails, Shopify store profile and news, one row at a time.', 'Open the Clay recipes'],
+  ['AI agents (MCP)', '/mcp.html', 'bolt', `${N} tools for Claude, Cursor, ChatGPT and more`, 'One MCP server gives an agent every tool by name. Install with npx, or point the agent at the hosted endpoint.', 'Set up the MCP server'],
+  ['Hugging Face', '/datasets.html', 'chart', `${Object.keys(HF_DATA).length} weekly datasets`, 'Free weekly datasets and sample files from recent runs. Open them in a browser, a spreadsheet, pandas or any notebook.', 'Browse the datasets'],
+  ['Python and JavaScript', `https://github.com/${USER}/apify-data-recipes`, 'target', 'Ready scripts on GitHub', 'Short recipes that run a tool, page through the results and chain one tool into the next. Every tool page also writes its API call in curl, Python or JavaScript.', 'See the code recipes'],
+];
+const PLATFORM = [
+  ['n8n', `${DOCS}/n8n`, 'Run a tool from a workflow and pass its rows to the next node.'],
+  ['Make', `${DOCS}/make`, 'Start a run from a scenario and map each result into your apps.'],
+  ['Zapier', `${DOCS}/zapier`, 'Trigger a Zap when a run finishes, or start a run from a Zap.'],
+  ['Slack', `${DOCS}/slack`, 'Post a message to a channel when a scheduled run finds something.'],
+  ['LangChain', `${DOCS}/langchain`, 'Load results as documents into a retrieval or agent pipeline.'],
+  ['Webhooks', `${DOCS}/webhooks`, 'Call any URL when a run succeeds or fails, with the run details.'],
+  ['REST API', 'https://docs.apify.com/api/v2', 'Start runs, read results as JSON, CSV or Excel, and schedule them from any language.'],
+  ['Google Sheets, email and more', DOCS, 'Export a run to a spreadsheet or have it emailed; the full list of connectors is on Apify.'],
+];
+const integrationsBody = `
+<section class="hero" style="padding-bottom:36px">
+  <div class="wrap">
+    <span class="eyebrow">Integrations</span>
+    <h1 style="margin-top:14px">Use the data where you work. <span class="grad">No code needed.</span></h1>
+    <p class="lead">Every tool runs on Apify, so it plugs into Clay, AI agents, n8n, Make, Zapier, Slack and any webhook. Pick where the results should go; billing stays the tool's normal per-result price.</p>
+  </div>
+</section>
+<section data-label="Guides">
+  <div class="wrap">
+    <div class="sec-head"><h2>Step-by-step guides</h2><p>Written and tested for these tools.</p></div>
+    <div class="grid">
+${OURS.map(([name, href, icon, kick, text, cta]) => `      <a class="card" href="${esc(href)}"${href.startsWith('http') ? ' rel="noopener"' : ''}>${ico(icon)}<h3>${esc(name)}</h3><span class="kick">${esc(kick)}</span><p>${esc(text)}</p><span class="go">${esc(cta)} ></span></a>`).join('\n')}
+    </div>
+  </div>
+</section>
+<section class="alt" data-label="Connectors">
+  <div class="wrap">
+    <div class="sec-head"><h2>Works with every tool</h2><p>Built into Apify, so they work the same for all ${used} tools. Each link opens the setup guide.</p></div>
+    <div class="table-wrap"><table class="rtable"><thead><tr><th>Connector</th><th>What it does</th></tr></thead><tbody>
+${PLATFORM.map(([name, href, text]) => `<tr><td data-th="Connector"><a href="${esc(href)}" rel="noopener">${esc(name)}</a></td><td data-th="What it does">${esc(text)}</td></tr>`).join('\n')}
+    </tbody></table></div>
+    <p class="muted">Missing the one you use? <a href="mailto:${EMAIL}?subject=Integration%20request">Tell us</a> and we will write the guide.</p>
+  </div>
+</section>`;
+writeFileSync(
+  OUT('./integrations.html'),
+  page({
+    path: '/integrations.html',
+    active: 'integrations',
+    title: 'Integrations: Clay, AI agents, n8n, Make, Zapier - tacps126',
+    description: 'Use the data tools in Clay, AI agents over MCP, Hugging Face datasets, Python and JavaScript, n8n, Make, Zapier, Slack, webhooks and the REST API.',
+    body: integrationsBody,
+    jsonld: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Integrations', url: `${SITE}/integrations.html` },
+  }),
+);
+
 // ---------------------------------------------------------------- blog
 // posts/*.md (front matter: title, tags, date). The site is the canonical
 // home of each article; reposts on Medium or dev.to point their canonical
@@ -1038,7 +1098,7 @@ const aboutBody = `
     <div class="grid">
       <div class="card">${ico('refresh')}<h3>The same fields every run</h3><p>CSV, Excel or JSON, and only-new or changes-only modes for scheduled monitoring.</p></div>
       <div class="card">${ico('coin')}<h3>Pay only for results</h3><p>Clear per-result prices, nothing charged when nothing is found, and your spending cap is always respected.</p></div>
-      <div class="card">${ico('bolt')}<h3>Plugs in anywhere</h3><p>An instant API, an MCP endpoint for AI agents, and delivery to Slack, Discord, Google Sheets or any webhook.</p></div>
+      <a class="card" href="/integrations.html">${ico('bolt')}<h3>Plugs in anywhere</h3><p>An instant API, an MCP endpoint for AI agents, Clay, n8n, Make and Zapier, and delivery to Slack, Google Sheets or any webhook.</p></a>
       <div class="card">${ico('shield')}<h3>Public data, done carefully</h3><p>Rate limits respected, retries and resume without double-charging. No captcha solving and no logins for you.</p></div>
     </div>
   </div>
@@ -1661,7 +1721,7 @@ const searchIndex = {
     };
   }),
   cats: Object.fromEntries(CATS.map(([k, l]) => [k, l])),
-  pages: [['Home', '/'], ['All tools', '/tools/'], ['Coverage map', '/#coverage'], ['Chain tools together', '/#compose'], ['Pricing and cost estimate', '/pricing.html'], ['Free datasets and samples', '/datasets.html'], ['Use the tools in Clay', '/clay.html'], ['MCP server for AI agents', '/mcp.html'], ['Blog', '/blog/'], ['About', '/about.html'], ['Trade show exhibitor lists', '/leads/'], ['Custom data request', `mailto:${EMAIL}?subject=Custom%20data%20request`]],
+  pages: [['Home', '/'], ['All tools', '/tools/'], ['Coverage map', '/#coverage'], ['Chain tools together', '/#compose'], ['Pricing and cost estimate', '/pricing.html'], ['Free datasets and samples', '/datasets.html'], ['Integrations: Clay, n8n, Make, Zapier, AI agents', '/integrations.html'], ['Use the tools in Clay', '/clay.html'], ['MCP server for AI agents', '/mcp.html'], ['Blog', '/blog/'], ['About', '/about.html'], ['Trade show exhibitor lists', '/leads/'], ['Custom data request', `mailto:${EMAIL}?subject=Custom%20data%20request`]],
   posts: POSTS.map((p) => [p.title, `/blog/${p.id}.html`]),
   countries: Object.fromEntries(Object.entries(WORLD.names).map(([c, nm]) => [nm.toLowerCase(), c])),
 };
@@ -1829,7 +1889,7 @@ writeFileSync(
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${[
-  ...['/', '/mcp.html', '/about.html', '/pricing.html', '/datasets.html', '/clay.html', '/blog/', '/tools/'].map((p) => entry(p)),
+  ...['/', '/mcp.html', '/about.html', '/pricing.html', '/datasets.html', '/clay.html', '/integrations.html', '/blog/', '/tools/'].map((p) => entry(p)),
   ...CATS.map(([k]) => entry(`/tools/${k}/`)),
   ...allTools.map(({ a }) => entry(`/tools/${a.name}/`, ogOf(a.name) !== OG ? `<image:image><image:loc>${esc(ogOf(a.name))}</image:loc></image:image>` : '')),
   ...POSTS.map((p) => entry(`/blog/${p.id}.html`)),
@@ -1858,6 +1918,7 @@ writeFileSync(
 
 > Fast, low-cost web data tools published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
+- [Integrations](${SITE}/integrations.html): Clay recipes, AI agents over MCP, Hugging Face datasets, code recipes, n8n, Make, Zapier, Slack, webhooks and the REST API
 - [MCP server (webdata-tools-mcp)](${SITE}/mcp.html): ${nWord} tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/${USER})
 - [Code recipes](https://github.com/${USER}/apify-data-recipes)
