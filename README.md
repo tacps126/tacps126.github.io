@@ -1,6 +1,6 @@
-# tacps126.github.io
+# apirows.com
 
-Static site for <https://tacps126.github.io>. No framework, no build dependencies beyond Node 18+.
+Static site for <https://apirows.com> (GitHub Pages; the old address `tacps126.github.io` redirects here through the `CNAME` file). No framework, no build dependencies beyond Node 18+.
 
 ```bash
 node build.mjs                   # regenerates index.html, tools/, mcp.html, 404.html, search.json, sitemap.xml, llms.txt

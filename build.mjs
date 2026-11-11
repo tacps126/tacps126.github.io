@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 
 const USER = 'tacps126';
-const SITE = 'https://tacps126.github.io';
+const SITE = 'https://apirows.com';
 const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
 // Listings added in the last few weeks get a "New" badge.
@@ -633,6 +633,11 @@ const leads = existsSync(LEADS_DIR)
       .sort((a, b) => b.total - a.total)
   : [];
 const ACTOR_URL = `https://apify.com/${USER}/exhibition-scraper`;
+// Ready files for sale: data/shop.json, written by apify_actors/scripts/shop_data.py from the lists built
+// there (price, order link, size and contact coverage of the real file, its date). A show without an
+// entry keeps its page as it was.
+const SHOP_FILE = new URL('./data/shop.json', import.meta.url);
+const SHOP = existsSync(SHOP_FILE) ? JSON.parse(readFileSync(SHOP_FILE, 'utf8')) : {};
 const n = (x) => Number(x).toLocaleString('en-US');
 mkdirSync(OUT('./leads/'), { recursive: true });
 // Up to 8 other shows for internal links: same industry first, then the biggest.
@@ -653,6 +658,17 @@ for (const l of leads) {
     .map((r) => `<tr><td>${esc(r.company)}</td><td>${esc(r.country)}</td><td>${esc(r.booth)}</td><td>${esc(r.website)}</td></tr>`)
     .join('');
   const countries = l.countries.map(([c, k]) => `<li>${esc(c)} <span class="muted">${n(k)}</span></li>`).join('');
+  const shop = SHOP[l.id];
+  const buyButton = shop
+    ? `<a class="btn primary" href="${esc(shop.buyUrl)}">${shop.byEmail ? 'Order' : 'Buy'} the ready file: $${shop.priceUsd}</a>`
+    : '';
+  const runButton = shop
+    ? `<a class="btn" href="${ACTOR_URL}">Or run it yourself (about $2 per 1,000)</a>`
+    : `<a class="btn primary" href="${ACTOR_URL}">Get the full list (run it yourself, about $2 per 1,000)</a>
+    <a class="btn" href="/#build">Have it done for you</a>`;
+  const shopNote = shop
+    ? `<p class="muted">Ready file: ${n(shop.exhibitors)} exhibitors, ${shop.emailPct}% with a company email, ${shop.phonePct}% with a phone number, as ${shop.formats.join(', ')}. Updated ${esc(shop.updated)} and refreshed weekly until the show; one payment covers every refresh of this edition.${shop.byEmail ? ' Order by email and you get a payment link, then the files.' : ''}</p>`
+    : '';
   const body = `
 <section class="hero"><div class="wrap">
   <p class="eyebrow">${esc(l.industry)}${l.where ? ` · ${esc(l.where)}` : ''}</p>
@@ -660,9 +676,10 @@ for (const l of leads) {
   <p class="lead">Every exhibitor at ${esc(l.name)} as a clean spreadsheet: company, booth and hall, website, phone, address, categories and email. Read from the organiser's <a href="${esc(l.listUrl)}">official exhibitor list</a>${l.listUrl ? '' : ''}; emails missing there are looked up on each company's own website.</p>
   <div class="stats${l.countryCount ? ' five' : ''}">${tiles}</div>
   <div class="cta-row">
-    <a class="btn primary" href="${ACTOR_URL}">Get the full list (run it yourself, about $2 per 1,000)</a>
-    <a class="btn" href="/#build">Have it done for you</a>
+    ${buyButton}
+    ${runButton}
   </div>
+  ${shopNote}
 </div></section>
 <section><div class="wrap">
   <h2>Sample: 20 of ${n(l.total)} exhibitors</h2>
@@ -693,6 +710,7 @@ ${countries ? `  <h2>Where exhibitors come from${l.countriesFromSample ? ` <span
         dateModified: l.updated,
         creator: { '@type': 'Organization', name: 'tacps126' },
         isAccessibleForFree: false,
+        ...(shop ? { offers: { '@type': 'Offer', price: String(shop.priceUsd), priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE}/leads/${l.id}.html` } } : {}),
         // Terms of use for the data (Search Console asks Datasets for a license).
         license: `${SITE}/about.html#data-use`,
       },

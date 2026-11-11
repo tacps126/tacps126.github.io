@@ -5,7 +5,7 @@
 // The key is public by design: IndexNow checks it against /<key>.txt on the site.
 import { readFileSync } from 'node:fs';
 
-const SITE = 'https://tacps126.github.io';
+const SITE = 'https://apirows.com';
 const KEY = '285363c0fb427a95175b2ab8a9bf3536';
 const TODAY = new Date().toISOString().slice(0, 10);
 const all = process.argv.includes('--all');
@@ -18,7 +18,7 @@ if (!urlList.length) {
 const res = await fetch('https://api.indexnow.org/indexnow', {
   method: 'POST',
   headers: { 'content-type': 'application/json; charset=utf-8' },
-  body: JSON.stringify({ host: 'tacps126.github.io', key: KEY, keyLocation: `${SITE}/${KEY}.txt`, urlList }),
+  body: JSON.stringify({ host: 'apirows.com', key: KEY, keyLocation: `${SITE}/${KEY}.txt`, urlList }),
 });
 // 200 and 202 both mean accepted; 403 means the key file is not live yet.
 console.log(`indexnow: ${urlList.length} URLs, HTTP ${res.status}`);
