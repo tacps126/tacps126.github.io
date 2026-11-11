@@ -1,4 +1,21 @@
 {
+ "boot-dusseldorf": {
+  "priceUsd": 119,
+  "tier": "l",
+  "buyUrl": "mailto:tacps126@gmail.com?subject=Order%3A%20boot-dusseldorf%20exhibitor%20list%20%28%24119%29",
+  "byEmail": true,
+  "exhibitors": 1029,
+  "emailPct": 99,
+  "phonePct": 99,
+  "websitePct": 96,
+  "updated": "2026-11-11",
+  "formats": [
+   "CSV",
+   "Excel",
+   "JSON"
+  ],
+  "changes": null
+ },
  "fibo-germany": {
   "priceUsd": 119,
   "tier": "l",
@@ -9,6 +26,40 @@
   "phonePct": 79,
   "websitePct": 90,
   "updated": "2026-11-10",
+  "formats": [
+   "CSV",
+   "Excel",
+   "JSON"
+  ],
+  "changes": null
+ },
+ "internorga": {
+  "priceUsd": 119,
+  "tier": "l",
+  "buyUrl": "mailto:tacps126@gmail.com?subject=Order%3A%20internorga%20exhibitor%20list%20%28%24119%29",
+  "byEmail": true,
+  "exhibitors": 1197,
+  "emailPct": 99,
+  "phonePct": 92,
+  "websitePct": 94,
+  "updated": "2026-11-11",
+  "formats": [
+   "CSV",
+   "Excel",
+   "JSON"
+  ],
+  "changes": null
+ },
+ "spielwarenmesse": {
+  "priceUsd": 119,
+  "tier": "l",
+  "buyUrl": "mailto:tacps126@gmail.com?subject=Order%3A%20spielwarenmesse%20exhibitor%20list%20%28%24119%29",
+  "byEmail": true,
+  "exhibitors": 2043,
+  "emailPct": 62,
+  "phonePct": 48,
+  "websitePct": 94,
+  "updated": "2026-11-11",
   "formats": [
    "CSV",
    "Excel",
