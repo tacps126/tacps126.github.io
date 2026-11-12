@@ -10,7 +10,8 @@ const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
 // The brand. The mark is three rows of a table, the last one short and blue; it follows the theme.
 const BRAND = 'apirows';
-const MARK = (s) => `<svg width="${s}" height="${s}" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--ink)"/><rect x="8" y="9" width="16" height="3" rx="1.5" fill="var(--ink-fg)"/><rect x="8" y="14.5" width="16" height="3" rx="1.5" fill="var(--ink-fg)" opacity=".55"/><rect x="8" y="20" width="9" height="3" rx="1.5" fill="#3b82f6"/></svg>`;
+// The mark: an A cut into rows, its crossbar the blue row (scripts/logo.py draws the same paths).
+const MARK = (s) => `<svg width="${s}" height="${s}" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--ink)"/><path fill="var(--ink-fg)" d="M16 7.07 L17.8 10.68 L14.2 10.68ZM13.62 11.82 L18.38 11.82 L20.18 15.43 L17.52 15.43 L16 12.39 L14.48 15.43 L11.82 15.43ZM8.88 21.32 L11.54 21.32 L9.73 24.93 L7.07 24.93ZM20.46 21.32 L23.12 21.32 L24.93 24.93 L22.27 24.93Z"/><path fill="#3b82f6" d="M11.25 16.57 L20.75 16.57 L22.55 20.18 L9.45 20.18Z"/></svg>`;
 // Listings added in the last few weeks get a "New" badge.
 const NEW = new Set(['walmart-products', 'company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
@@ -91,11 +92,12 @@ const ALL_CATS = [
     'map-your-show-exhibitor-scraper', 'messe-frankfurt-exhibitor-scraper', 'messe-duesseldorf-exhibitor-scraper', 'rx-exhibitor-scraper',
     'a2z-exhibitor-scraper', 'koelnmesse-exhibitor-scraper', 'nuernbergmesse-exhibitor-scraper', 'swapcard-exhibitor-scraper', 'expoplatform-exhibitor-scraper',
     'us-import-records', 'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
-  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'youtube-comments', 'podcasts', 'research-radar', 'innovation-radar', 'reddit-monitor']],
-  ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar', 'cve-feed']],
-  ['health', 'Health and life sciences', ['clinical-trials', 'fda-device-clearances', 'npi-providers']],
+  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'youtube-comments', 'podcasts', 'research-radar', 'innovation-radar', 'reddit-monitor',
+    'youtube-scraper', 'arxiv-scraper', 'scholarly-papers-search', 'bluesky-scraper', 'telegram-scraper']],
+  ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar', 'cve-feed', 'building-permits']],
+  ['health', 'Health and life sciences', ['clinical-trials', 'clinical-trials-scraper', 'pubmed-scraper', 'fda-device-clearances', 'npi-providers']],
   ['commerce', 'E-commerce, vehicles and real estate', ['shopify-products', 'walmart-products', 'china-sourcing', 'copart-auctions', 'auctions-radar', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
-  ['finance', 'Finance and markets', ['short-interest', 'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding']],
+  ['finance', 'Finance and markets', ['short-interest', 'sec-filings', 'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding']],
   ['sports', 'Sports, odds and lotteries', ['sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results']],
   ['travel', 'Travel and transit', ['transit-timetables']],
 ];
@@ -404,15 +406,17 @@ const labelOf = Object.fromEntries(CATS.map(([k, l]) => [k, l]));
 const USES = [
   ['jobs', 'briefcase', 'Recruiting and job boards', 'Every open role from company career pages (13 systems, or just type a company name), LinkedIn, Indeed, Glassdoor, Wellfound, Dice and remote-job feeds in one format, with only-new mode for daily feeds.'],
   ['leads', 'target', 'Sales and lead generation', 'Hiring signals show who is hiring for the roles you sell to. Reddit Lead Finder spots people asking for a tool like yours. Contact details builds local lead lists by category and city and adds emails, phones and socials to any list; the Shopify Store Analyzer does the same for stores. US Import Records shows who an importer buys from and which other brands use the same factories.'],
-  ['reviews', 'star', 'Brand and reputation', 'Trustpilot and app-store reviews, Google News with real publisher links, and Reddit mentions, with alerts on new items only.'],
+  ['reviews', 'star', 'Brand, social and research', 'Trustpilot and app-store reviews, Google News with real publisher links, and mentions on Reddit, Bluesky, Telegram and YouTube, with alerts on new items only. Papers and preprints from arXiv and scholarly indexes, newest or most influential first.'],
   ['health', 'pulse', 'Health and life sciences', [
     ['clinical-trials', 'Clinical trials by condition, drug, sponsor and phase with sites and contacts'],
+    ['pubmed-scraper', 'PubMed articles with abstracts, authors and journals'],
     ['fda-device-clearances', 'FDA 510(k) and PMA device clearances with the applicant and review time'],
     ['npi-providers', 'US doctors, dentists and clinics from the NPI Registry by specialty and place'],
   ]],
   ['commerce', 'chart', 'Market, vehicle and property data', 'Shopify prices, discounts and stock, Copart salvage and used car auctions with bids and damage, court and bank auctions in Germany, Spain, Italy and India scored against similar lots, and property listings in Germany, Austria, the UK and the Gulf with coordinates and price per square metre.'],
   ['finance', 'trend', 'Markets, odds and funding', [
     ['short-interest', 'Official short interest for every US stock with days to cover and daily short-sale volume'],
+    ['sec-filings', 'SEC filings and Form 4 insider trades by ticker'],
     ['prediction-markets', 'Kalshi, Polymarket, Manifold and PredictIt odds with history and move alerts'],
     ['startup-funding', 'new startup raises from SEC Form D with the founders behind them'],
   ]],

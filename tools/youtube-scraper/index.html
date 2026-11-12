@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube Scraper: Videos, Shorts, Channels, Likes</title>
+<meta name="description" content="Scrape YouTube videos, Shorts and streams from searches, channels and playlists: views, likes, comment count, hashtags, channel subscribers and country.">
+<meta name="keywords" content="Reviews, news, research and social">
+<link rel="canonical" href="https://apirows.com/tools/youtube-scraper/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="apirows">
+<meta property="og:title" content="YouTube Scraper: Videos, Shorts, Channels, Likes | tacps126">
+<meta property="og:description" content="Scrape YouTube videos, Shorts and streams from searches, channels and playlists: views, likes, comment count, hashtags, channel subscribers and country. Filters. $2/1k.">
+<meta property="og:url" content="https://apirows.com/tools/youtube-scraper/">
+<meta property="og:image" content="https://apirows.com/og/youtube-scraper.jpg?v=1d8f28848c">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="YouTube Scraper: YouTube videos, Shorts and live streams from searches, channels and playlists: views, likes, comment counts, publish...">
+<meta property="og:updated_time" content="2026-11-09">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="YouTube Scraper: Videos, Shorts, Channels, Likes | tacps126">
+<meta name="twitter:description" content="Scrape YouTube videos, Shorts and streams from searches, channels and playlists: views, likes, comment count, hashtags, channel subscribers and country. Filters. $2/1k.">
+<meta name="twitter:image" content="https://apirows.com/og/youtube-scraper.jpg?v=1d8f28848c">
+<link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
+<link rel="stylesheet" href="/style.css?v=5e4b0164c4">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"YouTube Scraper","alternateName":"youtube-scraper","applicationCategory":"DeveloperApplication","applicationSubCategory":"Reviews, news, research and social","operatingSystem":"Web, API (Apify)","url":"https://apirows.com/tools/youtube-scraper/","sameAs":"https://apify.com/tacps126/youtube-scraper","installUrl":"https://apify.com/tacps126/youtube-scraper","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-S0V3dhlJbTGdbtnSZ-SRmL4FMlhI-youtube-scraper.png","screenshot":"https://apirows.com/og/youtube-scraper.jpg?v=1d8f28848c","description":"YouTube videos, Shorts and live streams from searches, channels and playlists: views, likes, comment counts, publish date, hashtags, plus channel subscribers, country, join date and links. YouTube's own search filters.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://apirows.com/about.html"},"dateModified":"2026-11-09","offers":{"@type":"Offer","price":"0.002","priceCurrency":"USD","url":"https://apify.com/tacps126/youtube-scraper","description":"$2 per 1,000, pay per video"},"featureList":["id, url, type: pEfrdAtAmqk, the watch link, video / short / stream","title, description, keywords, hashtags: the uploader's text, tags and #hashtags","viewCount, likes, commentsCount: 8486956, 282917, 10000","date, uploadDate: 2022-08-24T10:05:46-07:00","durationSeconds, duration: 684, 11:24","category, thumbnailUrl: Science & Technology, the largest thumbnail","isLiveContent, isLiveNow, liveStart, liveEnd: live stream details","isFamilySafe, isUnlisted, isMembersOnly: flags","channelName, channelId, channelUrl, channelHandle, channelVerified: Fireship, UCsBjURrPoezykLs9EqgamOA, @Fireship","channelSubscribers, channelTotalVideos, channelTotalViews: 4330000, 861, 801556367","channelCountry, channelJoined: United States, 2017-04-07","channelDescription, channelKeywords, channelLinks: the About text and the channel's links"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://apirows.com/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://apirows.com/tools/"},{"@type":"ListItem","position":3,"name":"Reviews, news, research and social","item":"https://apirows.com/tools/reviews/"},{"@type":"ListItem","position":4,"name":"YouTube Scraper","item":"https://apirows.com/tools/youtube-scraper/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does it need a YouTube API key or a login?","acceptedAnswer":{"@type":"Answer","text":"No."}},{"@type":"Question","name":"Why is a video missing?","acceptedAnswer":{"@type":"Answer","text":"It is private, removed or restricted, or older than your date filter. The run summary says which."}},{"@type":"Question","name":"Are like and comment counts exact?","acceptedAnswer":{"@type":"Answer","text":"Likes are exact. Comment and subscriber counts are as precise as YouTube shows them (YouTube rounds large numbers)."}},{"@type":"Question","name":"How much does YouTube Scraper cost?","acceptedAnswer":{"@type":"Answer","text":"$2 per 1,000, charged only for videos returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"What does YouTube Scraper return?","acceptedAnswer":{"@type":"Answer","text":"Every row has the same fields, including id, url, type, title, description, keywords, hashtags, viewCount, likes, commentsCount, date, uploadDate, durationSeconds, duration, category, thumbnailUrl, isLiveContent, isLiveNow, liveStart, liveEnd, isFamilySafe, isUnlisted, isMembersOnly. Download as JSON, CSV, Excel or XML."}},{"@type":"Question","name":"Can it run on a schedule and return only new results?","acceptedAnswer":{"@type":"Answer","text":"Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="apirows home"><svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--ink)"/><path fill="var(--ink-fg)" d="M16 7.07 L17.8 10.68 L14.2 10.68ZM13.62 11.82 L18.38 11.82 L20.18 15.43 L17.52 15.43 L16 12.39 L14.48 15.43 L11.82 15.43ZM8.88 21.32 L11.54 21.32 L9.73 24.93 L7.07 24.93ZM20.46 21.32 L23.12 21.32 L24.93 24.93 L22.27 24.93Z"/><path fill="#3b82f6" d="M11.25 16.57 L20.75 16.57 L22.55 20.18 L9.45 20.18Z"/></svg><span>apirows</span></a>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/leads/">Exhibitor lists</a>
+      <a href="/mcp.html">AI agents</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 94 tools</span><kbd>⌘K</kbd></button>
+    <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<main id="main">
+
+<section class="tool-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/reviews/">Reviews, news, research and social</a></nav>
+    <div class="th">
+      <img class="th-ico" src="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-S0V3dhlJbTGdbtnSZ-SRmL4FMlhI-youtube-scraper.png" alt="YouTube Scraper icon" width="64" height="64" decoding="async" onerror="this.onerror=null;this.src='/icons/youtube-scraper.png'">
+      <div>
+        <h1>YouTube Scraper</h1>
+        <p class="lead">YouTube videos, Shorts and live streams from searches, channels and playlists: views, likes, comment counts, publish date, hashtags, plus channel subscribers, country, join date and links. YouTube's own search filters.</p>
+      </div>
+    </div>
+    <div class="facts"><span class="pchip"><b>$2 per 1,000</b> video</span><span class="fact">updated 2026-11-09</span></div>
+    <div class="cta-row">
+      <a class="btn primary" href="https://apify.com/tacps126/youtube-scraper" rel="noopener">Run it on Apify</a>
+      <a class="btn" href="#try">Build the input</a>
+      <a class="btn ghost" href="#output">See the output</a>
+      
+      
+      
+    </div>
+  </div>
+</section>
+
+<section id="try" data-label="Try it">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
+    <div class="tool-grid">
+      <form class="tform" id="tform" data-actor="youtube-scraper" data-unit="0.002" data-what="video" data-max="maxItems" data-start="{&quot;searchQueries&quot;:[&quot;air fryer review&quot;],&quot;startUrls&quot;:[&quot;https://www.youtube.com/@Fireship&quot;],&quot;maxResults&quot;:5}" autocomplete="off">
+<div class="f" data-k="searchQueries" data-kind="list"><label for="f-searchQueries"><span class="fl">Search terms</span></label><textarea id="f-searchQueries" rows="2" placeholder="One per line">air fryer review</textarea><p class="fh">What you would type into YouTube search. Each search returns up to `maxResults` videos.</p></div>
+<div class="f" data-k="startUrls" data-kind="list"><label for="f-startUrls"><span class="fl">YouTube links</span></label><textarea id="f-startUrls" rows="2" placeholder="One per line">https://www.youtube.com/@Fireship</textarea><p class="fh">Video, Shorts, channel (@handle or channel link), playlist or search page links. Video ids and @handles work too. One per line.</p></div>
+<div class="f" data-k="maxResults" data-kind="int" data-def="10"><label for="f-maxResults"><span class="fl">Videos per search, channel or playlist</span></label><input id="f-maxResults" type="number" inputmode="numeric" min="0" max="5000" value="5" placeholder="10"><p class="fh">Regular videos taken from each search, each channel's Videos tab and each playlist. 0 skips them.</p></div>
+<div class="f" data-k="maxResultsShorts" data-kind="int" data-def="0"><label for="f-maxResultsShorts"><span class="fl">Shorts per channel</span></label><input id="f-maxResultsShorts" type="number" inputmode="numeric" min="0" max="5000" value="0" placeholder="0"><p class="fh">Shorts taken from each channel's Shorts tab.</p></div>
+<div class="f" data-k="maxResultStreams" data-kind="int" data-def="0"><label for="f-maxResultStreams"><span class="fl">Live streams per channel</span></label><input id="f-maxResultStreams" type="number" inputmode="numeric" min="0" max="5000" value="0" placeholder="0"><p class="fh">Past and current live streams taken from each channel's Live tab.</p></div>
+<div class="f" data-k="sortVideosBy" data-kind="str" data-def="&quot;NEWEST&quot;"><label for="f-sortVideosBy"><span class="fl">Channel order</span></label><select id="f-sortVideosBy"><option value="NEWEST" selected>Latest</option><option value="POPULAR">Popular</option><option value="OLDEST">Oldest</option></select><p class="fh">Order of a channel's videos, as the channel page offers it. Tabs without this choice are read latest first.</p></div>
+<details class="more"><summary>Date filter</summary><div class="f" data-k="oldestPostDate" data-kind="str"><label for="f-oldestPostDate"><span class="fl">Published after</span></label><input id="f-oldestPostDate" type="text" value="" placeholder=""><p class="fh">Keep only videos published on or after this date (2025-01-31) or within this period (7 days, 2 weeks, 3 months, 1 year). Older videos are left out and not charged.</p></div></details>
+<details class="more"><summary>Search filters</summary><div class="f" data-k="sortingOrder" data-kind="str"><label for="f-sortingOrder"><span class="fl">Sort search by</span></label><select id="f-sortingOrder"><option value=""> - </option><option value="relevance">Relevance</option><option value="rating">Rating</option><option value="date">Upload date</option><option value="views">View count</option></select><p class="fh">Search order (YouTube's own filter).</p></div>
+<div class="f" data-k="dateFilter" data-kind="str"><label for="f-dateFilter"><span class="fl">Upload date</span></label><select id="f-dateFilter"><option value=""> - </option><option value="hour">Last hour</option><option value="today">Today</option><option value="week">This week</option><option value="month">This month</option><option value="year">This year</option></select><p class="fh">Only videos uploaded in this period.</p></div>
+<div class="f" data-k="videoType" data-kind="str"><label for="f-videoType"><span class="fl">Type</span></label><select id="f-videoType"><option value=""> - </option><option value="video">Video</option><option value="movie">Movie</option></select><p class="fh">Videos (default) or movies.</p></div>
+<div class="f" data-k="lengthFilter" data-kind="str"><label for="f-lengthFilter"><span class="fl">Length</span></label><select id="f-lengthFilter"><option value=""> - </option><option value="under4">Under 4 minutes</option><option value="between420">4 to 20 minutes</option><option value="plus20">Over 20 minutes</option></select><p class="fh">Video length.</p></div>
+<div class="f f-bool" data-k="isHD" data-kind="bool"><label class="sw" for="f-isHD"><input type="checkbox" id="f-isHD"><span class="sw-ui" aria-hidden="true"></span><span class="fl">HD</span></label><p class="fh">Only HD videos.</p></div>
+<div class="f f-bool" data-k="is4K" data-kind="bool"><label class="sw" for="f-is4K"><input type="checkbox" id="f-is4K"><span class="sw-ui" aria-hidden="true"></span><span class="fl">4K</span></label><p class="fh">Only 4K videos.</p></div>
+<div class="f f-bool" data-k="hasSubtitles" data-kind="bool"><label class="sw" for="f-hasSubtitles"><input type="checkbox" id="f-hasSubtitles"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Subtitles</span></label><p class="fh">Only videos with subtitles.</p></div>
+<div class="f f-bool" data-k="hasCC" data-kind="bool"><label class="sw" for="f-hasCC"><input type="checkbox" id="f-hasCC"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Creative Commons</span></label><p class="fh">Only Creative Commons videos.</p></div>
+<div class="f f-bool" data-k="isLive" data-kind="bool"><label class="sw" for="f-isLive"><input type="checkbox" id="f-isLive"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Live</span></label><p class="fh">Only live streams.</p></div>
+<div class="f f-bool" data-k="is3D" data-kind="bool"><label class="sw" for="f-is3D"><input type="checkbox" id="f-is3D"><span class="sw-ui" aria-hidden="true"></span><span class="fl">3D</span></label><p class="fh">Only 3D videos.</p></div>
+<div class="f f-bool" data-k="is360" data-kind="bool"><label class="sw" for="f-is360"><input type="checkbox" id="f-is360"><span class="sw-ui" aria-hidden="true"></span><span class="fl">360 degrees</span></label><p class="fh">Only 360 degree videos.</p></div>
+<div class="f f-bool" data-k="isVR180" data-kind="bool"><label class="sw" for="f-isVR180"><input type="checkbox" id="f-isVR180"><span class="sw-ui" aria-hidden="true"></span><span class="fl">VR180</span></label><p class="fh">Only VR180 videos.</p></div>
+<div class="f f-bool" data-k="isHDR" data-kind="bool"><label class="sw" for="f-isHDR"><input type="checkbox" id="f-isHDR"><span class="sw-ui" aria-hidden="true"></span><span class="fl">HDR</span></label><p class="fh">Only HDR videos.</p></div>
+<div class="f f-bool" data-k="hasLocation" data-kind="bool"><label class="sw" for="f-hasLocation"><input type="checkbox" id="f-hasLocation"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Location</span></label><p class="fh">Only videos with a location.</p></div>
+<div class="f f-bool" data-k="isBought" data-kind="bool"><label class="sw" for="f-isBought"><input type="checkbox" id="f-isBought"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Purchased</span></label><p class="fh">Only videos you can buy or rent.</p></div></details>
+<details class="more"><summary>Output and limits</summary><div class="f f-bool" data-k="includeChannelInfo" data-kind="bool" data-def="true"><label class="sw" for="f-includeChannelInfo"><input type="checkbox" id="f-includeChannelInfo" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Add channel details</span></label><p class="fh">Add each channel's About details to its videos: country, join date, total views and videos, subscribers, description, links, avatar and banner. Read once per channel.</p></div>
+<div class="f" data-k="maxItems" data-kind="int" data-def="100"><label for="f-maxItems"><span class="fl">Max videos per run</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" value="100" placeholder="100"><p class="fh">Stop after this many videos in total.</p></div>
+<div class="f f-bool" data-k="onlyNew" data-kind="bool" data-def="false"><label class="sw" for="f-onlyNew"><input type="checkbox" id="f-onlyNew"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Only new videos</span></label><p class="fh">Skip videos delivered by earlier runs with the same input (or the same monitor name). Schedule the run to follow channels or searches.</p></div></details>
+        <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
+      </form>
+      <aside class="tcode">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" data-lang="curl" aria-selected="true">curl</button><button class="tab" role="tab" type="button" data-lang="python" aria-selected="false">Python</button><button class="tab" role="tab" type="button" data-lang="js" aria-selected="false">JavaScript</button><button class="tab" role="tab" type="button" data-lang="mcp" aria-selected="false">AI agent</button></div>
+        <div class="panel"><div class="code">
+  <div class="code-top"><span>terminal</span><button class="copy" type="button">Copy</button></div>
+  <pre>curl -X POST \
+  &quot;https://api.apify.com/v2/acts/tacps126~youtube-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;searchQueries&quot;:[&quot;air fryer review&quot;],&quot;startUrls&quot;:[&quot;https://www.youtube.com/@Fireship&quot;],&quot;maxResults&quot;:5}'</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;tacps126/youtube-scraper&quot;).call(run_input={
+    &quot;searchQueries&quot;: [&quot;air fryer review&quot;],
+    &quot;startUrls&quot;: [&quot;https://www.youtube.com/@Fireship&quot;],
+    &quot;maxResults&quot;: 5,
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item)</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>JavaScript · npm i apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: 'YOUR_APIFY_TOKEN' });
+const run = await client.actor('tacps126/youtube-scraper').call({
+  &quot;searchQueries&quot;: [
+    &quot;air fryer review&quot;
+  ],
+  &quot;startUrls&quot;: [
+    &quot;https://www.youtube.com/@Fireship&quot;
+  ],
+  &quot;maxResults&quot;: 5
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items);</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>MCP</span><button class="copy" type="button">Copy</button></div>
+  <pre># Apify's hosted MCP server, with this tool only
+https://mcp.apify.com?tools=tacps126/youtube-scraper</pre>
+</div></div>
+        <p class="cost" id="tf-cost">Up to 100 videos: at most $0.20, on Apify's free plan.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="output" data-label="Output">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Output</span><h2>What you get back</h2><p>The fields every row has.</p></div>
+    <div class="out-grid one">
+      
+      <div class="table-wrap fields"><table><thead><tr><th>Field</th><th>What it holds</th></tr></thead><tbody><tr><td><code>id</code>, <code>url</code>, <code>type</code></td><td><code>pEfrdAtAmqk</code>, the watch link, <code>video</code> / <code>short</code> / <code>stream</code></td></tr><tr><td><code>title</code>, <code>description</code>, <code>keywords</code>, <code>hashtags</code></td><td>the uploader's text, tags and <code>#hashtags</code></td></tr><tr><td><code>viewCount</code>, <code>likes</code>, <code>commentsCount</code></td><td><code>8486956</code>, <code>282917</code>, <code>10000</code></td></tr><tr><td><code>date</code>, <code>uploadDate</code></td><td><code>2022-08-24T10:05:46-07:00</code></td></tr><tr><td><code>durationSeconds</code>, <code>duration</code></td><td><code>684</code>, <code>11:24</code></td></tr><tr><td><code>category</code>, <code>thumbnailUrl</code></td><td><code>Science &amp; Technology</code>, the largest thumbnail</td></tr><tr><td><code>isLiveContent</code>, <code>isLiveNow</code>, <code>liveStart</code>, <code>liveEnd</code></td><td>live stream details</td></tr><tr><td><code>isFamilySafe</code>, <code>isUnlisted</code>, <code>isMembersOnly</code></td><td>flags</td></tr><tr><td><code>channelName</code>, <code>channelId</code>, <code>channelUrl</code>, <code>channelHandle</code>, <code>channelVerified</code></td><td><code>Fireship</code>, <code>UCsBjURrPoezykLs9EqgamOA</code>, <code>@Fireship</code></td></tr><tr><td><code>channelSubscribers</code>, <code>channelTotalVideos</code>, <code>channelTotalViews</code></td><td><code>4330000</code>, <code>861</code>, <code>801556367</code></td></tr><tr><td><code>channelCountry</code>, <code>channelJoined</code></td><td><code>United States</code>, <code>2017-04-07</code></td></tr><tr><td><code>channelDescription</code>, <code>channelKeywords</code>, <code>channelLinks</code></td><td>the About text and the channel's links</td></tr><tr><td><code>channelAvatar</code>, <code>channelBanner</code>, <code>channelFamilySafe</code></td><td>images and flag</td></tr><tr><td><code>input</code>, <code>scrapedAt</code></td><td>the search or link the video came from, when it was read</td></tr></tbody></table></div>
+    </div>
+    <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
+  </div>
+</section>
+
+<section id="guide" data-label="Guide">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Guide</span><h2>How YouTube Scraper works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
+    <article class="post guide" id="guide-body"><p>Scrape <strong>YouTube videos, Shorts and live streams</strong> from searches, channels and playlists with their <strong>views, likes, comment count, publish date, length, hashtags and description</strong>, plus each <strong>channel's subscribers, country, join date, total views and videos, and links</strong>. Use YouTube's own search filters and channel order (Latest, Popular, Oldest).</p>
+<p><strong>Built for</strong> influencer and creator research, competitor and brand monitoring, content and trend analysis, marketing and agency reporting, and datasets for AI and analytics.</p>
+<p><strong>At a glance</strong></p>
+<ul><li><strong>Price:</strong> $2 per 1,000 videos. Videos left out by your date filter are free. Free plan: up to 100 videos per run.</li><li><strong>First run:</strong> the prefilled search and channel return 10 videos in a few seconds, each with views, likes, comment count and channel details.</li></ul>
+<div class="table-wrap"><table><thead><tr><th>title</th><th>channelName</th><th>viewCount</th><th>likes</th><th>commentsCount</th><th>channelSubscribers</th></tr></thead><tbody><tr><td>God-Tier Developer Roadmap</td><td>Fireship</td><td>8486956</td><td>282917</td><td>10000</td><td>4330000</td></tr></tbody></table></div>
+<h3 id="g-how-to-use-it">How to use it</h3>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{
+  &quot;searchQueries&quot;: [&quot;air fryer review&quot;],
+  &quot;startUrls&quot;: [
+    &quot;https://www.youtube.com/@Fireship&quot;,
+    &quot;https://www.youtube.com/playlist?list=PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf&quot;,
+    &quot;https://www.youtube.com/watch?v=dQw4w9WgXcQ&quot;
+  ],
+  &quot;maxResults&quot;: 20,
+  &quot;maxResultsShorts&quot;: 10,
+  &quot;sortVideosBy&quot;: &quot;POPULAR&quot;,
+  &quot;dateFilter&quot;: &quot;month&quot;,
+  &quot;sortingOrder&quot;: &quot;views&quot;
+}</pre></div>
+<ul><li><strong>Searches with YouTube's filters.</strong> Sort by relevance, rating, upload date or views; upload date (last hour to this year); type; length; HD, 4K, subtitles, Creative Commons, live, 3D, 360, VR180, HDR, location, purchased. Search page links work too.</li><li><strong>Channels.</strong> Paste a <code>@handle</code> or channel link. Pick how many videos, Shorts and live streams to take, in Latest, Popular or Oldest order.</li><li><strong>Playlists and single videos.</strong> Paste the links or video ids.</li><li><strong>Date filter.</strong> <code>oldestPostDate</code> keeps only videos published after a date (<code>2025-01-31</code>) or within a period (<code>7 days</code>, <code>3 months</code>). Older videos are not charged.</li><li><strong>Channel details.</strong> On by default; each channel's About panel is read once and added to all its videos. Turn it off if you only need the videos.</li><li><strong>Follow new uploads.</strong> Turn on <em>Only new videos</em> and schedule the Actor: each run returns only videos earlier runs haven't delivered.</li></ul>
+<h3 id="g-pricing">Pricing</h3>
+<p><strong>$2 per 1,000 videos</strong> plus a small start fee per run. Videos that are private, removed or left out by your date filter are listed in the run summary and are <strong>not charged</strong>.</p>
+<p>Free-plan runs return up to 100 videos per run.</p>
+<h3 id="g-good-to-know">Good to know</h3>
+<ul><li>Need transcripts? Use our <strong>YouTube Transcript Scraper</strong> (<code>tacps126/youtube-transcripts</code>). Need comments and replies? Use <strong>YouTube Comments Scraper</strong> (<code>tacps126/youtube-comments</code>).</li><li>The Actor also runs in <strong>Standby mode</strong>: an always-ready endpoint that returns videos in the response, handy for apps and AI agents. Find the URL on the <strong>Standby</strong> tab.</li><li>Need another source or a custom feed? <strong>Contact tacps126@gmail.com</strong>.</li></ul></article>
+    <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
+  </div>
+</section>
+
+<section class="alt" id="faq" data-label="Questions">
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions about YouTube Scraper</h2></div>
+    <div class="faq"><details open><summary>Does it need a YouTube API key or a login?</summary><p>No.</p></details><details><summary>Why is a video missing?</summary><p>It is private, removed or restricted, or older than your date filter. The run summary says which.</p></details><details><summary>Are like and comment counts exact?</summary><p>Likes are exact. Comment and subscriber counts are as precise as YouTube shows them (YouTube rounds large numbers).</p></details><details><summary>How much does YouTube Scraper cost?</summary><p>$2 per 1,000, charged only for videos returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>What does YouTube Scraper return?</summary><p>Every row has the same fields, including id, url, type, title, description, keywords, hashtags, viewCount, likes, commentsCount, date, uploadDate, durationSeconds, duration, category, thumbnailUrl, isLiveContent, isLiveNow, liveStart, liveEnd, isFamilySafe, isUnlisted, isMembersOnly. Download as JSON, CSV, Excel or XML.</p></details><details><summary>Can it run on a schedule and return only new results?</summary><p>Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input.</p></details></div>
+  </div>
+</section>
+<section id="pairs" data-label="Pairs well">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2></div>
+    <div class="grid">
+
+      <a class="card link" href="/tools/reddit-monitor/"><span class="why">Also in reviews and research</span><h3>Reddit Scraper &amp; Keyword Monitor</h3><p>Scrape Reddit posts and comments by keyword, subreddit or user - title, text, author, subreddit, links,...</p></a>
+      <a class="card link" href="/tools/app-reviews/"><span class="why">Also in reviews and research</span><h3>App Store &amp; Google Play Reviews Scraper</h3><p>Scrape app reviews from the Apple App Store and Google Play in one dataset: rating, text, author, date, app...</p></a>
+      <a class="card link" href="/tools/trustpilot-reviews/"><span class="why">Also in reviews and research</span><h3>Trustpilot Reviews Scraper</h3><p>Extract Trustpilot reviews and company details - ratings, text, reviewer info, dates, replies, TrustScore -...</p></a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--ink)"/><path fill="var(--ink-fg)" d="M16 7.07 L17.8 10.68 L14.2 10.68ZM13.62 11.82 L18.38 11.82 L20.18 15.43 L17.52 15.43 L16 12.39 L14.48 15.43 L11.82 15.43ZM8.88 21.32 L11.54 21.32 L9.73 24.93 L7.07 24.93ZM20.46 21.32 L23.12 21.32 L24.93 24.93 L22.27 24.93Z"/><path fill="#3b82f6" d="M11.25 16.57 L20.75 16.57 L22.55 20.18 L9.45 20.18Z"/></svg><span>apirows</span></a>
+        <p>Clean rows from public sources: ready files, tools you run on demand, and an MCP server for AI agents.</p>
+        <p><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a></p>
+      </div>
+      <nav aria-label="Product"><p class="foot-h">Product</p><ul>
+        <li><a href="/tools/">All tools</a></li>
+        <li><a href="/leads/">Exhibitor lists</a></li>
+        <li><a href="/datasets.html">Free datasets</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
+      </ul></nav>
+      <nav aria-label="Developers"><p class="foot-h">Developers</p><ul>
+        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="/integrations.html">Integrations</a></li>
+        <li><a href="/clay.html">Clay</a></li>
+        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
+        <li><a href="https://apify.com/tacps126">Apify Store</a></li>
+      </ul></nav>
+      <nav aria-label="Company"><p class="foot-h">Company</p><ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="mailto:tacps126@gmail.com?subject=Custom%20data%20request">Custom data</a></li>
+        <li><a href="/removal.html">Remove your company</a></li>
+      </ul></nav>
+    </div>
+    <div class="foot-base">
+      <p class="fine">&copy; 2026 apirows · <a href="/terms.html">Terms of sale</a> · <a href="/privacy.html">Privacy</a> · <a href="/refunds.html">Refunds</a> · <a href="/removal.html">Data sources</a></p>
+      <p class="fine" id="data-use">Data comes from publicly available pages. Use it within each source's terms and the law that applies to you (GDPR, CAN-SPAM). Tool prices are per result on Apify; each tool's Apify page is the source of truth.</p>
+    </div>
+  </div>
+</footer>
+<script src="/app.js?v=7b426ede10" defer></script>
+<script src="/tool.js?v=a64914dde6" defer></script>
+</body>
+</html>
