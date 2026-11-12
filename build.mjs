@@ -268,7 +268,7 @@ ${CATS.map(([k, l]) => `        <li><a href="/tools/${k}/">${esc(CAT_SHORT[k] ||
     </div>
     <div class="foot-base">
       <p class="fine" id="data-use">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
-      <p class="fine">&copy; ${TODAY.slice(0, 4)} ${OWNER}</p>
+      <p class="fine"><a href="/terms.html">Terms of sale</a> · <a href="/privacy.html">Privacy</a> · <a href="/refunds.html">Refunds</a> · <a href="/removal.html">Data sources and removal</a><br>&copy; ${TODAY.slice(0, 4)} ${OWNER}</p>
     </div>
   </div>
 </footer>`;
@@ -667,7 +667,7 @@ for (const l of leads) {
     : `<a class="btn primary" href="${ACTOR_URL}">Get the full list (run it yourself, about $2 per 1,000)</a>
     <a class="btn" href="/#build">Have it done for you</a>`;
   const shopNote = shop
-    ? `<p class="muted">Ready file: ${n(shop.exhibitors)} exhibitors, ${shop.emailPct}% with a company email, ${shop.phonePct}% with a phone number, as ${shop.formats.join(', ')}. Updated ${esc(shop.updated)} and refreshed weekly until the show; one payment covers every refresh of this edition.${shop.byEmail ? ' Order by email and you get a payment link, then the files.' : ''}</p>`
+    ? `<p class="muted">Ready file: ${n(shop.exhibitors)} exhibitors, ${shop.emailPct}% with a company email, ${shop.phonePct}% with a phone number, as ${shop.formats.join(', ')}. Updated ${esc(shop.updated)} and refreshed weekly until the show; one payment covers every refresh of this edition.${shop.byEmail ? ' Order by email and you get a payment link, then the files.' : ''} <a href="/terms.html">Terms of sale</a>, <a href="/refunds.html">refunds</a>.</p>`
     : '';
   const body = `
 <section class="hero"><div class="wrap">
@@ -687,7 +687,7 @@ for (const l of leads) {
   <div class="table-wrap"><table class="sample"><thead><tr><th>Company</th><th>Country</th><th>Booth</th><th>Website</th></tr></thead><tbody>${rows}</tbody></table></div>
 ${countries ? `  <h2>Where exhibitors come from${l.countriesFromSample ? ` <span class="muted">(${l.sampleSize}-exhibitor sample)</span>` : ''}</h2>
   <ul class="countries">${countries}</ul>` : ''}
-  <p class="fine">* Contact coverage measured on a ${l.sampleSize}-exhibitor sample with emails looked up on company websites; updated ${esc(l.updated)}. Data comes from public pages; use it within GDPR and the organiser's terms.</p>
+  <p class="fine">* Contact coverage measured on a ${l.sampleSize}-exhibitor sample with emails looked up on company websites; updated ${esc(l.updated)}. Data comes from public pages; use it within GDPR and the organiser's terms. <a href="/removal.html">Sources, and how to remove your company</a>.</p>
   <h2>Get it</h2>
   <p>Run <a href="${ACTOR_URL}">Trade Show Exhibitor List Scraper</a> with the show <code>${esc(l.id)}</code> (turn on <em>Find emails on company websites</em>), export CSV or Excel, or schedule it with <em>Changes only</em> to get new exhibitors and booth moves until the show. Prefer a ready file? Email <a href="mailto:${EMAIL}?subject=${encodeURIComponent(l.name + ' exhibitor list')}">${EMAIL}</a>.</p>
 
@@ -1152,6 +1152,145 @@ writeFileSync(
     jsonld: { '@context': 'https://schema.org', '@type': 'AboutPage', name: `About ${OWNER}`, url: `${SITE}/about.html` },
   }),
 );
+
+// ---------------------------------------------------------------- legal pages
+// Terms of sale, privacy, refunds, data sources and removal: one page each, linked from the footer
+// and from every show page. Drafted 2026-11-13 for the owner's review (owner task 6: a lawyer reads
+// them before the public launch). MOR names the merchant of record; switching to Paddle is one edit.
+const MOR = 'Dodo Payments';
+const LEGAL_UPDATED = '2026-11-13';
+// How long a show edition's file is kept after the show, and how fast a removal reaches every file.
+const KEEP_MONTHS = 12;
+const REMOVAL_DAYS = 7;
+const REMOVAL_MAIL = `mailto:${EMAIL}?subject=${encodeURIComponent('Removal request')}`;
+const LEGAL = [
+  {
+    path: '/terms.html',
+    nav: 'Terms of sale',
+    title: 'Terms of sale',
+    description: `Terms for buying ready data files and API credits from apirows.com: what you get, delivery, how you may use the data, refunds and liability.`,
+    lead: 'These terms apply when you buy a ready data file or API credits from apirows.com. They are short on purpose; if anything is unclear, ask before you buy.',
+    sections: [
+      ['Who sells to you', `<p>apirows.com is run by ${OWNER} in India ("we", "us"). Orders are processed by ${MOR}, our merchant of record: ${MOR} is the seller of record, takes the payment, charges the sales tax or VAT that applies where you are, and issues your invoice. Their checkout terms cover the payment itself; these terms cover what you buy.</p>`],
+      ['What you buy', `<ul>
+<li><strong>A ready file:</strong> the exhibitor list of one trade show edition as CSV, Excel and JSON, with the fields and coverage figures shown on its page. Each page has a free sample and the date of the last update.</li>
+<li><strong>Weekly refreshes:</strong> until the show closes we rebuild the file every week. One payment covers every refresh of that edition.</li>
+<li><strong>API credits:</strong> prepaid credits for the apirows API, spent per result at the price listed for each tool. A run that fails without results costs nothing. Credits do not expire.</li>
+</ul>`],
+      ['Prices and payment', `<p>Prices are in US dollars and shown on each page before you pay. Tax is added at checkout where it applies. If you order by email, we reply with a payment link from ${MOR}; nothing is charged until you pay through it.</p>`],
+      ['Delivery', `<p>After payment you get a download link at the email address used at checkout, normally within minutes and at the latest within one business day. Refreshes reach you the same way. If nothing arrives, check your spam folder, then write to <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>`],
+      ['How you may use the data', `<ul>
+<li>Use the files inside your own organisation: sales and marketing outreach, research, market analysis, and loading them into your CRM or other tools.</li>
+<li>Do not resell, publish or give away the files, or a substantial part of them, as a dataset, and do not use them in a competing data product.</li>
+<li>Contact companies lawfully. Follow the rules that apply to you and to them (for example GDPR and the ePrivacy rules in Europe, CAN-SPAM in the US), say who you are, honour opt-outs and stop using a contact when asked.</li>
+<li>Removal requests we receive apply to later refreshes. If a company asks you directly, remove it from your copy as well.</li>
+</ul>`],
+      ['Accuracy', `<p>The data comes from public sources (see <a href="/removal.html">data sources and removal</a>) and is checked before delivery, but companies change their details and sources contain mistakes. Files are provided as they are, without a promise that every row is complete or current. Coverage figures on a page (the share of rows with an email, phone or website) are measured on the file itself or, where the page says so, on a sample.</p>`],
+      ['Refunds', `<p>See the <a href="/refunds.html">refund policy</a>. In short: if a file does not match its page or never arrives, you get your money back.</p>`],
+      ['Liability', `<p>Our total liability for an order is limited to the amount you paid for it. We are not liable for indirect losses such as lost profit or lost business. Nothing in these terms limits liability that the law does not allow us to limit, or takes away rights you have as a consumer.</p>`],
+      ['API keys', `<p>Keep your API key secret: runs made with it are charged to your account. We may suspend a key that is used to attack or overload the service or the sites the tools read; if we do, we refund the unused credits.</p>`],
+      ['Changes and applicable law', `<p>We may update these terms; the version in force on the day you paid applies to that order. Indian law applies, without removing the protection your own country's consumer law gives you. Questions and complaints: <a href="mailto:${EMAIL}">${EMAIL}</a>. We answer within two business days.</p>`],
+    ],
+  },
+  {
+    path: '/privacy.html',
+    nav: 'Privacy',
+    title: 'Privacy policy',
+    description: 'What personal data apirows.com collects from visitors, buyers and API users, what is in our data files, how long we keep it and how to use your rights.',
+    lead: `What we collect, why, how long we keep it, and what you can ask us to do. Questions: <a href="mailto:${EMAIL}">${EMAIL}</a>.`,
+    sections: [
+      ['Who is responsible', `<p>${OWNER}, India, runs apirows.com and decides how the personal data described here is used (the controller under the GDPR, the data fiduciary under India's Digital Personal Data Protection Act).</p>`],
+      ['Visiting the site', `<p>No analytics, no advertising and no tracking cookies. The site remembers your light or dark theme in your own browser; that choice never leaves your device. Our hosting provider (currently GitHub Pages) receives your IP address and browser details to serve the pages and keeps them in its server logs under its own privacy policy.</p>`],
+      ['Buying from us', `<p>When you buy, ${MOR}, our merchant of record, collects your name, email, billing address and payment details. We receive your name, email, country, what you bought and the amounts; we never see your card details. We use them to deliver your files and refreshes, to answer you and to keep the records tax law requires. Legal basis: our contract with you and our legal obligations.</p>`],
+      ['API accounts', `<p>For an API account we keep your email, your key (only as a one-way hash, so we cannot read it back), your balance, and your runs with their inputs and results. Results are deleted after 7 days; runs and charges are kept as accounting records.</p>`],
+      ['Writing to us', `<p>If you email us, we keep the conversation to answer you and as a record of what was agreed.</p>`],
+      ['Companies in our data files', `<p>Our files describe companies, not private individuals: company name, booth, website, the company's business email and phone, postal address, product categories, the company's social media pages and its own description. Contact details are the ones a company publishes for business enquiries. Where such an address names a person (for example a sales contact listed in a show's exhibitor directory), it is included as published.</p>
+<p>We process this data on the basis of our legitimate interest, and our buyers' legitimate interest, in business-to-business contact about the products and events the company itself promotes. Where the data comes from is described on <a href="/removal.html">data sources and removal</a>. You can object at any time and we remove the data. A show edition's files are deleted ${KEEP_MONTHS} months after the show; a removal list is kept so removed details do not come back.</p>`],
+      ['Who else receives data', `<ul>
+<li>${MOR}: payments, tax and invoices.</li>
+<li>Our hosting and email providers, to run the site and answer you.</li>
+</ul>
+<p>We do not sell the personal data of visitors, buyers or API users and do not use it for advertising.</p>`],
+      ['Where data is processed', `<p>In India and with providers in other countries, including the United States and the European Union. Where the GDPR applies, transfers rely on the safeguards those providers offer, such as the European Commission's standard contractual clauses.</p>`],
+      ['How long we keep it', `<ul>
+<li>Orders and invoices: as long as tax and accounting law requires (up to 8 years).</li>
+<li>Emails: up to 3 years after the last message, longer only when they concern an order.</li>
+<li>API results: 7 days.</li>
+<li>Show files: ${KEEP_MONTHS} months after the show.</li>
+</ul>`],
+      ['Your rights', `<p>You can ask for a copy of your data, its correction or deletion, object to its use, ask us to restrict it or to send it to you in a common format, and withdraw any consent you gave. Write to <a href="mailto:${EMAIL}">${EMAIL}</a>; we answer within 30 days, usually much sooner, and may ask you to confirm that the request comes from the person or company concerned. You can also complain to your data protection authority or, in India, to the Data Protection Board of India.</p>`],
+      ['Children', `<p>The site and the files are for businesses. We do not knowingly collect data about children.</p>`],
+    ],
+  },
+  {
+    path: '/refunds.html',
+    nav: 'Refunds',
+    title: 'Refund policy',
+    description: 'Refunds for ready data files and API credits bought on apirows.com: when you get your money back and how to ask.',
+    lead: 'If what you bought is not what the page promised, you get your money back.',
+    sections: [
+      ['Ready files', `<p>You get a full refund if, within 14 days of paying:</p>
+<ul>
+<li>the file never arrived;</li>
+<li>it differs materially from its page, for example far fewer exhibitors than stated, a listed field empty in most rows, or the wrong show;</li>
+<li>you paid twice for the same edition.</li>
+</ul>
+<p>We may first offer to fix and resend the file within two business days. If that does not solve it, or you prefer the money, we refund.</p>
+<p>Files are delivered at once and can be kept, so a change of mind after the download has started is not refunded. This does not affect rights the consumer law of your country gives you.</p>`],
+      ['API credits', `<p>Unused credits are refunded on request within 14 days of purchase. Spent credits are not refunded, but a run that fails without results never costs anything, and if a run delivered clearly wrong results, tell us and we put the credits back.</p>`],
+      ['How to ask', `<p>Email <a href="mailto:${EMAIL}?subject=${encodeURIComponent('Refund request')}">${EMAIL}</a> with the order number from your ${MOR} receipt and what went wrong. We answer within two business days. Refunds go back to the original payment method through ${MOR}; your bank may take 5 to 10 days to show them.</p>`],
+    ],
+  },
+  {
+    path: '/removal.html',
+    nav: 'Data sources and removal',
+    title: 'Data sources and removal',
+    description: 'Where the data in apirows.com files comes from, what a file contains, and how a company can have its details removed or corrected.',
+    lead: `Where the data in our files comes from, and how to have your company's details removed or corrected. Removals take effect in every file within ${REMOVAL_DAYS} days.`,
+    sections: [
+      ['Where the data comes from', `<ul>
+<li><strong>Trade show exhibitor lists:</strong> the exhibitor directory the organiser publishes for the show, which anyone can open. A company email or phone missing there is taken from the contact or imprint page of the company's own website.</li>
+<li><strong>Other datasets:</strong> official registers and records published by governments and public agencies, under their own terms of reuse.</li>
+<li><strong>Not used:</strong> pages behind a login or a paywall, personal social media profiles, or data bought from brokers. We do not collect information about private individuals.</li>
+</ul>`],
+      ['What a file contains', `<p>Company name, booth and hall, website, the company's business email and phone, postal address, product categories, the company's social media pages and its own description. The free sample on each page leaves emails and phone numbers out.</p>`],
+      ['Remove your company or an address', `<p><a class="btn primary" href="${REMOVAL_MAIL}">Send a removal request</a></p>
+<p>Or email <a href="${REMOVAL_MAIL}">${EMAIL}</a> with the subject "Removal request" and the company name and website, or the email address or phone number to remove. No reason is needed.</p>
+<ul>
+<li>We remove it from every file we sell within ${REMOVAL_DAYS} days and keep it on a removal list, so it does not come back in later refreshes.</li>
+<li>We confirm by email.</li>
+<li>Copies that buyers already have cannot be recalled, but our <a href="/terms.html">terms of sale</a> require buyers to contact companies lawfully and to stop when asked.</li>
+<li>Organisers who want a show left out can write to us the same way.</li>
+</ul>`],
+      ['Correct your details', `<p>Send the correct details to <a href="mailto:${EMAIL}?subject=${encodeURIComponent('Correction')}">${EMAIL}</a>; they go into the next refresh.</p>`],
+    ],
+  },
+];
+for (const l of LEGAL) {
+  writeFileSync(
+    OUT('.' + l.path),
+    page({
+      path: l.path,
+      title: `${l.title} - apirows.com`,
+      description: l.description,
+      body: `
+<section class="hero" style="padding-bottom:24px">
+  <div class="wrap narrow">
+    <span class="eyebrow">Legal</span>
+    <h1 style="margin-top:14px">${esc(l.title)}</h1>
+    <p class="lead">${l.lead}</p>
+    <p class="muted">Last updated ${LEGAL_UPDATED}. Also: ${LEGAL.filter((o) => o !== l).map((o) => `<a href="${o.path}">${esc(o.nav)}</a>`).join(', ')}.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap narrow guide">
+${l.sections.map(([h, html]) => `    <h2>${esc(h)}</h2>\n    ${html}`).join('\n')}
+  </div>
+</section>`,
+      jsonld: { '@context': 'https://schema.org', '@type': 'WebPage', name: l.title, url: `${SITE}${l.path}`, dateModified: LEGAL_UPDATED },
+    }),
+  );
+}
 
 // ---------------------------------------------------------------- tool pages (/tools/<name>/)
 // One page per public tool, built from its latest public build: an input form generated from the
@@ -1911,6 +2050,7 @@ writeFileSync(
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${[
   ...['/', '/mcp.html', '/about.html', '/pricing.html', '/datasets.html', '/clay.html', '/integrations.html', '/blog/', '/tools/'].map((p) => entry(p)),
+  ...LEGAL.map((l) => entry(l.path)),
   ...CATS.map(([k]) => entry(`/tools/${k}/`)),
   ...allTools.map(({ a }) => entry(`/tools/${a.name}/`, ogOf(a.name) !== OG ? `<image:image><image:loc>${esc(ogOf(a.name))}</image:loc></image:image>` : '')),
   ...POSTS.map((p) => entry(`/blog/${p.id}.html`)),
