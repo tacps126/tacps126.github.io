@@ -638,6 +638,16 @@ const ACTOR_URL = `https://apify.com/${USER}/exhibition-scraper`;
 // entry keeps its page as it was.
 const SHOP_FILE = new URL('./data/shop.json', import.meta.url);
 const SHOP = existsSync(SHOP_FILE) ? JSON.parse(readFileSync(SHOP_FILE, 'utf8')) : {};
+// Where a ready file is for sale, the page states the file's own numbers (deduplicated count and
+// contact coverage measured on every row): the refund policy promises what the page says.
+for (const l of leads) {
+  const s = SHOP[l.id];
+  if (!s) continue;
+  l.total = s.exhibitors;
+  l.coverage = { ...l.coverage, website: s.websitePct, phone: s.phonePct, email: s.emailPct };
+  l.fromFile = s.updated;
+}
+leads.sort((a, b) => b.total - a.total);
 const n = (x) => Number(x).toLocaleString('en-US');
 mkdirSync(OUT('./leads/'), { recursive: true });
 // Up to 8 other shows for internal links: same industry first, then the biggest.
@@ -650,7 +660,7 @@ for (const l of leads) {
     ...(l.countryCount ? [[l.countryCount, l.countriesFromSample ? 'countries (in sample)' : 'countries']] : []),
     [`${l.coverage.booth}%`, 'with booth'],
     [`${l.coverage.website}%`, 'with website'],
-    [`${l.coverage.email}%`, 'with email*'],
+    [`${l.coverage.email}%`, l.fromFile ? 'with email' : 'with email*'],
   ]
     .map(([v, k]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(k)}</span></div>`)
     .join('');
@@ -687,7 +697,7 @@ for (const l of leads) {
   <div class="table-wrap"><table class="sample"><thead><tr><th>Company</th><th>Country</th><th>Booth</th><th>Website</th></tr></thead><tbody>${rows}</tbody></table></div>
 ${countries ? `  <h2>Where exhibitors come from${l.countriesFromSample ? ` <span class="muted">(${l.sampleSize}-exhibitor sample)</span>` : ''}</h2>
   <ul class="countries">${countries}</ul>` : ''}
-  <p class="fine">* Contact coverage measured on a ${l.sampleSize}-exhibitor sample with emails looked up on company websites; updated ${esc(l.updated)}. Data comes from public pages; use it within GDPR and the organiser's terms. <a href="/removal.html">Sources, and how to remove your company</a>.</p>
+  <p class="fine">${l.fromFile ? `Exhibitor count and contact coverage are those of the ready file (one row per company), updated ${esc(l.fromFile)}${l.countriesFromSample ? `; countries come from a ${l.sampleSize}-exhibitor sample` : ''}.` : `* Contact coverage measured on a ${l.sampleSize}-exhibitor sample with emails looked up on company websites; updated ${esc(l.updated)}.`} Data comes from public pages; use it within GDPR and the organiser's terms. <a href="/removal.html">Sources, and how to remove your company</a>.</p>
   <h2>Get it</h2>
   <p>Run <a href="${ACTOR_URL}">Trade Show Exhibitor List Scraper</a> with the show <code>${esc(l.id)}</code> (turn on <em>Find emails on company websites</em>), export CSV or Excel, or schedule it with <em>Changes only</em> to get new exhibitors and booth moves until the show. Prefer a ready file? Email <a href="mailto:${EMAIL}?subject=${encodeURIComponent(l.name + ' exhibitor list')}">${EMAIL}</a>.</p>
 
