@@ -8,6 +8,9 @@ const USER = 'tacps126';
 const SITE = 'https://apirows.com';
 const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
+// The brand. The mark is three rows of a table, the last one short and blue; it follows the theme.
+const BRAND = 'apirows';
+const MARK = (s) => `<svg width="${s}" height="${s}" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--ink)"/><rect x="8" y="9" width="16" height="3" rx="1.5" fill="var(--ink-fg)"/><rect x="8" y="14.5" width="16" height="3" rx="1.5" fill="var(--ink-fg)" opacity=".55"/><rect x="8" y="20" width="9" height="3" rx="1.5" fill="#3b82f6"/></svg>`;
 // Listings added in the last few weeks get a "New" badge.
 const NEW = new Set(['walmart-products', 'company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
@@ -217,19 +220,17 @@ const small = (name, size) => ICONS[name].replace('<svg', `<svg width="${size}" 
 const header = (active) => `<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="30" height="30"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
-    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search ${used} tools</span><kbd>⌘K</kbd></button>
-    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">${small('menu', 20)}</button>
+    <a class="brand" href="/" aria-label="${BRAND} home">${MARK(24)}<span>${BRAND}</span></a>
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="/tools/"${active === 'tools' ? ' aria-current="page"' : ''}>Tools</a>
-      <a href="/#coverage">Coverage</a>
-      <a href="/pricing.html"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a>
-      <a href="/integrations.html"${active === 'integrations' || active === 'clay' ? ' aria-current="page"' : ''}>Integrations</a>
+      <a href="/leads/"${active === 'leads' ? ' aria-current="page"' : ''}>Exhibitor lists</a>
       <a href="/mcp.html"${active === 'mcp' ? ' aria-current="page"' : ''}>AI agents</a>
+      <a href="/pricing.html"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a>
       <a href="/blog/"${active === 'blog' ? ' aria-current="page"' : ''}>Blog</a>
-      <a href="/about.html"${active === 'about' ? ' aria-current="page"' : ''}>About</a>
-      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme">${small('sun', 18)}</button>
     </nav>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search ${used} tools</span><kbd>⌘K</kbd></button>
+    <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme">${small('sun', 17)}</button>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">${small('menu', 19)}</button>
   </div>
 </header>`;
 
@@ -237,38 +238,34 @@ const footer = () => `<footer>
   <div class="wrap">
     <div class="foot">
       <div class="foot-brand">
-        <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="34" height="34"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
-        <p>Web data tools that gather, clean and enrich public data: jobs, leads, research, markets and public records. Pay per result on Apify, or call them from an AI agent.</p>
-        <p><a href="mailto:${EMAIL}">${EMAIL}</a><br><a href="mailto:${EMAIL}?subject=Custom%20data%20request">Ask for a custom dataset</a></p>
+        <a class="brand" href="/">${MARK(22)}<span>${BRAND}</span></a>
+        <p>Clean rows from public sources: ready files, tools you run on demand, and an MCP server for AI agents.</p>
+        <p><a href="mailto:${EMAIL}">${EMAIL}</a></p>
       </div>
-      <nav aria-label="Topics"><p class="foot-h">Topics</p><ul>
-${CATS.map(([k, l]) => `        <li><a href="/tools/${k}/">${esc(CAT_SHORT[k] || l)}</a></li>`).join('\n')}
-      </ul></nav>
-      <nav aria-label="Explore"><p class="foot-h">Explore</p><ul>
+      <nav aria-label="Product"><p class="foot-h">Product</p><ul>
         <li><a href="/tools/">All tools</a></li>
-        <li><a href="/#coverage">Coverage map</a></li>
-        <li><a href="/#compose">Chain tools</a></li>
-        <li><a href="/leads/">Trade show exhibitor lists</a></li>
-        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/leads/">Exhibitor lists</a></li>
         <li><a href="/datasets.html">Free datasets</a></li>
-        <li><a href="/integrations.html">Integrations</a></li>
-        <li><a href="/clay.html">Use with Clay</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/about.html">About</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
       </ul></nav>
       <nav aria-label="Developers"><p class="foot-h">Developers</p><ul>
-        <li><a href="https://apify.com/${USER}">Tools on Apify</a></li>
         <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="/integrations.html">Integrations</a></li>
+        <li><a href="/clay.html">Clay</a></li>
         <li><a href="https://github.com/${USER}/apify-data-recipes">Code recipes</a></li>
-        <li><a href="https://github.com/${USER}/webdata-tools-mcp">GitHub</a></li>
-        <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
-        <li><a href="https://smithery.ai/servers/${USER}/webdata-tools-mcp">Smithery</a></li>
-        <li><a href="https://glama.ai/mcp/servers/${USER}/webdata-tools-mcp">Glama</a></li>
+        <li><a href="https://apify.com/${USER}">Apify Store</a></li>
+      </ul></nav>
+      <nav aria-label="Company"><p class="foot-h">Company</p><ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="mailto:${EMAIL}?subject=Custom%20data%20request">Custom data</a></li>
+        <li><a href="/removal.html">Remove your company</a></li>
       </ul></nav>
     </div>
     <div class="foot-base">
-      <p class="fine" id="data-use">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
-      <p class="fine"><a href="/terms.html">Terms of sale</a> · <a href="/privacy.html">Privacy</a> · <a href="/refunds.html">Refunds</a> · <a href="/removal.html">Data sources and removal</a><br>&copy; ${TODAY.slice(0, 4)} ${OWNER}</p>
+      <p class="fine">&copy; ${TODAY.slice(0, 4)} ${BRAND} · <a href="/terms.html">Terms of sale</a> · <a href="/privacy.html">Privacy</a> · <a href="/refunds.html">Refunds</a> · <a href="/removal.html">Data sources</a></p>
+      <p class="fine" id="data-use">Data comes from publicly available pages. Use it within each source's terms and the law that applies to you (GDPR, CAN-SPAM). Tool prices are per result on Apify; each tool's Apify page is the source of truth.</p>
     </div>
   </div>
 </footer>`;
@@ -318,7 +315,7 @@ const clampDesc = (d) => {
   return cut.replace(/[\s,:;(-]+\S*$/, '').replace(/[\s,:;(-]+$/, '') + '.';
 };
 
-const page = ({ path, title, description, keywords, body, active, jsonld, scripts = [], og = OG, ogAlt = 'tacps126: clean web data for jobs, news, reviews and leads', modified }) => `<!doctype html>
+const page = ({ path, title, description, keywords, body, active, jsonld, scripts = [], og = OG, ogAlt = `${BRAND}: clean web data for jobs, leads, research and public records`, modified }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -328,14 +325,14 @@ const page = ({ path, title, description, keywords, body, active, jsonld, script
 <link rel="canonical" href="${SITE}${path}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">${path === '/' ? verifyTags : ''}
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="tacps126">
+<meta property="og:site_name" content="${BRAND}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${SITE}${path}">
@@ -708,6 +705,7 @@ ${countries ? `  <h2>Where exhibitors come from${l.countriesFromSample ? ` <span
     OUT(`./leads/${l.id}.html`),
     page({
       path: `/leads/${l.id}.html`,
+      active: 'leads',
       title,
       description: desc,
       body,
@@ -718,7 +716,7 @@ ${countries ? `  <h2>Where exhibitors come from${l.countriesFromSample ? ` <span
         description: desc,
         url: `${SITE}/leads/${l.id}.html`,
         dateModified: l.updated,
-        creator: { '@type': 'Organization', name: 'tacps126' },
+        creator: { '@type': 'Organization', name: BRAND },
         isAccessibleForFree: false,
         ...(shop ? { offers: { '@type': 'Offer', price: String(shop.priceUsd), priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE}/leads/${l.id}.html` } } : {}),
         // Terms of use for the data (Search Console asks Datasets for a license).
@@ -735,6 +733,7 @@ if (leads.length) {
     OUT('./leads/index.html'),
     page({
       path: '/leads/',
+      active: 'leads',
       title: 'Trade show exhibitor lists with booth, website and email',
       description: `Exhibitor lists of ${leads.length}+ trade shows (and 90+ more on request) with booth, website, phone and email, as CSV or Excel.`,
       body: `<section class="hero"><div class="wrap"><h1>Trade show exhibitor lists</h1><p class="lead">Ready exhibitor lists with booth, website, phone and email. These are the shows with a page; <a href="${ACTOR_URL}">90+ shows</a> (and any show by link) are supported.</p><div class="grid">${list}</div></div></section>`,
@@ -817,7 +816,7 @@ writeFileSync(
   page({
     path: '/pricing.html',
     active: 'pricing',
-    title: `Pricing - ${OWNER} (tacps126), web data tools`,
+    title: `Pricing - ${BRAND}, web data tools`,
     description: `Per-result prices of ${used} web data tools on Apify, with their public runs in the last 30 days and a cost estimate. No subscription.`,
     body: pricingBody,
     jsonld: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Pricing', url: `${SITE}/pricing.html` },
@@ -951,7 +950,7 @@ writeFileSync(
     title: 'Use our data tools in Clay - tacps126',
     description: 'Copy-paste Clay recipes: sanctions check, company registry record, US import volumes, hiring activity, website emails, Shopify store profile and news, as Run Apify Actor columns.',
     body: clayBody,
-    jsonld: { '@context': 'https://schema.org', '@type': 'HowTo', name: 'Use tacps126 data tools in Clay', url: `${SITE}/clay.html` },
+    jsonld: { '@context': 'https://schema.org', '@type': 'HowTo', name: `Use ${BRAND} data tools in Clay`, url: `${SITE}/clay.html` },
   }),
 );
 
@@ -1098,7 +1097,7 @@ writeFileSync(
   page({
     path: '/blog/',
     active: 'blog',
-    title: `Blog - ${OWNER} (tacps126), web data how-tos`,
+    title: `Blog - ${BRAND}, web data how-tos`,
     description: 'How-tos and comparisons for getting clean web data: exhibitor lists, hiring signals, news alerts, property listings.',
     body: `<section class="hero" style="padding-bottom:30px"><div class="wrap">
   <span class="eyebrow">Blog</span>
@@ -1108,7 +1107,7 @@ writeFileSync(
 <section><div class="wrap"><div class="grid two">
 ${POSTS.map((p) => `<a class="card post-card" href="/blog/${p.id}.html"><span class="post-meta">${p.date} · ${p.mins} min read</span><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p><div class="meta">${p.tags.slice(0, 3).map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div></a>`).join('\n')}
 </div></div></section>`,
-    jsonld: { '@context': 'https://schema.org', '@type': 'Blog', name: 'tacps126 blog', url: `${SITE}/blog/` },
+    jsonld: { '@context': 'https://schema.org', '@type': 'Blog', name: `${BRAND} blog`, url: `${SITE}/blog/` },
   }),
 );
 
@@ -1118,7 +1117,7 @@ const aboutBody = `
   <div class="wrap">
     <span class="eyebrow">About</span>
     <h1 style="margin-top:14px">Clean web data, <span class="grad">fast and cheap to run</span></h1>
-    <p class="lead">I'm ${OWNER}. I build tools on Apify that hand you ready-to-use, consistent data, not raw HTML: ${used} of them for jobs, leads, research, government updates, real estate, reviews and news. ${okShare ? `${okShare}% of the ${fmt(runs30.total)} public runs in the last 30 days succeeded.` : ''}</p>
+    <p class="lead">${BRAND} is built and run by ${OWNER}. It hands you ready-to-use, consistent data, not raw HTML: ${used} of them for jobs, leads, research, government updates, real estate, reviews and news. ${okShare ? `${okShare}% of the ${fmt(runs30.total)} public runs in the last 30 days succeeded.` : ''}</p>
     <div class="cta-row"><a class="btn primary" href="https://apify.com/${USER}" rel="noopener">See them on Apify</a><a class="btn" href="mailto:${EMAIL}?subject=Custom%20data%20request">Ask for a custom tool</a></div>
   </div>
 </section>
@@ -1156,8 +1155,8 @@ writeFileSync(
   page({
     path: '/about.html',
     active: 'about',
-    title: `About - ${OWNER} (tacps126), web data tools`,
-    description: `${OWNER} builds ${used} web data tools on Apify for jobs, leads, research, government updates, real estate, reviews and news. Clean fields, pay per result.`,
+    title: `About ${BRAND}`,
+    description: `${BRAND}, by ${OWNER}: ${used} web data tools for jobs, leads, research, government updates, real estate, reviews and news. Clean fields, pay per result.`,
     body: aboutBody,
     jsonld: { '@context': 'https://schema.org', '@type': 'AboutPage', name: `About ${OWNER}`, url: `${SITE}/about.html` },
   }),
@@ -1899,14 +1898,12 @@ writeFileSync(OUT('./search.json'), JSON.stringify(searchIndex));
 
 // ---------------------------------------------------------------- home
 const popular = allTools.slice().sort((x, y) => runs30Of(y.a) - runs30Of(x.a)).slice(0, 6);
-const topicRuns = CATS.map(([k, , names]) => [k, toolsOf(names).reduce((s, a) => s + runs30Of(a), 0)]);
-const topicTotal = Math.max(1, topicRuns.reduce((s, [, r]) => s + r, 0));
 const EXAMPLES = ['jobs at stripe', 'tenders for solar in germany', 'trustpilot reviews of a competitor', 'new companies in norway', 'flats to rent in berlin', 'polymarket election odds', 'earthquake alerts', 'exhibitors at ism cologne'];
 const homeBody = `
 <section class="hero">
   <div class="wrap">
-    <h1>Web data for the job you have in mind</h1>
-    <p class="lead">${used} tools that turn public pages, registers and feeds into clean rows. Say what you need; get the tool, its price and a ready call.</p>
+    <h1>Public web data, as clean rows</h1>
+    <p class="lead">${used} tools that turn public pages, registers and feeds into consistent rows. Say what you need; get the tool, its price and a ready call.</p>
     <div class="intent" id="intent">
       <form class="intent-box" role="search" action="/tools/" onsubmit="return false">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -1923,18 +1920,16 @@ const homeBody = `
       <li>from <b>${PRICE_FROM}</b> per 1,000 results</li>
       <li><b>${N}</b> tools for AI agents</li>
     </ul>
-    <div class="topic-bar" aria-hidden="true">${topicRuns.filter(([, r]) => r).map(([k, r]) => `<i data-k="${k}" style="flex:${r}" title="${esc(CAT_SHORT[k] || k)}: ${fmt(r)} runs in 30 days"></i>`).join('')}</div>
-    <p class="topic-cap">Public runs in the last 30 days, by topic: ${topicRuns.filter(([, r]) => r).sort((x, y) => y[1] - x[1]).slice(0, 4).map(([k, r]) => `${esc((CAT_SHORT[k] || k).toLowerCase())} ${Math.round((100 * r) / topicTotal)}%`).join(', ')}.</p>
   </div>
 </section>
 
-<section class="tight" data-label="Start here">
-  <div class="wrap bento">
-    <button class="tile t-search" type="button" data-pal><span class="t-kick">Search everything</span><b>Press <kbd>⌘K</kbd> or <kbd>/</kbd></b><span>Every tool, page and AI-agent tool by name or by need; Enter opens it, Shift+Enter copies its API call.</span></button>
-    <a class="tile t-map" href="#coverage"><span class="t-kick">Coverage</span><b>${covered.length} countries</b><span>Tenders, laws, registers, recalls, alerts, jobs and property, country by country.</span></a>
-    <a class="tile t-agent" href="/mcp.html"><span class="t-kick">For AI agents</span><b>${N} MCP tools</b><code>npx -y webdata-tools-mcp</code></a>
-    <a class="tile t-price" href="/pricing.html"><span class="t-kick">Pricing</span><b>${PRICE_FROM}-${usd(q(0.9))} / 1k</b><span>Pay per result; empty searches are free; cap every run.</span></a>
-    <a class="tile t-chain" href="#compose"><span class="t-kick">Chain tools</span><b>Exhibitors > emails</b><span>Pass one tool's rows to the next and get the script.</span></a>
+<section data-label="Ways in" style="padding-top:56px;padding-bottom:0">
+  <div class="wrap">
+    <div class="ways">
+      <a class="way" href="/leads/"><span class="t-kick">Ready files</span><b>Exhibitor lists</b><span>${leads.length} trade shows as CSV and Excel, refreshed weekly until the show. A free sample on every page.</span><span class="go">Browse the shows</span></a>
+      <a class="way" href="/tools/"><span class="t-kick">On demand</span><b>${used} data tools</b><span>Jobs, leads, tenders, registers, research, reviews and more. Pay per result, from ${PRICE_FROM} per 1,000.</span><span class="go">See every tool</span></a>
+      <a class="way" href="/mcp.html"><span class="t-kick">For AI agents</span><b>${N} MCP tools</b><span>One server for Claude, Cursor and any MCP client.</span><code>npx -y webdata-tools-mcp</code></a>
+    </div>
   </div>
 </section>
 
@@ -2007,10 +2002,6 @@ ${popular.map(({ a, k }) => toolCard(a, k)).join('\n')}
       <div><h2>Need a source that isn't here?</h2><p>Custom scrapers and daily feeds for niche boards, registers and catalogs. Send the source, three examples and where the data should go; get a free sample.</p></div>
       <a class="btn primary" href="mailto:${EMAIL}?subject=Custom%20data%20request">Email ${EMAIL}</a>
     </div>
-    <div class="grid two" style="margin-top:20px">
-      <a class="card link" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener"><span class="why">Open source</span><h3>webdata-tools-mcp</h3><p>The MCP server: MIT licensed, in the official MCP Registry, on npm, Smithery and Glama.</p></a>
-      <a class="card link" href="https://github.com/${USER}/apify-data-recipes" rel="noopener"><span class="why">Open source</span><h3>apify-data-recipes</h3><p>Copy-paste scripts: hiring signals, news alerts, review monitoring, exhibitor leads, sanctions checks, market movers and more.</p></a>
-    </div>
   </div>
 </section>`;
 
@@ -2019,11 +2010,11 @@ writeFileSync(
   page({
     path: '/',
     active: 'home',
-    title: `${OWNER} (tacps126) - web data tools for jobs, leads, research and public records`,
+    title: `${BRAND}: web data tools for jobs, leads, research and public records`,
     description: `${used} fast, low-cost web data tools: jobs and hiring signals, contacts, trade shows and events, tenders, laws, registers and recalls, research, reviews and news, property, markets and sports. Pay per result, plus an MCP server for AI agents.`,
     body: homeBody,
     jsonld: [
-      { '@context': 'https://schema.org', '@type': 'WebSite', name: `${OWNER} (tacps126)`, alternateName: 'tacps126', url: `${SITE}/`, description: 'Web data tools for jobs, leads, research and public records', author: { '@type': 'Person', name: OWNER, alternateName: 'tacps126', email: EMAIL, url: `${SITE}/about.html`, sameAs: [`https://github.com/${USER}`, `https://apify.com/${USER}`] } },
+      { '@context': 'https://schema.org', '@type': 'WebSite', name: BRAND, alternateName: 'tacps126', url: `${SITE}/`, description: 'Web data tools for jobs, leads, research and public records', author: { '@type': 'Person', name: OWNER, alternateName: 'tacps126', email: EMAIL, url: `${SITE}/about.html`, sameAs: [`https://github.com/${USER}`, `https://apify.com/${USER}`] } },
       { '@context': 'https://schema.org', '@type': 'ItemList', name: 'Web data tools', numberOfItems: allTools.length, itemListElement: allTools.map(({ a }, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/tools/${a.name}/`, name: a.title })) },
     ],
   }),
