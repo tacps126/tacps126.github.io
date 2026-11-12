@@ -49,10 +49,12 @@ def background():
 
 
 def brand(img, d, xy=(64, 56), size=52):
-    """The mark and the word apirows."""
-    mark = Image.open(ROOT / "icon-512.png").convert("RGBA").resize((size, size), Image.LANCZOS)
-    img.alpha_composite(mark, xy)
-    d.text((xy[0] + size + 18, xy[1] + size / 2), "apirows", font=DISPLAY(int(size * 0.66)), fill=TEXT, anchor="lm")
+    """The mark and the word apirows. The mark is wider than tall, so it is drawn larger than `size`
+    (the word's line height) and centred on the same line."""
+    m = int(size * 1.5)
+    mark = Image.open(ROOT / "icon-512.png").convert("RGBA").resize((m, m), Image.LANCZOS)
+    img.alpha_composite(mark, (xy[0], int(xy[1] + size / 2 - m / 2)))
+    d.text((xy[0] + m + 12, xy[1] + size / 2), "apirows", font=DISPLAY(int(size * 0.66)), fill=TEXT, anchor="lm")
 
 
 def main(path):

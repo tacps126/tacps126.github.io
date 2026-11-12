@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
-"""The apirows mark: a capital A cut into four rows of a table, its crossbar the one blue row
-(the row you asked for). One geometry, three outputs:
+"""The apirows mark: JSON braces around three rows of a table (an API that returns rows).
 
-  favicon.svg            the tile, light and dark (follows the system theme)
-  scripts/logo-1024.png  1024 px export, read by scripts/make-assets.py (icons) and scripts/og.py
-  build.mjs MARK         the header mark; printed here as path data and pasted by hand when it changes
+Each row is a cell, a bar and a cell, lined up in the same columns, and each row has its own colour.
+Every colour is a mid-tone with at least 3:1 contrast on both white and near-black, so one mark works
+on light and dark backgrounds with no tile behind it.
+
+Two drawings of the same mark:
+  full   cells per row, for the logo (header, app icons, social images)
+  small  one solid bar per row and slightly heavier, for 16 to 64 px (favicons), where cells blur
+
+Outputs:
+  favicon.svg                  small, transparent
+  scripts/logo-1024.png        full, transparent: read by scripts/make-assets.py and scripts/og.py
+  scripts/logo-small-1024.png  small, transparent: read by scripts/make-assets.py (favicon.png)
+  build.mjs MARK               printed here; paste it when the mark changes
 
 Needs Pillow. Run scripts/make-assets.py after.
 """
@@ -13,63 +22,94 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parent.parent
-INK, ACCENT = (10, 10, 10), (59, 130, 246)
 
-# Glyph on a 64 grid: an equilateral A sliced into four rows with even 3-unit gaps.
-# Each row is a horizontal slice of the triangle, so the outer edges stay straight.
-ROWS = [
-    ("fg", [(32, 8), (36.75, 17.5), (27.25, 17.5)]),  # apex
-    ("fg", [(25.75, 20.5), (38.25, 20.5), (43, 30), (36, 30), (32, 22), (28, 30), (21, 30)]),  # counter
-    ("accent", [(19.5, 33), (44.5, 33), (49.25, 42.5), (14.75, 42.5)]),  # crossbar
-    ("fg", [(13.25, 45.5), (20.25, 45.5), (15.5, 55), (8.5, 55)]),  # left leg
-    ("fg", [(43.75, 45.5), (50.75, 45.5), (55.5, 55), (48.5, 55)]),  # right leg
-]
-CENTER = (32, 31.5)
-SCALE = 0.38  # glyph on the 32-unit tile: about 56% of its width
-RADIUS = 8  # tile corner on the 32 grid
+BRACE = "#3b82f6"  # blue-500
+ROWS = ("#0284c7", "#6366f1", "#8b5cf6")  # sky-600, indigo-500, violet-500, top to bottom
+
+# 64-unit grid
+TOP, BOT, MID = 12, 52, 32  # brace ends and tip line
+TIPS = ((4, 1), (60, -1))  # tip x and the way the brace opens
+ROW_Y = (20, 32, 44)
+CELLS = ((15, 6), (24.5, 15), (43, 6))  # x, width: left cell, bar, right cell
+BAR = ((15, 34),)
+WEIGHT = {"full": (4.5, 6), "small": (5.5, 7)}  # brace stroke, row height
 
 
-def tile_points(points):
-    """Glyph points (64 grid) to tile points (32 grid), glyph centred on the tile."""
-    return [(round((x - CENTER[0]) * SCALE + 16, 2), round((y - CENTER[1]) * SCALE + 16, 2)) for x, y in points]
+def brace_segments(x, d):
+    """The brace as straight and cubic segments: straight arms, a short tip on the middle row."""
+    w, a = 6.5 * d, 3.2 * d
+    return [
+        ("C", (x + w, TOP), (x + a, TOP), (x + a, TOP + 2), (x + a, TOP + 5)),
+        ("L", (x + a, TOP + 5), (x + a, MID - 5)),
+        ("C", (x + a, MID - 5), (x + a, MID - 1.5), (x + a * 0.5, MID), (x, MID)),
+        ("C", (x, MID), (x + a * 0.5, MID), (x + a, MID + 1.5), (x + a, MID + 5)),
+        ("L", (x + a, MID + 5), (x + a, BOT - 5)),
+        ("C", (x + a, BOT - 5), (x + a, BOT - 2), (x + a, BOT), (x + w, BOT)),
+    ]
 
 
-def path_data(points):
-    return "M" + " L".join(f"{x:g} {y:g}" for x, y in tile_points(points)) + "Z"
+def f(n):
+    return f"{round(n, 2):g}"
 
 
-def svg_paths(fg, accent):
-    by = {"fg": [], "accent": []}
-    for role, pts in ROWS:
-        by[role].append(path_data(pts))
-    return f'<path fill="{fg}" d="{"".join(by["fg"])}"/><path fill="{accent}" d="{"".join(by["accent"])}"/>'
+def brace_path(x, d):
+    segs = brace_segments(x, d)
+    out = f"M{f(segs[0][1][0])} {f(segs[0][1][1])}"
+    for s in segs:
+        pts = s[2:] if s[0] == "C" else s[2:]
+        out += s[0] + " ".join(f"{f(px)} {f(py)}" for px, py in pts)
+    return out
 
 
-def favicon():
-    return (
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">\n'
-        "  <style>.t{fill:#0a0a0a}.g{fill:#fff}@media (prefers-color-scheme:dark){.t{fill:#ededed}.g{fill:#0a0a0a}}</style>\n"
-        f'  <rect class="t" width="32" height="32" rx="{RADIUS}"/>\n  '
-        + svg_paths("#fff", "#3b82f6").replace('fill="#fff"', 'class="g"')
-        + "\n</svg>\n"
-    )
+def svg(kind):
+    sw, h = WEIGHT[kind]
+    parts = "".join(brace_path(x, d) for x, d in TIPS)
+    body = f'<path d="{parts}" fill="none" stroke="{BRACE}" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round"/>'
+    for y, colour in zip(ROW_Y, ROWS):
+        for x, w in CELLS if kind == "full" else BAR:
+            body += f'<rect x="{f(x)}" y="{f(y - h / 2)}" width="{f(w)}" height="{h}" rx="{f(h / 2)}" fill="{colour}"/>'
+    return body
 
 
-def png(size=1024):
-    s = size * 4  # drawn at 4x, scaled down for smooth edges
-    u = s / 32
+def sample(seg, n=120):
+    if seg[0] == "L":
+        (ax, ay), (bx, by) = seg[1], seg[2]
+        return [(ax + (bx - ax) * i / n, ay + (by - ay) * i / n) for i in range(n + 1)]
+    p0, p1, p2, p3 = seg[1:]
+    pts = []
+    for i in range(n + 1):
+        t = i / n
+        m = 1 - t
+        pts.append(tuple(m**3 * p0[k] + 3 * m * m * t * p1[k] + 3 * m * t * t * p2[k] + t**3 * p3[k] for k in (0, 1)))
+    return pts
+
+
+def rgba(h):
+    return tuple(int(h[i:i + 2], 16) for i in (1, 3, 5)) + (255,)
+
+
+def png(kind, size=1024):
+    """Transparent PNG, drawn at 4x and scaled down for smooth edges."""
+    sw, h = WEIGHT[kind]
+    s = size * 4
+    u = s / 64
     img = Image.new("RGBA", (s, s), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
-    d.rounded_rectangle((0, 0, s - 1, s - 1), radius=RADIUS * u, fill=(*INK, 255))
-    for role, pts in ROWS:
-        colour = ACCENT if role == "accent" else (255, 255, 255)
-        d.polygon([(x * u, y * u) for x, y in tile_points(pts)], fill=(*colour, 255))
+    r = sw / 2 * u
+    for x, dd in TIPS:
+        for seg in brace_segments(x, dd):
+            for px, py in sample(seg):
+                d.ellipse((px * u - r, py * u - r, px * u + r, py * u + r), fill=rgba(BRACE))
+    for y, colour in zip(ROW_Y, ROWS):
+        for x, w in CELLS if kind == "full" else BAR:
+            d.rounded_rectangle((x * u, (y - h / 2) * u, (x + w) * u, (y + h / 2) * u), radius=h / 2 * u, fill=rgba(colour))
     return img.resize((size, size), Image.LANCZOS)
 
 
 if __name__ == "__main__":
-    (ROOT / "favicon.svg").write_text(favicon())
-    png().save(ROOT / "scripts" / "logo-1024.png")
-    print("wrote favicon.svg and scripts/logo-1024.png")
-    print("MARK paths for build.mjs:")
-    print(svg_paths("var(--ink-fg)", "#3b82f6"))
+    (ROOT / "favicon.svg").write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">{svg("small")}</svg>\n')
+    png("full").save(ROOT / "scripts" / "logo-1024.png", optimize=True)
+    png("small").save(ROOT / "scripts" / "logo-small-1024.png", optimize=True)
+    print("wrote favicon.svg, scripts/logo-1024.png, scripts/logo-small-1024.png")
+    print("MARK for build.mjs (64 grid):")
+    print(svg("full"))

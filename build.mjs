@@ -10,8 +10,8 @@ const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
 // The brand. The mark is three rows of a table, the last one short and blue; it follows the theme.
 const BRAND = 'apirows';
-// The mark: an A cut into rows, its crossbar the blue row (scripts/logo.py draws the same paths).
-const MARK = (s) => `<svg width="${s}" height="${s}" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--ink)"/><path fill="var(--ink-fg)" d="M16 7.07 L17.8 10.68 L14.2 10.68ZM13.62 11.82 L18.38 11.82 L20.18 15.43 L17.52 15.43 L16 12.39 L14.48 15.43 L11.82 15.43ZM8.88 21.32 L11.54 21.32 L9.73 24.93 L7.07 24.93ZM20.46 21.32 L23.12 21.32 L24.93 24.93 L22.27 24.93Z"/><path fill="#3b82f6" d="M11.25 16.57 L20.75 16.57 L22.55 20.18 L9.45 20.18Z"/></svg>`;
+// The mark: JSON braces around three rows (scripts/logo.py draws the same shapes; colours read on light and dark).
+const MARK = (s) => `<svg width="${s}" height="${s}" viewBox="0 0 64 64" aria-hidden="true"><path d="M10.5 12C7.2 12 7.2 14 7.2 17L7.2 27C7.2 30.5 5.6 32 4 32C5.6 32 7.2 33.5 7.2 37L7.2 47C7.2 50 7.2 52 10.5 52M53.5 12C56.8 12 56.8 14 56.8 17L56.8 27C56.8 30.5 58.4 32 60 32C58.4 32 56.8 33.5 56.8 37L56.8 47C56.8 50 56.8 52 53.5 52" fill="none" stroke="#3b82f6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="15" y="17" width="6" height="6" rx="3" fill="#0284c7"/><rect x="24.5" y="17" width="15" height="6" rx="3" fill="#0284c7"/><rect x="43" y="17" width="6" height="6" rx="3" fill="#0284c7"/><rect x="15" y="29" width="6" height="6" rx="3" fill="#6366f1"/><rect x="24.5" y="29" width="15" height="6" rx="3" fill="#6366f1"/><rect x="43" y="29" width="6" height="6" rx="3" fill="#6366f1"/><rect x="15" y="41" width="6" height="6" rx="3" fill="#8b5cf6"/><rect x="24.5" y="41" width="15" height="6" rx="3" fill="#8b5cf6"/><rect x="43" y="41" width="6" height="6" rx="3" fill="#8b5cf6"/></svg>`;
 // Listings added in the last few weeks get a "New" badge.
 const NEW = new Set(['walmart-products', 'company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
@@ -222,7 +222,7 @@ const small = (name, size) => ICONS[name].replace('<svg', `<svg width="${size}" 
 const header = (active) => `<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="/" aria-label="${BRAND} home">${MARK(24)}<span>${BRAND}</span></a>
+    <a class="brand" href="/" aria-label="${BRAND} home">${MARK(32)}<span>${BRAND}</span></a>
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="/tools/"${active === 'tools' ? ' aria-current="page"' : ''}>Tools</a>
       <a href="/leads/"${active === 'leads' ? ' aria-current="page"' : ''}>Exhibitor lists</a>
@@ -240,7 +240,7 @@ const footer = () => `<footer>
   <div class="wrap">
     <div class="foot">
       <div class="foot-brand">
-        <a class="brand" href="/">${MARK(22)}<span>${BRAND}</span></a>
+        <a class="brand" href="/">${MARK(30)}<span>${BRAND}</span></a>
         <p>Clean rows from public sources: ready files, tools you run on demand, and an MCP server for AI agents.</p>
         <p><a href="mailto:${EMAIL}">${EMAIL}</a></p>
       </div>

@@ -60,7 +60,7 @@ code { font-family:var(--mono); font-size:.88em; }
 .skip:focus { top:12px; text-decoration:none; }
 .site-header { position:sticky; top:0; z-index:30; background:color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter:saturate(1.4) blur(14px); -webkit-backdrop-filter:saturate(1.4) blur(14px); border-bottom:1px solid var(--border); }
 .nav { display:flex; align-items:center; gap:20px; height:60px; }
-.brand { display:flex; align-items:center; gap:9px; font-weight:650; color:var(--text); white-space:nowrap; font-size:1.02rem; letter-spacing:-.02em; }
+.brand { display:flex; align-items:center; gap:7px; font-weight:650; color:var(--text); white-space:nowrap; font-size:1.02rem; letter-spacing:-.02em; }
 .brand:hover { text-decoration:none; }
 .brand svg { flex:none; }
 .kbar { display:flex; align-items:center; gap:10px; margin-left:4px; padding:6px 8px 6px 10px; min-width:0; flex:0 1 240px; border-radius:8px; border:1px solid var(--border); background:var(--bg2); color:var(--faint); font-size:.84rem; cursor:pointer; text-align:left; transition:border-color .15s, color .15s; }
