@@ -1,1 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M10.5 12C7.2 12 7.2 14 7.2 17L7.2 27C7.2 30.5 5.6 32 4 32C5.6 32 7.2 33.5 7.2 37L7.2 47C7.2 50 7.2 52 10.5 52M53.5 12C56.8 12 56.8 14 56.8 17L56.8 27C56.8 30.5 58.4 32 60 32C58.4 32 56.8 33.5 56.8 37L56.8 47C56.8 50 56.8 52 53.5 52" fill="none" stroke="#3b82f6" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="15" y="16.5" width="34" height="7" rx="3.5" fill="#0284c7"/><rect x="15" y="28.5" width="34" height="7" rx="3.5" fill="#6366f1"/><rect x="15" y="40.5" width="34" height="7" rx="3.5" fill="#8b5cf6"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="hx" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCD34D"/><stop offset=".55" stop-color="#F59E0B"/><stop offset="1" stop-color="#EA580C"/></linearGradient>
+    <clipPath id="bd"><ellipse cx="32" cy="38.5" rx="8.6" ry="11.5"/></clipPath>
+  </defs>
+  <path d="M32 3.5 56.7 17.75v28.5L32 60.5 7.3 46.25v-28.5z" fill="url(#hx)" stroke="url(#hx)" stroke-width="5" stroke-linejoin="round"/>
+  <g fill="#FFFBEB" fill-opacity=".92" stroke="#1C1917" stroke-width="1.6">
+    <ellipse cx="21.5" cy="26" rx="10" ry="5.6" transform="rotate(-28 21.5 26)"/>
+    <ellipse cx="42.5" cy="26" rx="10" ry="5.6" transform="rotate(28 42.5 26)"/>
+  </g>
+  <g fill="#1C1917">
+    <path d="M28.6 15.2c-1.4-3-3.6-4.6-6-4.8M35.4 15.2c1.4-3 3.6-4.6 6-4.8" fill="none" stroke="#1C1917" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="32" cy="20.5" r="5.4"/>
+    <ellipse cx="32" cy="38.5" rx="8.6" ry="11.5"/>
+    <path d="M29.4 49.2 32 55l2.6-5.8z"/>
+  </g>
+  <g clip-path="url(#bd)" fill="#FBBF24">
+    <rect x="20" y="33" width="24" height="3.2"/>
+    <rect x="20" y="40.2" width="24" height="3.2"/>
+  </g>
+</svg>

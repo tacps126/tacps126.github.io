@@ -1,10 +1,10 @@
 {
-  "name": "apirows: web data tools",
-  "short_name": "apirows",
+  "name": "Tapaswai Choudhary (tacps126) web data tools",
+  "short_name": "tacps126",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#0a0e1f",
+  "theme_color": "#f59e0b",
   "icons": [
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },

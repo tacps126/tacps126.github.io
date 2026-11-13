@@ -60,7 +60,9 @@ def draw(t):
     d = ImageDraw.Draw(img, "RGBA")
     col = og.CAT.get(t["cat"], og.ACCENT)
     # brand row
-    og.brand(img, d, (64, 52), 40)
+    brand = Image.open(ROOT / "icon-512.png").convert("RGBA").resize((44, 44), Image.LANCZOS)
+    img.alpha_composite(brand, (64, 52))
+    d.text((122, 58), "tacps126 · web data tools", font=og.MONO(22), fill=og.MUTED)
     # tool icon, topic and title
     pic = icon(t["icon"], t.get("local"))
     x = 64
@@ -70,7 +72,7 @@ def draw(t):
         ImageDraw.Draw(mask).rounded_rectangle([0, 0, pic.size[0] - 1, pic.size[1] - 1], 26, fill=255)
         img.paste(pic, (64, 150), mask)
         x = 64 + pic.size[0] + 36
-    d.ellipse([x, 153, x + 12, 165], fill=col)
+    d.rounded_rectangle([x, 152, x + 14, 166], 7, fill=col)
     d.text((x + 24, 146), t["topic"].upper(), font=og.MONO(20), fill=og.MUTED)
     title_f = og.DISPLAY(56)
     lines = wrap(d, t["t"], title_f, 1200 - x - 64, 2)
@@ -90,7 +92,7 @@ def draw(t):
     if t.get("p"):
         f = og.DISPLAY(28)
         w = int(d.textlength(t["p"], font=f)) + 44
-        d.rounded_rectangle([64, 530, 64 + w, 584], 10, fill=og.SURFACE, outline=og.BORDER, width=2)
+        d.rounded_rectangle([64, 530, 64 + w, 584], 27, fill=(*col, 50), outline=col, width=2)
         d.text((86, 538), t["p"], font=f, fill=og.TEXT)
     msg = "Input builder · API call · sample output"
     d.text((1200 - 64 - d.textlength(msg, font=og.MONO(20)), 548), msg, font=og.MONO(20), fill=og.MUTED)

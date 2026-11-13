@@ -5,13 +5,9 @@ import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 
 const USER = 'tacps126';
-const SITE = 'https://apirows.com';
+const SITE = 'https://tacps126.github.io';
 const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
-// The brand. The mark is three rows of a table, the last one short and blue; it follows the theme.
-const BRAND = 'apirows';
-// The mark: JSON braces around three rows (scripts/logo.py draws the same shapes; colours read on light and dark).
-const MARK = (s) => `<svg width="${s}" height="${s}" viewBox="0 0 64 64" aria-hidden="true"><path d="M10.5 12C7.2 12 7.2 14 7.2 17L7.2 27C7.2 30.5 5.6 32 4 32C5.6 32 7.2 33.5 7.2 37L7.2 47C7.2 50 7.2 52 10.5 52M53.5 12C56.8 12 56.8 14 56.8 17L56.8 27C56.8 30.5 58.4 32 60 32C58.4 32 56.8 33.5 56.8 37L56.8 47C56.8 50 56.8 52 53.5 52" fill="none" stroke="#3b82f6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="15" y="17" width="6" height="6" rx="3" fill="#0284c7"/><rect x="24.5" y="17" width="15" height="6" rx="3" fill="#0284c7"/><rect x="43" y="17" width="6" height="6" rx="3" fill="#0284c7"/><rect x="15" y="29" width="6" height="6" rx="3" fill="#6366f1"/><rect x="24.5" y="29" width="15" height="6" rx="3" fill="#6366f1"/><rect x="43" y="29" width="6" height="6" rx="3" fill="#6366f1"/><rect x="15" y="41" width="6" height="6" rx="3" fill="#8b5cf6"/><rect x="24.5" y="41" width="15" height="6" rx="3" fill="#8b5cf6"/><rect x="43" y="41" width="6" height="6" rx="3" fill="#8b5cf6"/></svg>`;
 // Listings added in the last few weeks get a "New" badge.
 const NEW = new Set(['walmart-products', 'company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
@@ -92,12 +88,11 @@ const ALL_CATS = [
     'map-your-show-exhibitor-scraper', 'messe-frankfurt-exhibitor-scraper', 'messe-duesseldorf-exhibitor-scraper', 'rx-exhibitor-scraper',
     'a2z-exhibitor-scraper', 'koelnmesse-exhibitor-scraper', 'nuernbergmesse-exhibitor-scraper', 'swapcard-exhibitor-scraper', 'expoplatform-exhibitor-scraper',
     'us-import-records', 'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
-  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'youtube-comments', 'podcasts', 'research-radar', 'innovation-radar', 'reddit-monitor',
-    'youtube-scraper', 'arxiv-scraper', 'scholarly-papers-search', 'bluesky-scraper', 'telegram-scraper']],
-  ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar', 'cve-feed', 'building-permits']],
-  ['health', 'Health and life sciences', ['clinical-trials', 'clinical-trials-scraper', 'pubmed-scraper', 'fda-device-clearances', 'npi-providers']],
+  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'youtube-comments', 'podcasts', 'research-radar', 'innovation-radar', 'reddit-monitor']],
+  ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar', 'cve-feed']],
+  ['health', 'Health and life sciences', ['clinical-trials', 'fda-device-clearances', 'npi-providers']],
   ['commerce', 'E-commerce, vehicles and real estate', ['shopify-products', 'walmart-products', 'china-sourcing', 'copart-auctions', 'auctions-radar', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
-  ['finance', 'Finance and markets', ['short-interest', 'sec-filings', 'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding']],
+  ['finance', 'Finance and markets', ['short-interest', 'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding']],
   ['sports', 'Sports, odds and lotteries', ['sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results']],
   ['travel', 'Travel and transit', ['transit-timetables']],
 ];
@@ -222,17 +217,19 @@ const small = (name, size) => ICONS[name].replace('<svg', `<svg width="${size}" 
 const header = (active) => `<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="/" aria-label="${BRAND} home">${MARK(32)}<span>${BRAND}</span></a>
+    <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="30" height="30"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search ${used} tools</span><kbd>⌘K</kbd></button>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">${small('menu', 20)}</button>
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="/tools/"${active === 'tools' ? ' aria-current="page"' : ''}>Tools</a>
-      <a href="/leads/"${active === 'leads' ? ' aria-current="page"' : ''}>Exhibitor lists</a>
-      <a href="/mcp.html"${active === 'mcp' ? ' aria-current="page"' : ''}>AI agents</a>
+      <a href="/#coverage">Coverage</a>
       <a href="/pricing.html"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a>
+      <a href="/integrations.html"${active === 'integrations' || active === 'clay' ? ' aria-current="page"' : ''}>Integrations</a>
+      <a href="/mcp.html"${active === 'mcp' ? ' aria-current="page"' : ''}>AI agents</a>
       <a href="/blog/"${active === 'blog' ? ' aria-current="page"' : ''}>Blog</a>
+      <a href="/about.html"${active === 'about' ? ' aria-current="page"' : ''}>About</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme">${small('sun', 18)}</button>
     </nav>
-    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search ${used} tools</span><kbd>⌘K</kbd></button>
-    <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme">${small('sun', 17)}</button>
-    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">${small('menu', 19)}</button>
   </div>
 </header>`;
 
@@ -240,34 +237,38 @@ const footer = () => `<footer>
   <div class="wrap">
     <div class="foot">
       <div class="foot-brand">
-        <a class="brand" href="/">${MARK(30)}<span>${BRAND}</span></a>
-        <p>Clean rows from public sources: ready files, tools you run on demand, and an MCP server for AI agents.</p>
-        <p><a href="mailto:${EMAIL}">${EMAIL}</a></p>
+        <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="34" height="34"><span>${OWNER} <span class="handle">(tacps126)</span></span></a>
+        <p>Web data tools that gather, clean and enrich public data: jobs, leads, research, markets and public records. Pay per result on Apify, or call them from an AI agent.</p>
+        <p><a href="mailto:${EMAIL}">${EMAIL}</a><br><a href="mailto:${EMAIL}?subject=Custom%20data%20request">Ask for a custom dataset</a></p>
       </div>
-      <nav aria-label="Product"><p class="foot-h">Product</p><ul>
+      <nav aria-label="Topics"><p class="foot-h">Topics</p><ul>
+${CATS.map(([k, l]) => `        <li><a href="/tools/${k}/">${esc(CAT_SHORT[k] || l)}</a></li>`).join('\n')}
+      </ul></nav>
+      <nav aria-label="Explore"><p class="foot-h">Explore</p><ul>
         <li><a href="/tools/">All tools</a></li>
-        <li><a href="/leads/">Exhibitor lists</a></li>
-        <li><a href="/datasets.html">Free datasets</a></li>
-        <li><a href="/pricing.html">Pricing</a></li>
         <li><a href="/#coverage">Coverage map</a></li>
+        <li><a href="/#compose">Chain tools</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/datasets.html">Free datasets</a></li>
+        <li><a href="/integrations.html">Integrations</a></li>
+        <li><a href="/clay.html">Use with Clay</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about.html">About</a></li>
       </ul></nav>
       <nav aria-label="Developers"><p class="foot-h">Developers</p><ul>
+        <li><a href="https://apify.com/${USER}">Tools on Apify</a></li>
         <li><a href="/mcp.html">MCP server</a></li>
-        <li><a href="/integrations.html">Integrations</a></li>
-        <li><a href="/clay.html">Clay</a></li>
         <li><a href="https://github.com/${USER}/apify-data-recipes">Code recipes</a></li>
-        <li><a href="https://apify.com/${USER}">Apify Store</a></li>
-      </ul></nav>
-      <nav aria-label="Company"><p class="foot-h">Company</p><ul>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="mailto:${EMAIL}?subject=Custom%20data%20request">Custom data</a></li>
-        <li><a href="/removal.html">Remove your company</a></li>
+        <li><a href="https://github.com/${USER}/webdata-tools-mcp">GitHub</a></li>
+        <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
+        <li><a href="https://smithery.ai/servers/${USER}/webdata-tools-mcp">Smithery</a></li>
+        <li><a href="https://glama.ai/mcp/servers/${USER}/webdata-tools-mcp">Glama</a></li>
       </ul></nav>
     </div>
     <div class="foot-base">
-      <p class="fine">&copy; ${TODAY.slice(0, 4)} ${BRAND} · <a href="/terms.html">Terms of sale</a> · <a href="/privacy.html">Privacy</a> · <a href="/refunds.html">Refunds</a> · <a href="/removal.html">Data sources</a></p>
-      <p class="fine" id="data-use">Data comes from publicly available pages. Use it within each source's terms and the law that applies to you (GDPR, CAN-SPAM). Tool prices are per result on Apify; each tool's Apify page is the source of truth.</p>
+      <p class="fine" id="data-use">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+      <p class="fine">&copy; ${TODAY.slice(0, 4)} ${OWNER}</p>
     </div>
   </div>
 </footer>`;
@@ -317,7 +318,7 @@ const clampDesc = (d) => {
   return cut.replace(/[\s,:;(-]+\S*$/, '').replace(/[\s,:;(-]+$/, '') + '.';
 };
 
-const page = ({ path, title, description, keywords, body, active, jsonld, scripts = [], og = OG, ogAlt = `${BRAND}: clean web data for jobs, leads, research and public records`, modified }) => `<!doctype html>
+const page = ({ path, title, description, keywords, body, active, jsonld, scripts = [], og = OG, ogAlt = 'tacps126: clean web data for jobs, news, reviews and leads', modified }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -327,14 +328,14 @@ const page = ({ path, title, description, keywords, body, active, jsonld, script
 <link rel="canonical" href="${SITE}${path}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">${path === '/' ? verifyTags : ''}
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="${BRAND}">
+<meta property="og:site_name" content="tacps126">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${SITE}${path}">
@@ -406,17 +407,15 @@ const labelOf = Object.fromEntries(CATS.map(([k, l]) => [k, l]));
 const USES = [
   ['jobs', 'briefcase', 'Recruiting and job boards', 'Every open role from company career pages (13 systems, or just type a company name), LinkedIn, Indeed, Glassdoor, Wellfound, Dice and remote-job feeds in one format, with only-new mode for daily feeds.'],
   ['leads', 'target', 'Sales and lead generation', 'Hiring signals show who is hiring for the roles you sell to. Reddit Lead Finder spots people asking for a tool like yours. Contact details builds local lead lists by category and city and adds emails, phones and socials to any list; the Shopify Store Analyzer does the same for stores. US Import Records shows who an importer buys from and which other brands use the same factories.'],
-  ['reviews', 'star', 'Brand, social and research', 'Trustpilot and app-store reviews, Google News with real publisher links, and mentions on Reddit, Bluesky, Telegram and YouTube, with alerts on new items only. Papers and preprints from arXiv and scholarly indexes, newest or most influential first.'],
+  ['reviews', 'star', 'Brand and reputation', 'Trustpilot and app-store reviews, Google News with real publisher links, and Reddit mentions, with alerts on new items only.'],
   ['health', 'pulse', 'Health and life sciences', [
     ['clinical-trials', 'Clinical trials by condition, drug, sponsor and phase with sites and contacts'],
-    ['pubmed-scraper', 'PubMed articles with abstracts, authors and journals'],
     ['fda-device-clearances', 'FDA 510(k) and PMA device clearances with the applicant and review time'],
     ['npi-providers', 'US doctors, dentists and clinics from the NPI Registry by specialty and place'],
   ]],
   ['commerce', 'chart', 'Market, vehicle and property data', 'Shopify prices, discounts and stock, Copart salvage and used car auctions with bids and damage, court and bank auctions in Germany, Spain, Italy and India scored against similar lots, and property listings in Germany, Austria, the UK and the Gulf with coordinates and price per square metre.'],
   ['finance', 'trend', 'Markets, odds and funding', [
     ['short-interest', 'Official short interest for every US stock with days to cover and daily short-sale volume'],
-    ['sec-filings', 'SEC filings and Form 4 insider trades by ticker'],
     ['prediction-markets', 'Kalshi, Polymarket, Manifold and PredictIt odds with history and move alerts'],
     ['startup-funding', 'new startup raises from SEC Form D with the founders behind them'],
   ]],
@@ -634,21 +633,6 @@ const leads = existsSync(LEADS_DIR)
       .sort((a, b) => b.total - a.total)
   : [];
 const ACTOR_URL = `https://apify.com/${USER}/exhibition-scraper`;
-// Ready files for sale: data/shop.json, written by apify_actors/scripts/shop_data.py from the lists built
-// there (price, order link, size and contact coverage of the real file, its date). A show without an
-// entry keeps its page as it was.
-const SHOP_FILE = new URL('./data/shop.json', import.meta.url);
-const SHOP = existsSync(SHOP_FILE) ? JSON.parse(readFileSync(SHOP_FILE, 'utf8')) : {};
-// Where a ready file is for sale, the page states the file's own numbers (deduplicated count and
-// contact coverage measured on every row): the refund policy promises what the page says.
-for (const l of leads) {
-  const s = SHOP[l.id];
-  if (!s) continue;
-  l.total = s.exhibitors;
-  l.coverage = { ...l.coverage, website: s.websitePct, phone: s.phonePct, email: s.emailPct };
-  l.fromFile = s.updated;
-}
-leads.sort((a, b) => b.total - a.total);
 const n = (x) => Number(x).toLocaleString('en-US');
 mkdirSync(OUT('./leads/'), { recursive: true });
 // Up to 8 other shows for internal links: same industry first, then the biggest.
@@ -661,7 +645,7 @@ for (const l of leads) {
     ...(l.countryCount ? [[l.countryCount, l.countriesFromSample ? 'countries (in sample)' : 'countries']] : []),
     [`${l.coverage.booth}%`, 'with booth'],
     [`${l.coverage.website}%`, 'with website'],
-    [`${l.coverage.email}%`, l.fromFile ? 'with email' : 'with email*'],
+    [`${l.coverage.email}%`, 'with email*'],
   ]
     .map(([v, k]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(k)}</span></div>`)
     .join('');
@@ -669,17 +653,6 @@ for (const l of leads) {
     .map((r) => `<tr><td>${esc(r.company)}</td><td>${esc(r.country)}</td><td>${esc(r.booth)}</td><td>${esc(r.website)}</td></tr>`)
     .join('');
   const countries = l.countries.map(([c, k]) => `<li>${esc(c)} <span class="muted">${n(k)}</span></li>`).join('');
-  const shop = SHOP[l.id];
-  const buyButton = shop
-    ? `<a class="btn primary" href="${esc(shop.buyUrl)}">${shop.byEmail ? 'Order' : 'Buy'} the ready file: $${shop.priceUsd}</a>`
-    : '';
-  const runButton = shop
-    ? `<a class="btn" href="${ACTOR_URL}">Or run it yourself (about $2 per 1,000)</a>`
-    : `<a class="btn primary" href="${ACTOR_URL}">Get the full list (run it yourself, about $2 per 1,000)</a>
-    <a class="btn" href="/#build">Have it done for you</a>`;
-  const shopNote = shop
-    ? `<p class="muted">Ready file: ${n(shop.exhibitors)} exhibitors, ${shop.emailPct}% with a company email, ${shop.phonePct}% with a phone number, as ${shop.formats.join(', ')}. Updated ${esc(shop.updated)} and refreshed weekly until the show; one payment covers every refresh of this edition.${shop.byEmail ? ' Order by email and you get a payment link, then the files.' : ''} <a href="/terms.html">Terms of sale</a>, <a href="/refunds.html">refunds</a>.</p>`
-    : '';
   const body = `
 <section class="hero"><div class="wrap">
   <p class="eyebrow">${esc(l.industry)}${l.where ? ` · ${esc(l.where)}` : ''}</p>
@@ -687,10 +660,9 @@ for (const l of leads) {
   <p class="lead">Every exhibitor at ${esc(l.name)} as a clean spreadsheet: company, booth and hall, website, phone, address, categories and email. Read from the organiser's <a href="${esc(l.listUrl)}">official exhibitor list</a>${l.listUrl ? '' : ''}; emails missing there are looked up on each company's own website.</p>
   <div class="stats${l.countryCount ? ' five' : ''}">${tiles}</div>
   <div class="cta-row">
-    ${buyButton}
-    ${runButton}
+    <a class="btn primary" href="${ACTOR_URL}">Get the full list (run it yourself, about $2 per 1,000)</a>
+    <a class="btn" href="/#build">Have it done for you</a>
   </div>
-  ${shopNote}
 </div></section>
 <section><div class="wrap">
   <h2>Sample: 20 of ${n(l.total)} exhibitors</h2>
@@ -698,7 +670,7 @@ for (const l of leads) {
   <div class="table-wrap"><table class="sample"><thead><tr><th>Company</th><th>Country</th><th>Booth</th><th>Website</th></tr></thead><tbody>${rows}</tbody></table></div>
 ${countries ? `  <h2>Where exhibitors come from${l.countriesFromSample ? ` <span class="muted">(${l.sampleSize}-exhibitor sample)</span>` : ''}</h2>
   <ul class="countries">${countries}</ul>` : ''}
-  <p class="fine">${l.fromFile ? `Exhibitor count and contact coverage are those of the ready file (one row per company), updated ${esc(l.fromFile)}${l.countriesFromSample ? `; countries come from a ${l.sampleSize}-exhibitor sample` : ''}.` : `* Contact coverage measured on a ${l.sampleSize}-exhibitor sample with emails looked up on company websites; updated ${esc(l.updated)}.`} Data comes from public pages; use it within GDPR and the organiser's terms. <a href="/removal.html">Sources, and how to remove your company</a>.</p>
+  <p class="fine">* Contact coverage measured on a ${l.sampleSize}-exhibitor sample with emails looked up on company websites; updated ${esc(l.updated)}. Data comes from public pages; use it within GDPR and the organiser's terms.</p>
   <h2>Get it</h2>
   <p>Run <a href="${ACTOR_URL}">Trade Show Exhibitor List Scraper</a> with the show <code>${esc(l.id)}</code> (turn on <em>Find emails on company websites</em>), export CSV or Excel, or schedule it with <em>Changes only</em> to get new exhibitors and booth moves until the show. Prefer a ready file? Email <a href="mailto:${EMAIL}?subject=${encodeURIComponent(l.name + ' exhibitor list')}">${EMAIL}</a>.</p>
 
@@ -709,7 +681,6 @@ ${countries ? `  <h2>Where exhibitors come from${l.countriesFromSample ? ` <span
     OUT(`./leads/${l.id}.html`),
     page({
       path: `/leads/${l.id}.html`,
-      active: 'leads',
       title,
       description: desc,
       body,
@@ -720,9 +691,8 @@ ${countries ? `  <h2>Where exhibitors come from${l.countriesFromSample ? ` <span
         description: desc,
         url: `${SITE}/leads/${l.id}.html`,
         dateModified: l.updated,
-        creator: { '@type': 'Organization', name: BRAND },
+        creator: { '@type': 'Organization', name: 'tacps126' },
         isAccessibleForFree: false,
-        ...(shop ? { offers: { '@type': 'Offer', price: String(shop.priceUsd), priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE}/leads/${l.id}.html` } } : {}),
         // Terms of use for the data (Search Console asks Datasets for a license).
         license: `${SITE}/about.html#data-use`,
       },
@@ -737,7 +707,6 @@ if (leads.length) {
     OUT('./leads/index.html'),
     page({
       path: '/leads/',
-      active: 'leads',
       title: 'Trade show exhibitor lists with booth, website and email',
       description: `Exhibitor lists of ${leads.length}+ trade shows (and 90+ more on request) with booth, website, phone and email, as CSV or Excel.`,
       body: `<section class="hero"><div class="wrap"><h1>Trade show exhibitor lists</h1><p class="lead">Ready exhibitor lists with booth, website, phone and email. These are the shows with a page; <a href="${ACTOR_URL}">90+ shows</a> (and any show by link) are supported.</p><div class="grid">${list}</div></div></section>`,
@@ -820,7 +789,7 @@ writeFileSync(
   page({
     path: '/pricing.html',
     active: 'pricing',
-    title: `Pricing - ${BRAND}, web data tools`,
+    title: `Pricing - ${OWNER} (tacps126), web data tools`,
     description: `Per-result prices of ${used} web data tools on Apify, with their public runs in the last 30 days and a cost estimate. No subscription.`,
     body: pricingBody,
     jsonld: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Pricing', url: `${SITE}/pricing.html` },
@@ -954,7 +923,7 @@ writeFileSync(
     title: 'Use our data tools in Clay - tacps126',
     description: 'Copy-paste Clay recipes: sanctions check, company registry record, US import volumes, hiring activity, website emails, Shopify store profile and news, as Run Apify Actor columns.',
     body: clayBody,
-    jsonld: { '@context': 'https://schema.org', '@type': 'HowTo', name: `Use ${BRAND} data tools in Clay`, url: `${SITE}/clay.html` },
+    jsonld: { '@context': 'https://schema.org', '@type': 'HowTo', name: 'Use tacps126 data tools in Clay', url: `${SITE}/clay.html` },
   }),
 );
 
@@ -1101,7 +1070,7 @@ writeFileSync(
   page({
     path: '/blog/',
     active: 'blog',
-    title: `Blog - ${BRAND}, web data how-tos`,
+    title: `Blog - ${OWNER} (tacps126), web data how-tos`,
     description: 'How-tos and comparisons for getting clean web data: exhibitor lists, hiring signals, news alerts, property listings.',
     body: `<section class="hero" style="padding-bottom:30px"><div class="wrap">
   <span class="eyebrow">Blog</span>
@@ -1111,7 +1080,7 @@ writeFileSync(
 <section><div class="wrap"><div class="grid two">
 ${POSTS.map((p) => `<a class="card post-card" href="/blog/${p.id}.html"><span class="post-meta">${p.date} · ${p.mins} min read</span><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p><div class="meta">${p.tags.slice(0, 3).map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div></a>`).join('\n')}
 </div></div></section>`,
-    jsonld: { '@context': 'https://schema.org', '@type': 'Blog', name: `${BRAND} blog`, url: `${SITE}/blog/` },
+    jsonld: { '@context': 'https://schema.org', '@type': 'Blog', name: 'tacps126 blog', url: `${SITE}/blog/` },
   }),
 );
 
@@ -1121,7 +1090,7 @@ const aboutBody = `
   <div class="wrap">
     <span class="eyebrow">About</span>
     <h1 style="margin-top:14px">Clean web data, <span class="grad">fast and cheap to run</span></h1>
-    <p class="lead">${BRAND} is built and run by ${OWNER}. It hands you ready-to-use, consistent data, not raw HTML: ${used} of them for jobs, leads, research, government updates, real estate, reviews and news. ${okShare ? `${okShare}% of the ${fmt(runs30.total)} public runs in the last 30 days succeeded.` : ''}</p>
+    <p class="lead">I'm ${OWNER}. I build tools on Apify that hand you ready-to-use, consistent data, not raw HTML: ${used} of them for jobs, leads, research, government updates, real estate, reviews and news. ${okShare ? `${okShare}% of the ${fmt(runs30.total)} public runs in the last 30 days succeeded.` : ''}</p>
     <div class="cta-row"><a class="btn primary" href="https://apify.com/${USER}" rel="noopener">See them on Apify</a><a class="btn" href="mailto:${EMAIL}?subject=Custom%20data%20request">Ask for a custom tool</a></div>
   </div>
 </section>
@@ -1159,151 +1128,12 @@ writeFileSync(
   page({
     path: '/about.html',
     active: 'about',
-    title: `About ${BRAND}`,
-    description: `${BRAND}, by ${OWNER}: ${used} web data tools for jobs, leads, research, government updates, real estate, reviews and news. Clean fields, pay per result.`,
+    title: `About - ${OWNER} (tacps126), web data tools`,
+    description: `${OWNER} builds ${used} web data tools on Apify for jobs, leads, research, government updates, real estate, reviews and news. Clean fields, pay per result.`,
     body: aboutBody,
     jsonld: { '@context': 'https://schema.org', '@type': 'AboutPage', name: `About ${OWNER}`, url: `${SITE}/about.html` },
   }),
 );
-
-// ---------------------------------------------------------------- legal pages
-// Terms of sale, privacy, refunds, data sources and removal: one page each, linked from the footer
-// and from every show page. Drafted 2026-11-13 for the owner's review (owner task 6: a lawyer reads
-// them before the public launch). MOR names the merchant of record; switching to Paddle is one edit.
-const MOR = 'Dodo Payments';
-const LEGAL_UPDATED = '2026-11-13';
-// How long a show edition's file is kept after the show, and how fast a removal reaches every file.
-const KEEP_MONTHS = 12;
-const REMOVAL_DAYS = 7;
-const REMOVAL_MAIL = `mailto:${EMAIL}?subject=${encodeURIComponent('Removal request')}`;
-const LEGAL = [
-  {
-    path: '/terms.html',
-    nav: 'Terms of sale',
-    title: 'Terms of sale',
-    description: `Terms for buying ready data files and API credits from apirows.com: what you get, delivery, how you may use the data, refunds and liability.`,
-    lead: 'These terms apply when you buy a ready data file or API credits from apirows.com. They are short on purpose; if anything is unclear, ask before you buy.',
-    sections: [
-      ['Who sells to you', `<p>apirows.com is run by ${OWNER} in India ("we", "us"). Orders are processed by ${MOR}, our merchant of record: ${MOR} is the seller of record, takes the payment, charges the sales tax or VAT that applies where you are, and issues your invoice. Their checkout terms cover the payment itself; these terms cover what you buy.</p>`],
-      ['What you buy', `<ul>
-<li><strong>A ready file:</strong> the exhibitor list of one trade show edition as CSV, Excel and JSON, with the fields and coverage figures shown on its page. Each page has a free sample and the date of the last update.</li>
-<li><strong>Weekly refreshes:</strong> until the show closes we rebuild the file every week. One payment covers every refresh of that edition.</li>
-<li><strong>API credits:</strong> prepaid credits for the apirows API, spent per result at the price listed for each tool. A run that fails without results costs nothing. Credits do not expire.</li>
-</ul>`],
-      ['Prices and payment', `<p>Prices are in US dollars and shown on each page before you pay. Tax is added at checkout where it applies. If you order by email, we reply with a payment link from ${MOR}; nothing is charged until you pay through it.</p>`],
-      ['Delivery', `<p>After payment you get a download link at the email address used at checkout, normally within minutes and at the latest within one business day. Refreshes reach you the same way. If nothing arrives, check your spam folder, then write to <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>`],
-      ['How you may use the data', `<ul>
-<li>Use the files inside your own organisation: sales and marketing outreach, research, market analysis, and loading them into your CRM or other tools.</li>
-<li>Do not resell, publish or give away the files, or a substantial part of them, as a dataset, and do not use them in a competing data product.</li>
-<li>Contact companies lawfully. Follow the rules that apply to you and to them (for example GDPR and the ePrivacy rules in Europe, CAN-SPAM in the US), say who you are, honour opt-outs and stop using a contact when asked.</li>
-<li>Removal requests we receive apply to later refreshes. If a company asks you directly, remove it from your copy as well.</li>
-</ul>`],
-      ['Accuracy', `<p>The data comes from public sources (see <a href="/removal.html">data sources and removal</a>) and is checked before delivery, but companies change their details and sources contain mistakes. Files are provided as they are, without a promise that every row is complete or current. Coverage figures on a page (the share of rows with an email, phone or website) are measured on the file itself or, where the page says so, on a sample.</p>`],
-      ['Refunds', `<p>See the <a href="/refunds.html">refund policy</a>. In short: if a file does not match its page or never arrives, you get your money back.</p>`],
-      ['Liability', `<p>Our total liability for an order is limited to the amount you paid for it. We are not liable for indirect losses such as lost profit or lost business. Nothing in these terms limits liability that the law does not allow us to limit, or takes away rights you have as a consumer.</p>`],
-      ['API keys', `<p>Keep your API key secret: runs made with it are charged to your account. We may suspend a key that is used to attack or overload the service or the sites the tools read; if we do, we refund the unused credits.</p>`],
-      ['Changes and applicable law', `<p>We may update these terms; the version in force on the day you paid applies to that order. Indian law applies, without removing the protection your own country's consumer law gives you. Questions and complaints: <a href="mailto:${EMAIL}">${EMAIL}</a>. We answer within two business days.</p>`],
-    ],
-  },
-  {
-    path: '/privacy.html',
-    nav: 'Privacy',
-    title: 'Privacy policy',
-    description: 'What personal data apirows.com collects from visitors, buyers and API users, what is in our data files, how long we keep it and how to use your rights.',
-    lead: `What we collect, why, how long we keep it, and what you can ask us to do. Questions: <a href="mailto:${EMAIL}">${EMAIL}</a>.`,
-    sections: [
-      ['Who is responsible', `<p>${OWNER}, India, runs apirows.com and decides how the personal data described here is used (the controller under the GDPR, the data fiduciary under India's Digital Personal Data Protection Act).</p>`],
-      ['Visiting the site', `<p>No analytics, no advertising and no tracking cookies. The site remembers your light or dark theme in your own browser; that choice never leaves your device. Our hosting provider (currently GitHub Pages) receives your IP address and browser details to serve the pages and keeps them in its server logs under its own privacy policy.</p>`],
-      ['Buying from us', `<p>When you buy, ${MOR}, our merchant of record, collects your name, email, billing address and payment details. We receive your name, email, country, what you bought and the amounts; we never see your card details. We use them to deliver your files and refreshes, to answer you and to keep the records tax law requires. Legal basis: our contract with you and our legal obligations.</p>`],
-      ['API accounts', `<p>For an API account we keep your email, your key (only as a one-way hash, so we cannot read it back), your balance, and your runs with their inputs and results. Results are deleted after 7 days; runs and charges are kept as accounting records.</p>`],
-      ['Writing to us', `<p>If you email us, we keep the conversation to answer you and as a record of what was agreed.</p>`],
-      ['Companies in our data files', `<p>Our files describe companies, not private individuals: company name, booth, website, the company's business email and phone, postal address, product categories, the company's social media pages and its own description. Contact details are the ones a company publishes for business enquiries. Where such an address names a person (for example a sales contact listed in a show's exhibitor directory), it is included as published.</p>
-<p>We process this data on the basis of our legitimate interest, and our buyers' legitimate interest, in business-to-business contact about the products and events the company itself promotes. Where the data comes from is described on <a href="/removal.html">data sources and removal</a>. You can object at any time and we remove the data. A show edition's files are deleted ${KEEP_MONTHS} months after the show; a removal list is kept so removed details do not come back.</p>`],
-      ['Who else receives data', `<ul>
-<li>${MOR}: payments, tax and invoices.</li>
-<li>Our hosting and email providers, to run the site and answer you.</li>
-</ul>
-<p>We do not sell the personal data of visitors, buyers or API users and do not use it for advertising.</p>`],
-      ['Where data is processed', `<p>In India and with providers in other countries, including the United States and the European Union. Where the GDPR applies, transfers rely on the safeguards those providers offer, such as the European Commission's standard contractual clauses.</p>`],
-      ['How long we keep it', `<ul>
-<li>Orders and invoices: as long as tax and accounting law requires (up to 8 years).</li>
-<li>Emails: up to 3 years after the last message, longer only when they concern an order.</li>
-<li>API results: 7 days.</li>
-<li>Show files: ${KEEP_MONTHS} months after the show.</li>
-</ul>`],
-      ['Your rights', `<p>You can ask for a copy of your data, its correction or deletion, object to its use, ask us to restrict it or to send it to you in a common format, and withdraw any consent you gave. Write to <a href="mailto:${EMAIL}">${EMAIL}</a>; we answer within 30 days, usually much sooner, and may ask you to confirm that the request comes from the person or company concerned. You can also complain to your data protection authority or, in India, to the Data Protection Board of India.</p>`],
-      ['Children', `<p>The site and the files are for businesses. We do not knowingly collect data about children.</p>`],
-    ],
-  },
-  {
-    path: '/refunds.html',
-    nav: 'Refunds',
-    title: 'Refund policy',
-    description: 'Refunds for ready data files and API credits bought on apirows.com: when you get your money back and how to ask.',
-    lead: 'If what you bought is not what the page promised, you get your money back.',
-    sections: [
-      ['Ready files', `<p>You get a full refund if, within 14 days of paying:</p>
-<ul>
-<li>the file never arrived;</li>
-<li>it differs materially from its page, for example far fewer exhibitors than stated, a listed field empty in most rows, or the wrong show;</li>
-<li>you paid twice for the same edition.</li>
-</ul>
-<p>We may first offer to fix and resend the file within two business days. If that does not solve it, or you prefer the money, we refund.</p>
-<p>Files are delivered at once and can be kept, so a change of mind after the download has started is not refunded. This does not affect rights the consumer law of your country gives you.</p>`],
-      ['API credits', `<p>Unused credits are refunded on request within 14 days of purchase. Spent credits are not refunded, but a run that fails without results never costs anything, and if a run delivered clearly wrong results, tell us and we put the credits back.</p>`],
-      ['How to ask', `<p>Email <a href="mailto:${EMAIL}?subject=${encodeURIComponent('Refund request')}">${EMAIL}</a> with the order number from your ${MOR} receipt and what went wrong. We answer within two business days. Refunds go back to the original payment method through ${MOR}; your bank may take 5 to 10 days to show them.</p>`],
-    ],
-  },
-  {
-    path: '/removal.html',
-    nav: 'Data sources and removal',
-    title: 'Data sources and removal',
-    description: 'Where the data in apirows.com files comes from, what a file contains, and how a company can have its details removed or corrected.',
-    lead: `Where the data in our files comes from, and how to have your company's details removed or corrected. Removals take effect in every file within ${REMOVAL_DAYS} days.`,
-    sections: [
-      ['Where the data comes from', `<ul>
-<li><strong>Trade show exhibitor lists:</strong> the exhibitor directory the organiser publishes for the show, which anyone can open. A company email or phone missing there is taken from the contact or imprint page of the company's own website.</li>
-<li><strong>Other datasets:</strong> official registers and records published by governments and public agencies, under their own terms of reuse.</li>
-<li><strong>Not used:</strong> pages behind a login or a paywall, personal social media profiles, or data bought from brokers. We do not collect information about private individuals.</li>
-</ul>`],
-      ['What a file contains', `<p>Company name, booth and hall, website, the company's business email and phone, postal address, product categories, the company's social media pages and its own description. The free sample on each page leaves emails and phone numbers out.</p>`],
-      ['Remove your company or an address', `<p><a class="btn primary" href="${REMOVAL_MAIL}">Send a removal request</a></p>
-<p>Or email <a href="${REMOVAL_MAIL}">${EMAIL}</a> with the subject "Removal request" and the company name and website, or the email address or phone number to remove. No reason is needed.</p>
-<ul>
-<li>We remove it from every file we sell within ${REMOVAL_DAYS} days and keep it on a removal list, so it does not come back in later refreshes.</li>
-<li>We confirm by email.</li>
-<li>Copies that buyers already have cannot be recalled, but our <a href="/terms.html">terms of sale</a> require buyers to contact companies lawfully and to stop when asked.</li>
-<li>Organisers who want a show left out can write to us the same way.</li>
-</ul>`],
-      ['Correct your details', `<p>Send the correct details to <a href="mailto:${EMAIL}?subject=${encodeURIComponent('Correction')}">${EMAIL}</a>; they go into the next refresh.</p>`],
-    ],
-  },
-];
-for (const l of LEGAL) {
-  writeFileSync(
-    OUT('.' + l.path),
-    page({
-      path: l.path,
-      title: `${l.title} - apirows.com`,
-      description: l.description,
-      body: `
-<section class="hero" style="padding-bottom:24px">
-  <div class="wrap narrow">
-    <span class="eyebrow">Legal</span>
-    <h1 style="margin-top:14px">${esc(l.title)}</h1>
-    <p class="lead">${l.lead}</p>
-    <p class="muted">Last updated ${LEGAL_UPDATED}. Also: ${LEGAL.filter((o) => o !== l).map((o) => `<a href="${o.path}">${esc(o.nav)}</a>`).join(', ')}.</p>
-  </div>
-</section>
-<section>
-  <div class="wrap narrow guide">
-${l.sections.map(([h, html]) => `    <h2>${esc(h)}</h2>\n    ${html}`).join('\n')}
-  </div>
-</section>`,
-      jsonld: { '@context': 'https://schema.org', '@type': 'WebPage', name: l.title, url: `${SITE}${l.path}`, dateModified: LEGAL_UPDATED },
-    }),
-  );
-}
 
 // ---------------------------------------------------------------- tool pages (/tools/<name>/)
 // One page per public tool, built from its latest public build: an input form generated from the
@@ -1902,12 +1732,14 @@ writeFileSync(OUT('./search.json'), JSON.stringify(searchIndex));
 
 // ---------------------------------------------------------------- home
 const popular = allTools.slice().sort((x, y) => runs30Of(y.a) - runs30Of(x.a)).slice(0, 6);
+const topicRuns = CATS.map(([k, , names]) => [k, toolsOf(names).reduce((s, a) => s + runs30Of(a), 0)]);
+const topicTotal = Math.max(1, topicRuns.reduce((s, [, r]) => s + r, 0));
 const EXAMPLES = ['jobs at stripe', 'tenders for solar in germany', 'trustpilot reviews of a competitor', 'new companies in norway', 'flats to rent in berlin', 'polymarket election odds', 'earthquake alerts', 'exhibitors at ism cologne'];
 const homeBody = `
 <section class="hero">
   <div class="wrap">
-    <h1>Public web data, as clean rows</h1>
-    <p class="lead">${used} tools that turn public pages, registers and feeds into consistent rows. Say what you need; get the tool, its price and a ready call.</p>
+    <h1>Web data for the job you have in mind</h1>
+    <p class="lead">${used} tools that turn public pages, registers and feeds into clean rows. Say what you need; get the tool, its price and a ready call.</p>
     <div class="intent" id="intent">
       <form class="intent-box" role="search" action="/tools/" onsubmit="return false">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -1924,16 +1756,18 @@ const homeBody = `
       <li>from <b>${PRICE_FROM}</b> per 1,000 results</li>
       <li><b>${N}</b> tools for AI agents</li>
     </ul>
+    <div class="topic-bar" aria-hidden="true">${topicRuns.filter(([, r]) => r).map(([k, r]) => `<i data-k="${k}" style="flex:${r}" title="${esc(CAT_SHORT[k] || k)}: ${fmt(r)} runs in 30 days"></i>`).join('')}</div>
+    <p class="topic-cap">Public runs in the last 30 days, by topic: ${topicRuns.filter(([, r]) => r).sort((x, y) => y[1] - x[1]).slice(0, 4).map(([k, r]) => `${esc((CAT_SHORT[k] || k).toLowerCase())} ${Math.round((100 * r) / topicTotal)}%`).join(', ')}.</p>
   </div>
 </section>
 
-<section data-label="Ways in" style="padding-top:56px;padding-bottom:0">
-  <div class="wrap">
-    <div class="ways">
-      <a class="way" href="/leads/"><span class="t-kick">Ready files</span><b>Exhibitor lists</b><span>${leads.length} trade shows as CSV and Excel, refreshed weekly until the show. A free sample on every page.</span><span class="go">Browse the shows</span></a>
-      <a class="way" href="/tools/"><span class="t-kick">On demand</span><b>${used} data tools</b><span>Jobs, leads, tenders, registers, research, reviews and more. Pay per result, from ${PRICE_FROM} per 1,000.</span><span class="go">See every tool</span></a>
-      <a class="way" href="/mcp.html"><span class="t-kick">For AI agents</span><b>${N} MCP tools</b><span>One server for Claude, Cursor and any MCP client.</span><code>npx -y webdata-tools-mcp</code></a>
-    </div>
+<section class="tight" data-label="Start here">
+  <div class="wrap bento">
+    <button class="tile t-search" type="button" data-pal><span class="t-kick">Search everything</span><b>Press <kbd>⌘K</kbd> or <kbd>/</kbd></b><span>Every tool, page and AI-agent tool by name or by need; Enter opens it, Shift+Enter copies its API call.</span></button>
+    <a class="tile t-map" href="#coverage"><span class="t-kick">Coverage</span><b>${covered.length} countries</b><span>Tenders, laws, registers, recalls, alerts, jobs and property, country by country.</span></a>
+    <a class="tile t-agent" href="/mcp.html"><span class="t-kick">For AI agents</span><b>${N} MCP tools</b><code>npx -y webdata-tools-mcp</code></a>
+    <a class="tile t-price" href="/pricing.html"><span class="t-kick">Pricing</span><b>${PRICE_FROM}-${usd(q(0.9))} / 1k</b><span>Pay per result; empty searches are free; cap every run.</span></a>
+    <a class="tile t-chain" href="#compose"><span class="t-kick">Chain tools</span><b>Exhibitors > emails</b><span>Pass one tool's rows to the next and get the script.</span></a>
   </div>
 </section>
 
@@ -2006,6 +1840,10 @@ ${popular.map(({ a, k }) => toolCard(a, k)).join('\n')}
       <div><h2>Need a source that isn't here?</h2><p>Custom scrapers and daily feeds for niche boards, registers and catalogs. Send the source, three examples and where the data should go; get a free sample.</p></div>
       <a class="btn primary" href="mailto:${EMAIL}?subject=Custom%20data%20request">Email ${EMAIL}</a>
     </div>
+    <div class="grid two" style="margin-top:20px">
+      <a class="card link" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener"><span class="why">Open source</span><h3>webdata-tools-mcp</h3><p>The MCP server: MIT licensed, in the official MCP Registry, on npm, Smithery and Glama.</p></a>
+      <a class="card link" href="https://github.com/${USER}/apify-data-recipes" rel="noopener"><span class="why">Open source</span><h3>apify-data-recipes</h3><p>Copy-paste scripts: hiring signals, news alerts, review monitoring, exhibitor leads, sanctions checks, market movers and more.</p></a>
+    </div>
   </div>
 </section>`;
 
@@ -2014,11 +1852,11 @@ writeFileSync(
   page({
     path: '/',
     active: 'home',
-    title: `${BRAND}: web data tools for jobs, leads, research and public records`,
+    title: `${OWNER} (tacps126) - web data tools for jobs, leads, research and public records`,
     description: `${used} fast, low-cost web data tools: jobs and hiring signals, contacts, trade shows and events, tenders, laws, registers and recalls, research, reviews and news, property, markets and sports. Pay per result, plus an MCP server for AI agents.`,
     body: homeBody,
     jsonld: [
-      { '@context': 'https://schema.org', '@type': 'WebSite', name: BRAND, alternateName: 'tacps126', url: `${SITE}/`, description: 'Web data tools for jobs, leads, research and public records', author: { '@type': 'Person', name: OWNER, alternateName: 'tacps126', email: EMAIL, url: `${SITE}/about.html`, sameAs: [`https://github.com/${USER}`, `https://apify.com/${USER}`] } },
+      { '@context': 'https://schema.org', '@type': 'WebSite', name: `${OWNER} (tacps126)`, alternateName: 'tacps126', url: `${SITE}/`, description: 'Web data tools for jobs, leads, research and public records', author: { '@type': 'Person', name: OWNER, alternateName: 'tacps126', email: EMAIL, url: `${SITE}/about.html`, sameAs: [`https://github.com/${USER}`, `https://apify.com/${USER}`] } },
       { '@context': 'https://schema.org', '@type': 'ItemList', name: 'Web data tools', numberOfItems: allTools.length, itemListElement: allTools.map(({ a }, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/tools/${a.name}/`, name: a.title })) },
     ],
   }),
@@ -2055,7 +1893,6 @@ writeFileSync(
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${[
   ...['/', '/mcp.html', '/about.html', '/pricing.html', '/datasets.html', '/clay.html', '/integrations.html', '/blog/', '/tools/'].map((p) => entry(p)),
-  ...LEGAL.map((l) => entry(l.path)),
   ...CATS.map(([k]) => entry(`/tools/${k}/`)),
   ...allTools.map(({ a }) => entry(`/tools/${a.name}/`, ogOf(a.name) !== OG ? `<image:image><image:loc>${esc(ogOf(a.name))}</image:loc></image:image>` : '')),
   ...POSTS.map((p) => entry(`/blog/${p.id}.html`)),

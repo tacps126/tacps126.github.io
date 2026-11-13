@@ -39,9 +39,6 @@
   if (menu && links) {
     menu.addEventListener('click', function () { var o = links.classList.toggle('open'); menu.setAttribute('aria-expanded', o); });
     links.addEventListener('click', function (e) { if (e.target.tagName === 'A') links.classList.remove('open'); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && links.classList.contains('open')) { links.classList.remove('open'); menu.setAttribute('aria-expanded', false); menu.focus(); }
-    });
   }
 
   // ---- tabs and copy buttons
