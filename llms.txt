@@ -3,7 +3,7 @@
 > Fast, low-cost web data tools published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
 - [Integrations](https://tacps126.github.io/integrations.html): Clay recipes, AI agents over MCP, Hugging Face datasets, code recipes, n8n, Make, Zapier, Slack, webhooks and the REST API
-- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): 44 tools for AI agents, MIT licensed, on npm and the official MCP Registry
+- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): 45 tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/tacps126)
 - [Code recipes](https://github.com/tacps126/apify-data-recipes)
 - Contact: tacps126@gmail.com
@@ -83,6 +83,7 @@
 
 ## [E-commerce, vehicles and real estate](https://tacps126.github.io/tools/commerce/)
 - [Shopify Products Scraper](https://tacps126.github.io/tools/shopify-products/): Scrape products from any Shopify store: prices, sale prices, discounts, stock, variants, SKUs, images. Filter by sale,... (From $1.25 per 1,000 products). Run: https://apify.com/tacps126/shopify-products
+- [Walmart Scraper: Products, Prices, Stock & Sellers](https://tacps126.github.io/tools/walmart-products/): Walmart.com search results, category listings and product pages: price, was-price, rating, reviews, seller, stock,.... Run: https://apify.com/tacps126/walmart-products
 - [China Wholesale Scraper: Alibaba, 1688 & AliExpress](https://tacps126.github.io/tools/china-sourcing/): Search Alibaba and AliExpress by keyword and read Alibaba and 1688 product pages: price tiers, MOQ, supplier, country,.... Run: https://apify.com/tacps126/china-sourcing
 - [Copart Auctions Scraper: Salvage & Used Cars, Bids, Damage](https://tacps126.github.io/tools/copart-auctions/): Copart US salvage and used vehicle lots from any search: year, make, model, VIN, damage, title, odometer, estimated.... Run: https://apify.com/tacps126/copart-auctions
 - [Auctions Radar: Bank, Court & Government Auctions, Scored](https://tacps126.github.io/tools/auctions-radar/): Foreclosure, court and bank auctions from Germany, Spain, Italy and India in one format: price, valuation, debts, area,.... Run: https://apify.com/tacps126/auctions-radar
