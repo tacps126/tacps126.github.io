@@ -10,7 +10,7 @@ const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
 // Listings added in the last few weeks get a "New" badge.
 const NEW = new Set(['walmart-products', 'company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
-  'dice-jobs-scraper', 'builtin-jobs-scraper', 'reddit-lead-finder', 'shopify-store-analyzer', 'naukri-jobs-scraper',
+  'dice-jobs-scraper', 'builtin-jobs-scraper', 'shopify-store-analyzer', 'naukri-jobs-scraper',
   'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar', 'youtube-transcripts',
   'sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results',
   'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding', 'clinical-trials', 'fda-device-clearances', 'npi-providers',
@@ -84,11 +84,11 @@ const ALL_CATS = [
     'greenhouse-jobs-scraper', 'lever-jobs-scraper', 'ashby-jobs-scraper', 'workday-jobs-scraper',
     'smartrecruiters-jobs-scraper', 'recruitee-jobs-scraper', 'personio-jobs-scraper',
     'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper']],
-  ['leads', 'Leads, events and contacts', ['company-registry', 'contact-details', 'reddit-lead-finder', 'shopify-store-analyzer', 'exhibition-scraper',
+  ['leads', 'Leads, events and contacts', ['company-registry', 'contact-details', 'shopify-store-analyzer', 'exhibition-scraper',
     'map-your-show-exhibitor-scraper', 'messe-frankfurt-exhibitor-scraper', 'messe-duesseldorf-exhibitor-scraper', 'rx-exhibitor-scraper',
     'a2z-exhibitor-scraper', 'koelnmesse-exhibitor-scraper', 'nuernbergmesse-exhibitor-scraper', 'swapcard-exhibitor-scraper', 'expoplatform-exhibitor-scraper',
     'us-import-records', 'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
-  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'youtube-comments', 'podcasts', 'research-radar', 'innovation-radar', 'reddit-monitor']],
+  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'youtube-comments', 'podcasts', 'research-radar', 'innovation-radar']],
   ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar', 'cve-feed']],
   ['health', 'Health and life sciences', ['clinical-trials', 'fda-device-clearances', 'npi-providers']],
   ['commerce', 'E-commerce, vehicles and real estate', ['shopify-products', 'walmart-products', 'china-sourcing', 'copart-auctions', 'auctions-radar', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
@@ -144,8 +144,6 @@ const MCP_TOOLS = [
   ['search_naukri_jobs', 'Naukri.com jobs (India) with full description and salary', 'naukri-jobs-scraper', '$1.50 / 1,000 jobs'],
   ['get_trustpilot_reviews', 'Trustpilot reviews, TrustScore and company profile', 'trustpilot-reviews', '$0.28 / 1,000 reviews'],
   ['get_app_reviews', 'App Store and Google Play reviews', 'app-reviews', '$0.15 / 1,000 reviews'],
-  ['search_reddit', 'Reddit posts and comments by keyword or subreddit', 'reddit-monitor', '$1 / 1,000 items'],
-  ['find_reddit_leads', 'Reddit posts asking for a tool like yours or an alternative to a competitor', 'reddit-lead-finder', '$2 / 1,000 leads'],
   ['find_website_contacts', 'Emails, phones and social profiles from websites', 'contact-details', '$1.75 / 1,000 sites with contacts'],
   ['find_local_businesses', 'Local businesses by category and city, with their contacts', 'contact-details', '$1.25 / 1,000 businesses + $1.75 / 1,000 with site contacts'],
   ['search_german_property_listings', 'Rent and buy listings in Germany and Austria', 'immobilienscout24-scraper', '$0.95 / 1,000 listings'],
@@ -406,8 +404,8 @@ const labelOf = Object.fromEntries(CATS.map(([k, l]) => [k, l]));
 // appears only once its listing is public, so cards never name an unreleased tool.
 const USES = [
   ['jobs', 'briefcase', 'Recruiting and job boards', 'Every open role from company career pages (13 systems, or just type a company name), LinkedIn, Indeed, Glassdoor, Wellfound, Dice and remote-job feeds in one format, with only-new mode for daily feeds.'],
-  ['leads', 'target', 'Sales and lead generation', 'Hiring signals show who is hiring for the roles you sell to. Reddit Lead Finder spots people asking for a tool like yours. Contact details builds local lead lists by category and city and adds emails, phones and socials to any list; the Shopify Store Analyzer does the same for stores. US Import Records shows who an importer buys from and which other brands use the same factories.'],
-  ['reviews', 'star', 'Brand and reputation', 'Trustpilot and app-store reviews, Google News with real publisher links, and Reddit mentions, with alerts on new items only.'],
+  ['leads', 'target', 'Sales and lead generation', 'Hiring signals show who is hiring for the roles you sell to. Contact details builds local lead lists by category and city and adds emails, phones and socials to any list; the Shopify Store Analyzer does the same for stores. US Import Records shows who an importer buys from and which other brands use the same factories.'],
+  ['reviews', 'star', 'Brand and reputation', 'Trustpilot and app-store reviews and Google News with real publisher links, with alerts on new items only.'],
   ['health', 'pulse', 'Health and life sciences', [
     ['clinical-trials', 'Clinical trials by condition, drug, sponsor and phase with sites and contacts'],
     ['fda-device-clearances', 'FDA 510(k) and PMA device clearances with the applicant and review time'],
@@ -521,7 +519,7 @@ const mcpBody = `
   <div class="wrap">
     <span class="eyebrow">MCP server</span>
     <h1>Web data tools for <span class="grad">your AI agent</span></h1>
-    <p class="lead">webdata-tools-mcp gives Claude, Cursor and any MCP client ${nWord} typed tools for jobs, hiring signals, news, research papers and patents, field trends and idea validation, reviews, Reddit, contacts, property, Shopify, trade shows and events, plus two analyst prompts. They run ready-made Apify Actors on your own Apify account and return clean, short results.</p>
+    <p class="lead">webdata-tools-mcp gives Claude, Cursor and any MCP client ${nWord} typed tools for jobs, hiring signals, news, research papers and patents, field trends and idea validation, reviews, contacts, property, Shopify, trade shows and events, plus two analyst prompts. They run ready-made Apify Actors on your own Apify account and return clean, short results.</p>
     <div class="cta-row">
       <a class="btn primary" href="#install">Install</a>
       <a class="btn" href="https://github.com/${USER}/webdata-tools-mcp" rel="noopener">View on GitHub</a>
@@ -606,7 +604,7 @@ writeFileSync(
     path: '/mcp.html',
     active: 'mcp',
     title: 'webdata-tools-mcp - MCP server for jobs, news, reviews and leads',
-    description: `${NWord} web-data tools for AI agents: job postings, hiring signals, Google News, research and field trends, Trustpilot and app reviews, Reddit, contacts, property, Shopify, exhibitors and events. Runs Apify Actors on your own token with a spend cap.`,
+    description: `${NWord} web-data tools for AI agents: job postings, hiring signals, Google News, research and field trends, Trustpilot and app reviews, contacts, property, Shopify, exhibitors and events. Runs Apify Actors on your own token with a spend cap.`,
     body: mcpBody,
     jsonld: {
       '@context': 'https://schema.org',
@@ -1919,7 +1917,7 @@ writeFileSync(
   OUT('./llms.txt'),
   `# tacps126
 
-> Fast, low-cost web data tools published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
+> Fast, low-cost web data tools published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
 - [Integrations](${SITE}/integrations.html): Clay recipes, AI agents over MCP, Hugging Face datasets, code recipes, n8n, Make, Zapier, Slack, webhooks and the REST API
 - [MCP server (webdata-tools-mcp)](${SITE}/mcp.html): ${nWord} tools for AI agents, MIT licensed, on npm and the official MCP Registry

@@ -135,7 +135,7 @@
     companies: 'company-registry', company: 'company-registry', registered: 'company-registry', incorporated: 'company-registry', insolvencies: 'company-registry', registry: 'company-registry',
     alert: 'alerts-radar', alerts: 'alerts-radar', earthquake: 'alerts-radar', earthquakes: 'alerts-radar', flood: 'alerts-radar', storm: 'alerts-radar', weather: 'alerts-radar', cyclone: 'alerts-radar', wildfire: 'alerts-radar',
     news: 'google-news', headlines: 'google-news', articles: 'google-news', review: 'trustpilot-reviews', reviews: 'trustpilot-reviews', trustpilot: 'trustpilot-reviews', complaints: 'trustpilot-reviews',
-    app: 'app-reviews', apps: 'app-reviews', reddit: 'reddit-monitor', subreddit: 'reddit-monitor', email: 'contact-details', emails: 'contact-details', contacts: 'contact-details', phones: 'contact-details',
+    app: 'app-reviews', apps: 'app-reviews', email: 'contact-details', emails: 'contact-details', contacts: 'contact-details', phones: 'contact-details',
     exhibitor: 'exhibition-scraper', exhibitors: 'exhibition-scraper', expo: 'exhibition-scraper', fair: 'exhibition-scraper', booth: 'exhibition-scraper',
     event: 'events-scraper', events: 'events-scraper', meetup: 'events-scraper', meetups: 'events-scraper', conference: 'events-scraper', conferences: 'events-scraper',
     shopify: 'shopify-products', store: 'shopify-store-analyzer', stores: 'shopify-store-analyzer',
@@ -150,8 +150,7 @@
     youtube: 'youtube-transcripts', transcript: 'youtube-transcripts', transcripts: 'youtube-transcripts', comments: 'youtube-comments', podcast: 'podcasts', podcasts: 'podcasts',
     trial: 'clinical-trials', trials: 'clinical-trials', clinical: 'clinical-trials', cve: 'cve-feed', vulnerabilities: 'cve-feed', vulnerability: 'cve-feed',
     doctor: 'npi-providers', doctors: 'npi-providers', dentist: 'npi-providers', dentists: 'npi-providers', clinics: 'npi-providers', physicians: 'npi-providers',
-    asking: 'reddit-lead-finder', alternative: 'reddit-lead-finder', alternatives: 'reddit-lead-finder', recommend: 'reddit-lead-finder', recommendations: 'reddit-lead-finder',
-    funding: 'startup-funding', raised: 'startup-funding', raises: 'startup-funding', district: 'india-district-notices', regulator: 'gov-radar', regulators: 'gov-radar', circulars: 'gov-radar',
+        funding: 'startup-funding', raised: 'startup-funding', raises: 'startup-funding', district: 'india-district-notices', regulator: 'gov-radar', regulators: 'gov-radar', circulars: 'gov-radar',
   };
   var FILLER = /^(find|show|get|list|me|all|in|at|of|to|near|about|on|by|from|for|the|a|an|with|top|best|every|latest|new|recent|data|scrape|scraper|i|need|want|who|what|which|are|is|and|or|my|our|some|any|please|give|lookup|look|up|selling|sell|sells|sold|check|posts|results|people|someone|via|using|how|much|many|does|cost)$/;
   function wordsOf(s) { return s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter(Boolean); }
