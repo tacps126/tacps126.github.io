@@ -42,7 +42,7 @@
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
-    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 85 tools</span><kbd>⌘K</kbd></button>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 83 tools</span><kbd>⌘K</kbd></button>
     <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="/tools/" aria-current="page">Tools</a>
@@ -207,10 +207,12 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
 <h3 id="g-monitor-new-reviews">Monitor new reviews</h3>
 <p>Turn on <code>onlyNew</code> and schedule the Actor (e.g. hourly or daily): each run returns only reviews posted since the previous runs, and you pay only for those. Great for alerting on new negative reviews (<code>starRatings: [&quot;1&quot;,&quot;2&quot;]</code> + <code>onlyNew</code>) - connect an Apify integration (Slack, email, Google Sheets, webhooks) to get them delivered automatically.</p>
 <h3 id="g-use-it-as-an-instant-api">Use it as an instant API</h3>
-<p>The Actor also runs in <strong>Standby mode</strong>: an always-ready web endpoint that returns reviews directly in the response - handy for apps, dashboards, and AI agents. Find the endpoint URL on the Actor's <strong>Standby</strong> tab and call it with your Apify API token:</p>
-<div class="code"><div class="code-top"><span>bash</span><button class="copy" type="button">Copy</button></div><pre>curl &quot;https://&lt;standby-url&gt;/?company=apify.com&amp;maxReviews=20&amp;sort=recency&quot; \
-  -H &quot;Authorization: Bearer &lt;YOUR_APIFY_TOKEN&gt;&quot;</pre></div>
-<p>Any input field works as a query parameter (or <code>POST</code> the input as JSON). The response looks like <code>{&quot;success&quot;: true, &quot;count&quot;: 21, &quot;items&quot;: [ ... ]}</code> - the company record plus its reviews. Pricing is the same per review.</p>
+<p>Get the results straight in the API response with Apify's <code>run-sync-get-dataset-items</code> endpoint, ideal for apps, spreadsheets and AI agents:</p>
+<div class="code"><div class="code-top"><span>bash</span><button class="copy" type="button">Copy</button></div><pre>curl -X POST &quot;https://api.apify.com/v2/acts/tacps126~trustpilot-reviews/run-sync-get-dataset-items&quot; \
+  -H &quot;Authorization: Bearer &lt;YOUR_APIFY_TOKEN&gt;&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;companies&quot;: [&quot;apify.com&quot;], &quot;maxReviews&quot;: 20, &quot;sort&quot;: &quot;recency&quot;}'</pre></div>
+<p>The response is the list of reviews. AI agents can also run it through Apify's MCP server (<code>https://mcp.apify.com?tools=tacps126/trustpilot-reviews</code>).</p>
 <h3 id="g-how-to-use">How to use</h3>
 <ol><li>Add the companies you want reviews for.</li><li>Set optional filters (<code>maxReviews</code>, <code>stars</code>, <code>language</code>).</li><li>Run the Actor, then download the results as JSON / CSV / Excel, or use the dataset API.</li></ol>
 <p>A proxy is <strong>not required</strong> - the Actor works out of the box. You can optionally enable an Apify proxy under <strong>Proxy</strong> if you want to route traffic through specific regions.</p>
@@ -234,9 +236,9 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
     <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2><p>Tools whose rows feed this one, or that take its rows further.</p></div>
     <div class="grid">
       <a class="card link" href="/tools/contact-details/"><span class="why">Send its company websites into</span><h3>Website Email Finder &amp; Contact Details Scraper</h3><p>Website email finder: get emails, phone numbers and LinkedIn, X, Facebook, Instagram and YouTube links from...</p></a>
-      <a class="card link" href="/tools/reddit-monitor/"><span class="why">Also in reviews and research</span><h3>Reddit Scraper &amp; Keyword Monitor</h3><p>Scrape Reddit posts and comments by keyword, subreddit or user - title, text, author, subreddit, links,...</p></a>
       <a class="card link" href="/tools/app-reviews/"><span class="why">Also in reviews and research</span><h3>App Store &amp; Google Play Reviews Scraper</h3><p>Scrape app reviews from the Apple App Store and Google Play in one dataset: rating, text, author, date, app...</p></a>
       <a class="card link" href="/tools/google-news/"><span class="why">Also in reviews and research</span><h3>Google News Scraper</h3><p>Scrape Google News: search results, topic sections and top stories in any language and country - with the...</p></a>
+      <a class="card link" href="/tools/youtube-transcripts/"><span class="why">Also in reviews and research</span><h3>YouTube Transcript Scraper</h3><p>YouTube transcripts for videos, playlists, channels and searches: full text, timestamps, language choice,...</p></a>
     </div>
   </div>
 </section>
@@ -302,7 +304,7 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
     </div>
   </div>
 </footer>
-<script src="/app.js?v=93adc7d3b9" defer></script>
+<script src="/app.js?v=67b9cb25e8" defer></script>
 <script src="/tool.js?v=a64914dde6" defer></script>
 </body>
 </html>

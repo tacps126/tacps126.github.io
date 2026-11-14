@@ -42,7 +42,7 @@
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
-    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 85 tools</span><kbd>⌘K</kbd></button>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 83 tools</span><kbd>⌘K</kbd></button>
     <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="/tools/" aria-current="page">Tools</a>
@@ -179,10 +179,12 @@ https://mcp.apify.com?tools=tacps126/himalayas-remote-jobs-scraper</pre>
 <p>Turn on <strong>Only new jobs</strong> and schedule the Actor (hourly, daily, weekly). Each run returns only postings earlier runs haven't delivered - you're charged only for new ones. Connect Slack, email, Google Sheets, Zapier, Make or a webhook to get them pushed to you automatically.</p>
 <p><strong>Changes only</strong> goes one step further: each run returns new jobs, jobs whose salary, location, title or work mode changed (with the old and new values), and jobs that were <strong>taken down</strong> (<code>changeType: &quot;removed&quot;</code>), a ready signal of what a company stopped hiring for. Unchanged jobs are free.</p>
 <h3 id="g-use-it-as-an-instant-api">Use it as an instant API</h3>
-<p>The Actor also runs in <strong>Standby mode</strong> - an always-ready endpoint that returns jobs straight in the response, ideal for apps, spreadsheets and AI agents. Find the URL on the <strong>Standby</strong> tab:</p>
-<div class="code"><div class="code-top"><span>bash</span><button class="copy" type="button">Copy</button></div><pre>curl &quot;https://&lt;standby-url&gt;/?query=rust&amp;maxItems=20&quot; \
-  -H &quot;Authorization: Bearer &lt;YOUR_APIFY_TOKEN&gt;&quot;</pre></div>
-<p>Any input field works as a query parameter, or <code>POST</code> the full input as JSON. The response is <code>{&quot;success&quot;: true, &quot;count&quot;: 20, &quot;items&quot;: [ ... ]}</code>.</p>
+<p>Get the results straight in the API response with Apify's <code>run-sync-get-dataset-items</code> endpoint, ideal for apps, spreadsheets and AI agents:</p>
+<div class="code"><div class="code-top"><span>bash</span><button class="copy" type="button">Copy</button></div><pre>curl -X POST &quot;https://api.apify.com/v2/acts/tacps126~himalayas-remote-jobs-scraper/run-sync-get-dataset-items&quot; \
+  -H &quot;Authorization: Bearer &lt;YOUR_APIFY_TOKEN&gt;&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;query&quot;: &quot;rust&quot;, &quot;maxItems&quot;: 20}'</pre></div>
+<p>The response is the list of jobs. AI agents can also run it through Apify's MCP server (<code>https://mcp.apify.com?tools=tacps126/himalayas-remote-jobs-scraper</code>).</p>
 <h3 id="g-pricing">Pricing</h3>
 <p>Pay per result: about <strong>$1 per 1,000 jobs</strong> (lower on higher Apify plans) plus a tiny start fee. Filtered-out, duplicate and (with <em>Only new jobs</em>) already-seen jobs are free. Because the Actor needs so little memory and time, platform usage stays close to zero. See the <strong>Pricing</strong> tab for exact rates, and set a maximum charge per run to cap spend.</p>
 <p>On Apify's <strong>free plan</strong> each run returns up to 500 jobs - plenty to try everything. Any paid Apify plan removes the limit.</p>
@@ -272,7 +274,7 @@ https://mcp.apify.com?tools=tacps126/himalayas-remote-jobs-scraper</pre>
     </div>
   </div>
 </footer>
-<script src="/app.js?v=93adc7d3b9" defer></script>
+<script src="/app.js?v=67b9cb25e8" defer></script>
 <script src="/tool.js?v=a64914dde6" defer></script>
 </body>
 </html>

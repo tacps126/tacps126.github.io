@@ -42,7 +42,7 @@
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
-    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 85 tools</span><kbd>⌘K</kbd></button>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 83 tools</span><kbd>⌘K</kbd></button>
     <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="/tools/" aria-current="page">Tools</a>
@@ -232,10 +232,12 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
 <h3 id="g-only-new-websites">Only new websites</h3>
 <p>Working through a growing lead list? Turn on <strong>Only new websites</strong> and re-run with the whole list - websites an earlier run already delivered are skipped (and not charged).</p>
 <h3 id="g-use-it-as-an-instant-api">Use it as an instant API</h3>
-<p>The Actor also runs in <strong>Standby mode</strong> - an always-ready endpoint that returns contacts straight in the response, ideal for enriching leads from your own app, CRM workflow or AI agent. Find the URL on the <strong>Standby</strong> tab:</p>
-<div class="code"><div class="code-top"><span>bash</span><button class="copy" type="button">Copy</button></div><pre>curl &quot;https://&lt;standby-url&gt;/?url=apify.com,zalando.de&quot; \
-  -H &quot;Authorization: Bearer &lt;YOUR_APIFY_TOKEN&gt;&quot;</pre></div>
-<p>Any input field works as a query parameter (<code>url</code> is shorthand; separate several websites with commas), or <code>POST</code> the full input as JSON. The response is <code>{&quot;success&quot;: true, &quot;count&quot;: 2, &quot;items&quot;: [ ... ]}</code>.</p>
+<p>Get the results straight in the API response with Apify's <code>run-sync-get-dataset-items</code> endpoint, ideal for apps, spreadsheets and AI agents:</p>
+<div class="code"><div class="code-top"><span>bash</span><button class="copy" type="button">Copy</button></div><pre>curl -X POST &quot;https://api.apify.com/v2/acts/tacps126~contact-details/run-sync-get-dataset-items&quot; \
+  -H &quot;Authorization: Bearer &lt;YOUR_APIFY_TOKEN&gt;&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;startUrls&quot;: [&quot;apify.com&quot;, &quot;zalando.de&quot;]}'</pre></div>
+<p>The response is the list of contacts. AI agents can also run it through Apify's MCP server (<code>https://mcp.apify.com?tools=tacps126/contact-details</code>).</p>
 <h3 id="g-use-it-in-clay">Use it in Clay</h3>
 <p>Add a <strong>Run Apify Actor</strong> column (Clay's Apify integration, connected to your Apify account), pick <code>tacps126/contact-details</code> and use this input. Type <code>/</code> inside the quotes to insert your column (website or domain):</p>
 <div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{&quot;startUrls&quot;: [&quot;/Website&quot;], &quot;maxPagesPerSite&quot;: 5}</pre></div>
@@ -330,7 +332,7 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
     </div>
   </div>
 </footer>
-<script src="/app.js?v=93adc7d3b9" defer></script>
+<script src="/app.js?v=67b9cb25e8" defer></script>
 <script src="/tool.js?v=a64914dde6" defer></script>
 </body>
 </html>

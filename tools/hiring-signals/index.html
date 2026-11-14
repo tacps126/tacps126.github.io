@@ -42,7 +42,7 @@
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
-    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 85 tools</span><kbd>⌘K</kbd></button>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 83 tools</span><kbd>⌘K</kbd></button>
     <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="/tools/" aria-current="page">Tools</a>
@@ -251,7 +251,12 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
 <h3 id="g-hiring-and-layoffs-side-by-side">Hiring and layoffs side by side</h3>
 <p>Turn on <strong>Add US layoff notices (WARN)</strong> to match each company against the official WARN lists of California, Colorado, Iowa, Maryland and Texas. US employers must file these notices before larger layoffs and closures, so a company that is hiring data engineers while filing a closure for a warehouse shows both in one record. Pick the states and how far back to look (default: a year). Matching uses the company name; no extra charge.</p>
 <h3 id="g-use-it-as-an-instant-api">Use it as an instant API</h3>
-<p>The Actor also runs in <strong>Standby mode</strong> - an always-ready endpoint that returns signals straight in the response, handy for enrichment workflows and AI agents. Find the URL on the <strong>Standby</strong> tab and <code>POST</code> the input as JSON.</p>
+<p>Get the results straight in the API response with Apify's <code>run-sync-get-dataset-items</code> endpoint, ideal for apps, spreadsheets and AI agents:</p>
+<div class="code"><div class="code-top"><span>bash</span><button class="copy" type="button">Copy</button></div><pre>curl -X POST &quot;https://api.apify.com/v2/acts/tacps126~hiring-signals/run-sync-get-dataset-items&quot; \
+  -H &quot;Authorization: Bearer &lt;YOUR_APIFY_TOKEN&gt;&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;companies&quot;: [&quot;stripe.com&quot;, &quot;notion.so&quot;]}'</pre></div>
+<p>The response is the list of signals. AI agents can also run it through Apify's MCP server (<code>https://mcp.apify.com?tools=tacps126/hiring-signals</code>).</p>
 <h3 id="g-use-it-in-clay">Use it in Clay</h3>
 <p>Add a <strong>Run Apify Actor</strong> column (Clay's Apify integration, connected to your Apify account), pick <code>tacps126/hiring-signals</code> and use this input. Type <code>/</code> inside the quotes to insert your column (company website; a name or a jobs page link also works):</p>
 <div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{&quot;companies&quot;: [&quot;/Website&quot;], &quot;includeRoles&quot;: false}</pre></div>
@@ -346,7 +351,7 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
     </div>
   </div>
 </footer>
-<script src="/app.js?v=93adc7d3b9" defer></script>
+<script src="/app.js?v=67b9cb25e8" defer></script>
 <script src="/tool.js?v=a64914dde6" defer></script>
 </body>
 </html>

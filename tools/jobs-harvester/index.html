@@ -42,7 +42,7 @@
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
-    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 85 tools</span><kbd>⌘K</kbd></button>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 83 tools</span><kbd>⌘K</kbd></button>
     <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="/tools/" aria-current="page">Tools</a>
@@ -218,10 +218,12 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
 <p>Turn on <code>onlyNew</code> and schedule the Actor (e.g. daily). Each run delivers only postings that earlier runs haven't - you're charged only for new jobs. Use a different <code>monitorName</code> per monitor if you run several. Pair it with an Apify integration (Slack, email, Google Sheets, webhooks) to get new jobs delivered automatically.</p>
 <p><strong>Changes only</strong> goes one step further: each run returns new jobs, jobs whose salary, location, title or work mode changed (with the old and new values), and jobs that were <strong>taken down</strong> (<code>changeType: &quot;removed&quot;</code>), a ready signal of what a company stopped hiring for. Unchanged jobs are free.</p>
 <h3 id="g-use-it-as-an-instant-api">Use it as an instant API</h3>
-<p>The Actor also runs in <strong>Standby mode</strong>: an always-ready web endpoint that returns jobs directly in the response - ideal for apps, spreadsheets, and AI agents. Find the endpoint URL on the Actor's <strong>Standby</strong> tab and call it with your Apify API token:</p>
-<div class="code"><div class="code-top"><span>bash</span><button class="copy" type="button">Copy</button></div><pre>curl &quot;https://&lt;standby-url&gt;/?platform=greenhouse&amp;company=stripe&amp;titleIncludes=engineer&amp;maxItems=20&quot; \
-  -H &quot;Authorization: Bearer &lt;YOUR_APIFY_TOKEN&gt;&quot;</pre></div>
-<p>Pass any input field as a query parameter (a single source can be given flat, as above), or <code>POST</code> the full input as JSON. The response looks like <code>{&quot;success&quot;: true, &quot;count&quot;: 20, &quot;items&quot;: [ ... ]}</code>. Pricing is the same per job.</p>
+<p>Get the results straight in the API response with Apify's <code>run-sync-get-dataset-items</code> endpoint, ideal for apps, spreadsheets and AI agents:</p>
+<div class="code"><div class="code-top"><span>bash</span><button class="copy" type="button">Copy</button></div><pre>curl -X POST &quot;https://api.apify.com/v2/acts/tacps126~jobs-harvester/run-sync-get-dataset-items&quot; \
+  -H &quot;Authorization: Bearer &lt;YOUR_APIFY_TOKEN&gt;&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;sources&quot;: [{&quot;platform&quot;: &quot;greenhouse&quot;, &quot;company&quot;: &quot;stripe&quot;}], &quot;titleIncludes&quot;: [&quot;engineer&quot;], &quot;maxItems&quot;: 20}'</pre></div>
+<p>The response is the list of jobs. AI agents can also run it through Apify's MCP server (<code>https://mcp.apify.com?tools=tacps126/jobs-harvester</code>).</p>
 <h3 id="g-about-referral-links">About referral links</h3>
 <p>Several talent marketplaces reward members who refer candidates. Where the Actor's maintainer has a referral link for a board, jobs from that board carry an extra <code>referralUrl</code> field - applying through it may credit the maintainer, at no cost to the candidate. The posting itself, <code>url</code>, and <code>applyUrl</code> are <strong>never</strong> changed, and you can leave the field out entirely with <code>includeReferralLinks: false</code>.</p>
 <h3 id="g-more-boards-with-your-own-access">More boards with your own access</h3>
@@ -326,7 +328,7 @@ claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata
     </div>
   </div>
 </footer>
-<script src="/app.js?v=93adc7d3b9" defer></script>
+<script src="/app.js?v=67b9cb25e8" defer></script>
 <script src="/tool.js?v=a64914dde6" defer></script>
 </body>
 </html>

@@ -1,9 +1,9 @@
 # tacps126
 
-> Fast, low-cost web data tools published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, Reddit, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
+> Fast, low-cost web data tools published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
 - [Integrations](https://tacps126.github.io/integrations.html): Clay recipes, AI agents over MCP, Hugging Face datasets, code recipes, n8n, Make, Zapier, Slack, webhooks and the REST API
-- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): 45 tools for AI agents, MIT licensed, on npm and the official MCP Registry
+- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): 43 tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/tacps126)
 - [Code recipes](https://github.com/tacps126/apify-data-recipes)
 - Contact: tacps126@gmail.com
@@ -36,7 +36,6 @@
 ## [Leads, events and contacts](https://tacps126.github.io/tools/leads/)
 - [Company Registry: New Companies, Insolvencies & Search](https://tacps126.github.io/tools/company-registry/): Official company registers: new companies in France (BODACC), Norway, Finland and Estonia daily, French insolvencies,.... Run: https://apify.com/tacps126/company-registry
 - [Website Email Finder & Contact Details Scraper](https://tacps126.github.io/tools/contact-details/): Website email finder: get emails, phone numbers and LinkedIn, X, Facebook, Instagram and YouTube links from any list of... ($1.75 per 1,000 sites with contacts). Run: https://apify.com/tacps126/contact-details
-- [Reddit Lead Finder: Buying-Intent Posts](https://tacps126.github.io/tools/reddit-lead-finder/): Find people on Reddit asking for a tool like yours, looking for an alternative to a competitor, comparing options or... (From $2 per 1,000 leads). Run: https://apify.com/tacps126/reddit-lead-finder
 - [Shopify Store Analyzer: Contacts, Location & Catalog](https://tacps126.github.io/tools/shopify-store-analyzer/): Analyze Shopify stores: location, currency, product count, price range, top brands, newest product, plus e-mails,... (From $4 per 1,000 stores). Run: https://apify.com/tacps126/shopify-store-analyzer
 - [Trade Show Exhibitor List Scraper - Emails & Booths](https://tacps126.github.io/tools/exhibition-scraper/): Exhibitor lists from 91 trade shows (MEDICA, SEMA, NAB, IMTS, WTM, Automechanika, ISH, World Health Expo..) or any show.... Run: https://apify.com/tacps126/exhibition-scraper
 - [Map Your Show Exhibitor List Scraper](https://tacps126.github.io/tools/map-your-show-exhibitor-scraper/): Exhibitor lists from Map Your Show trade shows (SEMA Show, NAB Show, IMTS..) or any Map Your Show show by URL: company,.... Run: https://apify.com/tacps126/map-your-show-exhibitor-scraper
@@ -63,7 +62,6 @@
 - [Podcast Scraper: Apple Charts, Shows, Hosts & Episodes](https://tacps126.github.io/tools/podcasts/): Podcasts from Apple Podcasts search, top charts (any country and genre) and links, with each show's owner name and.... Run: https://apify.com/tacps126/podcasts
 - [Research Papers Scraper: PubMed, arXiv, Patents & Trials](https://tacps126.github.io/tools/research-radar/): Search OpenAlex, arXiv, PubMed, Europe PMC and patents at once: one deduplicated, newest-first feed of papers and... (From $3 per 1,000 results). Run: https://apify.com/tacps126/research-radar
 - [Innovation Radar: Field Trends & Idea Validation](https://tacps126.github.io/tools/innovation-radar/): Analyse a technology field or validate a product idea from open research and patent data: growth and momentum, leading.... Run: https://apify.com/tacps126/innovation-radar
-- [Reddit Scraper & Keyword Monitor](https://tacps126.github.io/tools/reddit-monitor/): Scrape Reddit posts and comments by keyword, subreddit or user - title, text, author, subreddit, links, dates. Built... (From $1 per 1,000 posts and comments). Run: https://apify.com/tacps126/reddit-monitor
 
 ## [Government, compliance, tenders, grants, regulation and alerts](https://tacps126.github.io/tools/gov/)
 - [Sanctions Screener: OFAC, UN, EU, UK & Canada Lists](https://tacps126.github.io/tools/sanctions-screener/): Screen names against the official OFAC SDN and consolidated, UN, EU, UK, Canada and Switzerland sanctions lists: fuzzy.... Run: https://apify.com/tacps126/sanctions-screener
