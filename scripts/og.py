@@ -87,64 +87,132 @@ def gradient_text(img, xy, text, f):
     img.paste(grad, (0, 0), mask)
 
 
+# The share image is drawn at 2x and scaled down once, so curves and text stay smooth.
+K = 2
+# Logos for the right-hand wall, most familiar first; only public tools with an icon are used.
+WALL = [
+    "amazon-products", "google-maps-places", "linkedin-jobs-scraper", "youtube-scraper", "tiktok-scraper",
+    "indeed-jobs", "zillow-scraper", "walmart-products", "airbnb-listings", "facebook-pages", "google-trends",
+    "pinterest-scraper", "glassdoor-jobs-scraper", "threads-scraper", "shopify-products", "trustpilot-reviews",
+    "google-hotels", "telegram-scraper", "bluesky-scraper", "rightmove-scraper", "google-news",
+    "eventbrite-events-scraper", "greenhouse-jobs-scraper", "copart-auctions", "linkedin-companies",
+]
+
+
+def sans(weight, size):
+    """Inter (fonts/, OFL) for the share image: headline and labels."""
+    f = ImageFont.truetype(str(ROOT / "fonts" / "inter-latin-wght-normal.woff2"), size * K)
+    f.set_variation_by_axes([weight])
+    return f
+
+
+def soft_background():
+    """Deep navy with three large, blurred colour pools; no grid, no lines."""
+    w, h = W * K, H * K
+    img = Image.new("RGB", (w // 8, h // 8), BG1)
+    px = img.load()
+    for y in range(img.height):
+        for x in range(img.width):
+            t = (x / img.width) * 0.55 + (y / img.height) * 0.45
+            px[x, y] = tuple(int(BG1[i] + (BG2[i] - BG1[i]) * t) for i in range(3))
+    img = img.resize((w, h), Image.BICUBIC).convert("RGBA")
+    pools = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    g = ImageDraw.Draw(pools)
+    for (cx, cy, r, col, a) in [(-80, 40, 520, ACCENT, 80), (1080, 300, 560, ACCENT2, 70), (640, 760, 420, (236, 72, 153), 45)]:
+        g.ellipse([(cx - r) * K, (cy - r) * K, (cx + r) * K, (cy + r) * K], fill=(*col, a))
+    return Image.alpha_composite(img, pools.filter(ImageFilter.GaussianBlur(160 * K)))
+
+
+def fetch_icon(url, size):
+    import io
+    import urllib.request
+
+    try:
+        data = urllib.request.urlopen(url, timeout=20).read()
+        return Image.open(io.BytesIO(data)).convert("RGBA").resize((size, size), Image.LANCZOS)
+    except Exception as e:  # a missing logo just leaves a gap in the wall
+        print(f"og: icon {url[:60]}: {e}", file=sys.stderr)
+        return None
+
+
+def logo_wall(img, icons):
+    """Staggered columns of rounded logo tiles that run off the right edge, fading in from the left."""
+    tile, gap, radius = 118 * K, 24 * K, 30 * K
+    cols, x0 = 4, 700 * K
+    names = [n for n in WALL if icons.get(n)][:cols * 5]
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    shadow = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    sd = ImageDraw.Draw(shadow)
+    mask = Image.new("L", (tile, tile), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, tile - 1, tile - 1], radius, fill=255)
+    k = 0
+    for c in range(cols):
+        x = x0 + c * (tile + gap)
+        y = (-70 if c % 2 == 0 else -10) * K
+        while y < img.height and k < len(names):
+            im = fetch_icon(icons[names[k]], tile)
+            k += 1
+            if im is None:
+                continue
+            sd.rounded_rectangle([x + 6 * K, y + 14 * K, x + tile + 6 * K, y + tile + 14 * K], radius, fill=(0, 0, 10, 150))
+            layer.paste(im, (x, y), mask)
+            ImageDraw.Draw(layer).rounded_rectangle([x, y, x + tile - 1, y + tile - 1], radius, outline=(255, 255, 255, 40), width=2 * K)
+            y += tile + gap
+    shadow = shadow.filter(ImageFilter.GaussianBlur(14 * K))
+    fade = Image.new("L", img.size, 255)
+    fp = ImageDraw.Draw(fade)
+    for x in range(x0 - 60 * K, x0 + 160 * K):  # tiles fade in from the text side
+        a = max(0, min(255, int(255 * (x - (x0 - 60 * K)) / (220 * K))))
+        fp.line([(x, 0), (x, img.height)], fill=a)
+    for part in (shadow, layer):
+        part.putalpha(Image.composite(part.getchannel("A"), Image.new("L", img.size, 0), fade))
+        img.alpha_composite(part)
+
+
 def main(path):
     data = json.loads(Path(path).read_text())
-    img = background()
+    img = soft_background()
+    logo_wall(img, data.get("icons", {}))
     d = ImageDraw.Draw(img, "RGBA")
+    S = lambda v: v * K
 
-    # brand: icon + name
-    icon = Image.open(ROOT / "icon-512.png").convert("RGBA").resize((76, 76), Image.LANCZOS)
-    img.alpha_composite(icon, (62, 54))
-    d.text((154, 58), data["name"], font=DISPLAY(38), fill=TEXT)
-    d.text((156, 106), "web data tools on Apify", font=MONO(20), fill=MUTED)
+    # brand
+    brand = Image.open(ROOT / "icon-512.png").convert("RGBA").resize((S(56), S(56)), Image.LANCZOS)
+    img.alpha_composite(brand, (S(72), S(64)))
+    d.text((S(142), S(70)), data["name"], font=sans(650, 24), fill=TEXT)
+    d.text((S(142), S(100)), "web data tools on Apify", font=sans(450, 17), fill=MUTED)
 
-    # headline
-    d.text((64, 170), "Web data, gathered", font=DISPLAY(54), fill=TEXT)
-    gradient_text(img, (64, 230), "and refined: jobs,", DISPLAY(54))
-    gradient_text(img, (64, 290), "leads and research.", DISPLAY(54))
+    # headline: three short lines, the last two in the accent gradient
+    y = 176
+    d.text((S(70), S(y)), "Clean data", font=sans(800, 74), fill=TEXT)
+    # the accent lines share one left-to-right sweep
+    mask = Image.new("L", img.size, 0)
+    md = ImageDraw.Draw(mask)
+    for line in ["from sites", "you know."]:
+        y += 84
+        md.text((S(70), S(y)), line, font=sans(800, 74), fill=255)
+    x0, _, x1, _ = mask.getbbox()
+    ramp = Image.linear_gradient("L").rotate(90, expand=True).resize((x1 - x0, img.height))
+    sweep = Image.new("RGBA", img.size, (*ACCENT, 255))
+    sweep.paste(Image.composite(Image.new("RGBA", ramp.size, (*ACCENT, 255)), Image.new("RGBA", ramp.size, (*ACCENT2, 255)), ramp), (x0, 0))
+    img.paste(sweep, (0, 0), mask)
+    y += 84
+    d.text((S(72), S(y + 18)), "Jobs, leads, shopping, social and public records,", font=sans(450, 22), fill=MUTED)
+    d.text((S(72), S(y + 48)), "as clean tables or straight into your AI agent.", font=sans(450, 22), fill=MUTED)
 
-    # stat tiles with stacked edges
-    tiles = [(str(data["tools"]), "public tools"), (f'{data["okShare"]}%' if data.get("okShare") else "pay", "runs succeeded" if data.get("okShare") else "per result"), (str(data["mcpTools"]), "tools for AI agents"), (data["from"], "from, per 1,000 results")]
-    x = 64
-    for value, label in tiles:
-        w = 248
-        stacked_box(d, (x, 384, x + w, 494))
-        d.rounded_rectangle([x + 18, 384, x + w - 18, 387], 2, fill=ACCENT2)
-        d.text((x + 20, 398), value, font=DISPLAY(42), fill=TEXT)
-        d.text((x + 20, 454), label, font=BODY(15), fill=MUTED)
-        x += w + 26
+    # quiet stats row
+    stats = [(str(data["tools"]), "tools"), (data["from"], "per 1,000, from"), (str(data["mcpTools"]), "AI-agent tools")]
+    if data.get("okShare"):
+        stats.insert(1, (f'{data["okShare"]}%', "runs succeed"))
+    x, y = 72, 540
+    for n, (value, label) in enumerate(stats):
+        if n:
+            d.line([(S(x - 22), S(y + 4)), (S(x - 22), S(y + 50))], fill=(255, 255, 255, 46), width=S(1))
+        d.text((S(x), S(y)), value, font=sans(750, 30), fill=TEXT)
+        d.text((S(x), S(y + 38)), label, font=sans(450, 14), fill=MUTED)
+        x += max(int(d.textlength(value, font=sans(750, 30)) / K), int(d.textlength(label, font=sans(450, 14)) / K)) + 46
 
-    # the library: one dot per public tool, by topic, size by runs
-    dots = data["dots"]
-    stacked_box(d, (760, 56, 1136, 340), radius=18)
-    d.text((782, 74), f'{len(dots)} tools, one dot each', font=MONO(16), fill=MUTED)
-    cx, cy, rowh = 790, 116, 0
-    maxr = max([t["runs"] for t in dots] + [1])
-    for t in dots:
-        r = int(7 + 12 * math.sqrt(t["runs"] / maxr))
-        if cx + 2 * r > 1112:
-            cx, cy, rowh = 790, cy + rowh + 10, 0
-        col = CAT.get(t["cat"], ACCENT)
-        d.ellipse([cx, cy, cx + 2 * r, cy + 2 * r], fill=col)
-        d.ellipse([cx + r * 0.45, cy + r * 0.35, cx + r * 0.95, cy + r * 0.8], fill=(255, 255, 255, 90))
-        cx += 2 * r + 9
-        rowh = max(rowh, 2 * r)
-
-    # topic legend with counts, in the largest size that fits one row
-    cats = [(CAT.get(k, ACCENT), f"{label} {n}") for k, label, n in data["cats"]]
-    for size in range(18, 11, -1):
-        f = MONO(size)
-        if 64 + sum(d.textlength(t, font=f) + 54 for _, t in cats) - 10 <= W - 64:
-            break
-    x = 64
-    for col, text in cats:
-        tw = d.textlength(text, font=f)
-        d.rounded_rectangle([x, 540, x + tw + 40, 576], 18, fill=(26, 31, 64), outline=(64, 70, 120))
-        d.ellipse([x + 13, 552, x + 25, 564], fill=col)
-        d.text((x + 32, 558), text, font=f, fill=TEXT, anchor="lm")
-        x += tw + 54
-
-    img.convert("RGB").save(ROOT / "og.png", optimize=True)
+    img.convert("RGB").resize((W, H), Image.LANCZOS).save(ROOT / "og.png", optimize=True)
 
 
 if __name__ == "__main__":

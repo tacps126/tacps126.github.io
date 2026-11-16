@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Small copies of the tool icons for the site: icons/<name>.png at 72x72 (shown at 36 and 64 px).
+"""Small copies of the tool icons for the site: icons/<name>.png at 128x128 (shown at 36 and 64 px, sharp on 2x screens).
 
 Usage: python3 scripts/thumbs.py data/icons.json   (build.mjs writes the list and runs this; needs Pillow)
-Skips icons whose source URL has not changed since the last run (icons/sources.json)."""
+Skips icons whose source URL has not changed since the last run (icons/sources.json) and that are already SIZE."""
 import io
 import json
 import sys
@@ -10,6 +10,8 @@ import urllib.request
 from pathlib import Path
 
 from PIL import Image
+
+SIZE = 128
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "icons"
@@ -19,12 +21,12 @@ seen = json.loads(seen_file.read_text()) if seen_file.exists() else {}
 want = json.loads(Path(sys.argv[1]).read_text())
 for name, url in want:
     dest = OUT / f"{name}.png"
-    if seen.get(name) == url and dest.exists():
+    if seen.get(name) == url and dest.exists() and Image.open(dest).size == (SIZE, SIZE):
         continue
     try:
         data = urllib.request.urlopen(url, timeout=30).read()
         img = Image.open(io.BytesIO(data)).convert("RGBA")
-        img.thumbnail((72, 72), Image.LANCZOS)
+        img = img.resize((SIZE, SIZE), Image.LANCZOS)
         img.save(dest, optimize=True)
         seen[name] = url
     except Exception as e:  # keep the last copy (or the remote URL) when a download fails

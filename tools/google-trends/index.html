@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Trends Scraper: Interest, Regions, Queries</title>
+<meta name="description" content="Scrape Google Trends: interest over time, by region (states, metros, cities), related queries and topics for up to 5 terms, plus Trending Now with volume.">
+<meta name="keywords" content="Reviews, news, research and social">
+<link rel="canonical" href="https://tacps126.github.io/tools/google-trends/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tacps126">
+<meta property="og:title" content="Google Trends Scraper: Interest, Regions, Queries, Trending">
+<meta property="og:description" content="Scrape Google Trends: interest over time, by region (states, metros, cities), related queries and topics for up to 5 terms, plus Trending Now with volume. Trend alerts. $2.50/1k.">
+<meta property="og:url" content="https://tacps126.github.io/tools/google-trends/">
+<meta property="og:image" content="https://tacps126.github.io/og/google-trends.jpg?v=1045ed643a">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Google Trends Scraper: Scrape Google Trends: interest over time, interest by region (countries, states, metros, cities) and related queries...">
+<meta property="og:updated_time" content="2026-11-14">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Trends Scraper: Interest, Regions, Queries, Trending">
+<meta name="twitter:description" content="Scrape Google Trends: interest over time, by region (states, metros, cities), related queries and topics for up to 5 terms, plus Trending Now with volume. Trend alerts. $2.50/1k.">
+<meta name="twitter:image" content="https://tacps126.github.io/og/google-trends.jpg?v=1045ed643a">
+<link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
+<link rel="stylesheet" href="/style.css?v=b743fdae68">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Google Trends Scraper","alternateName":"google-trends","applicationCategory":"DeveloperApplication","applicationSubCategory":"Reviews, news, research and social","operatingSystem":"Web, API (Apify)","url":"https://tacps126.github.io/tools/google-trends/","sameAs":"https://apify.com/tacps126/google-trends","installUrl":"https://apify.com/tacps126/google-trends","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-Ch6hJzHJHAZzUNsjU-fIIuBYnBdz-google-trends.png","screenshot":"https://tacps126.github.io/og/google-trends.jpg?v=1045ed643a","description":"Scrape Google Trends: interest over time, interest by region (countries, states, metros, cities) and related queries for any term or comparison of up to 5 terms, plus Trending Now searches with volume and growth for any country. Only-new trend alerts, instant API.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-11-14","offers":{"@type":"Offer","price":"0.0025","priceCurrency":"USD","url":"https://apify.com/tacps126/google-trends","description":"$2.50 per 1,000, pay per search result"},"featureList":["searchTerm, searchTerms: chatgpt; [\"n8n\", \"zapier\"] for a comparison","geo, timeRange, startDate, endDate, resolution: US, today 3-m, 2026-08-14, 2026-11-14, DAY","category, searchType: 0, web / images / news / shopping / youtube","interestOverTime: [{\"date\": \"2026-08-14\", \"timestamp\": 1786665600, \"value\": 63, \"values\": {\"chatgpt\": 63}}, ...]; the last point has isPartial: true while the period is still running","averages: {\"n8n\": 48, \"zapier\": 49} (comparisons)","interestByRegion, regionResolution: [{\"geoCode\": \"US-CA\", \"geoName\": \"California\", \"value\": 100, \"values\": {...}}], REGION; cities come with coordinates","relatedQueriesTop: [{\"term\": \"chatgpt\", \"query\": \"chatgpt login\", \"value\": 87, \"mentionsTerm\": true, \"trendsUrl\": \"...\"}]","relatedQueriesRising: [{\"term\": \"chatgpt\", \"query\": \"...\", \"increasePercent\": 1900, \"formattedValue\": \"+1,900%\", \"breakout\": false, \"mentionsTerm\": true}]","relatedTopicsTop, relatedTopicsRising: [{\"term\": \"tesla\", \"title\": \"Tesla Model Y\", \"topicType\": \"SUV\", \"topicId\": \"/g/11gb_4f22x\", \"value\": 11}]","trendsUrl, scrapedAt: the Google Trends page for the search, when it was read"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"Reviews, news, research and social","item":"https://tacps126.github.io/tools/reviews/"},{"@type":"ListItem","position":4,"name":"Google Trends Scraper","item":"https://tacps126.github.io/tools/google-trends/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does it need a Google account or an API key?","acceptedAnswer":{"@type":"Answer","text":"No."}},{"@type":"Question","name":"Why is a part of a search missing?","acceptedAnswer":{"@type":"Answer","text":"Google had too little data for it (for example a rare term in a small region), or it could not be read this time. The row lists it under missingParts and the run summary says why."}},{"@type":"Question","name":"Why do the numbers differ slightly from what I saw in the browser?","acceptedAnswer":{"@type":"Answer","text":"Google Trends samples its data, so values can move by a few points between requests, and the last point of a period is still filling up (isPartial)."}},{"@type":"Question","name":"Can I get daily data for a long period?","acceptedAnswer":{"@type":"Answer","text":"Google picks the detail from the period: up to about 9 months gives daily points, longer gives weekly or monthly ones."}},{"@type":"Question","name":"How much does Google Trends Scraper cost?","acceptedAnswer":{"@type":"Answer","text":"$2.50 per 1,000, charged only for search results returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"What does Google Trends Scraper return?","acceptedAnswer":{"@type":"Answer","text":"Every row has the same fields, including searchTerm, searchTerms, geo, timeRange, startDate, endDate, resolution, category, searchType, interestOverTime, averages, interestByRegion, regionResolution, relatedQueriesTop, relatedQueriesRising. Download as JSON, CSV, Excel or XML."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 112 tools</span><kbd>⌘K</kbd></button>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/#coverage">Coverage</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/integrations.html">Integrations</a>
+      <a href="/mcp.html">AI agents</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="tool-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/reviews/">Reviews, news, research and social</a></nav>
+    <div class="th">
+      <img class="th-ico" src="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-Ch6hJzHJHAZzUNsjU-fIIuBYnBdz-google-trends.png" alt="Google Trends Scraper icon" width="64" height="64" decoding="async" onerror="this.onerror=null;this.src='/icons/google-trends.png'">
+      <div>
+        <h1>Google Trends Scraper</h1>
+        <p class="lead">Scrape Google Trends: interest over time, interest by region (countries, states, metros, cities) and related queries for any term or comparison of up to 5 terms, plus Trending Now searches with volume and growth for any country. Only-new trend alerts, instant API.</p>
+      </div>
+    </div>
+    <div class="facts"><span class="pchip"><b>$2.50 per 1,000</b> search result</span><span class="xchip" title="One trending search with its volume, growth, categories and related searches. With only-new on, trends you already received are not charged.">+ Trending Now trend <b>$1 per 1,000</b></span><span class="fact">2 public runs in 30 days</span><span class="fact">updated 2026-11-14</span></div>
+    <div class="cta-row">
+      <a class="btn primary" href="https://apify.com/tacps126/google-trends" rel="noopener">Run it on Apify</a>
+      <a class="btn" href="#try">Build the input</a>
+      <a class="btn ghost" href="#output">See the output</a>
+      
+      
+      
+    </div>
+  </div>
+</section>
+
+<section id="try" data-label="Try it">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
+    <div class="tool-grid">
+      <form class="tform" id="tform" data-actor="google-trends" data-unit="0.0025" data-what="search result" data-max="maxItems" data-start="{&quot;searchTerms&quot;:[&quot;chatgpt&quot;,&quot;n8n, zapier&quot;],&quot;trendingGeos&quot;:[&quot;US&quot;],&quot;maxTrendsPerGeo&quot;:25}" autocomplete="off">
+<div class="f" data-k="searchTerms" data-kind="list"><label for="f-searchTerms"><span class="fl">Search terms</span></label><textarea id="f-searchTerms" rows="3" placeholder="One per line">chatgpt
+n8n, zapier</textarea><p class="fh">One search per line. Put up to 5 terms on one line, separated by commas, to compare them on one chart (`n8n, zapier, make.com`).</p></div>
+<div class="f f-bool" data-k="isMultiple" data-kind="bool" data-def="false"><label class="sw" for="f-isMultiple"><input type="checkbox" id="f-isMultiple"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Compare all terms on one chart</span></label><p class="fh">Compare all search terms together (up to 5 per chart) instead of one search per line.</p></div>
+<div class="f" data-k="timeRange" data-kind="str" data-def="&quot;today 12-m&quot;"><label for="f-timeRange"><span class="fl">Time range</span></label><select id="f-timeRange"><option value="now 1-H">Past hour</option><option value="now 4-H">Past 4 hours</option><option value="now 1-d">Past day</option><option value="now 7-d">Past 7 days</option><option value="today 1-m">Past 30 days</option><option value="today 3-m">Past 90 days</option><option value="today 12-m" selected>Past 12 months</option><option value="today 5-y">Past 5 years</option><option value="all">2004 to present</option></select><p class="fh">Period of the search.</p></div>
+<div class="f" data-k="customTimeRange" data-kind="str"><label for="f-customTimeRange"><span class="fl">Custom time range</span></label><input id="f-customTimeRange" type="text" value="" placeholder=""><p class="fh">Two dates, start and end: `2024-01-01 2024-06-30`. Overrides the time range above.</p></div>
+<div class="f" data-k="geo" data-kind="str" data-def="&quot;&quot;"><label for="f-geo"><span class="fl">Country or region</span></label><input id="f-geo" type="text" value="" placeholder=""><p class="fh">Two-letter country code (`US`, `GB`, `IN`) or region code (`US-CA`, `GB-ENG`). Leave empty for worldwide.</p></div>
+<div class="f" data-k="category" data-kind="int" data-def="0"><label for="f-category"><span class="fl">Category</span></label><input id="f-category" type="number" inputmode="numeric" min="0" value="0" placeholder="0"><p class="fh">Google Trends category id, as in the `cat=` part of a Trends URL (for example 5 = Computers and Electronics, 71 = Food and Drink). 0 = all categories.</p></div>
+<div class="f" data-k="searchType" data-kind="str" data-def="&quot;&quot;"><label for="f-searchType"><span class="fl">Search type</span></label><select id="f-searchType"><option value="" selected>Web search</option><option value="images">Image search</option><option value="news">News search</option><option value="froogle">Google Shopping</option><option value="youtube">YouTube search</option></select><p class="fh">Which Google search the interest comes from.</p></div>
+<details class="more"><summary>What to include</summary><div class="f f-bool" data-k="includeInterestOverTime" data-kind="bool" data-def="true"><label class="sw" for="f-includeInterestOverTime"><input type="checkbox" id="f-includeInterestOverTime" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Interest over time</span></label><p class="fh">The chart: search interest from 0 to 100 for each day, week or hour of the period.</p></div>
+<div class="f f-bool" data-k="includeInterestByRegion" data-kind="bool" data-def="true"><label class="sw" for="f-includeInterestByRegion"><input type="checkbox" id="f-includeInterestByRegion" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Interest by region</span></label><p class="fh">Where the term is most popular.</p></div>
+<div class="f" data-k="regionResolution" data-kind="str" data-def="&quot;&quot;"><label for="f-regionResolution"><span class="fl">Region detail</span></label><select id="f-regionResolution"><option value="" selected>Google's default (countries worldwide, else subregions)</option><option value="COUNTRY">Countries</option><option value="REGION">Subregions (states, provinces)</option><option value="DMA">Metro areas (US only)</option><option value="CITY">Cities</option></select><p class="fh">How detailed interest by region is.</p></div>
+<div class="f f-bool" data-k="includeLowVolumeRegions" data-kind="bool" data-def="false"><label class="sw" for="f-includeLowVolumeRegions"><input type="checkbox" id="f-includeLowVolumeRegions"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Include low search volume regions</span></label><p class="fh">Also list places with little search volume.</p></div>
+<div class="f f-bool" data-k="includeRelatedQueries" data-kind="bool" data-def="true"><label class="sw" for="f-includeRelatedQueries"><input type="checkbox" id="f-includeRelatedQueries" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Related queries</span></label><p class="fh">Top and rising searches made by people who searched for the term.</p></div>
+<div class="f f-bool" data-k="includeRelatedTopics" data-kind="bool" data-def="true"><label class="sw" for="f-includeRelatedTopics"><input type="checkbox" id="f-includeRelatedTopics" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Related topics</span></label><p class="fh">Top and rising topics (people, companies, products, places) searched with the term, with Google's topic ids.</p></div></details>
+<details class="more"><summary>Trending Now</summary><div class="f" data-k="trendingGeos" data-kind="list"><label for="f-trendingGeos"><span class="fl">Trending Now countries</span></label><textarea id="f-trendingGeos" rows="2" placeholder="One per line">US</textarea><p class="fh">Country or region codes to read Trending Now for (`US`, `IN`, `GB`, `US-CA`). Leave empty to skip Trending Now.</p></div>
+<div class="f" data-k="trendingHours" data-kind="str" data-def="&quot;24&quot;"><label for="f-trendingHours"><span class="fl">Trending in the past</span></label><select id="f-trendingHours"><option value="4">4 hours</option><option value="24" selected>24 hours</option><option value="48">48 hours</option><option value="168">7 days</option></select><p class="fh">Window of the Trending Now list.</p></div>
+<div class="f" data-k="trendingCategories" data-kind="multi"><label for="f-trendingCategories"><span class="fl">Trending categories</span></label><div class="opts" role="group" aria-label="Trending categories"><label class="opt"><input type="checkbox" value="1"><span>Autos and Vehicles</span></label><label class="opt"><input type="checkbox" value="2"><span>Beauty and Fashion</span></label><label class="opt"><input type="checkbox" value="3"><span>Business and Finance</span></label><label class="opt"><input type="checkbox" value="20"><span>Climate</span></label><label class="opt"><input type="checkbox" value="4"><span>Entertainment</span></label><label class="opt"><input type="checkbox" value="5"><span>Food and Drink</span></label><label class="opt"><input type="checkbox" value="6"><span>Games</span></label><label class="opt"><input type="checkbox" value="7"><span>Health</span></label><label class="opt"><input type="checkbox" value="8"><span>Hobbies and Leisure</span></label><label class="opt"><input type="checkbox" value="9"><span>Jobs and Education</span></label><label class="opt"><input type="checkbox" value="10"><span>Law and Government</span></label><label class="opt"><input type="checkbox" value="11"><span>Other</span></label><label class="opt"><input type="checkbox" value="13"><span>Pets and Animals</span></label><label class="opt"><input type="checkbox" value="14"><span>Politics</span></label><label class="opt"><input type="checkbox" value="15"><span>Science</span></label><label class="opt"><input type="checkbox" value="16"><span>Shopping</span></label><label class="opt"><input type="checkbox" value="17"><span>Sports</span></label><label class="opt"><input type="checkbox" value="18"><span>Technology</span></label><label class="opt"><input type="checkbox" value="19"><span>Travel and Transportation</span></label></div><p class="fh">Only trends in these categories. Leave empty for all.</p></div>
+<div class="f f-bool" data-k="trendingActiveOnly" data-kind="bool" data-def="false"><label class="sw" for="f-trendingActiveOnly"><input type="checkbox" id="f-trendingActiveOnly"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Only active trends</span></label><p class="fh">Only trends that are still rising now.</p></div>
+<div class="f" data-k="trendingMinVolume" data-kind="int"><label for="f-trendingMinVolume"><span class="fl">Minimum search volume</span></label><input id="f-trendingMinVolume" type="number" inputmode="numeric" min="0" value="" placeholder=""><p class="fh">Only trends with at least this many searches (Google rounds volumes: 100, 200, 500, 1000, 2000, 5000, ...).</p></div>
+<div class="f" data-k="maxTrendsPerGeo" data-kind="int"><label for="f-maxTrendsPerGeo"><span class="fl">Max trends per country</span></label><input id="f-maxTrendsPerGeo" type="number" inputmode="numeric" min="1" value="25" placeholder=""><p class="fh">Cap per Trending Now country, in Google's order.</p></div></details>
+<details class="more"><summary>Options</summary><div class="f" data-k="language" data-kind="str" data-def="&quot;en-US&quot;"><label for="f-language"><span class="fl">Language</span></label><input id="f-language" type="text" value="" placeholder="en-US"><p class="fh">Language for region and topic names (`en-US`, `de`, `fr`, `ja`).</p></div>
+<div class="f" data-k="maxItems" data-kind="int" data-def="1000"><label for="f-maxItems"><span class="fl">Max results</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" max="100000" value="1000" placeholder="1000"><p class="fh">Maximum number of results in total (one per search, one per trend).</p></div></details>
+<details class="more"><summary>Monitoring</summary><div class="f f-bool" data-k="onlyNew" data-kind="bool" data-def="false"><label class="sw" for="f-onlyNew"><input type="checkbox" id="f-onlyNew"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Only new trends</span></label><p class="fh">Trending Now: return only trends that no earlier run with the same input has delivered. Ideal for alerts - you pay only for new trends. Searches always return a fresh result.</p></div></details>
+        <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
+      </form>
+      <aside class="tcode">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" data-lang="curl" aria-selected="true">curl</button><button class="tab" role="tab" type="button" data-lang="python" aria-selected="false">Python</button><button class="tab" role="tab" type="button" data-lang="js" aria-selected="false">JavaScript</button><button class="tab" role="tab" type="button" data-lang="mcp" aria-selected="false">AI agent</button></div>
+        <div class="panel"><div class="code">
+  <div class="code-top"><span>terminal</span><button class="copy" type="button">Copy</button></div>
+  <pre>curl -X POST \
+  &quot;https://api.apify.com/v2/acts/tacps126~google-trends/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;searchTerms&quot;:[&quot;chatgpt&quot;,&quot;n8n, zapier&quot;],&quot;trendingGeos&quot;:[&quot;US&quot;],&quot;maxTrendsPerGeo&quot;:25}'</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;tacps126/google-trends&quot;).call(run_input={
+    &quot;searchTerms&quot;: [&quot;chatgpt&quot;, &quot;n8n, zapier&quot;],
+    &quot;trendingGeos&quot;: [&quot;US&quot;],
+    &quot;maxTrendsPerGeo&quot;: 25,
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item)</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>JavaScript · npm i apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: 'YOUR_APIFY_TOKEN' });
+const run = await client.actor('tacps126/google-trends').call({
+  &quot;searchTerms&quot;: [
+    &quot;chatgpt&quot;,
+    &quot;n8n, zapier&quot;
+  ],
+  &quot;trendingGeos&quot;: [
+    &quot;US&quot;
+  ],
+  &quot;maxTrendsPerGeo&quot;: 25
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items);</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>MCP</span><button class="copy" type="button">Copy</button></div>
+  <pre># Apify's hosted MCP server, with this tool only
+https://mcp.apify.com?tools=tacps126/google-trends</pre>
+</div></div>
+        <p class="cost" id="tf-cost">Up to 1,000 search results: at most $2.50, on Apify's free plan.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="output" data-label="Output">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Output</span><h2>What you get back</h2><p>The fields every row has.</p></div>
+    <div class="out-grid one">
+      
+      <div class="table-wrap fields"><table><thead><tr><th>Field</th><th>What it holds</th></tr></thead><tbody><tr><td><code>searchTerm</code>, <code>searchTerms</code></td><td><code>chatgpt</code>; <code>[&quot;n8n&quot;, &quot;zapier&quot;]</code> for a comparison</td></tr><tr><td><code>geo</code>, <code>timeRange</code>, <code>startDate</code>, <code>endDate</code>, <code>resolution</code></td><td><code>US</code>, <code>today 3-m</code>, <code>2026-08-14</code>, <code>2026-11-14</code>, <code>DAY</code></td></tr><tr><td><code>category</code>, <code>searchType</code></td><td><code>0</code>, <code>web</code> / <code>images</code> / <code>news</code> / <code>shopping</code> / <code>youtube</code></td></tr><tr><td><code>interestOverTime</code></td><td><code>[{&quot;date&quot;: &quot;2026-08-14&quot;, &quot;timestamp&quot;: 1786665600, &quot;value&quot;: 63, &quot;values&quot;: {&quot;chatgpt&quot;: 63}}, ...]</code>; the last point has <code>isPartial: true</code> while the period is still running</td></tr><tr><td><code>averages</code></td><td><code>{&quot;n8n&quot;: 48, &quot;zapier&quot;: 49}</code> (comparisons)</td></tr><tr><td><code>interestByRegion</code>, <code>regionResolution</code></td><td><code>[{&quot;geoCode&quot;: &quot;US-CA&quot;, &quot;geoName&quot;: &quot;California&quot;, &quot;value&quot;: 100, &quot;values&quot;: {...}}]</code>, <code>REGION</code>; cities come with <code>coordinates</code></td></tr><tr><td><code>relatedQueriesTop</code></td><td><code>[{&quot;term&quot;: &quot;chatgpt&quot;, &quot;query&quot;: &quot;chatgpt login&quot;, &quot;value&quot;: 87, &quot;mentionsTerm&quot;: true, &quot;trendsUrl&quot;: &quot;...&quot;}]</code></td></tr><tr><td><code>relatedQueriesRising</code></td><td><code>[{&quot;term&quot;: &quot;chatgpt&quot;, &quot;query&quot;: &quot;...&quot;, &quot;increasePercent&quot;: 1900, &quot;formattedValue&quot;: &quot;+1,900%&quot;, &quot;breakout&quot;: false, &quot;mentionsTerm&quot;: true}]</code></td></tr><tr><td><code>relatedTopicsTop</code>, <code>relatedTopicsRising</code></td><td><code>[{&quot;term&quot;: &quot;tesla&quot;, &quot;title&quot;: &quot;Tesla Model Y&quot;, &quot;topicType&quot;: &quot;SUV&quot;, &quot;topicId&quot;: &quot;/g/11gb_4f22x&quot;, &quot;value&quot;: 11}]</code></td></tr><tr><td><code>trendsUrl</code>, <code>scrapedAt</code></td><td>the Google Trends page for the search, when it was read</td></tr></tbody></table></div>
+    </div>
+    <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
+  </div>
+</section>
+
+<section id="guide" data-label="Guide">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Guide</span><h2>How Google Trends Scraper works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
+    <article class="post guide" id="guide-body"><p>Scrape <strong>Google Trends</strong> for any term or comparison of up to 5 terms: <strong>interest over time</strong>, <strong>interest by region</strong> (countries, states, US metro areas or cities), <strong>top and rising related queries</strong> and <strong>related topics</strong>, for any country or region, time range, category and search type (web, images, news, Google Shopping, YouTube). Also reads <strong>Trending Now</strong> for any country: what people search for right now, with <strong>search volume, growth, start and end time, categories and related searches</strong>.</p>
+<p><strong>Built for</strong> SEO and keyword research, content planning, product and market research, brand and competitor tracking, newsrooms, and datasets for AI and analytics.</p>
+<p><strong>At a glance</strong></p>
+<ul><li><strong>Price:</strong> $2.50 per 1,000 searches (each search is one row with every part) and $1 per 1,000 Trending Now trends. Free plan: up to 100 results per run.</li><li><strong>One row per search:</strong> the chart, the regions, the related queries and topics come together, so a comparison of 5 terms is one result, not dozens.</li><li><strong>Trend alerts:</strong> schedule it with <em>Only new trends</em> and get each new trending search once, in Slack, Discord, a webhook or Google Sheets.</li><li><strong>First run:</strong> the prefilled input returns 2 searches and 25 US trends in a few seconds.</li></ul>
+<div class="table-wrap"><table><thead><tr><th>searchTerms</th><th>geo</th><th>timeRange</th><th>averages</th><th>interestOverTime</th><th>relatedQueriesRising</th></tr></thead><tbody><tr><td>n8n, zapier</td><td>US</td><td>today 3-m</td><td>n8n 48, zapier 49</td><td>93 daily points</td><td>26 rising queries</td></tr></tbody></table></div>
+<h3 id="g-how-to-use-it">How to use it</h3>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{
+  &quot;searchTerms&quot;: [&quot;chatgpt&quot;, &quot;n8n, zapier, make.com&quot;],
+  &quot;geo&quot;: &quot;US&quot;,
+  &quot;timeRange&quot;: &quot;today 3-m&quot;,
+  &quot;regionResolution&quot;: &quot;DMA&quot;,
+  &quot;trendingGeos&quot;: [&quot;US&quot;, &quot;GB&quot;, &quot;IN&quot;],
+  &quot;trendingHours&quot;: &quot;24&quot;,
+  &quot;trendingCategories&quot;: [&quot;18&quot;],
+  &quot;onlyNew&quot;: true
+}</pre></div>
+<ul><li><strong>Search terms.</strong> One search per line. Separate up to 5 terms with commas to compare them on one chart, or tick <em>Compare all terms on one chart</em>.</li><li><strong>Google Trends URLs.</strong> Paste Explore or Trending Now page links; their terms, place, time range, category and search type are used as they are.</li><li><strong>Place, time and type.</strong> Worldwide or any country or region code (<code>US</code>, <code>GB</code>, <code>US-CA</code>); past hour to 2004 to present, or your own dates (<code>2024-01-01 2024-06-30</code>); any Trends category; web, image, news, Shopping or YouTube search.</li><li><strong>Region detail.</strong> Countries, subregions (states), US metro areas or cities, with or without low-volume places.</li><li><strong>Pick the parts.</strong> Interest over time, by region, related queries and related topics are all on by default; turn off what you don't need for faster runs.</li><li><strong>Trending Now.</strong> Add country or region codes; pick the window (4 hours to 7 days), categories, active trends only or a minimum search volume.</li><li><strong>Follow new trends.</strong> Turn on <em>Only new trends</em> and schedule the Actor: each run returns only trends earlier runs haven't delivered.</li></ul>
+<h3 id="g-pricing">Pricing</h3>
+<p><strong>$2.50 per 1,000 searches</strong> and <strong>$1 per 1,000 Trending Now trends</strong>, plus a small start fee per run. A search is charged once, whatever it includes (up to 5 terms, the chart, the regions, the related queries and topics). Searches that fail are not charged; with <em>Only new trends</em>, trends you already received are not charged.</p>
+<p>Free-plan runs return up to 100 results per run.</p>
+<h3 id="g-good-to-know">Good to know</h3>
+<ul><li>Google Trends shows <strong>relative interest (0 to 100), not search counts</strong>. Compare terms in one search to put them on the same scale. Trending Now shows Google's rounded search volumes (<code>200K+</code>).</li><li>Results can also come straight back in the API response (Apify's <code>run-sync-get-dataset-items</code> endpoint), handy for apps and AI agents; agents can run it through Apify's MCP server (<code>https://mcp.apify.com?tools=tacps126/google-trends</code>).</li><li>Need another source or a custom feed? <strong>Contact tacps126@gmail.com</strong>.</li></ul></article>
+    <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
+  </div>
+</section>
+
+<section class="alt" id="faq" data-label="Questions">
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions about Google Trends Scraper</h2></div>
+    <div class="faq"><details open><summary>Does it need a Google account or an API key?</summary><p>No.</p></details><details><summary>Why is a part of a search missing?</summary><p>Google had too little data for it (for example a rare term in a small region), or it could not be read this time. The row lists it under <code>missingParts</code> and the run summary says why.</p></details><details><summary>Why do the numbers differ slightly from what I saw in the browser?</summary><p>Google Trends samples its data, so values can move by a few points between requests, and the last point of a period is still filling up (<code>isPartial</code>).</p></details><details><summary>Can I get daily data for a long period?</summary><p>Google picks the detail from the period: up to about 9 months gives daily points, longer gives weekly or monthly ones.</p></details><details><summary>How much does Google Trends Scraper cost?</summary><p>$2.50 per 1,000, charged only for search results returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>What does Google Trends Scraper return?</summary><p>Every row has the same fields, including searchTerm, searchTerms, geo, timeRange, startDate, endDate, resolution, category, searchType, interestOverTime, averages, interestByRegion, regionResolution, relatedQueriesTop, relatedQueriesRising. Download as JSON, CSV, Excel or XML.</p></details></div>
+  </div>
+</section>
+<section id="pairs" data-label="Pairs well">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2></div>
+    <div class="grid">
+
+      <a class="card link" href="/tools/app-reviews/"><span class="why">Also in reviews and research</span><h3>App Store &amp; Google Play Reviews Scraper</h3><p>Scrape app reviews from the Apple App Store and Google Play in one dataset: rating, text, author, date, app...</p></a>
+      <a class="card link" href="/tools/trustpilot-reviews/"><span class="why">Also in reviews and research</span><h3>Trustpilot Reviews Scraper</h3><p>Extract Trustpilot reviews and company details - ratings, text, reviewer info, dates, replies, TrustScore -...</p></a>
+      <a class="card link" href="/tools/google-news/"><span class="why">Also in reviews and research</span><h3>Google News Scraper</h3><p>Scrape Google News: search results, topic sections and top stories in any language and country - with the...</p></a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="34" height="34"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+        <p>Web data tools that gather, clean and enrich public data: jobs, leads, research, markets and public records. Pay per result on Apify, or call them from an AI agent.</p>
+        <p><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a><br><a href="mailto:tacps126@gmail.com?subject=Custom%20data%20request">Ask for a custom dataset</a></p>
+      </div>
+      <nav aria-label="Topics"><p class="foot-h">Topics</p><ul>
+        <li><a href="/tools/jobs/">Jobs</a></li>
+        <li><a href="/tools/leads/">Leads</a></li>
+        <li><a href="/tools/reviews/">Reviews and research</a></li>
+        <li><a href="/tools/gov/">Government</a></li>
+        <li><a href="/tools/health/">Health</a></li>
+        <li><a href="/tools/commerce/">Commerce</a></li>
+        <li><a href="/tools/finance/">Finance</a></li>
+        <li><a href="/tools/sports/">Sports</a></li>
+        <li><a href="/tools/travel/">Travel</a></li>
+      </ul></nav>
+      <nav aria-label="Explore"><p class="foot-h">Explore</p><ul>
+        <li><a href="/tools/">All tools</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
+        <li><a href="/#compose">Chain tools</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/datasets.html">Free datasets</a></li>
+        <li><a href="/integrations.html">Integrations</a></li>
+        <li><a href="/clay.html">Use with Clay</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul></nav>
+      <nav aria-label="Developers"><p class="foot-h">Developers</p><ul>
+        <li><a href="https://apify.com/tacps126">Tools on Apify</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
+        <li><a href="https://github.com/tacps126/webdata-tools-mcp">GitHub</a></li>
+        <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
+        <li><a href="https://smithery.ai/servers/tacps126/webdata-tools-mcp">Smithery</a></li>
+        <li><a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp">Glama</a></li>
+      </ul></nav>
+    </div>
+    <div class="foot-base">
+      <p class="fine" id="data-use">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+      <p class="fine">&copy; 2026 Tapaswai Choudhary</p>
+    </div>
+  </div>
+</footer>
+<script src="/app.js?v=67b9cb25e8" defer></script>
+<script src="/tool.js?v=a64914dde6" defer></script>
+</body>
+</html>

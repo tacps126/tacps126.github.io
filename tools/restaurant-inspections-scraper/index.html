@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurant Inspections Scraper: Health Scores, Violations</title>
+<meta name="description" content="Scrape restaurant health inspections from 9 US cities and counties or any open-data table: result, score, grade, each violation, address.">
+<meta name="keywords" content="Government, compliance, tenders, grants, regulation and alerts">
+<link rel="canonical" href="https://tacps126.github.io/tools/restaurant-inspections-scraper/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tacps126">
+<meta property="og:title" content="Restaurant Inspections Scraper: Health Scores, Violations">
+<meta property="og:description" content="Scrape restaurant health inspections from 9 US cities and counties or any open-data table: result, score, grade, each violation, address. Keyword filters, only-new alerts. $2/1k.">
+<meta property="og:url" content="https://tacps126.github.io/tools/restaurant-inspections-scraper/">
+<meta property="og:image" content="https://tacps126.github.io/og/restaurant-inspections-scraper.jpg?v=c67e65bde0">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Restaurant Inspections Scraper: Health Scores and Violations: Restaurant and food inspections from US cities and counties (New York, Chicago, King County, Montgomery County and...">
+<meta property="og:updated_time" content="2026-11-13">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Restaurant Inspections Scraper: Health Scores, Violations">
+<meta name="twitter:description" content="Scrape restaurant health inspections from 9 US cities and counties or any open-data table: result, score, grade, each violation, address. Keyword filters, only-new alerts. $2/1k.">
+<meta name="twitter:image" content="https://tacps126.github.io/og/restaurant-inspections-scraper.jpg?v=c67e65bde0">
+<link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
+<link rel="stylesheet" href="/style.css?v=b743fdae68">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Restaurant Inspections Scraper: Health Scores and Violations","alternateName":"restaurant-inspections-scraper","applicationCategory":"DeveloperApplication","applicationSubCategory":"Government, compliance, tenders, grants, regulation and alerts","operatingSystem":"Web, API (Apify)","url":"https://tacps126.github.io/tools/restaurant-inspections-scraper/","sameAs":"https://apify.com/tacps126/restaurant-inspections-scraper","installUrl":"https://apify.com/tacps126/restaurant-inspections-scraper","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-n53ZwmcreAwBxhWZ0-7BMi1nHWlO-restaurant-inspections-scraper.png","screenshot":"https://tacps126.github.io/og/restaurant-inspections-scraper.jpg?v=c67e65bde0","description":"Restaurant and food inspections from US cities and counties (New York, Chicago, King County, Montgomery County and more) in one format: business, address, result, score, grade and each violation. Filter by keyword; get only new inspections on a schedule.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-11-13","offers":{"@type":"Offer","price":"0.002","priceCurrency":"USD","url":"https://apify.com/tacps126/restaurant-inspections-scraper","description":"$2 per 1,000, pay per inspection"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"Government, compliance, tenders, grants, regulation and alerts","item":"https://tacps126.github.io/tools/gov/"},{"@type":"ListItem","position":4,"name":"Restaurant Inspections Scraper: Health Scores and Violations","item":"https://tacps126.github.io/tools/restaurant-inspections-scraper/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does Restaurant Inspections Scraper cost?","acceptedAnswer":{"@type":"Answer","text":"$2 per 1,000, charged only for inspections returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 112 tools</span><kbd>⌘K</kbd></button>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/#coverage">Coverage</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/integrations.html">Integrations</a>
+      <a href="/mcp.html">AI agents</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="tool-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/gov/">Government, compliance, tenders, grants, regulation and alerts</a></nav>
+    <div class="th">
+      <img class="th-ico" src="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-n53ZwmcreAwBxhWZ0-7BMi1nHWlO-restaurant-inspections-scraper.png" alt="Restaurant Inspections Scraper: Health Scores and Violations icon" width="64" height="64" decoding="async" onerror="this.onerror=null;this.src='/icons/restaurant-inspections-scraper.png'">
+      <div>
+        <h1>Restaurant Inspections Scraper: Health Scores and Violations</h1>
+        <p class="lead">Restaurant and food inspections from US cities and counties (New York, Chicago, King County, Montgomery County and more) in one format: business, address, result, score, grade and each violation. Filter by keyword; get only new inspections on a schedule.</p>
+      </div>
+    </div>
+    <div class="facts"><span class="pchip"><b>$2 per 1,000</b> inspection</span><span class="fact">3 public runs in 30 days</span><span class="fact">updated 2026-11-13</span></div>
+    <div class="cta-row">
+      <a class="btn primary" href="https://apify.com/tacps126/restaurant-inspections-scraper" rel="noopener">Run it on Apify</a>
+      
+      
+      
+      
+      
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="alt" id="faq" data-label="Questions">
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions about Restaurant Inspections Scraper</h2></div>
+    <div class="faq"><details open><summary>How much does Restaurant Inspections Scraper cost?</summary><p>$2 per 1,000, charged only for inspections returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details></div>
+  </div>
+</section>
+<section id="pairs" data-label="Pairs well">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2></div>
+    <div class="grid">
+
+      <a class="card link" href="/tools/recalls-radar/"><span class="why">Also in government</span><h3>Recalls Radar: FDA, CPSC, Canada, UK &amp; EU Safety Gate</h3><p>Product recalls and safety alerts in one feed: US FDA (food, drugs, devices), CPSC, NHTSA vehicle recalls,...</p></a>
+      <a class="card link" href="/tools/tenders-radar/"><span class="why">Also in government</span><h3>Tenders Radar: Public Tenders &amp; Contract Awards</h3><p>Public tenders and awards from 17 official portals in one schema: US SAM.gov and USAspending, EU TED and EU...</p></a>
+      <a class="card link" href="/tools/grants-radar/"><span class="why">Also in government</span><h3>Grants Radar: Public Funding &amp; Grant Calls</h3><p>Open and upcoming public funding calls in one schema: US Grants.gov, EU Funding &amp; Tenders (Horizon Europe,...</p></a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="34" height="34"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+        <p>Web data tools that gather, clean and enrich public data: jobs, leads, research, markets and public records. Pay per result on Apify, or call them from an AI agent.</p>
+        <p><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a><br><a href="mailto:tacps126@gmail.com?subject=Custom%20data%20request">Ask for a custom dataset</a></p>
+      </div>
+      <nav aria-label="Topics"><p class="foot-h">Topics</p><ul>
+        <li><a href="/tools/jobs/">Jobs</a></li>
+        <li><a href="/tools/leads/">Leads</a></li>
+        <li><a href="/tools/reviews/">Reviews and research</a></li>
+        <li><a href="/tools/gov/">Government</a></li>
+        <li><a href="/tools/health/">Health</a></li>
+        <li><a href="/tools/commerce/">Commerce</a></li>
+        <li><a href="/tools/finance/">Finance</a></li>
+        <li><a href="/tools/sports/">Sports</a></li>
+        <li><a href="/tools/travel/">Travel</a></li>
+      </ul></nav>
+      <nav aria-label="Explore"><p class="foot-h">Explore</p><ul>
+        <li><a href="/tools/">All tools</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
+        <li><a href="/#compose">Chain tools</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/datasets.html">Free datasets</a></li>
+        <li><a href="/integrations.html">Integrations</a></li>
+        <li><a href="/clay.html">Use with Clay</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul></nav>
+      <nav aria-label="Developers"><p class="foot-h">Developers</p><ul>
+        <li><a href="https://apify.com/tacps126">Tools on Apify</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
+        <li><a href="https://github.com/tacps126/webdata-tools-mcp">GitHub</a></li>
+        <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
+        <li><a href="https://smithery.ai/servers/tacps126/webdata-tools-mcp">Smithery</a></li>
+        <li><a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp">Glama</a></li>
+      </ul></nav>
+    </div>
+    <div class="foot-base">
+      <p class="fine" id="data-use">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+      <p class="fine">&copy; 2026 Tapaswai Choudhary</p>
+    </div>
+  </div>
+</footer>
+<script src="/app.js?v=67b9cb25e8" defer></script>
+
+</body>
+</html>

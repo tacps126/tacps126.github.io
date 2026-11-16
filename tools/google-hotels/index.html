@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Hotels Scraper: Hotel Prices, Deals, Ratings</title>
+<meta name="description" content="Scrape Google Hotels prices for any place and dates: nightly and total price with taxes, deals, hotel class, rating, reviews, check-in times, website, GPS.">
+<meta name="keywords" content="Travel and transit">
+<link rel="canonical" href="https://tacps126.github.io/tools/google-hotels/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tacps126">
+<meta property="og:title" content="Google Hotels Scraper: Hotel Prices, Deals, Ratings | tacps126">
+<meta property="og:description" content="Scrape Google Hotels prices for any place and dates: nightly and total price with taxes, deals, hotel class, rating, reviews, check-in times, website, GPS. $2 per 1,000 hotels.">
+<meta property="og:url" content="https://tacps126.github.io/tools/google-hotels/">
+<meta property="og:image" content="https://tacps126.github.io/og/google-hotels.jpg?v=1ba1e4f1cf">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Google Hotels Scraper: Scrape hotel prices from Google Hotels for any place and dates: nightly and total price with and without taxes, deals...">
+<meta property="og:updated_time" content="2026-11-15">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Hotels Scraper: Hotel Prices, Deals, Ratings | tacps126">
+<meta name="twitter:description" content="Scrape Google Hotels prices for any place and dates: nightly and total price with taxes, deals, hotel class, rating, reviews, check-in times, website, GPS. $2 per 1,000 hotels.">
+<meta name="twitter:image" content="https://tacps126.github.io/og/google-hotels.jpg?v=1ba1e4f1cf">
+<link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
+<link rel="stylesheet" href="/style.css?v=b743fdae68">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Google Hotels Scraper","alternateName":"google-hotels","applicationCategory":"DeveloperApplication","applicationSubCategory":"Travel and transit","operatingSystem":"Web, API (Apify)","url":"https://tacps126.github.io/tools/google-hotels/","sameAs":"https://apify.com/tacps126/google-hotels","installUrl":"https://apify.com/tacps126/google-hotels","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-KwlxzBT1CKzlyf28J-RRPdReqkIW-google-hotels.png","screenshot":"https://tacps126.github.io/og/google-hotels.jpg?v=1ba1e4f1cf","description":"Scrape hotel prices from Google Hotels for any place and dates: nightly and total price with and without taxes, deals vs the usual price, hotel class, rating, reviews, check-in and check-out times, website and coordinates.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-11-15","offers":{"@type":"Offer","price":"0.002","priceCurrency":"USD","url":"https://apify.com/tacps126/google-hotels","description":"$2 per 1,000, pay per hotel"},"featureList":["name, hotelClass, stars: Hotel name and class (\"4-star hotel\", 4)","price: {currency, nightly, nightlyWithTaxes, total, totalWithTaxes}","priceText, deal: Nightly price as shown, deal text (\"32% less than usual\")","rating, reviewsCount: Google rating and number of reviews","checkInTime, checkOutTime: Check-in and check-out times","website, googleUrl, photo: Hotel website, Google Hotels page, photo","latitude, longitude, countryCode: Location","description: Short description","checkIn, checkOut, search, scrapedAt: The dates and place searched"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"Travel and transit","item":"https://tacps126.github.io/tools/travel/"},{"@type":"ListItem","position":4,"name":"Google Hotels Scraper","item":"https://tacps126.github.io/tools/google-hotels/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which currency?","acceptedAnswer":{"@type":"Answer","text":"Prices are in US dollars."}},{"@type":"Question","name":"Can I get each booking site's price for a hotel?","acceptedAnswer":{"@type":"Answer","text":"Not yet. You get Google's lowest shown price per hotel. Open an issue if you need the per-site list."}},{"@type":"Question","name":"How many hotels per place?","acceptedAnswer":{"@type":"Answer","text":"About 100 with More hotels per place on. For more, search neighborhoods (Alfama, Lisbon)."}},{"@type":"Question","name":"Is it legal?","acceptedAnswer":{"@type":"Answer","text":"The Actor collects publicly shown prices. You're responsible for how you use the data under the laws that apply to you."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"What does Google Hotels Scraper return?","acceptedAnswer":{"@type":"Answer","text":"Every row has the same fields, including name, hotelClass, stars, price, priceText, deal, rating, reviewsCount, checkInTime, checkOutTime, website, googleUrl, photo, latitude, longitude, countryCode, description. Download as JSON, CSV, Excel or XML."}},{"@type":"Question","name":"Can an AI agent use it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as search_google_hotels."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 112 tools</span><kbd>⌘K</kbd></button>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/#coverage">Coverage</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/integrations.html">Integrations</a>
+      <a href="/mcp.html">AI agents</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="tool-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/travel/">Travel and transit</a></nav>
+    <div class="th">
+      <img class="th-ico" src="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-KwlxzBT1CKzlyf28J-RRPdReqkIW-google-hotels.png" alt="Google Hotels Scraper icon" width="64" height="64" decoding="async" onerror="this.onerror=null;this.src='/icons/google-hotels.png'">
+      <div>
+        <h1>Google Hotels Scraper</h1>
+        <p class="lead">Scrape hotel prices from Google Hotels for any place and dates: nightly and total price with and without taxes, deals vs the usual price, hotel class, rating, reviews, check-in and check-out times, website and coordinates.</p>
+      </div>
+    </div>
+    <div class="facts"><span class="pchip"><b>$2 per 1,000</b> hotel</span><span class="fact">updated 2026-11-15</span></div>
+    <div class="cta-row">
+      <a class="btn primary" href="https://apify.com/tacps126/google-hotels" rel="noopener">Run it on Apify</a>
+      <a class="btn" href="#try">Build the input</a>
+      <a class="btn ghost" href="#output">See the output</a>
+      
+      
+      
+    </div>
+  </div>
+</section>
+
+<section id="try" data-label="Try it">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
+    <div class="tool-grid">
+      <form class="tform" id="tform" data-actor="google-hotels" data-unit="0.002" data-what="hotel" data-max="maxItems" data-start="{&quot;locations&quot;:[&quot;Lisbon&quot;]}" autocomplete="off">
+<div class="f" data-k="locations" data-kind="list"><label for="f-locations"><span class="fl">Locations</span></label><textarea id="f-locations" rows="2" placeholder="One per line">Lisbon</textarea><p class="fh">Places in plain words (for example `Lisbon`, `Shibuya, Tokyo`, `Times Square, New York`).</p></div>
+<div class="f" data-k="checkIn" data-kind="str"><label for="f-checkIn"><span class="fl">Check-in</span></label><input id="f-checkIn" type="text" value="" placeholder="YYYY-MM-DD"><p class="fh">Arrival date. With check-out, prices are for your stay. Without dates Google picks its own.</p></div>
+<div class="f" data-k="checkOut" data-kind="str"><label for="f-checkOut"><span class="fl">Check-out</span></label><input id="f-checkOut" type="text" value="" placeholder="YYYY-MM-DD"><p class="fh">Departure date.</p></div>
+<div class="f f-bool" data-k="moreResults" data-kind="bool" data-def="true"><label class="sw" for="f-moreResults"><input type="checkbox" id="f-moreResults" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">More hotels per place</span></label><p class="fh">Also search each hotel class (2 to 5 stars) and vacation rentals, for about 100 hotels per place instead of about 18. Duplicates are free.</p></div>
+<details class="more"><summary>Filters</summary><div class="f" data-k="minStars" data-kind="int"><label for="f-minStars"><span class="fl">Min hotel class</span></label><input id="f-minStars" type="number" inputmode="numeric" min="1" max="5" value="" placeholder=""><p class="fh">Leave out hotels below this class (in stars). Places without a class are left out too.</p></div>
+<div class="f" data-k="maxNightlyPrice" data-kind="int"><label for="f-maxNightlyPrice"><span class="fl">Max nightly price (USD)</span></label><input id="f-maxNightlyPrice" type="number" inputmode="numeric" min="1" value="" placeholder=""><p class="fh">Leave out hotels above this nightly price.</p></div></details>
+<details class="more"><summary>Region</summary><div class="f" data-k="language" data-kind="str" data-def="&quot;en&quot;"><label for="f-language"><span class="fl">Language</span></label><input id="f-language" type="text" value="" placeholder="en"><p class="fh">Language for hotel classes and descriptions (two-letter code).</p></div>
+<div class="f" data-k="countryCode" data-kind="str" data-def="&quot;us&quot;"><label for="f-countryCode"><span class="fl">Country</span></label><input id="f-countryCode" type="text" value="" placeholder="us"><p class="fh">Two-letter country code of the Google site to search.</p></div>
+<div class="f" data-k="maxItems" data-kind="int" data-def="200"><label for="f-maxItems"><span class="fl">Max hotels</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" max="100000" value="200" placeholder="200"><p class="fh">Maximum number of hotels to return in total.</p></div></details>
+        <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
+      </form>
+      <aside class="tcode">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" data-lang="curl" aria-selected="true">curl</button><button class="tab" role="tab" type="button" data-lang="python" aria-selected="false">Python</button><button class="tab" role="tab" type="button" data-lang="js" aria-selected="false">JavaScript</button><button class="tab" role="tab" type="button" data-lang="mcp" aria-selected="false">AI agent</button></div>
+        <div class="panel"><div class="code">
+  <div class="code-top"><span>terminal</span><button class="copy" type="button">Copy</button></div>
+  <pre>curl -X POST \
+  &quot;https://api.apify.com/v2/acts/tacps126~google-hotels/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;locations&quot;:[&quot;Lisbon&quot;]}'</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;tacps126/google-hotels&quot;).call(run_input={
+    &quot;locations&quot;: [&quot;Lisbon&quot;],
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item)</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>JavaScript · npm i apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: 'YOUR_APIFY_TOKEN' });
+const run = await client.actor('tacps126/google-hotels').call({
+  &quot;locations&quot;: [
+    &quot;Lisbon&quot;
+  ]
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items);</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>MCP</span><button class="copy" type="button">Copy</button></div>
+  <pre># webdata-tools-mcp (Claude, Cursor, any MCP client)
+claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata-tools-mcp
+
+# then ask your agent; it calls: search_google_hotels</pre>
+</div></div>
+        <p class="cost" id="tf-cost">Up to 200 hotels: at most $0.40, on Apify's free plan.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="output" data-label="Output">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Output</span><h2>What you get back</h2><p>A real row from the README, and the fields every row has.</p></div>
+    <div class="out-grid">
+      <div class="sample-box">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" aria-selected="true">Row</button><button class="tab" role="tab" type="button" aria-selected="false">JSON</button></div>
+        <div class="panel"><div class="table-wrap"><table class="kv"><tbody><tr><th>name</th><td>Blue Liberdade Hotel</td></tr><tr><th>hotelClass</th><td>3-star hotel</td></tr><tr><th>price</th><td><code>{&quot;currency&quot;:&quot;USD&quot;,&quot;nightly&quot;:98,&quot;nightlyWithTaxes&quot;:104,&quot;total&quot;:393,&quot;totalWithTaxes&quot;:415}</code></td></tr><tr><th>deal</th><td>32% less than usual</td></tr><tr><th>rating</th><td>4.8</td></tr><tr><th>reviewsCount</th><td>735</td></tr><tr><th>checkInTime</th><td>4:00 PM</td></tr><tr><th>checkOutTime</th><td>12:00 PM</td></tr><tr><th>countryCode</th><td>PT</td></tr></tbody></table></div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>one row</span><button class="copy" type="button">Copy</button></div>
+  <pre>{
+  &quot;name&quot;: &quot;Blue Liberdade Hotel&quot;,
+  &quot;hotelClass&quot;: &quot;3-star hotel&quot;,
+  &quot;price&quot;: {
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;nightly&quot;: 98,
+    &quot;nightlyWithTaxes&quot;: 104,
+    &quot;total&quot;: 393,
+    &quot;totalWithTaxes&quot;: 415
+  },
+  &quot;deal&quot;: &quot;32% less than usual&quot;,
+  &quot;rating&quot;: 4.8,
+  &quot;reviewsCount&quot;: 735,
+  &quot;checkInTime&quot;: &quot;4:00 PM&quot;,
+  &quot;checkOutTime&quot;: &quot;12:00 PM&quot;,
+  &quot;countryCode&quot;: &quot;PT&quot;
+}</pre>
+</div></div>
+      </div>
+      <div class="table-wrap fields"><table><thead><tr><th>Field</th><th>What it holds</th></tr></thead><tbody><tr><td><code>name</code>, <code>hotelClass</code>, <code>stars</code></td><td>Hotel name and class (&quot;4-star hotel&quot;, 4)</td></tr><tr><td><code>price</code></td><td><code>{currency, nightly, nightlyWithTaxes, total, totalWithTaxes}</code></td></tr><tr><td><code>priceText</code>, <code>deal</code></td><td>Nightly price as shown, deal text (&quot;32% less than usual&quot;)</td></tr><tr><td><code>rating</code>, <code>reviewsCount</code></td><td>Google rating and number of reviews</td></tr><tr><td><code>checkInTime</code>, <code>checkOutTime</code></td><td>Check-in and check-out times</td></tr><tr><td><code>website</code>, <code>googleUrl</code>, <code>photo</code></td><td>Hotel website, Google Hotels page, photo</td></tr><tr><td><code>latitude</code>, <code>longitude</code>, <code>countryCode</code></td><td>Location</td></tr><tr><td><code>description</code></td><td>Short description</td></tr><tr><td><code>checkIn</code>, <code>checkOut</code>, <code>search</code>, <code>scrapedAt</code></td><td>The dates and place searched</td></tr></tbody></table></div>
+    </div>
+    <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
+  </div>
+</section>
+
+<section id="guide" data-label="Guide">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Guide</span><h2>How Google Hotels Scraper works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
+    <article class="post guide" id="guide-body"><p>Get <strong>hotel prices from Google Hotels</strong> for any place and your travel dates as a clean dataset: <strong>nightly and total price, with and without taxes and fees</strong>, the <strong>deal versus the usual price</strong> (&quot;32% less than usual&quot;), hotel class, <strong>rating and review count</strong>, check-in and check-out times, the hotel's own website, coordinates and a Google Hotels link. Export to JSON, CSV or Excel, send to Google Sheets, or call it as an API.</p>
+<p><strong>Built for</strong> hotel revenue managers watching competitor rates, travel startups and agencies comparing prices, analysts tracking hotel pricing by city and date, and anyone planning trips at scale.</p>
+<h3 id="g-why-this-scraper">Why this scraper</h3>
+<ul><li><strong>Plain-word places.</strong> <code>Lisbon</code>, <code>Shibuya, Tokyo</code> or <code>Times Square, New York</code>.</li><li><strong>Prices for your dates.</strong> Set check-in and check-out: nightly rate, total for the stay, and both with taxes and fees.</li><li><strong>Deals flagged.</strong> Google's &quot;less than usual&quot; deal text when a price is below normal.</li><li><strong>About 100 hotels per place.</strong> <em>More hotels per place</em> also searches each hotel class and vacation rentals, then removes duplicates (they are free).</li><li><strong>Filters.</strong> Minimum hotel class and maximum nightly price; filtered hotels are not charged.</li><li><strong>Rate tracking.</strong> Schedule it daily with the same dates to follow prices over time.</li></ul>
+<h3 id="g-how-to-use-it">How to use it</h3>
+<ol><li>Add <strong>Locations</strong> and <strong>Check-in</strong> / <strong>Check-out</strong> dates.</li><li>Optionally set filters.</li><li>Press <strong>Start</strong>. Download results from the <strong>Output</strong> tab, or connect an integration.</li></ol>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{
+  &quot;locations&quot;: [&quot;Lisbon&quot;, &quot;Porto&quot;],
+  &quot;checkIn&quot;: &quot;2026-12-10&quot;,
+  &quot;checkOut&quot;: &quot;2026-12-14&quot;,
+  &quot;minStars&quot;: 4,
+  &quot;maxNightlyPrice&quot;: 250
+}</pre></div>
+<h3 id="g-pricing">Pricing</h3>
+<p>Pay per result: about <strong>$2 per 1,000 hotels</strong> (lower on higher Apify plans) plus a small start fee. Duplicates and filtered hotels are free. See the <strong>Pricing</strong> tab for exact rates, and set a maximum charge per run to cap spend.</p>
+<p>On Apify's <strong>free plan</strong> each run returns up to 100 hotels. Any paid Apify plan removes the limit.</p></article>
+    <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
+  </div>
+</section>
+
+<section class="alt" id="faq" data-label="Questions">
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions about Google Hotels Scraper</h2></div>
+    <div class="faq"><details open><summary>Which currency?</summary><p>Prices are in US dollars.</p></details><details><summary>Can I get each booking site's price for a hotel?</summary><p>Not yet. You get Google's lowest shown price per hotel. Open an issue if you need the per-site list.</p></details><details><summary>How many hotels per place?</summary><p>About 100 with <em>More hotels per place</em> on. For more, search neighborhoods (<code>Alfama, Lisbon</code>).</p></details><details><summary>Is it legal?</summary><p>The Actor collects publicly shown prices. You're responsible for how you use the data under the laws that apply to you.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>What does Google Hotels Scraper return?</summary><p>Every row has the same fields, including name, hotelClass, stars, price, priceText, deal, rating, reviewsCount, checkInTime, checkOutTime, website, googleUrl, photo, latitude, longitude, countryCode, description. Download as JSON, CSV, Excel or XML.</p></details><details><summary>Can an AI agent use it?</summary><p>Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as <code>search_google_hotels</code>.</p></details></div>
+  </div>
+</section>
+<section id="pairs" data-label="Pairs well">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2></div>
+    <div class="grid">
+
+      <a class="card link" href="/tools/google-flights/"><span class="why">Also in travel</span><h3>Google Flights Scraper</h3><p>Scrape flight fares from Google Flights for any routes and dates: price, airlines, departure and arrival...</p></a>
+      <a class="card link" href="/tools/airbnb-listings/"><span class="why">Also in travel</span><h3>Airbnb Scraper</h3><p>Scrape Airbnb stays for any city, area or link and your dates: total and nightly price, discounts, rating,...</p></a>
+      <a class="card link" href="/tools/transit-timetables/"><span class="why">Also in travel</span><h3>Transit Journey Planner &amp; Timetables: Bus, Metro, Rail</h3><p>Public transport for ~2,900 cities and operators from their official timetables: journeys from A to B with...</p></a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="34" height="34"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+        <p>Web data tools that gather, clean and enrich public data: jobs, leads, research, markets and public records. Pay per result on Apify, or call them from an AI agent.</p>
+        <p><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a><br><a href="mailto:tacps126@gmail.com?subject=Custom%20data%20request">Ask for a custom dataset</a></p>
+      </div>
+      <nav aria-label="Topics"><p class="foot-h">Topics</p><ul>
+        <li><a href="/tools/jobs/">Jobs</a></li>
+        <li><a href="/tools/leads/">Leads</a></li>
+        <li><a href="/tools/reviews/">Reviews and research</a></li>
+        <li><a href="/tools/gov/">Government</a></li>
+        <li><a href="/tools/health/">Health</a></li>
+        <li><a href="/tools/commerce/">Commerce</a></li>
+        <li><a href="/tools/finance/">Finance</a></li>
+        <li><a href="/tools/sports/">Sports</a></li>
+        <li><a href="/tools/travel/">Travel</a></li>
+      </ul></nav>
+      <nav aria-label="Explore"><p class="foot-h">Explore</p><ul>
+        <li><a href="/tools/">All tools</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
+        <li><a href="/#compose">Chain tools</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/datasets.html">Free datasets</a></li>
+        <li><a href="/integrations.html">Integrations</a></li>
+        <li><a href="/clay.html">Use with Clay</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul></nav>
+      <nav aria-label="Developers"><p class="foot-h">Developers</p><ul>
+        <li><a href="https://apify.com/tacps126">Tools on Apify</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
+        <li><a href="https://github.com/tacps126/webdata-tools-mcp">GitHub</a></li>
+        <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
+        <li><a href="https://smithery.ai/servers/tacps126/webdata-tools-mcp">Smithery</a></li>
+        <li><a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp">Glama</a></li>
+      </ul></nav>
+    </div>
+    <div class="foot-base">
+      <p class="fine" id="data-use">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+      <p class="fine">&copy; 2026 Tapaswai Choudhary</p>
+    </div>
+  </div>
+</footer>
+<script src="/app.js?v=67b9cb25e8" defer></script>
+<script src="/tool.js?v=a64914dde6" defer></script>
+</body>
+</html>

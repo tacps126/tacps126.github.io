@@ -9,7 +9,7 @@ const SITE = 'https://tacps126.github.io';
 const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
 // Listings added in the last few weeks get a "New" badge.
-const NEW = new Set(['walmart-products', 'company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
+const NEW = new Set(['google-maps-places', 'youtube-scraper', 'tiktok-scraper', 'google-trends', 'zillow-scraper', 'airbnb-listings', 'linkedin-companies', 'amazon-products', 'facebook-pages', 'threads-scraper', 'pinterest-scraper', 'google-hotels', 'walmart-products', 'company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'shopify-store-analyzer', 'naukri-jobs-scraper',
   'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar', 'youtube-transcripts',
   'sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results',
@@ -43,9 +43,15 @@ const plainText = (s) => PLAIN.reduce((t, [rx, rep]) => t.replace(rx, rep), s);
 const writeFileSync = (path, data, ...rest) => fsWrite(path, typeof data === 'string' ? plainText(data) : data, ...rest);
 
 // ---------------------------------------------------------------- data
-const res = await fetch(`https://api.apify.com/v2/store?username=${USER}&limit=100`);
-if (!res.ok) throw new Error(`Store API ${res.status}`);
-const items = (await res.json()).data.items;
+// The Store API returns at most 100 per call: page through all listings.
+const items = [];
+for (let offset = 0; ; offset += 100) {
+  const res = await fetch(`https://api.apify.com/v2/store?username=${USER}&limit=100&offset=${offset}`);
+  if (!res.ok) throw new Error(`Store API ${res.status}`);
+  const page = (await res.json()).data.items;
+  items.push(...page);
+  if (page.length < 100) break;
+}
 // Store text can lag behind the scrubbed source copy: never repeat how a tool works.
 const scrub = (s) => String(s || '').replace(/,?\s*\bno\s+brows(er)\b,?/gi, '').replace(/\s+\./g, '.').replace(/\.\s*\./g, '.').trim();
 for (const i of items) i.description = scrub(i.description);
@@ -83,18 +89,21 @@ const ALL_CATS = [
     'linkedin-jobs-scraper', 'indeed-jobs', 'glassdoor-jobs-scraper', 'naukri-jobs-scraper', 'levels-fyi-salaries',
     'greenhouse-jobs-scraper', 'lever-jobs-scraper', 'ashby-jobs-scraper', 'workday-jobs-scraper',
     'smartrecruiters-jobs-scraper', 'recruitee-jobs-scraper', 'personio-jobs-scraper',
-    'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper']],
+    'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper', 'linkedin-profile-scraper']],
   ['leads', 'Leads, events and contacts', ['company-registry', 'contact-details', 'shopify-store-analyzer', 'exhibition-scraper',
     'map-your-show-exhibitor-scraper', 'messe-frankfurt-exhibitor-scraper', 'messe-duesseldorf-exhibitor-scraper', 'rx-exhibitor-scraper',
     'a2z-exhibitor-scraper', 'koelnmesse-exhibitor-scraper', 'nuernbergmesse-exhibitor-scraper', 'swapcard-exhibitor-scraper', 'expoplatform-exhibitor-scraper',
-    'us-import-records', 'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
-  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'youtube-comments', 'podcasts', 'research-radar', 'innovation-radar']],
-  ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar', 'cve-feed']],
-  ['health', 'Health and life sciences', ['clinical-trials', 'fda-device-clearances', 'npi-providers']],
-  ['commerce', 'E-commerce, vehicles and real estate', ['shopify-products', 'walmart-products', 'china-sourcing', 'copart-auctions', 'auctions-radar', 'property-listings', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
-  ['finance', 'Finance and markets', ['short-interest', 'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding']],
+    'us-import-records', 'google-maps-places', 'linkedin-companies', 'google-ads-transparency-scraper', 'linkedin-ad-library-scraper',
+    'tiktok-ad-library-scraper', 'pinterest-ad-library-scraper', 'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
+  ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'google-news', 'youtube-transcripts', 'youtube-comments', 'podcasts', 'research-radar', 'innovation-radar', 'facebook-pages', 'threads-scraper', 'pinterest-scraper',
+    'youtube-scraper', 'tiktok-scraper', 'bluesky-scraper', 'telegram-scraper', 'google-trends', 'scholarly-papers-search', 'arxiv-scraper', 'pubmed-scraper']],
+  ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar', 'cve-feed',
+    'building-permits', 'business-licenses-scraper', 'restaurant-inspections-scraper', 'liquor-licenses-scraper']],
+  ['health', 'Health and life sciences', ['clinical-trials', 'clinical-trials-scraper', 'fda-device-clearances', 'npi-providers']],
+  ['commerce', 'E-commerce, vehicles and real estate', ['shopify-products', 'walmart-products', 'amazon-products', 'china-sourcing', 'copart-auctions', 'auctions-radar', 'property-listings', 'zillow-scraper', 'immobilienscout24-scraper', 'rightmove-scraper', 'propertyfinder-scraper']],
+  ['finance', 'Finance and markets', ['short-interest', 'sec-filings', 'prediction-markets', 'polymarket-markets', 'kalshi-markets', 'startup-funding']],
   ['sports', 'Sports, odds and lotteries', ['sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results']],
-  ['travel', 'Travel and transit', ['transit-timetables']],
+  ['travel', 'Travel and transit', ['google-hotels', 'google-flights', 'airbnb-listings', 'transit-timetables']],
 ];
 // Local preview of the private listings through the signed-in Apify CLI:
 //   PREVIEW_PRIVATE=1 node build.mjs   then   python3 -m http.server -d _preview
@@ -149,6 +158,11 @@ const MCP_TOOLS = [
   ['search_german_property_listings', 'Rent and buy listings in Germany and Austria', 'immobilienscout24-scraper', '$0.95 / 1,000 listings'],
   ['get_shopify_products', 'Prices, stock and variants from Shopify stores, sorted across stores (best deals first)', 'shopify-products', '$0.40 / 1,000 products'],
   ['get_walmart_products', 'Walmart products with price, rating, seller and stock; optional full details', 'walmart-products', '$3 / 1,000 products'],
+  ['get_amazon_products', 'Amazon products on 14 marketplaces: price, rating, bought last month; optional full details', 'amazon-products', '$1 / 1,000 results'],
+  ['get_facebook_pages', 'Facebook Page details: e-mail, phone, address, websites, followers, rating, services', 'facebook-pages', '$3 / 1,000 pages'],
+  ['get_threads_posts', 'Threads profiles, posts and replies: followers, text, media, likes, reposts', 'threads-scraper', '$1.50 / 1,000 posts'],
+  ['get_pinterest_pins', 'Pinterest pins, profiles and boards: image, outbound link, saves, product price', 'pinterest-scraper', '$1.50 / 1,000 pins'],
+  ['search_google_hotels', 'Google Hotels for a place and dates: class, rating, nightly and total price, deal vs usual', 'google-hotels', '$2 / 1,000 hotels'],
   ['analyze_shopify_stores', 'Shopify store location, catalog and contacts, filtered and sorted', 'shopify-store-analyzer', '$4 / 1,000 stores'],
   ['get_trade_show_exhibitors', 'Trade-show exhibitors with booths and contacts (91 shows or any supported link)', 'exhibition-scraper', '$1 / 1,000 exhibitors'],
   ['find_events', 'Upcoming events from Luma, Eventbrite and Meetup with organisers and tickets', 'events-scraper', '$1 / 1,000 events'],
@@ -466,6 +480,7 @@ if (!PREVIEW) writeFileSync(new URL('./data/og.json', import.meta.url), JSON.str
   from: PRICE_FROM,
   cats: CATS.map(([k, , names]) => [k, CAT_SHORT[k] || k, names.length]),
   dots: allTools.map(({ a, k }) => ({ cat: k, runs: runsOf(a) })).sort((x, y) => y.runs - x.runs),
+  icons: Object.fromEntries(allTools.map(({ a }) => [a.name, DETAIL.get(a.name)?.act?.pictureUrl || ''])),
 }));
 const og = PREVIEW ? { status: 0 } : spawnSync('python3', ['scripts/og.py', 'data/og.json'], { cwd: new URL('.', import.meta.url), stdio: 'inherit' });
 if (og.status !== 0) console.warn('og.png not redrawn (python3 with Pillow needed); keeping the last one');

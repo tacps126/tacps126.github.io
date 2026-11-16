@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facebook Pages Scraper: Email, Phone, Address, Rating</title>
+<meta name="description" content="Scrape Facebook page details by name or link: category, email, phone, address, website, social links, followers, rating, reviews, price range, services.">
+<meta name="keywords" content="Reviews, news, research and social">
+<link rel="canonical" href="https://tacps126.github.io/tools/facebook-pages/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e1f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tacps126">
+<meta property="og:title" content="Facebook Pages Scraper: Email, Phone, Address, Rating">
+<meta property="og:description" content="Scrape Facebook page details by name or link: category, email, phone, address, website, social links, followers, rating, reviews, price range, services. Lead lists. $3 per 1,000.">
+<meta property="og:url" content="https://tacps126.github.io/tools/facebook-pages/">
+<meta property="og:image" content="https://tacps126.github.io/og/facebook-pages.jpg?v=9cd56ebbec">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Facebook Pages Scraper: Facebook page details by page name or link: name, categories, email, phone, address, website, social links, followers,...">
+<meta property="og:updated_time" content="2026-11-15">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Facebook Pages Scraper: Email, Phone, Address, Rating">
+<meta name="twitter:description" content="Scrape Facebook page details by name or link: category, email, phone, address, website, social links, followers, rating, reviews, price range, services. Lead lists. $3 per 1,000.">
+<meta name="twitter:image" content="https://tacps126.github.io/og/facebook-pages.jpg?v=9cd56ebbec">
+<link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
+<link rel="stylesheet" href="/style.css?v=b743fdae68">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Facebook Pages Scraper","alternateName":"facebook-pages","applicationCategory":"DeveloperApplication","applicationSubCategory":"Reviews, news, research and social","operatingSystem":"Web, API (Apify)","url":"https://tacps126.github.io/tools/facebook-pages/","sameAs":"https://apify.com/tacps126/facebook-pages","installUrl":"https://apify.com/tacps126/facebook-pages","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-8QXtNax4XGfscK5Jt-RfJ7eDaXN9-facebook-pages.png","screenshot":"https://tacps126.github.io/og/facebook-pages.jpg?v=9cd56ebbec","description":"Facebook page details by page name or link: name, categories, email, phone, address, website, social links, followers, likes, rating and reviews count, price range, services, verified badge, profile and cover photos.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-11-15","offers":{"@type":"Offer","price":"0.003","priceCurrency":"USD","url":"https://apify.com/tacps126/facebook-pages","description":"$3 per 1,000, pay per page"},"featureList":["name, url, pageId: the page's name, link and id","categories: page categories (Deli, Coffee shop, Brand, ...)","email, phone, address: contact info shown on the page","websites, socialLinks: linked websites and other social accounts","followers, likes, following: counts as numbers, plus the text Facebook shows","recommendPercent, reviewsCount: rating: share of people who recommend, and number of reviews","priceRange, services, hoursStatus: price range, services (dine-in, delivery, ...) and opening status","verified, profilePicUrl, coverPhotoUrl: verified badge and photos","otherInfo: any other About fields the page shows"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"Reviews, news, research and social","item":"https://tacps126.github.io/tools/reviews/"},{"@type":"ListItem","position":4,"name":"Facebook Pages Scraper","item":"https://tacps126.github.io/tools/facebook-pages/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need a Facebook account?","acceptedAnswer":{"@type":"Answer","text":"No."}},{"@type":"Question","name":"Does it read posts?","acceptedAnswer":{"@type":"Answer","text":"No, it reads page details. Use it to build lead lists or enrich a list of businesses."}},{"@type":"Question","name":"How much does Facebook Pages Scraper cost?","acceptedAnswer":{"@type":"Answer","text":"$3 per 1,000, charged only for pages returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"What does Facebook Pages Scraper return?","acceptedAnswer":{"@type":"Answer","text":"Every row has the same fields, including name, url, pageId, categories, email, phone, address, websites, socialLinks, followers, likes, following, recommendPercent, reviewsCount, priceRange, services, hoursStatus, verified, profilePicUrl, coverPhotoUrl. Download as JSON, CSV, Excel or XML."}},{"@type":"Question","name":"Can an AI agent use it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as get_facebook_pages."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="30" height="30"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+    <button class="kbar" type="button" data-pal aria-label="Search tools and pages"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search 112 tools</span><kbd>⌘K</kbd></button>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/#coverage">Coverage</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/integrations.html">Integrations</a>
+      <a href="/mcp.html">AI agents</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="tool-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/reviews/">Reviews, news, research and social</a></nav>
+    <div class="th">
+      <img class="th-ico" src="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-8QXtNax4XGfscK5Jt-RfJ7eDaXN9-facebook-pages.png" alt="Facebook Pages Scraper icon" width="64" height="64" decoding="async" onerror="this.onerror=null;this.src='/icons/facebook-pages.png'">
+      <div>
+        <h1>Facebook Pages Scraper</h1>
+        <p class="lead">Facebook page details by page name or link: name, categories, email, phone, address, website, social links, followers, likes, rating and reviews count, price range, services, verified badge, profile and cover photos.</p>
+      </div>
+    </div>
+    <div class="facts"><span class="pchip"><b>$3 per 1,000</b> page</span><span class="fact">updated 2026-11-15</span></div>
+    <div class="cta-row">
+      <a class="btn primary" href="https://apify.com/tacps126/facebook-pages" rel="noopener">Run it on Apify</a>
+      <a class="btn" href="#try">Build the input</a>
+      <a class="btn ghost" href="#output">See the output</a>
+      
+      
+      
+    </div>
+  </div>
+</section>
+
+<section id="try" data-label="Try it">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
+    <div class="tool-grid">
+      <form class="tform" id="tform" data-actor="facebook-pages" data-unit="0.003" data-what="page" data-max="maxItems" data-start="{&quot;pages&quot;:[&quot;katzsdeli&quot;,&quot;https://www.facebook.com/starbucks&quot;]}" autocomplete="off">
+<div class="f" data-k="pages" data-kind="list"><label for="f-pages"><span class="fl">Pages</span></label><textarea id="f-pages" rows="3" placeholder="One per line">katzsdeli
+https://www.facebook.com/starbucks</textarea><p class="fh">Facebook page names (starbucks) or page links (facebook.com/starbucks, facebook.com/profile.php?id=...). Each returns one row with the page's details and contact info.</p></div>
+<details class="more"><summary>Limits</summary><div class="f" data-k="maxItems" data-kind="int" data-def="1000"><label for="f-maxItems"><span class="fl">Max results</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" max="1000000" value="1000" placeholder="1000"><p class="fh">Most pages per run.</p></div></details>
+        <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
+      </form>
+      <aside class="tcode">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" data-lang="curl" aria-selected="true">curl</button><button class="tab" role="tab" type="button" data-lang="python" aria-selected="false">Python</button><button class="tab" role="tab" type="button" data-lang="js" aria-selected="false">JavaScript</button><button class="tab" role="tab" type="button" data-lang="mcp" aria-selected="false">AI agent</button></div>
+        <div class="panel"><div class="code">
+  <div class="code-top"><span>terminal</span><button class="copy" type="button">Copy</button></div>
+  <pre>curl -X POST \
+  &quot;https://api.apify.com/v2/acts/tacps126~facebook-pages/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;pages&quot;:[&quot;katzsdeli&quot;,&quot;https://www.facebook.com/starbucks&quot;]}'</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;tacps126/facebook-pages&quot;).call(run_input={
+    &quot;pages&quot;: [&quot;katzsdeli&quot;, &quot;https://www.facebook.com/starbucks&quot;],
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item)</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>JavaScript · npm i apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: 'YOUR_APIFY_TOKEN' });
+const run = await client.actor('tacps126/facebook-pages').call({
+  &quot;pages&quot;: [
+    &quot;katzsdeli&quot;,
+    &quot;https://www.facebook.com/starbucks&quot;
+  ]
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items);</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>MCP</span><button class="copy" type="button">Copy</button></div>
+  <pre># webdata-tools-mcp (Claude, Cursor, any MCP client)
+claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata-tools-mcp
+
+# then ask your agent; it calls: get_facebook_pages</pre>
+</div></div>
+        <p class="cost" id="tf-cost">Up to 1,000 pages: at most $3, on Apify's free plan.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="output" data-label="Output">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Output</span><h2>What you get back</h2><p>The fields every row has.</p></div>
+    <div class="out-grid one">
+      
+      <div class="table-wrap fields"><table><thead><tr><th>Field</th><th>What it holds</th></tr></thead><tbody><tr><td>name, url, pageId</td><td>the page's name, link and id</td></tr><tr><td>categories</td><td>page categories (Deli, Coffee shop, Brand, ...)</td></tr><tr><td>email, phone, address</td><td>contact info shown on the page</td></tr><tr><td>websites, socialLinks</td><td>linked websites and other social accounts</td></tr><tr><td>followers, likes, following</td><td>counts as numbers, plus the text Facebook shows</td></tr><tr><td>recommendPercent, reviewsCount</td><td>rating: share of people who recommend, and number of reviews</td></tr><tr><td>priceRange, services, hoursStatus</td><td>price range, services (dine-in, delivery, ...) and opening status</td></tr><tr><td>verified, profilePicUrl, coverPhotoUrl</td><td>verified badge and photos</td></tr><tr><td>otherInfo</td><td>any other About fields the page shows</td></tr></tbody></table></div>
+    </div>
+    <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
+  </div>
+</section>
+
+<section id="guide" data-label="Guide">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Guide</span><h2>How Facebook Pages Scraper works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
+    <article class="post guide" id="guide-body"><p>Get Facebook page details as clean rows: name, categories, email, phone, address, website, social links, followers, likes, rating and reviews count, price range, services, verified badge, profile and cover photos. Paste page names or links and press Start. No login, no cookies, nothing to install.</p>
+<h3 id="g-how-to-use">How to use</h3>
+<ol><li>Add page names (<code>starbucks</code>) or links (<code>facebook.com/katzsdeli</code>, <code>facebook.com/profile.php?id=...</code>) under <strong>Pages</strong>.</li><li>Press <strong>Start</strong>. Download the results as JSON, CSV or Excel, or send them to a webhook or Google Sheets.</li></ol>
+<p>The <strong>Contacts</strong> view shows only name, email, phone, address, websites and social links, ready for a lead list.</p>
+<h4 id="g-example-input">Example input</h4>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{
+  &quot;pages&quot;: [&quot;katzsdeli&quot;, &quot;https://www.facebook.com/starbucks&quot;]
+}</pre></div>
+<h4 id="g-example-row">Example row</h4>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{
+  &quot;type&quot;: &quot;page&quot;,
+  &quot;name&quot;: &quot;Katz's Delicatessen&quot;,
+  &quot;url&quot;: &quot;https://www.facebook.com/katzsdeli&quot;,
+  &quot;categories&quot;: [&quot;Deli&quot;],
+  &quot;email&quot;: &quot;cs@katzsdelicatessen.com&quot;,
+  &quot;phone&quot;: &quot;(212) 254-2246&quot;,
+  &quot;address&quot;: &quot;205 E Houston St, New York, NY, United States, 10002&quot;,
+  &quot;websites&quot;: [&quot;http://katzsdelicatessen.com/&quot;],
+  &quot;followers&quot;: 158000,
+  &quot;recommendPercent&quot;: 98,
+  &quot;reviewsCount&quot;: 52464,
+  &quot;priceRange&quot;: &quot;$$&quot;,
+  &quot;services&quot;: [&quot;Dine-in&quot;, &quot;Outdoor seating&quot;, &quot;In-store pickup&quot;]
+}</pre></div>
+<h3 id="g-pricing">Pricing</h3>
+<p>Pay only for pages you get:</p>
+<div class="table-wrap"><table><thead><tr><th>Event</th><th>Price per 1,000</th></tr></thead><tbody><tr><td>Page</td><td>$3.00</td></tr></tbody></table></div>
+<p>Plus $0.005 per run. Pages not found are not charged. Higher Apify plans get the usual discount.</p>
+<h3 id="g-good-to-know">Good to know</h3>
+<ul><li>Only public data is read: fields a page does not show come back empty.</li><li>Follower and like counts are rounded the way Facebook shows them (158K becomes 158000).</li><li>Photo links expire after a few days; download the files if you need to keep them.</li></ul></article>
+    <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
+  </div>
+</section>
+
+<section class="alt" id="faq" data-label="Questions">
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions about Facebook Pages Scraper</h2></div>
+    <div class="faq"><details open><summary>Do I need a Facebook account?</summary><p>No.</p></details><details><summary>Does it read posts?</summary><p>No, it reads page details. Use it to build lead lists or enrich a list of businesses.</p></details><details><summary>How much does Facebook Pages Scraper cost?</summary><p>$3 per 1,000, charged only for pages returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>What does Facebook Pages Scraper return?</summary><p>Every row has the same fields, including name, url, pageId, categories, email, phone, address, websites, socialLinks, followers, likes, following, recommendPercent, reviewsCount, priceRange, services, hoursStatus, verified, profilePicUrl, coverPhotoUrl. Download as JSON, CSV, Excel or XML.</p></details><details><summary>Can an AI agent use it?</summary><p>Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as <code>get_facebook_pages</code>.</p></details></div>
+  </div>
+</section>
+<section id="pairs" data-label="Pairs well">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Pairs well</span><h2>Pairs well with</h2></div>
+    <div class="grid">
+
+      <a class="card link" href="/tools/app-reviews/"><span class="why">Also in reviews and research</span><h3>App Store &amp; Google Play Reviews Scraper</h3><p>Scrape app reviews from the Apple App Store and Google Play in one dataset: rating, text, author, date, app...</p></a>
+      <a class="card link" href="/tools/trustpilot-reviews/"><span class="why">Also in reviews and research</span><h3>Trustpilot Reviews Scraper</h3><p>Extract Trustpilot reviews and company details - ratings, text, reviewer info, dates, replies, TrustScore -...</p></a>
+      <a class="card link" href="/tools/google-news/"><span class="why">Also in reviews and research</span><h3>Google News Scraper</h3><p>Scrape Google News: search results, topic sections and top stories in any language and country - with the...</p></a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/favicon.svg" alt="tacps126 logo" width="34" height="34"><span>Tapaswai Choudhary <span class="handle">(tacps126)</span></span></a>
+        <p>Web data tools that gather, clean and enrich public data: jobs, leads, research, markets and public records. Pay per result on Apify, or call them from an AI agent.</p>
+        <p><a href="mailto:tacps126@gmail.com">tacps126@gmail.com</a><br><a href="mailto:tacps126@gmail.com?subject=Custom%20data%20request">Ask for a custom dataset</a></p>
+      </div>
+      <nav aria-label="Topics"><p class="foot-h">Topics</p><ul>
+        <li><a href="/tools/jobs/">Jobs</a></li>
+        <li><a href="/tools/leads/">Leads</a></li>
+        <li><a href="/tools/reviews/">Reviews and research</a></li>
+        <li><a href="/tools/gov/">Government</a></li>
+        <li><a href="/tools/health/">Health</a></li>
+        <li><a href="/tools/commerce/">Commerce</a></li>
+        <li><a href="/tools/finance/">Finance</a></li>
+        <li><a href="/tools/sports/">Sports</a></li>
+        <li><a href="/tools/travel/">Travel</a></li>
+      </ul></nav>
+      <nav aria-label="Explore"><p class="foot-h">Explore</p><ul>
+        <li><a href="/tools/">All tools</a></li>
+        <li><a href="/#coverage">Coverage map</a></li>
+        <li><a href="/#compose">Chain tools</a></li>
+        <li><a href="/leads/">Trade show exhibitor lists</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/datasets.html">Free datasets</a></li>
+        <li><a href="/integrations.html">Integrations</a></li>
+        <li><a href="/clay.html">Use with Clay</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul></nav>
+      <nav aria-label="Developers"><p class="foot-h">Developers</p><ul>
+        <li><a href="https://apify.com/tacps126">Tools on Apify</a></li>
+        <li><a href="/mcp.html">MCP server</a></li>
+        <li><a href="https://github.com/tacps126/apify-data-recipes">Code recipes</a></li>
+        <li><a href="https://github.com/tacps126/webdata-tools-mcp">GitHub</a></li>
+        <li><a href="https://www.npmjs.com/package/webdata-tools-mcp">npm</a></li>
+        <li><a href="https://smithery.ai/servers/tacps126/webdata-tools-mcp">Smithery</a></li>
+        <li><a href="https://glama.ai/mcp/servers/tacps126/webdata-tools-mcp">Glama</a></li>
+      </ul></nav>
+    </div>
+    <div class="foot-base">
+      <p class="fine" id="data-use">The tools read publicly available pages. You are responsible for following each site's terms and the law that applies to you (GDPR, CAN-SPAM) when you use the data. Prices are per result on Apify and can change; each tool's Apify page is the source of truth.</p>
+      <p class="fine">&copy; 2026 Tapaswai Choudhary</p>
+    </div>
+  </div>
+</footer>
+<script src="/app.js?v=67b9cb25e8" defer></script>
+<script src="/tool.js?v=a64914dde6" defer></script>
+</body>
+</html>
