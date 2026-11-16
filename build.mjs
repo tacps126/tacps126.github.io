@@ -352,8 +352,8 @@ const page = ({ path, title, description, keywords, body, active, jsonld, script
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${SITE}${path}">
 <meta property="og:image" content="${og}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
 <meta property="og:image:alt" content="${esc(ogAlt)}">${modified ? `
 <meta property="og:updated_time" content="${modified}">` : ''}
 <meta name="twitter:card" content="summary_large_image">
@@ -1382,7 +1382,7 @@ function faqOf(a, main, fields) {
 }
 const ogTools = allTools.map(({ a, k }) => {
   const m = primaryOf(a);
-  return { n: a.name, t: a.title, d: short(stripPrice(a.description), 220), p: m ? evPrice(m) : priceOf(a.description) || '', cat: k, topic: CAT_SHORT[k] || k, icon: DETAIL.get(a.name)?.act?.pictureUrl || '', local: localIcon(a.name) ? `icons/${a.name}.png` : '' };
+  return { n: a.name, t: a.title, d: short(stripPrice(a.description), 220), p: m ? evPrice(m) : priceOf(a.description) || '', cat: k, topic: CAT_SHORT[k] || k, icon: DETAIL.get(a.name)?.act?.pictureUrl || '', local: localIcon(a.name) ? `icons/${a.name}.png` : '', f: [/only.?new|onlyNew|onlyChanged/i.test(JSON.stringify(schemaOf(a.name).properties || {})) && 'Only new results', mcpOf(a.name).length && 'AI agent tool (MCP)', 'API, CSV or Excel'].filter(Boolean) };
 });
 if (!PREVIEW) {
   writeFileSync(new URL('./data/og-tools.json', import.meta.url), JSON.stringify(ogTools));
