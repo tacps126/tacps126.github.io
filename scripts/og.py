@@ -35,7 +35,8 @@ K = 4
 OUT = 2
 # Logos for the right-hand wall, most familiar first; then any other public tool with an icon.
 WALL = [
-    "amazon-products", "google-maps-places", "linkedin-jobs-scraper", "youtube-scraper", "tiktok-scraper",
+    "amazon-products", "google-maps-places", "spotify-scraper", "youtube-scraper", "soundcloud-scraper",
+    "tiktok-scraper", "linkedin-jobs-scraper", "vimeo-scraper",
     "indeed-jobs", "zillow-scraper", "walmart-products", "airbnb-listings", "facebook-pages", "google-trends",
     "pinterest-scraper", "glassdoor-jobs-scraper", "threads-scraper", "shopify-products", "trustpilot-reviews",
     "google-hotels", "telegram-scraper", "bluesky-scraper", "rightmove-scraper", "google-news",
@@ -80,7 +81,8 @@ def fetch_icon(url, size):
     import urllib.request
 
     try:
-        data = urllib.request.urlopen(url, timeout=20).read()
+        # A listing without a Store icon yet uses the site's own copy (icons/<name>.png).
+        data = (ROOT / url).read_bytes() if not url.startswith("http") else urllib.request.urlopen(url, timeout=20).read()
         return Image.open(io.BytesIO(data)).convert("RGBA").resize((size, size), Image.LANCZOS)
     except Exception as e:  # a missing logo just leaves a gap in the wall
         print(f"og: icon {url[:60]}: {e}", file=sys.stderr)
@@ -103,6 +105,7 @@ def tile(img, im, x, y, size, radius, shadow=True):
 def logo_wall(img, icons, x0=716, x1=1168, size=72, gap=16):
     """Whole logo tiles on the right, alternate columns offset by half a step; the wall fades out
     towards the top, the bottom and the text side, so no tile is cut by the frame."""
+    icons = {n: u or (f"icons/{n}.png" if (ROOT / "icons" / f"{n}.png").exists() else "") for n, u in icons.items()}
     names = [n for n in WALL if icons.get(n)] + sorted(n for n in icons if icons[n] and n not in WALL)
     step = size + gap
     cols = (x1 - x0 + gap) // step

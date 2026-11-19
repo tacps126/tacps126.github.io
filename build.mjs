@@ -9,7 +9,7 @@ const SITE = 'https://tacps126.github.io';
 const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
 // Listings added in the last few weeks get a "New" badge.
-const NEW = new Set(['instagram-scraper', 'app-stores', 'website-markdown', 'rag-web-search', 'realtor-scraper', 'google-maps-places', 'youtube-scraper', 'tiktok-scraper', 'google-trends', 'zillow-scraper', 'airbnb-listings', 'linkedin-companies', 'amazon-products', 'facebook-pages', 'threads-scraper', 'pinterest-scraper', 'google-hotels', 'walmart-products', 'company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
+const NEW = new Set(['creator-finder', 'media-profiles', 'spotify-scraper', 'soundcloud-scraper', 'vimeo-scraper', 'instagram-scraper', 'app-stores', 'website-markdown', 'rag-web-search', 'realtor-scraper', 'google-maps-places', 'youtube-scraper', 'tiktok-scraper', 'google-trends', 'zillow-scraper', 'airbnb-listings', 'linkedin-companies', 'amazon-products', 'facebook-pages', 'threads-scraper', 'pinterest-scraper', 'google-hotels', 'walmart-products', 'company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'shopify-store-analyzer', 'naukri-jobs-scraper',
   'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar', 'youtube-transcripts',
   'sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results',
@@ -96,7 +96,7 @@ const ALL_CATS = [
     'us-import-records', 'google-maps-places', 'linkedin-companies', 'google-ads-transparency-scraper', 'linkedin-ad-library-scraper',
     'tiktok-ad-library-scraper', 'pinterest-ad-library-scraper', 'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper']],
   ['reviews', 'Reviews, news, research and social', ['trustpilot-reviews', 'app-reviews', 'app-stores', 'google-news', 'youtube-transcripts', 'youtube-comments', 'podcasts', 'research-radar', 'innovation-radar', 'facebook-pages', 'instagram-scraper', 'threads-scraper', 'pinterest-scraper',
-    'youtube-scraper', 'tiktok-scraper', 'bluesky-scraper', 'telegram-scraper', 'google-trends', 'scholarly-papers-search', 'arxiv-scraper', 'pubmed-scraper', 'website-markdown', 'rag-web-search']],
+    'youtube-scraper', 'tiktok-scraper', 'creator-finder', 'media-profiles', 'spotify-scraper', 'soundcloud-scraper', 'vimeo-scraper', 'bluesky-scraper', 'telegram-scraper', 'google-trends', 'scholarly-papers-search', 'arxiv-scraper', 'pubmed-scraper', 'website-markdown', 'rag-web-search']],
   ['gov', 'Government, compliance, tenders, grants, regulation and alerts', ['sanctions-screener', 'recalls-radar', 'tenders-radar', 'grants-radar', 'legislation-radar', 'gov-radar', 'india-district-notices', 'alerts-radar', 'cve-feed',
     'building-permits', 'business-licenses-scraper', 'restaurant-inspections-scraper', 'liquor-licenses-scraper']],
   ['health', 'Health and life sciences', ['clinical-trials', 'clinical-trials-scraper', 'fda-device-clearances', 'npi-providers']],
@@ -140,6 +140,8 @@ const MCP_TOOLS = [
   ['search_tenders', 'Public tenders and contract awards: US SAM.gov, EU TED and EU institutions, Ukraine, UK, France, Spain, Germany, Netherlands, Canada, Colombia, Australia, South Africa; by sector, CPV code or value', 'tenders-radar', '$4 / 1,000 notices'],
   ['search_google_news', "Google News with the publisher's real article URL", 'google-news', '$1 / 1,000 articles'],
   ['search_gov_updates', 'Official government updates: Federal Register, GOV.UK, EU Commission, SEC, Indian regulators (RBI, SEBI, TRAI, DGFT...), any RSS feed or list page, by sector', 'gov-radar', '$3 / 1,000 updates'],
+  ['find_music_artists', 'SoundCloud and Spotify artists: verified, independent or signed, followers, monthly listeners, releases, concerts, socials, emails, lead score', 'media-profiles', '$2.50 / 1,000 artists'],
+  ['find_creators', 'YouTube, Instagram, TikTok and Vimeo creators: followers, average views, engagement rate, last post, socials, emails, lead score', 'creator-finder', '$2 / 1,000 creators'],
   ['get_youtube_transcripts', 'Full transcripts of YouTube videos, playlists, channels or searches, with timed captions', 'youtube-transcripts', '$2.50 / 1,000 transcripts'],
   ['search_research', 'Papers, preprints and patents from OpenAlex, arXiv, PubMed, Europe PMC and the European Patent Office (worldwide); newest or most influential first', 'research-radar', '$3 / 1,000 results'],
   ['analyze_field', "A technology field's opportunity score with reasons, growth, top companies, rising topics, patent trend and possibly free-to-use patents; several fields ranked", 'innovation-radar', '$0.03 / field'],
