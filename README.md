@@ -63,3 +63,5 @@ first; when reposting on Medium, dev.to or LinkedIn, set the post's canonical UR
   and stays readable at phone width.
 - Prices, counts and titles come from the Apify Store at build time; don't hard-code them in copy.
 - CI (`.github/workflows/check.yml`) syntax-checks `build.mjs`, `app.js` and `tool.js` and checks the header.
+
+All rights reserved, no reuse; see [LICENSE](LICENSE).
