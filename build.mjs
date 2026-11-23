@@ -129,6 +129,11 @@ if (PREVIEW) {
 const CATS = ALL_CATS.map(([k, l, names]) => [k, l, names.filter((n) => byName.has(n))]).filter(([, , names]) => names.length);
 
 const MCP_TOOLS = [
+  ['analyze_stocks', 'Bullish-to-bearish verdict per ticker with reasons, support and resistance, 5-day range and today\'s session', 'stock-analyzer', '$2 / 1,000 tickers'],
+  ['get_stock_market_data', 'Indicators, technical rating, levels, backtested signals, session parts, factor scores, fundamentals and sentiment per ticker', 'market-data', '$3 / 1,000 tickers'],
+  ['get_market_pulse', 'Watchlist alerts: what moved and why, with signals, sentiment, insider trades, filings and short interest', 'market-pulse', '$8 / 1,000 tickers'],
+  ['track_smart_money', '13F fund holdings and changes, 13D/13G stakes, insider clusters, US House trades, unusual options, CFTC positioning, India FII/DII', 'smart-money', 'from $1 / 1,000 rows'],
+  ['monitor_brand', 'Brand mentions from news, social, Trustpilot and app reviews with sentiment and a digest', 'brand-monitor', '$0.80 / 1,000 mentions'],
   ['search_grants', 'Open and forecast funding calls: US Grants.gov, EU Funding & Tenders (Horizon Europe...), UKRI', 'grants-radar', '$3 / 1,000 calls'],
   ['get_india_district_notices', "Tenders, recruitment and announcements from India's 748 district websites, by state and district", 'india-district-notices', '$3 / 1,000 notices'],
   ['find_companies', 'New companies and insolvencies (France, Norway, Finland, Estonia, US: New York, Colorado, Connecticut, Oregon) and company search with officers, plus the LEI index', 'company-registry', '$2.50 / 1,000 companies'],
