@@ -9,7 +9,7 @@ const SITE = 'https://tacps126.github.io';
 const EMAIL = 'tacps126@gmail.com';
 const OWNER = 'Tapaswai Choudhary';
 // Listings added in the last few weeks get a "New" badge.
-const NEW = new Set(['market-data', 'stock-analyzer', 'market-pulse', 'smart-money', 'brand-monitor', 'creator-finder', 'media-profiles', 'spotify-scraper', 'soundcloud-scraper', 'vimeo-scraper', 'instagram-scraper', 'app-stores', 'website-markdown', 'rag-web-search', 'realtor-scraper', 'google-maps-places', 'youtube-scraper', 'tiktok-scraper', 'google-trends', 'zillow-scraper', 'airbnb-listings', 'linkedin-companies', 'amazon-products', 'facebook-pages', 'threads-scraper', 'pinterest-scraper', 'google-hotels', 'walmart-products', 'company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
+const NEW = new Set(['reed-jobs-scraper', 'infojobs-scraper', 'hellowork-jobs-scraper', 'arbeitsagentur-jobs-scraper', 'europe-jobs-scraper', 'market-data', 'stock-analyzer', 'market-pulse', 'smart-money', 'brand-monitor', 'creator-finder', 'media-profiles', 'spotify-scraper', 'soundcloud-scraper', 'vimeo-scraper', 'instagram-scraper', 'app-stores', 'website-markdown', 'rag-web-search', 'realtor-scraper', 'google-maps-places', 'youtube-scraper', 'tiktok-scraper', 'google-trends', 'zillow-scraper', 'airbnb-listings', 'linkedin-companies', 'amazon-products', 'facebook-pages', 'threads-scraper', 'pinterest-scraper', 'google-hotels', 'walmart-products', 'company-registry', 'sanctions-screener', 'recalls-radar', 'legislation-radar', 'india-district-notices', 'grants-radar', 'alerts-radar', 'tenders-radar', 'gov-radar', 'property-listings', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper', 'wellfound-jobs-scraper',
   'dice-jobs-scraper', 'builtin-jobs-scraper', 'shopify-store-analyzer', 'naukri-jobs-scraper',
   'events-scraper', 'luma-events-scraper', 'eventbrite-events-scraper', 'meetup-events-scraper', 'research-radar', 'innovation-radar', 'youtube-transcripts',
   'sports-data', 'nba-scores-stats', 'nfl-scores-stats', 'football-scores-stats', 'tennis-scores-rankings', 'sports-betting-odds', 'lottery-results',
@@ -87,6 +87,7 @@ const ALL_CATS = [
     'jobs-harvester', 'hiring-signals', 'remote-jobs-scraper', 'startup-jobs-scraper', 'salary-data-jobs-scraper',
     'wellfound-jobs-scraper', 'dice-jobs-scraper', 'builtin-jobs-scraper',
     'linkedin-jobs-scraper', 'indeed-jobs', 'glassdoor-jobs-scraper', 'naukri-jobs-scraper', 'levels-fyi-salaries',
+    'europe-jobs-scraper', 'reed-jobs-scraper', 'arbeitsagentur-jobs-scraper', 'infojobs-scraper', 'hellowork-jobs-scraper',
     'greenhouse-jobs-scraper', 'lever-jobs-scraper', 'ashby-jobs-scraper', 'workday-jobs-scraper',
     'smartrecruiters-jobs-scraper', 'recruitee-jobs-scraper', 'personio-jobs-scraper',
     'teamtailor-jobs-scraper', 'himalayas-remote-jobs-scraper', 'ai-training-jobs-scraper', 'linkedin-profile-scraper']],
@@ -158,6 +159,7 @@ const MCP_TOOLS = [
   ['search_tech_jobs', 'US tech jobs on Dice', 'dice-jobs-scraper', '$0.55 / 1,000 jobs'],
   ['search_indeed_jobs', 'Indeed listings in 9 countries', 'indeed-jobs', '$1.50 / 1,000 jobs (back to $3 on 6 Dec 2026)'],
   ['search_naukri_jobs', 'Naukri.com jobs (India) with full description and salary', 'naukri-jobs-scraper', '$1.50 / 1,000 jobs'],
+  ['search_europe_jobs', 'Jobs from Europe\'s main job boards, optional AI job match', 'europe-jobs-scraper', '$1 / 1,000 jobs'],
   ['get_trustpilot_reviews', 'Trustpilot reviews, TrustScore and company profile', 'trustpilot-reviews', '$0.28 / 1,000 reviews'],
   ['get_app_reviews', 'App Store and Google Play reviews', 'app-reviews', '$0.15 / 1,000 reviews'],
   ['find_website_contacts', 'Emails, phones and social profiles from websites', 'contact-details', '$1.75 / 1,000 sites with contacts'],
@@ -1650,6 +1652,11 @@ const COVERAGE = {
   'propertyfinder-scraper': ['AE', 'SA', 'QA', 'BH', 'EG'],
   'indeed-jobs': ['US', 'GB', 'CA', 'AU', 'IE', 'DE', 'FR', 'NL', 'SG'],
   'naukri-jobs-scraper': ['IN'],
+  'reed-jobs-scraper': ['GB'],
+  'infojobs-scraper': ['ES'],
+  'hellowork-jobs-scraper': ['FR'],
+  'arbeitsagentur-jobs-scraper': ['DE'],
+  'europe-jobs-scraper': [...EU27, 'GB', 'CH', 'NO', 'IS', 'LI'],
   'dice-jobs-scraper': ['US'],
   'builtin-jobs-scraper': ['US'],
   'short-interest': ['US'],

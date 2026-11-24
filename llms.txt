@@ -3,7 +3,7 @@
 > Fast, low-cost web data tools published on Apify: jobs and hiring data, contact details, trade-show exhibitors and events, research papers and technology trends, reviews, news, real estate and Shopify. Pay per result (about $1 per 1,000). Also an MCP server for AI agents.
 
 - [Integrations](https://tacps126.github.io/integrations.html): Clay recipes, AI agents over MCP, Hugging Face datasets, code recipes, n8n, Make, Zapier, Slack, webhooks and the REST API
-- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): 60 tools for AI agents, MIT licensed, on npm and the official MCP Registry
+- [MCP server (webdata-tools-mcp)](https://tacps126.github.io/mcp.html): 61 tools for AI agents, MIT licensed, on npm and the official MCP Registry
 - [All tools on Apify](https://apify.com/tacps126)
 - [Code recipes](https://github.com/tacps126/apify-data-recipes)
 - Contact: tacps126@gmail.com
@@ -22,6 +22,11 @@
 - [Glassdoor Jobs Scraper](https://tacps126.github.io/tools/glassdoor-jobs-scraper/): Scrape Glassdoor job listings by keyword and location: title, company, location, salary range with median, job type,... (From $0.95 per 1,000 jobs ). Run: https://apify.com/tacps126/glassdoor-jobs-scraper
 - [Naukri Jobs Scraper](https://tacps126.github.io/tools/naukri-jobs-scraper/): Scrape Naukri.com jobs by keyword and city: title, company, AmbitionBox rating, experience range, salary in lakhs (as.... Run: https://apify.com/tacps126/naukri-jobs-scraper
 - [Levels.fyi Salary Scraper: Pay by Level & Percentiles](https://tacps126.github.io/tools/levels-fyi-salaries/): Levels.fyi compensation: total, base, stock and bonus for every level at any company and job family, in any city or.... Run: https://apify.com/tacps126/levels-fyi-salaries
+- [Europe Jobs Scraper: EU and UK Job Boards](https://tacps126.github.io/tools/europe-jobs-scraper/): Scrape jobs from Europe's main job boards in one run: EURES (all EU/EEA), Arbeitsagentur, StepStone, Reed, HelloWork,... (From $1 per 1,000 jobs). Run: https://apify.com/tacps126/europe-jobs-scraper
+- [Reed Jobs Scraper: UK Jobs](https://tacps126.github.io/tools/reed-jobs-scraper/): Scrape UK jobs from Reed.co.uk by keyword and city. Salary on almost every job, contract type, remote or hybrid, UK... (From $1 per 1,000 jobs). Run: https://apify.com/tacps126/reed-jobs-scraper
+- [Arbeitsagentur Jobs Scraper: Germany](https://tacps126.github.io/tools/arbeitsagentur-jobs-scraper/): Scrape German jobs from the Federal Employment Agency job board (Jobsuche) by keyword, city and date. Official... (From $1 per 1,000 jobs). Run: https://apify.com/tacps126/arbeitsagentur-jobs-scraper
+- [InfoJobs Scraper: Spain Jobs](https://tacps126.github.io/tools/infojobs-scraper/): Scrape Spanish jobs from InfoJobs by keyword and city. Full description, salary, contract type and remote or hybrid in... (From $1 per 1,000 jobs). Run: https://apify.com/tacps126/infojobs-scraper
+- [HelloWork Jobs Scraper: France Jobs](https://tacps126.github.io/tools/hellowork-jobs-scraper/): Scrape French jobs from HelloWork by keyword and city. Contract type, salary, remote work and full description in one... (From $1 per 1,000 jobs). Run: https://apify.com/tacps126/hellowork-jobs-scraper
 - [Greenhouse Jobs Scraper](https://tacps126.github.io/tools/greenhouse-jobs-scraper/): Scrape all open jobs from any Greenhouse career page - just type the company name. Fast, low-cost and clean: location,... (From $1.60 per 1,000 jobs). Run: https://apify.com/tacps126/greenhouse-jobs-scraper
 - [Lever Jobs Scraper](https://tacps126.github.io/tools/lever-jobs-scraper/): Scrape all open jobs from any Lever career page - just type the company name. Fast, low-cost and clean: location,... (From $1.50 per 1,000 jobs). Run: https://apify.com/tacps126/lever-jobs-scraper
 - [Ashby Jobs Scraper](https://tacps126.github.io/tools/ashby-jobs-scraper/): Scrape all open jobs from any Ashby career page - just type the company name. Fast, low-cost and clean: location,... (From $1.50 per 1,000 jobs). Run: https://apify.com/tacps126/ashby-jobs-scraper
