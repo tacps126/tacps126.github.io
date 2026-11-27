@@ -33,9 +33,9 @@
 <link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
 <link rel="stylesheet" href="/style.css?v=b743fdae68">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Market Pulse: Stock Alerts & Watchlist Signals","alternateName":"market-pulse","applicationCategory":"DeveloperApplication","applicationSubCategory":"Finance and markets","operatingSystem":"Web, API (Apify)","url":"https://tacps126.github.io/tools/market-pulse/","sameAs":"https://apify.com/tacps126/market-pulse","installUrl":"https://apify.com/tacps126/market-pulse","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-a3rqMTqGMmRP9LkUE-jLRAxgIdae-market-pulse.png","screenshot":"https://tacps126.github.io/og/market-pulse.jpg?v=4f98493345","description":"Daily stock pulse for a watchlist: what moved and why, in one row per ticker. Unusual moves and volume, backtested signals, news and crowd sentiment, insider buying and selling, new SEC filings, short interest and earnings dates, with alert levels.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-11-23","offers":{"@type":"Offer","price":"0.008","priceCurrency":"USD","url":"https://apify.com/tacps126/market-pulse","description":"$8 per 1,000, pay per ticker pulse"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Market Pulse: Stock Alerts & Watchlist Signals","alternateName":"market-pulse","applicationCategory":"DeveloperApplication","applicationSubCategory":"Finance and markets","operatingSystem":"Web, API (Apify)","url":"https://tacps126.github.io/tools/market-pulse/","sameAs":"https://apify.com/tacps126/market-pulse","installUrl":"https://apify.com/tacps126/market-pulse","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-a3rqMTqGMmRP9LkUE-jLRAxgIdae-market-pulse.png","screenshot":"https://tacps126.github.io/og/market-pulse.jpg?v=4f98493345","description":"Daily stock pulse for a watchlist: what moved and why, in one row per ticker. Unusual moves and volume, backtested signals, news and crowd sentiment, insider buying and selling, new SEC filings, short interest and earnings dates, with alert levels.","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-11-23","offers":{"@type":"Offer","price":"0.008","priceCurrency":"USD","url":"https://apify.com/tacps126/market-pulse","description":"$8 per 1,000, pay per ticker pulse"},"featureList":["summary: One sentence: the overall read and the strongest reasons, e.g. \"NVDA neutral: Moved -14.0%, 3.2x its usual daily move; Volume 2.2x its 20-day average\"","alertLevel, alerts: none / low / medium / high, and each alert with its kind, level and text","bias, score, scores: bullish to bearish, -100 to 100, from technicals, sentiment, insiders and short interest (each score listed)","move: change over 1 day, 5 days, 1 month and year to date; how unusual today's move is (x its usual daily move); volume vs average; distance to the 52-week high and to the nearest support and resistance; the expected 5-day range","session: where the day stands: pre-market and after-hours move and volume, the gap and how gaps like it went before, VWAP, opening range, pre-market and previous-day high and low, and one sentence","technical: technical rating, trend and strength, RSI, a short assessment, and signals that fired on the latest bar with their past hit rate on this ticker vs the base rate","sentiment: bullish / bearish share of headlines and posts, score, and news stories in the last 24 hours","insiders: open-market buys and sales in the window, number of buyers and sellers, the largest trade with a link (US)","filings: 8-K, 10-Q, 10-K, 6-K and 20-F filings from the last 7 days with links (US)","shortInterest: newest short interest change, days to cover and short volume ratio (US)","fundamentals: sector, market cap, P/E, analyst consensus, upside to the analyst target, next earnings date","topNews: three newest headlines with source, link and sentiment"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"Finance and markets","item":"https://tacps126.github.io/tools/finance/"},{"@type":"ListItem","position":4,"name":"Market Pulse: Stock Alerts & Watchlist Signals","item":"https://tacps126.github.io/tools/market-pulse/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does Market Pulse cost?","acceptedAnswer":{"@type":"Answer","text":"$8 per 1,000, charged only for ticker pulses returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"Can an AI agent use it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as get_market_pulse."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is this different from Stock Market Data & Technical Analysis?","acceptedAnswer":{"@type":"Answer","text":"That Actor returns the full analysis (every indicator, level and backtest) per ticker. Market Pulse reads it for you, adds insiders, filings, short interest and wider news, and tells you which tickers need a look today."}},{"@type":"Question","name":"What does \"only changes\" compare against?","acceptedAnswer":{"@type":"Answer","text":"The last run with the same watchlist (or the same Monitor name)."}},{"@type":"Question","name":"How much does Market Pulse cost?","acceptedAnswer":{"@type":"Answer","text":"$8 per 1,000, charged only for ticker pulses returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"What does Market Pulse return?","acceptedAnswer":{"@type":"Answer","text":"Every row has the same fields, including summary, alertLevel, alerts, bias, score, scores, move, session, technical, sentiment, insiders. Download as JSON, CSV, Excel or XML."}},{"@type":"Question","name":"Can an AI agent use it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as get_market_pulse."}},{"@type":"Question","name":"Can it run on a schedule and return only new results?","acceptedAnswer":{"@type":"Answer","text":"Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input."}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -71,8 +71,8 @@
     <div class="facts"><span class="pchip"><b>$8 per 1,000</b> ticker pulse</span><span class="fact">updated 2026-11-23</span></div>
     <div class="cta-row">
       <a class="btn primary" href="https://apify.com/tacps126/market-pulse" rel="noopener">Run it on Apify</a>
-      
-      
+      <a class="btn" href="#try">Build the input</a>
+      <a class="btn ghost" href="#output">See the output</a>
       
       
       
@@ -80,13 +80,128 @@
   </div>
 </section>
 
+<section id="try" data-label="Try it">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
+    <div class="tool-grid">
+      <form class="tform" id="tform" data-actor="market-pulse" data-unit="0.008" data-what="ticker pulse" data-start="{&quot;tickers&quot;:[&quot;AAPL&quot;,&quot;NVDA&quot;,&quot;TSLA&quot;,&quot;7203.T&quot;,&quot;SAP.DE&quot;]}" autocomplete="off">
+<div class="f" data-k="tickers" data-kind="list"><label for="f-tickers"><span class="fl">Watchlist</span></label><textarea id="f-tickers" rows="6" placeholder="One per line">AAPL
+NVDA
+TSLA
+7203.T
+SAP.DE</textarea><p class="fh">Tickers as on Yahoo Finance (AAPL, SPY, 7203.T, SAP.DE, HSBA.L, MC.PA) or TradingView (NASDAQ:AAPL, TSE:7203). Up to 200.</p></div>
+<div class="f f-bool" data-k="report" data-kind="bool" data-def="false"><label class="sw" for="f-report"><input type="checkbox" id="f-report"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Visual report (charts)</span></label><p class="fh">Also save one page with charts and tables built from this run's data: alerts first, how the watchlist moved over the last year and on the latest day, an overview table, and per ticker a price chart, its scores and today's session. Open it...</p></div>
+<div class="f" data-k="minAlertLevel" data-kind="str" data-def="&quot;none&quot;"><label for="f-minAlertLevel"><span class="fl">Only tickers with alerts at least</span></label><select id="f-minAlertLevel"><option value="none" selected>Show every ticker</option><option value="low">Low (any alert)</option><option value="medium">Medium (unusual move, new filing, signal, short squeeze risk)</option><option value="high">High (very unusual move, insider buying)</option></select><p class="fh">Skip quiet tickers. You pay only for tickers returned.</p></div>
+<div class="f f-bool" data-k="onlyChanges" data-kind="bool" data-def="false"><label class="sw" for="f-onlyChanges"><input type="checkbox" id="f-onlyChanges"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Only tickers whose pulse changed since the last run</span></label><p class="fh">For schedules: skip a ticker when its read, rating, sentiment and alerts are the same as last run. Use a Monitor name to keep separate watchlists apart.</p></div>
+<div class="f f-bool" data-k="usFilings" data-kind="bool" data-def="true"><label class="sw" for="f-usFilings"><input type="checkbox" id="f-usFilings" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Insider trades, SEC filings and short interest (US stocks)</span></label><p class="fh">Adds insider buying and selling, 8-K/10-Q/10-K filings from the last 7 days and the newest short interest for US listings.</p></div>
+<div class="f f-bool" data-k="widerNews" data-kind="bool" data-def="true"><label class="sw" for="f-widerNews"><input type="checkbox" id="f-widerNews" checked><span class="sw-ui" aria-hidden="true"></span><span class="fl">Wider news search</span></label><p class="fh">Searches the news of the last 24 hours for each company: more headlines for sentiment, plus a news spike alert.</p></div>
+<div class="f" data-k="insiderDays" data-kind="int" data-def="30"><label for="f-insiderDays"><span class="fl">Insider trades window (days)</span></label><input id="f-insiderDays" type="number" inputmode="numeric" min="1" max="365" value="30" placeholder="30"><p class="fh">How far back to add up insider buys and sales.</p></div>
+        <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
+      </form>
+      <aside class="tcode">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" data-lang="curl" aria-selected="true">curl</button><button class="tab" role="tab" type="button" data-lang="python" aria-selected="false">Python</button><button class="tab" role="tab" type="button" data-lang="js" aria-selected="false">JavaScript</button><button class="tab" role="tab" type="button" data-lang="mcp" aria-selected="false">AI agent</button></div>
+        <div class="panel"><div class="code">
+  <div class="code-top"><span>terminal</span><button class="copy" type="button">Copy</button></div>
+  <pre>curl -X POST \
+  &quot;https://api.apify.com/v2/acts/tacps126~market-pulse/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;tickers&quot;:[&quot;AAPL&quot;,&quot;NVDA&quot;,&quot;TSLA&quot;,&quot;7203.T&quot;,&quot;SAP.DE&quot;]}'</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>from apify_client import ApifyClient
 
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;tacps126/market-pulse&quot;).call(run_input={
+    &quot;tickers&quot;: [&quot;AAPL&quot;, &quot;NVDA&quot;, &quot;TSLA&quot;, &quot;7203.T&quot;, &quot;SAP.DE&quot;],
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item)</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>JavaScript · npm i apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>import { ApifyClient } from 'apify-client';
 
+const client = new ApifyClient({ token: 'YOUR_APIFY_TOKEN' });
+const run = await client.actor('tacps126/market-pulse').call({
+  &quot;tickers&quot;: [
+    &quot;AAPL&quot;,
+    &quot;NVDA&quot;,
+    &quot;TSLA&quot;,
+    &quot;7203.T&quot;,
+    &quot;SAP.DE&quot;
+  ]
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items);</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>MCP</span><button class="copy" type="button">Copy</button></div>
+  <pre># webdata-tools-mcp (Claude, Cursor, any MCP client)
+claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata-tools-mcp
+
+# then ask your agent; it calls: get_market_pulse</pre>
+</div></div>
+        <p class="cost" id="tf-cost">$8 per 1,000, ticker pulse.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="output" data-label="Output">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Output</span><h2>What you get back</h2><p>The fields every row has.</p></div>
+    <div class="out-grid one">
+      
+      <div class="table-wrap fields"><table><thead><tr><th>Field</th><th>What it holds</th></tr></thead><tbody><tr><td><code>summary</code></td><td>One sentence: the overall read and the strongest reasons, e.g. &quot;NVDA neutral: Moved -14.0%, 3.2x its usual daily move; Volume 2.2x its 20-day average&quot;</td></tr><tr><td><code>alertLevel</code>, <code>alerts</code></td><td>none / low / medium / high, and each alert with its kind, level and text</td></tr><tr><td><code>bias</code>, <code>score</code>, <code>scores</code></td><td>bullish to bearish, -100 to 100, from technicals, sentiment, insiders and short interest (each score listed)</td></tr><tr><td><code>move</code></td><td>change over 1 day, 5 days, 1 month and year to date; how unusual today's move is (x its usual daily move); volume vs average; distance to the 52-week high and to the nearest support and resistance; the expected 5-day range</td></tr><tr><td><code>session</code></td><td>where the day stands: pre-market and after-hours move and volume, the gap and how gaps like it went before, VWAP, opening range, pre-market and previous-day high and low, and one sentence</td></tr><tr><td><code>technical</code></td><td>technical rating, trend and strength, RSI, a short assessment, and signals that fired on the latest bar with their past hit rate on this ticker vs the base rate</td></tr><tr><td><code>sentiment</code></td><td>bullish / bearish share of headlines and posts, score, and news stories in the last 24 hours</td></tr><tr><td><code>insiders</code></td><td>open-market buys and sales in the window, number of buyers and sellers, the largest trade with a link (US)</td></tr><tr><td><code>filings</code></td><td>8-K, 10-Q, 10-K, 6-K and 20-F filings from the last 7 days with links (US)</td></tr><tr><td><code>shortInterest</code></td><td>newest short interest change, days to cover and short volume ratio (US)</td></tr><tr><td><code>fundamentals</code></td><td>sector, market cap, P/E, analyst consensus, upside to the analyst target, next earnings date</td></tr><tr><td><code>topNews</code></td><td>three newest headlines with source, link and sentiment</td></tr><tr><td><code>changedSinceLastRun</code>, <code>notes</code></td><td>whether the read, rating, sentiment or alerts changed since this watchlist's last run</td></tr></tbody></table></div>
+    </div>
+    <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
+  </div>
+</section>
+
+<section id="guide" data-label="Guide">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Guide</span><h2>How Market Pulse works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
+    <article class="post guide" id="guide-body"><p>Give it a watchlist and get one row per ticker that says <strong>what moved and why</strong>: a one-line summary, alerts ranked by level, and the evidence behind them. Unusual price moves and volume, signals that fired today with how they worked on this ticker before, news and crowd sentiment, insider buying and selling, new SEC filings, short interest and the next earnings date. US, European and Japanese stocks. No API key, no account.</p>
+<p>Schedule it on trading days and send only the tickers that need a look to Slack, email or Google Sheets.</p>
+<h3 id="g-how-to-use">How to use</h3>
+<ol><li>Add your watchlist (<code>AAPL</code>, <code>NVDA</code>, <code>7203.T</code>, <code>SAP.DE</code>, <code>HSBA.L</code>, <code>MC.PA</code>, or <code>NASDAQ:AAPL</code>).</li><li>Optional: return only tickers with alerts at a minimum level, or only those whose pulse changed since the last run.</li><li>Press <strong>Start</strong>, or schedule it for every trading day and connect Slack, email, Google Sheets or a webhook.</li></ol>
+<h4 id="g-example-input">Example input</h4>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{
+  &quot;tickers&quot;: [&quot;AAPL&quot;, &quot;NVDA&quot;, &quot;TSLA&quot;, &quot;7203.T&quot;, &quot;SAP.DE&quot;],
+  &quot;minAlertLevel&quot;: &quot;low&quot;,
+  &quot;onlyChanges&quot;: false
+}</pre></div>
+<h4 id="g-example-shortened">Example (shortened)</h4>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{
+  &quot;type&quot;: &quot;pulse&quot;,
+  &quot;symbol&quot;: &quot;NVDA&quot;,
+  &quot;summary&quot;: &quot;NVDA neutral: Moved -14.0%, 3.2x its usual daily move; Volume 2.2x its 20-day average.&quot;,
+  &quot;alertLevel&quot;: &quot;high&quot;,
+  &quot;alerts&quot;: [
+    { &quot;kind&quot;: &quot;unusualMove&quot;, &quot;severity&quot;: &quot;high&quot;, &quot;text&quot;: &quot;Moved -14.0%, 3.2x its usual daily move.&quot; },
+    { &quot;kind&quot;: &quot;volumeSpike&quot;, &quot;severity&quot;: &quot;low&quot;, &quot;text&quot;: &quot;Volume 2.2x its 20-day average.&quot; }
+  ],
+  &quot;bias&quot;: &quot;neutral&quot;,
+  &quot;scores&quot;: { &quot;technical&quot;: -23, &quot;sentiment&quot;: 13, &quot;shortInterest&quot;: 15, &quot;overall&quot;: -7 },
+  &quot;move&quot;: { &quot;change1DayPct&quot;: -14.01, &quot;unusualness&quot;: 3.2, &quot;relativeVolume&quot;: 2.18, &quot;nearestSupportPct&quot;: -9.14 },
+  &quot;filings&quot;: [{ &quot;form&quot;: &quot;8-K&quot;, &quot;filedDate&quot;: &quot;2026-11-17&quot;, &quot;items&quot;: &quot;2.02,9.01&quot; }],
+  &quot;shortInterest&quot;: { &quot;changePercent&quot;: -7.31, &quot;daysToCover&quot;: 2.8 },
+  &quot;fundamentals&quot;: { &quot;analystConsensus&quot;: &quot;strong buy&quot;, &quot;nextEarningsDate&quot;: &quot;2027-02-24&quot; }
+}</pre></div>
+<h3 id="g-pricing">Pricing</h3>
+<div class="table-wrap"><table><thead><tr><th>Event</th><th>Price</th></tr></thead><tbody><tr><td>Ticker pulse (one row per ticker returned)</td><td>$0.008</td></tr><tr><td>Visual report (optional)</td><td>$0.05 per 25 tickers</td></tr><tr><td>Run start</td><td>$0.005</td></tr></tbody></table></div>
+<p>Tickers filtered out by the alert level or the only-changes option are free. A daily pulse on 20 tickers costs about $0.165; with a minimum alert level it is usually less.</p>
+<h3 id="g-good-to-know">Good to know</h3>
+<ul><li>Alerts and scores describe prices, news and filings. They are not investment advice, and past signals do not promise future moves.</li><li>Insider trades, filings and short interest cover US listings. Other markets get the price, technical, news and sentiment parts.</li><li>Short interest is published twice a month, so it changes only on those dates.</li><li>Prices can be delayed by up to 15-20 minutes during market hours.</li></ul></article>
+    <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
+  </div>
+</section>
 
 <section class="alt" id="faq" data-label="Questions">
   <div class="wrap narrow">
     <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions about Market Pulse</h2></div>
-    <div class="faq"><details open><summary>How much does Market Pulse cost?</summary><p>$8 per 1,000, charged only for ticker pulses returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>Can an AI agent use it?</summary><p>Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as <code>get_market_pulse</code>.</p></details></div>
+    <div class="faq"><details open><summary>How is this different from Stock Market Data &amp; Technical Analysis?</summary><p>That Actor returns the full analysis (every indicator, level and backtest) per ticker. Market Pulse reads it for you, adds insiders, filings, short interest and wider news, and tells you which tickers need a look today.</p></details><details><summary>What does &quot;only changes&quot; compare against?</summary><p>The last run with the same watchlist (or the same Monitor name).</p></details><details><summary>How much does Market Pulse cost?</summary><p>$8 per 1,000, charged only for ticker pulses returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>What does Market Pulse return?</summary><p>Every row has the same fields, including summary, alertLevel, alerts, bias, score, scores, move, session, technical, sentiment, insiders. Download as JSON, CSV, Excel or XML.</p></details><details><summary>Can an AI agent use it?</summary><p>Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as <code>get_market_pulse</code>.</p></details><details><summary>Can it run on a schedule and return only new results?</summary><p>Yes. Schedule it on Apify (hourly, daily, weekly) and turn on the only-new option: each run then returns only what appeared since the last run with the same input.</p></details></div>
   </div>
 </section>
 <section id="pairs" data-label="Pairs well">
@@ -151,6 +266,6 @@
   </div>
 </footer>
 <script src="/app.js?v=67b9cb25e8" defer></script>
-
+<script src="/tool.js?v=a64914dde6" defer></script>
 </body>
 </html>

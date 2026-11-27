@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Amazon Product Scraper | tacps126</title>
-<meta name="description" content="Scrape Amazon products by search term or link on 14 marketplaces: price, list price, rating, ratings count, bought last month, sponsored flag, and optional.">
+<title>Amazon Product Scraper: Price, Rating, Bought Last Month</title>
+<meta name="description" content="Scrape Amazon products by keyword or link on 14 marketplaces: price, list price, rating, ratings count, bought last month, sponsored flag, specs, BSR, seller.">
 <meta name="keywords" content="E-commerce, vehicles and real estate">
 <link rel="canonical" href="https://tacps126.github.io/tools/amazon-products/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -17,24 +17,25 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tacps126">
-<meta property="og:title" content="Amazon Product Scraper | tacps126">
-<meta property="og:description" content="Scrape Amazon products by search term or link on 14 marketplaces: price, list price, rating, ratings count, bought last month, sponsored flag, and optional full details (brand, features, specs, images, best sellers rank, seller). $1 per 1,000.">
+<meta property="og:title" content="Amazon Product Scraper: Price, Rating, Bought Last Month">
+<meta property="og:description" content="Scrape Amazon products by keyword or link on 14 marketplaces: price, list price, rating, ratings count, bought last month, sponsored flag, specs, BSR, seller. From $1 per 1,000.">
 <meta property="og:url" content="https://tacps126.github.io/tools/amazon-products/">
-<meta property="og:image" content="https://tacps126.github.io/og/amazon-products.jpg?v=e7780340cb">
+<meta property="og:image" content="https://tacps126.github.io/og/amazon-products.jpg?v=fde84bec98">
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1260">
 <meta property="og:image:alt" content="Amazon Product Scraper: Scrape Amazon products by search term or link on 14 marketplaces: price, list price, rating, ratings count, bought last...">
+<meta property="og:updated_time" content="2026-11-23">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Amazon Product Scraper | tacps126">
-<meta name="twitter:description" content="Scrape Amazon products by search term or link on 14 marketplaces: price, list price, rating, ratings count, bought last month, sponsored flag, and optional full details (brand, features, specs, images, best sellers rank, seller). $1 per 1,000.">
-<meta name="twitter:image" content="https://tacps126.github.io/og/amazon-products.jpg?v=e7780340cb">
+<meta name="twitter:title" content="Amazon Product Scraper: Price, Rating, Bought Last Month">
+<meta name="twitter:description" content="Scrape Amazon products by keyword or link on 14 marketplaces: price, list price, rating, ratings count, bought last month, sponsored flag, specs, BSR, seller. From $1 per 1,000.">
+<meta name="twitter:image" content="https://tacps126.github.io/og/amazon-products.jpg?v=fde84bec98">
 <link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com">
 <link rel="stylesheet" href="/style.css?v=b743fdae68">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Amazon Product Scraper","alternateName":"amazon-products","applicationCategory":"DeveloperApplication","applicationSubCategory":"E-commerce, vehicles and real estate","operatingSystem":"Web, API (Apify)","url":"https://tacps126.github.io/tools/amazon-products/","sameAs":"https://apify.com/tacps126/amazon-products","installUrl":"https://apify.com/tacps126/amazon-products","image":"/icons/amazon-products.png","screenshot":"https://tacps126.github.io/og/amazon-products.jpg?v=e7780340cb","description":"Scrape Amazon products by search term or link on 14 marketplaces: price, list price, rating, ratings count, bought last month, sponsored flag, and optional full details (brand, features, specs, images, best sellers rank, seller).","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"offers":{"@type":"Offer","price":"0.001","priceCurrency":"USD","url":"https://apify.com/tacps126/amazon-products","description":"$1 per 1,000, pay per search result"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Amazon Product Scraper","alternateName":"amazon-products","applicationCategory":"DeveloperApplication","applicationSubCategory":"E-commerce, vehicles and real estate","operatingSystem":"Web, API (Apify)","url":"https://tacps126.github.io/tools/amazon-products/","sameAs":"https://apify.com/tacps126/amazon-products","installUrl":"https://apify.com/tacps126/amazon-products","image":"https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-Vdcq7frqHQUbXQCCd-vBmNOMDnX0-amazon-products.png","screenshot":"https://tacps126.github.io/og/amazon-products.jpg?v=fde84bec98","description":"Scrape Amazon products by search term or link on 14 marketplaces: price, list price, rating, ratings count, bought last month, sponsored flag, and optional full details (brand, features, specs, images, best sellers rank, seller).","author":{"@type":"Person","name":"Tapaswai Choudhary","url":"https://tacps126.github.io/about.html"},"dateModified":"2026-11-23","offers":{"@type":"Offer","price":"0.001","priceCurrency":"USD","url":"https://apify.com/tacps126/amazon-products","description":"$1 per 1,000, pay per search result"},"featureList":["image: Image","title: Product","price: Price","currency: Currency","listPrice: List price","rating: Rating","ratingsCount: Ratings","boughtPastMonth: Bought","sponsored: Sponsored","position: Position","url: Link"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tacps126.github.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://tacps126.github.io/tools/"},{"@type":"ListItem","position":3,"name":"E-commerce, vehicles and real estate","item":"https://tacps126.github.io/tools/commerce/"},{"@type":"ListItem","position":4,"name":"Amazon Product Scraper","item":"https://tacps126.github.io/tools/amazon-products/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does Amazon Product Scraper cost?","acceptedAnswer":{"@type":"Answer","text":"$1 per 1,000, charged only for search results returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"Can an AI agent use it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as get_amazon_products."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does it return reviews?","acceptedAnswer":{"@type":"Answer","text":"It returns the rating, ratings count and star breakdown. Review texts are not included."}},{"@type":"Question","name":"Why do some products have no price?","acceptedAnswer":{"@type":"Answer","text":"Amazon shows no price for some listings (unavailable, or only from other sellers)."}},{"@type":"Question","name":"Can I track prices over time?","acceptedAnswer":{"@type":"Answer","text":"Yes. Schedule the run daily and compare rows by asin."}},{"@type":"Question","name":"Do I need to write code?","acceptedAnswer":{"@type":"Answer","text":"No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript."}},{"@type":"Question","name":"Can an AI agent use it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as get_amazon_products."}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -61,17 +62,17 @@
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a><span>/</span><a href="/tools/commerce/">E-commerce, vehicles and real estate</a></nav>
     <div class="th">
-      <img class="th-ico" src="/icons/amazon-products.png" alt="amazon-products icon" width="64" height="64" decoding="async">
+      <img class="th-ico" src="https://apify-image-uploads-prod.s3.us-east-1.amazonaws.com/z0I2xfouLd7PIinCT-actor-Vdcq7frqHQUbXQCCd-vBmNOMDnX0-amazon-products.png" alt="Amazon Product Scraper icon" width="64" height="64" decoding="async" onerror="this.onerror=null;this.src='/icons/amazon-products.png'">
       <div>
         <h1>Amazon Product Scraper</h1>
         <p class="lead">Scrape Amazon products by search term or link on 14 marketplaces: price, list price, rating, ratings count, bought last month, sponsored flag, and optional full details (brand, features, specs, images, best sellers rank, seller).</p>
       </div>
     </div>
-    <div class="facts"><span class="pchip"><b>$1 per 1,000</b> search result</span><span class="xchip" title="One product with full details from its product page in the dataset.">+ Product <b>$2.50 per 1,000</b></span></div>
+    <div class="facts"><span class="pchip"><b>$1 per 1,000</b> search result</span><span class="xchip" title="One product with full details from its product page in the dataset.">+ Product <b>$2.50 per 1,000</b></span><span class="fact">updated 2026-11-23</span></div>
     <div class="cta-row">
       <a class="btn primary" href="https://apify.com/tacps126/amazon-products" rel="noopener">Run it on Apify</a>
-      
-      
+      <a class="btn" href="#try">Build the input</a>
+      <a class="btn ghost" href="#output">See the output</a>
       
       
       
@@ -79,13 +80,127 @@
   </div>
 </section>
 
+<section id="try" data-label="Try it">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Try it</span><h2>Build the input, get the call</h2><p>Change any field; the code on the right follows. Copy it, or run the same input on Apify.</p></div>
+    <div class="tool-grid">
+      <form class="tform" id="tform" data-actor="amazon-products" data-unit="0.001" data-what="search result" data-max="maxItems" data-start="{&quot;searchTerms&quot;:[&quot;wireless earbuds&quot;]}" autocomplete="off">
+<div class="f" data-k="searchTerms" data-kind="list"><label for="f-searchTerms"><span class="fl">Search terms</span></label><textarea id="f-searchTerms" rows="2" placeholder="One per line">wireless earbuds</textarea><p class="fh">What you would type in Amazon's search box (for example usb c hub, standing desk).</p></div>
+<div class="f" data-k="products" data-kind="list"><label for="f-products"><span class="fl">Product or search links</span></label><textarea id="f-products" rows="2" placeholder="One per line"></textarea><p class="fh">Amazon product links, ASINs (B0CHWRXH8B) or Amazon search links with your own filters and sorting.</p></div>
+<div class="f" data-k="marketplace" data-kind="str" data-def="&quot;us&quot;"><label for="f-marketplace"><span class="fl">Marketplace</span></label><select id="f-marketplace"><option value="us" selected>amazon.com (US)</option><option value="uk">amazon.co.uk</option><option value="de">amazon.de</option><option value="fr">amazon.fr</option><option value="it">amazon.it</option><option value="es">amazon.es</option><option value="ca">amazon.ca</option><option value="in">amazon.in</option><option value="jp">amazon.co.jp</option><option value="au">amazon.com.au</option><option value="mx">amazon.com.mx</option><option value="br">amazon.com.br</option><option value="nl">amazon.nl</option><option value="ae">amazon.ae</option></select><p class="fh">Store for search terms and bare ASINs. Product and search links use their own store.</p></div>
+<div class="f" data-k="maxPagesPerSearch" data-kind="int" data-def="3"><label for="f-maxPagesPerSearch"><span class="fl">Pages per search</span></label><input id="f-maxPagesPerSearch" type="number" inputmode="numeric" min="1" max="20" value="3" placeholder="3"><p class="fh">Result pages read per search (about 20 to 60 products each).</p></div>
+<div class="f f-bool" data-k="includeDetails" data-kind="bool" data-def="false"><label class="sw" for="f-includeDetails"><input type="checkbox" id="f-includeDetails"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Full product details</span></label><p class="fh">Open each search result's product page: brand, features, specifications, all images, best sellers rank, seller, star breakdown. Charged as a product instead of a search result.</p></div>
+<details class="more"><summary>Filters</summary><div class="f f-bool" data-k="skipSponsored" data-kind="bool" data-def="false"><label class="sw" for="f-skipSponsored"><input type="checkbox" id="f-skipSponsored"><span class="sw-ui" aria-hidden="true"></span><span class="fl">Skip sponsored</span></label><p class="fh">Leave out sponsored results.</p></div>
+<div class="f" data-k="minRating" data-kind="num"><label for="f-minRating"><span class="fl">Min rating</span></label><input id="f-minRating" type="number" inputmode="numeric" min="0" max="5" step="any" value="" placeholder=""><p class="fh">Leave out products rated below this.</p></div>
+<div class="f" data-k="sortBy" data-kind="str" data-def="&quot;relevance&quot;"><label for="f-sortBy"><span class="fl">Sort</span></label><select id="f-sortBy"><option value="relevance" selected>Featured</option><option value="price_low">Price: low to high</option><option value="price_high">Price: high to low</option><option value="rating">Avg. customer review</option><option value="newest">Newest arrivals</option><option value="best_sellers">Best sellers</option></select><p class="fh">Order of search results, as on Amazon.</p></div>
+<div class="f" data-k="minPrice" data-kind="num"><label for="f-minPrice"><span class="fl">Min price</span></label><input id="f-minPrice" type="number" inputmode="numeric" min="0" step="any" value="" placeholder=""><p class="fh">Only products at or above this price (marketplace currency).</p></div>
+<div class="f" data-k="maxPrice" data-kind="num"><label for="f-maxPrice"><span class="fl">Max price</span></label><input id="f-maxPrice" type="number" inputmode="numeric" min="0" step="any" value="" placeholder=""><p class="fh">Leave out products priced above this (in the store's currency).</p></div>
+<div class="f" data-k="maxItems" data-kind="int" data-def="200"><label for="f-maxItems"><span class="fl">Max products</span></label><input id="f-maxItems" type="number" inputmode="numeric" min="1" max="100000" value="200" placeholder="200"><p class="fh">Maximum number of products to return in total.</p></div></details>
+        <div class="tf-actions"><button class="btn small" type="button" id="tf-reset">Back to the example</button><button class="btn small ghost" type="button" id="tf-share">Copy link to this input</button></div>
+      </form>
+      <aside class="tcode">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" data-lang="curl" aria-selected="true">curl</button><button class="tab" role="tab" type="button" data-lang="python" aria-selected="false">Python</button><button class="tab" role="tab" type="button" data-lang="js" aria-selected="false">JavaScript</button><button class="tab" role="tab" type="button" data-lang="mcp" aria-selected="false">AI agent</button></div>
+        <div class="panel"><div class="code">
+  <div class="code-top"><span>terminal</span><button class="copy" type="button">Copy</button></div>
+  <pre>curl -X POST \
+  &quot;https://api.apify.com/v2/acts/tacps126~amazon-products/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;searchTerms&quot;:[&quot;wireless earbuds&quot;]}'</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>Python · pip install apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>from apify_client import ApifyClient
 
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;tacps126/amazon-products&quot;).call(run_input={
+    &quot;searchTerms&quot;: [&quot;wireless earbuds&quot;],
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item)</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>JavaScript · npm i apify-client</span><button class="copy" type="button">Copy</button></div>
+  <pre>import { ApifyClient } from 'apify-client';
 
+const client = new ApifyClient({ token: 'YOUR_APIFY_TOKEN' });
+const run = await client.actor('tacps126/amazon-products').call({
+  &quot;searchTerms&quot;: [
+    &quot;wireless earbuds&quot;
+  ]
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items);</pre>
+</div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>MCP</span><button class="copy" type="button">Copy</button></div>
+  <pre># webdata-tools-mcp (Claude, Cursor, any MCP client)
+claude mcp add webdata -e APIFY_TOKEN=&lt;your Apify token&gt; -- npx -y webdata-tools-mcp
+
+# then ask your agent; it calls: get_amazon_products</pre>
+</div></div>
+        <p class="cost" id="tf-cost">Up to 200 search results: at most $0.20, on Apify's free plan.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="output" data-label="Output">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Output</span><h2>What you get back</h2><p>A real row from the README, and the fields every row has.</p></div>
+    <div class="out-grid">
+      <div class="sample-box">
+        <div class="tabs" role="tablist" data-tabs><button class="tab" role="tab" type="button" aria-selected="true">Row</button><button class="tab" role="tab" type="button" aria-selected="false">JSON</button></div>
+        <div class="panel"><div class="table-wrap"><table class="kv"><tbody><tr><th>asin</th><td>B0CRTR3PMF</td></tr><tr><th>title</th><td>soundcore P30i by Anker Noise Cancelling Earbuds</td></tr><tr><th>url</th><td><span class="url">https://www.amazon.com/dp/B0CRTR3PMF</span></td></tr><tr><th>price</th><td>29.99</td></tr><tr><th>currency</th><td>$</td></tr><tr><th>listPrice</th><td>39.99</td></tr><tr><th>rating</th><td>4.4</td></tr><tr><th>ratingsCount</th><td>21540</td></tr><tr><th>boughtPastMonth</th><td>10K+ bought in past month</td></tr><tr><th>sponsored</th><td>false</td></tr><tr><th>searchTerm</th><td>wireless earbuds</td></tr><tr><th>page</th><td>1</td></tr><tr><th>position</th><td>6</td></tr></tbody></table></div></div>
+        <div class="panel" hidden><div class="code">
+  <div class="code-top"><span>one row</span><button class="copy" type="button">Copy</button></div>
+  <pre>{
+  &quot;asin&quot;: &quot;B0CRTR3PMF&quot;,
+  &quot;title&quot;: &quot;soundcore P30i by Anker Noise Cancelling Earbuds&quot;,
+  &quot;url&quot;: &quot;https://www.amazon.com/dp/B0CRTR3PMF&quot;,
+  &quot;price&quot;: 29.99,
+  &quot;currency&quot;: &quot;$&quot;,
+  &quot;listPrice&quot;: 39.99,
+  &quot;rating&quot;: 4.4,
+  &quot;ratingsCount&quot;: 21540,
+  &quot;boughtPastMonth&quot;: &quot;10K+ bought in past month&quot;,
+  &quot;sponsored&quot;: false,
+  &quot;searchTerm&quot;: &quot;wireless earbuds&quot;,
+  &quot;page&quot;: 1,
+  &quot;position&quot;: 6
+}</pre>
+</div></div>
+      </div>
+      <div class="table-wrap fields"><table><thead><tr><th>Field</th><th>What it holds</th></tr></thead><tbody><tr><td><code>image</code></td><td>Image</td></tr><tr><td><code>title</code></td><td>Product</td></tr><tr><td><code>price</code></td><td>Price</td></tr><tr><td><code>currency</code></td><td>Currency</td></tr><tr><td><code>listPrice</code></td><td>List price</td></tr><tr><td><code>rating</code></td><td>Rating</td></tr><tr><td><code>ratingsCount</code></td><td>Ratings</td></tr><tr><td><code>boughtPastMonth</code></td><td>Bought</td></tr><tr><td><code>sponsored</code></td><td>Sponsored</td></tr><tr><td><code>position</code></td><td>Position</td></tr><tr><td><code>url</code></td><td>Link</td></tr></tbody></table></div>
+    </div>
+    <p class="note">Download as JSON, CSV, Excel or XML from the run, or have it sent to Google Sheets, Slack or a webhook.</p>
+  </div>
+</section>
+
+<section id="guide" data-label="Guide">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Guide</span><h2>How Amazon Product Scraper works</h2><p>Inputs, options and tips, from the tool's own documentation.</p></div>
+    <article class="post guide" id="guide-body"><p>Get <strong>Amazon products by search term or link</strong> as a clean dataset: <strong>price, list price, rating, number of ratings, &quot;bought in past month&quot;</strong>, sponsored flag, badge and image for every search result, on <strong>14 Amazon marketplaces</strong>. Turn on <strong>full details</strong> to also get the <strong>brand, feature bullets, specifications, all images, best sellers rank, seller, availability and star breakdown</strong> from each product page. Export to JSON, CSV or Excel, send to Google Sheets, or call it as an API.</p>
+<p><strong>Built for</strong> Amazon sellers and brands watching competitors, price trackers, market researchers sizing a category, and agencies building product catalogs.</p>
+<h3 id="g-why-this-scraper">Why this scraper</h3>
+<ul><li><strong>Two price points.</strong> Search results at $1 per 1,000; full product details only when you want them.</li><li><strong>Sales signal.</strong> &quot;Bought in past month&quot; counts where Amazon shows them.</li><li><strong>Sponsored marked.</strong> Keep or skip sponsored results.</li><li><strong>Your own searches.</strong> Paste an Amazon search link with your filters and sorting.</li><li><strong>14 marketplaces.</strong> US, UK, Germany, France, Italy, Spain, Canada, India, Japan, Australia, Mexico, Brazil, Netherlands, UAE, in local currency.</li><li><strong>Filters.</strong> Minimum rating, maximum price.</li></ul>
+<h3 id="g-how-to-use-it">How to use it</h3>
+<ol><li>Add <strong>Search terms</strong>, or <strong>Product or search links</strong> (product links, ASINs, Amazon search links).</li><li>Pick the <strong>Marketplace</strong>, the number of pages per search and the <strong>Sort</strong> (featured, price, reviews, newest, best sellers); set a price range or minimum rating if you like.</li><li>Turn on <strong>Full product details</strong> if you need specs, images and seller.</li><li>Press <strong>Start</strong>. Download results from the <strong>Output</strong> tab, or connect an integration.</li></ol>
+<div class="code"><div class="code-top"><span>json</span><button class="copy" type="button">Copy</button></div><pre>{
+  &quot;searchTerms&quot;: [&quot;wireless earbuds&quot;],
+  &quot;products&quot;: [&quot;B0CHWRXH8B&quot;],
+  &quot;marketplace&quot;: &quot;us&quot;,
+  &quot;maxPagesPerSearch&quot;: 3
+}</pre></div>
+<h3 id="g-pricing">Pricing</h3>
+<ul><li><strong>$1 per 1,000 search results.</strong></li><li><strong>$2.50 per 1,000 products with full details.</strong></li><li>Plus a small start fee per run. Set a spending limit on the run to cap the cost.</li></ul></article>
+    <button class="btn small guide-more" type="button" hidden>Read the whole guide</button>
+  </div>
+</section>
 
 <section class="alt" id="faq" data-label="Questions">
   <div class="wrap narrow">
     <div class="sec-head"><span class="sec-num">Questions</span><h2>Questions about Amazon Product Scraper</h2></div>
-    <div class="faq"><details open><summary>How much does Amazon Product Scraper cost?</summary><p>$1 per 1,000, charged only for search results returned; a run that finds nothing costs nothing. It runs on Apify, whose free plan includes monthly credit, so you can try it without paying.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>Can an AI agent use it?</summary><p>Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as <code>get_amazon_products</code>.</p></details></div>
+    <div class="faq"><details open><summary>Does it return reviews?</summary><p>It returns the rating, ratings count and star breakdown. Review texts are not included.</p></details><details><summary>Why do some products have no price?</summary><p>Amazon shows no price for some listings (unavailable, or only from other sellers).</p></details><details><summary>Can I track prices over time?</summary><p>Yes. Schedule the run daily and compare rows by <code>asin</code>.</p></details><details><summary>Do I need to write code?</summary><p>No. Fill in the form on Apify and press Start, schedule it, or send the results to Google Sheets, Slack or a webhook. For code, the input builder on this page writes the API call in curl, Python or JavaScript.</p></details><details><summary>Can an AI agent use it?</summary><p>Yes. The webdata-tools-mcp server exposes it to Claude, Cursor and other MCP clients as <code>get_amazon_products</code>.</p></details></div>
   </div>
 </section>
 <section id="pairs" data-label="Pairs well">
@@ -150,6 +265,6 @@
   </div>
 </footer>
 <script src="/app.js?v=67b9cb25e8" defer></script>
-
+<script src="/tool.js?v=a64914dde6" defer></script>
 </body>
 </html>
